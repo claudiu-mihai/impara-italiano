@@ -126,6 +126,32 @@ export const topicSchema = z
   })
   .strict();
 
+export const grammarItemSchema = z
+  .object({
+    id: z.string().regex(/^[a-z]+(-[a-z0-9]+)*$/, "id invalid (ex. art-01)"),
+    /** Expresia sau propoziția completă, corectă. */
+    it: text,
+    /** Cuvântul din `it` care se ascunde în jocuri (un cuvânt întreg sau un articol cu apostrof, ca „l'”). */
+    gap: text,
+    ro: text,
+    /** Explicația alegerii, afișată pe spatele cartonașului. */
+    note: text.optional(),
+  })
+  .strict();
+
+export const grammarTopicSchema = z
+  .object({
+    id: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, "id invalid (ex. articoli)"),
+    /** Poziția în ordinea de învățare a gramaticii (1, 2, 3…). */
+    order: z.number().int().positive(),
+    title: text,
+    level: z.enum(LEVELS),
+    rules: z.array(text).min(1).max(4),
+    // cel puțin o sesiune întreagă (10), ca runda să nu repete aceleași exemple
+    items: z.array(grammarItemSchema).min(10),
+  })
+  .strict();
+
 export const metaSchema = z
   .object({
     dataVersion: z.string().min(1),
@@ -162,5 +188,7 @@ export type ParsedVerb = z.infer<typeof verbSchema>;
 export type Verb = Extract<Word, { pos: "verb" }>;
 export type Topic = z.infer<typeof topicSchema>;
 export type Sentence = z.infer<typeof sentenceSchema>;
+export type GrammarItem = z.infer<typeof grammarItemSchema>;
+export type GrammarTopic = z.infer<typeof grammarTopicSchema>;
 export type Conjugations = z.infer<typeof conjugationsSchema>;
 export type ContentMeta = z.infer<typeof metaSchema>;

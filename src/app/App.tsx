@@ -26,6 +26,11 @@ const MatchPage = lazy(() => import("../features/topics/MatchPage.tsx").then((m)
 const OrderPage = lazy(() => import("../features/topics/OrderPage.tsx").then((m) => ({ default: m.OrderPage })));
 const SkillPage = lazy(() => import("../features/topics/SkillPage.tsx").then((m) => ({ default: m.SkillPage })));
 const CatPage = lazy(() => import("../features/topics/CatPage.tsx").then((m) => ({ default: m.CatPage })));
+const GamesPage = lazy(() => import("../features/games/GamesPage.tsx").then((m) => ({ default: m.GamesPage })));
+const GameMenuPage = lazy(() => import("../features/games/GameMenuPage.tsx").then((m) => ({ default: m.GameMenuPage })));
+const GameCardsPage = lazy(() => import("../features/games/CardsGame.tsx").then((m) => ({ default: m.CardsPage })));
+const GameMatchPage = lazy(() => import("../features/games/MatchGame.tsx").then((m) => ({ default: m.MatchPage })));
+const GameTypePage = lazy(() => import("../features/games/TypeGame.tsx").then((m) => ({ default: m.TypePage })));
 const SettingsPage = lazy(() => import("../features/settings/SettingsPage.tsx").then((m) => ({ default: m.SettingsPage })));
 const StatsPage = lazy(() => import("../features/stats/StatsPage.tsx").then((m) => ({ default: m.StatsPage })));
 
@@ -100,8 +105,10 @@ const NAV = [
 
 // Ecranele de studiu ocupă tot ecranul: bara de jos este ascunsă acolo.
 const STUDY_ROUTES = ["/learn/vocab", "/learn/conjugation", "/learn/sentence", "/quiz"];
-// sesiunile și exercițiile unei teme (/learn/topics/<id>/flashcards, /quiz, /match…) tot pe tot ecranul
-const isStudyRoute = (pathname: string) => STUDY_ROUTES.includes(pathname) || /^\/learn\/topics\/[^/]+\/[a-z]+$/.test(pathname);
+// sesiunile și exercițiile unei teme (/learn/topics/<id>/flashcards, /quiz, /match…) și jocurile de gramatică
+// (/learn/games/<id>/cards, /match, /type) tot pe tot ecranul
+const isStudyRoute = (pathname: string) =>
+  STUDY_ROUTES.includes(pathname) || /^\/learn\/(topics|games)\/[^/]+\/[a-z]+$/.test(pathname);
 
 function Layout() {
   const { pathname } = useLocation();
@@ -166,6 +173,11 @@ export function App() {
             <Route path="learn/topics/:id/numbers" element={<SkillPage />} />
             <Route path="learn/topics/:id/clock" element={<SkillPage />} />
             <Route path="learn/topics/:id/cat" element={<CatPage />} />
+            <Route path="learn/games" element={<GamesPage />} />
+            <Route path="learn/games/:id" element={<GameMenuPage />} />
+            <Route path="learn/games/:id/cards" element={<GameCardsPage />} />
+            <Route path="learn/games/:id/match" element={<GameMatchPage />} />
+            <Route path="learn/games/:id/type" element={<GameTypePage />} />
             <Route path="quiz" element={<QuizPage />} />
             <Route path="browse" element={<BrowsePage />} />
             <Route path="browse/:id" element={<WordDetailPage />} />

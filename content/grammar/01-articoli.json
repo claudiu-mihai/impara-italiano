@@ -1,0 +1,38 @@
+{
+  "id": "articoli",
+  "order": 1,
+  "title": "Articolul hotărât și nehotărât",
+  "level": "A1",
+  "rules": [
+    "Articolul hotărât arată ceva anume, cunoscut: il libro înseamnă «cartea».",
+    "Articolul nehotărât arată ceva oarecare: un libro înseamnă «o carte». Nu are plural.",
+    "Masculin: il și i înaintea consoanei; lo și gli înaintea s + consoană, z, gn, ps, x, y; l' și gli înaintea vocalei.",
+    "Feminin: la și le; l' înaintea vocalei (singular). Nehotărât feminin: una, iar un' înaintea vocalei."
+  ],
+  "items": [
+    { "id": "art-01", "it": "il libro", "gap": "il", "ro": "cartea", "note": "masculin singular, înaintea consoanei" },
+    { "id": "art-02", "it": "la casa", "gap": "la", "ro": "casa", "note": "feminin singular" },
+    { "id": "art-03", "it": "lo studente", "gap": "lo", "ro": "studentul", "note": "masculin singular, înaintea s + consoană" },
+    { "id": "art-04", "it": "l'amico", "gap": "l'", "ro": "prietenul", "note": "masculin singular, înaintea vocalei" },
+    { "id": "art-05", "it": "l'amica", "gap": "l'", "ro": "prietena", "note": "feminin singular, înaintea vocalei" },
+    { "id": "art-06", "it": "i libri", "gap": "i", "ro": "cărțile", "note": "masculin plural, de la il" },
+    { "id": "art-07", "it": "le case", "gap": "le", "ro": "casele", "note": "feminin plural" },
+    { "id": "art-08", "it": "gli amici", "gap": "gli", "ro": "prietenii", "note": "masculin plural, înaintea vocalei" },
+    { "id": "art-09", "it": "gli studenti", "gap": "gli", "ro": "studenții", "note": "masculin plural, de la lo" },
+    { "id": "art-10", "it": "lo zaino", "gap": "lo", "ro": "rucsacul", "note": "masculin singular, înaintea z" },
+    { "id": "art-11", "it": "gli zaini", "gap": "gli", "ro": "rucsacii", "note": "masculin plural, de la lo" },
+    { "id": "art-12", "it": "la scuola", "gap": "la", "ro": "școala", "note": "feminin singular" },
+    { "id": "art-13", "it": "il giorno", "gap": "il", "ro": "ziua", "note": "masculin singular, înaintea consoanei" },
+    { "id": "art-14", "it": "le amiche", "gap": "le", "ro": "prietenele", "note": "feminin plural" },
+    { "id": "art-15", "it": "l'ospedale", "gap": "l'", "ro": "spitalul", "note": "masculin singular, înaintea vocalei" },
+    { "id": "art-16", "it": "gli occhi", "gap": "gli", "ro": "ochii", "note": "masculin plural, înaintea vocalei" },
+    { "id": "art-17", "it": "un libro", "gap": "un", "ro": "o carte", "note": "masculin singular" },
+    { "id": "art-18", "it": "uno studente", "gap": "uno", "ro": "un student", "note": "masculin singular, înaintea s + consoană" },
+    { "id": "art-19", "it": "una casa", "gap": "una", "ro": "o casă", "note": "feminin singular" },
+    { "id": "art-20", "it": "un'amica", "gap": "un'", "ro": "o prietenă", "note": "feminin singular, înaintea vocalei" },
+    { "id": "art-21", "it": "un amico", "gap": "un", "ro": "un prieten", "note": "masculin singular, și înaintea vocalei" },
+    { "id": "art-22", "it": "uno zaino", "gap": "uno", "ro": "un rucsac", "note": "masculin singular, înaintea z" },
+    { "id": "art-23", "it": "una scuola", "gap": "una", "ro": "o școală", "note": "feminin singular" },
+    { "id": "art-24", "it": "un ospedale", "gap": "un", "ro": "un spital", "note": "masculin singular, înaintea vocalei" }
+  ]
+}

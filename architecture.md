@@ -52,6 +52,7 @@ content/                 sursa de adevăr pentru conținut (în git)
   verbs/irregular.json   forme neregulate scrise explicit
   sentences/             propoziții pentru Reconstruire
   topics/                teme: fișe ordonate de id-uri de cuvinte + reguli (Faza 4)
+  grammar/               teme de gramatică pentru Jocuri: reguli + exemple cu lacună, în ordinea de învățare („order”)
   sources/               liste brute de frecvență (în .gitignore)
 scripts/                 pipeline build-time (rulat direct cu Node 24, care elimină tipurile)
   frequency/             lematizare + scor combinat 70/30 (încă neimplementat)
@@ -62,7 +63,7 @@ scripts/                 pipeline build-time (rulat direct cu Node 24, care elim
   make-icons.ts          `npm run icons` — iconițele PWA
 src/
   app/                   App.tsx, router, layout cu bottom nav, providers
-  features/              flashcards, conjugation, quiz, sentence, browse, topics, stats, settings, about
+  features/              flashcards, conjugation, quiz, sentence, browse, topics, games, stats, settings, about
   domain/                logică pură, acoperită integral de teste unitare
     content/             tipuri + scheme Zod (partajate cu scripts/)
     srs/                 scheduler.ts (wrapper ts-fsrs), mastery.ts, unlock.ts

@@ -3,8 +3,10 @@ import { resolve } from "node:path";
 import type { ZodError } from "zod";
 import {
   conjugationsSchema,
+  grammarTopicSchema,
   sentencesSchema,
   topicSchema,
+  type GrammarTopic,
   type Topic,
   wordSchema,
   type Conjugations,
@@ -16,6 +18,7 @@ import { acceptedOrders, tokenizeSentence } from "../src/domain/sentence/tokeniz
 import { loadFrequency } from "./frequency/ranks.ts";
 import { LEVELS, TOPIC_GROUPS, type Level } from "../src/domain/content/constants.ts";
 import { lemmaOf } from "../src/domain/content/reflexive.ts";
+import { splitAtGap } from "../src/domain/grammar/gap.ts";
 import { buildConjugations, type IrregularFile } from "./conjugate/build.ts";
 import { z } from "zod";
 
@@ -24,6 +27,7 @@ const WORDS_DIR = resolve(ROOT, "content/words");
 const IRREGULAR_FILE = resolve(ROOT, "content/verbs/irregular.json");
 const SENTENCES_DIR = resolve(ROOT, "content/sentences");
 const TOPICS_DIR = resolve(ROOT, "content/topics");
+const GRAMMAR_DIR = resolve(ROOT, "content/grammar");
 
 /** Propozițiile mai scurte de atât nu fac un exercițiu de ordonare. */
 const MIN_TOKENS = 3;
@@ -39,6 +43,7 @@ export interface LoadedContent {
   conjugations: Conjugations;
   sentences: Sentence[];
   topics: Topic[];
+  grammar: GrammarTopic[];
   explicitPresenteCount: number;
   errors: string[];
 }
@@ -100,6 +105,7 @@ export function loadContent(): LoadedContent {
   const { rankBasis, frequencySources, frequencyRanks } = assignRanks(words);
   assignLevels(words, frequencyRanks, errors);
   const topics = loadTopics(words as Word[], errors);
+  const grammar = loadGrammar(errors);
 
   return {
     rankBasis,
@@ -108,6 +114,7 @@ export function loadContent(): LoadedContent {
     conjugations: built.conjugations,
     sentences,
     topics,
+    grammar,
     explicitPresenteCount: built.explicitCount,
     errors,
   };
@@ -157,6 +164,36 @@ function loadTopics(words: Word[], errors: string[]): Topic[] {
     .map((t, i) => ({ t, i }))
     .sort((a, b) => TOPIC_GROUPS.indexOf(a.t.group) - TOPIC_GROUPS.indexOf(b.t.group) || a.i - b.i)
     .map(({ t }) => t);
+}
+
+/** Temele de gramatică din content/grammar/*.json, în ordinea de învățare (câmpul „order”). */
+function loadGrammar(errors: string[]): GrammarTopic[] {
+  const topics: GrammarTopic[] = [];
+
+  for (const file of readdirSync(GRAMMAR_DIR).filter((f) => f.endsWith(".json")).sort()) {
+    const parsed = grammarTopicSchema.safeParse(JSON.parse(readFileSync(resolve(GRAMMAR_DIR, file), "utf8")));
+    if (!parsed.success) {
+      errors.push(...formatZodError(file, parsed.error));
+      continue;
+    }
+    const topic = parsed.data;
+    if (topics.some((t) => t.id === topic.id)) errors.push(`${file}: id de temă duplicat (${topic.id})`);
+    if (topics.some((t) => t.order === topic.order)) errors.push(`${file}: ordinea ${topic.order} este deja folosită`);
+
+    // „ro” trebuie să fie unic, altfel perechile din „Potrivire” ar fi ambigue
+    const seen = { id: new Set<string>(), it: new Set<string>(), ro: new Set<string>() };
+    for (const item of topic.items) {
+      for (const key of ["id", "it", "ro"] as const) {
+        if (seen[key].has(item[key])) errors.push(`${topic.id}: „${key}” duplicat (${item[key]})`);
+        seen[key].add(item[key]);
+      }
+      if (!splitAtGap(item.it, item.gap)) {
+        errors.push(`${item.id}: „${item.gap}” trebuie să apară exact o dată, ca cuvânt întreg, în „${item.it}”`);
+      }
+    }
+    topics.push(topic);
+  }
+  return topics.sort((a, b) => a.order - b.order);
 }
 
 interface SentenceSource {
