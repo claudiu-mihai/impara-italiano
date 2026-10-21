@@ -6,6 +6,7 @@ import { db } from "../../data/db/instance.ts";
 import { EXERCISE_ICON, EXERCISE_LABEL, italianText } from "../../domain/content/display.ts";
 import { topicProgress } from "../../domain/topics/topics.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
+import { BackLink } from "../../ui/BackLink.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
 
 // Toate acțiunile (Studiază, Quiz, exerciții) stau într-o grilă cu două coloane: padding mic, ca să încapă pe ecrane înguste.
@@ -38,9 +39,7 @@ export function TopicPage() {
 
   return (
     <div className="flex flex-col gap-5 px-4 pb-8 pt-4">
-      <Link to="/learn/topics" className="flex min-h-12 items-center text-brand-fg underline">
-        ← Teme
-      </Link>
+      <BackLink to="/learn/topics" label="Teme" />
 
       <header className="flex flex-col gap-2">
         <div className="flex items-center gap-3">

@@ -10,6 +10,7 @@ import { italianText, POS_LABEL, TENSE_LABEL } from "../../domain/content/displa
 import { TENSES } from "../../domain/content/constants.ts";
 import { masteryOf } from "../../domain/srs/mastery.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
+import { BackLink } from "../../ui/BackLink.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
 import { ConjugationTable } from "../../ui/ConjugationTable.tsx";
 import { LevelBadge } from "./LevelBadge.tsx";
@@ -56,9 +57,7 @@ export function WordDetailPage() {
 
   return (
     <div className="flex flex-col gap-5 px-4 pb-8 pt-4">
-      <Link to="/browse" className="flex min-h-12 items-center text-brand-fg underline">
-        ← Dicționar
-      </Link>
+      <BackLink to="/browse" label="Dicționar" />
 
       <header className="flex flex-col gap-2">
         <p className="text-sm uppercase tracking-wide text-muted">{POS_LABEL[word.pos]}</p>

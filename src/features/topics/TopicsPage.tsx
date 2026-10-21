@@ -5,6 +5,7 @@ import { db } from "../../data/db/instance.ts";
 import { TOPIC_GROUPS } from "../../domain/content/constants.ts";
 import { TOPIC_GROUP_LABEL } from "../../domain/content/display.ts";
 import { topicProgress } from "../../domain/topics/topics.ts";
+import { BackLink } from "../../ui/BackLink.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
 
 export function TopicsPage() {
@@ -15,9 +16,7 @@ export function TopicsPage() {
 
   return (
     <div className="flex flex-col gap-5 px-4 pb-8 pt-4">
-      <Link to="/learn" className="flex min-h-12 items-center text-brand-fg underline">
-        ← Învață
-      </Link>
+      <BackLink to="/learn" label="Învață" />
       <h1 className="text-2xl font-bold">Teme</h1>
       <p className="text-muted">
         Cuvinte uzuale grupate pe subiecte, într-o ordine firească (luni → duminică), cu reguli scurte și exerciții.
