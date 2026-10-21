@@ -321,7 +321,7 @@ React Router, cu următoarele rute:
 
 * **Bottom nav:** Acasă, Învață, Dicționar, Statistici, Setări.
 * **Code splitting:** `stats`, `sentence`, `topics`, `conjugations.json` și `topics.json` se încarcă lazy, pentru LCP < 1.5s.
-* **Hosting:** static, cu fallback SPA (`_redirects` pe Cloudflare Pages / Netlify).
+* **Hosting:** container nginx cu fișierele statice și fallback SPA (`Dockerfile`, `docker-compose.yml`), în spatele Traefik (HTTPS, provider de fișiere, `italiano.l61.eu`). Din Faza 6, nginx trimite și `/api/` la PocketBase, pe rețeaua internă (§14).
 
 ---
 
@@ -468,3 +468,94 @@ Cerința este în FR2.4 (Audio) din [app-plan.md](app-plan.md). Audio pornește 
 
 * `features/conjugation/ConjugationPage.tsx` încarcă sesiunea, ține coada și salvează repetiția; fiecare variantă este o componentă cu aceleași proprietăți (`ConjCardProps`: card, verb, forme, setări, `onFinish(grade)`): `WriteCard` (3 persoane pe rând, nota din `gradeConjugation`), `FlipCard` (o persoană, forma pe spate, autoevaluare cu cele 4 butoane și intervalele afișate ca la vocabular) și `TableCard` (toate persoanele, 5 la imperativ, nota din `gradeConjugationTable`: toate corecte → Bine, ≥ 2/3 → Greu, altfel Din nou).
 * Varianta este setarea `Settings.conjugationMode` (`write` | `flip` | `table`, implicit `write`), inclusă în backup și în Setări; selectorul de pe ecranul de conjugare o schimbă imediat. Unitatea SRS rămâne verb × timp, deci progresul este comun tuturor variantelor.
+
+---
+
+### 14. Conturi și sincronizare (Faza 6, implementat)
+
+Cerința este în FR6.1 din [app-plan.md](app-plan.md). Principiu: **Dexie rămâne sursa de adevăr pe dispozitiv**; serverul este o copie sincronizată, folosită doar cu cont. Fără cont nu se încarcă niciun cod de sincronizare și nu se face nicio cerere.
+
+#### 14.1 Infrastructură
+
+```
+Internet ──HTTPS──► Traefik (provider de fișiere, în afara Docker) ──► 10.88.1.88:48080 ──► web (nginx)
+                                                                                            ├─ /        fișiere statice
+                                                                                            ├─ /api/    proxy ──► pocketbase:8090 (rețea internă compose)
+                                                                                            └─ /_/      404 (panoul de administrare nu se expune)
+Administrare: ssh -L 8090:127.0.0.1:48090 server  →  http://localhost:8090/_/
+```
+
+* **Traefik nu se modifică:** routerul `italiano` trimite tot domeniul la containerul `web`. Proxy-ul spre PocketBase îl face nginx, deci cererile spre `/api/` sunt same-origin (fără CORS), iar PocketBase nu are port public.
+* **nginx (`nginx/default.conf`):** `location /api/` cu `proxy_pass` pe o **variabilă** și un `resolver`, ca nginx să pornească și dacă PocketBase nu rulează (atunci `/api/` răspunde 502, iar aplicația merge fără cont) și să nu rămână cu o adresă veche după ce containerul PocketBase este recreat. **Resolverul nu poate fi scris fix:** în Docker este `127.0.0.11`, în Podman altă adresă. De aceea `nginx/40-resolver.sh` (în `/docker-entrypoint.d/`) îl citește la pornire din `/etc/resolv.conf` și îl scrie în `/tmp/nginx-resolver.conf` (singurul loc inscriptibil, containerul fiind `read_only`), iar `default.conf` îl include.
+* **IP-ul real al clientului:** `set_real_ip_from` pe rețelele private + `real_ip_header X-Forwarded-For` + `real_ip_recursive on` fac din `$remote_addr` ultima adresă care nu e privată (adăugată de Traefik), deci un client nu și-o poate falsifica trimițând el antetul. nginx o trimite la PocketBase în `X-Real-IP`, iar migrarea setează `trustedProxy.headers = ["X-Real-IP"]`, ca limitele de cereri să vadă IP-ul utilizatorului.
+* **Limite de cereri (PocketBase, pe IP):** valorile implicite (autentificare 2 / 3 s, loturi 3 / s) refuzau o primă încărcare mare, deci migrarea le setează la autentificare 8 / 10 s, loturi 8 / s, creări 20 / 5 s, general 300 / 10 s. Clientul reia singur cererile refuzate (429) cu pauze de 1, 2, 4, 8 s (`retry.ts`); un 429 nu este niciodată tratat ca „sesiune expirată”.
+* **Serviciul `pocketbase`** în `docker-compose.yml`: imagine din `pocketbase/Dockerfile`, care descarcă binarul oficial la o **versiune fixă (0.40.5) cu suma de control SHA-256 verificată** (amd64 și arm64); utilizator fără privilegii, `read_only`, `cap_drop: ALL`, `no-new-privileges`; volumul `pb_data` (SQLite) este singurul loc inscriptibil; portul se publică **doar pe loopback** (`127.0.0.1:48090`). `web` depinde de `pocketbase` și își păstrează portul publicat, prin care intră Traefik.
+* **Migrațiile** (`pocketbase/pb_migrations/1792540800_sync_collections.js`, în git, aplicate la pornire): închid înregistrarea publică (`users.createRule = null`), activează cererile în lot, setează limitele și proxy-ul de încredere și creează cele 4 colecții cu regulile lor.
+* **Dezvoltare și teste:** `npm run pocketbase` (`scripts/pocketbase/dev.ts`) descarcă binarul în `.pocketbase/` (verificat cu aceleași sume), pornește un server **curat** pe portul 8090 și un administrator de test. Limitele pe IP sunt oprite printr-o migrare doar pentru dezvoltare (toate cererile din teste vin de la 127.0.0.1); `POCKETBASE_RATE_LIMITS=on` le păstrează. Vite trimite `/api/` către el (`server.proxy` și `preview.proxy`).
+* **Service worker:** `navigateFallbackDenylist: [/^\/api\//]`; `/api/` nu are nicio regulă de cache.
+* **Backup:** copia volumului `pb_data` (vezi README).
+
+#### 14.2 Date pe server (colecții PocketBase)
+
+| Colecție | Câmpuri | Index unic | Regulă |
+| --- | --- | --- | --- |
+| `users` | colecția de autentificare implicită; înregistrarea publică dezactivată | — | — |
+| `cards` | `user`, `cardId`, `data` (JSON: cardul FSRS), `updatedAt` (ms), `deleted` | `(user, cardId)` | câștigă `updatedAt` mai nou; `deleted` = ștergere marcată |
+| `review_logs` | `user`, `uid` (UUID), `data` (JSON) | `(user, uid)` | doar adăugare |
+| `settings` | `user`, `data` (JSON, **fără** `ttsVoiceURI`), `updatedAt` | `(user)` | câștigă `updatedAt` mai nou |
+| `reports` | `user`, `uid`, `data` (JSON) | `(user, uid)` | doar adăugare |
+
+* **Reguli de acces:** listare, citire și ștergere cu `user = @request.auth.id`; creare cu `@request.body.user = @request.auth.id`; modificare cu aceeași condiție și fără posibilitatea de a muta o înregistrare pe alt cont. Câmpul `user` are `cascadeDelete`: ștergerea contului șterge tot ce e legat de el.
+* **Id deterministe:** id-ul unei înregistrări este derivat din `(utilizator, colecție, cheie)` (primele 15 caractere hexazecimale ale SHA-256, `recordId` în `pocketbaseRemote.ts`). Așa „creează sau înlocuiește” este o singură cerere (`upsert` într-un lot de câte 50), fără căutări prealabile, iar doi utilizatori nu pot avea același id. SHA-256 vine din `crypto.subtle`, disponibil doar în context securizat (HTTPS sau localhost); pe HTTP simplu sincronizarea dă o eroare clară.
+* **Câmpurile `created` / `updated`** (autodate) sunt declarate explicit în migrare; `updated` (ora serverului) este reperul pentru descărcare, nu `updatedAt` (ora dispozitivului), ca ceasuri diferite să nu facă dispozitivele să rateze modificări.
+* `data` ca JSON: forma cardului FSRS se poate schimba fără migrații pe server. La citire, datele se validează cu aceleași scheme Zod ca backup-ul; o înregistrare invalidă se ignoră și se numără în raport.
+
+#### 14.3 Date locale (Dexie, versiunea 2 a schemei)
+
+Abatere de la planul inițial: **nu există tabel `outbox`**. Ce așteaptă trimiterea se marchează direct pe rânduri, ceea ce elimină nevoia de a scrie într-un tabel în plus în fiecare tranzacție.
+
+* `cards`: `updatedAt` (ms; setat la fiecare scriere) și `dirty: 1` (netrimis), indexat.
+* `reviewLog`, `reports`: `uid` (UUID) și `dirty: 1`, ambele indexate; `id` rămâne cheia locală.
+* `settings`: `updatedAt` și `dirty` pe rândul `app`.
+* `tombstones` (`cardId`; `deletedAt`): ștergerile făcute **cât timp ești autentificat** (`forgetWord`), până ajung pe server. Fără cont nu se scriu.
+* `meta`: `syncUserId`, `syncEmail`, `syncPulled` (reperul `updated` pe colecție), `syncReplace`, `syncLastAt`, `syncStatus`, `syncMessage`.
+* **`dirty` este `1` sau lipsește** (nu `true` / `false`): IndexedDB indexează doar chei valide, deci un rând fără `dirty` nu apare în index și `where("dirty").equals(1)` găsește exact ce așteaptă. Scrierile locale pun mereu `dirty: 1`, chiar și fără cont: la prima autentificare tot progresul existent este deci deja marcat „de trimis”.
+* **Migrarea v1 → v2** marchează tot progresul existent `dirty`, generează `uid` pentru jurnal și semnalări și `updatedAt` pentru carduri (din `last_review`). E acoperită de un test care creează o bază v1 reală.
+* Toate scrierile (repetiție, „Știu deja”, ștergere, setări, import, resetare) trec prin `data/db/repositories.ts` și `data/backup/backup.ts` și emit `notifyLocalChange()`.
+
+#### 14.4 Logica
+
+* **`domain/sync/merge.ts`** (pur, fără rețea sau Dexie): `mergeCard(local, remote)` → `apply` / `remove` / `keep` / `keep-and-push`; câștigă `updatedAt` mai nou, iar la egalitate regula e aceeași pe ambele dispozitive (ștergerea bate cardul activ; între două carduri active, cel cu mai multe repetiții). `mergeSettingsTimes`, `firstLoginChoice`.
+* **`domain/sync/serialize.ts`:** `cardToData` / `logToData` (fără câmpurile locale `updatedAt`, `uid`, `dirty`, `id`) și `newUid` (UUID, cu rezervă când `crypto.randomUUID` lipsește).
+* **`data/sync/engine.ts`** (`runSync(db, remote)`; depinde doar de interfața `SyncRemote`, deci se testează cu un server în memorie, `fakeRemote.ts`):
+  1. **Descărcare** (dacă nu e înlocuire): pe colecție, `remote.pull(colecție, reper)` returnează înregistrările cu `updated >= reper`; se aplică într-o tranzacție împreună cu noul reper. Cardurile trec prin `mergeCard`; când local e mai nou decât serverul, rândul se marchează `dirty` ca să fie retrimis în aceeași rulare. Jurnalul și semnalările se adaugă fără dubluri (după `uid`). Setările păstrează `ttsVoiceURI` local.
+  2. **Trimitere:** cardurile `dirty` și `tombstones` (cereri de câte 50), apoi jurnalul, semnalările și setările. „Netrimis” se șterge **doar dacă rândul nu s-a schimbat între timp** (`updatedAt` identic); o repetiție făcută în timpul trimiterii rămâne pentru rularea următoare.
+  3. **Înlocuire** (`syncReplace`, după import sau resetare cu cont): se șterg cardurile, jurnalul și semnalările de pe server, apoi se trimite tot ce e local.
+  4. La orice eroare, ce nu a plecat rămâne marcat și rularea următoare reia de acolo.
+* **`data/sync/pending.ts`** (fără Zod și fără SDK): `pendingCount`, `hasLocalProgress`. Ecranele și `autoSync` îl folosesc direct, ca **pachetul principal să rămână fără Zod și fără SDK** (o regresie de acest fel a existat: `autoSync` importa `engine.ts` și pachetul principal a crescut de la 121 la 148 kB gzip, iar LCP pe Slow 4G a trecut de 1,5 s; testul E2E „fără cont” verifică acum că `account-*.js` nu se încarcă).
+
+#### 14.5 Serverul real și sesiunea
+
+* **`data/sync/pocketbaseRemote.ts`:** implementarea `SyncRemote` pe SDK-ul PocketBase (`getFullList` cu filtru pe `updated`, `createBatch().upsert`, `delete` în loturi), fiecare cerere învelită în `retry` pentru 429.
+* **`data/sync/account.ts`** (încărcat lazy, împreună cu SDK-ul): clientul unic (`autoCancellation(false)`, altfel cererile paralele către aceeași colecție s-ar anula între ele), `syncNow` (o singură sincronizare odată), `signIn`, `completeSignIn`, `cancelSignIn`, `signOut`, `deleteAccount`, `wipeLocalData`.
+* **Sesiune:** tokenul stă în `localStorage` (store-ul implicit al SDK-ului). La fiecare sincronizare se face `authRefresh` (prelungește sesiunea și verifică pe server că contul există). Refuzul (4xx, în afară de 429) → `auth-required`: se poate învăța în continuare, modificările rămân marcate, iar ecranul cere doar parola. Eroare de rețea (status 0) → `offline`.
+* **`data/sync/autoSync.ts`** (pornit din `App`, fără import de SDK): sincronizare la pornire, la revenirea conexiunii, la 20 s după ultima modificare și la trecerea aplicației în fundal (doar dacă există modificări netrimise); la revenire se sincronizează dacă ultima sincronizare e mai veche de 2 minute. Fără cont verifică `syncUserId` și nu face nimic.
+* **Interfață:** `features/settings/AccountSection.tsx` (formular, alegerea combinării, starea „Sincronizat · 14:32” / „2 modificări în așteptare” / „Offline”, „Sincronizează acum”, „Deconectează-te”, „Șterge contul”). Fără cont, secțiunea șterge din `localStorage` orice sesiune abandonată a SDK-ului.
+
+#### 14.6 Fluxuri de cont
+
+* **Prima autentificare:** `firstLoginChoice(local, remote)` întreabă doar dacă există progres și local, și în cont. „Combină cu contul”: se păstrează versiunea mai nouă a fiecărui card, jurnalul se reunește. „Folosește doar progresul din cont”: progresul și setările locale se șterg și se descarcă contul. „Descarcă mai întâi un backup local” și „Renunță” (nu schimbă nimic și nu lasă telefonul conectat). Reautentificarea aceluiași cont continuă direct.
+* **Deconectare:** se încearcă o sincronizare; dacă mai rămân modificări netrimise, se avertizează (cu opțiunea de a continua). Apoi se șterg progresul, setările și marcajele de sincronizare de pe telefon (rămâne doar `lastExportAt`).
+* **Import / resetare cu cont:** se aplică local și se cere înlocuirea completă a progresului din cont (`syncReplace`). **Limită cunoscută:** celelalte dispozitive deja sincronizate nu primesc ștergerea jurnalului (jurnalul este doar-adăugare), ci doar cardurile care s-au schimbat; pentru o curățare completă, un dispozitiv se deconectează și se reconectează cu „Folosește doar progresul din cont”.
+* **Ștergerea contului:** `DELETE` pe înregistrarea din `users` (cascadă pe toate colecțiile), apoi curățarea telefonului.
+
+#### 14.7 Teste
+
+| Nivel | Fișier | Ce acoperă |
+| --- | --- | --- |
+| Unit — logică | `domain/sync/merge.test.ts` | `mergeCard` (inclusiv egalități și ștergeri marcate), setări, `firstLoginChoice`, serializare |
+| Unit — reîncercări | `data/sync/retry.test.ts` | pauze, epuizarea încercărilor, erori care nu se reiau |
+| Integrare — două „dispozitive” | `data/sync/engine.test.ts` (Dexie + `fake-indexeddb` + `FakeRemote`) | convergență după repetiții offline pe ambele; același card pe ambele; server cu versiune veche; ștergeri; modificare în timpul trimiterii; eroare de rețea; loturi; setări și vocea locală; date invalide; migrarea v1 → v2; import și resetare |
+| E2E — PocketBase real | `tests/e2e/sync.spec.ts` | pornit de Playwright (bază curată), **două contexte de browser = două telefoane**: autentificare, parolă greșită, combinare, „doar din cont”, „Renunță”, offline, sesiune expirată, deconectare cu modificări netrimise, ștergere cuvânt, setări, ștergerea contului, resetarea progresului, izolarea între utilizatori, înregistrarea publică închisă |
+| E2E — fără cont | `tests/e2e/sync.spec.ts` | nicio cerere spre `/api/` și niciun `account-*.js` încărcat |
+| Accesibilitate | `tests/e2e/sync.spec.ts` | axe (WCAG 2.1 AA, luminos și întunecat) pe Cont fără cont, la alegere și cu cont |

@@ -6,6 +6,8 @@ import { LEVELS, type Level } from "../../domain/content/constants.ts";
 import { LEVEL_NAME } from "../../domain/content/levels.ts";
 import { db } from "../../data/db/instance.ts";
 import { getSettings, saveSettings } from "../../data/db/repositories.ts";
+import { AccountSection } from "./AccountSection.tsx";
+import { downloadBackup } from "./backupDownload.ts";
 import { DEFAULT_SETTINGS, type ConjugationMode, type Settings } from "../../domain/settings.ts";
 import type { Direction } from "../../domain/srs/types.ts";
 import { studyDayOf } from "../../domain/time/studyDay.ts";
@@ -102,6 +104,7 @@ export function SettingsPage() {
   const { meta, words } = useContent();
   const settings = useLiveQuery(() => getSettings(db), []);
   const lastExport = useLiveQuery(async () => (await db.meta.get("lastExportAt"))?.value as string | undefined, []);
+  const signedIn = useLiveQuery(async () => (await db.meta.get("syncUserId")) !== undefined, []) ?? false;
   const voices = useItalianVoices();
   const tts = useTtsStatus();
   const [status, setStatus] = useState<{ text: string; error?: boolean }>();
@@ -115,15 +118,7 @@ export function SettingsPage() {
   const doExport = async () => {
     setBusy(true);
     try {
-      const { backupToJson, exportBackup } = await import("../../data/backup/backup.ts");
-      const now = new Date();
-      const json = backupToJson(await exportBackup(db, meta.dataVersion, now));
-      const url = URL.createObjectURL(new Blob([json], { type: "application/json" }));
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = `impara-backup-${studyDayOf(now)}.json`;
-      link.click();
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      await downloadBackup(meta.dataVersion);
       setStatus({ text: "Backup descărcat. Păstrează fișierul într-un loc sigur." });
     } catch {
       setStatus({ text: "Nu am putut crea backup-ul.", error: true });
@@ -142,7 +137,7 @@ export function SettingsPage() {
       try {
         const backup = parseBackup(await file.text());
         const ok = window.confirm(
-          `Importul înlocuiește tot progresul actual cu cel din fișier ` +
+          `Importul înlocuiește tot progresul actual${signedIn ? " (inclusiv din cont)" : ""} cu cel din fișier ` +
             `(${backup.cards.length} carduri, ${backup.reviewLog.length} repetiții, ` +
             `exportat la ${studyDayOf(backup.exportedAt)}). Continui?`,
         );
@@ -158,7 +153,8 @@ export function SettingsPage() {
   };
 
   const doReset = async () => {
-    if (!window.confirm("Ștergi tot progresul (carduri și istoric)? Acțiunea nu poate fi anulată.")) return;
+    const scope = signedIn ? " Se șterge și din cont, deci și de pe celelalte dispozitive care se sincronizează după aceea." : "";
+    if (!window.confirm(`Ștergi tot progresul (carduri și istoric)?${scope} Acțiunea nu poate fi anulată.`)) return;
     const { resetProgress } = await import("../../data/backup/backup.ts");
     await resetProgress(db);
     setStatus({ text: "Progresul a fost șters." });
@@ -316,12 +312,16 @@ export function SettingsPage() {
         </button>
       </section>
 
+      <AccountSection />
+
       <section className={card} aria-labelledby="data">
         <h2 id="data" className={heading}>
           Date
         </h2>
         <p className="mt-2 text-sm text-muted">
-          Progresul rămâne doar pe acest dispozitiv. Fă periodic un backup ca să nu-l pierzi.
+          {signedIn
+            ? "Progresul se sincronizează cu contul tău. Un backup rămâne util ca arhivă."
+            : "Progresul rămâne doar pe acest dispozitiv. Fă periodic un backup ca să nu-l pierzi."}
           {lastExport && <> Ultimul backup: {studyDayOf(new Date(lastExport))}.</>}
         </p>
         <div className="mt-3 flex flex-col gap-3">

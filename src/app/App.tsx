@@ -3,6 +3,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import { BrowserRouter, NavLink, Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { db } from "../data/db/instance.ts";
 import { getSettings } from "../data/db/repositories.ts";
+import { startAutoSync } from "../data/sync/autoSync.ts";
 import { HomePage } from "../features/home/HomePage.tsx";
 import { applyPwaUpdate, usePwaNeedRefresh } from "../services/pwaUpdate.ts";
 import { applyTheme } from "../services/theme.ts";
@@ -143,6 +144,9 @@ function Layout() {
 }
 
 export function App() {
+  // sincronizarea automată pornește doar cu cont; fără cont nu face nimic și nu încarcă nimic
+  useEffect(() => startAutoSync(db), []);
+
   return (
     <BrowserRouter>
       <ContentProvider>

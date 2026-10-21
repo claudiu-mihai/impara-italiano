@@ -14,6 +14,7 @@ npm run build          # build de producție cu service worker
 npm test               # teste unitare (Vitest)
 npm run test:e2e       # teste end-to-end, accesibilitate (axe) și LCP (Playwright)
 npm run validate       # validează conținutul cu scheme Zod
+npm run pocketbase      # server de sincronizare local, curat (portul 8090); vezi „Conturi și sincronizare”
 ```
 
 ## Conținut: cum se adaugă cuvinte noi
@@ -52,6 +53,42 @@ Fișierele mari nu sunt în repo. Pentru a rula pașii 1, 3, 4 și 5 trebuie des
 După descărcare: `npm run frequency:lexicon` extrage datele din kaikki. Lista de lemele frecvente
 (`content/frequency/it-lemmas.json`) este în git; se regenerează doar dacă se schimbă sursele, cu
 `scripts/frequency/build_lemmas.py` (necesită `pip install simplemma`).
+
+## Conturi și sincronizare (opțional)
+
+Aplicația merge complet fără cont. Cu cont, progresul se sincronizează cu un server propriu **PocketBase** (SQLite),
+pe care îl pornește `docker compose` lângă aplicație. Detalii de arhitectură: [architecture.md](architecture.md), §14.
+
+**Dezvoltare.** `npm run pocketbase` descarcă binarul oficial (o singură dată, cu suma de control verificată), pornește
+un server curat pe `127.0.0.1:8090` și un administrator de test (`admin@test.local` / `adminpass123`); `npm run dev`
+trimite `/api/` către el. Testele E2E îl pornesc singure. Limitele de cereri sunt oprite în dezvoltare
+(`POCKETBASE_RATE_LIMITS=on npm run pocketbase` le păstrează).
+
+**Producție.**
+
+```
+docker compose up -d --build        # pornește și pocketbase; datele stau în volumul pb_data
+
+# administratorul (o singură dată):
+docker compose exec pocketbase pocketbase superuser upsert EMAIL PAROLA --dir /pb/pb_data --migrationsDir /pb/pb_migrations
+
+# panoul de administrare nu e public; se deschide printr-un tunel SSH:
+ssh -L 8090:127.0.0.1:48090 utilizator@server      # apoi http://localhost:8090/_/
+```
+
+* **Conturile** se creează din panou (Collections → users → New record: email și parolă). Înregistrarea publică este
+  închisă. Parola unui utilizator se schimbă tot de acolo.
+* **Traefik** rămâne neschimbat: trimite tot domeniul la containerul `web`, iar nginx duce `/api/` la PocketBase pe
+  rețeaua internă. Portul publicat de `web` trebuie să fie cel din routerul Traefik.
+* **Backup:** din panou, Settings → Backups, sau o copie a volumului `pb_data` cu serverul oprit. Backup-ul JSON din
+  aplicație rămâne valabil în ambele moduri.
+* **Actualizarea PocketBase:** se schimbă versiunea și sumele de control în `pocketbase/Dockerfile` și în
+  `scripts/pocketbase/dev.ts` (sumele sunt în `checksums.txt` din pagina release-ului), apoi se rulează testele.
+* **Imaginile publicate:** workflow-ul construiește `ghcr.io/<repo>` (aplicația) și `ghcr.io/<repo>-pocketbase`.
+* **Limite de cereri** pe adresa clientului (vezi migrarea): autentificarea 8 cereri / 10 s. Adresa reală vine din
+  `X-Forwarded-For` de la Traefik; nginx ia ultima adresă care nu e privată.
+* **HTTPS este obligatoriu** pentru sincronizare (aplicația folosește `crypto.subtle`, disponibil doar în context
+  securizat); pe `http://localhost` merge și fără.
 
 ## Licențe ale datelor
 

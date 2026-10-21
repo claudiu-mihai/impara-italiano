@@ -11,6 +11,12 @@ import { BackupError, backupToJson, exportBackup, importBackup, parseBackup, res
 const NOW = new Date(2026, 9, 20, 10, 0, 0);
 let db: ImparaDb;
 
+/** Rândul fără metadatele de sincronizare. */
+const content = <T extends object>(row: T) => {
+  const { updatedAt: _u, uid: _uid, dirty: _d, ...rest } = row as T & { updatedAt?: number; uid?: string; dirty?: 1 };
+  return rest;
+};
+
 beforeEach(() => {
   db = createDb(`backup-${Math.random()}`);
 });
@@ -35,9 +41,10 @@ test("export → JSON → import reface exact progresul într-o bază goală", a
   const other = createDb(`restore-${Math.random()}`);
   try {
     await importBackup(other, parseBackup(json));
-    expect(await other.cards.toArray()).toEqual(await db.cards.toArray());
-    expect(await other.reviewLog.toArray()).toEqual(await db.reviewLog.toArray());
-    expect(await other.reports.toArray()).toEqual(await db.reports.toArray());
+    // metadatele de sincronizare (updatedAt, uid, dirty) se regenerează la import; conținutul rămâne identic
+    expect((await other.cards.toArray()).map(content)).toEqual((await db.cards.toArray()).map(content));
+    expect((await other.reviewLog.toArray()).map(content)).toEqual((await db.reviewLog.toArray()).map(content));
+    expect((await other.reports.toArray()).map(content)).toEqual((await db.reports.toArray()).map(content));
     expect((await other.settings.get("app"))?.newPerDay).toBe(4);
     expect((await other.cards.toArray())[0]?.due).toBeInstanceOf(Date);
   } finally {

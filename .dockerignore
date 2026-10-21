@@ -23,6 +23,10 @@ content/drafts/
 test-results/
 playwright-report/
 
+# serverul de sincronizare are propriul context de build (./pocketbase) și propriile dependențe
+pocketbase/
+.pocketbase/
+
 # docker
 Dockerfile
 docker-compose.yml

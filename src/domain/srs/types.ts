@@ -13,10 +13,14 @@ export interface StoredCard extends Card {
   variant: string;
   /** Ziua de studiu în care cardul a fost introdus. */
   introducedOn: string;
+  /** Momentul ultimei modificări (ms), pentru sincronizare: la conflict câștigă versiunea mai nouă. */
+  updatedAt?: number;
 }
 
 export interface ReviewLogEntry {
   id?: number;
+  /** Identificator unic între dispozitive (UUID), pentru sincronizare; `id` este doar local. */
+  uid?: string;
   cardId: string;
   /** 1 = Din nou, 2 = Greu, 3 = Bine, 4 = Ușor. */
   rating: number;

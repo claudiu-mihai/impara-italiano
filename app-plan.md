@@ -17,7 +17,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 | Conținut | Dicționar, exemple și conjugări **pre-generate** și incluse în aplicație; nicio cerere de rețea pentru date |
 | Surse de frecvență | **FrequencyWords** (sursă principală, italiană vorbită) + **Leipzig Corpora Collection** (italiană scrisă) + **Wiktionary** (verificare); vezi §4 |
 | Audio | Web Speech API (`it-IT`) cu vocile din sistem (macOS, iOS, Android, Windows); vocile de rețea doar online (vezi FR4) |
-| Backend / sincronizare | **Nu** în versiunea 1. Progresul este local; backup prin export/import JSON |
+| Backend / sincronizare | **Opțional** (Faza 6): cont pe un server propriu **PocketBase** (SQLite), în spatele nginx și Traefik; fără cont, totul rămâne local, ca în versiunea 1. Backup prin export/import JSON în ambele moduri |
 
 ---
 
@@ -194,6 +194,22 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 * **Export / import progres** (fișier JSON) ca backup și pentru mutarea pe alt dispozitiv.
 * **Resetare progres** (cu confirmare).
 
+#### **FR6.1. Cont și sincronizare (opțional)**
+
+* **Două moduri:** **fără cont** (implicit, ca până acum: totul local) și **autentificat** (progresul se sincronizează cu serverul). Aplicația nu cere niciodată autentificarea; butonul „Autentifică-te” este doar în Setări.
+* **Fiecare utilizator pe telefonul lui;** nu există mai multe profiluri pe același dispozitiv.
+* **Conturile** se creează de administrator din panoul PocketBase (**înregistrare închisă**); autentificare cu email și parolă. Parola o resetează administratorul (resetarea prin email ar cere configurarea unui server SMTP).
+* **Ce se sincronizează:** cardurile (inclusiv abilitățile din Teme), jurnalul de repetiții, setările (**fără vocea aleasă**, care diferă de la un dispozitiv la altul) și semnalările de greșeli. Conținutul (cuvinte, teme) nu se sincronizează: vine cu aplicația.
+* **Când:** la pornire, la revenirea conexiunii, la sfârșitul fiecărei sesiuni și la „Sincronizează acum”. Aplicația funcționează offline ca înainte; modificările așteaptă într-o coadă locală.
+* **Prima autentificare pe un dispozitiv:**
+  * progres doar local → se urcă automat în cont;
+  * progres doar în cont → se descarcă;
+  * progres în ambele → o singură întrebare: **„Combină cu contul”** sau **„Folosește doar progresul din cont”** (protejează contul când te autentifici pe telefonul altcuiva).
+* **Deconectare:** se verifică întâi că nu există modificări netrimise (altfel avertisment, cu opțiunea de a sincroniza întâi); apoi datele de pe telefon se șterg și aplicația revine la modul fără cont, curată.
+* **Sesiune expirată sau server indisponibil:** studiul continuă local; în Setări apare „Autentifică-te din nou”, fără pierderea modificărilor din coadă.
+* **Import de backup când ești autentificat:** înlocuiește progresul și în cont, după o confirmare explicită. **Resetarea progresului** șterge și datele din cont. Celelalte dispozitive deja sincronizate primesc cardurile modificate, dar nu și ștergerea istoricului (jurnalul este doar-adăugare); pentru o curățare completă, un dispozitiv se deconectează și se reconectează cu „Folosește doar progresul din cont”.
+* **Ștergerea contului:** buton în Setări, cu confirmare; șterge contul și toate datele lui de pe server, iar telefonul revine la modul fără cont.
+* **În Setări, secțiunea „Cont”:** starea („Sincronizat acum 2 minute”, „3 modificări în așteptare”, „Offline”), „Sincronizează acum”, „Deconectează-te”, „Șterge contul”.
 ---
 
 ### 2. Cerințe Non-Funcționale & UI/UX Mobile-First
@@ -207,11 +223,11 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
   * Dicționarul este un JSON static versionat (`dataVersion`), inclus în build.
   * Progresul este stocat în IndexedDB (Dexie), indexat după `id`-ul cuvântului; la actualizarea dicționarului progresul existent se păstrează.
   * Se cere `navigator.storage.persist()` la prima utilizare.
-  * **Risc:** Safari iOS poate șterge datele site-urilor nefolosite 7 zile dacă aplicația nu este instalată pe ecranul principal → aplicația recomandă instalarea și amintește periodic de export.
+  * **Risc:** Safari iOS poate șterge datele site-urilor nefolosite 7 zile dacă aplicația nu este instalată pe ecranul principal → aplicația recomandă instalarea și amintește periodic de export. Cu cont (FR6.1), riscul dispare: progresul este și pe server.
 * **Dark Mode:** automat după setarea sistemului, cu posibilitate de suprascriere manuală.
 * **Accesibilitate:** respectarea `prefers-reduced-motion` (fără animația de rotire), etichete ARIA pe butoane, contrast WCAG AA.
 * **Performanță:** LCP < 1.5s pe un telefon Android de gamă medie, pe 4G; animațiile folosesc doar `transform` / `opacity` pentru 60 FPS.
-* **Confidențialitate:** fără conturi, fără tracking; toate datele rămân pe dispozitiv.
+* **Confidențialitate:** fără tracking; **contul este opțional**. Fără cont, toate datele rămân pe dispozitiv și aplicația nu face nicio cerere către server. Cu cont, progresul se sincronizează doar cu serverul propriu (PocketBase), nu cu servicii terțe.
 
 ---
 
@@ -312,4 +328,7 @@ Conținutul este partea cea mai costisitoare a proiectului și se tratează ca f
   * **Stare:** implementat — `spokenConjugation` (7 teste unitare, toate cazurile din FR2.4), 🔊 pe infinitiv și 🔊 / 🐢 după „Verifică” în sesiunea de conjugare, tabelele din pagina verbului cu tap pe rând și „▶ Ascultă tot / ■ Oprește” (rândul citit evidențiat; seria se oprește la părăsirea paginii). Teste E2E în `tests/e2e/conjugation-audio.spec.ts`, cu o voce simulată care redă frazele în ordine; axe trece pe pagina verbului și pe sesiunea de conjugare.
 * **Flux de conținut (paralel):** tranșe de ~100–200 de cuvinte până la 1000, fiecare trecută prin scriptul de validare.
   * **Stare:** **1665 de cuvinte** în 17 tranșe: 367 de verbe, 734 de substantive, 275 de adjective, 116 de adverbe, 68 de expresii și 105 cuvinte funcționale (23 de pronume, 22 de prepoziții, 17 conjuncții, 31 de numerale, 12 interjecții). Nivel estimat: 616 A1, 568 A2, 481 B1 (tranșele 15–17 acoperă cuvintele cotidiene din rangurile 1200–2200; au fost sărite intenționat cele despre violență, justiție și politică). Rangurile sunt calculate din listele de frecvență (FrequencyWords 70% + Leipzig 30%), nu estimate. Genul, pluralul, formele adjectivelor, participiile și auxiliarele provin din Wiktionary. Conjugările acoperă cele 367 de verbe la toate cele 7 timpuri (imperativo la 364, fără modale); verificarea față de Wiktionary compară 12845 forme cu **0 erori** (cele 587 de avertismente sunt variante alternative din Wiktionary pe care aplicația nu le acceptă încă). Toate cuvintele au tag-uri tematice, folosite ca punct de plecare pentru Teme (Faza 4). **Rămân:** restul cuvintelor B1 (rangurile 1200–2200 încă neacoperite) și tranșele B2.
-* **Ulterior (opțional):** sincronizare între dispozitive, optimizarea parametrilor FSRS pe datele proprii.
+* **Faza 6 — Conturi și sincronizare (3–4 zile):** serviciul PocketBase în `docker-compose`, accesibil prin nginx pe `/api/` (Traefik rămâne neschimbat), panoul de administrare doar prin tunel SSH; autentificare opțională din Setări; sincronizarea progresului (FR6.1) cu coadă locală, combinare fără conflicte și ștergeri marcate; alegerea la prima autentificare când există progres în ambele locuri; deconectare sigură; ștergerea contului.
+  * **Gata când:** fără cont aplicația nu face nicio cerere de rețea (verificat în E2E); două dispozitive (două contexte de browser) cu același cont ajung la același progres după repetiții făcute offline pe ambele; statisticile și streak-ul sunt identice pe ambele; deconectarea cu modificări netrimise avertizează; ștergerea contului elimină datele de pe server; testele unitare pentru combinare trec.
+  * **Stare:** implementat și testat — cont opțional din Setări (formular, alegerea combinării la prima autentificare, deconectare cu avertisment, ștergerea contului, „Sesiune expirată” cu reautentificare doar cu parola), sincronizare automată (la pornire, la reconectare, la 20 s după modificări, la trecerea în fundal) și manuală, PocketBase 0.40.5 în `docker-compose` în spatele nginx, migrări în git, limite de cereri și IP real al clientului. Dexie v2 (`updatedAt`, `uid`, marcaje `dirty`, `tombstones`) cu migrare testată. Teste: 21 de integrare cu două „dispozitive” (server în memorie), 15 unitare, 17 E2E cu PocketBase real (două contexte de browser = două telefoane, inclusiv offline, sesiune expirată, izolare între utilizatori și axe în ambele teme). Fără cont nu se încarcă niciun cod de sincronizare (verificat în E2E), iar pachetul principal nu a crescut. **Neverificat pe un server real cu Traefik:** stiva a fost testată prin nginx într-un compose izolat, nu în spatele Traefik-ului tău, iar workflow-ul GitHub care publică și imaginea PocketBase nu a rulat.
+* **Ulterior (opțional):** optimizarea parametrilor FSRS pe datele proprii.

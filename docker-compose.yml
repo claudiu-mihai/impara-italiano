@@ -12,3 +12,28 @@ services:
       - ALL
     security_opt:
       - no-new-privileges:true
+    depends_on:
+      pocketbase:
+        condition: service_started
+
+  # Serverul de conturi și sincronizare (opțional pentru utilizatori: aplicația merge și fără el).
+  # Nu este expus pe internet: nginx (serviciul `web`) îi trimite cererile spre /api/ pe rețeaua internă.
+  pocketbase:
+    build: ./pocketbase
+    image: impara-italiano-pocketbase:latest
+    restart: unless-stopped
+    read_only: true
+    volumes:
+      - pb_data:/pb/pb_data
+    tmpfs:
+      - /tmp
+    ports:
+      # doar pe loopback: panoul de administrare se deschide printr-un tunel SSH (vezi README)
+      - "127.0.0.1:48090:8090"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  pb_data:

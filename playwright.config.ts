@@ -10,10 +10,19 @@ export default defineConfig({
     trace: "retain-on-failure",
   },
   projects: [{ name: "mobile-chrome", use: { ...devices["Pixel 7"] } }],
-  webServer: {
-    command: "npm run build && npx vite preview --port 4173 --strictPort",
-    url: "http://localhost:4173",
-    reuseExistingServer: false,
-    timeout: 120_000,
-  },
+  webServer: [
+    // serverul de sincronizare (PocketBase), curat la fiecare rulare; /api/ al aplicației ajunge aici prin proxy-ul Vite
+    {
+      command: "node scripts/pocketbase/dev.ts",
+      url: "http://127.0.0.1:8090/api/health",
+      reuseExistingServer: false,
+      timeout: 120_000,
+    },
+    {
+      command: "npm run build && npx vite preview --port 4173 --strictPort",
+      url: "http://localhost:4173",
+      reuseExistingServer: false,
+      timeout: 120_000,
+    },
+  ],
 });

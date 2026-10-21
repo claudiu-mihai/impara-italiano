@@ -30,9 +30,14 @@ export default defineConfig({
       workbox: {
         globPatterns: ["**/*.{js,css,html,svg,png,ico,json,webmanifest}"],
         navigateFallback: "index.html",
+        // /api/ este serverul de sincronizare (PocketBase), nu o pagină a aplicației
+        navigateFallbackDenylist: [/^\/api\//],
       },
     }),
   ],
+  // în dezvoltare și la `vite preview`, /api/ merge la PocketBase (în producție îl trimite nginx)
+  server: { proxy: { "/api": process.env.POCKETBASE_URL ?? "http://127.0.0.1:8090" } },
+  preview: { proxy: { "/api": process.env.POCKETBASE_URL ?? "http://127.0.0.1:8090" } },
   test: {
     include: ["src/**/*.test.ts", "scripts/**/*.test.ts"],
   },

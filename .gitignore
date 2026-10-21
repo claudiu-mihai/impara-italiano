@@ -20,3 +20,6 @@ playwright-report/
 
 # mediu Python pentru scripturile de frecvență
 .venv/
+
+# binarul și datele PocketBase de dezvoltare (npm run pocketbase)
+.pocketbase/

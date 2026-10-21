@@ -2,6 +2,9 @@ import { z } from "zod";
 import { DEFAULT_SETTINGS, type Settings } from "../../domain/settings.ts";
 import type { ReviewLogEntry, StoredCard } from "../../domain/srs/types.ts";
 import type { ImparaDb, ReportRow } from "../db/db.ts";
+import { getSettings, syncUserOf } from "../db/repositories.ts";
+import { newUid } from "../../domain/sync/serialize.ts";
+import { notifyLocalChange } from "../sync/signal.ts";
 
 export const BACKUP_FORMAT = "impara-backup";
 export const BACKUP_VERSION = 1;
@@ -10,7 +13,7 @@ export const BACKUP_VERSION = 1;
 const date = z.coerce.date();
 const int = z.number().int();
 
-const cardSchema = z.object({
+export const cardSchema = z.object({
   cardId: z.string(),
   wordId: z.string(),
   kind: z.enum(["vocab", "conj", "skill"]),
@@ -28,7 +31,7 @@ const cardSchema = z.object({
   last_review: date.optional(),
 });
 
-const reviewLogSchema = z.object({
+export const reviewLogSchema = z.object({
   id: int.optional(),
   cardId: z.string(),
   rating: int.min(1).max(4),
@@ -50,7 +53,7 @@ const reviewLogSchema = z.object({
   }),
 });
 
-const settingsSchema = z.object({
+export const settingsSchema = z.object({
   level: z.enum(["A1", "A2", "B1", "B2", "C1", "C2"]),
   newPerDay: int.min(0).max(200),
   newConjPerDay: int.min(0).max(50),
@@ -64,7 +67,7 @@ const settingsSchema = z.object({
   soundEnabled: z.boolean(),
 });
 
-const reportSchema = z.object({
+export const reportSchema = z.object({
   id: int.optional(),
   wordId: z.string(),
   createdAt: date,
@@ -95,23 +98,23 @@ export interface Backup {
 }
 
 export async function exportBackup(db: ImparaDb, dataVersion: string, now: Date): Promise<Backup> {
-  const [cards, reviewLog, settingsRow, reports] = await Promise.all([
+  const [cards, reviewLog, settings, reports] = await Promise.all([
     db.cards.toArray(),
     db.reviewLog.toArray(),
-    db.settings.get("app"),
+    getSettings(db),
     db.reports.toArray(),
   ]);
-  const { key: _key, ...savedSettings } = settingsRow ?? { key: "app" as const };
   await db.meta.put({ key: "lastExportAt", value: now.toISOString() });
+  // metadatele de sincronizare (updatedAt, uid, dirty) nu fac parte din backup: se regenerează la import
   return {
     format: BACKUP_FORMAT,
     version: BACKUP_VERSION,
     exportedAt: now,
     dataVersion,
-    cards,
-    reviewLog,
-    settings: { ...DEFAULT_SETTINGS, ...savedSettings },
-    reports,
+    cards: cards.map(({ updatedAt: _u, dirty: _d, ...card }) => card),
+    reviewLog: reviewLog.map(({ uid: _uid, dirty: _d, ...entry }) => entry),
+    settings,
+    reports: reports.map(({ uid: _uid, dirty: _d, ...report }) => report),
   };
 }
 
@@ -142,20 +145,27 @@ export function parseBackup(json: string): Backup {
   return { ...rest, settings: { ...DEFAULT_SETTINGS, ...settings } } as Backup;
 }
 
-/** Înlocuiește tot progresul cu cel din backup, într-o singură tranzacție. */
-export async function importBackup(db: ImparaDb, backup: Backup): Promise<void> {
-  await db.transaction("rw", [db.cards, db.reviewLog, db.settings, db.reports], async () => {
-    await Promise.all([db.cards.clear(), db.reviewLog.clear(), db.reports.clear()]);
-    await db.cards.bulkAdd(backup.cards);
-    await db.reviewLog.bulkAdd(backup.reviewLog);
-    await db.reports.bulkAdd(backup.reports);
-    await db.settings.put({ ...backup.settings, key: "app" });
+/**
+ * Înlocuiește tot progresul cu cel din backup, într-o singură tranzacție. Tot ce intră este marcat „netrimis”,
+ * iar cu cont se cere înlocuirea completă pe server (progresul din cont devine exact cel din backup).
+ */
+export async function importBackup(db: ImparaDb, backup: Backup, now: Date = new Date()): Promise<void> {
+  await db.transaction("rw", [db.cards, db.reviewLog, db.settings, db.reports, db.tombstones, db.meta], async () => {
+    await Promise.all([db.cards.clear(), db.reviewLog.clear(), db.reports.clear(), db.tombstones.clear()]);
+    await db.cards.bulkAdd(backup.cards.map((card) => ({ ...card, updatedAt: now.getTime(), dirty: 1 as const })));
+    await db.reviewLog.bulkAdd(backup.reviewLog.map((entry) => ({ ...entry, uid: newUid(), dirty: 1 as const })));
+    await db.reports.bulkAdd(backup.reports.map((report) => ({ ...report, uid: newUid(), dirty: 1 as const })));
+    await db.settings.put({ ...backup.settings, key: "app", updatedAt: now.getTime(), dirty: 1 });
+    if (await syncUserOf(db)) await db.meta.put({ key: "syncReplace", value: true });
   });
+  notifyLocalChange();
 }
 
-/** Șterge tot progresul (carduri, jurnal, semnalări); setările rămân. */
+/** Șterge tot progresul (carduri, jurnal, semnalări); setările rămân. Cu cont, se șterge și din cont. */
 export async function resetProgress(db: ImparaDb): Promise<void> {
-  await db.transaction("rw", [db.cards, db.reviewLog, db.reports], async () => {
-    await Promise.all([db.cards.clear(), db.reviewLog.clear(), db.reports.clear()]);
+  await db.transaction("rw", [db.cards, db.reviewLog, db.reports, db.tombstones, db.meta], async () => {
+    await Promise.all([db.cards.clear(), db.reviewLog.clear(), db.reports.clear(), db.tombstones.clear()]);
+    if (await syncUserOf(db)) await db.meta.put({ key: "syncReplace", value: true });
   });
+  notifyLocalChange();
 }

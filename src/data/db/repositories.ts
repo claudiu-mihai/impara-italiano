@@ -3,7 +3,9 @@ import { DEFAULT_SETTINGS, type Settings } from "../../domain/settings.ts";
 import { Rating } from "ts-fsrs";
 import { newStoredCard, reviewStoredCard } from "../../domain/srs/scheduler.ts";
 import { vocabCardId, type Direction, type ReviewSource, type StoredCard } from "../../domain/srs/types.ts";
+import { newUid } from "../../domain/sync/serialize.ts";
 import { studyDayOf } from "../../domain/time/studyDay.ts";
+import { notifyLocalChange } from "../sync/signal.ts";
 import type { ImparaDb } from "./db.ts";
 
 export interface SaveReviewOptions {
@@ -19,9 +21,12 @@ export async function saveReview(
   log: ReviewLog,
   { source, now, durationMs }: SaveReviewOptions,
 ): Promise<void> {
-  await db.transaction("rw", db.cards, db.reviewLog, async () => {
-    await db.cards.put(card);
+  await db.transaction("rw", db.cards, db.reviewLog, db.tombstones, async () => {
+    await db.cards.put({ ...card, updatedAt: now.getTime(), dirty: 1 });
+    // un card învățat din nou după o ștergere nu mai are nevoie de ștergerea marcată
+    await db.tombstones.delete(card.cardId);
     await db.reviewLog.add({
+      uid: newUid(),
       cardId: card.cardId,
       rating: log.rating,
       reviewedAt: now,
@@ -29,8 +34,10 @@ export async function saveReview(
       source,
       durationMs,
       fsrs: log,
+      dirty: 1,
     });
   });
+  notifyLocalChange();
 }
 
 export function countReviewsOn(db: ImparaDb, studyDay: string): Promise<number> {
@@ -40,13 +47,14 @@ export function countReviewsOn(db: ImparaDb, studyDay: string): Promise<number> 
 export async function getSettings(db: ImparaDb): Promise<Settings> {
   const row = await db.settings.get("app");
   if (!row) return DEFAULT_SETTINGS;
-  const { key: _key, ...saved } = row;
+  const { key: _key, updatedAt: _updatedAt, dirty: _dirty, ...saved } = row;
   // Câmpurile adăugate ulterior primesc valoarea implicită.
   return { ...DEFAULT_SETTINGS, ...saved };
 }
 
 export async function saveSettings(db: ImparaDb, settings: Settings): Promise<void> {
-  await db.settings.put({ ...settings, key: "app" });
+  await db.settings.put({ ...settings, key: "app", updatedAt: Date.now(), dirty: 1 });
+  notifyLocalChange();
 }
 
 /** `introducedOn` pentru cuvintele marcate „Știu deja”: nu consumă limita de cuvinte noi a zilei. */
@@ -59,17 +67,34 @@ export const KNOWN_MARKER = "known";
  */
 export async function markWordKnown(db: ImparaDb, wordId: string, now: Date, retention: number): Promise<void> {
   const directions: Direction[] = ["it-ro", "ro-it"];
-  await db.transaction("rw", db.cards, async () => {
+  await db.transaction("rw", db.cards, db.tombstones, async () => {
     for (const direction of directions) {
       const cardId = vocabCardId(wordId, direction);
       if (await db.cards.get(cardId)) continue;
       const fresh = newStoredCard({ cardId, wordId, kind: "vocab", variant: direction }, now, KNOWN_MARKER);
-      await db.cards.put(reviewStoredCard(fresh, Rating.Easy, now, retention).card);
+      await db.cards.put({ ...reviewStoredCard(fresh, Rating.Easy, now, retention).card, updatedAt: now.getTime(), dirty: 1 });
+      await db.tombstones.delete(cardId);
     }
   });
+  notifyLocalChange();
 }
 
-/** Șterge tot progresul unui cuvânt (carduri de vocabular și de conjugare); jurnalul rămâne. */
-export async function forgetWord(db: ImparaDb, wordId: string): Promise<void> {
-  await db.cards.where("wordId").equals(wordId).delete();
+/** Contul sincronizat pe acest dispozitiv (id-ul utilizatorului), sau undefined fără cont. */
+export async function syncUserOf(db: ImparaDb): Promise<string | undefined> {
+  return (await db.meta.get("syncUserId"))?.value as string | undefined;
+}
+
+/**
+ * Șterge tot progresul unui cuvânt (carduri de vocabular și de conjugare); jurnalul rămâne.
+ * Cu cont, ștergerea se marchează (tombstone), ca să ajungă și pe server și pe celelalte dispozitive.
+ */
+export async function forgetWord(db: ImparaDb, wordId: string, now: Date = new Date()): Promise<void> {
+  await db.transaction("rw", db.cards, db.tombstones, db.meta, async () => {
+    const cards = await db.cards.where("wordId").equals(wordId).toArray();
+    await db.cards.bulkDelete(cards.map((c) => c.cardId));
+    if (await syncUserOf(db)) {
+      await db.tombstones.bulkPut(cards.map((c) => ({ cardId: c.cardId, deletedAt: now.getTime() })));
+    }
+  });
+  notifyLocalChange();
 }
