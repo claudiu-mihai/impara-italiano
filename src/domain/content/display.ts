@@ -91,6 +91,14 @@ export const EXERCISE_LABEL: Record<TopicExercise, string> = {
   cat: "Unde e pisica?",
 };
 
+export const EXERCISE_ICON: Record<TopicExercise, string> = {
+  match: "🧩",
+  order: "🔢",
+  numbers: "🎧",
+  clock: "🕒",
+  cat: "🐱",
+};
+
 export const LEVEL_LABEL: Record<Mastery, string> = {
   new: "Nou",
   learning: "În învățare",

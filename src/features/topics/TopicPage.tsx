@@ -3,14 +3,16 @@ import { Link, useParams } from "react-router-dom";
 import { useContent } from "../../app/content.tsx";
 import { useTopics } from "../../app/topics.ts";
 import { db } from "../../data/db/instance.ts";
-import { EXERCISE_LABEL, italianText } from "../../domain/content/display.ts";
+import { EXERCISE_ICON, EXERCISE_LABEL, italianText } from "../../domain/content/display.ts";
 import { topicProgress } from "../../domain/topics/topics.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
-import { primaryButton } from "../../ui/SessionDone.tsx";
 
-const secondaryButton =
-  "flex min-h-14 items-center justify-center rounded-xl border-2 border-brand px-6 text-lg font-semibold text-brand-fg active:bg-slate-100 dark:active:bg-slate-800";
+// Toate acțiunile (Studiază, Quiz, exerciții) stau într-o grilă cu două coloane: padding mic, ca să încapă pe ecrane înguste.
+// Studiază și Quiz stau pe un rând; exercițiile, cu etichete mai lungi, ocupă fiecare toată lățimea.
+const action = "flex min-h-14 min-w-0 items-center justify-center gap-2 rounded-xl px-3 text-center font-semibold";
+const filled = `${action} bg-brand text-lg text-white active:bg-brand-dark`;
+const outlined = `${action} border-2 border-brand text-brand-fg active:bg-slate-100 dark:active:bg-slate-800`;
 
 export function TopicPage() {
   const { id = "" } = useParams();
@@ -50,26 +52,6 @@ export function TopicPage() {
         </p>
       </header>
 
-      <section aria-labelledby="rules" className="rounded-2xl bg-amber-50 p-5 text-amber-950 dark:bg-amber-950 dark:text-amber-50">
-        <h2 id="rules" className="text-sm font-semibold uppercase tracking-wide">
-          De reținut
-        </h2>
-        <ul className="mt-2 flex list-disc flex-col gap-2 pl-5">
-          {topic.rules.map((rule) => (
-            <li key={rule}>{rule}</li>
-          ))}
-        </ul>
-      </section>
-
-      <div className="grid grid-cols-2 gap-3">
-        <Link to={`/learn/topics/${topic.id}/flashcards`} className={primaryButton}>
-          Studiază tema
-        </Link>
-        <Link to={`/learn/topics/${topic.id}/quiz`} className={secondaryButton}>
-          Quiz
-        </Link>
-      </div>
-
       {topic.subgroups.map((sub) => (
         <section key={sub.title} aria-label={sub.title} className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
           <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">{sub.title}</h2>
@@ -92,18 +74,33 @@ export function TopicPage() {
         </section>
       ))}
 
-      {topic.exercises.length > 0 && (
-        <section aria-labelledby="exercises" className="flex flex-col gap-3">
-          <h2 id="exercises" className="text-sm font-semibold uppercase tracking-wide text-muted">
-            Exerciții
-          </h2>
-          {topic.exercises.map((exercise) => (
-            <Link key={exercise} to={`/learn/topics/${topic.id}/${exercise}`} className={secondaryButton}>
-              {EXERCISE_LABEL[exercise]}
-            </Link>
+      <section aria-labelledby="rules" className="rounded-2xl bg-amber-50 p-5 text-amber-950 dark:bg-amber-950 dark:text-amber-50">
+        <h2 id="rules" className="text-sm font-semibold uppercase tracking-wide">
+          De reținut
+        </h2>
+        <ul className="mt-2 flex list-disc flex-col gap-2 pl-5">
+          {topic.rules.map((rule) => (
+            <li key={rule}>{rule}</li>
           ))}
-        </section>
-      )}
+        </ul>
+      </section>
+
+      <div className="grid grid-cols-2 gap-3" data-testid="topic-actions">
+        <Link to={`/learn/topics/${topic.id}/flashcards`} className={`${filled} whitespace-nowrap`}>
+          <span aria-hidden="true">📖</span>
+          Studiază
+        </Link>
+        <Link to={`/learn/topics/${topic.id}/quiz`} className={`${outlined} whitespace-nowrap text-lg`}>
+          <span aria-hidden="true">❓</span>
+          Quiz
+        </Link>
+        {topic.exercises.map((exercise) => (
+          <Link key={exercise} to={`/learn/topics/${topic.id}/${exercise}`} className={`${outlined} col-span-2 text-lg`}>
+            <span aria-hidden="true">{EXERCISE_ICON[exercise]}</span>
+            {EXERCISE_LABEL[exercise]}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

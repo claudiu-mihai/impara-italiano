@@ -72,7 +72,7 @@ test("Studiază tema: doar cuvintele temei, progres comun cu restul aplicației"
   const allowed = new Set(wordIdsOf(t).map((id) => italian(byId(id))));
 
   await page.goto(`/learn/topics/${t.id}`);
-  await page.getByRole("link", { name: "Studiază tema" }).click();
+  await page.getByRole("link", { name: "Studiază", exact: true }).click();
   await expect(page.getByTestId("card-front")).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Navigare principală" })).toHaveCount(0);
 
