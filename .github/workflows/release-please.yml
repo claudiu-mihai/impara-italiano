@@ -1,0 +1,26 @@
+name: Release
+
+# Versionare semantică: din commit-urile în format conventional (feat:, fix:, feat!: …) de pe main, release-please
+# ține deschis un PR „release” cu versiunea următoare și CHANGELOG-ul. Când PR-ul se îmbină, se creează tag-ul
+# vX.Y.Z și release-ul GitHub, iar docker-publish.yml publică imaginile cu acel tag.
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      # Un token personal (secretul RELEASE_PLEASE_TOKEN) face ca tag-ul creat să pornească workflow-ul de publicare
+      # a imaginilor: tag-urile create cu GITHUB_TOKEN nu declanșează alte workflow-uri. Fără secret merge cu
+      # GITHUB_TOKEN, dar imaginile cu tag semantic trebuie atunci publicate manual (vezi README).
+      - uses: googleapis/release-please-action@v4
+        with:
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN || secrets.GITHUB_TOKEN }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json

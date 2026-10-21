@@ -1,0 +1,64 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "bootstrap-sha": "30958cab81534379ae49ce8d292d8e8bf0934d22",
+  "packages": {
+    ".": {
+      "release-type": "node",
+      "package-name": "impara-italiano",
+      "include-v-in-tag": true,
+      "changelog-path": "CHANGELOG.md",
+      "changelog-sections": [
+        {
+          "type": "feat",
+          "section": "Funcționalități"
+        },
+        {
+          "type": "fix",
+          "section": "Corecturi"
+        },
+        {
+          "type": "perf",
+          "section": "Performanță"
+        },
+        {
+          "type": "revert",
+          "section": "Anulări"
+        },
+        {
+          "type": "docs",
+          "section": "Documentație"
+        },
+        {
+          "type": "refactor",
+          "section": "Refactorizări",
+          "hidden": true
+        },
+        {
+          "type": "test",
+          "section": "Teste",
+          "hidden": true
+        },
+        {
+          "type": "build",
+          "section": "Build",
+          "hidden": true
+        },
+        {
+          "type": "ci",
+          "section": "CI",
+          "hidden": true
+        },
+        {
+          "type": "chore",
+          "section": "Diverse",
+          "hidden": true
+        },
+        {
+          "type": "style",
+          "section": "Stil",
+          "hidden": true
+        }
+      ]
+    }
+  }
+}

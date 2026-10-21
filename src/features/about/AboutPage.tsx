@@ -1,4 +1,5 @@
 import { useContent } from "../../app/content.tsx";
+import { APP_VERSION } from "../../app/version.ts";
 
 export function AboutPage() {
   const { meta } = useContent();
@@ -6,6 +7,13 @@ export function AboutPage() {
   return (
     <div className="flex flex-col gap-5 px-4 pb-8 pt-8">
       <h1 className="text-2xl font-bold">Despre</h1>
+
+      <section className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
+        <h2 className="font-semibold">Aplicație</h2>
+        <p className="mt-2 text-slate-600 dark:text-slate-300">
+          Impara l&apos;Italiano · versiune <span data-testid="app-version">{APP_VERSION}</span>
+        </p>
+      </section>
 
       <section className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
         <h2 className="font-semibold">Date</h2>

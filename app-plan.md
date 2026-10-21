@@ -17,6 +17,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 | Conținut | Dicționar, exemple și conjugări **pre-generate** și incluse în aplicație; nicio cerere de rețea pentru date |
 | Surse de frecvență | **FrequencyWords** (sursă principală, italiană vorbită) + **Leipzig Corpora Collection** (italiană scrisă) + **Wiktionary** (verificare); vezi §4 |
 | Audio | Web Speech API (`it-IT`) cu vocile din sistem (macOS, iOS, Android, Windows); vocile de rețea doar online (vezi FR4) |
+| Versionare | **Semantică** (SemVer, `MAJOR.MINOR.PATCH`), pornită de la 1.0.0; release-uri automate cu **release-please** din commit-urile conventional (`feat:`, `fix:`, `!`); CHANGELOG generat; versiunea apare în ecranul „Despre”; vezi README |
 | Backend / sincronizare | **Opțional** (Faza 6): cont pe un server propriu **PocketBase** (SQLite), în spatele nginx și Traefik; fără cont, totul rămâne local, ca în versiunea 1. Backup prin export/import JSON în ambele moduri |
 
 ---
