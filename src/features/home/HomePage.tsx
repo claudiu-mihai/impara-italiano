@@ -18,6 +18,8 @@ export function HomePage() {
   const cards = useLiveQuery(() => db.cards.toArray(), []);
   const stats = useLiveQuery(() => loadStats(db, content, 7), [content]);
   const lastExport = useLiveQuery(async () => (await db.meta.get("lastExportAt"))?.value as string | undefined, []);
+  // `undefined` până se citește; reamintirea se arată doar când se știe sigur că nu există cont
+  const signedIn = useLiveQuery(async () => (await db.meta.get("syncUserId")) !== undefined, []);
 
   const topics = useTopics();
   const dueSkills = topics && cards ? dueSkillTopics(topics, cards, new Date()) : [];
@@ -39,9 +41,10 @@ export function HomePage() {
     if (next) await saveSettings(db, { ...(await getSettings(db)), level: next });
   };
 
-  // Amintește de backup dacă există progres și nu s-a făcut niciun backup recent.
+  // Amintește de backup dacă există progres, nu s-a făcut niciun backup recent și progresul nu se sincronizează
+  // cu un cont (cu cont, progresul este și pe server, deci un backup nu mai este necesar).
   const daysSinceExport = lastExport ? (Date.now() - new Date(lastExport).getTime()) / 86_400_000 : Infinity;
-  const needsBackup = (cards?.length ?? 0) > 0 && daysSinceExport > BACKUP_REMINDER_DAYS;
+  const needsBackup = signedIn === false && (cards?.length ?? 0) > 0 && daysSinceExport > BACKUP_REMINDER_DAYS;
 
   return (
     <div className="flex flex-1 flex-col gap-6 px-4 pb-6 pt-8">

@@ -224,7 +224,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
   * Dicționarul este un JSON static versionat (`dataVersion`), inclus în build.
   * Progresul este stocat în IndexedDB (Dexie), indexat după `id`-ul cuvântului; la actualizarea dicționarului progresul existent se păstrează.
   * Se cere `navigator.storage.persist()` la prima utilizare.
-  * **Risc:** Safari iOS poate șterge datele site-urilor nefolosite 7 zile dacă aplicația nu este instalată pe ecranul principal → aplicația recomandă instalarea și amintește periodic de export. Cu cont (FR6.1), riscul dispare: progresul este și pe server.
+  * **Risc:** Safari iOS poate șterge datele site-urilor nefolosite 7 zile dacă aplicația nu este instalată pe ecranul principal → aplicația recomandă instalarea și amintește periodic de export (pe prima pagină, doar fără cont). Cu cont (FR6.1), riscul dispare: progresul este și pe server.
 * **Dark Mode:** automat după setarea sistemului, cu posibilitate de suprascriere manuală.
 * **Accesibilitate:** respectarea `prefers-reduced-motion` (fără animația de rotire), etichete ARIA pe butoane, contrast WCAG AA.
 * **Performanță:** LCP < 1.5s pe un telefon Android de gamă medie, pe 4G; animațiile folosesc doar `transform` / `opacity` pentru 60 FPS.
