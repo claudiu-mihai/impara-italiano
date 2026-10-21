@@ -1,0 +1,33 @@
+{
+  "id": "avere",
+  "order": 3,
+  "title": "Verbul „a avea” (avere)",
+  "level": "A1",
+  "rules": [
+    "Forme: io ho, tu hai, lui/lei ha, noi abbiamo, voi avete, loro hanno (am, ai, are, avem, aveți, au).",
+    "Ha cu h este verbul avere; a fără h este prepoziție: Lei ha un cane. Vado a Roma.",
+    "Foamea, setea, frigul, somnul și vârsta se spun cu avere: ho fame (mi-e foame), ho freddo (mi-e frig), ho 20 anni (am 20 de ani)."
+  ],
+  "items": [
+    { "id": "avr-01", "it": "Io ho un fratello.", "gap": "ho", "ro": "Am un frate." },
+    { "id": "avr-02", "it": "Tu hai un cane?", "gap": "hai", "ro": "Ai un câine?" },
+    { "id": "avr-03", "it": "Lei ha una macchina.", "gap": "ha", "ro": "Ea are o mașină." },
+    { "id": "avr-04", "it": "Noi abbiamo fame.", "gap": "abbiamo", "ro": "Avem foame." },
+    { "id": "avr-05", "it": "Voi avete ragione.", "gap": "avete", "ro": "Aveți dreptate." },
+    { "id": "avr-06", "it": "Loro hanno due figli.", "gap": "hanno", "ro": "Ei au doi copii." },
+    { "id": "avr-07", "it": "Io ho sete.", "gap": "ho", "ro": "Mi-e sete.", "note": "în italiană: avere, nu essere" },
+    { "id": "avr-08", "it": "Io ho freddo.", "gap": "ho", "ro": "Mi-e frig.", "note": "în italiană: avere, nu essere" },
+    { "id": "avr-09", "it": "Tu hai sonno?", "gap": "hai", "ro": "Ți-e somn?", "note": "în italiană: avere, nu essere" },
+    { "id": "avr-10", "it": "Lui ha vent'anni.", "gap": "ha", "ro": "El are douăzeci de ani.", "note": "vârsta se spune cu avere" },
+    { "id": "avr-11", "it": "Noi abbiamo una casa a Roma.", "gap": "abbiamo", "ro": "Avem o casă la Roma." },
+    { "id": "avr-12", "it": "Loro hanno una bella casa.", "gap": "hanno", "ro": "Ei au o casă frumoasă." },
+    { "id": "avr-13", "it": "Io ho un'idea.", "gap": "ho", "ro": "Am o idee." },
+    { "id": "avr-14", "it": "Quanti anni hai?", "gap": "hai", "ro": "Câți ani ai?" },
+    { "id": "avr-15", "it": "Non ho tempo.", "gap": "ho", "ro": "Nu am timp." },
+    { "id": "avr-16", "it": "Avete un telefono?", "gap": "Avete", "ro": "Aveți un telefon?" },
+    { "id": "avr-17", "it": "Mia sorella ha i capelli lunghi.", "gap": "ha", "ro": "Sora mea are părul lung." },
+    { "id": "avr-18", "it": "Ho la febbre.", "gap": "Ho", "ro": "Am febră." },
+    { "id": "avr-19", "it": "Abbiamo ragione.", "gap": "Abbiamo", "ro": "Avem dreptate." },
+    { "id": "avr-20", "it": "Io ho fame.", "gap": "ho", "ro": "Mi-e foame.", "note": "în italiană: avere, nu essere" }
+  ]
+}

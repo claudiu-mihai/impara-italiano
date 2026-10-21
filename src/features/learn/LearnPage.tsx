@@ -88,6 +88,10 @@ export function LearnPage() {
         Zile, luni, numere, ora, direcții, culori, saluturi
       </Tile>
 
+      <Tile to="/learn/games" emoji="🎲" title="Jocuri">
+        Gramatică: articole, verbele essere și avere
+      </Tile>
+
       <Tile to="/quiz" emoji="❓" title="Quiz" disabled={quiz !== undefined && quiz.questions.length === 0}>
         {quiz
           ? quiz.questions.length > 0

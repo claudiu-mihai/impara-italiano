@@ -28,7 +28,7 @@ const SOURCES = [
   },
 ];
 
-const { words, conjugations, sentences, topics, rankBasis, explicitPresenteCount, errors } = loadContent();
+const { words, conjugations, sentences, topics, grammar, rankBasis, explicitPresenteCount, errors } = loadContent();
 
 if (errors.length > 0) {
   console.error(`Conținut invalid: ${errors.length} erori`);
@@ -60,6 +60,7 @@ const conjugationsJson = `{\n${Object.entries(conjugations)
 const sentencesJson = `[\n${sentences.map((s) => `  ${JSON.stringify(s)}`).join(",\n")}\n]\n`;
 
 const topicsJson = `${JSON.stringify(topics, null, 1)}\n`;
+const grammarJson = `${JSON.stringify(grammar, null, 1)}\n`;
 
 const dataVersion = createHash("sha256")
   .update(wordsJson)
@@ -67,6 +68,7 @@ const dataVersion = createHash("sha256")
   .update(conjugationsJson)
   .update(sentencesJson)
   .update(topicsJson)
+  .update(grammarJson)
   .digest("hex")
   .slice(0, 12);
 
@@ -85,9 +87,10 @@ writeFileSync(resolve(OUT_DIR, "details.json"), detailsJson);
 writeFileSync(resolve(OUT_DIR, "conjugations.json"), conjugationsJson);
 writeFileSync(resolve(OUT_DIR, "sentences.json"), sentencesJson);
 writeFileSync(resolve(OUT_DIR, "topics.json"), topicsJson);
+writeFileSync(resolve(OUT_DIR, "grammar.json"), grammarJson);
 writeFileSync(resolve(OUT_DIR, "meta.json"), `${JSON.stringify(meta, null, 2)}\n`);
 
 console.log(
-  `Date generate: ${words.length} cuvinte, ${Object.keys(conjugations).length} verbe conjugate, ${sentences.length} propoziții, ${topics.length} teme ` +
+  `Date generate: ${words.length} cuvinte, ${Object.keys(conjugations).length} verbe conjugate, ${sentences.length} propoziții, ${topics.length} teme, ${grammar.length} teme de gramatică ` +
     `(${explicitPresenteCount} presente din irregular.json), versiune ${dataVersion} → ${OUT_DIR}`,
 );

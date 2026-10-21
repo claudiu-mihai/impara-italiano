@@ -1,0 +1,38 @@
+{
+  "id": "essere",
+  "order": 2,
+  "title": "Verbul „a fi” (essere)",
+  "level": "A1",
+  "rules": [
+    "Forme: io sono, tu sei, lui/lei è, noi siamo, voi siete, loro sono (sunt, ești, este, suntem, sunteți, sunt).",
+    "Se folosește pentru identitate, origine și stare: Sono italiano. Sono stanco.",
+    "Profesia și naționalitatea se spun fără articol: Sono medico. Sono italiana.",
+    "Nu confunda è (este, cu accent grav) cu e (și, fără accent): Anna e Marco sono amici."
+  ],
+  "items": [
+    { "id": "ess-01", "it": "Io sono italiano.", "gap": "sono", "ro": "Eu sunt italian." },
+    { "id": "ess-02", "it": "Tu sei stanco.", "gap": "sei", "ro": "Tu ești obosit." },
+    { "id": "ess-03", "it": "Lui è medico.", "gap": "è", "ro": "El este medic.", "note": "fără articol înaintea profesiei" },
+    { "id": "ess-04", "it": "Lei è simpatica.", "gap": "è", "ro": "Ea este simpatică." },
+    { "id": "ess-05", "it": "Noi siamo amici.", "gap": "siamo", "ro": "Suntem prieteni." },
+    { "id": "ess-06", "it": "Voi siete in ritardo.", "gap": "siete", "ro": "Sunteți întârziați." },
+    { "id": "ess-07", "it": "Loro sono di Roma.", "gap": "sono", "ro": "Ei sunt din Roma." },
+    { "id": "ess-08", "it": "Dove sei?", "gap": "sei", "ro": "Unde ești?" },
+    { "id": "ess-09", "it": "Non sono stanco.", "gap": "sono", "ro": "Nu sunt obosit." },
+    { "id": "ess-10", "it": "Maria è professoressa.", "gap": "è", "ro": "Maria este profesoară." },
+    { "id": "ess-11", "it": "Anna e Marco sono amici.", "gap": "sono", "ro": "Anna și Marco sunt prieteni.", "note": "e înseamnă «și», fără accent" },
+    { "id": "ess-12", "it": "Mio padre è alto.", "gap": "è", "ro": "Tatăl meu este înalt." },
+    { "id": "ess-13", "it": "Questi libri sono nuovi.", "gap": "sono", "ro": "Cărțile acestea sunt noi." },
+    { "id": "ess-14", "it": "Il caffè è caldo.", "gap": "è", "ro": "Cafeaua este caldă." },
+    { "id": "ess-15", "it": "Noi siamo a Roma.", "gap": "siamo", "ro": "Suntem la Roma." },
+    { "id": "ess-16", "it": "Siete pronti?", "gap": "Siete", "ro": "Sunteți pregătiți?" },
+    { "id": "ess-17", "it": "Tu sei italiana?", "gap": "sei", "ro": "Ești italiană?" },
+    { "id": "ess-18", "it": "Lui è di Milano.", "gap": "è", "ro": "El este din Milano." },
+    { "id": "ess-19", "it": "È tardi.", "gap": "È", "ro": "Este târziu.", "note": "cu accent grav, «este»" },
+    { "id": "ess-20", "it": "Loro sono studenti.", "gap": "sono", "ro": "Ei sunt studenți." },
+    { "id": "ess-21", "it": "Io sono felice.", "gap": "sono", "ro": "Eu sunt fericit." },
+    { "id": "ess-22", "it": "Lei è mia madre.", "gap": "è", "ro": "Ea este mama mea." },
+    { "id": "ess-23", "it": "Siamo in ritardo.", "gap": "Siamo", "ro": "Suntem întârziați." },
+    { "id": "ess-24", "it": "Le chiavi sono sul tavolo.", "gap": "sono", "ro": "Cheile sunt pe masă." }
+  ]
+}
