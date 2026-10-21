@@ -33,6 +33,16 @@ async function createUser(request: APIRequestContext) {
   return { email, id: ((await response.json()) as { id: string }).id };
 }
 
+/** Conturile de pe server cu acest email (admin). */
+async function serverUsers(request: APIRequestContext, email: string) {
+  const response = await request.get(`${PB}/collections/users/records`, {
+    headers: await adminHeaders(request),
+    params: { filter: `email = "${email}"` },
+  });
+  expect(response.ok()).toBe(true);
+  return ((await response.json()) as { items: { id: string; email: string }[] }).items;
+}
+
 /** Ce are serverul pentru un utilizator, într-o colecție. */
 async function serverRecords(request: APIRequestContext, collection: string, userId: string) {
   const response = await request.get(`${PB}/collections/${collection}/records`, {
@@ -75,8 +85,25 @@ async function openAccount(page: Page) {
 
 async function signIn(page: Page, email: string, password = PASSWORD) {
   await page.getByLabel("Email").fill(email);
-  await page.getByLabel("Parola").fill(password);
+  await page.getByLabel("Parola", { exact: true }).fill(password);
   await page.getByRole("button", { name: "Autentifică-te" }).click();
+}
+
+/** Creează un cont nou din formularul din Setări. */
+async function register(page: Page, email: string, password = PASSWORD, confirm = password) {
+  await page.getByRole("button", { name: "Cont nou" }).click();
+  await page.getByLabel("Email").fill(email);
+  await page.getByLabel("Parola", { exact: true }).fill(password);
+  await page.getByLabel("Confirmă parola").fill(confirm);
+  await page.getByRole("button", { name: "Creează cont" }).click();
+}
+
+/** Deschide panoul de ștergere a contului și introduce parola. */
+async function confirmDeleteWith(page: Page, password: string) {
+  await page.getByRole("button", { name: "Șterge contul" }).click();
+  await expect(page.getByRole("form", { name: "Confirmă ștergerea contului" })).toBeVisible();
+  await page.getByLabel("Parola pentru confirmare").fill(password);
+  await page.getByRole("button", { name: "Confirmă ștergerea" }).click();
 }
 
 const status = (page: Page) => page.getByTestId("sync-status");
@@ -103,11 +130,80 @@ test("fără cont aplicația nu face nicio cerere către server", async ({ page 
   expect(calls).toEqual([]);
 });
 
-test("conturile nu se pot crea din aplicație: înregistrarea publică este închisă", async ({ request }) => {
-  const response = await request.post(`${PB}/collections/users/records`, {
+test("oricine poate crea un cont, dar nu unul „verificat” și nu cu un id ales", async ({ request }) => {
+  const ok = await request.post(`${PB}/collections/users/records`, {
     data: { email: uniqueEmail(), password: PASSWORD, passwordConfirm: PASSWORD },
   });
-  expect(response.status()).toBe(403);
+  expect(ok.ok()).toBe(true);
+  expect(((await ok.json()) as { verified: boolean }).verified).toBe(false);
+
+  const forged = await request.post(`${PB}/collections/users/records`, {
+    data: { email: uniqueEmail(), password: PASSWORD, passwordConfirm: PASSWORD, verified: true },
+  });
+  expect(forged.status()).toBe(400);
+});
+
+test("creează un cont din aplicație: intră direct, iar progresul local urcă în cont", async ({ browser, request }) => {
+  const email = uniqueEmail();
+  const a = await phone(browser);
+  const b = await phone(browser);
+
+  await markKnown(a.page, "v-parlare"); // progres făcut înainte de a avea cont
+  await openAccount(a.page);
+  await register(a.page, email);
+  await expect(a.page.getByText(`Conectat ca ${email}`)).toBeVisible();
+  await syncedStatus(a.page);
+
+  const users = await serverUsers(request, email);
+  expect(users.length).toBe(1);
+  expect((await serverRecords(request, "cards", users[0]!.id)).length).toBe(2);
+
+  // pe alt telefon, cu aceleași date, apare progresul
+  await openAccount(b.page);
+  await signIn(b.page, email);
+  await syncedStatus(b.page);
+  expect(await isKnown(b.page, "v-parlare")).toBe(true);
+
+  await a.context.close();
+  await b.context.close();
+});
+
+test("emailul se salvează cu litere mici, iar contul se poate folosi cu orice majuscule", async ({ browser, request }) => {
+  const email = uniqueEmail();
+  const mixed = email.replace(/^u/, "U").replace("@test.local", "@Test.LOCAL");
+  const { page, context } = await phone(browser);
+  await openAccount(page);
+  await register(page, mixed);
+  await syncedStatus(page);
+
+  expect((await serverUsers(request, email)).length).toBe(1);
+  await expect(page.getByText(`Conectat ca ${email}`)).toBeVisible();
+  await context.close();
+});
+
+test("crearea contului: erorile se explică și nu schimbă nimic", async ({ browser, request }) => {
+  const taken = await createUser(request);
+  const { page, context } = await phone(browser);
+  await openAccount(page);
+
+  // verificări locale, înainte de orice cerere
+  const requests: string[] = [];
+  page.on("request", (r) => {
+    if (new URL(r.url()).pathname.startsWith("/api/")) requests.push(r.url());
+  });
+  await register(page, uniqueEmail(), "scurta", "scurta");
+  await expect(page.getByRole("alert")).toHaveText("Parola trebuie să aibă cel puțin 8 caractere.");
+  await register(page, uniqueEmail(), "parola-buna-1", "parola-buna-2");
+  await expect(page.getByRole("alert")).toHaveText("Parolele nu coincid.");
+  await register(page, uniqueEmail(), "ă".repeat(40), "ă".repeat(40));
+  await expect(page.getByRole("alert")).toContainText("cel mult 71");
+  expect(requests).toEqual([]);
+
+  // verificat de server
+  await register(page, taken.email);
+  await expect(page.getByRole("alert")).toHaveText("Există deja un cont cu acest email.");
+  await expect(page.getByRole("button", { name: "Creează cont" })).toBeVisible();
+  await context.close();
 });
 
 test("parolă greșită: mesaj clar și nimic nu se schimbă local", async ({ browser, request }) => {
@@ -385,7 +481,28 @@ test("deconectarea cu modificări netrimise avertizează; după sincronizare tel
   await context.close();
 });
 
-test("ștergerea contului elimină datele de pe server și curăță telefonul", async ({ browser, request }) => {
+test("ștergerea contului cere parola: cu parola greșită nu se șterge nimic", async ({ browser, request }) => {
+  const user = await createUser(request);
+  const { page, context } = await phone(browser);
+  await markKnown(page, "v-parlare");
+  await openAccount(page);
+  await signIn(page, user.email);
+  await syncedStatus(page);
+
+  await confirmDeleteWith(page, "parola-gresita");
+  await expect(page.getByRole("alert")).toHaveText("Parola e greșită.");
+  await expect(page.getByText(`Conectat ca ${user.email}`)).toBeVisible();
+  expect((await serverUsers(request, user.email)).length).toBe(1);
+  expect((await serverRecords(request, "cards", user.id)).length).toBe(2);
+
+  // „Renunță” închide panoul fără să șteargă nimic
+  await page.getByRole("button", { name: "Renunță" }).click();
+  await expect(page.getByRole("form", { name: "Confirmă ștergerea contului" })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "Șterge contul" })).toBeVisible();
+  await context.close();
+});
+
+test("ștergerea contului cu parola corectă elimină datele de pe server și curăță telefonul", async ({ browser, request }) => {
   const user = await createUser(request);
   const { page, context } = await phone(browser);
   await markKnown(page, "v-parlare");
@@ -394,7 +511,7 @@ test("ștergerea contului elimină datele de pe server și curăță telefonul",
   await syncedStatus(page);
   expect((await serverRecords(request, "cards", user.id)).length).toBe(2);
 
-  await page.getByRole("button", { name: "Șterge contul" }).click();
+  await confirmDeleteWith(page, PASSWORD);
   await expect(page.getByRole("button", { name: "Autentifică-te" })).toBeVisible({ timeout: 15_000 });
 
   expect((await serverRecords(request, "cards", user.id)).length).toBe(0);
@@ -405,6 +522,24 @@ test("ștergerea contului elimină datele de pe server și curăță telefonul",
   await openAccount(page);
   await signIn(page, user.email);
   await expect(page.getByRole("alert")).toHaveText("Email sau parolă greșite.");
+  await context.close();
+});
+
+test("ștergerea contului merge și cu sesiunea expirată (parola reautentifică)", async ({ browser, request }) => {
+  const user = await createUser(request);
+  const { page, context } = await phone(browser);
+  await openAccount(page);
+  await signIn(page, user.email);
+  await syncedStatus(page);
+
+  await page.evaluate(() => localStorage.removeItem("pocketbase_auth"));
+  await page.reload();
+  await expect(page.getByRole("alert").filter({ hasText: "Sesiunea a expirat" })).toBeVisible({ timeout: 15_000 });
+
+  await confirmDeleteWith(page, PASSWORD);
+  // cu sesiunea expirată „Autentifică-te” e vizibil de la început: se așteaptă ieșirea din starea „Conectat”
+  await expect(page.getByText("Conectat ca")).toHaveCount(0, { timeout: 15_000 });
+  expect((await serverUsers(request, user.email)).length).toBe(0);
   await context.close();
 });
 
@@ -464,6 +599,10 @@ for (const scheme of ["light", "dark"] as const) {
 
     await openAccount(page);
     await audit("fără cont");
+    await page.getByRole("button", { name: "Cont nou" }).click();
+    await expect(page.getByLabel("Confirmă parola")).toBeVisible();
+    await audit("cont nou");
+    await page.getByRole("button", { name: "Am deja cont" }).click();
 
     // alegerea de la prima autentificare (progres și local, și în cont)
     const other = await phone(browser);
@@ -480,6 +619,9 @@ for (const scheme of ["light", "dark"] as const) {
     await page.getByRole("button", { name: "Combină cu contul" }).click();
     await syncedStatus(page);
     await audit("cu cont");
+    await page.getByRole("button", { name: "Șterge contul" }).click();
+    await expect(page.getByRole("form", { name: "Confirmă ștergerea contului" })).toBeVisible();
+    await audit("ștergere cont");
 
     await other.context.close();
     await context.close();

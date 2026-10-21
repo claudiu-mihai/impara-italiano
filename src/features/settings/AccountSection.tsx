@@ -2,6 +2,7 @@ import { useLiveQuery } from "dexie-react-hooks";
 import { useEffect, useState, type FormEvent } from "react";
 import { useContent } from "../../app/content.tsx";
 import { db } from "../../data/db/instance.ts";
+import { passwordProblem } from "../../data/sync/messages.ts";
 import { pendingCount } from "../../data/sync/pending.ts";
 import { downloadBackup } from "./backupDownload.ts";
 
@@ -13,6 +14,8 @@ const heading = "text-sm font-semibold uppercase tracking-wide text-muted";
 const input = "min-h-12 w-full rounded-lg border border-slate-300 bg-white px-3 dark:border-slate-700 dark:bg-slate-800";
 const primary = "min-h-12 rounded-xl bg-brand px-4 font-semibold text-white disabled:opacity-50";
 const outline = "min-h-12 rounded-xl border-2 border-brand-fg px-4 font-semibold text-brand-fg disabled:opacity-50";
+const tab = (active: boolean) =>
+  `min-h-12 rounded-xl border-2 px-3 font-semibold ${active ? "border-brand-fg bg-brand-fg/10 text-brand-fg" : "border-slate-300 text-muted dark:border-slate-700"}`;
 const danger = "min-h-12 rounded-xl border-2 border-red-600 px-4 font-semibold text-red-700 disabled:opacity-50 dark:text-red-400";
 
 /** Cheia în care SDK-ul păstrează sesiunea; o ștergem direct când nu există cont, fără să încărcăm SDK-ul. */
@@ -60,18 +63,36 @@ function SignInForm({ lockedEmail, onDone }: { lockedEmail?: string; onDone?: ()
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string>();
   const [choice, setChoice] = useState(false);
+  const [mode, setMode] = useState<"signin" | "register">("signin");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  // reautentificarea (email cunoscut) nu poate crea un cont nou
+  const registering = mode === "register" && !lockedEmail;
+
+  const switchMode = (next: "signin" | "register") => {
+    setMode(next);
+    setError(undefined);
+    setConfirmPassword("");
+  };
 
   const submit = async (event: FormEvent) => {
     event.preventDefault();
-    setBusy(true);
     setError(undefined);
+    if (registering) {
+      const problem = passwordProblem(password, confirmPassword);
+      if (problem) {
+        setError(problem);
+        return;
+      }
+    }
+    setBusy(true);
     try {
-      const { signIn } = await loadAccount();
-      const result = await signIn(db, email, password);
+      const account = await loadAccount();
+      const result = registering ? await account.register(db, email, password) : await account.signIn(db, email, password);
       if (result.status === "error") setError(result.message);
       else if (result.status === "choice") setChoice(true);
       else onDone?.();
       setPassword("");
+      setConfirmPassword("");
     } finally {
       setBusy(false);
     }
@@ -127,17 +148,45 @@ function SignInForm({ lockedEmail, onDone }: { lockedEmail?: string; onDone?: ()
           Cont: <strong>{lockedEmail}</strong>
         </p>
       ) : (
-        <label className="flex flex-col gap-1">
-          <span>Email</span>
-          <input type="email" required autoComplete="username" value={email} onChange={(e) => setEmail(e.target.value)} className={input} />
-        </label>
+        <>
+          <div role="group" aria-label="Tipul de acces" className="grid grid-cols-2 gap-2">
+            <button type="button" aria-pressed={!registering} onClick={() => switchMode("signin")} className={tab(!registering)}>
+              Am deja cont
+            </button>
+            <button type="button" aria-pressed={registering} onClick={() => switchMode("register")} className={tab(registering)}>
+              Cont nou
+            </button>
+          </div>
+          <label className="flex flex-col gap-1">
+            <span>Email</span>
+            <input type="email" required autoComplete="username" value={email} onChange={(e) => setEmail(e.target.value)} className={input} />
+          </label>
+        </>
       )}
       <label className="flex flex-col gap-1">
         <span>Parola</span>
-        <input type="password" required autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} className={input} />
+        <input
+          type="password"
+          required
+          autoComplete={registering ? "new-password" : "current-password"}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className={input}
+        />
       </label>
+      {registering && (
+        <>
+          <label className="flex flex-col gap-1">
+            <span>Confirmă parola</span>
+            <input type="password" required autoComplete="new-password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className={input} />
+          </label>
+          <p className="text-sm text-muted">
+            Cel puțin 8 caractere. Dacă o uiți, parola nu se poate reseta din aplicație: o resetează administratorul serverului.
+          </p>
+        </>
+      )}
       <button type="submit" disabled={busy} className={primary}>
-        {busy ? "Se autentifică…" : "Autentifică-te"}
+        {registering ? (busy ? "Se creează…" : "Creează cont") : busy ? "Se autentifică…" : "Autentifică-te"}
       </button>
       <Message text={error} error />
     </form>
@@ -148,6 +197,8 @@ function SignedIn({ state }: { state: AccountState }) {
   const [busy, setBusy] = useState(false);
   const [note, setNote] = useState<{ text: string; error?: boolean }>();
   const authRequired = state.status === "auth-required";
+  const [deleting, setDeleting] = useState(false);
+  const [deletePassword, setDeletePassword] = useState("");
 
   const syncNow = async () => {
     setBusy(true);
@@ -179,13 +230,15 @@ function SignedIn({ state }: { state: AccountState }) {
     }
   };
 
-  const deleteAccount = async () => {
-    if (!window.confirm("Ștergi contul și toate datele lui de pe server? Acțiunea nu poate fi anulată. Progresul de pe acest telefon se șterge și el.")) return;
+  const deleteAccount = async (event: FormEvent) => {
+    event.preventDefault();
     setBusy(true);
+    setNote(undefined);
     try {
       const { deleteAccount: run } = await loadAccount();
-      const result = await run(db);
+      const result = await run(db, deletePassword);
       if (result.status === "error") setNote({ text: result.message, error: true });
+      setDeletePassword("");
     } finally {
       setBusy(false);
     }
@@ -222,9 +275,49 @@ function SignedIn({ state }: { state: AccountState }) {
       <button type="button" disabled={busy} onClick={() => void signOut()} className={outline}>
         Deconectează-te
       </button>
-      <button type="button" disabled={busy} onClick={() => void deleteAccount()} className={danger}>
-        Șterge contul
-      </button>
+      {deleting ? (
+        <form
+          onSubmit={(e) => void deleteAccount(e)}
+          aria-label="Confirmă ștergerea contului"
+          className="flex flex-col gap-3 rounded-xl border-2 border-red-600 p-4"
+        >
+          <p>
+            Contul și toate datele lui se șterg definitiv de pe server, iar progresul de pe acest telefon se șterge și el.
+            Acțiunea nu poate fi anulată.
+          </p>
+          <label className="flex flex-col gap-1">
+            <span>Parola pentru confirmare</span>
+            <input
+              type="password"
+              required
+              autoFocus
+              autoComplete="current-password"
+              value={deletePassword}
+              onChange={(e) => setDeletePassword(e.target.value)}
+              className={input}
+            />
+          </label>
+          <button type="submit" disabled={busy} className={danger}>
+            {busy ? "Se șterge…" : "Confirmă ștergerea"}
+          </button>
+          <button
+            type="button"
+            disabled={busy}
+            onClick={() => {
+              setDeleting(false);
+              setDeletePassword("");
+              setNote(undefined);
+            }}
+            className="min-h-12 text-sm text-muted underline"
+          >
+            Renunță
+          </button>
+        </form>
+      ) : (
+        <button type="button" disabled={busy} onClick={() => setDeleting(true)} className={danger}>
+          Șterge contul
+        </button>
+      )}
       <Message text={note?.text} error={note?.error} />
     </div>
   );

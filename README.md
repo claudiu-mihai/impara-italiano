@@ -76,8 +76,15 @@ docker compose exec pocketbase pocketbase superuser upsert EMAIL PAROLA --dir /p
 ssh -L 8090:127.0.0.1:48090 utilizator@server      # apoi http://localhost:8090/_/
 ```
 
-* **Conturile** se creează din panou (Collections → users → New record: email și parolă). Înregistrarea publică este
-  închisă. Parola unui utilizator se schimbă tot de acolo.
+* **Conturile** se creează **din aplicație** (Setări → Cont → „Cont nou”: email și parolă) sau din panou (Collections →
+  users → New record). Înregistrarea este liberă pentru oricine are adresa; singura protecție este o limită de **5
+  conturi pe oră de pe aceeași adresă IP** (migrarea `1792540900_open_registration.js`; administratorul nu e limitat). Dacă
+  nu vrei înregistrare liberă, rulează `users.createRule = null` printr-o migrare nouă sau din panou (Collections → users
+  → API rules → Create rule → „Set superusers only”).
+* **Parola uitată** nu se poate reseta din aplicație (nu există email configurat): o schimbă administratorul din panou,
+  pe înregistrarea utilizatorului. Emailul se salvează cu litere mici.
+* **Ștergerea contului** o face utilizatorul însuși din Setări → Cont → „Șterge contul” (cere parola); se șterg contul și
+  toate datele lui de pe server.
 * **Traefik** rămâne neschimbat: trimite tot domeniul la containerul `web`, iar nginx duce `/api/` la PocketBase pe
   rețeaua internă. Portul publicat de `web` trebuie să fie cel din routerul Traefik.
 * **Backup:** din panou, Settings → Backups, sau o copie a volumului `pb_data` cu serverul oprit. Backup-ul JSON din

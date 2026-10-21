@@ -5,6 +5,7 @@ import { syncUserOf } from "../db/repositories.ts";
 import { runSync } from "./engine.ts";
 import { hasLocalProgress, pendingCount } from "./pending.ts";
 import { PocketBaseRemote } from "./pocketbaseRemote.ts";
+import { normalizeEmail, registerErrorMessage } from "./messages.ts";
 import type { SyncReport } from "./types.ts";
 
 /**
@@ -114,7 +115,7 @@ export async function signIn(db: ImparaDb, email: string, password: string): Pro
   const pb = pocketbase();
   let userId: string;
   try {
-    const auth = await pb.collection("users").authWithPassword(email.trim(), password);
+    const auth = await pb.collection("users").authWithPassword(normalizeEmail(email), password);
     userId = auth.record.id;
   } catch (error) {
     pb.authStore.clear();
@@ -129,22 +130,41 @@ export async function signIn(db: ImparaDb, email: string, password: string): Pro
 
   if (current === userId) {
     // reautentificare după expirarea sesiunii: aceleași date, doar continuă
-    await db.meta.put({ key: "syncEmail", value: email.trim() });
+    await db.meta.put({ key: "syncEmail", value: normalizeEmail(email) });
     return { status: "synced", outcome: await syncNow(db) };
   }
 
   try {
     const remoteHasProgress = await new PocketBaseRemote(pb, userId).hasProgress();
     if (firstLoginChoice(await hasLocalProgress(db), remoteHasProgress) === "ask") {
-      pendingLogin = { userId, email: email.trim() };
+      pendingLogin = { userId, email: normalizeEmail(email) };
       return { status: "choice" };
     }
   } catch (error) {
     pb.authStore.clear();
     return { status: "error", message: loginMessage(error) };
   }
-  pendingLogin = { userId, email: email.trim() };
+  pendingLogin = { userId, email: normalizeEmail(email) };
   return completeSignIn(db, "merge");
+}
+
+/**
+ * Creează un cont nou și intră în el. Contul nou nu are date pe server, deci nu se întreabă nimic: progresul de pe
+ * telefon urcă în cont. Emailul se scrie cu litere mici (serverul ar accepta ca conturi diferite variante care diferă
+ * doar prin majuscule, deși autentificarea nu face diferența).
+ */
+export async function register(db: ImparaDb, email: string, password: string): Promise<SignInResult> {
+  const address = normalizeEmail(email);
+  try {
+    await pocketbase().collection("users").create({ email: address, password, passwordConfirm: password });
+  } catch (error) {
+    return { status: "error", message: registerErrorMessage(error) };
+  }
+  const result = await signIn(db, address, password);
+  if (result.status === "error") {
+    return { status: "error", message: `Contul a fost creat, dar autentificarea a eșuat. ${result.message}` };
+  }
+  return result;
 }
 
 /** Renunță la autentificare în timp ce se alege cum se combină progresul: nu s-a schimbat nimic local. */
@@ -200,13 +220,30 @@ export async function signOut(db: ImparaDb, force = false): Promise<SignOutResul
 
 export type DeleteAccountResult = { status: "deleted" } | { status: "error"; message: string };
 
-/** Șterge contul și toate datele lui de pe server (cascadă), apoi ca la deconectare. */
-export async function deleteAccount(db: ImparaDb): Promise<DeleteAccountResult> {
+/**
+ * Șterge contul și toate datele lui de pe server (cascadă), apoi ca la deconectare. Cere parola: o ștergere este
+ * ireversibilă, iar un telefon deblocat nu trebuie să fie de ajuns. Verificarea reautentifică, deci ștergerea merge
+ * și cu sesiunea expirată; cu parola greșită nu se șterge nimic.
+ */
+export async function deleteAccount(db: ImparaDb, password: string): Promise<DeleteAccountResult> {
   const pb = pocketbase();
   const userId = await syncUserOf(db);
-  if (!userId || !pb.authStore.isValid || pb.authStore.record?.id !== userId) {
-    return { status: "error", message: "Autentifică-te din nou ca să poți șterge contul." };
+  const email = (await db.meta.get("syncEmail"))?.value as string | undefined;
+  if (!userId || !email) return { status: "error", message: "Nu ești autentificat." };
+
+  try {
+    const auth = await pb.collection("users").authWithPassword(email, password);
+    if (auth.record.id !== userId) {
+      pb.authStore.clear();
+      return { status: "error", message: "Parola e greșită." };
+    }
+  } catch (error) {
+    const status = error instanceof ClientResponseError ? error.status : undefined;
+    if (status === 0) return { status: "error", message: "Nu pot contacta serverul. Verifică conexiunea." };
+    if (status === 429) return { status: "error", message: "Prea multe încercări. Așteaptă puțin și încearcă din nou." };
+    return { status: "error", message: "Parola e greșită." };
   }
+
   try {
     await pb.collection("users").delete(userId);
   } catch (error) {
