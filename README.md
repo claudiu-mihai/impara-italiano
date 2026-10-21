@@ -97,6 +97,47 @@ ssh -L 8090:127.0.0.1:48090 utilizator@server      # apoi http://localhost:8090/
 * **HTTPS este obligatoriu** pentru sincronizare (aplicația folosește `crypto.subtle`, disponibil doar în context
   securizat); pe `http://localhost` merge și fără.
 
+## Versionare și release-uri
+
+Aplicația folosește [versionarea semantică](https://semver.org/lang/ro/) (`MAJOR.MINOR.PATCH`); versiunea curentă e în
+`package.json` și apare în ecranul „Despre”. Intrările sunt în [CHANGELOG.md](CHANGELOG.md).
+
+**Ce urcă ce:**
+
+| Schimbare | Versiune | Commit |
+| --- | --- | --- |
+| funcționalitate nouă, compatibilă | MINOR | `feat:` |
+| corectură | PATCH | `fix:` |
+| schimbare **incompatibilă** | MAJOR | `feat!:` sau `fix!:` sau `BREAKING CHANGE:` în corp |
+| documentație, teste, build, CI, refactorizări | nu urcă versiunea | `docs:`, `test:`, `build:`, `ci:`, `refactor:`, `chore:` |
+
+Pentru această aplicație, **incompatibil** înseamnă, de exemplu: un format nou de backup care nu mai poate citi fișierele
+vechi, o migrare a bazei locale care nu se poate relua, schimbarea `id`-urilor stabile ale cuvintelor (de ele depinde
+progresul salvat) sau o schimbare a colecțiilor de pe server care cere intervenție la actualizare.
+
+**Cum se face un release (automat, cu release-please):**
+
+1. Lucrezi pe un branch și îmbini PR-ul în `main`, cu commit-uri în format `feat:` / `fix:`.
+2. Workflow-ul [release-please.yml](.github/workflows/release-please.yml) deschide (sau actualizează) un PR
+   „chore(main): release X.Y.Z”, cu versiunea nouă în `package.json` și intrările din CHANGELOG.
+3. Îmbini acel PR când vrei să faci release. Se creează tag-ul `vX.Y.Z` și release-ul GitHub, iar
+   [docker-publish.yml](.github/workflows/docker-publish.yml) publică imaginile.
+
+**Etichetele imaginilor** (`ghcr.io/<repo>` și `ghcr.io/<repo>-pocketbase`): `X.Y.Z` și `X.Y` pentru release-uri,
+`latest` pentru ultimul commit de pe `main` (nu pentru ultimul release), `sha-…` pentru fiecare commit. Într-un stack
+Portainer care vrea doar release-uri stabile, fixează `X.Y` (primește doar corecturi) în loc de `latest`.
+
+**Configurare unică în GitHub:**
+
+* Settings → Actions → General → **Allow GitHub Actions to create and approve pull requests**, ca release-please să
+  poată deschide PR-ul de release.
+* Secretul **`RELEASE_PLEASE_TOKEN`** (token personal fine-grained, cu *Contents* și *Pull requests* pe citire și scriere
+  pe acest repo). Fără el, tag-urile create de release-please nu pornesc publicarea imaginilor (GitHub nu declanșează
+  workflow-uri din acțiuni făcute cu `GITHUB_TOKEN`). Dacă nu îl pui, publici manual: Actions → *Publish Docker image* →
+  *Run workflow* → alegi tag-ul `vX.Y.Z` ca ref.
+* La prima activare, după îmbinarea acestui PR, creează tag-ul `v1.0.0` pe commit-ul îmbinat
+  (`git tag v1.0.0 && git push origin v1.0.0`), ca release-ul 1.0.0 să existe și imaginile `1.0.0` / `1.0` să fie publicate.
+
 ## Licențe ale datelor
 
 Listele de frecvență vin de la FrequencyWords (CC BY-SA 4.0) și Leipzig Corpora Collection (CC BY 4.0), iar datele

@@ -561,3 +561,13 @@ Abatere de la planul inițial: **nu există tabel `outbox`**. Ce așteaptă trim
 | Unit — mesaje | `data/sync/messages.test.ts` | `registerErrorMessage` (forme reale PocketBase), `passwordProblem` (minim, limita de 71 de octeți, diacritice), `normalizeEmail` |
 | E2E — fără cont | `tests/e2e/sync.spec.ts` | nicio cerere spre `/api/` și niciun `account-*.js` încărcat |
 | Accesibilitate | `tests/e2e/sync.spec.ts` | axe (WCAG 2.1 AA, luminos și întunecat) pe Cont fără cont, la alegere și cu cont |
+
+---
+
+### 15. Versionare și release-uri
+
+* **SemVer** (`MAJOR.MINOR.PATCH`), de la **1.0.0**. Sursa de adevăr este `version` din `package.json` (și `package-lock.json`), pe care o urcă release-please; regulile (ce înseamnă „incompatibil” pentru această aplicație, formatul commit-urilor) sunt în README.
+* **Versiunea în aplicație:** `vite.config.ts` citește `package.json` și o injectează ca `__APP_VERSION__` (`define`; declarația de tip în `src/env.d.ts`); `src/app/version.ts` o exportă ca `APP_VERSION`, iar ecranul „Despre” o afișează (`data-testid="app-version"`). Testul `tests/e2e/version.spec.ts` verifică potrivirea cu `package.json`. Nu se confundă cu `meta.dataVersion` (hash-ul conținutului din `content/`), care urmărește datele, nu aplicația.
+* **Release-uri:** `.github/workflows/release-please.yml` (la fiecare push pe `main`) ține deschis un PR de release; `release-please-config.json` (tip `node`, tag-uri `vX.Y.Z`, secțiuni de changelog în română, tipurile fără efect ascunse, `bootstrap-sha` pe ultimul commit dinainte de trecerea la SemVer) și `.release-please-manifest.json` (versiunea curentă).
+* **Imagini:** `docker-publish.yml` rămâne neschimbat ca logică: tag-urile `v*` produc etichetele `X.Y.Z` și `X.Y`, `main` produce `latest`, fiecare commit `sha-…`. Un tag creat cu `GITHUB_TOKEN` nu pornește alt workflow, deci release-please folosește secretul `RELEASE_PLEASE_TOKEN` când există; `workflow_dispatch` permite publicarea manuală a unui tag.
+* **Neverificat:** workflow-urile GitHub nu pot fi rulate local; configurația release-please și declanșarea publicării se confirmă la primul PR de release.
