@@ -206,6 +206,30 @@ test("crearea contului: erorile se explică și nu schimbă nimic", async ({ bro
   await context.close();
 });
 
+test("reamintirea de backup de pe prima pagină dispare cu un cont sincronizat", async ({ browser, request }) => {
+  const user = await createUser(request);
+  const { page, context } = await phone(browser);
+  const reminder = page.getByText("Progresul tău este doar pe acest dispozitiv.");
+
+  // fără cont, cu progres și fără backup, reamintirea apare
+  await markKnown(page, "v-parlare");
+  await page.goto("/");
+  await expect(reminder).toBeVisible();
+
+  // cu cont sincronizat nu mai apare, nici după reîncărcare
+  await openAccount(page);
+  await signIn(page, user.email);
+  await syncedStatus(page);
+  await page.goto("/");
+  await expect(page.getByRole("heading", { name: "Astăzi" })).toBeVisible();
+  await expect(reminder).toHaveCount(0);
+  await page.reload();
+  await expect(page.getByRole("heading", { name: "Astăzi" })).toBeVisible();
+  await expect(reminder).toHaveCount(0);
+
+  await context.close();
+});
+
 test("parolă greșită: mesaj clar și nimic nu se schimbă local", async ({ browser, request }) => {
   const user = await createUser(request);
   const { page, context } = await phone(browser);
