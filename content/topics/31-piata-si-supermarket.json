@@ -1,0 +1,53 @@
+{
+  "id": "piata-si-supermarket",
+  "title": "La piață și la supermarket",
+  "group": "zi-de-zi",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "Cantități: «un chilo di mele», «mezzo chilo di…», «un etto di…».",
+    "Cerere: «vorrei…» sau, formal, «mi dà…?»; «quanto costa al chilo?» = cât costă kilogramul?",
+    "«Mercato» = piață (în aer liber), «supermercato» = supermarket."
+  ],
+  "subgroups": [
+    {
+      "title": "Locuri",
+      "wordIds": [
+        "n-mercato",
+        "n-supermercato",
+        "n-negozio",
+        "n-cassa"
+      ]
+    },
+    {
+      "title": "Produse",
+      "wordIds": [
+        "n-frutta",
+        "n-verdura",
+        "n-mela",
+        "n-pomodoro",
+        "n-patata",
+        "n-pane",
+        "n-latte",
+        "n-formaggio",
+        "n-carne",
+        "n-pesce",
+        "n-uovo"
+      ]
+    },
+    {
+      "title": "Cumpărat",
+      "wordIds": [
+        "v-comprare",
+        "v-vendere",
+        "n-prezzo",
+        "n-chilo",
+        "n-etto",
+        "n-litro"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

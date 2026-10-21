@@ -1,0 +1,51 @@
+{
+  "id": "corpul",
+  "title": "Corpul",
+  "group": "oameni",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "Cu părțile corpului se folosește articolul, nu posesivul: «mi lavo le mani», «ho mal di testa».",
+    "Plural neregulat: il braccio → le braccia, il dito → le dita; «la mano» e feminin: le mani; l'orecchio → le orecchie.",
+    "«Mi fa male…» (singular) / «mi fanno male…» (plural): «mi fa male la testa», «mi fanno male i piedi»."
+  ],
+  "subgroups": [
+    {
+      "title": "Cap",
+      "wordIds": [
+        "n-testa",
+        "n-capello",
+        "n-faccia",
+        "n-occhio",
+        "n-naso",
+        "n-bocca",
+        "n-orecchio",
+        "n-dente"
+      ]
+    },
+    {
+      "title": "Trunchi",
+      "wordIds": [
+        "n-collo",
+        "n-spalla",
+        "n-schiena",
+        "n-stomaco",
+        "n-cuore",
+        "n-pelle"
+      ]
+    },
+    {
+      "title": "Membre",
+      "wordIds": [
+        "n-braccio",
+        "n-mano",
+        "n-dito",
+        "n-gamba",
+        "n-piede"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

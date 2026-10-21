@@ -1,0 +1,51 @@
+{
+  "id": "casa",
+  "title": "Casa",
+  "group": "zi-de-zi",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "În Italia «piano terra» = parter, «primo piano» = etajul 1: «abito al terzo piano».",
+    "«Stanza» = cameră în general; «camera» = cameră (și dormitor); «camera da letto» = dormitor.",
+    "Cu locul: «in cucina», «in bagno», «in salotto»."
+  ],
+  "subgroups": [
+    {
+      "title": "Camere",
+      "wordIds": [
+        "n-casa",
+        "n-appartamento",
+        "n-stanza",
+        "n-camera",
+        "n-cucina",
+        "n-bagno",
+        "n-salotto",
+        "n-giardino",
+        "n-balcone"
+      ]
+    },
+    {
+      "title": "Mobilă",
+      "wordIds": [
+        "n-letto",
+        "n-tavolo",
+        "n-sedia",
+        "n-divano",
+        "n-armadio"
+      ]
+    },
+    {
+      "title": "Altele",
+      "wordIds": [
+        "n-finestra",
+        "n-porta",
+        "n-piano",
+        "n-scala",
+        "n-chiave"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

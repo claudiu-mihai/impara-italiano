@@ -1,0 +1,42 @@
+{
+  "id": "culori",
+  "title": "Culorile",
+  "group": "zi-de-zi",
+  "level": "A1",
+  "first": true,
+  "rules": [
+    "Culorile sunt adjective și se acordă în gen și număr: rosso/rossa/rossi/rosse; dar «blu», «rosa», «viola» sunt invariabile.",
+    "Culoarea stă după substantiv: «una macchina rossa».",
+    "«Chiaro» și «scuro» se pun după culoare și nu se acordă: «blu scuro», «verde chiaro»."
+  ],
+  "subgroups": [
+    {
+      "title": "Culorile",
+      "wordIds": [
+        "a-rosso",
+        "a-blu",
+        "a-giallo",
+        "a-verde",
+        "a-arancione",
+        "a-rosa",
+        "a-viola",
+        "a-marrone",
+        "a-grigio",
+        "a-azzurro",
+        "a-bianco",
+        "a-nero"
+      ]
+    },
+    {
+      "title": "Nuanțe",
+      "wordIds": [
+        "n-colore",
+        "a-chiaro",
+        "a-scuro"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

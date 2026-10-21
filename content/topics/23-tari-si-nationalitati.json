@@ -1,0 +1,50 @@
+{
+  "id": "tari-si-nationalitati",
+  "title": "Țări și naționalități",
+  "group": "oameni",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "Țările au articol: «l'Italia», «la Romania»; cu «in» articolul dispare: «vivo in Italia», «vado in Francia».",
+    "Naționalitățile se scriu cu literă mică și se acordă: «sono romeno / romena», «parlo italiano».",
+    "«Di dove sei?» = De unde ești? → «Sono di Roma» (oraș) sau «Sono romeno»."
+  ],
+  "subgroups": [
+    {
+      "title": "Țări",
+      "wordIds": [
+        "n-Italia",
+        "n-Romania",
+        "n-Francia",
+        "n-Spagna",
+        "n-Germania",
+        "n-Inghilterra",
+        "n-America",
+        "n-Europa"
+      ]
+    },
+    {
+      "title": "Naționalități",
+      "wordIds": [
+        "a-italiano",
+        "a-romeno",
+        "a-francese",
+        "a-spagnolo",
+        "a-tedesco",
+        "a-inglese",
+        "a-americano",
+        "a-cinese",
+        "a-straniero"
+      ]
+    },
+    {
+      "title": "Alte",
+      "wordIds": [
+        "n-paese"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

@@ -1,0 +1,22 @@
+node_modules
+dist
+*.local
+.DS_Store
+
+# liste brute de frecvență (descărcate local)
+content/sources/
+
+# date locale ale uneltelor
+.claude-flow/
+.swarm/
+ruvector.db
+
+# generat la build din content/ (npm run build:data)
+src/data/generated/
+
+# rapoarte Playwright
+test-results/
+playwright-report/
+
+# mediu Python pentru scripturile de frecvență
+.venv/

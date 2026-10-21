@@ -1,0 +1,49 @@
+{
+  "id": "directii",
+  "title": "Direcții",
+  "group": "spatiu",
+  "level": "A1",
+  "first": true,
+  "rules": [
+    "Pentru «tu»: «gira a destra», «vai dritto». Pentru «Lei»: «giri a destra», «vada dritto».",
+    "«Sempre dritto» = mereu înainte; «fino a» = până la: «fino al semaforo».",
+    "«Al semaforo», «all'incrocio», «all'angolo» = la semafor, la intersecție, la colț."
+  ],
+  "subgroups": [
+    {
+      "title": "Direcții",
+      "wordIds": [
+        "n-destra",
+        "n-sinistra",
+        "adv-dritto",
+        "e-a_destra",
+        "e-a_sinistra",
+        "e-sempre_dritto",
+        "n-nord",
+        "n-sud"
+      ]
+    },
+    {
+      "title": "Acțiuni",
+      "wordIds": [
+        "v-girare",
+        "v-svoltare"
+      ]
+    },
+    {
+      "title": "Pe stradă",
+      "wordIds": [
+        "n-strada",
+        "n-piazza",
+        "n-semaforo",
+        "n-angolo",
+        "e-all'angolo",
+        "n-incrocio",
+        "n-fermata"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

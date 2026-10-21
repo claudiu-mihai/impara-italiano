@@ -1,0 +1,50 @@
+{
+  "id": "fractii-si-cantitati",
+  "title": "Fracții și cantități",
+  "group": "numere",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "«Mezzo» se acordă ca adjectiv (mezzo litro, mezza torta); «metà» e substantiv: «la metà del prezzo».",
+    "«Un etto» = 100 g, «mezzo chilo» = 500 g, «un chilo e mezzo» = 1,5 kg.",
+    "După o cantitate vine «di»: «un chilo di mele», «un litro d'acqua», «un paio di scarpe» (un paio = câteva sau o pereche)."
+  ],
+  "subgroups": [
+    {
+      "title": "Fracții",
+      "wordIds": [
+        "n-mezzo",
+        "n-metà",
+        "a-quarto",
+        "a-terzo"
+      ]
+    },
+    {
+      "title": "Măsuri",
+      "wordIds": [
+        "n-chilo",
+        "n-etto",
+        "n-grammo",
+        "n-litro",
+        "n-fetta",
+        "n-dozzina",
+        "e-un_paio_di"
+      ]
+    },
+    {
+      "title": "Cât",
+      "wordIds": [
+        "a-tutto",
+        "adv-molto",
+        "adv-tanto",
+        "adv-poco",
+        "adv-troppo",
+        "adv-abbastanza",
+        "pr-niente"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

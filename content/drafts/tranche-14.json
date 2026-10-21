@@ -1,0 +1,2070 @@
+[
+  {
+    "it": "data",
+    "pos": "noun",
+    "ro": "dată; dată calendaristică",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Qual è la data di oggi?",
+        "ro": "Care este data de azi?"
+      },
+      {
+        "it": "Scrivo la data.",
+        "ro": "Scriu data."
+      }
+    ],
+    "note": "«Data di nascita» = data nașterii."
+  },
+  {
+    "it": "calendario",
+    "pos": "noun",
+    "ro": "calendar",
+    "tags": [
+      "timp"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Guardo il calendario.",
+        "ro": "Mă uit la calendar."
+      },
+      {
+        "it": "Il calendario è sul muro.",
+        "ro": "Calendarul este pe perete."
+      }
+    ]
+  },
+  {
+    "it": "data di nascita",
+    "pos": "expression",
+    "ro": "data nașterii",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Qual è la tua data di nascita?",
+        "ro": "Care este data ta de naștere?"
+      },
+      {
+        "it": "La mia data di nascita è il tre maggio.",
+        "ro": "Data mea de naștere este 3 mai."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "di solito",
+    "pos": "expression",
+    "ro": "de obicei",
+    "tags": [
+      "frecvență"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Di solito mi alzo alle sette.",
+        "ro": "De obicei mă trezesc la șapte."
+      },
+      {
+        "it": "Di solito mangio a casa.",
+        "ro": "De obicei mănânc acasă."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "a volte",
+    "pos": "expression",
+    "ro": "uneori",
+    "tags": [
+      "frecvență"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "A volte vado al cinema.",
+        "ro": "Uneori merg la cinema."
+      },
+      {
+        "it": "A volte è difficile.",
+        "ro": "Uneori e greu."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "La fel: «qualche volta»."
+  },
+  {
+    "it": "qualche volta",
+    "pos": "expression",
+    "ro": "câteodată",
+    "tags": [
+      "frecvență"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Qualche volta cucino.",
+        "ro": "Câteodată gătesc."
+      },
+      {
+        "it": "Ci vediamo qualche volta.",
+        "ro": "Ne vedem din când în când."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "raramente",
+    "pos": "expression",
+    "ro": "rar",
+    "tags": [
+      "frecvență"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Esco raramente.",
+        "ro": "Ies rar."
+      },
+      {
+        "it": "Raramente mangio carne.",
+        "ro": "Rar mănânc carne."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "quasi mai",
+    "pos": "expression",
+    "ro": "aproape niciodată",
+    "tags": [
+      "frecvență"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Non esco quasi mai.",
+        "ro": "Nu ies aproape niciodată."
+      },
+      {
+        "it": "Quasi mai piove qui.",
+        "ro": "Aproape niciodată nu plouă aici."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Cu «non»: non… quasi mai."
+  },
+  {
+    "it": "tutti i giorni",
+    "pos": "expression",
+    "ro": "în fiecare zi",
+    "tags": [
+      "frecvență"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Studio tutti i giorni.",
+        "ro": "Studiez în fiecare zi."
+      },
+      {
+        "it": "Cammino tutti i giorni.",
+        "ro": "Merg pe jos în fiecare zi."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "La fel: «ogni giorno»."
+  },
+  {
+    "it": "una volta alla settimana",
+    "pos": "expression",
+    "ro": "o dată pe săptămână",
+    "tags": [
+      "frecvență"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Vado in palestra una volta alla settimana.",
+        "ro": "Merg la sală o dată pe săptămână."
+      },
+      {
+        "it": "Chiamo mia madre una volta alla settimana.",
+        "ro": "O sun pe mama o dată pe săptămână."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "«Due volte al mese» = de două ori pe lună."
+  },
+  {
+    "it": "dozzina",
+    "pos": "noun",
+    "ro": "duzină",
+    "tags": [
+      "cantitate"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Una dozzina di uova.",
+        "ro": "O duzină de ouă."
+      },
+      {
+        "it": "Costa dieci euro la dozzina.",
+        "ro": "Costă zece euro duzina."
+      }
+    ]
+  },
+  {
+    "it": "etto",
+    "pos": "noun",
+    "ro": "100 de grame",
+    "tags": [
+      "cantitate"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Un etto di prosciutto, per favore.",
+        "ro": "O sută de grame de șuncă, vă rog."
+      },
+      {
+        "it": "Due etti di formaggio.",
+        "ro": "Două sute de grame de brânză."
+      }
+    ],
+    "note": "«Un etto» = 100 g; «mezzo chilo» = 500 g."
+  },
+  {
+    "it": "chilo",
+    "pos": "noun",
+    "ro": "kilogram",
+    "tags": [
+      "cantitate"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Un chilo di mele, per favore.",
+        "ro": "Un kilogram de mere, vă rog."
+      },
+      {
+        "it": "Pesa due chili.",
+        "ro": "Cântărește două kilograme."
+      }
+    ]
+  },
+  {
+    "it": "grammo",
+    "pos": "noun",
+    "ro": "gram",
+    "tags": [
+      "cantitate"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Duecento grammi di pasta.",
+        "ro": "Două sute de grame de paste."
+      },
+      {
+        "it": "Quanti grammi sono?",
+        "ro": "Câte grame sunt?"
+      }
+    ]
+  },
+  {
+    "it": "litro",
+    "pos": "noun",
+    "ro": "litru",
+    "tags": [
+      "cantitate"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Un litro d'acqua.",
+        "ro": "Un litru de apă."
+      },
+      {
+        "it": "Due litri di latte.",
+        "ro": "Doi litri de lapte."
+      }
+    ]
+  },
+  {
+    "it": "fetta",
+    "pos": "noun",
+    "ro": "felie",
+    "tags": [
+      "cantitate"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Una fetta di torta.",
+        "ro": "O felie de tort."
+      },
+      {
+        "it": "Prendo una fetta di pane.",
+        "ro": "Iau o felie de pâine."
+      }
+    ]
+  },
+  {
+    "it": "un paio di",
+    "pos": "expression",
+    "ro": "câteva; o pereche de",
+    "tags": [
+      "cantitate"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Ho un paio di domande.",
+        "ro": "Am câteva întrebări."
+      },
+      {
+        "it": "Compro un paio di scarpe.",
+        "ro": "Cumpăr o pereche de pantofi."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "cassa",
+    "pos": "noun",
+    "ro": "casă de marcat; casierie",
+    "tags": [
+      "cumpărături"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Pago alla cassa.",
+        "ro": "Plătesc la casă."
+      },
+      {
+        "it": "La cassa è chiusa.",
+        "ro": "Casa este închisă."
+      }
+    ]
+  },
+  {
+    "it": "sconto",
+    "pos": "noun",
+    "ro": "reducere",
+    "tags": [
+      "cumpărături"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "C'è uno sconto del dieci per cento.",
+        "ro": "Este o reducere de zece la sută."
+      },
+      {
+        "it": "Fate lo sconto?",
+        "ro": "Faceți reducere?"
+      }
+    ]
+  },
+  {
+    "it": "scontrino",
+    "pos": "noun",
+    "ro": "bon fiscal",
+    "tags": [
+      "cumpărături"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi dà lo scontrino?",
+        "ro": "Îmi dați bonul?"
+      },
+      {
+        "it": "Ho perso lo scontrino.",
+        "ro": "Am pierdut bonul."
+      }
+    ]
+  },
+  {
+    "it": "bancomat",
+    "pos": "noun",
+    "ro": "bancomat; card bancar",
+    "tags": [
+      "cumpărături"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Pago con il bancomat.",
+        "ro": "Plătesc cu cardul."
+      },
+      {
+        "it": "Dov'è il bancomat?",
+        "ro": "Unde este bancomatul?"
+      }
+    ],
+    "note": "Invariabil: i bancomat."
+  },
+  {
+    "it": "in contanti",
+    "pos": "expression",
+    "ro": "cash; în numerar",
+    "tags": [
+      "cumpărături"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Pago in contanti.",
+        "ro": "Plătesc cash."
+      },
+      {
+        "it": "Accettate carte o contanti?",
+        "ro": "Acceptați card sau numerar?"
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "economico",
+    "pos": "adjective",
+    "ro": "ieftin; economic",
+    "tags": [
+      "cumpărături"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Questo ristorante è economico.",
+        "ro": "Acest restaurant este ieftin."
+      },
+      {
+        "it": "Cerco un hotel economico.",
+        "ro": "Caut un hotel ieftin."
+      }
+    ],
+    "forms": [
+      "economico",
+      "economica",
+      "economici",
+      "economiche"
+    ]
+  },
+  {
+    "it": "schiena",
+    "pos": "noun",
+    "ro": "spate",
+    "tags": [
+      "corp"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi fa male la schiena.",
+        "ro": "Mă doare spatele."
+      },
+      {
+        "it": "Dormo sulla schiena.",
+        "ro": "Dorm pe spate."
+      }
+    ]
+  },
+  {
+    "it": "stomaco",
+    "pos": "noun",
+    "ro": "stomac",
+    "tags": [
+      "corp"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Ho mal di stomaco.",
+        "ro": "Mă doare stomacul."
+      },
+      {
+        "it": "Ho lo stomaco vuoto.",
+        "ro": "Am stomacul gol."
+      }
+    ]
+  },
+  {
+    "it": "collo",
+    "pos": "noun",
+    "ro": "gât",
+    "tags": [
+      "corp"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi fa male il collo.",
+        "ro": "Mă doare gâtul."
+      },
+      {
+        "it": "Porta una sciarpa al collo.",
+        "ro": "Poartă o eșarfă la gât."
+      }
+    ]
+  },
+  {
+    "it": "mal di testa",
+    "pos": "expression",
+    "ro": "durere de cap",
+    "tags": [
+      "corp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Ho mal di testa.",
+        "ro": "Mă doare capul."
+      },
+      {
+        "it": "Prendo una pastiglia per il mal di testa.",
+        "ro": "Iau o pastilă pentru durerea de cap."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "«Avere mal di…» = a avea dureri de: mal di denti, mal di gola, mal di stomaco."
+  },
+  {
+    "it": "gioia",
+    "pos": "noun",
+    "ro": "bucurie",
+    "tags": [
+      "sentimente"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Che gioia!",
+        "ro": "Ce bucurie!"
+      },
+      {
+        "it": "Piango di gioia.",
+        "ro": "Plâng de bucurie."
+      }
+    ]
+  },
+  {
+    "it": "ansia",
+    "pos": "noun",
+    "ro": "anxietate",
+    "tags": [
+      "sentimente"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Ho un po' d'ansia.",
+        "ro": "Am puțină anxietate."
+      },
+      {
+        "it": "L'esame mi mette ansia.",
+        "ro": "Examenul îmi dă emoții."
+      }
+    ],
+    "uncountable": true
+  },
+  {
+    "it": "arrabbiato",
+    "pos": "adjective",
+    "ro": "supărat; furios",
+    "tags": [
+      "sentimente"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Sono arrabbiato.",
+        "ro": "Sunt supărat."
+      },
+      {
+        "it": "Perché sei arrabbiata?",
+        "ro": "De ce ești supărată?"
+      }
+    ]
+  },
+  {
+    "it": "annoiato",
+    "pos": "adjective",
+    "ro": "plictisit",
+    "tags": [
+      "sentimente"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Sono annoiato.",
+        "ro": "Sunt plictisit."
+      },
+      {
+        "it": "Si sente annoiata.",
+        "ro": "Se simte plictisită."
+      }
+    ]
+  },
+  {
+    "it": "nervoso",
+    "pos": "adjective",
+    "ro": "nervos; agitat",
+    "tags": [
+      "sentimente"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Sono nervoso per l'esame.",
+        "ro": "Sunt agitat din cauza examenului."
+      },
+      {
+        "it": "Oggi sei nervosa.",
+        "ro": "Azi ești nervoasă."
+      }
+    ]
+  },
+  {
+    "it": "preoccupato",
+    "pos": "adjective",
+    "ro": "îngrijorat",
+    "tags": [
+      "sentimente"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Sono preoccupato per te.",
+        "ro": "Sunt îngrijorat pentru tine."
+      },
+      {
+        "it": "Sembra preoccupata.",
+        "ro": "Pare îngrijorată."
+      }
+    ]
+  },
+  {
+    "it": "biondo",
+    "pos": "adjective",
+    "ro": "blond",
+    "tags": [
+      "descriere"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Ha i capelli biondi.",
+        "ro": "Are părul blond."
+      },
+      {
+        "it": "Mia sorella è bionda.",
+        "ro": "Sora mea este blondă."
+      }
+    ]
+  },
+  {
+    "it": "moro",
+    "pos": "adjective",
+    "ro": "brunet",
+    "tags": [
+      "descriere"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Ha i capelli mori.",
+        "ro": "Are părul brunet."
+      },
+      {
+        "it": "Mio fratello è moro.",
+        "ro": "Fratele meu este brunet."
+      }
+    ],
+    "note": "«Capelli castani» = păr șaten."
+  },
+  {
+    "it": "magro",
+    "pos": "adjective",
+    "ro": "slab",
+    "tags": [
+      "descriere"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "È molto magro.",
+        "ro": "Este foarte slab."
+      },
+      {
+        "it": "Una ragazza magra.",
+        "ro": "O fată slabă."
+      }
+    ]
+  },
+  {
+    "it": "grasso",
+    "pos": "adjective",
+    "ro": "gras; (la mâncare) gras",
+    "tags": [
+      "descriere"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Il formaggio è grasso.",
+        "ro": "Brânza este grasă."
+      },
+      {
+        "it": "Non mangio cibo grasso.",
+        "ro": "Nu mănânc mâncare grasă."
+      }
+    ],
+    "note": "Despre persoane se preferă «robusto», «in carne» sau «formoso» (politicos)."
+  },
+  {
+    "it": "insegnante",
+    "pos": "noun",
+    "ro": "profesor; învățător",
+    "tags": [
+      "profesii"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mia madre è insegnante.",
+        "ro": "Mama mea este profesoară."
+      },
+      {
+        "it": "L'insegnante spiega la lezione.",
+        "ro": "Profesorul explică lecția."
+      }
+    ],
+    "gender": "m",
+    "note": "La fel pentru bărbat și femeie: l'insegnante."
+  },
+  {
+    "it": "cuoco",
+    "pos": "noun",
+    "ro": "bucătar",
+    "tags": [
+      "profesii"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mio padre è cuoco.",
+        "ro": "Tatăl meu este bucătar."
+      },
+      {
+        "it": "Il cuoco prepara la cena.",
+        "ro": "Bucătarul pregătește cina."
+      }
+    ],
+    "note": "Feminin: la cuoca."
+  },
+  {
+    "it": "cameriere",
+    "pos": "noun",
+    "ro": "chelner",
+    "tags": [
+      "profesii"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Chiamo il cameriere.",
+        "ro": "Chem chelnerul."
+      },
+      {
+        "it": "Il cameriere porta il conto.",
+        "ro": "Chelnerul aduce nota."
+      }
+    ],
+    "note": "Feminin: la cameriera."
+  },
+  {
+    "it": "infermiere",
+    "pos": "noun",
+    "ro": "asistent medical",
+    "tags": [
+      "profesii"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mia sorella è infermiera.",
+        "ro": "Sora mea este asistentă medicală."
+      },
+      {
+        "it": "L'infermiere mi aiuta.",
+        "ro": "Asistentul mă ajută."
+      }
+    ],
+    "note": "Feminin: l'infermiera."
+  },
+  {
+    "it": "ingegnere",
+    "pos": "noun",
+    "ro": "inginer",
+    "tags": [
+      "profesii"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mio padre è ingegnere.",
+        "ro": "Tatăl meu este inginer."
+      },
+      {
+        "it": "Lavoro come ingegnere.",
+        "ro": "Lucrez ca inginer."
+      }
+    ],
+    "gender": "m",
+    "note": "Același cuvânt pentru bărbat și femeie: l'ingegnere."
+  },
+  {
+    "it": "autista",
+    "pos": "noun",
+    "ro": "șofer",
+    "tags": [
+      "profesii"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "L'autista del bus è gentile.",
+        "ro": "Șoferul autobuzului este amabil."
+      },
+      {
+        "it": "Faccio l'autista.",
+        "ro": "Lucrez ca șofer."
+      }
+    ],
+    "gender": "m",
+    "note": "La fel pentru bărbat și femeie: l'autista."
+  },
+  {
+    "it": "operaio",
+    "pos": "noun",
+    "ro": "muncitor",
+    "tags": [
+      "profesii"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mio nonno era operaio.",
+        "ro": "Bunicul meu era muncitor."
+      },
+      {
+        "it": "Gli operai lavorano.",
+        "ro": "Muncitorii lucrează."
+      }
+    ],
+    "note": "Feminin: l'operaia."
+  },
+  {
+    "it": "commesso",
+    "pos": "noun",
+    "ro": "vânzător",
+    "tags": [
+      "profesii"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Il commesso mi aiuta.",
+        "ro": "Vânzătorul mă ajută."
+      },
+      {
+        "it": "Lavora come commessa.",
+        "ro": "Lucrează ca vânzătoare."
+      }
+    ],
+    "note": "Feminin: la commessa."
+  },
+  {
+    "it": "impiegato",
+    "pos": "noun",
+    "ro": "funcționar; angajat",
+    "tags": [
+      "profesii"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Sono impiegato in banca.",
+        "ro": "Sunt angajat la bancă."
+      },
+      {
+        "it": "Mia madre è impiegata.",
+        "ro": "Mama mea este funcționară."
+      }
+    ],
+    "note": "Feminin: l'impiegata."
+  },
+  {
+    "it": "spagnolo",
+    "pos": "adjective",
+    "ro": "spaniol",
+    "tags": [
+      "naționalități"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mangio in un ristorante spagnolo.",
+        "ro": "Mănânc într-un restaurant spaniol."
+      },
+      {
+        "it": "Parlo un po' di spagnolo.",
+        "ro": "Vorbesc puțin spaniolă."
+      }
+    ]
+  },
+  {
+    "it": "straniero",
+    "pos": "adjective",
+    "ro": "străin",
+    "tags": [
+      "naționalități"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Una lingua straniera.",
+        "ro": "O limbă străină."
+      },
+      {
+        "it": "Sono straniero.",
+        "ro": "Sunt străin."
+      }
+    ],
+    "note": "Și substantiv: lo straniero."
+  },
+  {
+    "it": "Italia",
+    "pos": "noun",
+    "ro": "Italia",
+    "tags": [
+      "țări"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Vivo in Italia.",
+        "ro": "Locuiesc în Italia."
+      },
+      {
+        "it": "L'Italia è bella.",
+        "ro": "Italia este frumoasă."
+      }
+    ],
+    "unverifiedPos": true,
+    "gender": "f",
+    "uncountable": true,
+    "note": "Cu articol: «l'Italia», «la Romania»; «in Italia» = în Italia, «dall'Italia» = din Italia."
+  },
+  {
+    "it": "Romania",
+    "pos": "noun",
+    "ro": "România",
+    "tags": [
+      "țări"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Sono nato in Romania.",
+        "ro": "M-am născut în România."
+      },
+      {
+        "it": "La Romania è in Europa.",
+        "ro": "România este în Europa."
+      }
+    ],
+    "unverifiedPos": true,
+    "gender": "f",
+    "uncountable": true,
+    "note": "«In Romania», «dalla Romania»; adjectivul este «romeno» sau «rumeno»."
+  },
+  {
+    "it": "Francia",
+    "pos": "noun",
+    "ro": "Franța",
+    "tags": [
+      "țări"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Vado in Francia.",
+        "ro": "Merg în Franța."
+      },
+      {
+        "it": "La Francia è vicina.",
+        "ro": "Franța este aproape."
+      }
+    ],
+    "unverifiedPos": true,
+    "gender": "f",
+    "uncountable": true,
+    "note": "«In Francia», «dalla Francia»."
+  },
+  {
+    "it": "Spagna",
+    "pos": "noun",
+    "ro": "Spania",
+    "tags": [
+      "țări"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mi piace la Spagna.",
+        "ro": "Îmi place Spania."
+      },
+      {
+        "it": "Vivono in Spagna.",
+        "ro": "Locuiesc în Spania."
+      }
+    ],
+    "unverifiedPos": true,
+    "gender": "f",
+    "uncountable": true,
+    "note": "«In Spagna», «dalla Spagna»."
+  },
+  {
+    "it": "Germania",
+    "pos": "noun",
+    "ro": "Germania",
+    "tags": [
+      "țări"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Lavoro in Germania.",
+        "ro": "Lucrez în Germania."
+      },
+      {
+        "it": "La Germania è grande.",
+        "ro": "Germania este mare."
+      }
+    ],
+    "unverifiedPos": true,
+    "gender": "f",
+    "uncountable": true,
+    "note": "«In Germania», «dalla Germania»."
+  },
+  {
+    "it": "Inghilterra",
+    "pos": "noun",
+    "ro": "Anglia",
+    "tags": [
+      "țări"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Studio in Inghilterra.",
+        "ro": "Studiez în Anglia."
+      },
+      {
+        "it": "L'Inghilterra è un'isola.",
+        "ro": "Anglia este pe o insulă."
+      }
+    ],
+    "unverifiedPos": true,
+    "gender": "f",
+    "uncountable": true,
+    "note": "«In Inghilterra»; «Regno Unito» = Regatul Unit."
+  },
+  {
+    "it": "America",
+    "pos": "noun",
+    "ro": "America",
+    "tags": [
+      "țări"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Vado in America.",
+        "ro": "Merg în America."
+      },
+      {
+        "it": "Ha vissuto in America.",
+        "ro": "A locuit în America."
+      }
+    ],
+    "unverifiedPos": true,
+    "gender": "f",
+    "uncountable": true,
+    "note": "«In America», «negli Stati Uniti» = în Statele Unite."
+  },
+  {
+    "it": "Europa",
+    "pos": "noun",
+    "ro": "Europa",
+    "tags": [
+      "țări"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Viaggio in Europa.",
+        "ro": "Călătoresc prin Europa."
+      },
+      {
+        "it": "L'Europa è grande.",
+        "ro": "Europa este mare."
+      }
+    ],
+    "unverifiedPos": true,
+    "gender": "f",
+    "uncountable": true,
+    "note": "«In Europa»."
+  },
+  {
+    "it": "salotto",
+    "pos": "noun",
+    "ro": "living; salon",
+    "tags": [
+      "casă"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Siamo in salotto.",
+        "ro": "Suntem în living."
+      },
+      {
+        "it": "Il salotto è grande.",
+        "ro": "Livingul este mare."
+      }
+    ]
+  },
+  {
+    "it": "divano",
+    "pos": "noun",
+    "ro": "canapea",
+    "tags": [
+      "casă"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mi siedo sul divano.",
+        "ro": "Mă așez pe canapea."
+      },
+      {
+        "it": "Il divano è comodo.",
+        "ro": "Canapeaua este comodă."
+      }
+    ]
+  },
+  {
+    "it": "armadio",
+    "pos": "noun",
+    "ro": "dulap",
+    "tags": [
+      "casă"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "I vestiti sono nell'armadio.",
+        "ro": "Hainele sunt în dulap."
+      },
+      {
+        "it": "Apro l'armadio.",
+        "ro": "Deschid dulapul."
+      }
+    ]
+  },
+  {
+    "it": "scala",
+    "pos": "noun",
+    "ro": "scară",
+    "tags": [
+      "casă"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Salgo le scale.",
+        "ro": "Urc scările."
+      },
+      {
+        "it": "La scala è ripida.",
+        "ro": "Scara este abruptă."
+      }
+    ],
+    "note": "De obicei la plural: le scale = scările."
+  },
+  {
+    "it": "balcone",
+    "pos": "noun",
+    "ro": "balcon",
+    "tags": [
+      "casă"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Il balcone è piccolo.",
+        "ro": "Balconul este mic."
+      },
+      {
+        "it": "Prendo il sole sul balcone.",
+        "ro": "Mă bronzez pe balcon."
+      }
+    ]
+  },
+  {
+    "it": "doccia",
+    "pos": "noun",
+    "ro": "duș",
+    "tags": [
+      "rutină"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Faccio la doccia.",
+        "ro": "Fac duș."
+      },
+      {
+        "it": "La doccia è fredda.",
+        "ro": "Dușul e rece."
+      }
+    ],
+    "note": "Plural: docce. «Fare la doccia» = a face duș."
+  },
+  {
+    "it": "i pantaloni",
+    "pos": "expression",
+    "ro": "pantalonii",
+    "tags": [
+      "haine"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Metto i pantaloni neri.",
+        "ro": "Îmi pun pantalonii negri."
+      },
+      {
+        "it": "I pantaloni sono lunghi.",
+        "ro": "Pantalonii sunt lungi."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Se folosește mai ales la plural."
+  },
+  {
+    "it": "i jeans",
+    "pos": "expression",
+    "ro": "blugii",
+    "tags": [
+      "haine"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Porto i jeans.",
+        "ro": "Port blugi."
+      },
+      {
+        "it": "Ho comprato dei jeans nuovi.",
+        "ro": "Mi-am cumpărat blugi noi."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Cuvânt invariabil, masculin plural."
+  },
+  {
+    "it": "i calzini",
+    "pos": "expression",
+    "ro": "șosetele",
+    "tags": [
+      "haine"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Metto i calzini.",
+        "ro": "Îmi pun șosetele."
+      },
+      {
+        "it": "Ho perso un calzino.",
+        "ro": "Am pierdut o șosetă."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Singular: il calzino."
+  },
+  {
+    "it": "gonna",
+    "pos": "noun",
+    "ro": "fustă",
+    "tags": [
+      "haine"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Porto una gonna rossa.",
+        "ro": "Port o fustă roșie."
+      },
+      {
+        "it": "La gonna è corta.",
+        "ro": "Fusta este scurtă."
+      }
+    ]
+  },
+  {
+    "it": "maglione",
+    "pos": "noun",
+    "ro": "pulover",
+    "tags": [
+      "haine"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Metto il maglione.",
+        "ro": "Îmi pun puloverul."
+      },
+      {
+        "it": "Il maglione è caldo.",
+        "ro": "Puloverul este călduros."
+      }
+    ]
+  },
+  {
+    "it": "corto",
+    "pos": "adjective",
+    "ro": "scurt",
+    "tags": [
+      "calități"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "I capelli corti.",
+        "ro": "Părul scurt."
+      },
+      {
+        "it": "Una gonna corta.",
+        "ro": "O fustă scurtă."
+      }
+    ],
+    "note": "Opusul: lungo."
+  },
+  {
+    "it": "piove",
+    "pos": "expression",
+    "ro": "plouă",
+    "tags": [
+      "vreme"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Oggi piove.",
+        "ro": "Azi plouă."
+      },
+      {
+        "it": "Piove da due giorni.",
+        "ro": "Plouă de două zile."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Verbul «piovere» se folosește doar la persoana a III-a: piove, ha piovuto. La fel: «nevica» (ninge)."
+  },
+  {
+    "it": "nevica",
+    "pos": "expression",
+    "ro": "ninge",
+    "tags": [
+      "vreme"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "In montagna nevica.",
+        "ro": "La munte ninge."
+      },
+      {
+        "it": "Stanotte nevica.",
+        "ro": "Diseară ninge."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "nuvola",
+    "pos": "noun",
+    "ro": "nor",
+    "tags": [
+      "vreme"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "C'è una nuvola.",
+        "ro": "E un nor."
+      },
+      {
+        "it": "Il cielo senza nuvole.",
+        "ro": "Cerul fără nori."
+      }
+    ]
+  },
+  {
+    "it": "temporale",
+    "pos": "noun",
+    "ro": "furtună",
+    "tags": [
+      "vreme"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Arriva un temporale.",
+        "ro": "Vine o furtună."
+      },
+      {
+        "it": "Il temporale è forte.",
+        "ro": "Furtuna este puternică."
+      }
+    ]
+  },
+  {
+    "it": "cappuccino",
+    "pos": "noun",
+    "ro": "cappuccino",
+    "tags": [
+      "băuturi"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Un cappuccino, per favore.",
+        "ro": "Un cappuccino, vă rog."
+      },
+      {
+        "it": "Bevo un cappuccino la mattina.",
+        "ro": "Beau un cappuccino dimineața."
+      }
+    ],
+    "note": "În Italia cappuccino se bea doar dimineața, la micul dejun."
+  },
+  {
+    "it": "cornetto",
+    "pos": "noun",
+    "ro": "corn (croissant)",
+    "tags": [
+      "mâncare"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mangio un cornetto.",
+        "ro": "Mănânc un corn."
+      },
+      {
+        "it": "Un cornetto alla crema.",
+        "ro": "Un corn cu cremă."
+      }
+    ]
+  },
+  {
+    "it": "spremuta",
+    "pos": "noun",
+    "ro": "suc proaspăt stors",
+    "tags": [
+      "băuturi"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Una spremuta d'arancia.",
+        "ro": "Un suc proaspăt de portocale."
+      },
+      {
+        "it": "Prendo una spremuta.",
+        "ro": "Iau un suc proaspăt."
+      }
+    ]
+  },
+  {
+    "it": "vorrei",
+    "pos": "expression",
+    "ro": "aș vrea",
+    "tags": [
+      "restaurant"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Vorrei un caffè.",
+        "ro": "Aș vrea o cafea."
+      },
+      {
+        "it": "Vorrei prenotare un tavolo.",
+        "ro": "Aș vrea să rezerv o masă."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Forma politicoasă pentru cereri (condiționalul lui «volere»)."
+  },
+  {
+    "it": "il conto per favore",
+    "pos": "expression",
+    "ro": "nota, vă rog",
+    "tags": [
+      "restaurant"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Il conto, per favore.",
+        "ro": "Nota, vă rog."
+      },
+      {
+        "it": "Possiamo avere il conto?",
+        "ro": "Putem primi nota?"
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "posta",
+    "pos": "noun",
+    "ro": "poștă",
+    "tags": [
+      "oraș"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Vado alla posta.",
+        "ro": "Merg la poștă."
+      },
+      {
+        "it": "La posta è chiusa.",
+        "ro": "Poșta este închisă."
+      }
+    ]
+  },
+  {
+    "it": "teatro",
+    "pos": "noun",
+    "ro": "teatru",
+    "tags": [
+      "oraș"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Andiamo a teatro.",
+        "ro": "Mergem la teatru."
+      },
+      {
+        "it": "Il teatro è in centro.",
+        "ro": "Teatrul este în centru."
+      }
+    ]
+  },
+  {
+    "it": "binario",
+    "pos": "noun",
+    "ro": "peron; linie",
+    "tags": [
+      "călătorie"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Il treno parte dal binario tre.",
+        "ro": "Trenul pleacă de pe linia trei."
+      },
+      {
+        "it": "A che binario arriva?",
+        "ro": "La ce peron ajunge?"
+      }
+    ]
+  },
+  {
+    "it": "partenza",
+    "pos": "noun",
+    "ro": "plecare",
+    "tags": [
+      "călătorie"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "La partenza è alle otto.",
+        "ro": "Plecarea este la opt."
+      },
+      {
+        "it": "L'ora di partenza.",
+        "ro": "Ora de plecare."
+      }
+    ]
+  },
+  {
+    "it": "arrivo",
+    "pos": "noun",
+    "ro": "sosire",
+    "tags": [
+      "călătorie"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "L'arrivo è alle dieci.",
+        "ro": "Sosirea este la zece."
+      },
+      {
+        "it": "Aspetto il tuo arrivo.",
+        "ro": "Aștept sosirea ta."
+      }
+    ]
+  },
+  {
+    "it": "valigia",
+    "pos": "noun",
+    "ro": "valiză",
+    "tags": [
+      "călătorie"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Preparo la valigia.",
+        "ro": "Îmi fac valiza."
+      },
+      {
+        "it": "La valigia è pesante.",
+        "ro": "Valiza este grea."
+      }
+    ],
+    "note": "Plural: valigie."
+  },
+  {
+    "it": "passaporto",
+    "pos": "noun",
+    "ro": "pașaport",
+    "tags": [
+      "călătorie"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Ho il passaporto.",
+        "ro": "Am pașaportul."
+      },
+      {
+        "it": "Dov'è il tuo passaporto?",
+        "ro": "Unde este pașaportul tău?"
+      }
+    ]
+  },
+  {
+    "it": "albergo",
+    "pos": "noun",
+    "ro": "hotel",
+    "tags": [
+      "călătorie"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Dormiamo in albergo.",
+        "ro": "Dormim la hotel."
+      },
+      {
+        "it": "L'albergo è vicino.",
+        "ro": "Hotelul este aproape."
+      }
+    ],
+    "note": "Plural: alberghi. La fel ca «hotel»."
+  },
+  {
+    "it": "prenotazione",
+    "pos": "noun",
+    "ro": "rezervare",
+    "tags": [
+      "călătorie"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Ho una prenotazione.",
+        "ro": "Am o rezervare."
+      },
+      {
+        "it": "La prenotazione è a nome Rossi.",
+        "ro": "Rezervarea este pe numele Rossi."
+      }
+    ]
+  },
+  {
+    "it": "prenotare",
+    "pos": "verb",
+    "ro": "a rezerva",
+    "tags": [
+      "călătorie"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Prenoto un tavolo.",
+        "ro": "Rezerv o masă."
+      },
+      {
+        "it": "Abbiamo prenotato una camera.",
+        "ro": "Am rezervat o cameră."
+      }
+    ]
+  },
+  {
+    "it": "camera singola",
+    "pos": "expression",
+    "ro": "cameră single",
+    "tags": [
+      "călătorie"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Vorrei una camera singola.",
+        "ro": "Aș vrea o cameră single."
+      },
+      {
+        "it": "La camera singola costa poco.",
+        "ro": "Camera single costă puțin."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "camera doppia",
+    "pos": "expression",
+    "ro": "cameră dublă",
+    "tags": [
+      "călătorie"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Vorrei una camera doppia.",
+        "ro": "Aș vrea o cameră dublă."
+      },
+      {
+        "it": "La camera doppia ha un balcone.",
+        "ro": "Camera dublă are balcon."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "ricetta",
+    "pos": "noun",
+    "ro": "rețetă (medicală sau culinară)",
+    "tags": [
+      "sănătate"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Il medico mi dà la ricetta.",
+        "ro": "Medicul îmi dă rețeta."
+      },
+      {
+        "it": "Una ricetta facile.",
+        "ro": "O rețetă ușoară."
+      }
+    ]
+  },
+  {
+    "it": "incidente",
+    "pos": "noun",
+    "ro": "accident",
+    "tags": [
+      "urgențe"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "C'è stato un incidente.",
+        "ro": "A fost un accident."
+      },
+      {
+        "it": "L'incidente è grave.",
+        "ro": "Accidentul este grav."
+      }
+    ]
+  },
+  {
+    "it": "ambulanza",
+    "pos": "noun",
+    "ro": "ambulanță",
+    "tags": [
+      "urgențe"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Chiama un'ambulanza!",
+        "ro": "Cheamă o ambulanță!"
+      },
+      {
+        "it": "L'ambulanza arriva subito.",
+        "ro": "Ambulanța ajunge imediat."
+      }
+    ]
+  },
+  {
+    "it": "mi sono perso",
+    "pos": "expression",
+    "ro": "m-am pierdut",
+    "tags": [
+      "urgențe"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi sono perso, mi aiuta?",
+        "ro": "M-am pierdut, mă ajutați?"
+      },
+      {
+        "it": "Si è persa in centro.",
+        "ro": "S-a pierdut în centru."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Feminin: «mi sono persa»."
+  },
+  {
+    "it": "ho bisogno di aiuto",
+    "pos": "expression",
+    "ro": "am nevoie de ajutor",
+    "tags": [
+      "urgențe"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Ho bisogno di aiuto.",
+        "ro": "Am nevoie de ajutor."
+      },
+      {
+        "it": "Hai bisogno di aiuto?",
+        "ro": "Ai nevoie de ajutor?"
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "dov'è",
+    "pos": "expression",
+    "ro": "unde este",
+    "tags": [
+      "întrebare"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Dov'è la stazione?",
+        "ro": "Unde este gara?"
+      },
+      {
+        "it": "Scusi, dov'è il bagno?",
+        "ro": "Scuzați-mă, unde este baia?"
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "«Dove è» se contrage în «dov'è»; la plural: «dove sono»."
+  },
+  {
+    "it": "dai",
+    "pos": "expression",
+    "ro": "hai; haide",
+    "tags": [
+      "colocvial"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Dai, andiamo!",
+        "ro": "Hai, să mergem!"
+      },
+      {
+        "it": "Dai, non è vero!",
+        "ro": "Hai, nu e adevărat!"
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Foarte frecvent: încurajare, mirare sau nerăbdare. «Ma dai!» = Serios?!"
+  },
+  {
+    "it": "boh",
+    "pos": "expression",
+    "ro": "habar n-am",
+    "tags": [
+      "colocvial"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Dov'è Marco? — Boh!",
+        "ro": "Unde e Marco? — Habar n-am!"
+      },
+      {
+        "it": "Boh, non lo so.",
+        "ro": "Hm, nu știu."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Foarte colocvial: «nu știu / nu-mi pasă»."
+  },
+  {
+    "it": "figurati",
+    "pos": "expression",
+    "ro": "nicio problemă; cu plăcere",
+    "tags": [
+      "colocvial"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Grazie! — Figurati!",
+        "ro": "Mulțumesc! — Nicio problemă!"
+      },
+      {
+        "it": "Scusa il ritardo. — Figurati.",
+        "ro": "Scuze de întârziere. — Nicio problemă."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Cu «Lei»: «si figuri». Informal."
+  },
+  {
+    "it": "insomma",
+    "pos": "expression",
+    "ro": "pe scurt; în fine",
+    "tags": [
+      "colocvial"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Insomma, che cosa vuoi?",
+        "ro": "Deci, ce vrei, până la urmă?"
+      },
+      {
+        "it": "Come stai? — Insomma.",
+        "ro": "Cum ești? — Așa și așa."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Poate însemna și «așa și așa» ca răspuns."
+  },
+  {
+    "it": "mi raccomando",
+    "pos": "expression",
+    "ro": "te rog să ai grijă",
+    "tags": [
+      "colocvial"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi raccomando, arriva puntuale!",
+        "ro": "Te rog, ajungi la timp!"
+      },
+      {
+        "it": "Mi raccomando, scrivimi.",
+        "ro": "Să-mi scrii negreșit."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Se spune la despărțire, ca recomandare."
+  },
+  {
+    "it": "beh",
+    "pos": "expression",
+    "ro": "ei bine",
+    "tags": [
+      "colocvial"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Beh, dipende.",
+        "ro": "Ei bine, depinde."
+      },
+      {
+        "it": "Beh, non è male.",
+        "ro": "Ei, nu e rău."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "ma dai",
+    "pos": "expression",
+    "ro": "serios?; nu se poate",
+    "tags": [
+      "colocvial"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Ho vinto! — Ma dai!",
+        "ro": "Am câștigat! — Serios?!"
+      },
+      {
+        "it": "Ma dai, non ci credo.",
+        "ro": "Haide, nu cred."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "esatto",
+    "pos": "expression",
+    "ro": "exact",
+    "tags": [
+      "colocvial"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Esatto!",
+        "ro": "Exact!"
+      },
+      {
+        "it": "Sì, esatto, hai ragione.",
+        "ro": "Da, exact, ai dreptate."
+      }
+    ],
+    "unverifiedPos": true
+  }
+]

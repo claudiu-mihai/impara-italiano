@@ -1,0 +1,33 @@
+{
+  "id": "numere-21-100",
+  "title": "Numerele 21–100",
+  "group": "numere",
+  "level": "A1",
+  "first": true,
+  "rules": [
+    "Zeci + unități se scriu legat: ventidue, trentacinque, novantanove.",
+    "Înaintea lui «uno» și «otto» zecea pierde vocala finală: ventuno, ventotto, trentuno, trentotto.",
+    "La final, «tre» primește accent: ventitré, trentatré. «Cento» = 100; 200 = «duecento»."
+  ],
+  "subgroups": [
+    {
+      "title": "Zecile",
+      "wordIds": [
+        "num-venti",
+        "num-trenta",
+        "num-quaranta",
+        "num-cinquanta",
+        "num-sessanta",
+        "num-settanta",
+        "num-ottanta",
+        "num-novanta",
+        "num-cento"
+      ]
+    }
+  ],
+  "exercises": [
+    "match",
+    "numbers"
+  ],
+  "skill": "numbers-21-100"
+}

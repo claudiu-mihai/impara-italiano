@@ -1,0 +1,50 @@
+{
+  "id": "momentele-zilei",
+  "title": "Momentele zilei",
+  "group": "timp",
+  "level": "A1",
+  "first": true,
+  "rules": [
+    "«Stamattina», «stasera», «stanotte» = azi-dimineață, diseară, azi-noapte; «la mattina», «la sera» = dimineața, seara (în general).",
+    "«Buongiorno» se spune până după-amiaza devreme, «buonasera» de după-amiază, «buonanotte» doar la culcare.",
+    "«Mezzogiorno» = ora 12 (amiază), «mezzanotte» = miezul nopții; se folosesc cu «è»: «è mezzogiorno»."
+  ],
+  "subgroups": [
+    {
+      "title": "Părțile zilei",
+      "wordIds": [
+        "n-mattina",
+        "n-pomeriggio",
+        "n-sera",
+        "n-notte"
+      ]
+    },
+    {
+      "title": "Azi",
+      "wordIds": [
+        "adv-stamattina",
+        "adv-stasera",
+        "adv-stanotte"
+      ]
+    },
+    {
+      "title": "Repere",
+      "wordIds": [
+        "n-mezzogiorno",
+        "n-mezzanotte"
+      ]
+    }
+  ],
+  "exercises": [
+    "match",
+    "order"
+  ],
+  "sequence": [
+    "n-mattina",
+    "n-mezzogiorno",
+    "n-pomeriggio",
+    "n-sera",
+    "n-notte",
+    "n-mezzanotte"
+  ]
+}

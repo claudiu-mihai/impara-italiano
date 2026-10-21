@@ -1,0 +1,1963 @@
+[
+  {
+    "it": "stazione",
+    "pos": "noun",
+    "ro": "gară; stație",
+    "tags": [
+      "locuri"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Dov'è la stazione?",
+        "ro": "Unde este gara?"
+      },
+      {
+        "it": "La stazione è vicina.",
+        "ro": "Gara este aproape."
+      }
+    ],
+    "gender": "f"
+  },
+  {
+    "it": "aeroporto",
+    "pos": "noun",
+    "ro": "aeroport",
+    "tags": [
+      "locuri"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Vado all'aeroporto.",
+        "ro": "Merg la aeroport."
+      },
+      {
+        "it": "L'aeroporto è lontano.",
+        "ro": "Aeroportul este departe."
+      }
+    ]
+  },
+  {
+    "it": "banca",
+    "pos": "noun",
+    "ro": "bancă",
+    "tags": [
+      "locuri"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "La banca è chiusa.",
+        "ro": "Banca este închisă."
+      },
+      {
+        "it": "Lavoro in banca.",
+        "ro": "Lucrez la bancă."
+      }
+    ],
+    "note": "«Banca» = instituția financiară; „banca” de stat în parc se spune «panchina»."
+  },
+  {
+    "it": "negozio",
+    "pos": "noun",
+    "ro": "magazin",
+    "tags": [
+      "locuri"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Il negozio apre alle nove.",
+        "ro": "Magazinul se deschide la nouă."
+      },
+      {
+        "it": "Questo negozio vende scarpe.",
+        "ro": "Magazinul acesta vinde pantofi."
+      }
+    ]
+  },
+  {
+    "it": "supermercato",
+    "pos": "noun",
+    "ro": "supermarket",
+    "tags": [
+      "locuri"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Vado al supermercato.",
+        "ro": "Merg la supermarket."
+      },
+      {
+        "it": "Il supermercato è aperto.",
+        "ro": "Supermarketul este deschis."
+      }
+    ]
+  },
+  {
+    "it": "farmacia",
+    "pos": "noun",
+    "ro": "farmacie",
+    "tags": [
+      "locuri"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "C'è una farmacia qui vicino?",
+        "ro": "Este o farmacie pe aproape?"
+      },
+      {
+        "it": "La farmacia chiude alle otto.",
+        "ro": "Farmacia se închide la opt."
+      }
+    ],
+    "note": "Plural: farmacie (cu accent pe «i»: farmacìe)."
+  },
+  {
+    "it": "hotel",
+    "pos": "noun",
+    "ro": "hotel",
+    "tags": [
+      "locuri"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "L'hotel è in centro.",
+        "ro": "Hotelul este în centru."
+      },
+      {
+        "it": "Cerco un hotel.",
+        "ro": "Caut un hotel."
+      }
+    ],
+    "note": "Invariabil: gli hotel. Se spune și «albergo»."
+  },
+  {
+    "it": "ufficio",
+    "pos": "noun",
+    "ro": "birou; oficiu",
+    "tags": [
+      "muncă"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Lavoro in un ufficio.",
+        "ro": "Lucrez într-un birou."
+      },
+      {
+        "it": "L'ufficio è chiuso.",
+        "ro": "Biroul este închis."
+      }
+    ]
+  },
+  {
+    "it": "piazza",
+    "pos": "noun",
+    "ro": "piață (zonă publică); piațetă",
+    "tags": [
+      "locuri"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Ci vediamo in piazza.",
+        "ro": "Ne vedem în piață."
+      },
+      {
+        "it": "La piazza è grande.",
+        "ro": "Piața este mare."
+      }
+    ],
+    "falseFriend": "Atenție: «piazza» = piață ca loc public (scuar); piața de alimente se spune «mercato»."
+  },
+  {
+    "it": "chiesa",
+    "pos": "noun",
+    "ro": "biserică",
+    "tags": [
+      "locuri"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "La chiesa è antica.",
+        "ro": "Biserica este veche."
+      },
+      {
+        "it": "Andiamo in chiesa.",
+        "ro": "Mergem la biserică."
+      }
+    ]
+  },
+  {
+    "it": "museo",
+    "pos": "noun",
+    "ro": "muzeu",
+    "tags": [
+      "locuri"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Visitiamo il museo.",
+        "ro": "Vizităm muzeul."
+      },
+      {
+        "it": "Il museo è chiuso il lunedì.",
+        "ro": "Muzeul este închis lunea."
+      }
+    ]
+  },
+  {
+    "it": "parco",
+    "pos": "noun",
+    "ro": "parc",
+    "tags": [
+      "locuri"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Camminiamo nel parco.",
+        "ro": "Ne plimbăm în parc."
+      },
+      {
+        "it": "Il parco è grande.",
+        "ro": "Parcul este mare."
+      }
+    ],
+    "note": "Plural: parchi (cu h)."
+  },
+  {
+    "it": "giardino",
+    "pos": "noun",
+    "ro": "grădină",
+    "tags": [
+      "casă"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "I bambini giocano in giardino.",
+        "ro": "Copiii se joacă în grădină."
+      },
+      {
+        "it": "Abbiamo un giardino piccolo.",
+        "ro": "Avem o grădină mică."
+      }
+    ]
+  },
+  {
+    "it": "montagna",
+    "pos": "noun",
+    "ro": "munte",
+    "tags": [
+      "natură"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Vado in montagna.",
+        "ro": "Merg la munte."
+      },
+      {
+        "it": "La montagna è alta.",
+        "ro": "Muntele este înalt."
+      }
+    ],
+    "note": "Feminin: la montagna, le montagne (se spune «in montagna» = la munte)."
+  },
+  {
+    "it": "lago",
+    "pos": "noun",
+    "ro": "lac",
+    "tags": [
+      "natură"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Il lago è bellissimo.",
+        "ro": "Lacul este foarte frumos."
+      },
+      {
+        "it": "Andiamo al lago.",
+        "ro": "Mergem la lac."
+      }
+    ],
+    "note": "Plural: laghi (cu h)."
+  },
+  {
+    "it": "spiaggia",
+    "pos": "noun",
+    "ro": "plajă",
+    "tags": [
+      "natură"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Andiamo in spiaggia.",
+        "ro": "Mergem la plajă."
+      },
+      {
+        "it": "La spiaggia è piena.",
+        "ro": "Plaja este plină."
+      }
+    ]
+  },
+  {
+    "it": "treno",
+    "pos": "noun",
+    "ro": "tren",
+    "tags": [
+      "transport"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Prendo il treno delle nove.",
+        "ro": "Iau trenul de la nouă."
+      },
+      {
+        "it": "Il treno è in ritardo.",
+        "ro": "Trenul are întârziere."
+      }
+    ]
+  },
+  {
+    "it": "autobus",
+    "pos": "noun",
+    "ro": "autobuz",
+    "tags": [
+      "transport"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Vado al lavoro in autobus.",
+        "ro": "Merg la serviciu cu autobuzul."
+      },
+      {
+        "it": "Aspetto l'autobus.",
+        "ro": "Aștept autobuzul."
+      }
+    ],
+    "note": "Invariabil: gli autobus. Scurt: «bus»."
+  },
+  {
+    "it": "aereo",
+    "pos": "noun",
+    "ro": "avion",
+    "tags": [
+      "transport"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Prendo l'aereo domani.",
+        "ro": "Iau avionul mâine."
+      },
+      {
+        "it": "L'aereo parte alle dieci.",
+        "ro": "Avionul pleacă la zece."
+      }
+    ]
+  },
+  {
+    "it": "taxi",
+    "pos": "noun",
+    "ro": "taxi",
+    "tags": [
+      "transport"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Prendiamo un taxi.",
+        "ro": "Luăm un taxi."
+      },
+      {
+        "it": "Il taxi è qui.",
+        "ro": "Taxiul este aici."
+      }
+    ],
+    "note": "Invariabil: i taxi."
+  },
+  {
+    "it": "biglietto",
+    "pos": "noun",
+    "ro": "bilet",
+    "tags": [
+      "transport"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Vorrei un biglietto per Roma.",
+        "ro": "Aș vrea un bilet pentru Roma."
+      },
+      {
+        "it": "Mostra il biglietto.",
+        "ro": "Arată biletul."
+      }
+    ]
+  },
+  {
+    "it": "bicicletta",
+    "pos": "noun",
+    "ro": "bicicletă",
+    "tags": [
+      "transport"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Vado in bicicletta.",
+        "ro": "Merg cu bicicleta."
+      },
+      {
+        "it": "La bicicletta è nuova.",
+        "ro": "Bicicleta este nouă."
+      }
+    ],
+    "note": "Scurt, familiar: «bici»."
+  },
+  {
+    "it": "viaggio",
+    "pos": "noun",
+    "ro": "călătorie",
+    "tags": [
+      "transport"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Buon viaggio!",
+        "ro": "Drum bun!"
+      },
+      {
+        "it": "Il viaggio è lungo.",
+        "ro": "Călătoria este lungă."
+      }
+    ]
+  },
+  {
+    "it": "fermata",
+    "pos": "noun",
+    "ro": "stație (de autobuz)",
+    "tags": [
+      "transport"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Scendo alla prossima fermata.",
+        "ro": "Cobor la stația următoare."
+      },
+      {
+        "it": "Dov'è la fermata dell'autobus?",
+        "ro": "Unde este stația de autobuz?"
+      }
+    ]
+  },
+  {
+    "it": "camera",
+    "pos": "noun",
+    "ro": "cameră; dormitor",
+    "tags": [
+      "casă"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "La mia camera è al secondo piano.",
+        "ro": "Camera mea este la etajul doi."
+      },
+      {
+        "it": "Vorrei una camera singola.",
+        "ro": "Aș vrea o cameră single."
+      }
+    ],
+    "note": "«Camera da letto» = dormitor; la hotel, «camera» = cameră."
+  },
+  {
+    "it": "cucina",
+    "pos": "noun",
+    "ro": "bucătărie",
+    "tags": [
+      "casă"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Sono in cucina.",
+        "ro": "Sunt în bucătărie."
+      },
+      {
+        "it": "La cucina è piccola.",
+        "ro": "Bucătăria este mică."
+      }
+    ],
+    "note": "Înseamnă și „arta culinară”: la cucina italiana."
+  },
+  {
+    "it": "bagno",
+    "pos": "noun",
+    "ro": "baie",
+    "tags": [
+      "casă"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Dov'è il bagno?",
+        "ro": "Unde este baia?"
+      },
+      {
+        "it": "Il bagno è libero.",
+        "ro": "Baia este liberă."
+      }
+    ],
+    "note": "Înseamnă și toaleta, și „baia” (a face baie: fare il bagno)."
+  },
+  {
+    "it": "tavolo",
+    "pos": "noun",
+    "ro": "masă (mobilă)",
+    "tags": [
+      "casă"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Il libro è sul tavolo.",
+        "ro": "Cartea este pe masă."
+      },
+      {
+        "it": "Un tavolo per due, per favore.",
+        "ro": "O masă pentru doi, vă rog."
+      }
+    ],
+    "falseFriend": "Atenție: «tavolo» = masa ca mobilă; «mese» = lună (calendaristică), nu „mese”."
+  },
+  {
+    "it": "sedia",
+    "pos": "noun",
+    "ro": "scaun",
+    "tags": [
+      "casă"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Siediti su questa sedia.",
+        "ro": "Stai pe scaunul acesta."
+      },
+      {
+        "it": "Una sedia libera.",
+        "ro": "Un scaun liber."
+      }
+    ]
+  },
+  {
+    "it": "letto",
+    "pos": "noun",
+    "ro": "pat",
+    "tags": [
+      "casă"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Vado a letto.",
+        "ro": "Mă duc la culcare."
+      },
+      {
+        "it": "Il letto è comodo.",
+        "ro": "Patul este comod."
+      }
+    ],
+    "note": "«Andare a letto» = a se culca."
+  },
+  {
+    "it": "finestra",
+    "pos": "noun",
+    "ro": "fereastră",
+    "tags": [
+      "casă"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Apri la finestra, per favore.",
+        "ro": "Deschide fereastra, te rog."
+      },
+      {
+        "it": "La finestra è aperta.",
+        "ro": "Fereastra este deschisă."
+      }
+    ]
+  },
+  {
+    "it": "porta",
+    "pos": "noun",
+    "ro": "ușă",
+    "tags": [
+      "casă"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Chiudi la porta.",
+        "ro": "Închide ușa."
+      },
+      {
+        "it": "Qualcuno bussa alla porta.",
+        "ro": "Cineva bate la ușă."
+      }
+    ]
+  },
+  {
+    "it": "appartamento",
+    "pos": "noun",
+    "ro": "apartament",
+    "tags": [
+      "casă"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Cerco un appartamento.",
+        "ro": "Caut un apartament."
+      },
+      {
+        "it": "L'appartamento è piccolo.",
+        "ro": "Apartamentul este mic."
+      }
+    ]
+  },
+  {
+    "it": "piano",
+    "pos": "noun",
+    "ro": "etaj",
+    "tags": [
+      "casă"
+    ],
+    "level": "A1",
+    "senseHint": "floor",
+    "examples": [
+      {
+        "it": "Abito al terzo piano.",
+        "ro": "Locuiesc la etajul trei."
+      },
+      {
+        "it": "Quale piano?",
+        "ro": "Ce etaj?"
+      }
+    ],
+    "note": "«Piano» înseamnă și „plan” sau „pian” și, ca adverb, „încet”."
+  },
+  {
+    "it": "giacca",
+    "pos": "noun",
+    "ro": "geacă; sacou",
+    "tags": [
+      "haine"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Indosso una giacca.",
+        "ro": "Port o geacă."
+      },
+      {
+        "it": "Questa giacca è nuova.",
+        "ro": "Geaca aceasta este nouă."
+      }
+    ],
+    "note": "Plural: giacche (cu h)."
+  },
+  {
+    "it": "scarpa",
+    "pos": "noun",
+    "ro": "pantof",
+    "tags": [
+      "haine"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Ho comprato due scarpe nuove.",
+        "ro": "Am cumpărat doi pantofi noi."
+      },
+      {
+        "it": "Le scarpe sono sotto il letto.",
+        "ro": "Pantofii sunt sub pat."
+      }
+    ],
+    "note": "Se folosește mai ales la plural: le scarpe."
+  },
+  {
+    "it": "maglia",
+    "pos": "noun",
+    "ro": "bluză; tricou",
+    "tags": [
+      "haine"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Una maglia rossa.",
+        "ro": "O bluză roșie."
+      },
+      {
+        "it": "Questa maglia è troppo grande.",
+        "ro": "Bluza aceasta este prea mare."
+      }
+    ]
+  },
+  {
+    "it": "vestito",
+    "pos": "noun",
+    "ro": "rochie; costum",
+    "tags": [
+      "haine"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Che bel vestito!",
+        "ro": "Ce rochie frumoasă!"
+      },
+      {
+        "it": "Il vestito è rosa.",
+        "ro": "Rochia este roz."
+      }
+    ],
+    "note": "«Vestito» e și rochie (de damă), și costum (de bărbat); la plural, «vestiti» = haine."
+  },
+  {
+    "it": "camicia",
+    "pos": "noun",
+    "ro": "cămașă",
+    "tags": [
+      "haine"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Una camicia bianca.",
+        "ro": "O cămașă albă."
+      },
+      {
+        "it": "Indosso la camicia.",
+        "ro": "Port cămașa."
+      }
+    ],
+    "note": "Plural: camicie."
+  },
+  {
+    "it": "borsa",
+    "pos": "noun",
+    "ro": "geantă",
+    "tags": [
+      "haine"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "La mia borsa è nera.",
+        "ro": "Geanta mea este neagră."
+      },
+      {
+        "it": "Dove hai messo la borsa?",
+        "ro": "Unde ai pus geanta?"
+      }
+    ]
+  },
+  {
+    "it": "cappello",
+    "pos": "noun",
+    "ro": "pălărie; căciulă",
+    "tags": [
+      "haine"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Un cappello nero.",
+        "ro": "O pălărie neagră."
+      },
+      {
+        "it": "Metto il cappello.",
+        "ro": "Îmi pun pălăria."
+      }
+    ]
+  },
+  {
+    "it": "cappotto",
+    "pos": "noun",
+    "ro": "palton",
+    "tags": [
+      "haine"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Fa freddo: metti il cappotto.",
+        "ro": "E frig: pune paltonul."
+      },
+      {
+        "it": "Un cappotto grigio.",
+        "ro": "Un palton gri."
+      }
+    ]
+  },
+  {
+    "it": "braccio",
+    "pos": "noun",
+    "ro": "braț",
+    "tags": [
+      "corp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mi fa male il braccio.",
+        "ro": "Mă doare brațul."
+      },
+      {
+        "it": "Ha le braccia forti.",
+        "ro": "Are brațele puternice."
+      }
+    ],
+    "note": "Plural neregulat și feminin: le braccia.",
+    "plural": "braccia",
+    "pluralGender": "f"
+  },
+  {
+    "it": "gamba",
+    "pos": "noun",
+    "ro": "picior (de la șold în jos)",
+    "tags": [
+      "corp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mi fa male la gamba.",
+        "ro": "Mă doare piciorul."
+      },
+      {
+        "it": "Ha le gambe lunghe.",
+        "ro": "Are picioare lungi."
+      }
+    ]
+  },
+  {
+    "it": "bocca",
+    "pos": "noun",
+    "ro": "gură",
+    "tags": [
+      "corp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Apri la bocca.",
+        "ro": "Deschide gura."
+      },
+      {
+        "it": "Ha una bocca grande.",
+        "ro": "Are o gură mare."
+      }
+    ],
+    "note": "Plural: bocche (cu h)."
+  },
+  {
+    "it": "naso",
+    "pos": "noun",
+    "ro": "nas",
+    "tags": [
+      "corp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Ho il naso chiuso.",
+        "ro": "Am nasul înfundat."
+      },
+      {
+        "it": "Un naso piccolo.",
+        "ro": "Un nas mic."
+      }
+    ]
+  },
+  {
+    "it": "orecchio",
+    "pos": "noun",
+    "ro": "ureche",
+    "tags": [
+      "corp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mi fa male l'orecchio.",
+        "ro": "Mă doare urechea."
+      },
+      {
+        "it": "Ho le orecchie fredde.",
+        "ro": "Am urechile reci."
+      }
+    ]
+  },
+  {
+    "it": "dente",
+    "pos": "noun",
+    "ro": "dinte",
+    "tags": [
+      "corp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mi fa male un dente.",
+        "ro": "Mă doare un dinte."
+      },
+      {
+        "it": "Mi lavo i denti.",
+        "ro": "Mă spăl pe dinți."
+      }
+    ]
+  },
+  {
+    "it": "capello",
+    "pos": "noun",
+    "ro": "fir de păr; păr",
+    "tags": [
+      "corp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Ha i capelli lunghi.",
+        "ro": "Are părul lung."
+      },
+      {
+        "it": "Mi lavo i capelli.",
+        "ro": "Mă spăl pe cap."
+      }
+    ],
+    "note": "Se folosește mai ales la plural: i capelli = părul."
+  },
+  {
+    "it": "pioggia",
+    "pos": "noun",
+    "ro": "ploaie",
+    "tags": [
+      "vreme"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "C'è molta pioggia.",
+        "ro": "Plouă mult."
+      },
+      {
+        "it": "Non mi piace la pioggia.",
+        "ro": "Nu-mi place ploaia."
+      }
+    ],
+    "note": "Plural: piogge (cu g, fără i)."
+  },
+  {
+    "it": "neve",
+    "pos": "noun",
+    "ro": "zăpadă",
+    "tags": [
+      "vreme"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "C'è la neve in montagna.",
+        "ro": "Este zăpadă la munte."
+      },
+      {
+        "it": "La neve è bianca.",
+        "ro": "Zăpada este albă."
+      }
+    ]
+  },
+  {
+    "it": "vento",
+    "pos": "noun",
+    "ro": "vânt",
+    "tags": [
+      "vreme"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Oggi c'è molto vento.",
+        "ro": "Astăzi bate mult vântul."
+      },
+      {
+        "it": "Il vento è forte.",
+        "ro": "Vântul este puternic."
+      }
+    ]
+  },
+  {
+    "it": "freddo",
+    "pos": "adjective",
+    "ro": "rece; frig",
+    "tags": [
+      "vreme"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "L'acqua è fredda.",
+        "ro": "Apa este rece."
+      },
+      {
+        "it": "Oggi fa freddo.",
+        "ro": "Astăzi e frig."
+      }
+    ],
+    "note": "«Avere freddo» = a-i fi frig (omului); «fare freddo» = a fi frig (vremea)."
+  },
+  {
+    "it": "albero",
+    "pos": "noun",
+    "ro": "copac",
+    "tags": [
+      "natură"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Un albero grande.",
+        "ro": "Un copac mare."
+      },
+      {
+        "it": "Davanti a casa c'è un albero.",
+        "ro": "În fața casei este un copac."
+      }
+    ]
+  },
+  {
+    "it": "fiore",
+    "pos": "noun",
+    "ro": "floare",
+    "tags": [
+      "natură"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Un fiore rosso.",
+        "ro": "O floare roșie."
+      },
+      {
+        "it": "Ti regalo dei fiori.",
+        "ro": "Îți dăruiesc flori."
+      }
+    ]
+  },
+  {
+    "it": "cane",
+    "pos": "noun",
+    "ro": "câine",
+    "tags": [
+      "animale"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Ho un cane.",
+        "ro": "Am un câine."
+      },
+      {
+        "it": "Il cane dorme.",
+        "ro": "Câinele doarme."
+      }
+    ]
+  },
+  {
+    "it": "gatto",
+    "pos": "noun",
+    "ro": "pisică; motan",
+    "tags": [
+      "animale"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Il gatto è sotto il tavolo.",
+        "ro": "Pisica este sub masă."
+      },
+      {
+        "it": "Ho un gatto nero.",
+        "ro": "Am o pisică neagră."
+      }
+    ],
+    "note": "Feminin: la gatta."
+  },
+  {
+    "it": "pomeriggio",
+    "pos": "noun",
+    "ro": "după-amiază",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Nel pomeriggio lavoro.",
+        "ro": "După-amiaza lucrez."
+      },
+      {
+        "it": "Buon pomeriggio!",
+        "ro": "Bună după-amiaza!"
+      }
+    ]
+  },
+  {
+    "it": "minuto",
+    "pos": "noun",
+    "ro": "minut",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Aspetta un minuto!",
+        "ro": "Așteaptă un minut!"
+      },
+      {
+        "it": "Arrivo tra dieci minuti.",
+        "ro": "Ajung peste zece minute."
+      }
+    ]
+  },
+  {
+    "it": "tardi",
+    "pos": "adverb",
+    "ro": "târziu",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "È tardi.",
+        "ro": "Este târziu."
+      },
+      {
+        "it": "Arrivo più tardi.",
+        "ro": "Ajung mai târziu."
+      }
+    ],
+    "note": "«A più tardi!» = pe mai târziu!"
+  },
+  {
+    "it": "stasera",
+    "pos": "adverb",
+    "ro": "diseară",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Stasera resto a casa.",
+        "ro": "Diseară rămân acasă."
+      },
+      {
+        "it": "Che cosa fai stasera?",
+        "ro": "Ce faci diseară?"
+      }
+    ]
+  },
+  {
+    "it": "vacanza",
+    "pos": "noun",
+    "ro": "vacanță",
+    "tags": [
+      "timp liber"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Sono in vacanza.",
+        "ro": "Sunt în vacanță."
+      },
+      {
+        "it": "Le vacanze sono finite.",
+        "ro": "Vacanța s-a terminat."
+      }
+    ],
+    "note": "Se folosește des la plural: le vacanze."
+  },
+  {
+    "it": "compleanno",
+    "pos": "noun",
+    "ro": "ziua de naștere",
+    "tags": [
+      "timp liber"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Buon compleanno!",
+        "ro": "La mulți ani!"
+      },
+      {
+        "it": "Il mio compleanno è a marzo.",
+        "ro": "Ziua mea de naștere este în martie."
+      }
+    ]
+  },
+  {
+    "it": "regalo",
+    "pos": "noun",
+    "ro": "cadou",
+    "tags": [
+      "timp liber"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Questo è un regalo per te.",
+        "ro": "Acesta este un cadou pentru tine."
+      },
+      {
+        "it": "Che bel regalo!",
+        "ro": "Ce cadou frumos!"
+      }
+    ]
+  },
+  {
+    "it": "lezione",
+    "pos": "noun",
+    "ro": "lecție; curs",
+    "tags": [
+      "școală"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "La lezione comincia alle dieci.",
+        "ro": "Lecția începe la zece."
+      },
+      {
+        "it": "Ho lezione di italiano.",
+        "ro": "Am curs de italiană."
+      }
+    ]
+  },
+  {
+    "it": "professore",
+    "pos": "noun",
+    "ro": "profesor",
+    "tags": [
+      "școală"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Il professore spiega la lezione.",
+        "ro": "Profesorul explică lecția."
+      },
+      {
+        "it": "Il mio professore è bravo.",
+        "ro": "Profesorul meu este bun."
+      }
+    ],
+    "note": "Feminin: la professoressa."
+  },
+  {
+    "it": "medico",
+    "pos": "noun",
+    "ro": "medic",
+    "tags": [
+      "muncă"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Vado dal medico.",
+        "ro": "Merg la medic."
+      },
+      {
+        "it": "Mio fratello è medico.",
+        "ro": "Fratele meu este medic."
+      }
+    ]
+  },
+  {
+    "it": "lingua",
+    "pos": "noun",
+    "ro": "limbă",
+    "tags": [
+      "școală"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Studio una lingua nuova.",
+        "ro": "Învăț o limbă nouă."
+      },
+      {
+        "it": "Quante lingue parli?",
+        "ro": "Câte limbi vorbești?"
+      }
+    ],
+    "note": "Înseamnă și „limba” din gură."
+  },
+  {
+    "it": "italiano",
+    "pos": "adjective",
+    "ro": "italian",
+    "tags": [
+      "naționalități"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Sono italiano.",
+        "ro": "Sunt italian."
+      },
+      {
+        "it": "Un caffè italiano.",
+        "ro": "O cafea italiană."
+      }
+    ],
+    "note": "Ca substantiv, «l'italiano» = limba italiană. Naționalitățile se scriu cu literă mică."
+  },
+  {
+    "it": "romeno",
+    "pos": "adjective",
+    "ro": "român",
+    "tags": [
+      "naționalități"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Sono romeno.",
+        "ro": "Sunt român."
+      },
+      {
+        "it": "Parlo romeno.",
+        "ro": "Vorbesc românește."
+      }
+    ],
+    "note": "Se scrie și «rumeno». «Il romeno» = limba română."
+  },
+  {
+    "it": "stanco",
+    "pos": "adjective",
+    "ro": "obosit",
+    "tags": [
+      "stări"
+    ],
+    "level": "A1",
+    "forms": [
+      "stanco",
+      "stanca",
+      "stanchi",
+      "stanche"
+    ],
+    "examples": [
+      {
+        "it": "Sono molto stanco.",
+        "ro": "Sunt foarte obosit."
+      },
+      {
+        "it": "Sei stanca?",
+        "ro": "Ești obosită?"
+      }
+    ],
+    "note": "La plural se adaugă «h»: stanchi, stanche."
+  },
+  {
+    "it": "contento",
+    "pos": "adjective",
+    "ro": "mulțumit; bucuros",
+    "tags": [
+      "stări"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Sono contento di vederti.",
+        "ro": "Sunt bucuros să te văd."
+      },
+      {
+        "it": "Siamo molto contenti.",
+        "ro": "Suntem foarte mulțumiți."
+      }
+    ]
+  },
+  {
+    "it": "triste",
+    "pos": "adjective",
+    "ro": "trist",
+    "tags": [
+      "stări"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Oggi sono triste.",
+        "ro": "Astăzi sunt trist."
+      },
+      {
+        "it": "Un film triste.",
+        "ro": "Un film trist."
+      }
+    ]
+  },
+  {
+    "it": "malato",
+    "pos": "adjective",
+    "ro": "bolnav",
+    "tags": [
+      "stări"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mio figlio è malato.",
+        "ro": "Fiul meu este bolnav."
+      },
+      {
+        "it": "Sono malato da due giorni.",
+        "ro": "Sunt bolnav de două zile."
+      }
+    ]
+  },
+  {
+    "it": "occupato",
+    "pos": "adjective",
+    "ro": "ocupat",
+    "tags": [
+      "stări"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Sono molto occupato.",
+        "ro": "Sunt foarte ocupat."
+      },
+      {
+        "it": "Questo posto è occupato.",
+        "ro": "Locul acesta este ocupat."
+      }
+    ]
+  },
+  {
+    "it": "ricco",
+    "pos": "adjective",
+    "ro": "bogat",
+    "tags": [
+      "calități"
+    ],
+    "level": "A1",
+    "forms": [
+      "ricco",
+      "ricca",
+      "ricchi",
+      "ricche"
+    ],
+    "examples": [
+      {
+        "it": "È un uomo ricco.",
+        "ro": "Este un om bogat."
+      },
+      {
+        "it": "Una città ricca.",
+        "ro": "Un oraș bogat."
+      }
+    ],
+    "note": "La plural se adaugă «h»: ricchi, ricche."
+  },
+  {
+    "it": "povero",
+    "pos": "adjective",
+    "ro": "sărac; sărman",
+    "tags": [
+      "calități"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "È una famiglia povera.",
+        "ro": "Este o familie săracă."
+      },
+      {
+        "it": "Povero Marco!",
+        "ro": "Săracul Marco!"
+      }
+    ]
+  },
+  {
+    "it": "vuoto",
+    "pos": "adjective",
+    "ro": "gol",
+    "tags": [
+      "calități"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Il bicchiere è vuoto.",
+        "ro": "Paharul este gol."
+      },
+      {
+        "it": "La strada è vuota.",
+        "ro": "Strada este goală."
+      }
+    ]
+  },
+  {
+    "it": "gentile",
+    "pos": "adjective",
+    "ro": "amabil",
+    "tags": [
+      "calități"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Sei molto gentile.",
+        "ro": "Ești foarte amabil."
+      },
+      {
+        "it": "Una persona gentile.",
+        "ro": "O persoană amabilă."
+      }
+    ],
+    "note": "Se spune și când mulțumești: «Gentile!» / «Troppo gentile!»."
+  },
+  {
+    "it": "simpatico",
+    "pos": "adjective",
+    "ro": "simpatic",
+    "tags": [
+      "calități"
+    ],
+    "level": "A1",
+    "forms": [
+      "simpatico",
+      "simpatica",
+      "simpatici",
+      "simpatiche"
+    ],
+    "examples": [
+      {
+        "it": "Marco è molto simpatico.",
+        "ro": "Marco este foarte simpatic."
+      },
+      {
+        "it": "Una ragazza simpatica.",
+        "ro": "O fată simpatică."
+      }
+    ]
+  },
+  {
+    "it": "brutto",
+    "pos": "adjective",
+    "ro": "urât; prost",
+    "tags": [
+      "calități"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Oggi il tempo è brutto.",
+        "ro": "Astăzi vremea este urâtă."
+      },
+      {
+        "it": "È un brutto film.",
+        "ro": "Este un film prost."
+      }
+    ]
+  },
+  {
+    "it": "veloce",
+    "pos": "adjective",
+    "ro": "rapid",
+    "tags": [
+      "calități"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Il treno è veloce.",
+        "ro": "Trenul este rapid."
+      },
+      {
+        "it": "Una macchina veloce.",
+        "ro": "O mașină rapidă."
+      }
+    ]
+  },
+  {
+    "it": "lento",
+    "pos": "adjective",
+    "ro": "lent",
+    "tags": [
+      "calități"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Il servizio è lento.",
+        "ro": "Serviciul este lent."
+      },
+      {
+        "it": "Parla in modo lento.",
+        "ro": "Vorbește rar (lent)."
+      }
+    ]
+  },
+  {
+    "it": "cattivo",
+    "pos": "adjective",
+    "ro": "rău; prost",
+    "tags": [
+      "calități"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Il cane non è cattivo.",
+        "ro": "Câinele nu este rău."
+      },
+      {
+        "it": "Un cattivo esempio.",
+        "ro": "Un exemplu prost."
+      }
+    ]
+  },
+  {
+    "it": "tranquillo",
+    "pos": "adjective",
+    "ro": "liniștit",
+    "tags": [
+      "calități"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "È una zona tranquilla.",
+        "ro": "Este o zonă liniștită."
+      },
+      {
+        "it": "Stai tranquillo!",
+        "ro": "Fii liniștit!"
+      }
+    ]
+  },
+  {
+    "it": "abitare",
+    "pos": "verb",
+    "ro": "a locui",
+    "tags": [
+      "viață"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Abito a Roma.",
+        "ro": "Locuiesc la Roma."
+      },
+      {
+        "it": "Dove abiti?",
+        "ro": "Unde locuiești?"
+      }
+    ],
+    "falseFriend": "Atenție: «abitare» = a locui (nu „a abita”). «Vivere» = a trăi."
+  },
+  {
+    "it": "studiare",
+    "pos": "verb",
+    "ro": "a învăța; a studia",
+    "tags": [
+      "școală"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Studio italiano.",
+        "ro": "Studiez italiana."
+      },
+      {
+        "it": "Studiamo insieme.",
+        "ro": "Învățăm împreună."
+      }
+    ]
+  },
+  {
+    "it": "cucinare",
+    "pos": "verb",
+    "ro": "a găti",
+    "tags": [
+      "casă"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Cucino la pasta.",
+        "ro": "Gătesc paste."
+      },
+      {
+        "it": "Mia nonna cucina bene.",
+        "ro": "Bunica mea gătește bine."
+      }
+    ]
+  },
+  {
+    "it": "camminare",
+    "pos": "verb",
+    "ro": "a merge pe jos; a se plimba",
+    "tags": [
+      "mișcare"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Cammino nel parco.",
+        "ro": "Mă plimb prin parc."
+      },
+      {
+        "it": "Mi piace camminare.",
+        "ro": "Îmi place să merg pe jos."
+      }
+    ]
+  },
+  {
+    "it": "cantare",
+    "pos": "verb",
+    "ro": "a cânta",
+    "tags": [
+      "timp liber"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Canto sotto la doccia.",
+        "ro": "Cânt sub duș."
+      },
+      {
+        "it": "Lei canta molto bene.",
+        "ro": "Ea cântă foarte bine."
+      }
+    ]
+  },
+  {
+    "it": "ballare",
+    "pos": "verb",
+    "ro": "a dansa",
+    "tags": [
+      "timp liber"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mi piace ballare.",
+        "ro": "Îmi place să dansez."
+      },
+      {
+        "it": "Balliamo stasera?",
+        "ro": "Dansăm diseară?"
+      }
+    ]
+  },
+  {
+    "it": "viaggiare",
+    "pos": "verb",
+    "ro": "a călători",
+    "tags": [
+      "transport"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mi piace viaggiare.",
+        "ro": "Îmi place să călătoresc."
+      },
+      {
+        "it": "Viaggio in treno.",
+        "ro": "Călătoresc cu trenul."
+      }
+    ]
+  },
+  {
+    "it": "telefonare",
+    "pos": "verb",
+    "ro": "a telefona",
+    "tags": [
+      "comunicare"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Ti telefono domani.",
+        "ro": "Te sun mâine."
+      },
+      {
+        "it": "Telefono a mia madre.",
+        "ro": "Telefonez mamei mele."
+      }
+    ],
+    "note": "Se construiește cu «a» + persoana: telefonare a qualcuno."
+  },
+  {
+    "it": "lavare",
+    "pos": "verb",
+    "ro": "a spăla",
+    "tags": [
+      "casă"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Lavo i piatti.",
+        "ro": "Spăl vasele."
+      },
+      {
+        "it": "Lavo la macchina.",
+        "ro": "Spăl mașina."
+      }
+    ],
+    "note": "«Lavarsi» = a se spăla (mi lavo le mani)."
+  },
+  {
+    "it": "nuotare",
+    "pos": "verb",
+    "ro": "a înota",
+    "tags": [
+      "timp liber"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Sai nuotare?",
+        "ro": "Știi să înoți?"
+      },
+      {
+        "it": "Nuoto in piscina.",
+        "ro": "Înot la bazin."
+      }
+    ]
+  },
+  {
+    "it": "pulire",
+    "pos": "verb",
+    "ro": "a curăța",
+    "tags": [
+      "casă"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Pulisco la casa.",
+        "ro": "Curăț casa."
+      },
+      {
+        "it": "Pulisci il tavolo!",
+        "ro": "Curăță masa!"
+      }
+    ]
+  },
+  {
+    "it": "accendere",
+    "pos": "verb",
+    "ro": "a aprinde; a porni",
+    "tags": [
+      "casă"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Accendi la luce.",
+        "ro": "Aprinde lumina."
+      },
+      {
+        "it": "Accendo la televisione.",
+        "ro": "Pornesc televizorul."
+      }
+    ]
+  },
+  {
+    "it": "spegnere",
+    "pos": "verb",
+    "ro": "a stinge; a opri",
+    "tags": [
+      "casă"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Spegni la luce.",
+        "ro": "Stinge lumina."
+      },
+      {
+        "it": "Spengo il telefono.",
+        "ro": "Închid telefonul."
+      }
+    ]
+  },
+  {
+    "it": "suonare",
+    "pos": "verb",
+    "ro": "a suna; a cânta (la un instrument)",
+    "tags": [
+      "timp liber"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Suono la chitarra.",
+        "ro": "Cânt la chitară."
+      },
+      {
+        "it": "Il telefono suona.",
+        "ro": "Telefonul sună."
+      }
+    ],
+    "note": "«Cantare» = a cânta cu vocea; «suonare» = a cânta la un instrument și a suna."
+  },
+  {
+    "it": "regalare",
+    "pos": "verb",
+    "ro": "a dărui",
+    "tags": [
+      "timp liber"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Ti regalo un libro.",
+        "ro": "Îți dăruiesc o carte."
+      },
+      {
+        "it": "Che cosa regali a Marco?",
+        "ro": "Ce-i dăruiești lui Marco?"
+      }
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+[
+  { "id": "s-m01", "wordIds": ["v-andare"], "it": "Domani vado al mare.", "ro": "Mâine merg la mare.", "variants": ["Vado al mare domani."] },
+  { "id": "s-m02", "wordIds": ["v-lavorare"], "it": "Oggi non lavoro.", "ro": "Astăzi nu lucrez.", "variants": ["Non lavoro oggi."] },
+  { "id": "s-m03", "wordIds": ["v-mangiare"], "it": "Stasera mangiamo la pizza.", "ro": "Diseară mâncăm pizza.", "variants": ["Mangiamo la pizza stasera."] },
+  { "id": "s-m04", "wordIds": ["v-leggere", "v-avere"], "it": "Ieri ho letto un libro.", "ro": "Ieri am citit o carte.", "variants": ["Ho letto un libro ieri."] },
+  { "id": "s-m05", "wordIds": ["v-chiamare"], "it": "Più tardi ti chiamo.", "ro": "Te sun mai târziu.", "variants": ["Ti chiamo più tardi."] },
+  { "id": "s-m06", "wordIds": ["v-partire"], "it": "Domani partiamo presto.", "ro": "Mâine plecăm devreme.", "variants": ["Partiamo presto domani."] },
+  { "id": "s-m07", "wordIds": ["v-dovere", "v-andare"], "it": "Ora devo andare via.", "ro": "Acum trebuie să plec.", "variants": ["Devo andare via ora."] },
+  { "id": "s-m08", "wordIds": ["v-partire"], "it": "Tra cinque minuti il treno parte.", "ro": "Trenul pleacă peste cinci minute.", "variants": ["Il treno parte tra cinque minuti."] },
+  { "id": "s-m09", "wordIds": ["v-leggere"], "it": "Ogni sera leggo un libro.", "ro": "În fiecare seară citesc o carte.", "variants": ["Leggo un libro ogni sera."] },
+  { "id": "s-m10", "wordIds": ["v-mangiare", "v-avere"], "it": "Hai già mangiato?", "ro": "Ai mâncat deja?", "variants": ["Hai mangiato già?"] },
+  { "id": "s-m11", "wordIds": ["v-vivere"], "it": "Da due anni vivo a Torino.", "ro": "Trăiesc la Torino de doi ani.", "variants": ["Vivo a Torino da due anni."] },
+  { "id": "s-m12", "wordIds": ["v-cominciare"], "it": "Alle nove il film comincia.", "ro": "Filmul începe la nouă.", "variants": ["Il film comincia alle nove."] },
+  { "id": "s-m13", "wordIds": ["v-andare"], "it": "Domani mattina vado al lavoro.", "ro": "Mâine dimineață merg la serviciu.", "variants": ["Vado al lavoro domani mattina."] },
+  { "id": "s-m14", "wordIds": ["v-parlare"], "it": "Con chi parli?", "ro": "Cu cine vorbești?" },
+  { "id": "s-m15", "wordIds": ["v-capire", "v-dire"], "it": "Non capisco che cosa dici.", "ro": "Nu înțeleg ce spui." },
+  { "id": "s-m16", "wordIds": ["v-volere"], "it": "Voglio un caffè e un cornetto.", "ro": "Vreau o cafea și un croissant." },
+  { "id": "s-m17", "wordIds": ["v-dormire"], "it": "Mia sorella dorme ancora.", "ro": "Sora mea încă doarme.", "variants": ["Mia sorella ancora dorme."] },
+  { "id": "s-m18", "wordIds": ["v-avere"], "it": "Non ho tempo oggi.", "ro": "Nu am timp astăzi.", "variants": ["Oggi non ho tempo."] },
+  { "id": "s-m19", "wordIds": ["v-potere", "v-aiutare"], "it": "Puoi aiutarmi domani?", "ro": "Mă poți ajuta mâine?", "variants": ["Domani puoi aiutarmi?"] }
+]

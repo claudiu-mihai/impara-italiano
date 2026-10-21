@@ -1,0 +1,56 @@
+{
+  "id": "preturi-si-bani",
+  "title": "Prețuri și bani",
+  "group": "numere",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "«Quanto costa?» pentru un singur lucru, «quanto costano?» pentru mai multe.",
+    "Prețul: «dieci euro e cinquanta» = 10,50 €. «Euro» nu se schimbă: un euro, due euro.",
+    "«Soldi» = bani (colocvial, mereu la plural); «denaro» e mai formal. «Pagare in contanti / con la carta»."
+  ],
+  "subgroups": [
+    {
+      "title": "Întrebări",
+      "wordIds": [
+        "e-quanto_costa",
+        "e-il_conto_per_favore"
+      ]
+    },
+    {
+      "title": "Bani",
+      "wordIds": [
+        "n-euro",
+        "n-soldi",
+        "n-prezzo",
+        "v-costare",
+        "v-pagare",
+        "v-spendere",
+        "v-risparmiare"
+      ]
+    },
+    {
+      "title": "La casă",
+      "wordIds": [
+        "n-cassa",
+        "n-conto",
+        "n-bancomat",
+        "e-in_contanti",
+        "n-scontrino",
+        "n-sconto",
+        "n-resto"
+      ]
+    },
+    {
+      "title": "Prețuri",
+      "wordIds": [
+        "adv-gratis",
+        "a-caro",
+        "a-economico"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

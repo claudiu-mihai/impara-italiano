@@ -1,0 +1,29 @@
+node_modules
+dist
+.git
+.gitignore
+.DS_Store
+*.local
+
+# date locale ale uneltelor
+.claude/
+.claude-flow/
+.swarm/
+ruvector.db
+.venv/
+
+# generat la build, în container
+src/data/generated/
+
+# surse brute de frecvență (mari, nu sunt necesare la build)
+content/sources/
+content/drafts/
+
+# rapoarte de test (tests/ și playwright.config.ts rămân: tsc le verifică la build)
+test-results/
+playwright-report/
+
+# docker
+Dockerfile
+docker-compose.yml
+.dockerignore

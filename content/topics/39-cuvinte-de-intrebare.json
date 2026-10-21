@@ -1,0 +1,37 @@
+{
+  "id": "cuvinte-de-intrebare",
+  "title": "Cuvinte de întrebare",
+  "group": "conversatie",
+  "level": "A1",
+  "first": true,
+  "rules": [
+    "«Quanto» și «quale» se acordă: «quanti anni hai?», «quale casa?», «quali libri?».",
+    "«Perché» = de ce, dar și pentru că: «Perché? Perché sì.»",
+    "În italiană ordinea cuvintelor nu se schimbă la întrebare, doar intonația: «Vieni?» / «Dove vai?»."
+  ],
+  "subgroups": [
+    {
+      "title": "Cine, ce, unde",
+      "wordIds": [
+        "pr-chi",
+        "e-che_cosa",
+        "adv-dove",
+        "a-quale"
+      ]
+    },
+    {
+      "title": "Cum, când, cât",
+      "wordIds": [
+        "adv-come",
+        "adv-quando",
+        "a-quanto",
+        "e-quanto_costa",
+        "c-perché",
+        "e-come_mai"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "zilele-saptamanii",
+  "title": "Zilele săptămânii",
+  "group": "timp",
+  "level": "A1",
+  "first": true,
+  "rules": [
+    "«Lunedì» (fără articol) = luni, ziua aceasta sau cea apropiată; «il lunedì» = în fiecare luni. La fel: «di lunedì», «ogni lunedì».",
+    "Zilele sunt masculine (il lunedì), în afară de «la domenica». Se scriu cu literă mică, iar săptămâna începe luni.",
+    "«Il fine settimana» sau «il weekend» = sâmbăta și duminica."
+  ],
+  "subgroups": [
+    {
+      "title": "Zilele",
+      "wordIds": [
+        "n-lunedì",
+        "n-martedì",
+        "n-mercoledì",
+        "n-giovedì",
+        "n-venerdì",
+        "n-sabato",
+        "n-domenica"
+      ]
+    },
+    {
+      "title": "Cuvinte utile",
+      "wordIds": [
+        "n-giorno",
+        "n-settimana",
+        "n-weekend",
+        "adv-ieri",
+        "adv-oggi",
+        "adv-domani"
+      ]
+    }
+  ],
+  "exercises": [
+    "match",
+    "order"
+  ],
+  "sequence": [
+    "n-lunedì",
+    "n-martedì",
+    "n-mercoledì",
+    "n-giovedì",
+    "n-venerdì",
+    "n-sabato",
+    "n-domenica"
+  ],
+  "cyclic": true
+}

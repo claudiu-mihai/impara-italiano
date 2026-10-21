@@ -1,0 +1,40 @@
+{
+  "id": "descrierea-unei-persoane",
+  "title": "Descrierea unei persoane",
+  "group": "oameni",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "Despre păr și ochi: «ha i capelli biondi / lunghi», «ha gli occhi azzurri» – cu articol, la plural.",
+    "«È alto» (e înalt), dar vârsta cu «avere»: «ha trent'anni».",
+    "Adjectivul se acordă: «è magro / magra», «sono giovani»."
+  ],
+  "subgroups": [
+    {
+      "title": "Aspect",
+      "wordIds": [
+        "a-alto",
+        "a-basso",
+        "a-magro",
+        "a-grasso",
+        "a-giovane",
+        "a-vecchio",
+        "a-bello",
+        "a-brutto"
+      ]
+    },
+    {
+      "title": "Păr",
+      "wordIds": [
+        "a-biondo",
+        "a-moro",
+        "n-capello",
+        "a-lungo",
+        "a-corto"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

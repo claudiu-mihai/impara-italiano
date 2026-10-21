@@ -1,0 +1,45 @@
+{
+  "id": "vremea",
+  "title": "Vremea",
+  "group": "zi-de-zi",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "«Fa caldo», «fa freddo» (nu «è caldo»); «c'è il sole», «c'è vento»; «piove», «nevica».",
+    "«Che tempo fa?» = Cum e vremea? («tempo» înseamnă și vreme, și timp).",
+    "Pentru persoane: «ho caldo», «ho freddo» (mi-e cald / frig)."
+  ],
+  "subgroups": [
+    {
+      "title": "Ce vreme e",
+      "wordIds": [
+        "a-caldo",
+        "a-freddo",
+        "n-sole",
+        "n-vento",
+        "n-pioggia",
+        "n-neve",
+        "n-nuvola",
+        "n-temporale"
+      ]
+    },
+    {
+      "title": "Verbe",
+      "wordIds": [
+        "e-piove",
+        "e-nevica"
+      ]
+    },
+    {
+      "title": "Cuvinte utile",
+      "wordIds": [
+        "n-tempo",
+        "n-cielo",
+        "a-bello"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "name": "impara-italiano",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run build:data && tsc && vite build",
+    "preview": "vite preview",
+    "build:data": "node scripts/build-data.ts",
+    "validate": "node scripts/validate-content.ts",
+    "predev": "npm run build:data",
+    "icons": "node scripts/make-icons.ts",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "typecheck": "npm run build:data && tsc",
+    "enrich": "node scripts/content/enrich.ts",
+    "irregular": "node scripts/content/derive-irregular.ts --write",
+    "verify:wiktionary": "node scripts/frequency/verify-conjugations.ts",
+    "frequency:lexicon": "node scripts/frequency/build-lexicon.ts",
+    "frequency:candidates": "node scripts/frequency/candidates.ts",
+    "lint:examples": ".venv/bin/python scripts/frequency/lint_examples.py"
+  },
+  "dependencies": {
+    "dexie": "^4.4.6",
+    "dexie-react-hooks": "^4.4.0",
+    "motion": "^14.4.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.4",
+    "ts-fsrs": "^5.4.2",
+    "zod": "^4.6.7",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "fake-indexeddb": "^6.2.6",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4",
+    "vite-plugin-pwa": "^2.0.0",
+    "vitest": "^5.0.5"
+  }
+}

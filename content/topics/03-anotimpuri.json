@@ -1,0 +1,44 @@
+{
+  "id": "anotimpuri",
+  "title": "Anotimpurile",
+  "group": "timp",
+  "level": "A2",
+  "first": true,
+  "rules": [
+    "Cu anotimpul se folosește «in»: «in estate», «in inverno», «in primavera», «in autunno» (și «d'estate», «d'inverno»).",
+    "«L'estate» este feminin, «l'inverno» și «l'autunno» sunt masculine; «la primavera» este feminin.",
+    "«Stagione» = anotimp; «bella stagione» = anotimpul cald."
+  ],
+  "subgroups": [
+    {
+      "title": "Anotimpurile",
+      "wordIds": [
+        "n-primavera",
+        "n-estate",
+        "n-autunno",
+        "n-inverno"
+      ]
+    },
+    {
+      "title": "Cuvinte utile",
+      "wordIds": [
+        "n-stagione",
+        "a-caldo",
+        "a-freddo",
+        "n-pioggia",
+        "n-neve"
+      ]
+    }
+  ],
+  "exercises": [
+    "match",
+    "order"
+  ],
+  "sequence": [
+    "n-primavera",
+    "n-estate",
+    "n-autunno",
+    "n-inverno"
+  ],
+  "cyclic": true
+}

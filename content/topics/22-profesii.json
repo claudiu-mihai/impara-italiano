@@ -1,0 +1,57 @@
+{
+  "id": "profesii",
+  "title": "Profesii",
+  "group": "oameni",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "După «essere», profesia nu cere articol: «sono ingegnere», «è medico»; cu adjectiv, da: «è un bravo medico».",
+    "Feminin: -o → -a (cuoco → cuoca, commesso → commessa); -tore → -trice (attore → attrice); la -ista, -ante, -e rămâne la fel (la giornalista, l'insegnante).",
+    "«Che lavoro fai?» = Cu ce te ocupi?"
+  ],
+  "subgroups": [
+    {
+      "title": "Sănătate și drept",
+      "wordIds": [
+        "n-medico",
+        "n-dottore",
+        "n-infermiere",
+        "n-avvocato"
+      ]
+    },
+    {
+      "title": "Școală și birou",
+      "wordIds": [
+        "n-insegnante",
+        "n-professore",
+        "n-studente",
+        "n-impiegato",
+        "n-collega",
+        "n-direttore",
+        "n-capo"
+      ]
+    },
+    {
+      "title": "Servicii",
+      "wordIds": [
+        "n-cuoco",
+        "n-cameriere",
+        "n-commesso",
+        "n-autista",
+        "n-operaio"
+      ]
+    },
+    {
+      "title": "Artă și presă",
+      "wordIds": [
+        "n-artista",
+        "n-attore",
+        "n-giornalista",
+        "n-ingegnere"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

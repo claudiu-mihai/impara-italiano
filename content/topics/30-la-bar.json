@@ -1,0 +1,50 @@
+{
+  "id": "la-bar",
+  "title": "La bar",
+  "group": "zi-de-zi",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "Cerere politicoasă: «vorrei un caffè, per favore» sau «prendo un caffè».",
+    "«Un caffè» înseamnă espresso. Cappuccino se bea de obicei doar dimineața.",
+    "Adesea se plătește întâi la casă, iar cu bonul (scontrino) comanzi la tejghea."
+  ],
+  "subgroups": [
+    {
+      "title": "Băuturi",
+      "wordIds": [
+        "n-caffè",
+        "n-cappuccino",
+        "n-acqua",
+        "n-tè",
+        "n-latte",
+        "n-birra",
+        "n-vino",
+        "n-spremuta"
+      ]
+    },
+    {
+      "title": "Mâncare",
+      "wordIds": [
+        "n-cornetto",
+        "n-panino",
+        "n-zucchero"
+      ]
+    },
+    {
+      "title": "Comenzi",
+      "wordIds": [
+        "e-vorrei",
+        "e-per_favore",
+        "v-ordinare",
+        "e-il_conto_per_favore",
+        "n-conto",
+        "n-scontrino",
+        "n-bicchiere"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

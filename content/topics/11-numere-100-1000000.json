@@ -1,0 +1,28 @@
+{
+  "id": "numere-100-1000000",
+  "title": "Numerele 100–1.000.000",
+  "group": "numere",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "Sutele se scriu legat: duecento, trecento, cinquecento. «Cento» nu primește «uno»: 101 = «centouno», 180 = «centottanta».",
+    "«Mille» (1000) devine «mila» la plural și se scrie legat: duemila, tremila, ventimila, duemilacinquecento (2500).",
+    "«Milione» e substantiv: «un milione», «due milioni», iar substantivul vine cu «di»: «un milione di euro».",
+    "În scris, miile se despart cu punct: 1.250.000."
+  ],
+  "subgroups": [
+    {
+      "title": "Repere",
+      "wordIds": [
+        "num-cento",
+        "num-mille",
+        "num-milione"
+      ]
+    }
+  ],
+  "exercises": [
+    "match",
+    "numbers"
+  ],
+  "skill": "numbers-big"
+}

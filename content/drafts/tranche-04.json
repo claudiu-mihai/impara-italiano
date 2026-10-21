@@ -1,0 +1,731 @@
+[
+  {
+    "it": "arrivare",
+    "pos": "verb",
+    "ro": "a ajunge; a sosi",
+    "tags": [
+      "mișcare"
+    ],
+    "examples": [
+      {
+        "it": "Il treno arriva alle nove.",
+        "ro": "Trenul ajunge la ora nouă."
+      },
+      {
+        "it": "Quando arrivi a casa?",
+        "ro": "Când ajungi acasă?"
+      }
+    ],
+    "note": "Cere auxiliarul «essere»: sono arrivato."
+  },
+  {
+    "it": "cercare",
+    "pos": "verb",
+    "ro": "a căuta",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Cerco le chiavi.",
+        "ro": "Caut cheile."
+      },
+      {
+        "it": "Cerco di capire.",
+        "ro": "Încerc să înțeleg."
+      }
+    ],
+    "note": "«Cercare di» + infinitiv = a încerca să. Ortografie: cerchi, cerchiamo (cu h)."
+  },
+  {
+    "it": "riuscire",
+    "pos": "verb",
+    "ro": "a reuși",
+    "tags": [
+      "gândire"
+    ],
+    "examples": [
+      {
+        "it": "Non riesco a dormire.",
+        "ro": "Nu reușesc să dorm."
+      },
+      {
+        "it": "Sei riuscito a finire?",
+        "ro": "Ai reușit să termini?"
+      }
+    ],
+    "note": "Se construiește cu «a» + infinitiv: riesco a capire. Se conjugă ca «uscire»."
+  },
+  {
+    "it": "tenere",
+    "pos": "verb",
+    "ro": "a ține",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Tieni questo libro.",
+        "ro": "Ține cartea aceasta."
+      },
+      {
+        "it": "Tengo molto alla mia famiglia.",
+        "ro": "Țin foarte mult la familia mea."
+      }
+    ],
+    "note": "«Tenerci» = a ține mult la ceva."
+  },
+  {
+    "it": "diventare",
+    "pos": "verb",
+    "ro": "a deveni; a ajunge",
+    "tags": [
+      "stare"
+    ],
+    "examples": [
+      {
+        "it": "Diventa freddo.",
+        "ro": "Se face frig."
+      },
+      {
+        "it": "Mio figlio è diventato medico.",
+        "ro": "Fiul meu a devenit medic."
+      }
+    ],
+    "note": "Cere auxiliarul «essere»."
+  },
+  {
+    "it": "guardare",
+    "pos": "verb",
+    "ro": "a se uita; a privi",
+    "tags": [
+      "percepție"
+    ],
+    "examples": [
+      {
+        "it": "Guardo un film.",
+        "ro": "Mă uit la un film."
+      },
+      {
+        "it": "Guarda questo!",
+        "ro": "Uită-te la asta!"
+      }
+    ],
+    "falseFriend": "Atenție: «guardare» = a se uita, a privi; nu înseamnă „a garda” (a păzi)."
+  },
+  {
+    "it": "servire",
+    "pos": "verb",
+    "ro": "a servi; a fi nevoie",
+    "tags": [
+      "muncă"
+    ],
+    "examples": [
+      {
+        "it": "Mi serve un aiuto.",
+        "ro": "Am nevoie de ajutor."
+      },
+      {
+        "it": "A che cosa serve?",
+        "ro": "La ce folosește?"
+      }
+    ],
+    "note": "«Servire» poate însemna „a fi util / a fi nevoie”: mi serve = am nevoie."
+  },
+  {
+    "it": "iniziare",
+    "pos": "verb",
+    "auxiliary": "both",
+    "ro": "a începe",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Il film inizia alle otto.",
+        "ro": "Filmul începe la ora opt."
+      },
+      {
+        "it": "Inizio a lavorare.",
+        "ro": "Încep să lucrez."
+      }
+    ],
+    "note": "Sinonim cu «cominciare»; «iniziare a» + infinitiv = a începe să."
+  },
+  {
+    "it": "cambiare",
+    "pos": "verb",
+    "auxiliary": "both",
+    "ro": "a schimba",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Cambio casa.",
+        "ro": "Mă mut (schimb casa)."
+      },
+      {
+        "it": "Le cose cambiano.",
+        "ro": "Lucrurile se schimbă."
+      }
+    ]
+  },
+  {
+    "it": "seguire",
+    "pos": "verb",
+    "ro": "a urma; a urmări",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Seguimi!",
+        "ro": "Urmează-mă!"
+      },
+      {
+        "it": "Seguo un corso di italiano.",
+        "ro": "Urmez un curs de italiană."
+      }
+    ]
+  },
+  {
+    "it": "rendere",
+    "pos": "verb",
+    "ro": "a da înapoi; a face (să fie)",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Ti rendo i soldi domani.",
+        "ro": "Îți dau banii înapoi mâine."
+      },
+      {
+        "it": "Questo mi rende felice.",
+        "ro": "Asta mă face fericit."
+      }
+    ]
+  },
+  {
+    "it": "provare",
+    "pos": "verb",
+    "ro": "a încerca; a proba",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Provo questa giacca.",
+        "ro": "Probez geaca asta."
+      },
+      {
+        "it": "Ci provo ancora.",
+        "ro": "Încerc din nou."
+      }
+    ],
+    "note": "«Provare a» + infinitiv = a încerca să."
+  },
+  {
+    "it": "restare",
+    "pos": "verb",
+    "ro": "a rămâne",
+    "tags": [
+      "stare"
+    ],
+    "examples": [
+      {
+        "it": "Resto a casa stasera.",
+        "ro": "Rămân acasă diseară."
+      },
+      {
+        "it": "Resta con me.",
+        "ro": "Rămâi cu mine."
+      }
+    ],
+    "note": "Sinonim cu «rimanere»; cere «essere»."
+  },
+  {
+    "it": "perdere",
+    "pos": "verb",
+    "ro": "a pierde",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Ho perso il telefono.",
+        "ro": "Mi-am pierdut telefonul."
+      },
+      {
+        "it": "Non perdere tempo!",
+        "ro": "Nu pierde timpul!"
+      }
+    ]
+  },
+  {
+    "it": "usare",
+    "pos": "verb",
+    "ro": "a folosi",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Uso il telefono ogni giorno.",
+        "ro": "Folosesc telefonul în fiecare zi."
+      },
+      {
+        "it": "Posso usare il bagno?",
+        "ro": "Pot folosi baia?"
+      }
+    ]
+  },
+  {
+    "it": "decidere",
+    "pos": "verb",
+    "ro": "a decide",
+    "tags": [
+      "gândire"
+    ],
+    "examples": [
+      {
+        "it": "Decidi tu.",
+        "ro": "Decizi tu."
+      },
+      {
+        "it": "Ho deciso di partire.",
+        "ro": "Am hotărât să plec."
+      }
+    ],
+    "note": "«Decidere di» + infinitiv = a hotărî să."
+  },
+  {
+    "it": "chiudere",
+    "pos": "verb",
+    "ro": "a închide",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Chiudi la porta, per favore.",
+        "ro": "Închide ușa, te rog."
+      },
+      {
+        "it": "Il negozio chiude alle sette.",
+        "ro": "Magazinul se închide la ora șapte."
+      }
+    ]
+  },
+  {
+    "it": "bastare",
+    "pos": "verb",
+    "ro": "a ajunge; a fi de ajuns",
+    "tags": [
+      "cantitate"
+    ],
+    "examples": [
+      {
+        "it": "Basta così!",
+        "ro": "Ajunge atât!"
+      },
+      {
+        "it": "Questo basta per tutti.",
+        "ro": "Asta ajunge pentru toți."
+      }
+    ],
+    "note": "«Basta!» = Ajunge!"
+  },
+  {
+    "it": "pagare",
+    "pos": "verb",
+    "ro": "a plăti",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Pago io.",
+        "ro": "Plătesc eu."
+      },
+      {
+        "it": "Quanto hai pagato?",
+        "ro": "Cât ai plătit?"
+      }
+    ],
+    "note": "Ortografie: paghi, paghiamo (cu h)."
+  },
+  {
+    "it": "vincere",
+    "pos": "verb",
+    "ro": "a câștiga; a învinge",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Vinciamo noi!",
+        "ro": "Câștigăm noi!"
+      },
+      {
+        "it": "Ha vinto la partita.",
+        "ro": "A câștigat meciul."
+      }
+    ]
+  },
+  {
+    "it": "ricevere",
+    "pos": "verb",
+    "ro": "a primi",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Ricevo molte mail.",
+        "ro": "Primesc multe e-mailuri."
+      },
+      {
+        "it": "Ho ricevuto il tuo messaggio.",
+        "ro": "Am primit mesajul tău."
+      }
+    ]
+  },
+  {
+    "it": "rispondere",
+    "pos": "verb",
+    "ro": "a răspunde",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "Rispondi al telefono!",
+        "ro": "Răspunde la telefon!"
+      },
+      {
+        "it": "Non ha risposto.",
+        "ro": "Nu a răspuns."
+      }
+    ],
+    "note": "Se construiește cu «a»: rispondere a una domanda."
+  },
+  {
+    "it": "ascoltare",
+    "pos": "verb",
+    "ro": "a asculta",
+    "tags": [
+      "percepție"
+    ],
+    "examples": [
+      {
+        "it": "Ascolto la musica.",
+        "ro": "Ascult muzică."
+      },
+      {
+        "it": "Ascoltami!",
+        "ro": "Ascultă-mă!"
+      }
+    ],
+    "note": "«Ascoltare» = a asculta cu intenție; «sentire» = a auzi."
+  },
+  {
+    "it": "continuare",
+    "pos": "verb",
+    "auxiliary": "both",
+    "ro": "a continua",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Continua così!",
+        "ro": "Continuă așa!"
+      },
+      {
+        "it": "Continuo a studiare.",
+        "ro": "Continuu să învăț."
+      }
+    ]
+  },
+  {
+    "it": "spiegare",
+    "pos": "verb",
+    "ro": "a explica",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "Mi puoi spiegare?",
+        "ro": "Poți să-mi explici?"
+      },
+      {
+        "it": "Il professore spiega la lezione.",
+        "ro": "Profesorul explică lecția."
+      }
+    ],
+    "note": "Ortografie: spieghi, spieghiamo (cu h)."
+  },
+  {
+    "it": "mancare",
+    "pos": "verb",
+    "auxiliary": "both",
+    "ro": "a lipsi; a-i fi dor",
+    "tags": [
+      "stare"
+    ],
+    "examples": [
+      {
+        "it": "Mi manchi.",
+        "ro": "Mi-e dor de tine."
+      },
+      {
+        "it": "Manca il sale.",
+        "ro": "Lipsește sarea."
+      }
+    ],
+    "falseFriend": "Atenție: «mancare» = a lipsi; NU înseamnă „a mânca” (a mânca = mangiare)."
+  },
+  {
+    "it": "sperare",
+    "pos": "verb",
+    "ro": "a spera",
+    "tags": [
+      "sentimente"
+    ],
+    "examples": [
+      {
+        "it": "Spero di sì.",
+        "ro": "Sper că da."
+      },
+      {
+        "it": "Spero di vederti presto.",
+        "ro": "Sper să te văd curând."
+      }
+    ],
+    "note": "«Sperare di» + infinitiv = a spera să."
+  },
+  {
+    "it": "scegliere",
+    "pos": "verb",
+    "ro": "a alege",
+    "tags": [
+      "gândire"
+    ],
+    "examples": [
+      {
+        "it": "Scegli tu il film.",
+        "ro": "Alegi tu filmul."
+      },
+      {
+        "it": "Ho scelto questa.",
+        "ro": "Am ales-o pe aceasta."
+      }
+    ]
+  },
+  {
+    "it": "mandare",
+    "pos": "verb",
+    "ro": "a trimite",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "Ti mando un messaggio.",
+        "ro": "Îți trimit un mesaj."
+      },
+      {
+        "it": "Mandami la foto.",
+        "ro": "Trimite-mi poza."
+      }
+    ]
+  },
+  {
+    "it": "fermare",
+    "pos": "verb",
+    "ro": "a opri",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Fermati qui!",
+        "ro": "Oprește-te aici!"
+      },
+      {
+        "it": "Il treno ferma a Bologna.",
+        "ro": "Trenul oprește la Bologna."
+      }
+    ],
+    "note": "«Fermarsi» = a se opri."
+  },
+  {
+    "it": "succedere",
+    "pos": "verb",
+    "ro": "a se întâmpla",
+    "tags": [
+      "stare"
+    ],
+    "examples": [
+      {
+        "it": "Che cosa succede?",
+        "ro": "Ce se întâmplă?"
+      },
+      {
+        "it": "Non succede niente.",
+        "ro": "Nu se întâmplă nimic."
+      }
+    ],
+    "note": "Cere «essere»: è successo = s-a întâmplat."
+  },
+  {
+    "it": "incontrare",
+    "pos": "verb",
+    "ro": "a întâlni",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Incontro Marco domani.",
+        "ro": "Mă întâlnesc cu Marco mâine."
+      },
+      {
+        "it": "Ho incontrato un amico.",
+        "ro": "Am întâlnit un prieten."
+      }
+    ]
+  },
+  {
+    "it": "significare",
+    "pos": "verb",
+    "ro": "a însemna",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "Che cosa significa questa parola?",
+        "ro": "Ce înseamnă cuvântul acesta?"
+      },
+      {
+        "it": "Significa «casa».",
+        "ro": "Înseamnă „casă”."
+      }
+    ],
+    "note": "Se folosește aproape mereu la persoana a III-a: significa, significano."
+  },
+  {
+    "it": "permettere",
+    "pos": "verb",
+    "ro": "a permite",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "Mi permette?",
+        "ro": "Îmi permiteți?"
+      },
+      {
+        "it": "Non posso permettermelo.",
+        "ro": "Nu îmi permit asta."
+      }
+    ]
+  },
+  {
+    "it": "scoprire",
+    "pos": "verb",
+    "ro": "a descoperi",
+    "tags": [
+      "gândire"
+    ],
+    "examples": [
+      {
+        "it": "Scopro cose nuove.",
+        "ro": "Descopăr lucruri noi."
+      },
+      {
+        "it": "Ho scoperto la verità.",
+        "ro": "Am descoperit adevărul."
+      }
+    ]
+  },
+  {
+    "it": "cadere",
+    "pos": "verb",
+    "ro": "a cădea",
+    "tags": [
+      "mișcare"
+    ],
+    "examples": [
+      {
+        "it": "Il bambino cade.",
+        "ro": "Copilul cade."
+      },
+      {
+        "it": "Sono caduto dalla bici.",
+        "ro": "Am căzut de pe bicicletă."
+      }
+    ],
+    "note": "Cere «essere»."
+  },
+  {
+    "it": "crescere",
+    "pos": "verb",
+    "auxiliary": "both",
+    "ro": "a crește",
+    "tags": [
+      "stare"
+    ],
+    "examples": [
+      {
+        "it": "I bambini crescono in fretta.",
+        "ro": "Copiii cresc repede."
+      },
+      {
+        "it": "Sono cresciuto a Torino.",
+        "ro": "Am crescut la Torino."
+      }
+    ]
+  },
+  {
+    "it": "preparare",
+    "pos": "verb",
+    "ro": "a pregăti",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Preparo la cena.",
+        "ro": "Pregătesc cina."
+      },
+      {
+        "it": "Sei pronto? Prepariamo tutto.",
+        "ro": "Ești gata? Pregătim totul."
+      }
+    ]
+  },
+  {
+    "it": "raccontare",
+    "pos": "verb",
+    "ro": "a povesti",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "Mi racconti una storia?",
+        "ro": "Îmi povestești o poveste?"
+      },
+      {
+        "it": "Ha raccontato tutto.",
+        "ro": "A povestit totul."
+      }
+    ]
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "id": "expresii-colocviale",
+  "title": "Expresii din italiana vorbită",
+  "group": "conversatie",
+  "level": "B1",
+  "first": false,
+  "rules": [
+    "«Magari!» = De-ar fi! (dorință); «magari» poate însemna și «poate».",
+    "«Boh» = nu știu (foarte colocvial); «dai!» = hai!; «ma dai!» = serios?!",
+    "Sunt expresii de conversație; în scris formal se evită."
+  ],
+  "subgroups": [
+    {
+      "title": "Răspunsuri",
+      "wordIds": [
+        "e-dai",
+        "e-boh",
+        "e-figurati",
+        "e-insomma",
+        "e-mi_raccomando",
+        "e-beh",
+        "e-ma_dai",
+        "e-esatto"
+      ]
+    },
+    {
+      "title": "Altele",
+      "wordIds": [
+        "adv-magari",
+        "adv-ecco",
+        "adv-allora",
+        "adv-davvero",
+        "adv-infatti"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

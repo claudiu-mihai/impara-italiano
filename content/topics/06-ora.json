@@ -1,0 +1,46 @@
+{
+  "id": "ora",
+  "title": "Ora",
+  "group": "timp",
+  "level": "A1",
+  "first": true,
+  "rules": [
+    "«È l'una», dar «sono le due, le tre…»; și «è mezzogiorno», «è mezzanotte».",
+    "Minutele: «le tre e dieci» (trei și zece). După jumătate se scade: «le quattro meno venti» (patru fără douăzeci).",
+    "«A che ora?» = La ce oră? Răspuns: «alle otto», dar «all'una».",
+    "Oficial: 15:30 = «le quindici e trenta»; în vorbirea curentă: «le tre e mezza»."
+  ],
+  "subgroups": [
+    {
+      "title": "Întrebare și răspuns",
+      "wordIds": [
+        "e-che_ore_sono",
+        "e-sono_le_tre",
+        "e-è_l'una"
+      ]
+    },
+    {
+      "title": "Minute",
+      "wordIds": [
+        "e-e_mezza",
+        "e-e_un_quarto",
+        "e-meno_un_quarto",
+        "e-in_punto"
+      ]
+    },
+    {
+      "title": "Cuvinte utile",
+      "wordIds": [
+        "n-ora",
+        "n-minuto",
+        "n-mezzogiorno",
+        "n-mezzanotte"
+      ]
+    }
+  ],
+  "exercises": [
+    "match",
+    "clock"
+  ],
+  "skill": "clock"
+}

@@ -1,0 +1,1355 @@
+[
+  {
+    "it": "zero",
+    "pos": "numeral",
+    "ro": "zero",
+    "tags": [
+      "numere"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Zero più uno fa uno.",
+        "ro": "Zero plus unu face unu."
+      },
+      {
+        "it": "Ci sono zero gradi.",
+        "ro": "Sunt zero grade."
+      }
+    ]
+  },
+  {
+    "it": "tredici",
+    "pos": "numeral",
+    "ro": "treisprezece",
+    "tags": [
+      "numere"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Ho tredici anni.",
+        "ro": "Am treisprezece ani."
+      },
+      {
+        "it": "Conto fino a tredici.",
+        "ro": "Număr până la treisprezece."
+      }
+    ]
+  },
+  {
+    "it": "quattordici",
+    "pos": "numeral",
+    "ro": "paisprezece",
+    "tags": [
+      "numere"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Il numero quattordici.",
+        "ro": "Numărul paisprezece."
+      },
+      {
+        "it": "Conto fino a quattordici.",
+        "ro": "Număr până la paisprezece."
+      }
+    ]
+  },
+  {
+    "it": "quindici",
+    "pos": "numeral",
+    "ro": "cincisprezece",
+    "tags": [
+      "numere"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Aspetto quindici minuti.",
+        "ro": "Aștept cincisprezece minute."
+      },
+      {
+        "it": "Conto fino a quindici.",
+        "ro": "Număr până la cincisprezece."
+      }
+    ]
+  },
+  {
+    "it": "sedici",
+    "pos": "numeral",
+    "ro": "șaisprezece",
+    "tags": [
+      "numere"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Ho sedici euro.",
+        "ro": "Am șaisprezece euro."
+      },
+      {
+        "it": "Conto fino a sedici.",
+        "ro": "Număr până la șaisprezece."
+      }
+    ]
+  },
+  {
+    "it": "diciassette",
+    "pos": "numeral",
+    "ro": "șaptesprezece",
+    "tags": [
+      "numere"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Sono le diciassette.",
+        "ro": "Este ora șaptesprezece."
+      },
+      {
+        "it": "Conto fino a diciassette.",
+        "ro": "Număr până la șaptesprezece."
+      }
+    ]
+  },
+  {
+    "it": "diciotto",
+    "pos": "numeral",
+    "ro": "optsprezece",
+    "tags": [
+      "numere"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Ha diciotto anni.",
+        "ro": "Are optsprezece ani."
+      },
+      {
+        "it": "Conto fino a diciotto.",
+        "ro": "Număr până la optsprezece."
+      }
+    ]
+  },
+  {
+    "it": "diciannove",
+    "pos": "numeral",
+    "ro": "nouăsprezece",
+    "tags": [
+      "numere"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Il bus diciannove passa qui.",
+        "ro": "Autobuzul nouăsprezece trece pe aici."
+      },
+      {
+        "it": "Conto fino a diciannove.",
+        "ro": "Număr până la nouăsprezece."
+      }
+    ]
+  },
+  {
+    "it": "sessanta",
+    "pos": "numeral",
+    "ro": "șaizeci",
+    "tags": [
+      "numere"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Un'ora ha sessanta minuti.",
+        "ro": "O oră are șaizeci de minute."
+      },
+      {
+        "it": "Conto fino a sessanta.",
+        "ro": "Număr până la șaizeci."
+      }
+    ]
+  },
+  {
+    "it": "settanta",
+    "pos": "numeral",
+    "ro": "șaptezeci",
+    "tags": [
+      "numere"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mia nonna ha settant'anni.",
+        "ro": "Bunica mea are șaptezeci de ani."
+      },
+      {
+        "it": "Conto fino a settanta.",
+        "ro": "Număr până la șaptezeci."
+      }
+    ]
+  },
+  {
+    "it": "ottanta",
+    "pos": "numeral",
+    "ro": "optzeci",
+    "tags": [
+      "numere"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Costa ottanta euro.",
+        "ro": "Costă optzeci de euro."
+      },
+      {
+        "it": "Conto fino a ottanta.",
+        "ro": "Număr până la optzeci."
+      }
+    ]
+  },
+  {
+    "it": "novanta",
+    "pos": "numeral",
+    "ro": "nouăzeci",
+    "tags": [
+      "numere"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Novanta gradi.",
+        "ro": "Nouăzeci de grade."
+      },
+      {
+        "it": "Conto fino a novanta.",
+        "ro": "Număr până la nouăzeci."
+      }
+    ]
+  },
+  {
+    "it": "quarto",
+    "pos": "adjective",
+    "ro": "al patrulea",
+    "tags": [
+      "numere"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "È il quarto giorno.",
+        "ro": "E a patra zi."
+      },
+      {
+        "it": "È il quarto della lista.",
+        "ro": "Este al patrulea de pe listă."
+      }
+    ]
+  },
+  {
+    "it": "quinto",
+    "pos": "adjective",
+    "ro": "al cincilea",
+    "tags": [
+      "numere"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Abito al quinto piano.",
+        "ro": "Locuiesc la etajul cinci."
+      },
+      {
+        "it": "È il quinto della lista.",
+        "ro": "Este al cincilea de pe listă."
+      }
+    ]
+  },
+  {
+    "it": "sesto",
+    "pos": "adjective",
+    "ro": "al șaselea",
+    "tags": [
+      "numere"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Il sesto capitolo.",
+        "ro": "Al șaselea capitol."
+      },
+      {
+        "it": "È il sesto della lista.",
+        "ro": "Este al șaselea de pe listă."
+      }
+    ]
+  },
+  {
+    "it": "settimo",
+    "pos": "adjective",
+    "ro": "al șaptelea",
+    "tags": [
+      "numere"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "È il settimo mese.",
+        "ro": "E a șaptea lună."
+      },
+      {
+        "it": "È il settimo della lista.",
+        "ro": "Este al șaptelea de pe listă."
+      }
+    ]
+  },
+  {
+    "it": "ottavo",
+    "pos": "adjective",
+    "ro": "al optulea",
+    "tags": [
+      "numere"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "L'ottavo giorno.",
+        "ro": "A opta zi."
+      },
+      {
+        "it": "È il ottavo della lista.",
+        "ro": "Este al optulea de pe listă."
+      }
+    ]
+  },
+  {
+    "it": "nono",
+    "pos": "adjective",
+    "ro": "al nouălea",
+    "tags": [
+      "numere"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "È il nono posto.",
+        "ro": "E locul nouă."
+      },
+      {
+        "it": "È il nono della lista.",
+        "ro": "Este al nouălea de pe listă."
+      }
+    ]
+  },
+  {
+    "it": "decimo",
+    "pos": "adjective",
+    "ro": "al zecelea",
+    "tags": [
+      "numere"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Sono al decimo piano.",
+        "ro": "Sunt la etajul zece."
+      },
+      {
+        "it": "È il decimo della lista.",
+        "ro": "Este al zecelea de pe listă."
+      }
+    ]
+  },
+  {
+    "it": "ora",
+    "pos": "noun",
+    "ro": "oră",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Che ora è?",
+        "ro": "Cât este ceasul?"
+      },
+      {
+        "it": "Un'ora è lunga.",
+        "ro": "O oră este lungă."
+      }
+    ],
+    "note": "«Ora» ca adverb = acum (ora vado); ca substantiv = oră (l'ora, le ore). «Che ora è?» sau «Che ore sono?»."
+  },
+  {
+    "it": "weekend",
+    "pos": "noun",
+    "ro": "weekend",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Che fai nel weekend?",
+        "ro": "Ce faci în weekend?"
+      },
+      {
+        "it": "Buon weekend!",
+        "ro": "Weekend plăcut!"
+      }
+    ],
+    "note": "Cuvânt împrumutat din engleză, invariabil: il weekend, i weekend."
+  },
+  {
+    "it": "mezzogiorno",
+    "pos": "noun",
+    "ro": "amiază",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "A mezzogiorno mangio.",
+        "ro": "La amiază mănânc."
+      },
+      {
+        "it": "È mezzogiorno.",
+        "ro": "Este ora douăsprezece (amiază)."
+      }
+    ],
+    "note": "Se spune «è mezzogiorno» (nu «sono le dodici» când e amiază)."
+  },
+  {
+    "it": "mezzanotte",
+    "pos": "noun",
+    "ro": "miezul nopții",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "È mezzanotte.",
+        "ro": "Este miezul nopții."
+      },
+      {
+        "it": "Vado a letto a mezzanotte.",
+        "ro": "Mă culc la miezul nopții."
+      }
+    ]
+  },
+  {
+    "it": "signora",
+    "pos": "noun",
+    "ro": "doamnă",
+    "tags": [
+      "oameni"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Buongiorno, signora.",
+        "ro": "Bună ziua, doamnă."
+      },
+      {
+        "it": "La signora è gentile.",
+        "ro": "Doamna este amabilă."
+      }
+    ],
+    "note": "Masculin: il signore. Formula de politețe: «signora Rossi»."
+  },
+  {
+    "it": "semaforo",
+    "pos": "noun",
+    "ro": "semafor",
+    "tags": [
+      "oraș"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Giro al semaforo.",
+        "ro": "Virez la semafor."
+      },
+      {
+        "it": "Il semaforo è rosso.",
+        "ro": "Semaforul este roșu."
+      }
+    ]
+  },
+  {
+    "it": "angolo",
+    "pos": "noun",
+    "ro": "colț",
+    "tags": [
+      "oraș"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Il bar è all'angolo.",
+        "ro": "Barul este la colț."
+      },
+      {
+        "it": "Giro l'angolo.",
+        "ro": "Dau colțul."
+      }
+    ]
+  },
+  {
+    "it": "incrocio",
+    "pos": "noun",
+    "ro": "intersecție",
+    "tags": [
+      "oraș"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Al prossimo incrocio gira a destra.",
+        "ro": "La următoarea intersecție virează la dreapta."
+      },
+      {
+        "it": "L'incrocio è pericoloso.",
+        "ro": "Intersecția este periculoasă."
+      }
+    ]
+  },
+  {
+    "it": "dopodomani",
+    "pos": "adverb",
+    "ro": "poimâine",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Parto dopodomani.",
+        "ro": "Plec poimâine."
+      },
+      {
+        "it": "Ci vediamo dopodomani.",
+        "ro": "Ne vedem poimâine."
+      }
+    ]
+  },
+  {
+    "it": "stamattina",
+    "pos": "adverb",
+    "ro": "azi-dimineață",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Stamattina ho lavorato.",
+        "ro": "Azi-dimineață am lucrat."
+      },
+      {
+        "it": "Stamattina fa freddo.",
+        "ro": "Azi-dimineață e frig."
+      }
+    ],
+    "note": "Se scrie și «stamani»; «stamattina» = în dimineața de azi."
+  },
+  {
+    "it": "stanotte",
+    "pos": "adverb",
+    "ro": "azi-noapte",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Stanotte ho dormito male.",
+        "ro": "Azi-noapte am dormit prost."
+      },
+      {
+        "it": "Stanotte piove.",
+        "ro": "În noaptea asta plouă."
+      }
+    ],
+    "note": "Poate însemna și noaptea trecută, și noaptea următoare, după context."
+  },
+  {
+    "it": "svoltare",
+    "pos": "verb",
+    "ro": "a vira; a coti",
+    "tags": [
+      "direcții"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Svolta a destra.",
+        "ro": "Virează la dreapta."
+      },
+      {
+        "it": "Svoltiamo al semaforo.",
+        "ro": "Cotim la semafor."
+      }
+    ],
+    "note": "Sinonim cu «girare»: «gira a destra»."
+  },
+  {
+    "it": "fra",
+    "pos": "preposition",
+    "ro": "între; peste (timp)",
+    "tags": [
+      "timp"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Fra due giorni parto.",
+        "ro": "Peste două zile plec."
+      },
+      {
+        "it": "La casa è fra il bar e la banca.",
+        "ro": "Casa este între bar și bancă."
+      }
+    ],
+    "note": "La fel ca «tra». «Fra/tra + durată» = peste (fra una settimana)."
+  },
+  {
+    "it": "scuro",
+    "pos": "adjective",
+    "ro": "închis la culoare; întunecat",
+    "tags": [
+      "culori"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Una camicia scura.",
+        "ro": "O cămașă închisă la culoare."
+      },
+      {
+        "it": "La stanza è scura.",
+        "ro": "Camera este întunecată."
+      }
+    ],
+    "note": "Opusul: chiaro. «Blu scuro» = albastru închis."
+  },
+  {
+    "it": "l'altro ieri",
+    "pos": "expression",
+    "ro": "alaltăieri",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "L'altro ieri ho lavorato.",
+        "ro": "Alaltăieri am lucrat."
+      },
+      {
+        "it": "Che cosa hai fatto l'altro ieri?",
+        "ro": "Ce ai făcut alaltăieri?"
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Se spune și «ieri l'altro»."
+  },
+  {
+    "it": "due giorni fa",
+    "pos": "expression",
+    "ro": "acum două zile",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Sono arrivato due giorni fa.",
+        "ro": "Am ajuns acum două zile."
+      },
+      {
+        "it": "È successo due giorni fa.",
+        "ro": "S-a întâmplat acum două zile."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "«Fa» după durată = acum: tre mesi fa, un anno fa."
+  },
+  {
+    "it": "fra una settimana",
+    "pos": "expression",
+    "ro": "peste o săptămână",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Parto fra una settimana.",
+        "ro": "Plec peste o săptămână."
+      },
+      {
+        "it": "Ci vediamo fra una settimana.",
+        "ro": "Ne vedem peste o săptămână."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "«Fra» sau «tra» + durată = peste."
+  },
+  {
+    "it": "la settimana scorsa",
+    "pos": "expression",
+    "ro": "săptămâna trecută",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "La settimana scorsa ero a Roma.",
+        "ro": "Săptămâna trecută eram la Roma."
+      },
+      {
+        "it": "Ne ho parlato la settimana scorsa.",
+        "ro": "Am vorbit despre asta săptămâna trecută."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "la settimana prossima",
+    "pos": "expression",
+    "ro": "săptămâna viitoare",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "La settimana prossima ho un esame.",
+        "ro": "Săptămâna viitoare am un examen."
+      },
+      {
+        "it": "Ci vediamo la settimana prossima.",
+        "ro": "Ne vedem săptămâna viitoare."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "che ore sono",
+    "pos": "expression",
+    "ro": "cât este ceasul",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Scusi, che ore sono?",
+        "ro": "Scuzați-mă, cât este ceasul?"
+      },
+      {
+        "it": "Sai che ore sono?",
+        "ro": "Știi cât e ceasul?"
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Se spune și «che ora è?». Răspuns: «Sono le tre» / «È l'una»."
+  },
+  {
+    "it": "sono le tre",
+    "pos": "expression",
+    "ro": "este ora trei",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Sono le tre e dieci.",
+        "ro": "Este trei și zece."
+      },
+      {
+        "it": "Sono le otto di sera.",
+        "ro": "Este ora opt seara."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Ora se spune la plural («sono le…»), dar la singular pentru ora unu: «è l'una»."
+  },
+  {
+    "it": "è l'una",
+    "pos": "expression",
+    "ro": "este ora unu",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "È l'una e mezza.",
+        "ro": "Este unu și jumătate."
+      },
+      {
+        "it": "È l'una in punto.",
+        "ro": "Este ora unu fix."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Doar ora unu, mezzogiorno și mezzanotte se spun cu «è»; celelalte cu «sono le»."
+  },
+  {
+    "it": "e mezza",
+    "pos": "expression",
+    "ro": "și jumătate",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Sono le due e mezza.",
+        "ro": "Este două și jumătate."
+      },
+      {
+        "it": "Mangiamo all'una e mezza.",
+        "ro": "Mâncăm la unu și jumătate."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "e un quarto",
+    "pos": "expression",
+    "ro": "și un sfert",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Sono le sei e un quarto.",
+        "ro": "Este șase și un sfert."
+      },
+      {
+        "it": "Arrivo alle nove e un quarto.",
+        "ro": "Ajung la nouă și un sfert."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Se mai spune «e quindici». «Un quarto» = un sfert."
+  },
+  {
+    "it": "meno un quarto",
+    "pos": "expression",
+    "ro": "fără un sfert",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Sono le sette meno un quarto.",
+        "ro": "Este șapte fără un sfert."
+      },
+      {
+        "it": "Parto alle dieci meno un quarto.",
+        "ro": "Plec la zece fără un sfert."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "«Meno» = fără: le tre meno dieci = trei fără zece."
+  },
+  {
+    "it": "in punto",
+    "pos": "expression",
+    "ro": "fix",
+    "tags": [
+      "timp"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Sono le cinque in punto.",
+        "ro": "Este ora cinci fix."
+      },
+      {
+        "it": "Arrivo alle otto in punto.",
+        "ro": "Ajung la opt fix."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "di fronte a",
+    "pos": "expression",
+    "ro": "în fața; vizavi de",
+    "tags": [
+      "loc"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Il bar è di fronte alla stazione.",
+        "ro": "Barul este vizavi de gară."
+      },
+      {
+        "it": "Abito di fronte a lui.",
+        "ro": "Locuiesc vizavi de el."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "«Davanti a» = în fața (în față); «di fronte a» = vizavi, față în față."
+  },
+  {
+    "it": "in mezzo a",
+    "pos": "expression",
+    "ro": "în mijlocul",
+    "tags": [
+      "loc"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Il tavolo è in mezzo alla stanza.",
+        "ro": "Masa este în mijlocul camerei."
+      },
+      {
+        "it": "Siamo in mezzo alla strada.",
+        "ro": "Suntem în mijlocul străzii."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "a destra",
+    "pos": "expression",
+    "ro": "la dreapta",
+    "tags": [
+      "direcții"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Gira a destra.",
+        "ro": "Virează la dreapta."
+      },
+      {
+        "it": "Il bagno è a destra.",
+        "ro": "Baia este la dreapta."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "a sinistra",
+    "pos": "expression",
+    "ro": "la stânga",
+    "tags": [
+      "direcții"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Gira a sinistra.",
+        "ro": "Virează la stânga."
+      },
+      {
+        "it": "La banca è a sinistra.",
+        "ro": "Banca este la stânga."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "sempre dritto",
+    "pos": "expression",
+    "ro": "mereu înainte",
+    "tags": [
+      "direcții"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Vai sempre dritto.",
+        "ro": "Mergi mereu înainte."
+      },
+      {
+        "it": "Sempre dritto fino al semaforo.",
+        "ro": "Mereu înainte până la semafor."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "all'angolo",
+    "pos": "expression",
+    "ro": "la colț",
+    "tags": [
+      "direcții"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Gira all'angolo.",
+        "ro": "Virează la colț."
+      },
+      {
+        "it": "Il bar è all'angolo.",
+        "ro": "Barul este la colț."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "in fondo a",
+    "pos": "expression",
+    "ro": "la capătul",
+    "tags": [
+      "loc"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "È in fondo alla strada.",
+        "ro": "Este la capătul străzii."
+      },
+      {
+        "it": "Il bagno è in fondo al corridoio.",
+        "ro": "Baia este la capătul coridorului."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "per favore",
+    "pos": "expression",
+    "ro": "te rog; vă rog",
+    "tags": [
+      "politețe"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Un caffè, per favore.",
+        "ro": "O cafea, vă rog."
+      },
+      {
+        "it": "Mi aiuti, per favore?",
+        "ro": "Mă ajuți, te rog?"
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Sinonim: «per piacere». Mai formal: «prego» nu înseamnă «vă rog» când ceri ceva."
+  },
+  {
+    "it": "come stai",
+    "pos": "expression",
+    "ro": "ce mai faci",
+    "tags": [
+      "politețe"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Ciao Marco, come stai?",
+        "ro": "Salut Marco, ce mai faci?"
+      },
+      {
+        "it": "Come stai oggi?",
+        "ro": "Cum te simți azi?"
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Informal (tu). Răspuns: «Bene, grazie, e tu?»."
+  },
+  {
+    "it": "come sta",
+    "pos": "expression",
+    "ro": "ce mai faceți",
+    "tags": [
+      "politețe"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Buongiorno, come sta?",
+        "ro": "Bună ziua, ce mai faceți?"
+      },
+      {
+        "it": "Come sta la sua famiglia?",
+        "ro": "Ce mai face familia dumneavoastră?"
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Formal (Lei). Pentru «tu»: «come stai»."
+  },
+  {
+    "it": "come va",
+    "pos": "expression",
+    "ro": "cum merge",
+    "tags": [
+      "politețe"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Ciao! Come va?",
+        "ro": "Salut! Cum merge?"
+      },
+      {
+        "it": "Come va il lavoro?",
+        "ro": "Cum merge munca?"
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "tutto bene",
+    "pos": "expression",
+    "ro": "totul bine",
+    "tags": [
+      "politețe"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Tutto bene, grazie.",
+        "ro": "Totul bine, mulțumesc."
+      },
+      {
+        "it": "Va tutto bene?",
+        "ro": "Totul e în regulă?"
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "mi dispiace",
+    "pos": "expression",
+    "ro": "îmi pare rău",
+    "tags": [
+      "politețe"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mi dispiace molto.",
+        "ro": "Îmi pare foarte rău."
+      },
+      {
+        "it": "Mi dispiace, non posso.",
+        "ro": "Îmi pare rău, nu pot."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "buona giornata",
+    "pos": "expression",
+    "ro": "o zi bună",
+    "tags": [
+      "politețe"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Buona giornata!",
+        "ro": "O zi bună!"
+      },
+      {
+        "it": "Grazie, altrettanto!",
+        "ro": "Mulțumesc, la fel!"
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "buon appetito",
+    "pos": "expression",
+    "ro": "poftă bună",
+    "tags": [
+      "politețe"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Buon appetito!",
+        "ro": "Poftă bună!"
+      },
+      {
+        "it": "Buon appetito a tutti.",
+        "ro": "Poftă bună tuturor."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "a presto",
+    "pos": "expression",
+    "ro": "pe curând",
+    "tags": [
+      "politețe"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Ciao, a presto!",
+        "ro": "Pa, pe curând!"
+      },
+      {
+        "it": "A presto, Maria.",
+        "ro": "Pe curând, Maria."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "a domani",
+    "pos": "expression",
+    "ro": "pe mâine",
+    "tags": [
+      "politețe"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Buonanotte, a domani!",
+        "ro": "Noapte bună, pe mâine!"
+      },
+      {
+        "it": "A domani, ciao.",
+        "ro": "Pe mâine, pa."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "ci vediamo",
+    "pos": "expression",
+    "ro": "ne vedem",
+    "tags": [
+      "politețe"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Ci vediamo domani.",
+        "ro": "Ne vedem mâine."
+      },
+      {
+        "it": "Ci vediamo alle otto.",
+        "ro": "Ne vedem la opt."
+      }
+    ],
+    "unverifiedPos": true
+  },
+  {
+    "it": "di niente",
+    "pos": "expression",
+    "ro": "cu plăcere; n-ai pentru ce",
+    "tags": [
+      "politețe"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Grazie! — Di niente.",
+        "ro": "Mulțumesc! — N-ai pentru ce."
+      },
+      {
+        "it": "Di niente, figurati.",
+        "ro": "N-ai pentru ce, las-o baltă."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Alte răspunsuri la «grazie»: «prego», «figurati» (tu), «si figuri» (Lei), «non c'è di che»."
+  },
+  {
+    "it": "piacere",
+    "pos": "expression",
+    "ro": "încântat",
+    "tags": [
+      "politețe"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Piacere, mi chiamo Anna.",
+        "ro": "Încântată, mă cheamă Anna."
+      },
+      {
+        "it": "Piacere di conoscerti.",
+        "ro": "Încântat să te cunosc."
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "La prezentări: «Piacere!» (și «molto piacere», «piacere mio»)."
+  },
+  {
+    "it": "che cosa",
+    "pos": "expression",
+    "ro": "ce",
+    "tags": [
+      "întrebare"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Che cosa fai?",
+        "ro": "Ce faci?"
+      },
+      {
+        "it": "Che cosa vuoi mangiare?",
+        "ro": "Ce vrei să mănânci?"
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Mai scurt și colocvial: «cosa» sau «che»."
+  },
+  {
+    "it": "come mai",
+    "pos": "expression",
+    "ro": "cum așa; de ce",
+    "tags": [
+      "întrebare"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Come mai sei qui?",
+        "ro": "Cum așa, ești aici?"
+      },
+      {
+        "it": "Come mai non vieni?",
+        "ro": "De ce nu vii?"
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "Întrebare de curiozitate (ca «de ce», dar mai blândă)."
+  },
+  {
+    "it": "quanto costa",
+    "pos": "expression",
+    "ro": "cât costă",
+    "tags": [
+      "întrebare"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Quanto costa questo?",
+        "ro": "Cât costă asta?"
+      },
+      {
+        "it": "Quanto costa un caffè?",
+        "ro": "Cât costă o cafea?"
+      }
+    ],
+    "unverifiedPos": true,
+    "note": "La plural: «quanto costano?»."
+  }
+]

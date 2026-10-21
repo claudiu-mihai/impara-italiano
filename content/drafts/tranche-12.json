@@ -1,0 +1,2103 @@
+[
+  {
+    "it": "offrire",
+    "pos": "verb",
+    "ro": "a oferi",
+    "tags": [
+      "comunicare"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Ti offro un caffè.",
+        "ro": "Îți ofer o cafea."
+      },
+      {
+        "it": "Ci hanno offerto un lavoro.",
+        "ro": "Ne-au oferit un loc de muncă."
+      }
+    ],
+    "note": "Participiu neregulat: offerto. «Ti offro io!» = Cinstesc eu!"
+  },
+  {
+    "it": "ottenere",
+    "pos": "verb",
+    "ro": "a obține",
+    "tags": [
+      "acțiune"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Ho ottenuto il visto.",
+        "ro": "Am obținut viza."
+      },
+      {
+        "it": "Come si ottiene il permesso?",
+        "ro": "Cum se obține permisul?"
+      }
+    ]
+  },
+  {
+    "it": "creare",
+    "pos": "verb",
+    "ro": "a crea",
+    "tags": [
+      "acțiune"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Creo un nuovo account.",
+        "ro": "Creez un cont nou."
+      },
+      {
+        "it": "Hanno creato un bel sito.",
+        "ro": "Au creat un site frumos."
+      }
+    ]
+  },
+  {
+    "it": "funzionare",
+    "pos": "verb",
+    "ro": "a funcționa",
+    "tags": [
+      "generale"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Il telefono non funziona.",
+        "ro": "Telefonul nu funcționează."
+      },
+      {
+        "it": "Come funziona questa macchina?",
+        "ro": "Cum funcționează această mașină?"
+      }
+    ]
+  },
+  {
+    "it": "salvare",
+    "pos": "verb",
+    "ro": "a salva",
+    "tags": [
+      "acțiune"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Salvo il file.",
+        "ro": "Salvez fișierul."
+      },
+      {
+        "it": "Il medico ha salvato il bambino.",
+        "ro": "Medicul a salvat copilul."
+      }
+    ]
+  },
+  {
+    "it": "tirare",
+    "pos": "verb",
+    "ro": "a trage; a arunca",
+    "tags": [
+      "acțiune"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Tira la porta.",
+        "ro": "Trage ușa."
+      },
+      {
+        "it": "Tira la palla!",
+        "ro": "Aruncă mingea!"
+      }
+    ],
+    "note": "«Tira vento» = bate vântul."
+  },
+  {
+    "it": "capitare",
+    "pos": "verb",
+    "ro": "a se întâmpla; a ajunge din întâmplare",
+    "tags": [
+      "generale"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Capita a tutti.",
+        "ro": "Se întâmplă tuturor."
+      },
+      {
+        "it": "Se ti capita l'occasione, chiamami.",
+        "ro": "Dacă ai ocazia, sună-mă."
+      }
+    ],
+    "note": "Cere «essere»: è capitato."
+  },
+  {
+    "it": "notare",
+    "pos": "verb",
+    "ro": "a observa; a nota",
+    "tags": [
+      "percepție"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Hai notato qualcosa?",
+        "ro": "Ai observat ceva?"
+      },
+      {
+        "it": "Nota la differenza.",
+        "ro": "Observă diferența."
+      }
+    ]
+  },
+  {
+    "it": "mantenere",
+    "pos": "verb",
+    "ro": "a menține; a păstra",
+    "tags": [
+      "acțiune"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mantengo la calma.",
+        "ro": "Îmi păstrez calmul."
+      },
+      {
+        "it": "Mantiene la promessa.",
+        "ro": "Își ține promisiunea."
+      }
+    ]
+  },
+  {
+    "it": "presentare",
+    "pos": "verb",
+    "ro": "a prezenta",
+    "tags": [
+      "comunicare"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Ti presento mia sorella.",
+        "ro": "Îți prezint sora mea."
+      },
+      {
+        "it": "Presento il progetto domani.",
+        "ro": "Prezint proiectul mâine."
+      }
+    ]
+  },
+  {
+    "it": "riportare",
+    "pos": "verb",
+    "ro": "a aduce înapoi",
+    "tags": [
+      "acțiune"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Riporto il libro in biblioteca.",
+        "ro": "Aduc cartea înapoi la bibliotecă."
+      },
+      {
+        "it": "Ti riporto a casa.",
+        "ro": "Te duc înapoi acasă."
+      }
+    ]
+  },
+  {
+    "it": "sorprendere",
+    "pos": "verb",
+    "ro": "a surprinde",
+    "tags": [
+      "sentimente"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi sorprende molto.",
+        "ro": "Mă surprinde foarte mult."
+      },
+      {
+        "it": "Ci ha sorpreso la pioggia.",
+        "ro": "Ne-a surprins ploaia."
+      }
+    ],
+    "note": "Participiu neregulat: sorpreso."
+  },
+  {
+    "it": "superare",
+    "pos": "verb",
+    "ro": "a depăși; a trece (un examen)",
+    "tags": [
+      "școală"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Ho superato l'esame.",
+        "ro": "Am trecut examenul."
+      },
+      {
+        "it": "Non superare il limite.",
+        "ro": "Nu depăși limita."
+      }
+    ]
+  },
+  {
+    "it": "rubare",
+    "pos": "verb",
+    "ro": "a fura",
+    "tags": [
+      "acțiune"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi hanno rubato il telefono.",
+        "ro": "Mi-au furat telefonul."
+      },
+      {
+        "it": "Non rubare!",
+        "ro": "Nu fura!"
+      }
+    ]
+  },
+  {
+    "it": "abbandonare",
+    "pos": "verb",
+    "ro": "a abandona; a părăsi",
+    "tags": [
+      "acțiune"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Non ti abbandono.",
+        "ro": "Nu te abandonez."
+      },
+      {
+        "it": "Hanno abbandonato la casa.",
+        "ro": "Au părăsit casa."
+      }
+    ]
+  },
+  {
+    "it": "temere",
+    "pos": "verb",
+    "ro": "a se teme; a se teme de",
+    "tags": [
+      "sentimente"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Temo il peggio.",
+        "ro": "Mă tem de ce e mai rău."
+      },
+      {
+        "it": "Non temere!",
+        "ro": "Nu te teme!"
+      }
+    ]
+  },
+  {
+    "it": "battere",
+    "pos": "verb",
+    "ro": "a bate",
+    "tags": [
+      "acțiune"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Il cuore batte forte.",
+        "ro": "Inima bate tare."
+      },
+      {
+        "it": "La nostra squadra ha battuto tutti.",
+        "ro": "Echipa noastră i-a învins pe toți."
+      }
+    ]
+  },
+  {
+    "it": "registrare",
+    "pos": "verb",
+    "ro": "a înregistra",
+    "tags": [
+      "acțiune"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Registro la voce.",
+        "ro": "Înregistrez vocea."
+      },
+      {
+        "it": "Mi registro sul sito.",
+        "ro": "Mă înregistrez pe site."
+      }
+    ]
+  },
+  {
+    "it": "votare",
+    "pos": "verb",
+    "ro": "a vota",
+    "tags": [
+      "social"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Domenica si vota.",
+        "ro": "Duminică se votează."
+      },
+      {
+        "it": "Voto per lui.",
+        "ro": "Votez pentru el."
+      }
+    ]
+  },
+  {
+    "it": "rischiare",
+    "pos": "verb",
+    "ro": "a risca",
+    "tags": [
+      "acțiune"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Non voglio rischiare.",
+        "ro": "Nu vreau să risc."
+      },
+      {
+        "it": "Rischi di perdere il treno.",
+        "ro": "Riști să pierzi trenul."
+      }
+    ]
+  },
+  {
+    "it": "dimostrare",
+    "pos": "verb",
+    "ro": "a dovedi; a arăta",
+    "tags": [
+      "gândire"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Devo dimostrare che ho ragione.",
+        "ro": "Trebuie să dovedesc că am dreptate."
+      },
+      {
+        "it": "Non dimostra la sua età.",
+        "ro": "Nu își arată vârsta."
+      }
+    ]
+  },
+  {
+    "it": "trasformare",
+    "pos": "verb",
+    "ro": "a transforma",
+    "tags": [
+      "acțiune"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Trasformo la stanza in ufficio.",
+        "ro": "Transform camera în birou."
+      },
+      {
+        "it": "Il bruco si trasforma in farfalla.",
+        "ro": "Omida se transformă în fluture."
+      }
+    ]
+  },
+  {
+    "it": "liberare",
+    "pos": "verb",
+    "ro": "a elibera; a face loc",
+    "tags": [
+      "acțiune"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Libero la stanza.",
+        "ro": "Eliberez camera."
+      },
+      {
+        "it": "Libero il tavolo.",
+        "ro": "Eliberez masa."
+      }
+    ]
+  },
+  {
+    "it": "legare",
+    "pos": "verb",
+    "ro": "a lega",
+    "tags": [
+      "acțiune"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Lego il cane.",
+        "ro": "Leg câinele."
+      },
+      {
+        "it": "Legati i capelli.",
+        "ro": "Leagă-ți părul."
+      }
+    ]
+  },
+  {
+    "it": "mamma",
+    "pos": "noun",
+    "ro": "mamă",
+    "tags": [
+      "familie"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "La mia mamma cucina bene.",
+        "ro": "Mama mea gătește bine."
+      },
+      {
+        "it": "Mamma, ho fame!",
+        "ro": "Mamă, mi-e foame!"
+      }
+    ],
+    "note": "«Mamma mia!» = Doamne! (exclamație de mirare)."
+  },
+  {
+    "it": "tipo",
+    "pos": "noun",
+    "ro": "tip; fel",
+    "tags": [
+      "oameni"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Che tipo è?",
+        "ro": "Ce fel de om este?"
+      },
+      {
+        "it": "È un tipo simpatico.",
+        "ro": "E un tip simpatic."
+      }
+    ],
+    "note": "Colocvial; «che tipo di…?» = ce fel de…?"
+  },
+  {
+    "it": "mezzo",
+    "pos": "noun",
+    "ro": "jumătate; mijloc",
+    "tags": [
+      "cantitate"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mezzo litro d'acqua.",
+        "ro": "Jumătate de litru de apă."
+      },
+      {
+        "it": "Che mezzo prendi?",
+        "ro": "Cu ce mijloc de transport mergi?"
+      }
+    ],
+    "note": "«Sono le tre e mezzo» = este trei și jumătate."
+  },
+  {
+    "it": "ragione",
+    "pos": "noun",
+    "ro": "motiv; dreptate",
+    "tags": [
+      "gândire"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Hai ragione!",
+        "ro": "Ai dreptate!"
+      },
+      {
+        "it": "Qual è la ragione?",
+        "ro": "Care este motivul?"
+      }
+    ],
+    "note": "«Avere ragione» = a avea dreptate; «avere torto» = a greși."
+  },
+  {
+    "it": "motivo",
+    "pos": "noun",
+    "ro": "motiv",
+    "tags": [
+      "gândire"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Non c'è nessun motivo.",
+        "ro": "Nu există niciun motiv."
+      },
+      {
+        "it": "Per quale motivo?",
+        "ro": "Din ce motiv?"
+      }
+    ]
+  },
+  {
+    "it": "milione",
+    "pos": "numeral",
+    "ro": "milion",
+    "tags": [
+      "numere"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Un milione di euro.",
+        "ro": "Un milion de euro."
+      },
+      {
+        "it": "Due milioni di persone.",
+        "ro": "Două milioane de persoane."
+      }
+    ],
+    "note": "Se leagă cu «di»: un milione di persone."
+  },
+  {
+    "it": "fuoco",
+    "pos": "noun",
+    "ro": "foc",
+    "tags": [
+      "natură"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Il fuoco è caldo.",
+        "ro": "Focul este fierbinte."
+      },
+      {
+        "it": "Hai il fuoco?",
+        "ro": "Ai foc?"
+      }
+    ],
+    "note": "Plural: fuochi. «Fuochi d'artificio» = artificii."
+  },
+  {
+    "it": "messaggio",
+    "pos": "noun",
+    "ro": "mesaj",
+    "tags": [
+      "comunicare"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Ti mando un messaggio.",
+        "ro": "Îți trimit un mesaj."
+      },
+      {
+        "it": "Ho letto il tuo messaggio.",
+        "ro": "Ți-am citit mesajul."
+      }
+    ]
+  },
+  {
+    "it": "risposta",
+    "pos": "noun",
+    "ro": "răspuns",
+    "tags": [
+      "comunicare"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Aspetto una risposta.",
+        "ro": "Aștept un răspuns."
+      },
+      {
+        "it": "Grazie per la risposta.",
+        "ro": "Mulțumesc pentru răspuns."
+      }
+    ]
+  },
+  {
+    "it": "studio",
+    "pos": "noun",
+    "ro": "studiu; birou",
+    "tags": [
+      "școală"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Lo studio è importante.",
+        "ro": "Studiul este important."
+      },
+      {
+        "it": "Il medico ha uno studio in centro.",
+        "ro": "Medicul are un cabinet în centru."
+      }
+    ],
+    "note": "«Studio» = și cabinet / birou profesional (studio medico, studio legale)."
+  },
+  {
+    "it": "ricerca",
+    "pos": "noun",
+    "ro": "căutare; cercetare",
+    "tags": [
+      "gândire"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "La ricerca è difficile.",
+        "ro": "Căutarea este grea."
+      },
+      {
+        "it": "Faccio una ricerca su internet.",
+        "ro": "Fac o căutare pe internet."
+      }
+    ]
+  },
+  {
+    "it": "incontro",
+    "pos": "noun",
+    "ro": "întâlnire",
+    "tags": [
+      "social"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "L'incontro è alle tre.",
+        "ro": "Întâlnirea este la trei."
+      },
+      {
+        "it": "Un incontro importante.",
+        "ro": "O întâlnire importantă."
+      }
+    ]
+  },
+  {
+    "it": "inizio",
+    "pos": "noun",
+    "ro": "început",
+    "tags": [
+      "timp"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "L'inizio del film è bello.",
+        "ro": "Începutul filmului este frumos."
+      },
+      {
+        "it": "All'inizio ho paura.",
+        "ro": "La început mi-e frică."
+      }
+    ]
+  },
+  {
+    "it": "sala",
+    "pos": "noun",
+    "ro": "sală; cameră mare",
+    "tags": [
+      "casă"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "La sala è grande.",
+        "ro": "Sala este mare."
+      },
+      {
+        "it": "Aspettiamo nella sala d'attesa.",
+        "ro": "Așteptăm în sala de așteptare."
+      }
+    ]
+  },
+  {
+    "it": "livello",
+    "pos": "noun",
+    "ro": "nivel",
+    "tags": [
+      "generale"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Che livello hai?",
+        "ro": "Ce nivel ai?"
+      },
+      {
+        "it": "Il livello dell'acqua sale.",
+        "ro": "Nivelul apei crește."
+      }
+    ]
+  },
+  {
+    "it": "linea",
+    "pos": "noun",
+    "ro": "linie",
+    "tags": [
+      "generale"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Prendo la linea due.",
+        "ro": "Iau linia doi."
+      },
+      {
+        "it": "La linea è occupata.",
+        "ro": "Linia este ocupată."
+      }
+    ]
+  },
+  {
+    "it": "consiglio",
+    "pos": "noun",
+    "ro": "sfat",
+    "tags": [
+      "comunicare"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Ti do un consiglio.",
+        "ro": "Îți dau un sfat."
+      },
+      {
+        "it": "Grazie del consiglio!",
+        "ro": "Mulțumesc pentru sfat!"
+      }
+    ]
+  },
+  {
+    "it": "spazio",
+    "pos": "noun",
+    "ro": "spațiu; loc",
+    "tags": [
+      "loc"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Non c'è spazio.",
+        "ro": "Nu e loc."
+      },
+      {
+        "it": "Ho bisogno di spazio.",
+        "ro": "Am nevoie de spațiu."
+      }
+    ]
+  },
+  {
+    "it": "progetto",
+    "pos": "noun",
+    "ro": "proiect",
+    "tags": [
+      "muncă"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Ho un nuovo progetto.",
+        "ro": "Am un proiect nou."
+      },
+      {
+        "it": "Lavoriamo a un progetto.",
+        "ro": "Lucrăm la un proiect."
+      }
+    ]
+  },
+  {
+    "it": "segreto",
+    "pos": "noun",
+    "ro": "secret",
+    "tags": [
+      "comunicare"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "È un segreto.",
+        "ro": "Este un secret."
+      },
+      {
+        "it": "Mantieni il segreto.",
+        "ro": "Păstrează secretul."
+      }
+    ]
+  },
+  {
+    "it": "regola",
+    "pos": "noun",
+    "ro": "regulă",
+    "tags": [
+      "generale"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Rispetto le regole.",
+        "ro": "Respect regulile."
+      },
+      {
+        "it": "Questa è la regola.",
+        "ro": "Aceasta este regula."
+      }
+    ]
+  },
+  {
+    "it": "permesso",
+    "pos": "noun",
+    "ro": "permisiune; permis",
+    "tags": [
+      "politețe"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Ho il permesso.",
+        "ro": "Am permisiunea."
+      },
+      {
+        "it": "Permesso? Posso entrare?",
+        "ro": "Se poate? Pot intra?"
+      }
+    ],
+    "note": "«Permesso?» = formulă de politețe când intri undeva sau treci printre oameni."
+  },
+  {
+    "it": "paio",
+    "pos": "noun",
+    "ro": "pereche",
+    "tags": [
+      "cantitate"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Un paio di scarpe.",
+        "ro": "O pereche de pantofi."
+      },
+      {
+        "it": "Ho due paia di occhiali.",
+        "ro": "Am două perechi de ochelari."
+      }
+    ],
+    "plural": "paia",
+    "pluralGender": "f",
+    "note": "Plural neregulat și feminin: le paia. «Un paio di» = câțiva, vreo doi."
+  },
+  {
+    "it": "passo",
+    "pos": "noun",
+    "ro": "pas",
+    "tags": [
+      "mișcare"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Faccio un passo.",
+        "ro": "Fac un pas."
+      },
+      {
+        "it": "A pochi passi da qui.",
+        "ro": "La câțiva pași de aici."
+      }
+    ]
+  },
+  {
+    "it": "prova",
+    "pos": "noun",
+    "ro": "probă; încercare",
+    "tags": [
+      "generale"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Faccio una prova.",
+        "ro": "Fac o încercare."
+      },
+      {
+        "it": "Hai la prova?",
+        "ro": "Ai dovada?"
+      }
+    ],
+    "note": "«Prova» = probă, test, repetiție (teatru), dovadă."
+  },
+  {
+    "it": "vista",
+    "pos": "noun",
+    "ro": "vedere; priveliște",
+    "tags": [
+      "percepție"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Ho una bella vista dalla finestra.",
+        "ro": "Am o priveliște frumoasă de la fereastră."
+      },
+      {
+        "it": "Ho problemi di vista.",
+        "ro": "Am probleme cu vederea."
+      }
+    ]
+  },
+  {
+    "it": "giro",
+    "pos": "noun",
+    "ro": "tur; plimbare",
+    "tags": [
+      "mișcare"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Faccio un giro in centro.",
+        "ro": "Fac o tură prin centru."
+      },
+      {
+        "it": "Andiamo in giro.",
+        "ro": "Ne plimbăm prin oraș."
+      }
+    ],
+    "note": "«Fare un giro» = a se plimba puțin."
+  },
+  {
+    "it": "polizia",
+    "pos": "noun",
+    "ro": "poliție",
+    "tags": [
+      "oraș"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Chiamo la polizia.",
+        "ro": "Sun la poliție."
+      },
+      {
+        "it": "La polizia è arrivata.",
+        "ro": "Poliția a ajuns."
+      }
+    ],
+    "senseHint": "police",
+    "uncountable": true
+  },
+  {
+    "it": "poliziotto",
+    "pos": "noun",
+    "ro": "polițist",
+    "tags": [
+      "oraș"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Il poliziotto mi aiuta.",
+        "ro": "Polițistul mă ajută."
+      },
+      {
+        "it": "Chiedo a un poliziotto.",
+        "ro": "Întreb un polițist."
+      }
+    ],
+    "note": "Feminin: la poliziotta."
+  },
+  {
+    "it": "legge",
+    "pos": "noun",
+    "ro": "lege",
+    "tags": [
+      "social"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "È contro la legge.",
+        "ro": "Este împotriva legii."
+      },
+      {
+        "it": "La legge è uguale per tutti.",
+        "ro": "Legea este egală pentru toți."
+      }
+    ]
+  },
+  {
+    "it": "forma",
+    "pos": "noun",
+    "ro": "formă",
+    "tags": [
+      "generale"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Ha la forma di un cuore.",
+        "ro": "Are forma unei inimi."
+      },
+      {
+        "it": "Sono in forma.",
+        "ro": "Sunt în formă."
+      }
+    ]
+  },
+  {
+    "it": "fondo",
+    "pos": "noun",
+    "ro": "fund; capăt",
+    "tags": [
+      "loc"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "In fondo alla strada.",
+        "ro": "La capătul străzii."
+      },
+      {
+        "it": "In fondo ho ragione.",
+        "ro": "În fond am dreptate."
+      }
+    ],
+    "note": "«In fondo» = la capăt / în fond."
+  },
+  {
+    "it": "fatto",
+    "pos": "noun",
+    "ro": "fapt; întâmplare",
+    "tags": [
+      "generale"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "È un fatto vero.",
+        "ro": "Este un fapt adevărat."
+      },
+      {
+        "it": "Che fatto strano!",
+        "ro": "Ce întâmplare ciudată!"
+      }
+    ],
+    "note": "«Fatto» = și participiul lui «fare»; «di fatto» = de fapt."
+  },
+  {
+    "it": "sicurezza",
+    "pos": "noun",
+    "ro": "siguranță",
+    "tags": [
+      "generale"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "La sicurezza è importante.",
+        "ro": "Siguranța este importantă."
+      },
+      {
+        "it": "Cintura di sicurezza.",
+        "ro": "Centura de siguranță."
+      }
+    ],
+    "uncountable": true
+  },
+  {
+    "it": "lista",
+    "pos": "noun",
+    "ro": "listă",
+    "tags": [
+      "generale"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Faccio la lista della spesa.",
+        "ro": "Fac lista de cumpărături."
+      },
+      {
+        "it": "Sei nella lista?",
+        "ro": "Ești pe listă?"
+      }
+    ]
+  },
+  {
+    "it": "visita",
+    "pos": "noun",
+    "ro": "vizită",
+    "tags": [
+      "social"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Faccio una visita a un amico.",
+        "ro": "Fac o vizită unui prieten."
+      },
+      {
+        "it": "Ho una visita dal medico.",
+        "ro": "Am o consultație la medic."
+      }
+    ]
+  },
+  {
+    "it": "spalla",
+    "pos": "noun",
+    "ro": "umăr",
+    "tags": [
+      "corp"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi fa male la spalla.",
+        "ro": "Mă doare umărul."
+      },
+      {
+        "it": "Ha una borsa sulla spalla.",
+        "ro": "Are o geantă pe umăr."
+      }
+    ]
+  },
+  {
+    "it": "cibo",
+    "pos": "noun",
+    "ro": "mâncare",
+    "tags": [
+      "mâncare"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Il cibo italiano è buono.",
+        "ro": "Mâncarea italiană este bună."
+      },
+      {
+        "it": "Compro del cibo.",
+        "ro": "Cumpăr mâncare."
+      }
+    ]
+  },
+  {
+    "it": "pericolo",
+    "pos": "noun",
+    "ro": "pericol",
+    "tags": [
+      "generale"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "C'è pericolo?",
+        "ro": "E pericol?"
+      },
+      {
+        "it": "Fuori pericolo.",
+        "ro": "În afara pericolului."
+      }
+    ]
+  },
+  {
+    "it": "guida",
+    "pos": "noun",
+    "ro": "ghid; conducere",
+    "tags": [
+      "călătorie"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Compro una guida di Roma.",
+        "ro": "Cumpăr un ghid al Romei."
+      },
+      {
+        "it": "La guida parla inglese.",
+        "ro": "Ghidul vorbește engleză."
+      }
+    ],
+    "note": "«Guida» = ghid (persoană sau carte) și faptul de a conduce (la guida)."
+  },
+  {
+    "it": "volo",
+    "pos": "noun",
+    "ro": "zbor",
+    "tags": [
+      "călătorie"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Il volo parte alle otto.",
+        "ro": "Zborul pleacă la opt."
+      },
+      {
+        "it": "Ho perso il volo.",
+        "ro": "Am pierdut zborul."
+      }
+    ]
+  },
+  {
+    "it": "ricordo",
+    "pos": "noun",
+    "ro": "amintire",
+    "tags": [
+      "gândire"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Ho un bel ricordo.",
+        "ro": "Am o amintire frumoasă."
+      },
+      {
+        "it": "Un ricordo d'infanzia.",
+        "ro": "O amintire din copilărie."
+      }
+    ],
+    "note": "«Ricordo» = și suvenir."
+  },
+  {
+    "it": "speranza",
+    "pos": "noun",
+    "ro": "speranță",
+    "tags": [
+      "sentimente"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Ho speranza.",
+        "ro": "Am speranță."
+      },
+      {
+        "it": "La speranza è l'ultima a morire.",
+        "ro": "Speranța moare ultima."
+      }
+    ],
+    "uncountable": true
+  },
+  {
+    "it": "pelle",
+    "pos": "noun",
+    "ro": "piele",
+    "tags": [
+      "corp"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Ho la pelle chiara.",
+        "ro": "Am pielea deschisă."
+      },
+      {
+        "it": "Una giacca di pelle.",
+        "ro": "O geacă de piele."
+      }
+    ]
+  },
+  {
+    "it": "stella",
+    "pos": "noun",
+    "ro": "stea",
+    "tags": [
+      "natură"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Guardo le stelle.",
+        "ro": "Mă uit la stele."
+      },
+      {
+        "it": "Un hotel a cinque stelle.",
+        "ro": "Un hotel cu cinci stele."
+      }
+    ]
+  },
+  {
+    "it": "ritardo",
+    "pos": "noun",
+    "ro": "întârziere",
+    "tags": [
+      "timp"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Il treno è in ritardo.",
+        "ro": "Trenul are întârziere."
+      },
+      {
+        "it": "Scusa il ritardo!",
+        "ro": "Scuze pentru întârziere!"
+      }
+    ],
+    "note": "«Essere in ritardo» = a întârzia; opusul: «essere in anticipo»."
+  },
+  {
+    "it": "mercato",
+    "pos": "noun",
+    "ro": "piață",
+    "tags": [
+      "cumpărături"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Compro la frutta al mercato.",
+        "ro": "Cumpăr fructe de la piață."
+      },
+      {
+        "it": "Il mercato è aperto il sabato.",
+        "ro": "Piața este deschisă sâmbăta."
+      }
+    ]
+  },
+  {
+    "it": "discorso",
+    "pos": "noun",
+    "ro": "discurs; conversație",
+    "tags": [
+      "comunicare"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Fa un bel discorso.",
+        "ro": "Ține un discurs frumos."
+      },
+      {
+        "it": "Cambiamo discorso.",
+        "ro": "Să schimbăm subiectul."
+      }
+    ]
+  },
+  {
+    "it": "muro",
+    "pos": "noun",
+    "ro": "zid; perete",
+    "tags": [
+      "casă"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Il muro è bianco.",
+        "ro": "Zidul este alb."
+      },
+      {
+        "it": "Metto un quadro sul muro.",
+        "ro": "Pun un tablou pe perete."
+      }
+    ],
+    "note": "Plural: muri (ziduri) sau mura (zidurile unui oraș, feminin)."
+  },
+  {
+    "it": "pagina",
+    "pos": "noun",
+    "ro": "pagină",
+    "tags": [
+      "școală"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Apri a pagina dieci.",
+        "ro": "Deschide la pagina zece."
+      },
+      {
+        "it": "Leggo una pagina al giorno.",
+        "ro": "Citesc o pagină pe zi."
+      }
+    ]
+  },
+  {
+    "it": "silenzio",
+    "pos": "noun",
+    "ro": "liniște; tăcere",
+    "tags": [
+      "percepție"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Silenzio, per favore.",
+        "ro": "Liniște, vă rog."
+      },
+      {
+        "it": "C'è molto silenzio.",
+        "ro": "E multă liniște."
+      }
+    ],
+    "uncountable": true
+  },
+  {
+    "it": "presidente",
+    "pos": "noun",
+    "ro": "președinte",
+    "tags": [
+      "oameni"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Il presidente parla.",
+        "ro": "Președintele vorbește."
+      },
+      {
+        "it": "La presidente è arrivata.",
+        "ro": "Președinta a sosit."
+      }
+    ],
+    "gender": "m",
+    "note": "La fel pentru bărbat și femeie: il presidente, la presidente."
+  },
+  {
+    "it": "sindaco",
+    "pos": "noun",
+    "ro": "primar",
+    "tags": [
+      "oraș"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Il sindaco della città.",
+        "ro": "Primarul orașului."
+      },
+      {
+        "it": "Parlo con il sindaco.",
+        "ro": "Vorbesc cu primarul."
+      }
+    ],
+    "note": "Feminin: la sindaca (sau «la sindaco»)."
+  },
+  {
+    "it": "dollaro",
+    "pos": "noun",
+    "ro": "dolar",
+    "tags": [
+      "cumpărături"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Dieci dollari.",
+        "ro": "Zece dolari."
+      },
+      {
+        "it": "Quanti dollari hai?",
+        "ro": "Câți dolari ai?"
+      }
+    ]
+  },
+  {
+    "it": "cambio",
+    "pos": "noun",
+    "ro": "schimb; curs valutar",
+    "tags": [
+      "cumpărături"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Qual è il cambio?",
+        "ro": "Care este cursul de schimb?"
+      },
+      {
+        "it": "Faccio il cambio dei soldi.",
+        "ro": "Schimb banii."
+      }
+    ]
+  },
+  {
+    "it": "documento",
+    "pos": "noun",
+    "ro": "document",
+    "tags": [
+      "muncă"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mostra un documento.",
+        "ro": "Arată un act de identitate."
+      },
+      {
+        "it": "Ho dimenticato i documenti.",
+        "ro": "Am uitat documentele."
+      }
+    ],
+    "note": "«Documento» = și act de identitate."
+  },
+  {
+    "it": "dettaglio",
+    "pos": "noun",
+    "ro": "detaliu",
+    "tags": [
+      "generale"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi dai più dettagli?",
+        "ro": "Îmi dai mai multe detalii?"
+      },
+      {
+        "it": "È un dettaglio importante.",
+        "ro": "E un detaliu important."
+      }
+    ]
+  },
+  {
+    "it": "interessante",
+    "pos": "adjective",
+    "ro": "interesant",
+    "tags": [
+      "calități"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "È un libro interessante.",
+        "ro": "Este o carte interesantă."
+      },
+      {
+        "it": "Che idea interessante!",
+        "ro": "Ce idee interesantă!"
+      }
+    ]
+  },
+  {
+    "it": "attento",
+    "pos": "adjective",
+    "ro": "atent",
+    "tags": [
+      "calități"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Sii attento!",
+        "ro": "Fii atent!"
+      },
+      {
+        "it": "Sono molto attenta.",
+        "ro": "Sunt foarte atentă."
+      }
+    ],
+    "note": "«Attento!» = Atenție! / Ai grijă!"
+  },
+  {
+    "it": "divertente",
+    "pos": "adjective",
+    "ro": "distractiv; amuzant",
+    "tags": [
+      "calități"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Il film è divertente.",
+        "ro": "Filmul este amuzant."
+      },
+      {
+        "it": "Una serata divertente.",
+        "ro": "O seară distractivă."
+      }
+    ]
+  },
+  {
+    "it": "fantastico",
+    "pos": "adjective",
+    "ro": "fantastic",
+    "tags": [
+      "calități"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Che giornata fantastica!",
+        "ro": "Ce zi fantastică!"
+      },
+      {
+        "it": "È un'idea fantastica.",
+        "ro": "E o idee fantastică."
+      }
+    ],
+    "forms": [
+      "fantastico",
+      "fantastica",
+      "fantastici",
+      "fantastiche"
+    ],
+    "note": "La plural feminin: fantastiche."
+  },
+  {
+    "it": "grave",
+    "pos": "adjective",
+    "ro": "grav",
+    "tags": [
+      "calități"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Non è grave.",
+        "ro": "Nu este grav."
+      },
+      {
+        "it": "Un problema grave.",
+        "ro": "O problemă gravă."
+      }
+    ],
+    "note": "«Non è grave!» = Nu e nimic grav! (răspuns la scuze)."
+  },
+  {
+    "it": "breve",
+    "pos": "adjective",
+    "ro": "scurt",
+    "tags": [
+      "calități"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Una storia breve.",
+        "ro": "O poveste scurtă."
+      },
+      {
+        "it": "Tra breve arrivo.",
+        "ro": "Ajung în scurt timp."
+      }
+    ],
+    "note": "Despre timp sau texte; pentru lungimea fizică se folosește «corto»."
+  },
+  {
+    "it": "completo",
+    "pos": "adjective",
+    "ro": "complet; plin",
+    "tags": [
+      "calități"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "L'hotel è completo.",
+        "ro": "Hotelul e plin."
+      },
+      {
+        "it": "Una colazione completa.",
+        "ro": "Un mic dejun complet."
+      }
+    ]
+  },
+  {
+    "it": "chiuso",
+    "pos": "adjective",
+    "ro": "închis",
+    "tags": [
+      "calități"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Il negozio è chiuso.",
+        "ro": "Magazinul este închis."
+      },
+      {
+        "it": "La porta è chiusa.",
+        "ro": "Ușa este închisă."
+      }
+    ]
+  },
+  {
+    "it": "sorpreso",
+    "pos": "adjective",
+    "ro": "surprins",
+    "tags": [
+      "sentimente"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Sono sorpreso.",
+        "ro": "Sunt surprins."
+      },
+      {
+        "it": "Sembra sorpresa.",
+        "ro": "Pare surprinsă."
+      }
+    ]
+  },
+  {
+    "it": "duro",
+    "pos": "adjective",
+    "ro": "dur; tare",
+    "tags": [
+      "calități"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Il pane è duro.",
+        "ro": "Pâinea este tare."
+      },
+      {
+        "it": "Un lavoro duro.",
+        "ro": "O muncă grea."
+      }
+    ]
+  },
+  {
+    "it": "interno",
+    "pos": "adjective",
+    "ro": "interior; intern",
+    "tags": [
+      "loc"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Una stanza interna.",
+        "ro": "O cameră interioară."
+      },
+      {
+        "it": "La parte interna.",
+        "ro": "Partea interioară."
+      }
+    ]
+  },
+  {
+    "it": "fermo",
+    "pos": "adjective",
+    "ro": "oprit; nemișcat",
+    "tags": [
+      "calități"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Resta fermo!",
+        "ro": "Stai nemișcat!"
+      },
+      {
+        "it": "Il treno è fermo.",
+        "ro": "Trenul stă pe loc."
+      }
+    ]
+  },
+  {
+    "it": "umano",
+    "pos": "adjective",
+    "ro": "uman",
+    "tags": [
+      "calități"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Un essere umano.",
+        "ro": "O ființă umană."
+      },
+      {
+        "it": "È molto umano.",
+        "ro": "E foarte omenos."
+      }
+    ]
+  },
+  {
+    "it": "migliore",
+    "pos": "adjective",
+    "ro": "mai bun; cel mai bun",
+    "tags": [
+      "calități"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "È la migliore amica.",
+        "ro": "Este cea mai bună prietenă."
+      },
+      {
+        "it": "Il tuo piano è migliore.",
+        "ro": "Planul tău e mai bun."
+      }
+    ],
+    "note": "Comparativ/superlativ al lui «buono»; la plural: migliori."
+  },
+  {
+    "it": "reale",
+    "pos": "adjective",
+    "ro": "real",
+    "tags": [
+      "calități"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "È una storia reale.",
+        "ro": "Este o poveste reală."
+      },
+      {
+        "it": "Nella vita reale.",
+        "ro": "În viața reală."
+      }
+    ]
+  },
+  {
+    "it": "profondo",
+    "pos": "adjective",
+    "ro": "adânc",
+    "tags": [
+      "calități"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Il lago è profondo.",
+        "ro": "Lacul este adânc."
+      },
+      {
+        "it": "Un respiro profondo.",
+        "ro": "O respirație adâncă."
+      }
+    ]
+  },
+  {
+    "it": "ormai",
+    "pos": "adverb",
+    "ro": "acum; deja",
+    "tags": [
+      "timp"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Ormai è tardi.",
+        "ro": "Acum e deja târziu."
+      },
+      {
+        "it": "Ormai ho finito.",
+        "ro": "Am terminat deja."
+      }
+    ]
+  },
+  {
+    "it": "pure",
+    "pos": "adverb",
+    "ro": "(încurajare politicoasă) liniștit; de asemenea",
+    "tags": [
+      "gramatică"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Vieni pure!",
+        "ro": "Vino liniștit!"
+      },
+      {
+        "it": "Siediti pure.",
+        "ro": "Așază-te liniștit."
+      }
+    ],
+    "note": "«Prego, entri pure» = poftiți, intrați. Cuvânt de încurajare politicoasă."
+  },
+  {
+    "it": "avanti",
+    "pos": "adverb",
+    "ro": "înainte",
+    "tags": [
+      "mișcare"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Vai avanti!",
+        "ro": "Mergi înainte!"
+      },
+      {
+        "it": "Avanti!",
+        "ro": "Intră! / Hai!"
+      }
+    ],
+    "note": "«Avanti!» = Intră! (când bate cineva) sau Hai!"
+  },
+  {
+    "it": "piuttosto",
+    "pos": "adverb",
+    "ro": "mai degrabă; destul de",
+    "tags": [
+      "mod"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "È piuttosto caro.",
+        "ro": "Este destul de scump."
+      },
+      {
+        "it": "Piuttosto che niente.",
+        "ro": "Mai bine decât nimic."
+      }
+    ]
+  },
+  {
+    "it": "inoltre",
+    "pos": "adverb",
+    "ro": "în plus; de asemenea",
+    "tags": [
+      "gramatică"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Inoltre, costa poco.",
+        "ro": "În plus, costă puțin."
+      },
+      {
+        "it": "Inoltre è vicino.",
+        "ro": "În plus, e aproape."
+      }
+    ]
+  },
+  {
+    "it": "oltre",
+    "pos": "preposition",
+    "ro": "dincolo de; peste",
+    "tags": [
+      "loc"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Oltre il ponte c'è il bar.",
+        "ro": "Dincolo de pod e barul."
+      },
+      {
+        "it": "Oltre a questo, mi piace.",
+        "ro": "Pe lângă asta, îmi place."
+      }
+    ]
+  },
+  {
+    "it": "entro",
+    "pos": "preposition",
+    "ro": "până la; în cel mult",
+    "tags": [
+      "timp"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Rispondimi entro domani.",
+        "ro": "Răspunde-mi până mâine."
+      },
+      {
+        "it": "Entro le cinque.",
+        "ro": "Până la ora cinci."
+      }
+    ],
+    "note": "Termen-limită: «entro domani» = cel târziu mâine; «fino a» = până (continuu)."
+  },
+  {
+    "it": "attraverso",
+    "pos": "preposition",
+    "ro": "prin; peste",
+    "tags": [
+      "loc"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Passo attraverso il parco.",
+        "ro": "Trec prin parc."
+      },
+      {
+        "it": "Attraverso la finestra.",
+        "ro": "Prin fereastră."
+      }
+    ]
+  },
+  {
+    "it": "entrambi",
+    "pos": "pronoun",
+    "ro": "amândoi",
+    "tags": [
+      "gramatică"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Siamo entrambi stanchi.",
+        "ro": "Suntem amândoi obosiți."
+      },
+      {
+        "it": "Voglio entrambi.",
+        "ro": "Le vreau pe amândouă."
+      }
+    ],
+    "note": "Feminin: entrambe."
+  },
+  {
+    "it": "nulla",
+    "pos": "pronoun",
+    "ro": "nimic",
+    "tags": [
+      "gramatică"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Non c'è nulla da fare.",
+        "ro": "Nu e nimic de făcut."
+      },
+      {
+        "it": "Non dico nulla.",
+        "ro": "Nu spun nimic."
+      }
+    ],
+    "note": "La fel ca «niente»; mai formal."
+  },
+  {
+    "it": "chiunque",
+    "pos": "pronoun",
+    "ro": "oricine",
+    "tags": [
+      "gramatică"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Chiunque può venire.",
+        "ro": "Oricine poate veni."
+      },
+      {
+        "it": "Chiunque lo sa.",
+        "ro": "Oricine știe."
+      }
+    ]
+  }
+]

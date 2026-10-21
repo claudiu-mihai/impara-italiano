@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+/* Tema întunecată se aplică prin clasa `dark` pe <html> (setată de services/theme.ts),
+   ca utilizatorul să poată alege manual între Auto, Luminos și Întunecat. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Verdele drapelului, întunecat ca textul alb de pe butoane să respecte contrastul WCAG AA (≥ 4,5:1). */
+  --color-brand: #007a3d;
+  --color-brand-dark: #005f2f;
+}
+
+@theme inline {
+  /* Verde pentru text: întunecat pe fundal luminos, deschis pe fundal întunecat. */
+  --color-brand-fg: var(--brand-fg);
+  /* Text secundar (gri) cu contrast suficient în ambele teme. */
+  --color-muted: var(--muted);
+}
+
+:root {
+  --brand-fg: #007a3d;
+  --muted: #475569;
+  color-scheme: light;
+}
+
+:root.dark {
+  --brand-fg: #4ade80;
+  --muted: #94a3b8;
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  overscroll-behavior-y: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.card-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

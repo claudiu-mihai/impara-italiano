@@ -1,0 +1,57 @@
+{
+  "id": "familia",
+  "title": "Familia",
+  "group": "oameni",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "Cu rudele la singular, posesivul stă fără articol: «mia madre», «mio fratello»; la plural cu articol: «i miei fratelli». Cu diminutive articolul rămâne: «la mia mamma».",
+    "«Nipote» înseamnă nepot/nepoată (al bunicilor sau al unchilor): «il nipote», «la nipote».",
+    "Atenție: «parenti» = rude (nu părinți). Părinții sunt «genitori»."
+  ],
+  "subgroups": [
+    {
+      "title": "Părinți și copii",
+      "wordIds": [
+        "n-famiglia",
+        "n-madre",
+        "n-padre",
+        "n-mamma",
+        "n-papà",
+        "n-genitore",
+        "n-figlio",
+        "n-figlia"
+      ]
+    },
+    {
+      "title": "Frați și bunici",
+      "wordIds": [
+        "n-fratello",
+        "n-sorella",
+        "n-nonno",
+        "n-nonna"
+      ]
+    },
+    {
+      "title": "Alte rude",
+      "wordIds": [
+        "n-zio",
+        "n-zia",
+        "n-cugino",
+        "n-nipote",
+        "n-parente"
+      ]
+    },
+    {
+      "title": "Cuplu",
+      "wordIds": [
+        "n-marito",
+        "n-moglie",
+        "n-fidanzato"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

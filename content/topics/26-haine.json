@@ -1,0 +1,47 @@
+{
+  "id": "haine",
+  "title": "Haine",
+  "group": "zi-de-zi",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "«Mettersi» = a-și pune hainele; «indossare» = a purta: «indosso una giacca».",
+    "Unele haine se spun mai ales la plural: i pantaloni, i jeans, i calzini; «un paio di scarpe» = o pereche de pantofi.",
+    "Culoarea stă după haină: «una camicia bianca»."
+  ],
+  "subgroups": [
+    {
+      "title": "Sus",
+      "wordIds": [
+        "n-camicia",
+        "n-maglia",
+        "n-maglione",
+        "n-giacca",
+        "n-cappotto",
+        "n-vestito"
+      ]
+    },
+    {
+      "title": "Jos",
+      "wordIds": [
+        "e-i_pantaloni",
+        "e-i_jeans",
+        "n-gonna",
+        "e-i_calzini",
+        "n-scarpa"
+      ]
+    },
+    {
+      "title": "Alte",
+      "wordIds": [
+        "n-cappello",
+        "n-borsa",
+        "v-indossare",
+        "v-mettersi"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

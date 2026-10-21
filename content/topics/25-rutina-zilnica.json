@@ -1,0 +1,59 @@
+{
+  "id": "rutina-zilnica",
+  "title": "Rutina zilnică",
+  "group": "zi-de-zi",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "Verbele reflexive au pronumele înainte: «mi sveglio», «ti alzi»; la imperativ se lipește: «alzati!», «svegliati!».",
+    "La passato prossimo reflexivele cer «essere»: «mi sono svegliato / svegliata».",
+    "Cu părțile corpului: «mi lavo le mani» (articol, nu posesiv)."
+  ],
+  "subgroups": [
+    {
+      "title": "Dimineața",
+      "wordIds": [
+        "v-svegliarsi",
+        "v-alzarsi",
+        "v-lavarsi",
+        "n-doccia",
+        "v-vestirsi",
+        "v-pettinarsi",
+        "v-truccarsi",
+        "v-prepararsi",
+        "n-colazione"
+      ]
+    },
+    {
+      "title": "Peste zi",
+      "wordIds": [
+        "v-uscire",
+        "v-tornare",
+        "n-pranzo",
+        "n-cena"
+      ]
+    },
+    {
+      "title": "Seara",
+      "wordIds": [
+        "v-sedersi",
+        "v-riposarsi",
+        "v-addormentarsi",
+        "v-dormire"
+      ]
+    }
+  ],
+  "exercises": [
+    "match",
+    "order"
+  ],
+  "sequence": [
+    "v-svegliarsi",
+    "v-alzarsi",
+    "v-lavarsi",
+    "v-vestirsi",
+    "v-uscire",
+    "v-tornare",
+    "v-addormentarsi"
+  ]
+}

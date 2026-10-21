@@ -1,0 +1,45 @@
+// Constante fără dependențe, ca să poată fi importate în aplicație fără a include Zod în bundle.
+
+export const POS = [
+  "verb",
+  "noun",
+  "adjective",
+  "adverb",
+  "pronoun",
+  "preposition",
+  "conjunction",
+  "numeral",
+  "interjection",
+  "expression",
+] as const;
+
+/** Timpurile verbale, în ordinea în care se deblochează (cele mai utile primele). */
+export const TENSES = [
+  "presente",
+  "passatoProssimo",
+  "imperativo",
+  "imperfetto",
+  "futuro",
+  "condizionale",
+  "congiuntivo",
+] as const;
+
+/** Nivelurile CEFR, de la cel mai ușor la cel mai greu. */
+export const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"] as const;
+
+export type Level = (typeof LEVELS)[number];
+export type Pos = (typeof POS)[number];
+export type Tense = (typeof TENSES)[number];
+
+/** Grupurile de teme, în ordinea în care apar în listă. */
+export const TOPIC_GROUPS = ["timp", "numere", "spatiu", "oameni", "zi-de-zi", "oras", "conversatie"] as const;
+
+/** Exercițiile specifice temelor. */
+export const TOPIC_EXERCISES = ["match", "order", "numbers", "clock", "cat"] as const;
+
+/** Abilități cu itemi generați din reguli (unitate SRS = abilitatea, nu itemul). */
+export const SKILLS = ["numbers-0-20", "numbers-21-100", "numbers-big", "clock"] as const;
+
+export type TopicGroup = (typeof TOPIC_GROUPS)[number];
+export type TopicExercise = (typeof TOPIC_EXERCISES)[number];
+export type Skill = (typeof SKILLS)[number];

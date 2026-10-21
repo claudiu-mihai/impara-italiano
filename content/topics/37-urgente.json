@@ -1,0 +1,38 @@
+{
+  "id": "urgente",
+  "title": "Urgențe",
+  "group": "oras",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "Numere de urgență în Italia: 112 (urgențe), 118 (ambulanță), 113 (poliție), 115 (pompieri).",
+    "«Aiuto!» = ajutor! «Ho bisogno di aiuto» = am nevoie de ajutor.",
+    "«Chiamo la polizia / l'ambulanza.»"
+  ],
+  "subgroups": [
+    {
+      "title": "Cuvinte",
+      "wordIds": [
+        "n-aiuto",
+        "n-ambulanza",
+        "n-polizia",
+        "n-pericolo",
+        "n-incidente",
+        "n-fuoco",
+        "n-ospedale",
+        "n-medico"
+      ]
+    },
+    {
+      "title": "Fraze",
+      "wordIds": [
+        "e-ho_bisogno_di_aiuto",
+        "e-mi_sono_perso",
+        "e-dov'è"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

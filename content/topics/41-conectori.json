@@ -1,0 +1,45 @@
+{
+  "id": "conectori",
+  "title": "Conectori",
+  "group": "conversatie",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "«Ma» și «però» = dar; «però» poate sta și la sfârșit sau în mijlocul propoziției.",
+    "«Invece» = în schimb; «anzi» = ba chiar / dimpotrivă.",
+    "«Quindi» = deci; «comunque» = oricum; «infatti» = într-adevăr / de fapt."
+  ],
+  "subgroups": [
+    {
+      "title": "Opoziție",
+      "wordIds": [
+        "c-ma",
+        "c-però",
+        "adv-invece",
+        "c-anzi",
+        "adv-comunque"
+      ]
+    },
+    {
+      "title": "Consecință",
+      "wordIds": [
+        "c-quindi",
+        "c-dunque",
+        "adv-infatti",
+        "adv-cioè"
+      ]
+    },
+    {
+      "title": "Alegere",
+      "wordIds": [
+        "c-o",
+        "c-oppure",
+        "adv-anche",
+        "adv-inoltre"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

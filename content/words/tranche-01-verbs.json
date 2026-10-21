@@ -1,0 +1,436 @@
+[
+  {
+    "id": "v-essere", "it": "essere", "ro": "a fi", "pos": "verb", "tags": ["esențial"], "rank": 1,
+    "examples": [
+      { "it": "Sono stanco oggi.", "ro": "Sunt obosit astăzi." },
+      { "it": "Dov'è la stazione?", "ro": "Unde este gara?" }
+    ],
+    "note": "Participiul «stato» este același cu cel al lui stare. Se folosește ca auxiliar pentru verbele de mișcare și de stare.",
+    "group": "ere", "auxiliary": "essere", "pastParticiple": "stato", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-avere", "it": "avere", "ro": "a avea", "pos": "verb", "tags": ["esențial"], "rank": 2,
+    "examples": [
+      { "it": "Ho due fratelli.", "ro": "Am doi frați." },
+      { "it": "Hai fame?", "ro": "Ți-e foame?" }
+    ],
+    "note": "În expresii unde româna spune «a-i fi»: avere fame (a-i fi foame), avere sete, avere paura, avere freddo.",
+    "group": "ere", "auxiliary": "avere", "pastParticiple": "avuto", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-fare", "it": "fare", "ro": "a face", "pos": "verb", "tags": ["esențial"], "rank": 3,
+    "examples": [
+      { "it": "Che cosa fai stasera?", "ro": "Ce faci diseară?" },
+      { "it": "Faccio colazione alle otto.", "ro": "Iau micul dejun la ora opt." }
+    ],
+    "note": "Fare colazione = a lua micul dejun; fa caldo = e cald (vremea).",
+    "group": "are", "auxiliary": "avere", "pastParticiple": "fatto", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-dire", "it": "dire", "ro": "a spune", "pos": "verb", "tags": ["comunicare"], "rank": 4,
+    "examples": [
+      { "it": "Che cosa hai detto?", "ro": "Ce ai spus?" },
+      { "it": "Dimmi la verità.", "ro": "Spune-mi adevărul." }
+    ],
+    "note": "Imperativ: di' (spune), dimmi (spune-mi).",
+    "group": "ire", "auxiliary": "avere", "pastParticiple": "detto", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-andare", "it": "andare", "ro": "a merge", "pos": "verb", "tags": ["mișcare"], "rank": 5,
+    "examples": [
+      { "it": "Andiamo al mare domani.", "ro": "Mergem la mare mâine." },
+      { "it": "Vado al lavoro in autobus.", "ro": "Merg la serviciu cu autobuzul." }
+    ],
+    "note": "Andare a + oraș (vado a Roma), andare in + țară (vado in Italia).",
+    "group": "are", "auxiliary": "essere", "pastParticiple": "andato", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-potere", "it": "potere", "ro": "a putea", "pos": "verb", "tags": ["verb modal"], "rank": 6,
+    "examples": [
+      { "it": "Posso entrare?", "ro": "Pot să intru?" },
+      { "it": "Non posso venire stasera.", "ro": "Nu pot veni diseară." }
+    ],
+    "note": "Verb modal: auxiliarul se alege după verbul din infinitiv (ho potuto dormire / sono potuto partire).",
+    "group": "ere", "auxiliary": "both", "pastParticiple": "potuto", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-volere", "it": "volere", "ro": "a vrea", "pos": "verb", "tags": ["verb modal"], "rank": 7,
+    "examples": [
+      { "it": "Voglio un caffè.", "ro": "Vreau o cafea." },
+      { "it": "Che cosa vuoi mangiare?", "ro": "Ce vrei să mănânci?" }
+    ],
+    "note": "Verb modal: auxiliarul se alege după verbul din infinitiv. Construcția cu infinitiv nu are «să» în italiană.",
+    "group": "ere", "auxiliary": "both", "pastParticiple": "voluto", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-sapere", "it": "sapere", "ro": "a ști", "pos": "verb", "tags": ["gândire"], "rank": 8,
+    "examples": [
+      { "it": "Non so la risposta.", "ro": "Nu știu răspunsul." },
+      { "it": "Sai nuotare?", "ro": "Știi să înoți?" }
+    ],
+    "note": "Sapere = a ști (informații, abilități); conoscere = a cunoaște (persoane, locuri).",
+    "group": "ere", "auxiliary": "avere", "pastParticiple": "saputo", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-vedere", "it": "vedere", "ro": "a vedea", "pos": "verb", "tags": ["percepție"], "rank": 9,
+    "examples": [
+      { "it": "Vedo il mare dalla finestra.", "ro": "Văd marea de la fereastră." },
+      { "it": "Ci vediamo domani!", "ro": "Ne vedem mâine!" }
+    ],
+    "group": "ere", "auxiliary": "avere", "pastParticiple": "visto", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-venire", "it": "venire", "ro": "a veni", "pos": "verb", "tags": ["mișcare"], "rank": 10,
+    "examples": [
+      { "it": "Vieni con noi?", "ro": "Vii cu noi?" },
+      { "it": "Vengo dalla Romania.", "ro": "Vin din România." }
+    ],
+    "group": "ire", "auxiliary": "essere", "pastParticiple": "venuto", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-dare", "it": "dare", "ro": "a da", "pos": "verb", "tags": ["esențial"], "rank": 11,
+    "examples": [
+      { "it": "Mi dai un po' d'acqua?", "ro": "Îmi dai puțină apă?" },
+      { "it": "Ti do il mio numero.", "ro": "Îți dau numărul meu." }
+    ],
+    "group": "are", "auxiliary": "avere", "pastParticiple": "dato", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-stare", "it": "stare", "ro": "a sta", "pos": "verb", "tags": ["esențial"], "rank": 12,
+    "examples": [
+      { "it": "Come stai?", "ro": "Ce mai faci?" },
+      { "it": "Oggi sto a casa.", "ro": "Astăzi stau acasă." }
+    ],
+    "note": "Se folosește pentru stare (sto bene) și în sto + gerunziu pentru acțiuni în desfășurare (sto mangiando = mănânc acum).",
+    "group": "are", "auxiliary": "essere", "pastParticiple": "stato", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-dovere", "it": "dovere", "ro": "a trebui", "pos": "verb", "tags": ["verb modal"], "rank": 13,
+    "examples": [
+      { "it": "Devo andare via.", "ro": "Trebuie să plec." },
+      { "it": "Dobbiamo parlare.", "ro": "Trebuie să vorbim." }
+    ],
+    "note": "Verb personal: se conjugă (devo, devi, deve...), spre deosebire de «a trebui» din română. Înseamnă și «a datora» (devo dieci euro).",
+    "group": "ere", "auxiliary": "both", "pastParticiple": "dovuto", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-parlare", "it": "parlare", "ro": "a vorbi", "pos": "verb", "tags": ["comunicare"], "rank": 14,
+    "examples": [
+      { "it": "Parli italiano?", "ro": "Vorbești italiană?" },
+      { "it": "Parliamo al telefono.", "ro": "Vorbim la telefon." }
+    ],
+    "group": "are", "auxiliary": "avere", "pastParticiple": "parlato", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-trovare", "it": "trovare", "ro": "a găsi", "pos": "verb", "tags": ["acțiune"], "rank": 15,
+    "examples": [
+      { "it": "Non trovo le chiavi.", "ro": "Nu găsesc cheile." },
+      { "it": "Ho trovato un buon ristorante.", "ro": "Am găsit un restaurant bun." }
+    ],
+    "group": "are", "auxiliary": "avere", "pastParticiple": "trovato", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-pensare", "it": "pensare", "ro": "a gândi", "pos": "verb", "tags": ["gândire"], "rank": 16,
+    "examples": [
+      { "it": "A cosa pensi?", "ro": "La ce te gândești?" },
+      { "it": "Penso spesso a casa.", "ro": "Mă gândesc des la casă." }
+    ],
+    "note": "«A se gândi la» se traduce pensare a (fără pronume reflexiv).",
+    "group": "are", "auxiliary": "avere", "pastParticiple": "pensato", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-prendere", "it": "prendere", "ro": "a lua", "pos": "verb", "tags": ["acțiune"], "rank": 17,
+    "examples": [
+      { "it": "Prendo un caffè, e tu?", "ro": "Eu iau o cafea, și tu?" },
+      { "it": "Prendiamo il treno delle nove.", "ro": "Luăm trenul de la ora nouă." }
+    ],
+    "note": "Prendere un caffè = a lua / a bea o cafea; prendere il treno = a lua trenul.",
+    "group": "ere", "auxiliary": "avere", "pastParticiple": "preso", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-lasciare", "it": "lasciare", "ro": "a lăsa", "pos": "verb", "tags": ["acțiune"], "rank": 18,
+    "examples": [
+      { "it": "Lascio la borsa qui.", "ro": "Las geanta aici." },
+      { "it": "Ha lasciato il lavoro.", "ro": "A lăsat serviciul." }
+    ],
+    "note": "Înseamnă și «a părăsi» (a lăsa pe cineva).",
+    "group": "are", "auxiliary": "avere", "pastParticiple": "lasciato", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-capire", "it": "capire", "ro": "a înțelege", "pos": "verb", "tags": ["gândire"], "rank": 19,
+    "examples": [
+      { "it": "Non capisco.", "ro": "Nu înțeleg." },
+      { "it": "Hai capito la domanda?", "ro": "Ai înțeles întrebarea?" }
+    ],
+    "note": "Verb în -ire cu -isc-: capisco, capisci, capisce, capiamo, capite, capiscono.",
+    "group": "isc", "auxiliary": "avere", "pastParticiple": "capito", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-credere", "it": "credere", "ro": "a crede", "pos": "verb", "tags": ["gândire"], "rank": 20,
+    "examples": [
+      { "it": "Credo di sì.", "ro": "Cred că da." },
+      { "it": "Non ti credo.", "ro": "Nu te cred." }
+    ],
+    "note": "Credere in + ceva/cineva = a crede în (credo in Dio); credere + persoană = a da crezare (ti credo = te cred); credere di + infinitiv = a crede că (credo di sapere).",
+    "group": "ere", "auxiliary": "avere", "pastParticiple": "creduto", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-sentire", "it": "sentire", "ro": "a auzi", "pos": "verb", "tags": ["percepție"], "rank": 21,
+    "examples": [
+      { "it": "Senti questa musica?", "ro": "Auzi muzica asta?" },
+      { "it": "Mi sento bene.", "ro": "Mă simt bine." }
+    ],
+    "note": "Sentire = a auzi și a simți; ascoltare = a asculta (cu intenție).",
+    "group": "ire", "auxiliary": "avere", "pastParticiple": "sentito", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-mettere", "it": "mettere", "ro": "a pune", "pos": "verb", "tags": ["acțiune"], "rank": 22,
+    "examples": [
+      { "it": "Metto il latte nel caffè.", "ro": "Pun lapte în cafea." },
+      { "it": "Dove hai messo il telefono?", "ro": "Unde ai pus telefonul?" }
+    ],
+    "note": "Mettersi = a se pune, a-și pune (haine): mi metto il cappotto.",
+    "group": "ere", "auxiliary": "avere", "pastParticiple": "messo", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-portare", "it": "portare", "ro": "a duce", "pos": "verb", "tags": ["acțiune"], "rank": 23,
+    "examples": [
+      { "it": "Porto mia figlia a scuola.", "ro": "O duc pe fiica mea la școală." },
+      { "it": "Puoi portare il vino?", "ro": "Poți aduce vinul?" }
+    ],
+    "note": "Portare = a duce, a aduce; pentru haine înseamnă «a purta» (porta gli occhiali).",
+    "group": "are", "auxiliary": "avere", "pastParticiple": "portato", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-chiamare", "it": "chiamare", "ro": "a chema", "pos": "verb", "tags": ["comunicare"], "rank": 24,
+    "examples": [
+      { "it": "Ti chiamo più tardi.", "ro": "Te sun mai târziu." },
+      { "it": "Come ti chiami?", "ro": "Cum te cheamă?" }
+    ],
+    "note": "Chiamare = a chema și a suna (telefon); chiamarsi = a se numi (mi chiamo Ion).",
+    "group": "are", "auxiliary": "avere", "pastParticiple": "chiamato", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-sembrare", "it": "sembrare", "ro": "a părea", "pos": "verb", "tags": ["percepție"], "rank": 25,
+    "examples": [
+      { "it": "Sembra facile.", "ro": "Pare ușor." },
+      { "it": "Sembri stanco.", "ro": "Pari obosit." }
+    ],
+    "falseFriend": "Atenție: sembrare = a părea, nu «a semăna». «A semăna» se spune assomigliare.",
+    "group": "are", "auxiliary": "essere", "pastParticiple": "sembrato", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-passare", "it": "passare", "ro": "a trece", "pos": "verb", "tags": ["mișcare"], "rank": 26,
+    "examples": [
+      { "it": "Passo da te dopo il lavoro.", "ro": "Trec pe la tine după serviciu." },
+      { "it": "Il tempo passa in fretta.", "ro": "Timpul trece repede." }
+    ],
+    "note": "Auxiliar: essere când e intranzitiv (sono passato da te), avere când e tranzitiv (ho passato l'esame).",
+    "group": "are", "auxiliary": "both", "pastParticiple": "passato", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-tornare", "it": "tornare", "ro": "a se întoarce", "pos": "verb", "tags": ["mișcare"], "rank": 27,
+    "examples": [
+      { "it": "Torno a casa alle sei.", "ro": "Mă întorc acasă la șase." },
+      { "it": "Quando torni?", "ro": "Când te întorci?" }
+    ],
+    "note": "Nu este reflexiv în italiană (torno, nu «mi torno»).",
+    "group": "are", "auxiliary": "essere", "pastParticiple": "tornato", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-conoscere", "it": "conoscere", "ro": "a cunoaște", "pos": "verb", "tags": ["gândire"], "rank": 28,
+    "examples": [
+      { "it": "Conosci Marco?", "ro": "Îl cunoști pe Marco?" },
+      { "it": "Piacere di conoscerti!", "ro": "Îmi pare bine să te cunosc!" }
+    ],
+    "note": "Conoscere = a cunoaște persoane și locuri; sapere = a ști informații și abilități.",
+    "group": "ere", "auxiliary": "avere", "pastParticiple": "conosciuto", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-vivere", "it": "vivere", "ro": "a trăi", "pos": "verb", "tags": ["viață"], "rank": 29,
+    "examples": [
+      { "it": "Vivo a Torino da due anni.", "ro": "Trăiesc la Torino de doi ani." },
+      { "it": "Si vive bene qui.", "ro": "Se trăiește bine aici." }
+    ],
+    "note": "Auxiliar: essere sau avere (sono vissuto / ho vissuto). Pentru «a locui» se folosește și abitare.",
+    "group": "ere", "auxiliary": "both", "pastParticiple": "vissuto", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-aspettare", "it": "aspettare", "ro": "a aștepta", "pos": "verb", "tags": ["acțiune"], "rank": 30,
+    "examples": [
+      { "it": "Ti aspetto davanti al bar.", "ro": "Te aștept în fața barului." },
+      { "it": "Aspetta un momento!", "ro": "Așteaptă un moment!" }
+    ],
+    "group": "are", "auxiliary": "avere", "pastParticiple": "aspettato", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-chiedere", "it": "chiedere", "ro": "a cere", "pos": "verb", "tags": ["comunicare"], "rank": 31,
+    "examples": [
+      { "it": "Posso chiederti una cosa?", "ro": "Pot să te întreb ceva?" },
+      { "it": "Chiedo il conto.", "ro": "Cer nota de plată." }
+    ],
+    "note": "Chiedere = a cere și a întreba (chiedere a qualcuno = a întreba pe cineva).",
+    "group": "ere", "auxiliary": "avere", "pastParticiple": "chiesto", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-rimanere", "it": "rimanere", "ro": "a rămâne", "pos": "verb", "tags": ["stare"], "rank": 32,
+    "examples": [
+      { "it": "Rimango a casa stasera.", "ro": "Rămân acasă diseară." },
+      { "it": "Rimani ancora un po'.", "ro": "Mai rămâi puțin." }
+    ],
+    "group": "ere", "auxiliary": "essere", "pastParticiple": "rimasto", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-amare", "it": "amare", "ro": "a iubi", "pos": "verb", "tags": ["sentimente"], "rank": 33,
+    "examples": [
+      { "it": "Amo la mia famiglia.", "ro": "Îmi iubesc familia." },
+      { "it": "Ama viaggiare.", "ro": "Iubește să călătorească." }
+    ],
+    "note": "Pentru persoane dragi, în vorbire se folosește mai des voler bene (ti voglio bene = îți vreau binele / țin la tine).",
+    "group": "are", "auxiliary": "avere", "pastParticiple": "amato", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-morire", "it": "morire", "ro": "a muri", "pos": "verb", "tags": ["viață"], "rank": 34,
+    "examples": [
+      { "it": "Muoio di fame!", "ro": "Mor de foame!" },
+      { "it": "Il nonno è morto l'anno scorso.", "ro": "Bunicul a murit anul trecut." }
+    ],
+    "group": "ire", "auxiliary": "essere", "pastParticiple": "morto", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-uscire", "it": "uscire", "ro": "a ieși", "pos": "verb", "tags": ["mișcare"], "rank": 35,
+    "examples": [
+      { "it": "Esco con gli amici.", "ro": "Ies cu prietenii." },
+      { "it": "A che ora esci dal lavoro?", "ro": "La ce oră ieși de la serviciu?" }
+    ],
+    "group": "ire", "auxiliary": "essere", "pastParticiple": "uscito", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-entrare", "it": "entrare", "ro": "a intra", "pos": "verb", "tags": ["mișcare"], "rank": 36,
+    "examples": [
+      { "it": "Entra pure!", "ro": "Intră, te rog!" },
+      { "it": "Entriamo nel negozio.", "ro": "Intrăm în magazin." }
+    ],
+    "group": "are", "auxiliary": "essere", "pastParticiple": "entrato", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-giocare", "it": "giocare", "ro": "a juca", "pos": "verb", "tags": ["timp liber"], "rank": 37,
+    "examples": [
+      { "it": "I bambini giocano in giardino.", "ro": "Copiii se joacă în grădină." },
+      { "it": "Gioco a calcio il sabato.", "ro": "Joc fotbal sâmbăta." }
+    ],
+    "note": "Giocare a + sport (giocare a calcio); pentru instrumente muzicale se folosește suonare (suonare la chitarra). Ortografie: giochi, giochiamo (cu h).",
+    "group": "are", "auxiliary": "avere", "pastParticiple": "giocato", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-lavorare", "it": "lavorare", "ro": "a lucra", "pos": "verb", "tags": ["muncă"], "rank": 38,
+    "examples": [
+      { "it": "Lavoro in un ufficio.", "ro": "Lucrez într-un birou." },
+      { "it": "Oggi non lavoro.", "ro": "Astăzi nu lucrez." }
+    ],
+    "group": "are", "auxiliary": "avere", "pastParticiple": "lavorato", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-mangiare", "it": "mangiare", "ro": "a mânca", "pos": "verb", "tags": ["mâncare"], "rank": 39,
+    "examples": [
+      { "it": "Che cosa mangiamo stasera?", "ro": "Ce mâncăm diseară?" },
+      { "it": "Ho mangiato troppo.", "ro": "Am mâncat prea mult." }
+    ],
+    "note": "Ortografie: mangi, mangiamo (fără «i» dublu).",
+    "group": "are", "auxiliary": "avere", "pastParticiple": "mangiato", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-bere", "it": "bere", "ro": "a bea", "pos": "verb", "tags": ["mâncare"], "rank": 40,
+    "examples": [
+      { "it": "Bevo un bicchiere d'acqua.", "ro": "Beau un pahar cu apă." },
+      { "it": "Che cosa bevi?", "ro": "Ce bei?" }
+    ],
+    "note": "Radicalul se schimbă: bevo, bevi, beve, beviamo, bevete, bevono.",
+    "group": "ere", "auxiliary": "avere", "pastParticiple": "bevuto", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-scrivere", "it": "scrivere", "ro": "a scrie", "pos": "verb", "tags": ["comunicare"], "rank": 41,
+    "examples": [
+      { "it": "Ti scrivo un messaggio.", "ro": "Îți scriu un mesaj." },
+      { "it": "Come si scrive questa parola?", "ro": "Cum se scrie cuvântul acesta?" }
+    ],
+    "group": "ere", "auxiliary": "avere", "pastParticiple": "scritto", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-leggere", "it": "leggere", "ro": "a citi", "pos": "verb", "tags": ["timp liber"], "rank": 42,
+    "examples": [
+      { "it": "Leggo un libro prima di dormire.", "ro": "Citesc o carte înainte de culcare." },
+      { "it": "Hai letto il giornale?", "ro": "Ai citit ziarul?" }
+    ],
+    "note": "Nu confunda: «legge» înseamnă «el citește» (leggere), dar și «legea» (la legge).",
+    "group": "ere", "auxiliary": "avere", "pastParticiple": "letto", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-aprire", "it": "aprire", "ro": "a deschide", "pos": "verb", "tags": ["acțiune"], "rank": 43,
+    "examples": [
+      { "it": "Apri la finestra, per favore.", "ro": "Deschide fereastra, te rog." },
+      { "it": "Il negozio apre alle nove.", "ro": "Magazinul se deschide la ora nouă." }
+    ],
+    "group": "ire", "auxiliary": "avere", "pastParticiple": "aperto", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-finire", "it": "finire", "ro": "a termina", "pos": "verb", "tags": ["acțiune"], "rank": 44,
+    "examples": [
+      { "it": "Finisco di lavorare alle cinque.", "ro": "Termin de lucrat la ora cinci." },
+      { "it": "Il film finisce tardi.", "ro": "Filmul se termină târziu." }
+    ],
+    "note": "Verb în -ire cu -isc-: finisco, finisci, finisce. Auxiliar: avere când are complement direct (ho finito il lavoro), essere când nu are (il film è finito).",
+    "group": "isc", "auxiliary": "both", "pastParticiple": "finito", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-cominciare", "it": "cominciare", "ro": "a începe", "pos": "verb", "tags": ["acțiune"], "rank": 45,
+    "examples": [
+      { "it": "La lezione comincia alle dieci.", "ro": "Lecția începe la zece." },
+      { "it": "Cominciamo!", "ro": "Să începem!" }
+    ],
+    "note": "Auxiliar: avere când are complement direct (ho cominciato il libro), essere când nu are (la lezione è cominciata). Sinonim: iniziare.",
+    "group": "are", "auxiliary": "both", "pastParticiple": "cominciato", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-ricordare", "it": "ricordare", "ro": "a-și aminti", "pos": "verb", "tags": ["gândire"], "rank": 46,
+    "examples": [
+      { "it": "Non ricordo il suo nome.", "ro": "Nu-mi amintesc numele lui." },
+      { "it": "Ricordi quel viaggio?", "ro": "Îți amintești călătoria aceea?" }
+    ],
+    "note": "Ricordare = a-și aminti (și a reaminti); ricordarsi di = a-și aminti de. «A ține minte» se spune și ricordare.",
+    "group": "are", "auxiliary": "avere", "pastParticiple": "ricordato", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-piacere", "it": "piacere", "ro": "a plăcea", "pos": "verb", "tags": ["sentimente"], "rank": 47,
+    "examples": [
+      { "it": "Mi piace molto la pizza.", "ro": "Îmi place foarte mult pizza." },
+      { "it": "Ti piacciono i film italiani?", "ro": "Îți plac filmele italiene?" }
+    ],
+    "note": "Construcție inversă: lucrul care place este subiectul, persoana este complement indirect (mi piace il caffè, mi piacciono i libri).",
+    "group": "ere", "auxiliary": "essere", "pastParticiple": "piaciuto", "irregular": true, "reflexive": false
+  },
+  {
+    "id": "v-aiutare", "it": "aiutare", "ro": "a ajuta", "pos": "verb", "tags": ["acțiune"], "rank": 48,
+    "examples": [
+      { "it": "Mi puoi aiutare?", "ro": "Mă poți ajuta?" },
+      { "it": "Ti aiuto io.", "ro": "Te ajut eu." }
+    ],
+    "group": "are", "auxiliary": "avere", "pastParticiple": "aiutato", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-partire", "it": "partire", "ro": "a pleca", "pos": "verb", "tags": ["mișcare"], "rank": 49,
+    "examples": [
+      { "it": "Partiamo domani mattina.", "ro": "Plecăm mâine dimineață." },
+      { "it": "Il treno parte tra cinque minuti.", "ro": "Trenul pleacă peste cinci minute." }
+    ],
+    "group": "ire", "auxiliary": "essere", "pastParticiple": "partito", "irregular": false, "reflexive": false
+  },
+  {
+    "id": "v-dormire", "it": "dormire", "ro": "a dormi", "pos": "verb", "tags": ["viață"], "rank": 50,
+    "examples": [
+      { "it": "Dormo otto ore a notte.", "ro": "Dorm opt ore pe noapte." },
+      { "it": "Hai dormito bene?", "ro": "Ai dormit bine?" }
+    ],
+    "group": "ire", "auxiliary": "avere", "pastParticiple": "dormito", "irregular": false, "reflexive": false
+  }
+]

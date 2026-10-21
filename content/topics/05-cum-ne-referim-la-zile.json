@@ -1,0 +1,53 @@
+{
+  "id": "cum-ne-referim-la-zile",
+  "title": "Cum ne referim la zile",
+  "group": "timp",
+  "level": "A2",
+  "first": true,
+  "rules": [
+    "«Fa» vine după durată: «due giorni fa» = acum două zile. «Fra/tra» + durată = peste: «fra una settimana».",
+    "«Scorso» = trecut, «prossimo» = viitor; stau după substantiv: «la settimana scorsa», «il mese prossimo».",
+    "«Ieri sera» = aseară, «ieri mattina» = ieri dimineață, «domani sera» = mâine seară."
+  ],
+  "subgroups": [
+    {
+      "title": "Ieri, azi, mâine",
+      "wordIds": [
+        "e-l'altro_ieri",
+        "adv-ieri",
+        "adv-oggi",
+        "adv-domani",
+        "adv-dopodomani"
+      ]
+    },
+    {
+      "title": "Cu durată",
+      "wordIds": [
+        "e-due_giorni_fa",
+        "e-fra_una_settimana",
+        "e-la_settimana_scorsa",
+        "e-la_settimana_prossima"
+      ]
+    },
+    {
+      "title": "Cuvinte utile",
+      "wordIds": [
+        "a-scorso",
+        "a-prossimo",
+        "adv-prima",
+        "adv-dopo"
+      ]
+    }
+  ],
+  "exercises": [
+    "match",
+    "order"
+  ],
+  "sequence": [
+    "e-l'altro_ieri",
+    "adv-ieri",
+    "adv-oggi",
+    "adv-domani",
+    "adv-dopodomani"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "stari-si-emotii",
+  "title": "Stări și emoții",
+  "group": "oameni",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "Cu «avere»: «ho paura», «ho fame», «ho sete», «ho freddo», «ho ragione» (în română «mi-e frică», în italiană «am frică»).",
+    "«Sentirsi» + adjectiv: «mi sento bene», «ti senti stanco».",
+    "Adjectivele se acordă cu cine vorbește: «sono stanco» (el) / «sono stanca» (ea)."
+  ],
+  "subgroups": [
+    {
+      "title": "Cum te simți",
+      "wordIds": [
+        "a-felice",
+        "a-contento",
+        "a-triste",
+        "a-stanco",
+        "a-malato",
+        "a-occupato"
+      ]
+    },
+    {
+      "title": "Emoții",
+      "wordIds": [
+        "a-arrabbiato",
+        "a-annoiato",
+        "a-nervoso",
+        "a-preoccupato",
+        "a-sorpreso"
+      ]
+    },
+    {
+      "title": "Substantive",
+      "wordIds": [
+        "n-paura",
+        "n-gioia",
+        "n-ansia",
+        "n-amore"
+      ]
+    },
+    {
+      "title": "Verb",
+      "wordIds": [
+        "v-sentirsi"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

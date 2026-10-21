@@ -1,0 +1,36 @@
+{
+  "id": "aici-si-acolo",
+  "title": "Aici și acolo",
+  "group": "spatiu",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "«Qui / qua» = aici (aproape de cel care vorbește); «lì / là» = acolo (mai departe). «Qui» și «lì» sunt mai precise.",
+    "«Ecco» = iată: «ecco il bus!», «eccolo!» = iată-l.",
+    "«Dov'è» + singular, «dove sono» + plural: «dov'è il bagno?», «dove sono le chiavi?»."
+  ],
+  "subgroups": [
+    {
+      "title": "Aici și acolo",
+      "wordIds": [
+        "adv-qui",
+        "adv-qua",
+        "adv-lì",
+        "adv-là"
+      ]
+    },
+    {
+      "title": "Alte",
+      "wordIds": [
+        "adv-ecco",
+        "e-dov'è",
+        "adv-dove",
+        "a-vicino",
+        "a-lontano"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

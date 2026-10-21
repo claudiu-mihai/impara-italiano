@@ -1,0 +1,524 @@
+[
+  {
+    "it": "chiamarsi",
+    "pos": "verb",
+    "ro": "a se numi",
+    "tags": [
+      "prezentare"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mi chiamo Marco.",
+        "ro": "Mă cheamă Marco."
+      },
+      {
+        "it": "Come ti chiami?",
+        "ro": "Cum te cheamă?"
+      }
+    ],
+    "note": "«Mi chiamo…» = «Mă numesc…», «Mă cheamă…». Nu se folosește «sono» pentru nume în prezentări obișnuite."
+  },
+  {
+    "it": "svegliarsi",
+    "pos": "verb",
+    "ro": "a se trezi",
+    "tags": [
+      "rutină"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mi sveglio alle sette.",
+        "ro": "Mă trezesc la șapte."
+      },
+      {
+        "it": "Domani ci svegliamo presto.",
+        "ro": "Mâine ne trezim devreme."
+      }
+    ]
+  },
+  {
+    "it": "alzarsi",
+    "pos": "verb",
+    "ro": "a se ridica; a se da jos din pat",
+    "tags": [
+      "rutină"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mi alzo alle otto.",
+        "ro": "Mă ridic din pat la opt."
+      },
+      {
+        "it": "Alzati, è tardi!",
+        "ro": "Ridică-te, e târziu!"
+      }
+    ]
+  },
+  {
+    "it": "lavarsi",
+    "pos": "verb",
+    "ro": "a se spăla",
+    "tags": [
+      "rutină"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mi lavo le mani.",
+        "ro": "Mă spăl pe mâini."
+      },
+      {
+        "it": "Ti sei lavato i denti?",
+        "ro": "Te-ai spălat pe dinți?"
+      }
+    ],
+    "note": "Cu părțile corpului se folosește articolul, nu posesivul: «mi lavo le mani» (nu «le mie mani»)."
+  },
+  {
+    "it": "vestirsi",
+    "pos": "verb",
+    "ro": "a se îmbrăca",
+    "tags": [
+      "rutină"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mi vesto in fretta.",
+        "ro": "Mă îmbrac repede."
+      },
+      {
+        "it": "Il bambino si veste da solo.",
+        "ro": "Copilul se îmbracă singur."
+      }
+    ]
+  },
+  {
+    "it": "sedersi",
+    "pos": "verb",
+    "ro": "a se așeza",
+    "tags": [
+      "rutină"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mi siedo qui.",
+        "ro": "Mă așez aici."
+      },
+      {
+        "it": "Siediti, per favore.",
+        "ro": "Așază-te, te rog."
+      }
+    ],
+    "note": "Neregulat: mi siedo, ti siedi, si siede, ci sediamo, vi sedete, si siedono."
+  },
+  {
+    "it": "fermarsi",
+    "pos": "verb",
+    "ro": "a se opri",
+    "tags": [
+      "mișcare"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mi fermo qui.",
+        "ro": "Mă opresc aici."
+      },
+      {
+        "it": "Il treno si ferma a Bologna.",
+        "ro": "Trenul se oprește la Bologna."
+      }
+    ]
+  },
+  {
+    "it": "sentirsi",
+    "pos": "verb",
+    "ro": "a se simți",
+    "tags": [
+      "sentimente"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mi sento bene.",
+        "ro": "Mă simt bine."
+      },
+      {
+        "it": "Come ti senti oggi?",
+        "ro": "Cum te simți azi?"
+      }
+    ]
+  },
+  {
+    "it": "trovarsi",
+    "pos": "verb",
+    "ro": "a se afla; a se găsi",
+    "tags": [
+      "loc"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi trovo a Roma.",
+        "ro": "Mă aflu la Roma."
+      },
+      {
+        "it": "Dove si trova la stazione?",
+        "ro": "Unde se află gara?"
+      }
+    ],
+    "note": "«Mi trovo bene» = mă simt bine (într-un loc, cu cineva)."
+  },
+  {
+    "it": "divertirsi",
+    "pos": "verb",
+    "ro": "a se distra",
+    "tags": [
+      "timp liber"
+    ],
+    "level": "A1",
+    "examples": [
+      {
+        "it": "Mi diverto molto.",
+        "ro": "Mă distrez mult."
+      },
+      {
+        "it": "Divertitevi!",
+        "ro": "Distrați-vă!"
+      }
+    ]
+  },
+  {
+    "it": "riposarsi",
+    "pos": "verb",
+    "ro": "a se odihni",
+    "tags": [
+      "rutină"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi riposo un po'.",
+        "ro": "Mă odihnesc puțin."
+      },
+      {
+        "it": "Riposati, sei stanco.",
+        "ro": "Odihnește-te, ești obosit."
+      }
+    ]
+  },
+  {
+    "it": "mettersi",
+    "pos": "verb",
+    "ro": "a se pune; a-și pune (haine)",
+    "tags": [
+      "rutină"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi metto la giacca.",
+        "ro": "Îmi pun geaca."
+      },
+      {
+        "it": "Si mette a ridere.",
+        "ro": "Începe să râdă."
+      }
+    ],
+    "note": "«Mettersi a + infinitiv» = a începe să."
+  },
+  {
+    "it": "prepararsi",
+    "pos": "verb",
+    "ro": "a se pregăti",
+    "tags": [
+      "rutină"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi preparo per uscire.",
+        "ro": "Mă pregătesc să ies."
+      },
+      {
+        "it": "Ci prepariamo al viaggio.",
+        "ro": "Ne pregătim de călătorie."
+      }
+    ]
+  },
+  {
+    "it": "addormentarsi",
+    "pos": "verb",
+    "ro": "a adormi",
+    "tags": [
+      "rutină"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi addormento subito.",
+        "ro": "Adorm imediat."
+      },
+      {
+        "it": "Il bambino si è addormentato.",
+        "ro": "Copilul a adormit."
+      }
+    ]
+  },
+  {
+    "it": "incontrarsi",
+    "pos": "verb",
+    "ro": "a se întâlni",
+    "tags": [
+      "social"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Ci incontriamo alle cinque.",
+        "ro": "Ne întâlnim la cinci."
+      },
+      {
+        "it": "Dove ci incontriamo?",
+        "ro": "Unde ne întâlnim?"
+      }
+    ],
+    "note": "«Incontrare» = a întâlni pe cineva; «incontrarsi» = a se întâlni (reciproc), a se vedea."
+  },
+  {
+    "it": "sposarsi",
+    "pos": "verb",
+    "ro": "a se căsători",
+    "tags": [
+      "viață"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mia sorella si sposa a giugno.",
+        "ro": "Sora mea se căsătorește în iunie."
+      },
+      {
+        "it": "Ci siamo sposati due anni fa.",
+        "ro": "Ne-am căsătorit acum doi ani."
+      }
+    ]
+  },
+  {
+    "it": "ricordarsi",
+    "pos": "verb",
+    "ro": "a-și aminti",
+    "tags": [
+      "gândire"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi ricordo di te.",
+        "ro": "Îmi amintesc de tine."
+      },
+      {
+        "it": "Non mi ricordo il suo nome.",
+        "ro": "Nu-mi amintesc numele lui."
+      }
+    ],
+    "note": "«Ricordare» (fără pronume) = a aduce aminte altcuiva; «ricordarsi» = a-și aminti."
+  },
+  {
+    "it": "preoccuparsi",
+    "pos": "verb",
+    "ro": "a-și face griji",
+    "tags": [
+      "sentimente"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Non ti preoccupare!",
+        "ro": "Nu-ți face griji!"
+      },
+      {
+        "it": "Mi preoccupo per lui.",
+        "ro": "Îmi fac griji pentru el."
+      }
+    ],
+    "note": "Imperativ negativ: «non ti preoccupare» sau «non preoccuparti»."
+  },
+  {
+    "it": "arrabbiarsi",
+    "pos": "verb",
+    "ro": "a se supăra; a se înfuria",
+    "tags": [
+      "sentimente"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Non ti arrabbiare!",
+        "ro": "Nu te supăra!"
+      },
+      {
+        "it": "Si arrabbia facilmente.",
+        "ro": "Se supără ușor."
+      }
+    ]
+  },
+  {
+    "it": "innamorarsi",
+    "pos": "verb",
+    "ro": "a se îndrăgosti",
+    "tags": [
+      "sentimente"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi sono innamorato di lei.",
+        "ro": "M-am îndrăgostit de ea."
+      },
+      {
+        "it": "Si innamorano subito.",
+        "ro": "Se îndrăgostesc imediat."
+      }
+    ]
+  },
+  {
+    "it": "rilassarsi",
+    "pos": "verb",
+    "ro": "a se relaxa",
+    "tags": [
+      "timp liber"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi rilasso con la musica.",
+        "ro": "Mă relaxez cu muzică."
+      },
+      {
+        "it": "Rilassati un po'.",
+        "ro": "Relaxează-te puțin."
+      }
+    ]
+  },
+  {
+    "it": "annoiarsi",
+    "pos": "verb",
+    "ro": "a se plictisi",
+    "tags": [
+      "sentimente"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi annoio a casa.",
+        "ro": "Mă plictisesc acasă."
+      },
+      {
+        "it": "Non ti annoi mai?",
+        "ro": "Nu te plictisești niciodată?"
+      }
+    ]
+  },
+  {
+    "it": "spostarsi",
+    "pos": "verb",
+    "ro": "a se deplasa; a se muta (puțin)",
+    "tags": [
+      "mișcare"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi sposto in treno.",
+        "ro": "Mă deplasez cu trenul."
+      },
+      {
+        "it": "Spostati, per favore.",
+        "ro": "Mută-te, te rog."
+      }
+    ]
+  },
+  {
+    "it": "fidarsi",
+    "pos": "verb",
+    "ro": "a avea încredere",
+    "tags": [
+      "sentimente"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi fido di te.",
+        "ro": "Am încredere în tine."
+      },
+      {
+        "it": "Non mi fido di lui.",
+        "ro": "Nu am încredere în el."
+      }
+    ],
+    "note": "Se construiește cu «di»: fidarsi di qualcuno."
+  },
+  {
+    "it": "pettinarsi",
+    "pos": "verb",
+    "ro": "a se pieptăna",
+    "tags": [
+      "rutină"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi pettino ogni mattina.",
+        "ro": "Mă pieptăn în fiecare dimineață."
+      },
+      {
+        "it": "Si pettina davanti allo specchio.",
+        "ro": "Se piaptănă în fața oglinzii."
+      }
+    ]
+  },
+  {
+    "it": "truccarsi",
+    "pos": "verb",
+    "ro": "a se machia",
+    "tags": [
+      "rutină"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi trucco prima di uscire.",
+        "ro": "Mă machiez înainte să ies."
+      },
+      {
+        "it": "Non si trucca mai.",
+        "ro": "Nu se machiază niciodată."
+      }
+    ]
+  },
+  {
+    "it": "laurearsi",
+    "pos": "verb",
+    "ro": "a-și lua licența",
+    "tags": [
+      "școală"
+    ],
+    "level": "A2",
+    "examples": [
+      {
+        "it": "Mi sono laureato a Milano.",
+        "ro": "Mi-am luat licența la Milano."
+      },
+      {
+        "it": "Si laurea a luglio.",
+        "ro": "Își ia licența în iulie."
+      }
+    ]
+  }
+]

@@ -1,0 +1,470 @@
+## Arhitectura aplicației „Impara l'Italiano”
+
+Documentul descrie **cum** este organizată aplicația: straturile, structura de directoare, modelul de date și fluxurile principale. Cerințele, stack-ul și roadmap-ul se află în [app-plan.md](app-plan.md).
+
+---
+
+### 1. Vedere de ansamblu
+
+Aplicația are trei părți:
+
+```
+[Build-time]  content/ ──► scripts/ (frecvență, conjugări, validare Zod) ──► src/data/generated/*.json
+[Runtime]     React SPA (client-only) ──► domain/ (TS pur) ──► data/ (ContentStore + Dexie)
+[Offline]     Service worker (Workbox) — precache: app shell + JSON-uri de conținut
+```
+
+* **Build-time:** conținutul (cuvinte, conjugări, propoziții, teme) este pregătit, validat și transformat în fișiere JSON înainte de build. Aplicația nu face cereri de rețea pentru date.
+* **Runtime:** o aplicație React care rulează integral în browser, fără backend.
+* **Offline:** service worker-ul pune în cache aplicația și conținutul; audio folosește vocile din sistem (funcționează și offline) și necesită internet doar dacă nu există o voce italiană locală (FR4).
+
+#### Straturile runtime
+
+```mermaid
+flowchart TD
+    UI["features/<br/>ecrane și componente React"]
+    STORE["store/<br/>Zustand — starea sesiunii curente"]
+    DOMAIN["domain/<br/>logică pură TS: SRS, sesiune, notare, quiz, timp, teme"]
+    DATA["data/<br/>ContentStore (JSON static) + Dexie (progres) + backup"]
+    SERVICES["services/<br/>TTS, rețea, persistență, update PWA"]
+    SW["Service worker<br/>precache shell + JSON"]
+
+    UI --> STORE
+    UI --> DOMAIN
+    UI --> DATA
+    UI --> SERVICES
+    DATA -. tipuri .-> DOMAIN
+    SW -. servește fișierele .-> UI
+```
+
+**Reguli de dependență:**
+* `features/` poate importa din `domain/`, `data/`, `services/`, `store/`, `ui/`.
+* `domain/` **nu importă nimic** din celelalte straturi: fără React, fără Dexie, fără API-uri de browser. Primește timpul curent (`now`) ca parametru.
+* `data/` importă doar tipuri din `domain/`.
+
+---
+
+### 2. Structura de directoare
+
+```
+content/                 sursa de adevăr pentru conținut (în git)
+  words/                 tranșe: tranche-01-verbs.json, tranche-02.json ...
+  verbs/irregular.json   forme neregulate scrise explicit
+  sentences/             propoziții pentru Reconstruire
+  topics/                teme: fișe ordonate de id-uri de cuvinte + reguli (Faza 4)
+  sources/               liste brute de frecvență (în .gitignore)
+scripts/                 pipeline build-time (rulat direct cu Node 24, care elimină tipurile)
+  frequency/             lematizare + scor combinat 70/30 (încă neimplementat)
+  conjugate/             rules.ts (reguli -are/-ere/-ire/-isc), build.ts (combinare cu formele neregulate)
+  content.ts             încarcă și validează conținutul (Zod + verificări încrucișate)
+  validate-content.ts    `npm run validate`
+  build-data.ts          `npm run build:data` — emite src/data/generated/*.json + meta.json (dataVersion)
+  make-icons.ts          `npm run icons` — iconițele PWA
+src/
+  app/                   App.tsx, router, layout cu bottom nav, providers
+  features/              flashcards, conjugation, quiz, sentence, browse, topics, stats, settings, about
+  domain/                logică pură, acoperită integral de teste unitare
+    content/             tipuri + scheme Zod (partajate cu scripts/)
+    srs/                 scheduler.ts (wrapper ts-fsrs), mastery.ts, unlock.ts
+    session/             buildDailySession.ts
+    grading/             normalize.ts, compareAnswer.ts, gradeConjugation.ts, gradeSentence.ts
+    quiz/                distractors.ts
+    time/                studyDay.ts (granița 04:00), streak.ts
+    topics/              numbers.ts, clock.ts, positions.ts, skills.ts, pairs.ts, order.ts (Faza 4)
+  data/
+    content/             contentStore.ts — încarcă JSON-urile, indexează după id / categorie / rang
+    db/                  db.ts (schema Dexie + versiuni), repositories (cards, reviewLog, settings, reports, meta)
+    backup/              export.ts, import.ts (validate cu Zod)
+    generated/           JSON-uri emise de scripts/build-data.ts (nu se editează manual)
+  services/              tts.ts, network.ts, storagePersist.ts, pwaUpdate.ts
+  store/                 sessionStore.ts (Zustand — doar starea sesiunii curente)
+  ui/                    componente comune (shadcn în ui/components), FlipCard, SwipeCard, Clock, PositionScene
+tests/e2e/               Playwright
+public/                  manifest, iconițe
+```
+
+**Corespondența cerințe → module:**
+
+| Cerință | Module |
+| --- | --- |
+| FR1 Baza de date de cuvinte | `content/`, `scripts/`, `data/content`, `features/browse` |
+| FR2 Module de învățare | `features/flashcards`, `features/quiz`, `features/sentence`, `features/conjugation`, `domain/grading`, `domain/quiz` |
+| FR2.5 Teme | `content/topics`, `features/topics`, `domain/topics`, `ui/Clock`, `ui/PositionScene` |
+| FR3 SRS (FSRS) | `domain/srs`, `domain/session`, `data/db` |
+| FR4 Audio | `services/tts`, `services/network` |
+| FR5 Progres și statistici | `features/stats`, `domain/time`, `data/db` (reviewLog) |
+| FR6 Setări și date | `features/settings`, `data/backup` |
+
+---
+
+### 3. Modelul de date
+
+#### 3.1 Conținut static (read-only, generat, inclus în build)
+
+| Fișier | Conținut | Încărcare |
+| --- | --- | --- |
+| `words.json` | toate cuvintele (structura de mai jos) | la pornire |
+| `conjugations.json` | formele conjugate, pe verb și timp | **lazy**, doar în modulul de conjugare |
+| `sentences.json` | propozițiile pentru Reconstruire | **lazy**, doar în modulul de propoziții |
+| `topics.json` | temele (§12) | **lazy**, doar în secțiunea Teme și pe pagina cuvântului |
+| `meta.json` | `{ dataVersion, generatedAt, rankBasis, wordCount, sources[] }` — atribuirea pentru ecranul „Despre” | la pornire |
+
+Fișierele sunt importate din cod (`import("../generated/words.json")`), deci Vite le include ca chunk-uri JS; service worker-ul le pune în cache împreună cu restul aplicației și nu există cereri de rețea separate. Fișierele din `src/data/generated/` sunt produse de `npm run build:data` și nu se păstrează în git.
+
+Dimensiune estimată: ~400 KB necomprimat / ~100 KB gzip pentru 1000 de cuvinte, deci conținutul se ține integral în memorie.
+
+**Structura unui cuvânt:**
+
+```ts
+type Pos = "verb" | "noun" | "adjective" | "adverb" | "pronoun"
+         | "preposition" | "conjunction" | "numeral" | "interjection"
+         | "expression";             // expresii din mai multe cuvinte (Faza 4)
+
+interface BaseEntry {
+  id: string;                 // stabil, ex. "n-casa", "v-parlare"
+  it: string;
+  ro: string;
+  pos: Pos;
+  tags: string[];             // tematice, ex. "expresii", "mâncare"
+  rank: number;               // rang de frecvență combinat
+  examples: { it: string; ro: string }[];
+  falseFriend?: string;       // avertisment pentru vorbitori de română
+  note?: string;
+}
+
+interface Noun extends BaseEntry {
+  pos: "noun";
+  gender: "m" | "f";
+  article: "il" | "lo" | "la" | "l'";
+  plural: string;
+  pluralArticle: "i" | "gli" | "le";
+  irregularPlural: boolean;
+}
+
+interface Adjective extends BaseEntry {
+  pos: "adjective";
+  forms: { ms: string; fs: string; mp: string; fp: string };
+}
+
+interface Verb extends BaseEntry {
+  pos: "verb";
+  group: "are" | "ere" | "ire" | "isc";
+  auxiliary: "avere" | "essere" | "both";
+  pastParticiple: string;
+  irregular: boolean;
+  reflexive: boolean;
+}
+```
+
+**Conjugări:**
+
+```ts
+type Tense = "presente" | "passatoProssimo" | "imperfetto" | "futuro"
+           | "condizionale" | "imperativo" | "congiuntivo";
+
+// 6 persoane: io, tu, lui/lei, noi, voi, loro.
+// Fiecare poziție conține una sau mai multe forme acceptate
+// (ex. "sono andato" / "sono andata" la passato prossimo cu essere).
+type Conjugations = Record<string /* verbId */, Partial<Record<Tense, string[][]>>>;
+```
+
+**Propoziții:**
+
+```ts
+interface Sentence {
+  id: string;
+  wordIds: string[];          // cuvintele din dicționar folosite
+  it: string;
+  ro: string;
+  tokens: string[];           // blocurile afișate, fără punctuație
+  acceptedOrders: number[][]; // ordinile corecte, ca indici în tokens
+}
+```
+
+#### 3.2 Progres (Dexie / IndexedDB)
+
+| Tabel | Cheie / indexuri | Conținut |
+| --- | --- | --- |
+| `cards` | `cardId`; `due`, `wordId`, `kind`, `state` | obiectul FSRS `Card` complet din `ts-fsrs` (inclusiv `learning_steps`) + `wordId`, `kind`, `variant`, `introducedOn` (studyDay) |
+| `reviewLog` | `++id`; `cardId`, `studyDay` | `rating, reviewedAt, studyDay, source` (`flashcard` / `quiz` / `conj` / `skill`), `durationMs` + log-ul FSRS |
+| `settings` | `key` | un singur rând cu toate setările |
+| `reports` | `++id`; `wordId` | semnalările „greșeală în card” |
+| `meta` | `key` | `schemaVersion`, ultimul `dataVersion` văzut, `lastExportAt` |
+
+**Identificatorul cardului** (`cardId = kind:wordId:variant`):
+* vocabular: `vocab:n-casa:it-ro`, `vocab:n-casa:ro-it` — câte un card pe direcție, creat în momentul în care direcția respectivă este activă și cuvântul e introdus;
+* conjugare: `conj:v-parlare:presente`;
+* abilitate (Teme, Faza 4): `skill:numbers-21-100`, `skill:clock` — vezi §12.
+
+**Nivelul de stăpânire** al unui cuvânt (FR1) = minimul stabilității cardurilor sale de vocabular existente:
+* *Nou* — niciun card;
+* *În învățare* — stabilitate < 21 de zile;
+* *Stăpânit* — stabilitate ≥ 21 de zile.
+
+**Actualizarea conținutului:** progresul este legat de `id`-ul stabil al cuvântului. Un `dataVersion` nou păstrează progresul existent; cuvintele noi apar ca *Noi*; cardurile cuvintelor eliminate rămân în DB, dar sunt ignorate.
+
+**Statistici și streak:** se calculează din `reviewLog` (index pe `studyDay`), fără tabele agregate.
+
+**Migrări:** schema Dexie este versionată (`db.version(n).stores(...).upgrade(...)`); fiecare versiune nouă are o funcție de migrare testată.
+
+---
+
+### 4. Fluxuri principale
+
+#### 4.1 Pornire
+
+1. Service worker-ul servește shell-ul aplicației din cache.
+2. `contentStore` încarcă `words.json` și `meta.json` (precache) și construiește indexurile.
+3. Dexie deschide baza de date și rulează eventualele migrări.
+4. La prima pornire se cere `navigator.storage.persist()`.
+5. Ecranul Acasă afișează contorii zilei (scadente, noi, streak) prin `useLiveQuery`.
+
+#### 4.2 Construirea sesiunii zilnice
+
+`domain/session/buildDailySession.ts` este o funcție pură: `(now, settings, cards, content) → queue`.
+
+* Cardurile scadente, cele mai întârziate primele, limitate la `maxReviewsPerDay` (implicit 100) minus repetițiile deja făcute azi. Un card în faza de repetare (`State.Review`) este scadent dacă `due` cade înainte de sfârșitul zilei de studiu (04:00 următor); un card în (re)învățare, dacă `due ≤ now + 20 min` (`LEARN_AHEAD_MS`).
+* Cuvinte noi, în ordinea rangului: `newPerDay − cuvinte introduse azi` (implicit 10).
+* Intercalare: un card nou la fiecare ~4 repetiții.
+* Cardurile notate *Din nou* revin în aceeași sesiune când devin scadente (pașii de învățare FSRS).
+* „Azi” este calculat de `domain/time/studyDay.ts`: ziua de studiu începe la 04:00 ora locală.
+
+#### 4.3 Evaluarea unui card
+
+```mermaid
+sequenceDiagram
+    participant UI as features/flashcards
+    participant S as domain/srs/scheduler
+    participant DB as data/db (Dexie)
+    participant ST as store/sessionStore
+
+    UI->>S: review(card, rating, now)
+    S-->>UI: { card actualizat, log }
+    UI->>DB: tranzacție: put(cards) + add(reviewLog)
+    DB-->>UI: ok
+    UI->>ST: next()
+```
+
+Actualizarea cardului și adăugarea în `reviewLog` se fac în **aceeași tranzacție**, ca statisticile să rămână consistente cu starea SRS.
+
+#### 4.4 Conjugare
+
+* `domain/srs/unlock.ts` deblochează cardul `conj:<verb>:<timp>` când:
+  * cardul de vocabular IT→RO al verbului a ieșit din faza de învățare, **și**
+  * timpul anterior (în ordinea din FR2.4) are stabilitatea ≥ pragul de stăpânire (constantă configurabilă, implicit 21 de zile).
+* La fiecare repetiție se cer 3 persoane aleatorii; `gradeConjugation.ts` calculează nota: 3/3 → *Bine*, 2/3 → *Greu*, ≤1/3 → *Din nou*.
+
+#### 4.5 Corectarea răspunsurilor scrise
+
+`domain/grading/compareAnswer.ts`:
+1. Normalizare (`normalize.ts`): trim, lowercase, spații multiple → unul, apostrof `’` → `'`, Unicode NFC.
+2. Potrivire exactă cu oricare formă acceptată → **corect**.
+3. Potrivire după eliminarea diacriticelor (NFD) → **aproape** (greșeală de accent, nota *Greu*).
+4. Altfel → **greșit**.
+
+#### 4.6 Quiz
+
+`domain/quiz/distractors.ts` alege 3 variante greșite:
+* din aceeași categorie gramaticală;
+* cu rang de frecvență apropiat;
+* excluzând traducerile identice sau care au cuvinte comune cu răspunsul corect.
+
+#### 4.7 Export / import
+
+```ts
+interface Backup {
+  format: "impara-backup";
+  version: number;
+  exportedAt: string;
+  dataVersion: string;
+  cards: Card[];
+  reviewLog: ReviewLogEntry[];
+  settings: Settings;
+  reports: Report[];
+}
+```
+
+* Exportul descarcă un fișier `.json` și actualizează `meta.lastExportAt`.
+* Importul validează fișierul cu Zod și, după confirmare, înlocuiește toate datele într-o singură tranzacție.
+
+#### 4.8 Actualizarea aplicației (PWA)
+
+`vite-plugin-pwa` cu `registerType: "prompt"`: când există o versiune nouă, `services/pwaUpdate.ts` afișează toast-ul „Versiune nouă disponibilă — Reîncarcă”.
+
+#### 4.9 Audio (TTS)
+
+`services/tts.ts` este un singleton cu starea `ready | offline | no-voice | unsupported`:
+* ascultă `speechSynthesis.onvoiceschanged` și evenimentele `online` / `offline`;
+* `services/voices.ts` conține logica pură de alegere (`pickVoice`): doar voci italiene; vocile locale din sistem (macOS, iOS, Android, Windows) au prioritate și sunt singurele folosite fără internet; între ele se preferă cele „Enhanced/Premium”; o voce aleasă în Setări (`ttsVoiceURI`) are prioritate dacă e disponibilă;
+* `useTtsStatus()` și `useItalianVoices()` expun starea și lista de voci; `speak(text, rate)` redă pronunția.
+* **Redare în serie (Faza 5):** `speakSequence(texts, rate, onIndex?)` oprește redarea în curs și pune câte o `SpeechSynthesisUtterance` pe frază în coada vocii; `onstart` al fiecăreia raportează indicele curent, iar `onend` al ultimei (sau `onerror`) încheie redarea. `stopSpeaking()` apelează `speechSynthesis.cancel()`. `useSpeaking()` expune `{ id, index } | null`, ca un singur buton ▶/■ să știe dacă redarea lui e cea activă. `speak()` rămâne neschimbat și oprește orice serie în curs.
+
+---
+
+### 5. Navigare
+
+React Router, cu următoarele rute:
+
+| Rută | Ecran |
+| --- | --- |
+| `/` | Acasă (sesiunea zilei, streak) |
+| `/learn/vocab` | Flashcards vocabular |
+| `/learn/conjugation` | Flashcards conjugare |
+| `/quiz` | Quiz |
+| `/learn/sentence` | Reconstruire propoziție |
+| `/learn/topics`, `/learn/topics/:id` | Teme și fișa unei teme (Faza 4) |
+| `/learn/topics/:id/:exercise` | exercițiile unei teme (`study`, `pairs`, `order`, `numbers`, `clock`, `positions`) |
+| `/browse`, `/browse/:id` | Dicționar și detaliile unui cuvânt |
+| `/stats` | Statistici |
+| `/settings` | Setări, export / import |
+| `/about` | Despre, atribuirea surselor |
+
+* **Bottom nav:** Acasă, Învață, Dicționar, Statistici, Setări.
+* **Code splitting:** `stats`, `sentence`, `topics`, `conjugations.json` și `topics.json` se încarcă lazy, pentru LCP < 1.5s.
+* **Hosting:** static, cu fallback SPA (`_redirects` pe Cloudflare Pages / Netlify).
+
+---
+
+### 6. Strategia de testare
+
+| Nivel | Unelte | Ce acoperă |
+| --- | --- | --- |
+| Unit — `domain/` | Vitest | sesiunea zilnică (cu ceas fals), granița 04:00 și streak, normalizarea și notarea, distractori, deblocarea timpurilor, generatorul de numere și ore (Faza 4) |
+| Unit — `scripts/` | Vitest | generatorul de conjugări comparat cu forme de referință; validarea temelor |
+| Integrare — `data/` | Vitest + `fake-indexeddb` | repositories Dexie, migrări, round-trip export → import |
+| E2E | Playwright | sesiune completă care persistă după reload; mod avion (`context.setOffline(true)`); export / import |
+| CI | — | `validate-content` + toate testele la fiecare push |
+
+---
+
+### 7. Decizii de arhitectură
+
+| Decizie | Motiv |
+| --- | --- |
+| Logica în `domain/` ca TypeScript pur | testabilă fără browser; SRS-ul și notarea sunt partea critică a aplicației |
+| Conținut static separat de progres | conținutul se poate actualiza fără pierderea progresului |
+| `cardId` compus și stabil | un singur model pentru vocabular (două direcții) și conjugare |
+| Fără tabele agregate | statisticile se derivează din `reviewLog`; nu există date duplicate de ținut sincronizate |
+| Scheme Zod partajate între `scripts/` și aplicație | aceeași schemă validează conținutul la build și backup-ul la import |
+| Zustand doar pentru sesiunea curentă | datele persistente au o singură sursă de adevăr: Dexie, citit prin `useLiveQuery` |
+| Conjugările și propozițiile încărcate lazy | ecranul de pornire încarcă doar ce are nevoie |
+| Temele refolosesc cuvintele prin id | progresul e comun cu Flashcards și Quiz; o temă nu dublează carduri |
+| Numerele și ora generate, cu SRS pe abilitate | conținut nelimitat fără scris de mână și fără mii de carduri (același model ca verb × timp) |
+
+---
+
+### 8. Note de implementare (Faza 2)
+
+* **Grafice:** `ui/BarChart.tsx` este un grafic cu bare scris în proiect (fără Recharts); statisticile au nevoie doar de bare simple, iar evitarea dependenței ține bundle-ul mic.
+* **Zod doar la build și la import:** aplicația nu importă scheme Zod la pornire. Constantele (`POS`, `TENSES`) stau în `domain/content/constants.ts`, iar `data/backup/backup.ts` (cu Zod) se încarcă lazy din Setări. Astfel Zod rămâne într-un chunk separat de ~25 KB gzip.
+* **Sesiuni:** `buildDailySession` (vocabular) și `buildConjugationSession` folosesc aceeași regulă de scadență (`isDue`) și aceeași intercalare (`interleave`: un card nou la 4 repetiții).
+* **Conjugare:** unitatea SRS este `conj:<verb>:<timp>`; la fiecare repetiție se cer 3 persoane aleatorii, iar nota se calculează în `domain/grading/gradeConjugation.ts`. Un timp se deblochează conform `domain/srs/unlock.ts`.
+* **Quiz:** `domain/quiz/buildQuizRound.ts` alege cuvintele introduse (cele scadente primele), iar `distractors.ts` alege variantele greșite. Fiecare răspuns actualizează SRS (corect → Bine, greșit → Din nou), cu sursa `quiz` în `reviewLog`.
+* **Statistici:** `domain/stats/stats.ts` derivă totul din `reviewLog` și `cards`; streak-ul cere cel puțin 10 repetiții pe zi și nu se pierde până la sfârșitul zilei de studiu curente.
+* **Backup:** format `impara-backup` versiunea 1, validat la import; importul înlocuiește progresul într-o singură tranzacție, iar setările lipsă primesc valorile implicite.
+
+---
+
+### 9. Note de implementare (Faza 3)
+
+* **Reconstruire propoziție:** propozițiile (`sentences.json`) se generează la build din exemplele fiecărui cuvânt plus propoziții scrise manual în `content/sentences/`, cu **variante de ordine** (`variants`) transformate în `acceptedOrders` (indici peste blocuri). Verificarea compară textul blocurilor, nu pozițiile, deci cuvintele repetate sunt interschimbabile. Exercițiul nu modifică SRS. Logica stă în `domain/sentence/` (`tokenize.ts`, `sentenceRound.ts`).
+* **Conjugare:** pe lângă presente și passato prossimo se generează **imperfetto, futuro semplice, condizionale presente și congiuntivo presente** (`scripts/conjugate/rules.ts`). `content/verbs/irregular.json` conține doar excepțiile: presente și congiuntivo explicite, teme speciale pentru imperfetto și futuro. **Imperativo** (afirmativ) are 5 persoane — tu, Lei, noi, voi, Loro — și se derivă din presente și congiuntivo: la tu forma de persoana a III-a la -are (parla!) și a II-a la -ere/-ire (credi!, finisci!), Lei/Loro din congiuntivo, noi/voi din presente. Excepțiile (andare, fare, dare, stare, dire, essere, avere, sapere) sunt în secțiunea `imperativo` din `irregular.json`; `noImperativo` listează modalele (potere, dovere, volere), care nu primesc deloc acest timp. Verificatorul Wiktionary compară și imperativul (etichetele sunt în `IMPERATIVE_TAGS`).
+
+* **Verbe reflexive:** `svegliarsi`, `mettersi` etc. sunt cuvinte de sine stătătoare (`reflexive: true`, auxiliar mereu `essere`). Se conjugă ca verbul de bază (`reflexiveBase`: svegliarsi → svegliare, în `src/domain/content/reflexive.ts`), iar pronumele se adaugă la final (`reflexivize` în `scripts/conjugate/rules.ts`): mi/ti/si/ci/vi/si înaintea formei, iar la imperativ lipit (alzati, alziamoci, alzatevi) sau cu „si” (si alzi). Excepțiile din `irregular.json` se scriu pentru forma de bază, fără pronume (ex. `v-sedersi`: siedo). Enrich, frecvența, nivelul și verificarea Wiktionary folosesc verbul de bază; verificatorul scoate pronumele din formele noastre înainte de comparație. Verbele cu infinitiv special (porsi, tradursi) nu sunt acoperite.
+* **Dicționar:** `domain/browse/filterWords.ts` caută după italiană, română și articol, fără diacritice, cu potrivirile de început primele. „Știu deja” (`markWordKnown`) creează cardurile ambelor direcții ca după o notă „Ușor”, cu `introducedOn = "known"`, deci nu consumă limita de cuvinte noi și nu scrie în `reviewLog`.
+* **Temă:** setarea `theme` (auto / luminos / întunecat) se aplică prin clasa `dark` pe `<html>` (`services/theme.ts`), reținută și în `localStorage` ca un script din `index.html` să o aplice înainte de prima afișare.
+* **Accesibilitate:** culorile text au variante pentru ambele teme (`text-brand-fg`, `text-muted`), butoanele colorate respectă contrastul WCAG AA, iar fața ascunsă a cardului este `inert`. Verificarea automată (axe-core, `tests/e2e/a11y.spec.ts`) rulează pe toate ecranele și sesiunile, în ambele teme.
+* **Performanță:** doar ecranul de start este în pachetul principal (~128 KB gzip); celelalte rute, conjugările, propozițiile și backup-ul (cu Zod) se încarcă la cerere, iar service worker-ul le pune în cache. `tests/e2e/perf.spec.ts` măsoară LCP cu rețea și procesor încetinite.
+
+---
+
+### 10. Fluxul de conținut (implementat)
+
+```
+content/sources/ (kaikki, FrequencyWords, Leipzig; ignorate de git)
+   │  scripts/frequency/build_lemmas.py  (lematizare cu simplemma, rang combinat 70/30)
+   ▼
+content/frequency/it-lemmas.json  ──────────────►  rangul cuvintelor, la build
+   │
+   │  scripts/frequency/build-lexicon.ts  (extrage din kaikki lemele frecvente)
+   ▼
+content/sources/it-lexicon.json
+   │                                  content/drafts/tranche-NN.json  (pos, ro, exemple, note)
+   └──► scripts/content/enrich.ts  ◄──────────────┘
+          │  completează gen, plural, articole, forme, participiu, auxiliar; verifică față de Wiktionary
+          ▼
+   content/words/tranche-NN.json ──► scripts/content.ts (Zod, ranguri) ──► src/data/generated/*.json
+```
+
+* **Rangul** este poziția cuvântului între cele din dicționar, după frecvența lemei (`assignRanks` în `scripts/content.ts`). Rangul din fișierele de tranșă este doar o indicație; numerotarea finală este mereu 1..N, fără duplicate.
+* **Verificarea față de Wiktionary** (`scripts/frequency/verify-conjugations.ts`) compară fiecare formă conjugată cu cele „curente” din Wiktionary (fără etichete de arhaism sau dialect) și participiul și auxiliarul fiecărui verb. A găsit două erori în datele scrise de mână (*vivere* → *vivrò*, nu *viverò*; *dovere* → doar *debba*) și un defect de regulă (verbele în *-iare*: *inizierò*, dar *mangerò*).
+* **Verbele neregulate** noi primesc excepțiile automat (`scripts/content/derive-irregular.ts`), din Wiktionary. Verbele defective (*accadere*) nu sunt suportate, pentru că formele lipsă ar ajunge în tabele.
+* **Format compact pentru `words.json`:** `{"w": [[it, ro, categorie, nivel, articol?], …]}`, cu categoria și nivelul ca indici; rangul este poziția în listă, iar id-ul se deduce din categorie și formă (`domain/content/wordsCodec.ts`, folosit la build și în aplicație). La 1665 de cuvinte fișierul are 57 KB (18 KB gzip), față de 169 KB în formatul cu chei. `words.json` și `meta.json` sunt importate static (intră în pachetul principal), ca să nu mai coste o rundă de rețea după încărcarea aplicației: LCP pe Slow 4G a scăzut de la ~1,45 s la ~1,3 s.
+* **Date separate pentru performanță:** `words.json` conține doar datele de bază ale fiecărui cuvânt (`CoreWord`: id, italiană, română, categorie, rang și articolul substantivelor) și se încarcă la pornire; `details.json` conține cuvintele complete (exemple, note, forme, participii) și se încarcă la cerere (`useWordDetails`) doar în sesiunea de Flashcards, în pagina unui cuvânt și pentru exemplul din Quiz. Funcțiile din `domain/` care nu au nevoie de detalii (căutare, quiz, sesiuni) lucrează cu `CoreWord`.
+* **Măsurat pe un dicționar sintetic de 1000 de cuvinte:** lista de bază 15 KB gzip (față de 76 KB nedivizată), LCP pe „Slow 4G” 1,39 s (față de 1,74 s), pe 4G 0,86 s. Încărcarea listei de bază pornește din `main.tsx`, înainte ca React să se monteze.
+
+---
+
+### 11. Niveluri CEFR (implementat)
+
+* **Date:** `Level` (A1–C2) și `LEVELS` sunt în `domain/content/constants.ts`; `domain/content/levels.ts` conține ordinea nivelurilor, numele lor în română și `TENSE_LEVEL` (nivelul fiecărui timp). `CoreWord` și `Word` au un câmp `level`, calculat **la build** (`assignLevels` în `scripts/content.ts`) din `content/levels.json`; nu se scrie în fișierele de tranșă.
+* **Sesiuni:** `buildDailySession` introduce cuvinte noi doar cu `level ≤ settings.level`, în ordinea din `orderNewWords` (nivel, apoi frecvență, cu un cuvânt gramatical la 3 de conținut). Cardurile deja începute nu dispar când scazi nivelul.
+* **Conjugare:** `unlockedTenses` cere `maxLevel(nivelul verbului, nivelul timpului) ≤ nivelul curent` și ca timpul anterior să aibă stabilitate ≥ `TENSE_UNLOCK_STABILITY_DAYS` (7 zile). Pragul de „stăpânit” (21 de zile) rămâne doar pentru nivelul de progres al cuvintelor. Ordinea din `TENSES` este crescătoare după nivel (imperativo e acum după passato prossimo).
+* **Interfață:** `Settings.level` (setare, inclusă în backup); insignă CEFR (`ui/CefrBadge.tsx`) în Dicționar și pagina cuvântului; filtru „Nivel CEFR” în Dicționar (filtrul vechi pe progres se numește acum „Progres”); „Niveluri” în Statistici (`computeStats().levels`: total, începute, stăpânite); sugestia de nivel următor pe Acasă.
+
+---
+
+### 12. Teme (Faza 4, implementat — 42 de teme)
+
+Cerința este în FR2.5 din [app-plan.md](app-plan.md). Sunt 42 de teme (14 ★ și 28 din etapa a doua) în `content/topics/NN-<id>.json`; numerele din nume urmează ordinea din listă.
+
+#### 12.1 Date
+
+* **Schema** (`topicSchema` în `domain/content/schema.ts`): `id`, `title`, `group` (timp, numere, spatiu, oameni, zi-de-zi, oras, conversatie), `level`, `first` (★), `rules` (1–4 reguli), `subgroups` (`title` + `wordIds` în ordinea fișei), `exercises` (`match`, `order`, `numbers`, `clock`, `cat`), și opționale `sequence` (ordinea corectă pentru „Ordonează”), `cyclic` (după ultimul element vine primul: zile, luni, anotimpuri) și `skill` (`numbers-0-20`, `numbers-21-100`, `numbers-big`, `clock`).
+* **Validare** (`loadTopics` în `scripts/content.ts`, rulează la `npm run validate` și la build): fișierul respectă schema, id-urile de temă sunt unice, fiecare `wordId` există, nivelul temei ≥ nivelul fiecărui cuvânt, `sequence` ⊆ cuvintele temei, `order` cere `sequence`, `numbers`/`clock` cer `skill`. `build-data.ts` scrie `src/data/generated/topics.json` (încărcat lazy cu `useTopics`).
+* Nivelul unei teme este cel mai mare nivel dintre cuvintele ei. Temele se ordonează după grup, apoi după numele fișierului.
+* **Categoria Expresie** (`pos: "expression"`): expresiile din mai multe cuvinte (*che ore sono, due giorni fa, a destra*) au id cu prefixul `e-` și spațiile înlocuite cu `_` (`e-che_ore_sono`). `enrich.ts` caută în Wiktionary categoriile `phrase` etc.; ce nu se găsește se marchează `unverifiedPos` în ciornă. Au nevoie de override de nivel, ca orice cuvânt fără rang.
+
+#### 12.2 Logica (TypeScript pur)
+
+* `domain/skills/numbers.ts`: `numberToItalian(n)`, `numberForms(n)`, `formatNumber` (1.234.567) și `digitForms` pentru 0–999.999.999 (elidarea în *ventuno, ventotto, centottanta*; accent pe *-tré*; *mille / duemila / ventunomila*; *un milione*). Testat pe cazurile speciale.
+* `domain/skills/time.ts`: `timeForms({hour, minute})` → forma principală și variantele acceptate (cu sau fără „sono le / è l'una”; *e mezza / e mezzo / e trenta*, *meno un quarto*, *tre quarti*, *mezzogiorno / mezzanotte*). Format de 12 ore, minute din 5 în 5 la exerciții.
+* `domain/skills/skills.ts`: `buildSkillRound(skill)` generează 5 itemi (ascultă numărul → cifre, cifre → litere, ceas → ora scrisă, ora scrisă → alege ceasul), `gradeSkill` (toți corecți → Bine, unul greșit → Greu, mai mulți → Din nou, ca la conjugare).
+* `domain/topics/topics.ts`: `topicWordIds`, `topicProgress`, `buildTopicSession` (scadențele temei + până la 10 cuvinte noi din temă, intercalate), `dueSkillTopics`.
+* `domain/topics/exercises.ts` (perechi în runde de 5, întrebări „Ce urmează după / Ce era înainte de”) și `domain/topics/cat.ts` (cele 12 poziții din „Unde e pisica?”, 3 cu variante și 3 cu răspuns scris). Nu ating SRS-ul.
+* `buildTopicQuizRound` (în `domain/quiz/buildQuizRound.ts`): quiz doar din cuvintele temei; variantele greșite vin întâi din aceeași temă.
+
+#### 12.3 SRS
+
+* **Studiază tema** (Flashcards și Quiz pe temă) folosește aceleași carduri `vocab:<wordId>:<direcție>`, deci progresul este comun. Cuvintele noi din temă se introduc fără limita zilnică, câte 10 pe sesiune; la Quiz primul răspuns creează cardul.
+* **Abilitățile** au un card `skill:<skill>` (`kind: "skill"`, `wordId = skill`, `variant = "auto"`), creat la prima rezolvare. Prima rundă dintr-o repetiție scadentă (sau a unei abilități noi) se notează și se salvează cu `source: "skill"`; rundele următoare sunt antrenament liber. Indexurile Dexie nu se schimbă. Backup-ul acceptă `kind: "skill"` și `source: "skill"`.
+* Abilitățile scadente apar pe Acasă la „Abilități de repetat”. Nivelul de stăpânire al cuvintelor ignoră cardurile `skill`.
+
+#### 12.4 Interfață
+
+* Rute: `/learn/topics` (listă pe grupuri, cu progres), `/learn/topics/:id` (fișa: reguli, subgrupe cu 🔊, butoane), `/learn/topics/:id/{flashcards,quiz,match,order,numbers,clock,cat}` (pe tot ecranul, fără bara de jos). Link „Vezi tema” pe pagina cuvântului.
+* `ui/ClockFace.tsx`: cadran SVG cu `aria-label` cu ora în cifre. `ui/CatScene.tsx`: scenă SVG (masă, scaun, cutie, pisică), fără text care să dezvăluie răspunsul.
+* **Ascultă și scrie cifrele:** dacă nu există voce italiană, numărul apare ca text în loc să fie rostit.
+* **Teste:** unitare pentru numere, ore, abilități, exerciții și sesiunea temei; E2E în `tests/e2e/topics.spec.ts` (listă, fișă, Studiază, Quiz, fiecare exercițiu, Acasă) și verificare axe pe ecranele noi.
+
+---
+
+### 13. Audio la conjugare (Faza 5, implementat)
+
+Cerința este în FR2.4 (Audio) din [app-plan.md](app-plan.md). Audio pornește doar la apăsare; nu există redare automată și nici setare pentru ea.
+
+* **`domain/content/spokenConjugation.ts`** (TypeScript pur): `spokenConjugation(tense, personIndex, alternatives) → string`.
+  * pronumele vine din `personsOf(tense)`: „lui/lei” → *lui*; la congiuntivo se adaugă *che* (*che io parli*); la imperativo nu se pune pronume și se adaugă „!” (*Parla!*);
+  * dintre formele acceptate se alege prima fără apostrof (*vai*, nu *va'*), altfel prima; la acordul cu *essere* rămâne prima formă (*sono andato*);
+  * reflexivele au deja pronumele în formă (*mi alzo* → *io mi alzo*).
+* **Sesiunea de conjugare** (`features/conjugation/ConjugationPage.tsx`): `AudioButton` pentru infinitiv pe fața cardului; după „Verifică”, `AudioButton` cu `spokenConjugation(...)` și varianta 🐢 (`<AudioButton slow />`, `SLOW_RATE = 0.6` în `ui/AudioButton.tsx`). Nimic nu se redă din `onSubmit`.
+* **Tabelele** (`features/browse/WordDetailPage.tsx`, extras în `ui/ConjugationTable.tsx`, folosit și la lista de forme): fiecare rând e un `<button>` pe toată lățimea (minim 48px) care redă rândul; antetul timpului are ▶ **Ascultă tot** / ■ **Oprește**, legat de `useSpeaking()`; rândul citit primește `aria-current="true"` și un fundal evidențiat; la demontare, tabelul oprește seria pornită de el. Fără voce (`no-voice` / `unsupported`) rândurile rămân text simplu și ▶ se ascunde; `offline` le dezactivează, ca în `AudioButton`.
+* **Teste:**
+  * unit — `spokenConjugation` pe toate persoanele, imperativ (5 persoane), congiuntivo, reflexive, forme alternative cu apostrof, acord cu *essere*;
+  * E2E (`tests/e2e/conjugation-audio.spec.ts`) — o voce simulată care redă fiecare frază în 300 ms, cu `onstart` / `onend`: fără apăsare nu se rostește nimic; după „Verifică” + 🔊 se rostește forma cu pronume; ▶ din pagina verbului trimite cele 6 (sau 5) forme în ordine, iar ■ oprește seria;
+  * axe — pagina verbului și sesiunea de conjugare, în ambele teme.
+
+#### 12.5 Variantele cardului de conjugare (Scrie, Flip, Tabel)
+
+* `features/conjugation/ConjugationPage.tsx` încarcă sesiunea, ține coada și salvează repetiția; fiecare variantă este o componentă cu aceleași proprietăți (`ConjCardProps`: card, verb, forme, setări, `onFinish(grade)`): `WriteCard` (3 persoane pe rând, nota din `gradeConjugation`), `FlipCard` (o persoană, forma pe spate, autoevaluare cu cele 4 butoane și intervalele afișate ca la vocabular) și `TableCard` (toate persoanele, 5 la imperativ, nota din `gradeConjugationTable`: toate corecte → Bine, ≥ 2/3 → Greu, altfel Din nou).
+* Varianta este setarea `Settings.conjugationMode` (`write` | `flip` | `table`, implicit `write`), inclusă în backup și în Setări; selectorul de pe ecranul de conjugare o schimbă imediat. Unitatea SRS rămâne verb × timp, deci progresul este comun tuturor variantelor.

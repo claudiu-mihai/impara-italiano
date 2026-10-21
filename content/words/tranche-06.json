@@ -1,0 +1,2340 @@
+[
+  {
+    "id": "num-sei",
+    "it": "sei",
+    "ro": "șase",
+    "tags": [
+      "numere"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Ho sei fratelli.",
+        "ro": "Am șase frați."
+      },
+      {
+        "it": "Sono le sei.",
+        "ro": "Este ora șase."
+      }
+    ],
+    "note": "Nu confunda numeralul «sei» (șase) cu verbul «sei» (tu ești).",
+    "pos": "numeral"
+  },
+  {
+    "id": "num-sette",
+    "it": "sette",
+    "ro": "șapte",
+    "tags": [
+      "numere"
+    ],
+    "rank": 705,
+    "examples": [
+      {
+        "it": "Una settimana ha sette giorni.",
+        "ro": "O săptămână are șapte zile."
+      },
+      {
+        "it": "Mi alzo alle sette.",
+        "ro": "Mă trezesc la ora șapte."
+      }
+    ],
+    "pos": "numeral"
+  },
+  {
+    "id": "num-otto",
+    "it": "otto",
+    "ro": "opt",
+    "tags": [
+      "numere"
+    ],
+    "rank": 807,
+    "examples": [
+      {
+        "it": "Sono le otto.",
+        "ro": "Este ora opt."
+      },
+      {
+        "it": "Ho otto euro.",
+        "ro": "Am opt euro."
+      }
+    ],
+    "pos": "numeral"
+  },
+  {
+    "id": "num-nove",
+    "it": "nove",
+    "ro": "nouă",
+    "tags": [
+      "numere"
+    ],
+    "rank": 1121,
+    "examples": [
+      {
+        "it": "Il film comincia alle nove.",
+        "ro": "Filmul începe la nouă."
+      },
+      {
+        "it": "Siamo in nove.",
+        "ro": "Suntem nouă."
+      }
+    ],
+    "pos": "numeral"
+  },
+  {
+    "id": "num-dieci",
+    "it": "dieci",
+    "ro": "zece",
+    "tags": [
+      "numere"
+    ],
+    "rank": 498,
+    "examples": [
+      {
+        "it": "Aspetto dieci minuti.",
+        "ro": "Aștept zece minute."
+      },
+      {
+        "it": "Dieci euro, per favore.",
+        "ro": "Zece euro, vă rog."
+      }
+    ],
+    "pos": "numeral"
+  },
+  {
+    "id": "num-undici",
+    "it": "undici",
+    "ro": "unsprezece",
+    "tags": [
+      "numere"
+    ],
+    "rank": 2929,
+    "examples": [
+      {
+        "it": "Sono le undici.",
+        "ro": "Este ora unsprezece."
+      },
+      {
+        "it": "Ho undici anni.",
+        "ro": "Am unsprezece ani."
+      }
+    ],
+    "pos": "numeral"
+  },
+  {
+    "id": "num-dodici",
+    "it": "dodici",
+    "ro": "doisprezece",
+    "tags": [
+      "numere"
+    ],
+    "rank": 2175,
+    "examples": [
+      {
+        "it": "Pranzo alle dodici.",
+        "ro": "Prânzesc la douăsprezece."
+      },
+      {
+        "it": "Un anno ha dodici mesi.",
+        "ro": "Un an are douăsprezece luni."
+      }
+    ],
+    "pos": "numeral"
+  },
+  {
+    "id": "num-venti",
+    "it": "venti",
+    "ro": "douăzeci",
+    "tags": [
+      "numere"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Ho venti anni.",
+        "ro": "Am douăzeci de ani."
+      },
+      {
+        "it": "Costa venti euro.",
+        "ro": "Costă douăzeci de euro."
+      }
+    ],
+    "pos": "numeral"
+  },
+  {
+    "id": "num-trenta",
+    "it": "trenta",
+    "ro": "treizeci",
+    "tags": [
+      "numere"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Aspetto trenta minuti.",
+        "ro": "Aștept treizeci de minute."
+      },
+      {
+        "it": "Ho trent'anni.",
+        "ro": "Am treizeci de ani."
+      }
+    ],
+    "pos": "numeral"
+  },
+  {
+    "id": "num-quaranta",
+    "it": "quaranta",
+    "ro": "patruzeci",
+    "tags": [
+      "numere"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Siamo in quaranta.",
+        "ro": "Suntem patruzeci."
+      },
+      {
+        "it": "Costa quaranta euro.",
+        "ro": "Costă patruzeci de euro."
+      }
+    ],
+    "pos": "numeral"
+  },
+  {
+    "id": "num-cinquanta",
+    "it": "cinquanta",
+    "ro": "cincizeci",
+    "tags": [
+      "numere"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Ho cinquanta euro.",
+        "ro": "Am cincizeci de euro."
+      },
+      {
+        "it": "Mio padre ha cinquant'anni.",
+        "ro": "Tatăl meu are cincizeci de ani."
+      }
+    ],
+    "pos": "numeral"
+  },
+  {
+    "id": "num-cento",
+    "it": "cento",
+    "ro": "o sută",
+    "tags": [
+      "numere"
+    ],
+    "rank": 1125,
+    "examples": [
+      {
+        "it": "Costa cento euro.",
+        "ro": "Costă o sută de euro."
+      },
+      {
+        "it": "Cento per cento!",
+        "ro": "O sută la sută!"
+      }
+    ],
+    "note": "Fără «uno» în față: cento (nu «uno cento»); duecento, trecento… = două sute, trei sute.",
+    "pos": "numeral"
+  },
+  {
+    "id": "num-mille",
+    "it": "mille",
+    "ro": "o mie",
+    "tags": [
+      "numere"
+    ],
+    "rank": 794,
+    "examples": [
+      {
+        "it": "Grazie mille!",
+        "ro": "Mii de mulțumiri!"
+      },
+      {
+        "it": "Costa mille euro.",
+        "ro": "Costă o mie de euro."
+      }
+    ],
+    "note": "Plural: «mila» (duemila = două mii).",
+    "pos": "numeral"
+  },
+  {
+    "id": "n-lunedì",
+    "it": "lunedì",
+    "ro": "luni",
+    "tags": [
+      "zilele săptămânii"
+    ],
+    "rank": 2197,
+    "examples": [
+      {
+        "it": "Lunedì lavoro.",
+        "ro": "Luni lucrez."
+      },
+      {
+        "it": "Ci vediamo lunedì.",
+        "ro": "Ne vedem luni."
+      }
+    ],
+    "note": "Zilele săptămânii sunt masculine, se scriu cu literă mică și nu au articol când arată o zi anume: lunedì lavoro. Cu articol (il lunedì) înseamnă „în fiecare luni”.",
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "lunedì",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-martedì",
+    "it": "martedì",
+    "ro": "marți",
+    "tags": [
+      "zilele săptămânii"
+    ],
+    "rank": 2698,
+    "examples": [
+      {
+        "it": "Martedì ho lezione.",
+        "ro": "Marți am curs."
+      },
+      {
+        "it": "Torno martedì.",
+        "ro": "Mă întorc marți."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "martedì",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-mercoledì",
+    "it": "mercoledì",
+    "ro": "miercuri",
+    "tags": [
+      "zilele săptămânii"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Mercoledì sono libero.",
+        "ro": "Miercuri sunt liber."
+      },
+      {
+        "it": "Il mercoledì cucino io.",
+        "ro": "Miercurea gătesc eu."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "mercoledì",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-giovedì",
+    "it": "giovedì",
+    "ro": "joi",
+    "tags": [
+      "zilele săptămânii"
+    ],
+    "rank": 2642,
+    "examples": [
+      {
+        "it": "Giovedì parto.",
+        "ro": "Joi plec."
+      },
+      {
+        "it": "Giovedì sera usciamo.",
+        "ro": "Joi seara ieșim."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "giovedì",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-venerdì",
+    "it": "venerdì",
+    "ro": "vineri",
+    "tags": [
+      "zilele săptămânii"
+    ],
+    "rank": 1816,
+    "examples": [
+      {
+        "it": "Venerdì c'è la festa.",
+        "ro": "Vineri este petrecerea."
+      },
+      {
+        "it": "Finalmente è venerdì!",
+        "ro": "În sfârșit e vineri!"
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "venerdì",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-sabato",
+    "it": "sabato",
+    "ro": "sâmbătă",
+    "tags": [
+      "zilele săptămânii"
+    ],
+    "rank": 985,
+    "examples": [
+      {
+        "it": "Sabato vado al mare.",
+        "ro": "Sâmbătă merg la mare."
+      },
+      {
+        "it": "Il sabato non lavoro.",
+        "ro": "Sâmbăta nu lucrez."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "sabati",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-domenica",
+    "it": "domenica",
+    "ro": "duminică",
+    "tags": [
+      "zilele săptămânii"
+    ],
+    "rank": 1008,
+    "examples": [
+      {
+        "it": "Domenica mangiamo insieme.",
+        "ro": "Duminică mâncăm împreună."
+      },
+      {
+        "it": "Buona domenica!",
+        "ro": "Duminică plăcută!"
+      }
+    ],
+    "note": "Singura zi feminină: la domenica.",
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "domeniche",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-gennaio",
+    "it": "gennaio",
+    "ro": "ianuarie",
+    "tags": [
+      "lunile anului"
+    ],
+    "rank": 2699,
+    "examples": [
+      {
+        "it": "A gennaio fa freddo.",
+        "ro": "În ianuarie e frig."
+      },
+      {
+        "it": "Parto a gennaio.",
+        "ro": "Plec în ianuarie."
+      }
+    ],
+    "note": "Lunile sunt masculine și se scriu cu literă mică; „în” se spune «a» sau «in»: a gennaio, in gennaio.",
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "gennaio",
+    "pluralArticle": "i",
+    "irregularPlural": true,
+    "uncountable": true
+  },
+  {
+    "id": "n-febbraio",
+    "it": "febbraio",
+    "ro": "februarie",
+    "tags": [
+      "lunile anului"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Febbraio è un mese freddo.",
+        "ro": "Februarie este o lună rece."
+      },
+      {
+        "it": "Ci vediamo a febbraio.",
+        "ro": "Ne vedem în februarie."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "febbraio",
+    "pluralArticle": "i",
+    "irregularPlural": true,
+    "uncountable": true
+  },
+  {
+    "id": "n-marzo",
+    "it": "marzo",
+    "ro": "martie",
+    "tags": [
+      "lunile anului"
+    ],
+    "rank": 2553,
+    "examples": [
+      {
+        "it": "A marzo fa ancora freddo.",
+        "ro": "În martie e încă frig."
+      },
+      {
+        "it": "Sono nato a marzo.",
+        "ro": "M-am născut în martie."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "marzo",
+    "pluralArticle": "i",
+    "irregularPlural": true,
+    "uncountable": true
+  },
+  {
+    "id": "n-aprile",
+    "it": "aprile",
+    "ro": "aprilie",
+    "tags": [
+      "lunile anului"
+    ],
+    "rank": 2254,
+    "examples": [
+      {
+        "it": "In aprile piove spesso.",
+        "ro": "În aprilie plouă des."
+      },
+      {
+        "it": "Torno ad aprile.",
+        "ro": "Mă întorc în aprilie."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "l'",
+    "plural": "aprile",
+    "pluralArticle": "gli",
+    "irregularPlural": true,
+    "uncountable": true
+  },
+  {
+    "id": "n-maggio",
+    "it": "maggio",
+    "ro": "mai",
+    "tags": [
+      "lunile anului"
+    ],
+    "rank": 2203,
+    "examples": [
+      {
+        "it": "A maggio fa caldo.",
+        "ro": "În mai e cald."
+      },
+      {
+        "it": "Il primo maggio non lavoro.",
+        "ro": "Pe întâi mai nu lucrez."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "maggio",
+    "pluralArticle": "i",
+    "irregularPlural": true,
+    "uncountable": true
+  },
+  {
+    "id": "n-giugno",
+    "it": "giugno",
+    "ro": "iunie",
+    "tags": [
+      "lunile anului"
+    ],
+    "rank": 2260,
+    "examples": [
+      {
+        "it": "A giugno vado al mare.",
+        "ro": "În iunie merg la mare."
+      },
+      {
+        "it": "Giugno è bello.",
+        "ro": "Iunie este frumos."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "giugno",
+    "pluralArticle": "i",
+    "irregularPlural": true,
+    "uncountable": true
+  },
+  {
+    "id": "n-luglio",
+    "it": "luglio",
+    "ro": "iulie",
+    "tags": [
+      "lunile anului"
+    ],
+    "rank": 2125,
+    "examples": [
+      {
+        "it": "A luglio fa molto caldo.",
+        "ro": "În iulie e foarte cald."
+      },
+      {
+        "it": "Luglio e agosto.",
+        "ro": "Iulie și august."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "luglio",
+    "pluralArticle": "i",
+    "irregularPlural": true,
+    "uncountable": true
+  },
+  {
+    "id": "n-agosto",
+    "it": "agosto",
+    "ro": "august",
+    "tags": [
+      "lunile anului"
+    ],
+    "rank": 2555,
+    "examples": [
+      {
+        "it": "In agosto vado in Italia.",
+        "ro": "În august merg în Italia."
+      },
+      {
+        "it": "Agosto è un mese caldo.",
+        "ro": "August este o lună caldă."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "l'",
+    "plural": "agosto",
+    "pluralArticle": "gli",
+    "irregularPlural": true,
+    "uncountable": true
+  },
+  {
+    "id": "n-settembre",
+    "it": "settembre",
+    "ro": "septembrie",
+    "tags": [
+      "lunile anului"
+    ],
+    "rank": 1860,
+    "examples": [
+      {
+        "it": "A settembre torno a casa.",
+        "ro": "În septembrie mă întorc acasă."
+      },
+      {
+        "it": "Settembre è bello.",
+        "ro": "Septembrie este frumos."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "settembre",
+    "pluralArticle": "i",
+    "irregularPlural": true,
+    "uncountable": true
+  },
+  {
+    "id": "n-ottobre",
+    "it": "ottobre",
+    "ro": "octombrie",
+    "tags": [
+      "lunile anului"
+    ],
+    "rank": 2279,
+    "examples": [
+      {
+        "it": "Oggi è il venti ottobre.",
+        "ro": "Astăzi este 20 octombrie."
+      },
+      {
+        "it": "A ottobre piove.",
+        "ro": "În octombrie plouă."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "l'",
+    "plural": "ottobre",
+    "pluralArticle": "gli",
+    "irregularPlural": true,
+    "uncountable": true
+  },
+  {
+    "id": "n-novembre",
+    "it": "novembre",
+    "ro": "noiembrie",
+    "tags": [
+      "lunile anului"
+    ],
+    "rank": 2471,
+    "examples": [
+      {
+        "it": "A novembre fa freddo.",
+        "ro": "În noiembrie e frig."
+      },
+      {
+        "it": "Sono nato a novembre.",
+        "ro": "M-am născut în noiembrie."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "novembre",
+    "pluralArticle": "i",
+    "irregularPlural": true,
+    "uncountable": true
+  },
+  {
+    "id": "n-dicembre",
+    "it": "dicembre",
+    "ro": "decembrie",
+    "tags": [
+      "lunile anului"
+    ],
+    "rank": 2584,
+    "examples": [
+      {
+        "it": "A dicembre fa molto freddo.",
+        "ro": "În decembrie e foarte frig."
+      },
+      {
+        "it": "Dicembre è l'ultimo mese.",
+        "ro": "Decembrie este ultima lună."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "dicembre",
+    "pluralArticle": "i",
+    "irregularPlural": true,
+    "uncountable": true
+  },
+  {
+    "id": "a-verde",
+    "it": "verde",
+    "ro": "verde",
+    "tags": [
+      "culori"
+    ],
+    "rank": 843,
+    "examples": [
+      {
+        "it": "Una mela verde.",
+        "ro": "Un măr verde."
+      },
+      {
+        "it": "La macchina è verde.",
+        "ro": "Mașina este verde."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "verde",
+      "fs": "verde",
+      "mp": "verdi",
+      "fp": "verdi"
+    }
+  },
+  {
+    "id": "a-blu",
+    "it": "blu",
+    "ro": "albastru închis; bleumarin",
+    "tags": [
+      "culori"
+    ],
+    "rank": 1179,
+    "examples": [
+      {
+        "it": "Il mare è blu.",
+        "ro": "Marea este albastră."
+      },
+      {
+        "it": "Una giacca blu.",
+        "ro": "O geacă bleumarin."
+      }
+    ],
+    "note": "Invariabil: una giacca blu, due giacche blu. Albastrul deschis se spune «azzurro».",
+    "pos": "adjective",
+    "forms": {
+      "ms": "blu",
+      "fs": "blu",
+      "mp": "blu",
+      "fp": "blu"
+    }
+  },
+  {
+    "id": "a-giallo",
+    "it": "giallo",
+    "ro": "galben",
+    "tags": [
+      "culori"
+    ],
+    "rank": 1458,
+    "examples": [
+      {
+        "it": "Il sole è giallo.",
+        "ro": "Soarele este galben."
+      },
+      {
+        "it": "Una casa gialla.",
+        "ro": "O casă galbenă."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "giallo",
+      "fs": "gialla",
+      "mp": "gialli",
+      "fp": "gialle"
+    }
+  },
+  {
+    "id": "a-grigio",
+    "it": "grigio",
+    "ro": "gri; cenușiu",
+    "tags": [
+      "culori"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Il cielo è grigio.",
+        "ro": "Cerul este cenușiu."
+      },
+      {
+        "it": "Una macchina grigia.",
+        "ro": "O mașină gri."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "grigio",
+      "fs": "grigia",
+      "mp": "grigi",
+      "fp": "grigie"
+    }
+  },
+  {
+    "id": "a-azzurro",
+    "it": "azzurro",
+    "ro": "albastru deschis; azuriu",
+    "tags": [
+      "culori"
+    ],
+    "rank": 2550,
+    "examples": [
+      {
+        "it": "Il cielo è azzurro.",
+        "ro": "Cerul este albastru."
+      },
+      {
+        "it": "Ha gli occhi azzurri.",
+        "ro": "Are ochii albaștri."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "azzurro",
+      "fs": "azzurra",
+      "mp": "azzurri",
+      "fp": "azzurre"
+    }
+  },
+  {
+    "id": "a-arancione",
+    "it": "arancione",
+    "ro": "portocaliu",
+    "tags": [
+      "culori"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Una borsa arancione.",
+        "ro": "O geantă portocalie."
+      },
+      {
+        "it": "Il colore arancione.",
+        "ro": "Culoarea portocalie."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "arancione",
+      "fs": "arancione",
+      "mp": "arancioni",
+      "fp": "arancioni"
+    }
+  },
+  {
+    "id": "a-marrone",
+    "it": "marrone",
+    "ro": "maro; căprui",
+    "tags": [
+      "culori"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Ho gli occhi marroni.",
+        "ro": "Am ochii căprui."
+      },
+      {
+        "it": "Una borsa marrone.",
+        "ro": "O geantă maro."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "marrone",
+      "fs": "marrone",
+      "mp": "marroni",
+      "fp": "marroni"
+    }
+  },
+  {
+    "id": "a-rosa",
+    "it": "rosa",
+    "ro": "roz",
+    "tags": [
+      "culori"
+    ],
+    "rank": 2414,
+    "examples": [
+      {
+        "it": "Una camicia rosa.",
+        "ro": "O cămașă roz."
+      },
+      {
+        "it": "Il vestito è rosa.",
+        "ro": "Rochia este roz."
+      }
+    ],
+    "note": "Invariabil ca nume de culoare: due camicie rosa.",
+    "pos": "adjective",
+    "forms": {
+      "ms": "rosa",
+      "fs": "rosa",
+      "mp": "rosa",
+      "fp": "rosa"
+    }
+  },
+  {
+    "id": "a-viola",
+    "it": "viola",
+    "ro": "violet",
+    "tags": [
+      "culori"
+    ],
+    "rank": 2490,
+    "examples": [
+      {
+        "it": "Una borsa viola.",
+        "ro": "O geantă violet."
+      },
+      {
+        "it": "Il vestito è viola.",
+        "ro": "Rochia este violet."
+      }
+    ],
+    "note": "Invariabil ca nume de culoare.",
+    "pos": "adjective",
+    "forms": {
+      "ms": "viola",
+      "fs": "viola",
+      "mp": "viola",
+      "fp": "viola"
+    }
+  },
+  {
+    "id": "n-nonno",
+    "it": "nonno",
+    "ro": "bunic",
+    "tags": [
+      "familie"
+    ],
+    "rank": 1062,
+    "examples": [
+      {
+        "it": "Mio nonno abita a Roma.",
+        "ro": "Bunicul meu locuiește la Roma."
+      },
+      {
+        "it": "I nonni arrivano domani.",
+        "ro": "Bunicii ajung mâine."
+      }
+    ],
+    "note": "Plural: «i nonni» = bunicii (bunicul și bunica împreună). Feminin: la nonna.",
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "nonni",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-nonna",
+    "it": "nonna",
+    "ro": "bunică",
+    "tags": [
+      "familie"
+    ],
+    "rank": 962,
+    "examples": [
+      {
+        "it": "Mia nonna cucina bene.",
+        "ro": "Bunica mea gătește bine."
+      },
+      {
+        "it": "La nonna ha un gatto.",
+        "ro": "Bunica are o pisică."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "nonne",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-zio",
+    "it": "zio",
+    "ro": "unchi",
+    "tags": [
+      "familie"
+    ],
+    "rank": 1187,
+    "examples": [
+      {
+        "it": "Mio zio lavora a Milano.",
+        "ro": "Unchiul meu lucrează la Milano."
+      },
+      {
+        "it": "Lo zio arriva domani.",
+        "ro": "Unchiul ajunge mâine."
+      }
+    ],
+    "note": "Articol «lo» (zio începe cu z): lo zio, gli zii. «Gli zii» = unchii și mătușile.",
+    "pos": "noun",
+    "gender": "m",
+    "article": "lo",
+    "plural": "zii",
+    "pluralArticle": "gli",
+    "irregularPlural": true
+  },
+  {
+    "id": "n-zia",
+    "it": "zia",
+    "ro": "mătușă",
+    "tags": [
+      "familie"
+    ],
+    "rank": 2003,
+    "examples": [
+      {
+        "it": "Mia zia è gentile.",
+        "ro": "Mătușa mea este amabilă."
+      },
+      {
+        "it": "Vado dalla zia.",
+        "ro": "Merg la mătușă."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "zie",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-marito",
+    "it": "marito",
+    "ro": "soț",
+    "tags": [
+      "familie"
+    ],
+    "rank": 428,
+    "examples": [
+      {
+        "it": "Mio marito lavora.",
+        "ro": "Soțul meu lucrează."
+      },
+      {
+        "it": "Il marito di Anna.",
+        "ro": "Soțul Annei."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "mariti",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-cugino",
+    "it": "cugino",
+    "ro": "văr",
+    "tags": [
+      "familie"
+    ],
+    "rank": 2113,
+    "examples": [
+      {
+        "it": "Mio cugino abita a Torino.",
+        "ro": "Vărul meu locuiește la Torino."
+      },
+      {
+        "it": "I miei cugini arrivano.",
+        "ro": "Verii mei ajung."
+      }
+    ],
+    "note": "Feminin: la cugina.",
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "cugini",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-nipote",
+    "it": "nipote",
+    "ro": "nepot, nepoată",
+    "tags": [
+      "familie"
+    ],
+    "rank": 1227,
+    "examples": [
+      {
+        "it": "Ho due nipoti.",
+        "ro": "Am doi nepoți."
+      },
+      {
+        "it": "Mia nipote ha cinque anni.",
+        "ro": "Nepoata mea are cinci ani."
+      }
+    ],
+    "note": "La fel pentru băiat și fată (il nipote, la nipote); înseamnă și nepot/nepoată de frate sau soră, și de bunic.",
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "nipoti",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-fidanzato",
+    "it": "fidanzato",
+    "ro": "iubit; logodnic",
+    "tags": [
+      "familie"
+    ],
+    "rank": 1236,
+    "examples": [
+      {
+        "it": "Ha un fidanzato italiano.",
+        "ro": "Are un iubit italian."
+      },
+      {
+        "it": "Il suo fidanzato lavora qui.",
+        "ro": "Iubitul ei lucrează aici."
+      }
+    ],
+    "note": "Feminin: la fidanzata.",
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "fidanzati",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-parente",
+    "it": "parente",
+    "ro": "rudă",
+    "tags": [
+      "familie"
+    ],
+    "rank": 1373,
+    "examples": [
+      {
+        "it": "Ho molti parenti a Roma.",
+        "ro": "Am multe rude la Roma."
+      },
+      {
+        "it": "È un mio parente.",
+        "ro": "Este o rudă de-a mea."
+      }
+    ],
+    "falseFriend": "Atenție: «parenti» = rude, NU „părinți”. Părinții se spun «genitori».",
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "parenti",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-genitore",
+    "it": "genitore",
+    "ro": "părinte",
+    "tags": [
+      "familie"
+    ],
+    "rank": 405,
+    "examples": [
+      {
+        "it": "I genitori di Marco sono qui.",
+        "ro": "Părinții lui Marco sunt aici."
+      },
+      {
+        "it": "I miei genitori vivono a Torino.",
+        "ro": "Părinții mei trăiesc la Torino."
+      }
+    ],
+    "note": "«I genitori» = părinții (mama și tata).",
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "genitori",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-pane",
+    "it": "pane",
+    "ro": "pâine",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 1809,
+    "examples": [
+      {
+        "it": "Mangio pane e formaggio.",
+        "ro": "Mănânc pâine și brânză."
+      },
+      {
+        "it": "Vorrei del pane.",
+        "ro": "Aș vrea niște pâine."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "pani",
+    "pluralArticle": "i",
+    "irregularPlural": false,
+    "uncountable": true
+  },
+  {
+    "id": "n-latte",
+    "it": "latte",
+    "ro": "lapte",
+    "tags": [
+      "băuturi"
+    ],
+    "rank": 1510,
+    "examples": [
+      {
+        "it": "Bevo il latte.",
+        "ro": "Beau lapte."
+      },
+      {
+        "it": "Un caffè con latte.",
+        "ro": "O cafea cu lapte."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "latti",
+    "pluralArticle": "i",
+    "irregularPlural": false,
+    "uncountable": true
+  },
+  {
+    "id": "n-caffè",
+    "it": "caffè",
+    "ro": "cafea",
+    "tags": [
+      "băuturi"
+    ],
+    "rank": 1091,
+    "examples": [
+      {
+        "it": "Prendo un caffè.",
+        "ro": "Iau o cafea."
+      },
+      {
+        "it": "Due caffè, per favore.",
+        "ro": "Două cafele, vă rog."
+      }
+    ],
+    "note": "«Un caffè» este de obicei un espresso. Invariabil la plural: i caffè.",
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "caffè",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-tè",
+    "it": "tè",
+    "ro": "ceai",
+    "tags": [
+      "băuturi"
+    ],
+    "rank": 2644,
+    "examples": [
+      {
+        "it": "Preferisco il tè.",
+        "ro": "Prefer ceaiul."
+      },
+      {
+        "it": "Un tè caldo.",
+        "ro": "Un ceai cald."
+      }
+    ],
+    "note": "Se scrie cu accent, ca să nu se confunde cu «te» (pronumele „tine”).",
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "tè",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-vino",
+    "it": "vino",
+    "ro": "vin",
+    "tags": [
+      "băuturi"
+    ],
+    "rank": 952,
+    "examples": [
+      {
+        "it": "Un bicchiere di vino.",
+        "ro": "Un pahar de vin."
+      },
+      {
+        "it": "Il vino rosso.",
+        "ro": "Vinul roșu."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "vini",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-birra",
+    "it": "birra",
+    "ro": "bere",
+    "tags": [
+      "băuturi"
+    ],
+    "rank": 1441,
+    "examples": [
+      {
+        "it": "Una birra, per favore.",
+        "ro": "O bere, vă rog."
+      },
+      {
+        "it": "La birra è fredda.",
+        "ro": "Berea este rece."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "birre",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-pizza",
+    "it": "pizza",
+    "ro": "pizza",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 1755,
+    "examples": [
+      {
+        "it": "Mangiamo una pizza?",
+        "ro": "Mâncăm o pizza?"
+      },
+      {
+        "it": "La pizza è buona.",
+        "ro": "Pizza este bună."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "pizze",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-pasta",
+    "it": "pasta",
+    "ro": "paste",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 2779,
+    "examples": [
+      {
+        "it": "Mangio la pasta.",
+        "ro": "Mănânc paste."
+      },
+      {
+        "it": "La pasta è pronta.",
+        "ro": "Pastele sunt gata."
+      }
+    ],
+    "note": "Singular colectiv: la pasta è pronta (pastele sunt gata).",
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "paste",
+    "pluralArticle": "le",
+    "irregularPlural": false,
+    "uncountable": true
+  },
+  {
+    "id": "n-carne",
+    "it": "carne",
+    "ro": "carne",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 1202,
+    "examples": [
+      {
+        "it": "Non mangio carne.",
+        "ro": "Nu mănânc carne."
+      },
+      {
+        "it": "La carne è buona.",
+        "ro": "Carnea este bună."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "carni",
+    "pluralArticle": "le",
+    "irregularPlural": false,
+    "uncountable": true
+  },
+  {
+    "id": "n-pesce",
+    "it": "pesce",
+    "ro": "pește",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 1244,
+    "examples": [
+      {
+        "it": "Mi piace il pesce.",
+        "ro": "Îmi place peștele."
+      },
+      {
+        "it": "Oggi mangio pesce.",
+        "ro": "Astăzi mănânc pește."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "pesci",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-frutta",
+    "it": "frutta",
+    "ro": "fructe",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 2441,
+    "examples": [
+      {
+        "it": "Mangio molta frutta.",
+        "ro": "Mănânc multe fructe."
+      },
+      {
+        "it": "La frutta è sul tavolo.",
+        "ro": "Fructele sunt pe masă."
+      }
+    ],
+    "note": "Singular colectiv: la frutta = fructele. Un singur fruct: «un frutto».",
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "frutte",
+    "pluralArticle": "le",
+    "irregularPlural": false,
+    "uncountable": true
+  },
+  {
+    "id": "n-verdura",
+    "it": "verdura",
+    "ro": "legume",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Mi piace la verdura.",
+        "ro": "Îmi plac legumele."
+      },
+      {
+        "it": "Mangia più verdura.",
+        "ro": "Mănâncă mai multe legume."
+      }
+    ],
+    "note": "Singular colectiv: la verdura = legumele.",
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "verdure",
+    "pluralArticle": "le",
+    "irregularPlural": false,
+    "uncountable": true
+  },
+  {
+    "id": "n-formaggio",
+    "it": "formaggio",
+    "ro": "brânză",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 2017,
+    "examples": [
+      {
+        "it": "Mi piace il formaggio.",
+        "ro": "Îmi place brânza."
+      },
+      {
+        "it": "Pane e formaggio.",
+        "ro": "Pâine și brânză."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "formaggi",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-uovo",
+    "it": "uovo",
+    "ro": "ou",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 1554,
+    "examples": [
+      {
+        "it": "Mangio un uovo.",
+        "ro": "Mănânc un ou."
+      },
+      {
+        "it": "Due uova, per favore.",
+        "ro": "Două ouă, vă rog."
+      }
+    ],
+    "note": "Plural neregulat și feminin: le uova.",
+    "pos": "noun",
+    "gender": "m",
+    "article": "l'",
+    "plural": "uova",
+    "pluralArticle": "le",
+    "irregularPlural": true
+  },
+  {
+    "id": "n-riso",
+    "it": "riso",
+    "ro": "orez",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Mangio il riso.",
+        "ro": "Mănânc orez."
+      },
+      {
+        "it": "Il riso è pronto.",
+        "ro": "Orezul este gata."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "risi",
+    "pluralArticle": "i",
+    "irregularPlural": false,
+    "uncountable": true
+  },
+  {
+    "id": "n-zucchero",
+    "it": "zucchero",
+    "ro": "zahăr",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 1984,
+    "examples": [
+      {
+        "it": "Un caffè senza zucchero.",
+        "ro": "O cafea fără zahăr."
+      },
+      {
+        "it": "Vuoi lo zucchero?",
+        "ro": "Vrei zahăr?"
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "lo",
+    "plural": "zuccheri",
+    "pluralArticle": "gli",
+    "irregularPlural": false,
+    "uncountable": true
+  },
+  {
+    "id": "n-sale",
+    "it": "sale",
+    "ro": "sare",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 2776,
+    "examples": [
+      {
+        "it": "Manca il sale.",
+        "ro": "Lipsește sarea."
+      },
+      {
+        "it": "Un po' di sale.",
+        "ro": "Puțină sare."
+      }
+    ],
+    "note": "Masculin: il sale (nu «la sale»).",
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "sali",
+    "pluralArticle": "i",
+    "irregularPlural": false,
+    "uncountable": true
+  },
+  {
+    "id": "n-mela",
+    "it": "mela",
+    "ro": "măr (fructul)",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 2311,
+    "examples": [
+      {
+        "it": "Mangio una mela.",
+        "ro": "Mănânc un măr."
+      },
+      {
+        "it": "La mela è rossa.",
+        "ro": "Mărul este roșu."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "mele",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-pomodoro",
+    "it": "pomodoro",
+    "ro": "roșie",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Il pomodoro è rosso.",
+        "ro": "Roșia este roșie."
+      },
+      {
+        "it": "Mi piacciono i pomodori.",
+        "ro": "Îmi plac roșiile."
+      }
+    ],
+    "note": "Masculin: il pomodoro, i pomodori.",
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "pomodori",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-patata",
+    "it": "patata",
+    "ro": "cartof",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 2760,
+    "examples": [
+      {
+        "it": "Mi piacciono le patate.",
+        "ro": "Îmi plac cartofii."
+      },
+      {
+        "it": "Una patata.",
+        "ro": "Un cartof."
+      }
+    ],
+    "note": "Feminin: la patata, le patate.",
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "patate",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-insalata",
+    "it": "insalata",
+    "ro": "salată",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Mangio un'insalata.",
+        "ro": "Mănânc o salată."
+      },
+      {
+        "it": "Un'insalata mista.",
+        "ro": "O salată mixtă."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "l'",
+    "plural": "insalate",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-gelato",
+    "it": "gelato",
+    "ro": "înghețată",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Mangio un gelato.",
+        "ro": "Mănânc o înghețată."
+      },
+      {
+        "it": "Un gelato al cioccolato.",
+        "ro": "O înghețată de ciocolată."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "gelati",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-cioccolato",
+    "it": "cioccolato",
+    "ro": "ciocolată",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 2233,
+    "examples": [
+      {
+        "it": "Mi piace il cioccolato.",
+        "ro": "Îmi place ciocolata."
+      },
+      {
+        "it": "Il cioccolato è dolce.",
+        "ro": "Ciocolata este dulce."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "cioccolati",
+    "pluralArticle": "i",
+    "irregularPlural": false,
+    "uncountable": true
+  },
+  {
+    "id": "n-panino",
+    "it": "panino",
+    "ro": "sandviș",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 2703,
+    "examples": [
+      {
+        "it": "Mangio un panino.",
+        "ro": "Mănânc un sandviș."
+      },
+      {
+        "it": "Un panino con il formaggio.",
+        "ro": "Un sandviș cu brânză."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "panini",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-colazione",
+    "it": "colazione",
+    "ro": "mic dejun",
+    "tags": [
+      "mese"
+    ],
+    "rank": 1582,
+    "examples": [
+      {
+        "it": "La colazione è pronta.",
+        "ro": "Micul dejun este gata."
+      },
+      {
+        "it": "Faccio colazione alle otto.",
+        "ro": "Iau micul dejun la opt."
+      }
+    ],
+    "note": "«Fare colazione» = a lua micul dejun.",
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "colazioni",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-pranzo",
+    "it": "pranzo",
+    "ro": "prânz",
+    "tags": [
+      "mese"
+    ],
+    "rank": 1025,
+    "examples": [
+      {
+        "it": "Il pranzo è pronto.",
+        "ro": "Prânzul este gata."
+      },
+      {
+        "it": "Vieni a pranzo?",
+        "ro": "Vii la prânz?"
+      }
+    ],
+    "note": "«A pranzo» = la prânz.",
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "pranzi",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-cena",
+    "it": "cena",
+    "ro": "cină",
+    "tags": [
+      "mese"
+    ],
+    "rank": 658,
+    "examples": [
+      {
+        "it": "La cena è alle otto.",
+        "ro": "Cina este la opt."
+      },
+      {
+        "it": "Che cosa c'è per cena?",
+        "ro": "Ce este la cină?"
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "cene",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-ristorante",
+    "it": "ristorante",
+    "ro": "restaurant",
+    "tags": [
+      "locuri"
+    ],
+    "rank": 935,
+    "examples": [
+      {
+        "it": "Andiamo al ristorante.",
+        "ro": "Mergem la restaurant."
+      },
+      {
+        "it": "Il ristorante è chiuso.",
+        "ro": "Restaurantul este închis."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "ristoranti",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-bar",
+    "it": "bar",
+    "ro": "bar; cafenea",
+    "tags": [
+      "locuri"
+    ],
+    "rank": 879,
+    "examples": [
+      {
+        "it": "Ci vediamo al bar.",
+        "ro": "Ne vedem la bar."
+      },
+      {
+        "it": "Il bar è aperto.",
+        "ro": "Barul este deschis."
+      }
+    ],
+    "note": "În Italia, «bar» este locul unde bei cafea, mănânci un corn sau un sandviș; nu e doar loc pentru alcool. Invariabil: i bar.",
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "bar",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-bicchiere",
+    "it": "bicchiere",
+    "ro": "pahar",
+    "tags": [
+      "obiecte"
+    ],
+    "rank": 1777,
+    "examples": [
+      {
+        "it": "Un bicchiere d'acqua.",
+        "ro": "Un pahar cu apă."
+      },
+      {
+        "it": "Il bicchiere è sul tavolo.",
+        "ro": "Paharul este pe masă."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "bicchieri",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-bottiglia",
+    "it": "bottiglia",
+    "ro": "sticlă",
+    "tags": [
+      "obiecte"
+    ],
+    "rank": 1362,
+    "examples": [
+      {
+        "it": "Una bottiglia d'acqua.",
+        "ro": "O sticlă de apă."
+      },
+      {
+        "it": "Prendo una bottiglia di vino.",
+        "ro": "Iau o sticlă de vin."
+      }
+    ],
+    "note": "Plural: bottiglie.",
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "bottiglie",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-piatto",
+    "it": "piatto",
+    "ro": "farfurie; fel de mâncare",
+    "tags": [
+      "obiecte"
+    ],
+    "rank": 1102,
+    "examples": [
+      {
+        "it": "Un piatto di pasta.",
+        "ro": "O farfurie de paste."
+      },
+      {
+        "it": "Il piatto del giorno.",
+        "ro": "Felul zilei."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "piatti",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-fame",
+    "it": "fame",
+    "ro": "foame",
+    "tags": [
+      "corp"
+    ],
+    "rank": 1265,
+    "examples": [
+      {
+        "it": "Muoio di fame!",
+        "ro": "Mor de foame!"
+      },
+      {
+        "it": "Hai ancora fame?",
+        "ro": "Ți-e încă foame?"
+      }
+    ],
+    "note": "«Avere fame» = a-i fi foame.",
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "fami",
+    "pluralArticle": "le",
+    "irregularPlural": false,
+    "uncountable": true
+  },
+  {
+    "id": "n-sete",
+    "it": "sete",
+    "ro": "sete",
+    "tags": [
+      "corp"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Ho sete.",
+        "ro": "Mi-e sete."
+      },
+      {
+        "it": "Hai sete?",
+        "ro": "Ți-e sete?"
+      }
+    ],
+    "note": "«Avere sete» = a-i fi sete.",
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "seti",
+    "pluralArticle": "le",
+    "irregularPlural": false,
+    "uncountable": true
+  },
+  {
+    "id": "a-dolce",
+    "it": "dolce",
+    "ro": "dulce",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 784,
+    "examples": [
+      {
+        "it": "Il caffè è troppo dolce.",
+        "ro": "Cafeaua este prea dulce."
+      },
+      {
+        "it": "Mi piace il vino dolce.",
+        "ro": "Îmi place vinul dulce."
+      }
+    ],
+    "note": "Ca substantiv, «il dolce» = desertul sau o prăjitură.",
+    "pos": "adjective",
+    "forms": {
+      "ms": "dolce",
+      "fs": "dolce",
+      "mp": "dolci",
+      "fp": "dolci"
+    }
+  },
+  {
+    "id": "int-ciao",
+    "it": "ciao",
+    "ro": "salut; pa",
+    "tags": [
+      "saluturi"
+    ],
+    "rank": 2363,
+    "examples": [
+      {
+        "it": "Ciao, come stai?",
+        "ro": "Salut, ce mai faci?"
+      },
+      {
+        "it": "Ciao, a domani!",
+        "ro": "Pa, pe mâine!"
+      }
+    ],
+    "note": "Informal; folosit și la salut, și la despărțire.",
+    "pos": "interjection"
+  },
+  {
+    "id": "int-buongiorno",
+    "it": "buongiorno",
+    "ro": "bună ziua; bună dimineața",
+    "tags": [
+      "saluturi"
+    ],
+    "rank": 2981,
+    "examples": [
+      {
+        "it": "Buongiorno, signore!",
+        "ro": "Bună ziua, domnule!"
+      },
+      {
+        "it": "Buongiorno a tutti!",
+        "ro": "Bună ziua tuturor!"
+      }
+    ],
+    "note": "Se folosește până după-amiaza; apoi «buonasera».",
+    "pos": "interjection"
+  },
+  {
+    "id": "int-buonasera",
+    "it": "buonasera",
+    "ro": "bună seara",
+    "tags": [
+      "saluturi"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Buonasera, signora!",
+        "ro": "Bună seara, doamnă!"
+      },
+      {
+        "it": "Buonasera a tutti.",
+        "ro": "Bună seara tuturor."
+      }
+    ],
+    "pos": "interjection"
+  },
+  {
+    "id": "int-buonanotte",
+    "it": "buonanotte",
+    "ro": "noapte bună",
+    "tags": [
+      "saluturi"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Buonanotte, mamma!",
+        "ro": "Noapte bună, mamă!"
+      },
+      {
+        "it": "Buonanotte a tutti!",
+        "ro": "Noapte bună tuturor!"
+      }
+    ],
+    "pos": "interjection"
+  },
+  {
+    "id": "int-arrivederci",
+    "it": "arrivederci",
+    "ro": "la revedere",
+    "tags": [
+      "saluturi"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Arrivederci, a domani!",
+        "ro": "La revedere, pe mâine!"
+      },
+      {
+        "it": "Arrivederci e grazie.",
+        "ro": "La revedere și mulțumesc."
+      }
+    ],
+    "note": "Formal: «ArrivederLa» (către o persoană căreia îi spui «Lei»).",
+    "pos": "interjection"
+  },
+  {
+    "id": "int-prego",
+    "it": "prego",
+    "ro": "cu plăcere; poftiți",
+    "tags": [
+      "politețe"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Grazie! — Prego!",
+        "ro": "Mulțumesc! — Cu plăcere!"
+      },
+      {
+        "it": "Prego, si accomodi.",
+        "ro": "Poftiți, luați loc."
+      }
+    ],
+    "note": "Răspuns la «grazie»; se mai folosește și pentru „poftiți”, „vă ascult”.",
+    "pos": "interjection"
+  },
+  {
+    "id": "int-scusa",
+    "it": "scusa",
+    "ro": "scuze; scuză-mă",
+    "tags": [
+      "politețe"
+    ],
+    "rank": 590,
+    "examples": [
+      {
+        "it": "Scusa, che ore sono?",
+        "ro": "Scuze, cât e ceasul?"
+      },
+      {
+        "it": "Scusa, non capisco.",
+        "ro": "Scuze, nu înțeleg."
+      }
+    ],
+    "note": "Informal (către «tu»); formal se spune «scusi» sau «mi scusi».",
+    "pos": "interjection"
+  },
+  {
+    "id": "int-salve",
+    "it": "salve",
+    "ro": "bună; salutare",
+    "tags": [
+      "saluturi"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Salve, buongiorno!",
+        "ro": "Bună, bună ziua!"
+      },
+      {
+        "it": "Salve a tutti!",
+        "ro": "Salutare tuturor!"
+      }
+    ],
+    "note": "Salut politicos, între «ciao» (informal) și «buongiorno» (formal).",
+    "pos": "interjection"
+  },
+  {
+    "id": "int-auguri",
+    "it": "auguri",
+    "ro": "felicitări; toate cele bune",
+    "tags": [
+      "politețe"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Auguri!",
+        "ro": "Felicitări!"
+      },
+      {
+        "it": "Tanti auguri!",
+        "ro": "Toate cele bune!"
+      }
+    ],
+    "note": "Se spune la aniversări și sărbători (La mulți ani! = Tanti auguri!).",
+    "pos": "interjection"
+  }
+]

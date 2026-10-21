@@ -1,0 +1,45 @@
+{
+  "id": "la-medic-si-farmacie",
+  "title": "La medic și la farmacie",
+  "group": "oras",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "«Mi fa male la testa» (singular) / «mi fanno male i piedi» (plural).",
+    "«Avere mal di testa / di stomaco / di gola»; «ho la febbre» = am febră.",
+    "Medicamentele se iau de la «farmacia»; unele cer «ricetta» (rețetă)."
+  ],
+  "subgroups": [
+    {
+      "title": "Persoane și locuri",
+      "wordIds": [
+        "n-medico",
+        "n-dottore",
+        "n-farmacia",
+        "n-ospedale"
+      ]
+    },
+    {
+      "title": "Probleme",
+      "wordIds": [
+        "a-malato",
+        "n-febbre",
+        "n-dolore",
+        "e-mal_di_testa",
+        "n-stomaco",
+        "n-schiena"
+      ]
+    },
+    {
+      "title": "Tratament",
+      "wordIds": [
+        "n-medicina",
+        "n-ricetta",
+        "n-salute"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

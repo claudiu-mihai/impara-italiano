@@ -1,0 +1,58 @@
+{
+  "id": "lunile-anului",
+  "title": "Lunile anului",
+  "group": "timp",
+  "level": "A1",
+  "first": true,
+  "rules": [
+    "Lunile se scriu cu literă mică și sunt masculine: «a maggio» sau «in maggio» = în mai.",
+    "Data: «il primo maggio» (prima zi, ordinal), apoi cardinale: «il due maggio», «il venti maggio».",
+    "Anul se spune cu «nel»: «nel duemilaventi» = în 2020."
+  ],
+  "subgroups": [
+    {
+      "title": "Lunile",
+      "wordIds": [
+        "n-gennaio",
+        "n-febbraio",
+        "n-marzo",
+        "n-aprile",
+        "n-maggio",
+        "n-giugno",
+        "n-luglio",
+        "n-agosto",
+        "n-settembre",
+        "n-ottobre",
+        "n-novembre",
+        "n-dicembre"
+      ]
+    },
+    {
+      "title": "Cuvinte utile",
+      "wordIds": [
+        "n-mese",
+        "n-anno",
+        "n-settimana"
+      ]
+    }
+  ],
+  "exercises": [
+    "match",
+    "order"
+  ],
+  "sequence": [
+    "n-gennaio",
+    "n-febbraio",
+    "n-marzo",
+    "n-aprile",
+    "n-maggio",
+    "n-giugno",
+    "n-luglio",
+    "n-agosto",
+    "n-settembre",
+    "n-ottobre",
+    "n-novembre",
+    "n-dicembre"
+  ],
+  "cyclic": true
+}

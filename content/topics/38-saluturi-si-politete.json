@@ -1,0 +1,56 @@
+{
+  "id": "saluturi-si-politete",
+  "title": "Saluturi și politețe",
+  "group": "conversatie",
+  "level": "A1",
+  "first": true,
+  "rules": [
+    "«Tu» (prieteni, copii) și «Lei» (formal): «come stai?» / «come sta?»; cu «Lei» verbul stă la persoana a III-a singular.",
+    "«Ciao» se spune și la salut, și la despărțire; «salve» este neutru; «arrivederci» este formal.",
+    "«Scusa» (tu) / «scusi» (Lei) = scuză-mă / scuzați-mă. «Prego» = cu plăcere (răspuns la «grazie»)."
+  ],
+  "subgroups": [
+    {
+      "title": "Salut și rămas bun",
+      "wordIds": [
+        "int-ciao",
+        "int-salve",
+        "int-buongiorno",
+        "int-buonasera",
+        "int-buonanotte",
+        "int-arrivederci",
+        "e-a_presto",
+        "e-a_domani",
+        "e-ci_vediamo"
+      ]
+    },
+    {
+      "title": "Politețe",
+      "wordIds": [
+        "int-grazie",
+        "int-prego",
+        "e-di_niente",
+        "e-per_favore",
+        "int-scusa",
+        "e-mi_dispiace",
+        "n-permesso",
+        "int-auguri"
+      ]
+    },
+    {
+      "title": "Cum ești?",
+      "wordIds": [
+        "e-come_stai",
+        "e-come_sta",
+        "e-come_va",
+        "e-tutto_bene",
+        "v-piacere",
+        "e-buona_giornata",
+        "e-buon_appetito"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

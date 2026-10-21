@@ -1,0 +1,686 @@
+[
+  {
+    "id": "v-chiamarsi",
+    "it": "chiamarsi",
+    "ro": "a se numi",
+    "tags": [
+      "prezentare"
+    ],
+    "rank": 106,
+    "examples": [
+      {
+        "it": "Mi chiamo Marco.",
+        "ro": "Mă cheamă Marco."
+      },
+      {
+        "it": "Come ti chiami?",
+        "ro": "Cum te cheamă?"
+      }
+    ],
+    "note": "«Mi chiamo…» = «Mă numesc…», «Mă cheamă…». Nu se folosește «sono» pentru nume în prezentări obișnuite.",
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "chiamato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-svegliarsi",
+    "it": "svegliarsi",
+    "ro": "a se trezi",
+    "tags": [
+      "rutină"
+    ],
+    "rank": 1155,
+    "examples": [
+      {
+        "it": "Mi sveglio alle sette.",
+        "ro": "Mă trezesc la șapte."
+      },
+      {
+        "it": "Domani ci svegliamo presto.",
+        "ro": "Mâine ne trezim devreme."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "svegliato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-alzarsi",
+    "it": "alzarsi",
+    "ro": "a se ridica; a se da jos din pat",
+    "tags": [
+      "rutină"
+    ],
+    "rank": 650,
+    "examples": [
+      {
+        "it": "Mi alzo alle otto.",
+        "ro": "Mă ridic din pat la opt."
+      },
+      {
+        "it": "Alzati, è tardi!",
+        "ro": "Ridică-te, e târziu!"
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "alzato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-lavarsi",
+    "it": "lavarsi",
+    "ro": "a se spăla",
+    "tags": [
+      "rutină"
+    ],
+    "rank": 1606,
+    "examples": [
+      {
+        "it": "Mi lavo le mani.",
+        "ro": "Mă spăl pe mâini."
+      },
+      {
+        "it": "Ti sei lavato i denti?",
+        "ro": "Te-ai spălat pe dinți?"
+      }
+    ],
+    "note": "Cu părțile corpului se folosește articolul, nu posesivul: «mi lavo le mani» (nu «le mie mani»).",
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "lavato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-vestirsi",
+    "it": "vestirsi",
+    "ro": "a se îmbrăca",
+    "tags": [
+      "rutină"
+    ],
+    "rank": 766,
+    "examples": [
+      {
+        "it": "Mi vesto in fretta.",
+        "ro": "Mă îmbrac repede."
+      },
+      {
+        "it": "Il bambino si veste da solo.",
+        "ro": "Copilul se îmbracă singur."
+      }
+    ],
+    "pos": "verb",
+    "group": "ire",
+    "auxiliary": "essere",
+    "pastParticiple": "vestito",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-sedersi",
+    "it": "sedersi",
+    "ro": "a se așeza",
+    "tags": [
+      "rutină"
+    ],
+    "rank": 411,
+    "examples": [
+      {
+        "it": "Mi siedo qui.",
+        "ro": "Mă așez aici."
+      },
+      {
+        "it": "Siediti, per favore.",
+        "ro": "Așază-te, te rog."
+      }
+    ],
+    "note": "Neregulat: mi siedo, ti siedi, si siede, ci sediamo, vi sedete, si siedono.",
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "essere",
+    "pastParticiple": "seduto",
+    "irregular": true,
+    "reflexive": true
+  },
+  {
+    "id": "v-fermarsi",
+    "it": "fermarsi",
+    "ro": "a se opri",
+    "tags": [
+      "mișcare"
+    ],
+    "rank": 298,
+    "examples": [
+      {
+        "it": "Mi fermo qui.",
+        "ro": "Mă opresc aici."
+      },
+      {
+        "it": "Il treno si ferma a Bologna.",
+        "ro": "Trenul se oprește la Bologna."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "fermato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-sentirsi",
+    "it": "sentirsi",
+    "ro": "a se simți",
+    "tags": [
+      "sentimente"
+    ],
+    "rank": 82,
+    "examples": [
+      {
+        "it": "Mi sento bene.",
+        "ro": "Mă simt bine."
+      },
+      {
+        "it": "Come ti senti oggi?",
+        "ro": "Cum te simți azi?"
+      }
+    ],
+    "pos": "verb",
+    "group": "ire",
+    "auxiliary": "essere",
+    "pastParticiple": "sentito",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-trovarsi",
+    "it": "trovarsi",
+    "ro": "a se afla; a se găsi",
+    "tags": [
+      "loc"
+    ],
+    "rank": 52,
+    "examples": [
+      {
+        "it": "Mi trovo a Roma.",
+        "ro": "Mă aflu la Roma."
+      },
+      {
+        "it": "Dove si trova la stazione?",
+        "ro": "Unde se află gara?"
+      }
+    ],
+    "note": "«Mi trovo bene» = mă simt bine (într-un loc, cu cineva).",
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "trovato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-divertirsi",
+    "it": "divertirsi",
+    "ro": "a se distra",
+    "tags": [
+      "timp liber"
+    ],
+    "rank": 767,
+    "examples": [
+      {
+        "it": "Mi diverto molto.",
+        "ro": "Mă distrez mult."
+      },
+      {
+        "it": "Divertitevi!",
+        "ro": "Distrați-vă!"
+      }
+    ],
+    "pos": "verb",
+    "group": "ire",
+    "auxiliary": "essere",
+    "pastParticiple": "divertito",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-riposarsi",
+    "it": "riposarsi",
+    "ro": "a se odihni",
+    "tags": [
+      "rutină"
+    ],
+    "rank": 1537,
+    "examples": [
+      {
+        "it": "Mi riposo un po'.",
+        "ro": "Mă odihnesc puțin."
+      },
+      {
+        "it": "Riposati, sei stanco.",
+        "ro": "Odihnește-te, ești obosit."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "riposato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-mettersi",
+    "it": "mettersi",
+    "ro": "a se pune; a-și pune (haine)",
+    "tags": [
+      "rutină"
+    ],
+    "rank": 89,
+    "examples": [
+      {
+        "it": "Mi metto la giacca.",
+        "ro": "Îmi pun geaca."
+      },
+      {
+        "it": "Si mette a ridere.",
+        "ro": "Începe să râdă."
+      }
+    ],
+    "note": "«Mettersi a + infinitiv» = a începe să.",
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "essere",
+    "pastParticiple": "messo",
+    "irregular": true,
+    "reflexive": true
+  },
+  {
+    "id": "v-prepararsi",
+    "it": "prepararsi",
+    "ro": "a se pregăti",
+    "tags": [
+      "rutină"
+    ],
+    "rank": 420,
+    "examples": [
+      {
+        "it": "Mi preparo per uscire.",
+        "ro": "Mă pregătesc să ies."
+      },
+      {
+        "it": "Ci prepariamo al viaggio.",
+        "ro": "Ne pregătim de călătorie."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "preparato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-addormentarsi",
+    "it": "addormentarsi",
+    "ro": "a adormi",
+    "tags": [
+      "rutină"
+    ],
+    "rank": 2906,
+    "examples": [
+      {
+        "it": "Mi addormento subito.",
+        "ro": "Adorm imediat."
+      },
+      {
+        "it": "Il bambino si è addormentato.",
+        "ro": "Copilul a adormit."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "addormentato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-incontrarsi",
+    "it": "incontrarsi",
+    "ro": "a se întâlni",
+    "tags": [
+      "social"
+    ],
+    "rank": 306,
+    "examples": [
+      {
+        "it": "Ci incontriamo alle cinque.",
+        "ro": "Ne întâlnim la cinci."
+      },
+      {
+        "it": "Dove ci incontriamo?",
+        "ro": "Unde ne întâlnim?"
+      }
+    ],
+    "note": "«Incontrare» = a întâlni pe cineva; «incontrarsi» = a se întâlni (reciproc), a se vedea.",
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "incontrato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-sposarsi",
+    "it": "sposarsi",
+    "ro": "a se căsători",
+    "tags": [
+      "viață"
+    ],
+    "rank": 549,
+    "examples": [
+      {
+        "it": "Mia sorella si sposa a giugno.",
+        "ro": "Sora mea se căsătorește în iunie."
+      },
+      {
+        "it": "Ci siamo sposati due anni fa.",
+        "ro": "Ne-am căsătorit acum doi ani."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "sposato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-ricordarsi",
+    "it": "ricordarsi",
+    "ro": "a-și aminti",
+    "tags": [
+      "gândire"
+    ],
+    "rank": 165,
+    "examples": [
+      {
+        "it": "Mi ricordo di te.",
+        "ro": "Îmi amintesc de tine."
+      },
+      {
+        "it": "Non mi ricordo il suo nome.",
+        "ro": "Nu-mi amintesc numele lui."
+      }
+    ],
+    "note": "«Ricordare» (fără pronume) = a aduce aminte altcuiva; «ricordarsi» = a-și aminti.",
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "ricordato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-preoccuparsi",
+    "it": "preoccuparsi",
+    "ro": "a-și face griji",
+    "tags": [
+      "sentimente"
+    ],
+    "rank": 483,
+    "examples": [
+      {
+        "it": "Non ti preoccupare!",
+        "ro": "Nu-ți face griji!"
+      },
+      {
+        "it": "Mi preoccupo per lui.",
+        "ro": "Îmi fac griji pentru el."
+      }
+    ],
+    "note": "Imperativ negativ: «non ti preoccupare» sau «non preoccuparti».",
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "preoccupato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-arrabbiarsi",
+    "it": "arrabbiarsi",
+    "ro": "a se supăra; a se înfuria",
+    "tags": [
+      "sentimente"
+    ],
+    "rank": 1865,
+    "examples": [
+      {
+        "it": "Non ti arrabbiare!",
+        "ro": "Nu te supăra!"
+      },
+      {
+        "it": "Si arrabbia facilmente.",
+        "ro": "Se supără ușor."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "arrabbiato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-innamorarsi",
+    "it": "innamorarsi",
+    "ro": "a se îndrăgosti",
+    "tags": [
+      "sentimente"
+    ],
+    "rank": 1292,
+    "examples": [
+      {
+        "it": "Mi sono innamorato di lei.",
+        "ro": "M-am îndrăgostit de ea."
+      },
+      {
+        "it": "Si innamorano subito.",
+        "ro": "Se îndrăgostesc imediat."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "innamorato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-rilassarsi",
+    "it": "rilassarsi",
+    "ro": "a se relaxa",
+    "tags": [
+      "timp liber"
+    ],
+    "rank": 1182,
+    "examples": [
+      {
+        "it": "Mi rilasso con la musica.",
+        "ro": "Mă relaxez cu muzică."
+      },
+      {
+        "it": "Rilassati un po'.",
+        "ro": "Relaxează-te puțin."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "rilassato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-annoiarsi",
+    "it": "annoiarsi",
+    "ro": "a se plictisi",
+    "tags": [
+      "sentimente"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Mi annoio a casa.",
+        "ro": "Mă plictisesc acasă."
+      },
+      {
+        "it": "Non ti annoi mai?",
+        "ro": "Nu te plictisești niciodată?"
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "annoiato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-spostarsi",
+    "it": "spostarsi",
+    "ro": "a se deplasa; a se muta (puțin)",
+    "tags": [
+      "mișcare"
+    ],
+    "rank": 816,
+    "examples": [
+      {
+        "it": "Mi sposto in treno.",
+        "ro": "Mă deplasez cu trenul."
+      },
+      {
+        "it": "Spostati, per favore.",
+        "ro": "Mută-te, te rog."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "spostato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-fidarsi",
+    "it": "fidarsi",
+    "ro": "a avea încredere",
+    "tags": [
+      "sentimente"
+    ],
+    "rank": 1359,
+    "examples": [
+      {
+        "it": "Mi fido di te.",
+        "ro": "Am încredere în tine."
+      },
+      {
+        "it": "Non mi fido di lui.",
+        "ro": "Nu am încredere în el."
+      }
+    ],
+    "note": "Se construiește cu «di»: fidarsi di qualcuno.",
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "fidato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-pettinarsi",
+    "it": "pettinarsi",
+    "ro": "a se pieptăna",
+    "tags": [
+      "rutină"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Mi pettino ogni mattina.",
+        "ro": "Mă pieptăn în fiecare dimineață."
+      },
+      {
+        "it": "Si pettina davanti allo specchio.",
+        "ro": "Se piaptănă în fața oglinzii."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "pettinato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-truccarsi",
+    "it": "truccarsi",
+    "ro": "a se machia",
+    "tags": [
+      "rutină"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Mi trucco prima di uscire.",
+        "ro": "Mă machiez înainte să ies."
+      },
+      {
+        "it": "Non si trucca mai.",
+        "ro": "Nu se machiază niciodată."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "truccato",
+    "irregular": false,
+    "reflexive": true
+  },
+  {
+    "id": "v-laurearsi",
+    "it": "laurearsi",
+    "ro": "a-și lua licența",
+    "tags": [
+      "școală"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Mi sono laureato a Milano.",
+        "ro": "Mi-am luat licența la Milano."
+      },
+      {
+        "it": "Si laurea a luglio.",
+        "ro": "Își ia licența în iulie."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "essere",
+    "pastParticiple": "laureato",
+    "irregular": false,
+    "reflexive": true
+  }
+]

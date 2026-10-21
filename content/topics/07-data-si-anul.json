@@ -1,0 +1,38 @@
+{
+  "id": "data-si-anul",
+  "title": "Data și anul",
+  "group": "timp",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "Data se spune cu articolul și cu numărul cardinal: «oggi è il quindici marzo»; doar prima zi e ordinal: «il primo maggio».",
+    "Anul se citește ca un singur număr: 2025 = «duemilaventicinque»; cu «nel»: «nel duemilaventicinque».",
+    "«Quanti anni hai?» = Câți ani ai? → «ho trent'anni» (cu «avere», nu «essere»). «Quando sei nato?» → «sono nato il tre maggio»."
+  ],
+  "subgroups": [
+    {
+      "title": "Cuvinte",
+      "wordIds": [
+        "n-data",
+        "e-data_di_nascita",
+        "n-calendario",
+        "n-giorno",
+        "n-settimana",
+        "n-mese",
+        "n-anno",
+        "n-compleanno"
+      ]
+    },
+    {
+      "title": "Reper",
+      "wordIds": [
+        "adv-oggi",
+        "adv-ieri",
+        "adv-domani"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

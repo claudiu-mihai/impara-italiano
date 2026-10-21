@@ -1,0 +1,41 @@
+{
+  "id": "transport",
+  "title": "Transport",
+  "group": "oras",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "«In treno, in autobus, in macchina, in aereo, in bicicletta», dar «a piedi» (pe jos).",
+    "«Prendere il treno» = a lua trenul; «scendere» = a coborî; «salire» = a urca.",
+    "«Biglietto» = bilet; se validează la urcare."
+  ],
+  "subgroups": [
+    {
+      "title": "Mijloace",
+      "wordIds": [
+        "n-autobus",
+        "n-treno",
+        "n-aereo",
+        "n-metro",
+        "n-taxi",
+        "n-bicicletta",
+        "n-macchina",
+        "n-nave",
+        "n-barca"
+      ]
+    },
+    {
+      "title": "Călătorie",
+      "wordIds": [
+        "n-viaggio",
+        "v-viaggiare",
+        "n-biglietto",
+        "n-fermata",
+        "v-guidare"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

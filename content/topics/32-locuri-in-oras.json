@@ -1,0 +1,50 @@
+{
+  "id": "locuri-in-oras",
+  "title": "Locuri în oraș",
+  "group": "oras",
+  "level": "A2",
+  "first": false,
+  "rules": [
+    "Cu «in», fără articol: in centro, in banca, in farmacia, in chiesa. Cu «a»: a scuola, a teatro, al cinema, al bar, alla posta, alla stazione.",
+    "«Dov'è…?» = unde este…? «C'è una farmacia qui vicino?» = Este o farmacie pe aproape?",
+    "«Centro» = centrul orașului; «quartiere» = cartier."
+  ],
+  "subgroups": [
+    {
+      "title": "Servicii",
+      "wordIds": [
+        "n-banca",
+        "n-posta",
+        "n-farmacia",
+        "n-ospedale",
+        "n-ufficio",
+        "n-negozio",
+        "n-supermercato"
+      ]
+    },
+    {
+      "title": "Cultură și timp liber",
+      "wordIds": [
+        "n-museo",
+        "n-teatro",
+        "n-cinema",
+        "n-parco",
+        "n-chiesa",
+        "n-ristorante",
+        "n-hotel"
+      ]
+    },
+    {
+      "title": "Pe hartă",
+      "wordIds": [
+        "n-centro",
+        "n-quartiere",
+        "n-piazza",
+        "n-stazione"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

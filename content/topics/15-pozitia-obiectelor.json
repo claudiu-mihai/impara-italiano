@@ -1,0 +1,53 @@
+{
+  "id": "pozitia-obiectelor",
+  "title": "Poziția obiectelor",
+  "group": "spatiu",
+  "level": "A2",
+  "first": true,
+  "rules": [
+    "Multe prepoziții de loc cer «a» sau «di» înaintea substantivului: «davanti a casa», «accanto al bar», «dietro la porta». «Sopra», «sotto», «dentro» merg direct: «sopra il tavolo».",
+    "«Su» = pe (în contact), «sopra» = deasupra: «il libro è sul tavolo» / «la lampada è sopra il tavolo».",
+    "«Tra/fra» = între: «tra il bar e la banca». «Di fronte a» = vizavi de, «in mezzo a» = în mijlocul."
+  ],
+  "subgroups": [
+    {
+      "title": "Sus și jos",
+      "wordIds": [
+        "pre-sopra",
+        "pre-sotto",
+        "pre-su",
+        "adv-giù"
+      ]
+    },
+    {
+      "title": "Înăuntru și afară",
+      "wordIds": [
+        "adv-dentro",
+        "adv-fuori"
+      ]
+    },
+    {
+      "title": "Față, spate, lângă",
+      "wordIds": [
+        "adv-davanti",
+        "pre-dietro",
+        "adv-accanto",
+        "pre-tra",
+        "a-vicino",
+        "a-lontano"
+      ]
+    },
+    {
+      "title": "Expresii",
+      "wordIds": [
+        "e-di_fronte_a",
+        "e-in_mezzo_a",
+        "e-in_fondo_a"
+      ]
+    }
+  ],
+  "exercises": [
+    "match",
+    "cat"
+  ]
+}

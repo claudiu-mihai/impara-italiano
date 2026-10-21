@@ -1,0 +1,2015 @@
+[
+  {
+    "id": "c-e",
+    "it": "e",
+    "ro": "și",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 3,
+    "examples": [
+      {
+        "it": "Marco e Anna sono amici.",
+        "ro": "Marco și Anna sunt prieteni."
+      },
+      {
+        "it": "Mangio pane e formaggio.",
+        "ro": "Mănânc pâine și brânză."
+      }
+    ],
+    "note": "Înaintea unei vocale se scrie uneori «ed» (ed ora).",
+    "pos": "conjunction"
+  },
+  {
+    "id": "pre-di",
+    "it": "di",
+    "ro": "de; din; al/a",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 5,
+    "examples": [
+      {
+        "it": "Questo libro è di Marco.",
+        "ro": "Cartea aceasta este a lui Marco."
+      },
+      {
+        "it": "Sono di Roma.",
+        "ro": "Sunt din Roma."
+      }
+    ],
+    "note": "Se unește cu articolul: del, della, dei, delle (di + il = del). Exprimă posesia: la casa di Marco = casa lui Marco.",
+    "pos": "preposition"
+  },
+  {
+    "id": "c-che",
+    "it": "che",
+    "ro": "că; care; ce",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 6,
+    "examples": [
+      {
+        "it": "So che hai ragione.",
+        "ro": "Știu că ai dreptate."
+      },
+      {
+        "it": "Il libro che leggo è bello.",
+        "ro": "Cartea pe care o citesc este frumoasă."
+      }
+    ],
+    "note": "Este și pronume relativ (care) și cuvânt exclamativ: Che bello! = Ce frumos!",
+    "pos": "conjunction"
+  },
+  {
+    "id": "num-uno",
+    "it": "uno",
+    "ro": "unu; un, o",
+    "tags": [
+      "numere"
+    ],
+    "rank": 7,
+    "examples": [
+      {
+        "it": "Uno, due, tre!",
+        "ro": "Unu, doi, trei!"
+      },
+      {
+        "it": "Un caffè, per favore.",
+        "ro": "O cafea, vă rog."
+      }
+    ],
+    "note": "Ca articol nehotărât: un (m), uno (înaintea lui z, s+consoană), una (f), un' (f, înaintea vocalei).",
+    "pos": "numeral"
+  },
+  {
+    "id": "adv-non",
+    "it": "non",
+    "ro": "nu",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 8,
+    "examples": [
+      {
+        "it": "Non capisco.",
+        "ro": "Nu înțeleg."
+      },
+      {
+        "it": "Non ho fame.",
+        "ro": "Nu mi-e foame."
+      }
+    ],
+    "note": "Stă înaintea verbului. Cu «mai», «niente», «nessuno» se păstrează: Non vado mai. = Nu merg niciodată.",
+    "pos": "adverb"
+  },
+  {
+    "id": "pre-a",
+    "it": "a",
+    "ro": "la; în; spre",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 9,
+    "examples": [
+      {
+        "it": "Vado a Roma.",
+        "ro": "Merg la Roma."
+      },
+      {
+        "it": "Sono a casa.",
+        "ro": "Sunt acasă."
+      }
+    ],
+    "note": "Se unește cu articolul: al, alla, ai, alle. Se folosește cu orașe (a Roma); cu țări se folosește «in» (in Italia).",
+    "pos": "preposition"
+  },
+  {
+    "id": "pre-per",
+    "it": "per",
+    "ro": "pentru; prin",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 10,
+    "examples": [
+      {
+        "it": "Questo regalo è per te.",
+        "ro": "Cadoul acesta este pentru tine."
+      },
+      {
+        "it": "Passo per il centro.",
+        "ro": "Trec prin centru."
+      }
+    ],
+    "pos": "preposition"
+  },
+  {
+    "id": "pre-in",
+    "it": "in",
+    "ro": "în",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 11,
+    "examples": [
+      {
+        "it": "Vivo in Italia.",
+        "ro": "Trăiesc în Italia."
+      },
+      {
+        "it": "Vado in macchina.",
+        "ro": "Merg cu mașina."
+      }
+    ],
+    "note": "Se unește cu articolul: nel, nella, nei, nelle. Cu mijloace de transport: in macchina, in treno.",
+    "pos": "preposition"
+  },
+  {
+    "id": "pre-con",
+    "it": "con",
+    "ro": "cu",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 17,
+    "examples": [
+      {
+        "it": "Vengo con te.",
+        "ro": "Vin cu tine."
+      },
+      {
+        "it": "Un caffè con latte.",
+        "ro": "O cafea cu lapte."
+      }
+    ],
+    "pos": "preposition"
+  },
+  {
+    "id": "c-ma",
+    "it": "ma",
+    "ro": "dar",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 18,
+    "examples": [
+      {
+        "it": "È piccolo, ma forte.",
+        "ro": "Este mic, dar puternic."
+      },
+      {
+        "it": "Voglio venire, ma non posso.",
+        "ro": "Vreau să vin, dar nu pot."
+      }
+    ],
+    "pos": "conjunction"
+  },
+  {
+    "id": "pre-da",
+    "it": "da",
+    "ro": "de la; din; la (cineva)",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 19,
+    "examples": [
+      {
+        "it": "Vengo da Milano.",
+        "ro": "Vin din Milano."
+      },
+      {
+        "it": "Stasera sono da Marco.",
+        "ro": "Diseară sunt la Marco."
+      }
+    ],
+    "note": "Se unește cu articolul: dal, dalla, dai, dalle. «Da + persoană» înseamnă „la cineva acasă”: vado dal medico.",
+    "pos": "preposition"
+  },
+  {
+    "id": "adv-come",
+    "it": "come",
+    "ro": "cum; ca",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 24,
+    "examples": [
+      {
+        "it": "Come stai?",
+        "ro": "Ce mai faci?"
+      },
+      {
+        "it": "È alto come suo padre.",
+        "ro": "Este înalt ca tatăl lui."
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "c-se",
+    "it": "se",
+    "ro": "dacă",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 31,
+    "examples": [
+      {
+        "it": "Se vuoi, vengo con te.",
+        "ro": "Dacă vrei, vin cu tine."
+      },
+      {
+        "it": "Non so se è vero.",
+        "ro": "Nu știu dacă e adevărat."
+      }
+    ],
+    "falseFriend": "Atenție: «se» în italiană înseamnă „dacă”. Reflexivul românesc „se” este «si» în italiană (si chiama = se numește).",
+    "pos": "conjunction"
+  },
+  {
+    "id": "c-o",
+    "it": "o",
+    "ro": "sau",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 48,
+    "examples": [
+      {
+        "it": "Caffè o tè?",
+        "ro": "Cafea sau ceai?"
+      },
+      {
+        "it": "Vieni o resti?",
+        "ro": "Vii sau rămâi?"
+      }
+    ],
+    "note": "Înaintea unei vocale se scrie uneori «od».",
+    "pos": "conjunction"
+  },
+  {
+    "id": "c-perché",
+    "it": "perché",
+    "ro": "de ce; pentru că",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 50,
+    "examples": [
+      {
+        "it": "Perché piangi?",
+        "ro": "De ce plângi?"
+      },
+      {
+        "it": "Resto a casa perché sono stanco.",
+        "ro": "Rămân acasă pentru că sunt obosit."
+      }
+    ],
+    "note": "Același cuvânt înseamnă și „de ce” (întrebare) și „pentru că” (răspuns).",
+    "pos": "conjunction"
+  },
+  {
+    "id": "adv-quando",
+    "it": "quando",
+    "ro": "când",
+    "tags": [
+      "timp"
+    ],
+    "rank": 44,
+    "examples": [
+      {
+        "it": "Quando arrivi?",
+        "ro": "Când ajungi?"
+      },
+      {
+        "it": "Chiamami quando puoi.",
+        "ro": "Sună-mă când poți."
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "c-mentre",
+    "it": "mentre",
+    "ro": "în timp ce",
+    "tags": [
+      "timp"
+    ],
+    "rank": 183,
+    "examples": [
+      {
+        "it": "Leggo mentre mangio.",
+        "ro": "Citesc în timp ce mănânc."
+      },
+      {
+        "it": "Mentre lavoro, ascolto la musica.",
+        "ro": "În timp ce lucrez, ascult muzică."
+      }
+    ],
+    "pos": "conjunction"
+  },
+  {
+    "id": "c-però",
+    "it": "però",
+    "ro": "dar; totuși",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 300,
+    "examples": [
+      {
+        "it": "È caro, però è buono.",
+        "ro": "E scump, dar e bun."
+      },
+      {
+        "it": "Vorrei venire, però non posso.",
+        "ro": "Aș vrea să vin, dar nu pot."
+      }
+    ],
+    "pos": "conjunction"
+  },
+  {
+    "id": "c-quindi",
+    "it": "quindi",
+    "ro": "deci; așadar",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 86,
+    "examples": [
+      {
+        "it": "Piove, quindi resto a casa.",
+        "ro": "Plouă, deci rămân acasă."
+      },
+      {
+        "it": "Sono stanco, quindi dormo.",
+        "ro": "Sunt obosit, așa că dorm."
+      }
+    ],
+    "pos": "conjunction"
+  },
+  {
+    "id": "adv-allora",
+    "it": "allora",
+    "ro": "atunci; deci",
+    "tags": [
+      "timp"
+    ],
+    "rank": 186,
+    "examples": [
+      {
+        "it": "Allora, andiamo?",
+        "ro": "Deci, mergem?"
+      },
+      {
+        "it": "Allora ero a Roma.",
+        "ro": "Atunci eram la Roma."
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-invece",
+    "it": "invece",
+    "ro": "în schimb; dimpotrivă",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 209,
+    "examples": [
+      {
+        "it": "Io bevo caffè, lui invece beve tè.",
+        "ro": "Eu beau cafea, el în schimb bea ceai."
+      },
+      {
+        "it": "Invece di partire, resto.",
+        "ro": "În loc să plec, rămân."
+      }
+    ],
+    "note": "«Invece di» + infinitiv = în loc să.",
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-anche",
+    "it": "anche",
+    "ro": "și; de asemenea",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 43,
+    "examples": [
+      {
+        "it": "Vengo anche io.",
+        "ro": "Vin și eu."
+      },
+      {
+        "it": "Ho fame e anche sete.",
+        "ro": "Mi-e foame și sete."
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-molto",
+    "it": "molto",
+    "ro": "foarte; mult",
+    "tags": [
+      "cantitate"
+    ],
+    "rank": 42,
+    "examples": [
+      {
+        "it": "Sono molto contento.",
+        "ro": "Sunt foarte mulțumit."
+      },
+      {
+        "it": "Lavoro molto.",
+        "ro": "Lucrez mult."
+      }
+    ],
+    "note": "Ca adjectiv se acordă: molta acqua, molti amici, molte cose.",
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-più",
+    "it": "più",
+    "ro": "mai; mai mult",
+    "tags": [
+      "cantitate"
+    ],
+    "rank": 45,
+    "examples": [
+      {
+        "it": "Voglio più tempo.",
+        "ro": "Vreau mai mult timp."
+      },
+      {
+        "it": "Non lavoro più qui.",
+        "ro": "Nu mai lucrez aici."
+      }
+    ],
+    "note": "«Non… più» = nu mai.",
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-meno",
+    "it": "meno",
+    "ro": "mai puțin",
+    "tags": [
+      "cantitate"
+    ],
+    "rank": 187,
+    "examples": [
+      {
+        "it": "Oggi lavoro meno.",
+        "ro": "Astăzi lucrez mai puțin."
+      },
+      {
+        "it": "Meno male che sei qui!",
+        "ro": "Ce bine că ești aici!"
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-prima",
+    "it": "prima",
+    "ro": "înainte; mai întâi",
+    "tags": [
+      "timp"
+    ],
+    "rank": 53,
+    "examples": [
+      {
+        "it": "Prima mangiamo, poi andiamo.",
+        "ro": "Mai întâi mâncăm, apoi mergem."
+      },
+      {
+        "it": "Sono arrivato prima di te.",
+        "ro": "Am ajuns înaintea ta."
+      }
+    ],
+    "note": "«Prima di» + substantiv/infinitiv = înainte de.",
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-dopo",
+    "it": "dopo",
+    "ro": "după; mai târziu",
+    "tags": [
+      "timp"
+    ],
+    "rank": 99,
+    "examples": [
+      {
+        "it": "Ti chiamo dopo.",
+        "ro": "Te sun mai târziu."
+      },
+      {
+        "it": "Dopo il lavoro vado a casa.",
+        "ro": "După serviciu merg acasă."
+      }
+    ],
+    "note": "Funcționează și ca prepoziție: dopo il lavoro.",
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-ancora",
+    "it": "ancora",
+    "ro": "încă; din nou",
+    "tags": [
+      "timp"
+    ],
+    "rank": 59,
+    "examples": [
+      {
+        "it": "Hai ancora fame?",
+        "ro": "Ți-e încă foame?"
+      },
+      {
+        "it": "Ancora un caffè, per favore.",
+        "ro": "Încă o cafea, vă rog."
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-mai",
+    "it": "mai",
+    "ro": "niciodată; vreodată",
+    "tags": [
+      "timp"
+    ],
+    "rank": 63,
+    "examples": [
+      {
+        "it": "Non sono mai stato a Roma.",
+        "ro": "Nu am fost niciodată la Roma."
+      },
+      {
+        "it": "Hai mai mangiato il sushi?",
+        "ro": "Ai mâncat vreodată sushi?"
+      }
+    ],
+    "falseFriend": "Atenție: «mai» nu înseamnă „mai” (mai mult = più). Înseamnă „niciodată / vreodată”.",
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-sempre",
+    "it": "sempre",
+    "ro": "mereu; întotdeauna",
+    "tags": [
+      "timp"
+    ],
+    "rank": 70,
+    "examples": [
+      {
+        "it": "Sono sempre stanco.",
+        "ro": "Sunt mereu obosit."
+      },
+      {
+        "it": "Vai sempre a piedi?",
+        "ro": "Mergi mereu pe jos?"
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-già",
+    "it": "già",
+    "ro": "deja",
+    "tags": [
+      "timp"
+    ],
+    "rank": 125,
+    "examples": [
+      {
+        "it": "Hai già finito?",
+        "ro": "Ai terminat deja?"
+      },
+      {
+        "it": "È già tardi.",
+        "ro": "E deja târziu."
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-ora",
+    "it": "ora",
+    "ro": "acum",
+    "tags": [
+      "timp"
+    ],
+    "rank": 41,
+    "examples": [
+      {
+        "it": "Ora devo andare.",
+        "ro": "Acum trebuie să plec."
+      },
+      {
+        "it": "Ora sto bene.",
+        "ro": "Acum mă simt bine."
+      }
+    ],
+    "note": "Ca substantiv, «ora» înseamnă „oră” (l'ora, le ore).",
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-adesso",
+    "it": "adesso",
+    "ro": "acum; în acest moment",
+    "tags": [
+      "timp"
+    ],
+    "rank": 224,
+    "examples": [
+      {
+        "it": "Adesso sono a casa.",
+        "ro": "Acum sunt acasă."
+      },
+      {
+        "it": "Che cosa fai adesso?",
+        "ro": "Ce faci acum?"
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-oggi",
+    "it": "oggi",
+    "ro": "astăzi",
+    "tags": [
+      "timp"
+    ],
+    "rank": 142,
+    "examples": [
+      {
+        "it": "Oggi fa freddo.",
+        "ro": "Astăzi e frig."
+      },
+      {
+        "it": "Che cosa fai oggi?",
+        "ro": "Ce faci astăzi?"
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-ieri",
+    "it": "ieri",
+    "ro": "ieri",
+    "tags": [
+      "timp"
+    ],
+    "rank": 268,
+    "examples": [
+      {
+        "it": "Ieri ero stanco.",
+        "ro": "Ieri eram obosit."
+      },
+      {
+        "it": "Ieri sera sono uscito.",
+        "ro": "Aseară am ieșit."
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-domani",
+    "it": "domani",
+    "ro": "mâine",
+    "tags": [
+      "timp"
+    ],
+    "rank": 313,
+    "examples": [
+      {
+        "it": "Domani lavoro.",
+        "ro": "Mâine lucrez."
+      },
+      {
+        "it": "A domani!",
+        "ro": "Pe mâine!"
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-poi",
+    "it": "poi",
+    "ro": "apoi; după aceea",
+    "tags": [
+      "timp"
+    ],
+    "rank": 91,
+    "examples": [
+      {
+        "it": "Prima mangio, poi studio.",
+        "ro": "Mai întâi mănânc, apoi învăț."
+      },
+      {
+        "it": "E poi?",
+        "ro": "Și apoi?"
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-poco",
+    "it": "poco",
+    "ro": "puțin",
+    "tags": [
+      "cantitate"
+    ],
+    "rank": 182,
+    "examples": [
+      {
+        "it": "Parlo un po' di italiano.",
+        "ro": "Vorbesc puțin italiană."
+      },
+      {
+        "it": "Dormo poco.",
+        "ro": "Dorm puțin."
+      }
+    ],
+    "note": "«Un po'» = un poco. Ca adjectiv se acordă: poco tempo, pochi amici.",
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-troppo",
+    "it": "troppo",
+    "ro": "prea; prea mult",
+    "tags": [
+      "cantitate"
+    ],
+    "rank": 167,
+    "examples": [
+      {
+        "it": "Fa troppo caldo.",
+        "ro": "E prea cald."
+      },
+      {
+        "it": "Hai mangiato troppo.",
+        "ro": "Ai mâncat prea mult."
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-tanto",
+    "it": "tanto",
+    "ro": "atât de mult; mult",
+    "tags": [
+      "cantitate"
+    ],
+    "rank": 107,
+    "examples": [
+      {
+        "it": "Ti voglio tanto bene.",
+        "ro": "Țin foarte mult la tine."
+      },
+      {
+        "it": "Grazie tante!",
+        "ro": "Mulțumesc mult!"
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-bene",
+    "it": "bene",
+    "ro": "bine",
+    "tags": [
+      "mod"
+    ],
+    "rank": 40,
+    "examples": [
+      {
+        "it": "Sto bene, grazie.",
+        "ro": "Mă simt bine, mulțumesc."
+      },
+      {
+        "it": "Parli bene italiano.",
+        "ro": "Vorbești bine italiană."
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-male",
+    "it": "male",
+    "ro": "rău; prost",
+    "tags": [
+      "mod"
+    ],
+    "rank": 225,
+    "examples": [
+      {
+        "it": "Sto male.",
+        "ro": "Mă simt rău."
+      },
+      {
+        "it": "Non è male!",
+        "ro": "Nu e rău!"
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-meglio",
+    "it": "meglio",
+    "ro": "mai bine",
+    "tags": [
+      "mod"
+    ],
+    "rank": 146,
+    "examples": [
+      {
+        "it": "Oggi sto meglio.",
+        "ro": "Astăzi mă simt mai bine."
+      },
+      {
+        "it": "È meglio partire presto.",
+        "ro": "E mai bine să plecăm devreme."
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-così",
+    "it": "così",
+    "ro": "așa; atât de",
+    "tags": [
+      "mod"
+    ],
+    "rank": 67,
+    "examples": [
+      {
+        "it": "Non parlare così!",
+        "ro": "Nu vorbi așa!"
+      },
+      {
+        "it": "È così bello!",
+        "ro": "E atât de frumos!"
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-qui",
+    "it": "qui",
+    "ro": "aici",
+    "tags": [
+      "loc"
+    ],
+    "rank": 80,
+    "examples": [
+      {
+        "it": "Vieni qui!",
+        "ro": "Vino aici!"
+      },
+      {
+        "it": "Qui si mangia bene.",
+        "ro": "Aici se mănâncă bine."
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-lì",
+    "it": "lì",
+    "ro": "acolo",
+    "tags": [
+      "loc"
+    ],
+    "rank": 294,
+    "examples": [
+      {
+        "it": "Il bar è lì.",
+        "ro": "Barul este acolo."
+      },
+      {
+        "it": "Aspettami lì.",
+        "ro": "Așteaptă-mă acolo."
+      }
+    ],
+    "note": "«Lì» (cu accent) = acolo; «li» (fără accent) = îi/le (pronume).",
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-dove",
+    "it": "dove",
+    "ro": "unde",
+    "tags": [
+      "loc"
+    ],
+    "rank": 72,
+    "examples": [
+      {
+        "it": "Dove abiti?",
+        "ro": "Unde locuiești?"
+      },
+      {
+        "it": "Dov'è il bagno?",
+        "ro": "Unde este baia?"
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-fuori",
+    "it": "fuori",
+    "ro": "afară",
+    "tags": [
+      "loc"
+    ],
+    "rank": 139,
+    "examples": [
+      {
+        "it": "Fuori piove.",
+        "ro": "Afară plouă."
+      },
+      {
+        "it": "Ti aspetto fuori.",
+        "ro": "Te aștept afară."
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-dentro",
+    "it": "dentro",
+    "ro": "înăuntru",
+    "tags": [
+      "loc"
+    ],
+    "rank": 362,
+    "examples": [
+      {
+        "it": "Vieni dentro!",
+        "ro": "Intră înăuntru!"
+      },
+      {
+        "it": "Che cosa c'è dentro?",
+        "ro": "Ce este înăuntru?"
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-davanti",
+    "it": "davanti",
+    "ro": "în față; în fața",
+    "tags": [
+      "loc"
+    ],
+    "rank": 390,
+    "examples": [
+      {
+        "it": "Ti aspetto davanti al bar.",
+        "ro": "Te aștept în fața barului."
+      },
+      {
+        "it": "Siediti davanti.",
+        "ro": "Stai în față."
+      }
+    ],
+    "note": "«Davanti a» = în fața (cuiva/ceva).",
+    "pos": "adverb"
+  },
+  {
+    "id": "pre-sotto",
+    "it": "sotto",
+    "ro": "sub; jos",
+    "tags": [
+      "loc"
+    ],
+    "rank": 178,
+    "examples": [
+      {
+        "it": "Il gatto è sotto il tavolo.",
+        "ro": "Pisica este sub masă."
+      },
+      {
+        "it": "Il telefono è sotto il libro.",
+        "ro": "Telefonul este sub carte."
+      }
+    ],
+    "pos": "preposition"
+  },
+  {
+    "id": "pre-dietro",
+    "it": "dietro",
+    "ro": "în spatele; în urmă",
+    "tags": [
+      "loc"
+    ],
+    "rank": 386,
+    "examples": [
+      {
+        "it": "Il giardino è dietro la casa.",
+        "ro": "Grădina este în spatele casei."
+      },
+      {
+        "it": "Vieni dietro di me.",
+        "ro": "Vino în urma mea."
+      }
+    ],
+    "pos": "preposition"
+  },
+  {
+    "id": "pre-senza",
+    "it": "senza",
+    "ro": "fără",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 119,
+    "examples": [
+      {
+        "it": "Un caffè senza zucchero.",
+        "ro": "O cafea fără zahăr."
+      },
+      {
+        "it": "Non esco senza ombrello.",
+        "ro": "Nu ies fără umbrelă."
+      }
+    ],
+    "pos": "preposition"
+  },
+  {
+    "id": "pre-tra",
+    "it": "tra",
+    "ro": "între; peste (timp)",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 117,
+    "examples": [
+      {
+        "it": "Il treno parte tra dieci minuti.",
+        "ro": "Trenul pleacă peste zece minute."
+      },
+      {
+        "it": "Il bar è tra la banca e la scuola.",
+        "ro": "Barul este între bancă și școală."
+      }
+    ],
+    "note": "«Tra» și «fra» sunt echivalente.",
+    "pos": "preposition"
+  },
+  {
+    "id": "pre-su",
+    "it": "su",
+    "ro": "pe; sus; despre",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 55,
+    "examples": [
+      {
+        "it": "Il libro è sul tavolo.",
+        "ro": "Cartea este pe masă."
+      },
+      {
+        "it": "Un libro su Roma.",
+        "ro": "O carte despre Roma."
+      }
+    ],
+    "note": "Se unește cu articolul: sul, sulla, sui, sulle.",
+    "pos": "preposition"
+  },
+  {
+    "id": "pre-contro",
+    "it": "contro",
+    "ro": "împotriva",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 200,
+    "examples": [
+      {
+        "it": "Siamo contro la guerra.",
+        "ro": "Suntem împotriva războiului."
+      },
+      {
+        "it": "Gioco contro mio fratello.",
+        "ro": "Joc împotriva fratelui meu."
+      }
+    ],
+    "pos": "preposition"
+  },
+  {
+    "id": "pre-durante",
+    "it": "durante",
+    "ro": "în timpul",
+    "tags": [
+      "timp"
+    ],
+    "rank": 334,
+    "examples": [
+      {
+        "it": "Dormo durante il viaggio.",
+        "ro": "Dorm în timpul călătoriei."
+      },
+      {
+        "it": "Durante l'estate lavoro molto.",
+        "ro": "În timpul verii lucrez mult."
+      }
+    ],
+    "pos": "preposition"
+  },
+  {
+    "id": "pre-fino",
+    "it": "fino",
+    "ro": "până",
+    "tags": [
+      "timp"
+    ],
+    "rank": 181,
+    "examples": [
+      {
+        "it": "Aspetto fino a domani.",
+        "ro": "Aștept până mâine."
+      },
+      {
+        "it": "Lavoro fino alle sei.",
+        "ro": "Lucrez până la șase."
+      }
+    ],
+    "note": "Se folosește aproape mereu ca «fino a».",
+    "pos": "preposition"
+  },
+  {
+    "id": "num-due",
+    "it": "due",
+    "ro": "doi, două",
+    "tags": [
+      "numere"
+    ],
+    "rank": 62,
+    "examples": [
+      {
+        "it": "Due caffè, per favore.",
+        "ro": "Două cafele, vă rog."
+      },
+      {
+        "it": "Ho due fratelli.",
+        "ro": "Am doi frați."
+      }
+    ],
+    "pos": "numeral"
+  },
+  {
+    "id": "num-tre",
+    "it": "tre",
+    "ro": "trei",
+    "tags": [
+      "numere"
+    ],
+    "rank": 147,
+    "examples": [
+      {
+        "it": "Siamo in tre.",
+        "ro": "Suntem trei."
+      },
+      {
+        "it": "Tre più due fa cinque.",
+        "ro": "Trei plus doi fac cinci."
+      }
+    ],
+    "pos": "numeral"
+  },
+  {
+    "id": "num-quattro",
+    "it": "quattro",
+    "ro": "patru",
+    "tags": [
+      "numere"
+    ],
+    "rank": 287,
+    "examples": [
+      {
+        "it": "Mia figlia ha quattro anni.",
+        "ro": "Fiica mea are patru ani."
+      },
+      {
+        "it": "Siamo quattro amici.",
+        "ro": "Suntem patru prieteni."
+      }
+    ],
+    "pos": "numeral"
+  },
+  {
+    "id": "num-cinque",
+    "it": "cinque",
+    "ro": "cinci",
+    "tags": [
+      "numere"
+    ],
+    "rank": 335,
+    "examples": [
+      {
+        "it": "Sono le cinque.",
+        "ro": "Este ora cinci."
+      },
+      {
+        "it": "Ho cinque minuti.",
+        "ro": "Am cinci minute."
+      }
+    ],
+    "pos": "numeral"
+  },
+  {
+    "id": "pr-io",
+    "it": "io",
+    "ro": "eu",
+    "tags": [
+      "persoane"
+    ],
+    "rank": 116,
+    "examples": [
+      {
+        "it": "Io sono Marco.",
+        "ro": "Eu sunt Marco."
+      },
+      {
+        "it": "Anch'io sono stanco.",
+        "ro": "Și eu sunt obosit."
+      }
+    ],
+    "note": "Pronumele subiect se omite de obicei: «Sono stanco» (nu «Io sono stanco») dacă nu vrei să accentuezi.",
+    "pos": "pronoun"
+  },
+  {
+    "id": "pr-tu",
+    "it": "tu",
+    "ro": "tu",
+    "tags": [
+      "persoane"
+    ],
+    "rank": 258,
+    "examples": [
+      {
+        "it": "Tu parli italiano?",
+        "ro": "Tu vorbești italiană?"
+      },
+      {
+        "it": "E tu, come stai?",
+        "ro": "Și tu, ce mai faci?"
+      }
+    ],
+    "pos": "pronoun"
+  },
+  {
+    "id": "pr-lui",
+    "it": "lui",
+    "ro": "el",
+    "tags": [
+      "persoane"
+    ],
+    "rank": 77,
+    "examples": [
+      {
+        "it": "Lui è mio fratello.",
+        "ro": "El este fratele meu."
+      },
+      {
+        "it": "Esco con lui.",
+        "ro": "Ies cu el."
+      }
+    ],
+    "pos": "pronoun"
+  },
+  {
+    "id": "pr-lei",
+    "it": "lei",
+    "ro": "ea; dumneavoastră",
+    "tags": [
+      "persoane"
+    ],
+    "rank": 98,
+    "examples": [
+      {
+        "it": "Lei è la mia amica.",
+        "ro": "Ea este prietena mea."
+      },
+      {
+        "it": "Come si chiama, Lei?",
+        "ro": "Cum vă numiți dumneavoastră?"
+      }
+    ],
+    "note": "Cu majusculă (Lei) este forma de politețe pentru „dumneavoastră” și cere verbul la persoana a III-a singular.",
+    "pos": "pronoun"
+  },
+  {
+    "id": "pr-noi",
+    "it": "noi",
+    "ro": "noi",
+    "tags": [
+      "persoane"
+    ],
+    "rank": 111,
+    "examples": [
+      {
+        "it": "Noi andiamo al mare.",
+        "ro": "Noi mergem la mare."
+      },
+      {
+        "it": "Venite con noi?",
+        "ro": "Veniți cu noi?"
+      }
+    ],
+    "pos": "pronoun"
+  },
+  {
+    "id": "pr-voi",
+    "it": "voi",
+    "ro": "voi",
+    "tags": [
+      "persoane"
+    ],
+    "rank": 297,
+    "examples": [
+      {
+        "it": "Voi parlate italiano?",
+        "ro": "Voi vorbiți italiană?"
+      },
+      {
+        "it": "Questo è per voi.",
+        "ro": "Acesta este pentru voi."
+      }
+    ],
+    "pos": "pronoun"
+  },
+  {
+    "id": "pr-loro",
+    "it": "loro",
+    "ro": "ei, ele; lor",
+    "tags": [
+      "persoane"
+    ],
+    "rank": 76,
+    "examples": [
+      {
+        "it": "Loro abitano a Roma.",
+        "ro": "Ei locuiesc la Roma."
+      },
+      {
+        "it": "Il loro figlio è piccolo.",
+        "ro": "Fiul lor este mic."
+      }
+    ],
+    "note": "Ca posesiv este invariabil: il loro figlio, la loro casa, i loro amici.",
+    "pos": "pronoun"
+  },
+  {
+    "id": "pr-mi",
+    "it": "mi",
+    "ro": "mă; îmi",
+    "tags": [
+      "persoane"
+    ],
+    "rank": 30,
+    "examples": [
+      {
+        "it": "Mi chiamo Ion.",
+        "ro": "Mă numesc Ion."
+      },
+      {
+        "it": "Mi piace il caffè.",
+        "ro": "Îmi place cafeaua."
+      }
+    ],
+    "note": "Pronume atone (fără accent) stă înaintea verbului. Forma accentuată este «me»: vieni con me.",
+    "pos": "pronoun"
+  },
+  {
+    "id": "pr-ti",
+    "it": "ti",
+    "ro": "te; îți",
+    "tags": [
+      "persoane"
+    ],
+    "rank": 85,
+    "examples": [
+      {
+        "it": "Ti chiamo domani.",
+        "ro": "Te sun mâine."
+      },
+      {
+        "it": "Ti piace?",
+        "ro": "Îți place?"
+      }
+    ],
+    "note": "Forma accentuată este «te»: parlo con te.",
+    "pos": "pronoun"
+  },
+  {
+    "id": "pr-ci",
+    "it": "ci",
+    "ro": "ne; acolo",
+    "tags": [
+      "persoane"
+    ],
+    "rank": 32,
+    "examples": [
+      {
+        "it": "Ci vediamo domani.",
+        "ro": "Ne vedem mâine."
+      },
+      {
+        "it": "Ci vado domani.",
+        "ro": "Mă duc acolo mâine."
+      }
+    ],
+    "note": "«Ci» poate fi „ne” (pe noi) sau „acolo”. În «c'è / ci sono» = este / sunt.",
+    "pos": "pronoun"
+  },
+  {
+    "id": "pr-si",
+    "it": "si",
+    "ro": "se",
+    "tags": [
+      "persoane"
+    ],
+    "rank": 13,
+    "examples": [
+      {
+        "it": "Si chiama Anna.",
+        "ro": "Se numește Anna."
+      },
+      {
+        "it": "Qui si parla italiano.",
+        "ro": "Aici se vorbește italiană."
+      }
+    ],
+    "falseFriend": "«si» (fără accent) = se; «sì» (cu accent) = da.",
+    "pos": "pronoun"
+  },
+  {
+    "id": "pr-chi",
+    "it": "chi",
+    "ro": "cine",
+    "tags": [
+      "persoane"
+    ],
+    "rank": 57,
+    "examples": [
+      {
+        "it": "Chi è?",
+        "ro": "Cine este?"
+      },
+      {
+        "it": "Chi parla?",
+        "ro": "Cine vorbește?"
+      }
+    ],
+    "pos": "pronoun"
+  },
+  {
+    "id": "pr-cui",
+    "it": "cui",
+    "ro": "căruia; despre care",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 88,
+    "examples": [
+      {
+        "it": "La persona di cui parlo.",
+        "ro": "Persoana despre care vorbesc."
+      },
+      {
+        "it": "Il ragazzo a cui scrivo.",
+        "ro": "Băiatul căruia îi scriu."
+      }
+    ],
+    "note": "Pronume relativ folosit după prepoziție: di cui, a cui, con cui, per cui.",
+    "pos": "pronoun"
+  },
+  {
+    "id": "pr-qualcosa",
+    "it": "qualcosa",
+    "ro": "ceva",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 133,
+    "examples": [
+      {
+        "it": "Vuoi qualcosa da bere?",
+        "ro": "Vrei ceva de băut?"
+      },
+      {
+        "it": "Ho qualcosa per te.",
+        "ro": "Am ceva pentru tine."
+      }
+    ],
+    "pos": "pronoun"
+  },
+  {
+    "id": "pr-qualcuno",
+    "it": "qualcuno",
+    "ro": "cineva",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 241,
+    "examples": [
+      {
+        "it": "C'è qualcuno?",
+        "ro": "Este cineva?"
+      },
+      {
+        "it": "Conosci qualcuno qui?",
+        "ro": "Cunoști pe cineva aici?"
+      }
+    ],
+    "pos": "pronoun"
+  },
+  {
+    "id": "pr-niente",
+    "it": "niente",
+    "ro": "nimic",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 214,
+    "examples": [
+      {
+        "it": "Non ho niente.",
+        "ro": "Nu am nimic."
+      },
+      {
+        "it": "Niente di nuovo.",
+        "ro": "Nimic nou."
+      }
+    ],
+    "note": "Cu «non» înaintea verbului: non faccio niente = nu fac nimic.",
+    "pos": "pronoun"
+  },
+  {
+    "id": "pr-nessuno",
+    "it": "nessuno",
+    "ro": "nimeni",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 152,
+    "examples": [
+      {
+        "it": "Non c'è nessuno.",
+        "ro": "Nu este nimeni."
+      },
+      {
+        "it": "Nessuno parla.",
+        "ro": "Nimeni nu vorbește."
+      }
+    ],
+    "note": "Dacă stă după verb, cere «non»: non vedo nessuno. Dacă stă înaintea verbului, nu: nessuno parla.",
+    "pos": "pronoun"
+  },
+  {
+    "id": "a-tutto",
+    "it": "tutto",
+    "ro": "tot; toți",
+    "tags": [
+      "cantitate"
+    ],
+    "rank": 22,
+    "examples": [
+      {
+        "it": "Ho mangiato tutto.",
+        "ro": "Am mâncat tot."
+      },
+      {
+        "it": "Tutti i giorni lavoro.",
+        "ro": "În fiecare zi lucrez."
+      }
+    ],
+    "note": "Se acordă: tutta la casa, tutti gli amici. Înaintea substantivului cere articolul: tutto il giorno.",
+    "pos": "adjective",
+    "forms": {
+      "ms": "tutto",
+      "fs": "tutta",
+      "mp": "tutti",
+      "fp": "tutte"
+    }
+  },
+  {
+    "id": "a-questo",
+    "it": "questo",
+    "ro": "acest, acesta",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 14,
+    "examples": [
+      {
+        "it": "Questo libro è mio.",
+        "ro": "Cartea aceasta este a mea."
+      },
+      {
+        "it": "Che cosa è questa?",
+        "ro": "Ce este aceasta?"
+      }
+    ],
+    "note": "Se referă la ce este aproape de tine; «quello» la ce este departe.",
+    "pos": "adjective",
+    "forms": {
+      "ms": "questo",
+      "fs": "questa",
+      "mp": "questi",
+      "fp": "queste"
+    }
+  },
+  {
+    "id": "a-quello",
+    "it": "quello",
+    "ro": "acel, acela",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 23,
+    "examples": [
+      {
+        "it": "Quello è mio fratello.",
+        "ro": "Acela este fratele meu."
+      },
+      {
+        "it": "Voglio quella borsa.",
+        "ro": "Vreau geanta aceea."
+      }
+    ],
+    "note": "Înaintea unui substantiv se schimbă ca articolul: quel libro, quell'amico, quello studente, quella casa, quei libri, quegli amici.",
+    "pos": "adjective",
+    "forms": {
+      "ms": "quello",
+      "fs": "quella",
+      "mp": "quelli",
+      "fp": "quelle"
+    }
+  },
+  {
+    "id": "a-mio",
+    "it": "mio",
+    "ro": "meu",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 34,
+    "examples": [
+      {
+        "it": "Questo è il mio libro.",
+        "ro": "Aceasta este cartea mea."
+      },
+      {
+        "it": "Mia sorella lavora qui.",
+        "ro": "Sora mea lucrează aici."
+      }
+    ],
+    "note": "De obicei cu articol: il mio libro, la mia casa, i miei amici, le mie cose. Fără articol la rude singulare: mia madre, mio padre.",
+    "pos": "adjective",
+    "forms": {
+      "ms": "mio",
+      "fs": "mia",
+      "mp": "miei",
+      "fp": "mie"
+    }
+  },
+  {
+    "id": "a-tuo",
+    "it": "tuo",
+    "ro": "tău",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 78,
+    "examples": [
+      {
+        "it": "Dov'è il tuo telefono?",
+        "ro": "Unde este telefonul tău?"
+      },
+      {
+        "it": "Chi è tuo fratello?",
+        "ro": "Cine este fratele tău?"
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "tuo",
+      "fs": "tua",
+      "mp": "tuoi",
+      "fp": "tue"
+    }
+  },
+  {
+    "id": "a-suo",
+    "it": "suo",
+    "ro": "său; al lui, al ei",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 28,
+    "examples": [
+      {
+        "it": "Questa è la sua casa.",
+        "ro": "Aceasta este casa lui/ei."
+      },
+      {
+        "it": "Suo figlio ha tre anni.",
+        "ro": "Fiul lui/ei are trei ani."
+      }
+    ],
+    "note": "Se acordă cu lucrul posedat, nu cu posesorul: «la sua casa» poate fi a lui sau a ei.",
+    "pos": "adjective",
+    "forms": {
+      "ms": "suo",
+      "fs": "sua",
+      "mp": "suoi",
+      "fp": "sue"
+    }
+  },
+  {
+    "id": "a-nostro",
+    "it": "nostro",
+    "ro": "nostru",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 56,
+    "examples": [
+      {
+        "it": "Questa è la nostra casa.",
+        "ro": "Aceasta este casa noastră."
+      },
+      {
+        "it": "Il nostro amico arriva domani.",
+        "ro": "Prietenul nostru ajunge mâine."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "nostro",
+      "fs": "nostra",
+      "mp": "nostri",
+      "fp": "nostre"
+    }
+  },
+  {
+    "id": "a-vostro",
+    "it": "vostro",
+    "ro": "vostru",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 201,
+    "examples": [
+      {
+        "it": "Dov'è la vostra macchina?",
+        "ro": "Unde este mașina voastră?"
+      },
+      {
+        "it": "Questo è il vostro posto.",
+        "ro": "Acesta este locul vostru."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "vostro",
+      "fs": "vostra",
+      "mp": "vostri",
+      "fp": "vostre"
+    }
+  },
+  {
+    "id": "a-altro",
+    "it": "altro",
+    "ro": "alt, altul",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 38,
+    "examples": [
+      {
+        "it": "Vorrei un altro caffè.",
+        "ro": "Aș vrea încă o cafea."
+      },
+      {
+        "it": "Gli altri sono qui.",
+        "ro": "Ceilalți sunt aici."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "altro",
+      "fs": "altra",
+      "mp": "altri",
+      "fp": "altre"
+    }
+  },
+  {
+    "id": "a-stesso",
+    "it": "stesso",
+    "ro": "același",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 100,
+    "examples": [
+      {
+        "it": "Abbiamo lo stesso nome.",
+        "ro": "Avem același nume."
+      },
+      {
+        "it": "È la stessa cosa.",
+        "ro": "E același lucru."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "stesso",
+      "fs": "stessa",
+      "mp": "stessi",
+      "fp": "stesse"
+    }
+  },
+  {
+    "id": "a-ogni",
+    "it": "ogni",
+    "ro": "fiecare",
+    "tags": [
+      "cantitate"
+    ],
+    "rank": 126,
+    "examples": [
+      {
+        "it": "Ogni giorno lavoro.",
+        "ro": "În fiecare zi lucrez."
+      },
+      {
+        "it": "Ogni persona è diversa.",
+        "ro": "Fiecare persoană este diferită."
+      }
+    ],
+    "note": "Invariabil și mereu cu substantiv la singular: ogni giorno, ogni anno.",
+    "pos": "adjective",
+    "forms": {
+      "ms": "ogni",
+      "fs": "ogni",
+      "mp": "ogni",
+      "fp": "ogni"
+    }
+  },
+  {
+    "id": "a-qualche",
+    "it": "qualche",
+    "ro": "câțiva; vreun",
+    "tags": [
+      "cantitate"
+    ],
+    "rank": 143,
+    "examples": [
+      {
+        "it": "Ho qualche amico a Roma.",
+        "ro": "Am câțiva prieteni la Roma."
+      },
+      {
+        "it": "Aspetta qualche minuto.",
+        "ro": "Așteaptă câteva minute."
+      }
+    ],
+    "note": "Invariabil; substantivul care urmează rămâne la singular: qualche amico (= câțiva prieteni).",
+    "pos": "adjective",
+    "forms": {
+      "ms": "qualche",
+      "fs": "qualche",
+      "mp": "qualche",
+      "fp": "qualche"
+    }
+  },
+  {
+    "id": "a-quale",
+    "it": "quale",
+    "ro": "care; ce fel de",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 132,
+    "examples": [
+      {
+        "it": "Quale libro leggi?",
+        "ro": "Ce carte citești?"
+      },
+      {
+        "it": "Quali sono i tuoi amici?",
+        "ro": "Care sunt prietenii tăi?"
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "quale",
+      "fs": "quale",
+      "mp": "quali",
+      "fp": "quali"
+    }
+  },
+  {
+    "id": "a-quanto",
+    "it": "quanto",
+    "ro": "cât, câtă, câți, câte",
+    "tags": [
+      "cantitate"
+    ],
+    "rank": 75,
+    "examples": [
+      {
+        "it": "Quanti anni hai?",
+        "ro": "Câți ani ai?"
+      },
+      {
+        "it": "Quanto tempo hai?",
+        "ro": "Cât timp ai?"
+      }
+    ],
+    "note": "Ca adverb este invariabil: Quanto costa? = Cât costă?",
+    "pos": "adjective",
+    "forms": {
+      "ms": "quanto",
+      "fs": "quanta",
+      "mp": "quanti",
+      "fp": "quante"
+    }
+  },
+  {
+    "id": "a-solo",
+    "it": "solo",
+    "ro": "singur; doar",
+    "tags": [
+      "gramatică"
+    ],
+    "rank": 36,
+    "examples": [
+      {
+        "it": "Sono solo a casa.",
+        "ro": "Sunt singur acasă."
+      },
+      {
+        "it": "Vive sola.",
+        "ro": "Trăiește singură."
+      }
+    ],
+    "note": "Ca adverb (invariabil) = doar: Voglio solo un caffè.",
+    "pos": "adjective",
+    "forms": {
+      "ms": "solo",
+      "fs": "sola",
+      "mp": "soli",
+      "fp": "sole"
+    }
+  }
+]
