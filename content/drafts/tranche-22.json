@@ -1,0 +1,1622 @@
+[
+  {
+    "it": "vantaggio",
+    "pos": "noun",
+    "ro": "avantaj",
+    "tags": [
+      "generale"
+    ],
+    "examples": [
+      {
+        "it": "Ha un vantaggio sugli altri.",
+        "ro": "Are un avantaj față de ceilalți."
+      },
+      {
+        "it": "Quali sono i vantaggi del treno?",
+        "ro": "Care sunt avantajele trenului?"
+      }
+    ]
+  },
+  {
+    "it": "scattare",
+    "pos": "verb",
+    "ro": "a se declanșa; a face (o fotografie)",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Alle otto scatta l'allarme.",
+        "ro": "La opt se declanșează alarma."
+      },
+      {
+        "it": "Scatto una foto del tramonto.",
+        "ro": "Fac o fotografie apusului."
+      }
+    ],
+    "auxiliary": "both",
+    "note": "«Scattare una foto» = a face o fotografie."
+  },
+  {
+    "it": "materiale",
+    "pos": "noun",
+    "ro": "material",
+    "tags": [
+      "obiecte"
+    ],
+    "examples": [
+      {
+        "it": "Compro il materiale per la scuola.",
+        "ro": "Cumpăr materialul pentru școală."
+      },
+      {
+        "it": "Il materiale è molto resistente.",
+        "ro": "Materialul este foarte rezistent."
+      }
+    ]
+  },
+  {
+    "it": "risorsa",
+    "pos": "noun",
+    "ro": "resursă",
+    "tags": [
+      "generale"
+    ],
+    "examples": [
+      {
+        "it": "L'acqua è una risorsa preziosa.",
+        "ro": "Apa este o resursă prețioasă."
+      },
+      {
+        "it": "Cerchiamo nuove risorse per il progetto.",
+        "ro": "Căutăm resurse noi pentru proiect."
+      }
+    ]
+  },
+  {
+    "it": "ascolto",
+    "pos": "noun",
+    "ro": "ascultare",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "L'ascolto della musica mi rilassa.",
+        "ro": "Ascultarea muzicii mă relaxează."
+      },
+      {
+        "it": "Parla pure, sono in ascolto.",
+        "ro": "Vorbește, te ascult."
+      }
+    ],
+    "uncountable": true
+  },
+  {
+    "it": "protezione",
+    "pos": "noun",
+    "ro": "protecție",
+    "tags": [
+      "generale"
+    ],
+    "examples": [
+      {
+        "it": "Questa crema dà una buona protezione.",
+        "ro": "Crema aceasta oferă o protecție bună."
+      },
+      {
+        "it": "La protezione dei dati è importante.",
+        "ro": "Protecția datelor este importantă."
+      }
+    ]
+  },
+  {
+    "it": "basarsi",
+    "pos": "verb",
+    "ro": "a se baza",
+    "tags": [
+      "gândire"
+    ],
+    "examples": [
+      {
+        "it": "Mi baso sui fatti.",
+        "ro": "Mă bazez pe fapte."
+      },
+      {
+        "it": "Il film si basa su una storia vera.",
+        "ro": "Filmul se bazează pe o poveste adevărată."
+      }
+    ]
+  },
+  {
+    "it": "corrente",
+    "pos": "noun",
+    "ro": "curent (electric, de apă)",
+    "tags": [
+      "natură"
+    ],
+    "examples": [
+      {
+        "it": "La corrente è saltata.",
+        "ro": "A sărit curentul."
+      },
+      {
+        "it": "Nuoto contro corrente.",
+        "ro": "Înot împotriva curentului."
+      }
+    ]
+  },
+  {
+    "it": "possedere",
+    "pos": "verb",
+    "ro": "a poseda; a deține",
+    "tags": [
+      "generale"
+    ],
+    "examples": [
+      {
+        "it": "Possiede due case al mare.",
+        "ro": "Deține două case la mare."
+      },
+      {
+        "it": "Non possiedo una macchina.",
+        "ro": "Nu am mașină."
+      }
+    ]
+  },
+  {
+    "it": "centinaio",
+    "pos": "noun",
+    "ro": "aproximativ o sută",
+    "tags": [
+      "cantitate"
+    ],
+    "examples": [
+      {
+        "it": "Ci sono un centinaio di persone.",
+        "ro": "Sunt vreo sută de persoane."
+      },
+      {
+        "it": "Costa un centinaio di euro.",
+        "ro": "Costă vreo sută de euro."
+      }
+    ],
+    "plural": "centinaia",
+    "pluralGender": "f"
+  },
+  {
+    "it": "rilasciare",
+    "pos": "verb",
+    "ro": "a elibera (un document)",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "Il comune rilascia il documento.",
+        "ro": "Primăria eliberează documentul."
+      },
+      {
+        "it": "Dove rilasciano il passaporto?",
+        "ro": "Unde se eliberează pașaportul?"
+      }
+    ]
+  },
+  {
+    "it": "previsto",
+    "pos": "adjective",
+    "ro": "prevăzut; estimat",
+    "tags": [
+      "gândire"
+    ],
+    "examples": [
+      {
+        "it": "Il treno arriva all'ora prevista.",
+        "ro": "Trenul ajunge la ora prevăzută."
+      },
+      {
+        "it": "Il prezzo previsto è cento euro.",
+        "ro": "Prețul estimat este o sută de euro."
+      }
+    ]
+  },
+  {
+    "it": "giudicare",
+    "pos": "verb",
+    "ro": "a judeca; a aprecia",
+    "tags": [
+      "gândire"
+    ],
+    "examples": [
+      {
+        "it": "Non giudicare dall'aspetto.",
+        "ro": "Nu judeca după aspect."
+      },
+      {
+        "it": "Chi giudica il concorso?",
+        "ro": "Cine jurizează concursul?"
+      }
+    ]
+  },
+  {
+    "it": "scommettere",
+    "pos": "verb",
+    "ro": "a paria",
+    "tags": [
+      "timp liber"
+    ],
+    "examples": [
+      {
+        "it": "Scommetto che vince lui.",
+        "ro": "Pariez că el câștigă."
+      },
+      {
+        "it": "Non scommetto mai soldi.",
+        "ro": "Nu pariez niciodată bani."
+      }
+    ]
+  },
+  {
+    "it": "assegnare",
+    "pos": "verb",
+    "ro": "a atribui; a repartiza",
+    "tags": [
+      "muncă"
+    ],
+    "examples": [
+      {
+        "it": "Il professore assegna i compiti.",
+        "ro": "Profesorul dă temele."
+      },
+      {
+        "it": "Mi hanno assegnato una stanza.",
+        "ro": "Mi-au repartizat o cameră."
+      }
+    ]
+  },
+  {
+    "it": "professionista",
+    "pos": "noun",
+    "ro": "profesionist",
+    "tags": [
+      "profesii"
+    ],
+    "examples": [
+      {
+        "it": "Mio zio è un professionista.",
+        "ro": "Unchiul meu este un profesionist."
+      },
+      {
+        "it": "Cerco un professionista per il lavoro.",
+        "ro": "Caut un profesionist pentru lucrare."
+      }
+    ],
+    "gender": "m",
+    "note": "Feminin: la professionista (plural: le professioniste)."
+  },
+  {
+    "it": "abbassare",
+    "pos": "verb",
+    "ro": "a coborî; a da mai încet",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Abbassa la voce, per favore.",
+        "ro": "Vorbește mai încet, te rog."
+      },
+      {
+        "it": "Abbasso il volume della radio.",
+        "ro": "Dau radioul mai încet."
+      }
+    ]
+  },
+  {
+    "it": "credito",
+    "pos": "noun",
+    "ro": "credit",
+    "tags": [
+      "cumpărături"
+    ],
+    "examples": [
+      {
+        "it": "Non ho più credito sul telefono.",
+        "ro": "Nu mai am credit pe telefon."
+      },
+      {
+        "it": "Chiedo un credito alla banca.",
+        "ro": "Cer un credit la bancă."
+      }
+    ]
+  },
+  {
+    "it": "visione",
+    "pos": "noun",
+    "ro": "viziune; vizionare",
+    "tags": [
+      "gândire"
+    ],
+    "examples": [
+      {
+        "it": "Ho una visione chiara del problema.",
+        "ro": "Am o viziune clară a problemei."
+      },
+      {
+        "it": "La visione del film dura due ore.",
+        "ro": "Vizionarea filmului durează două ore."
+      }
+    ]
+  },
+  {
+    "it": "investire",
+    "pos": "verb",
+    "ro": "a investi",
+    "tags": [
+      "muncă"
+    ],
+    "examples": [
+      {
+        "it": "Investo i soldi in una casa.",
+        "ro": "Investesc banii într-o casă."
+      },
+      {
+        "it": "Vogliamo investire nel futuro.",
+        "ro": "Vrem să investim în viitor."
+      }
+    ]
+  },
+  {
+    "it": "vicenda",
+    "pos": "noun",
+    "ro": "întâmplare; poveste",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "È una vicenda triste.",
+        "ro": "Este o poveste tristă."
+      },
+      {
+        "it": "Racconto la vicenda a mio padre.",
+        "ro": "Îi povestesc întâmplarea tatălui meu."
+      }
+    ]
+  },
+  {
+    "it": "punta",
+    "pos": "noun",
+    "ro": "vârf",
+    "tags": [
+      "descriere"
+    ],
+    "examples": [
+      {
+        "it": "La punta della matita è rotta.",
+        "ro": "Vârful creionului s-a rupt."
+      },
+      {
+        "it": "Cammino in punta di piedi.",
+        "ro": "Merg în vârful picioarelor."
+      }
+    ]
+  },
+  {
+    "it": "percorrere",
+    "pos": "verb",
+    "ro": "a parcurge",
+    "tags": [
+      "mișcare"
+    ],
+    "examples": [
+      {
+        "it": "Percorro dieci chilometri al giorno.",
+        "ro": "Parcurg zece kilometri pe zi."
+      },
+      {
+        "it": "Il treno percorre la valle.",
+        "ro": "Trenul străbate valea."
+      }
+    ]
+  },
+  {
+    "it": "pari",
+    "pos": "adjective",
+    "ro": "egal; par",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "Le due squadre sono pari.",
+        "ro": "Cele două echipe sunt la egalitate."
+      },
+      {
+        "it": "Quattro è un numero pari.",
+        "ro": "Patru este un număr par."
+      }
+    ],
+    "forms": [
+      "pari",
+      "pari",
+      "pari",
+      "pari"
+    ]
+  },
+  {
+    "it": "mostro",
+    "pos": "noun",
+    "ro": "monstru",
+    "tags": [
+      "generale"
+    ],
+    "examples": [
+      {
+        "it": "Nel film c'è un mostro.",
+        "ro": "În film e un monstru."
+      },
+      {
+        "it": "Il bambino ha paura del mostro.",
+        "ro": "Copilului îi este frică de monstru."
+      }
+    ]
+  },
+  {
+    "it": "paga",
+    "pos": "noun",
+    "ro": "salariu; leafă",
+    "tags": [
+      "muncă"
+    ],
+    "examples": [
+      {
+        "it": "La paga è buona.",
+        "ro": "Salariul este bun."
+      },
+      {
+        "it": "Prendo la paga ogni mese.",
+        "ro": "Primesc leafa în fiecare lună."
+      }
+    ]
+  },
+  {
+    "it": "pilota",
+    "pos": "noun",
+    "ro": "pilot",
+    "tags": [
+      "profesii"
+    ],
+    "examples": [
+      {
+        "it": "Il pilota annuncia il volo.",
+        "ro": "Pilotul anunță zborul."
+      },
+      {
+        "it": "Mio padre è pilota.",
+        "ro": "Tatăl meu este pilot."
+      }
+    ],
+    "gender": "m",
+    "note": "Feminin: la pilota."
+  },
+  {
+    "it": "miliardo",
+    "pos": "numeral",
+    "ro": "miliard",
+    "tags": [
+      "numere"
+    ],
+    "examples": [
+      {
+        "it": "Costa un miliardo di euro.",
+        "ro": "Costă un miliard de euro."
+      },
+      {
+        "it": "La Terra ha otto miliardi di abitanti.",
+        "ro": "Pământul are opt miliarde de locuitori."
+      }
+    ]
+  },
+  {
+    "it": "socio",
+    "pos": "noun",
+    "ro": "membru; asociat",
+    "tags": [
+      "muncă"
+    ],
+    "examples": [
+      {
+        "it": "Sono socio di un club.",
+        "ro": "Sunt membru al unui club."
+      },
+      {
+        "it": "Il mio socio lavora in Spagna.",
+        "ro": "Asociatul meu lucrează în Spania."
+      }
+    ]
+  },
+  {
+    "it": "cerchio",
+    "pos": "noun",
+    "ro": "cerc",
+    "tags": [
+      "descriere"
+    ],
+    "examples": [
+      {
+        "it": "Disegno un cerchio.",
+        "ro": "Desenez un cerc."
+      },
+      {
+        "it": "Ci mettiamo in cerchio.",
+        "ro": "Ne așezăm în cerc."
+      }
+    ]
+  },
+  {
+    "it": "rientrare",
+    "pos": "verb",
+    "ro": "a se întoarce acasă; a reveni",
+    "tags": [
+      "mișcare"
+    ],
+    "examples": [
+      {
+        "it": "Rientro a casa alle sei.",
+        "ro": "Mă întorc acasă la șase."
+      },
+      {
+        "it": "Quando rientri dal lavoro?",
+        "ro": "Când te întorci de la serviciu?"
+      }
+    ]
+  },
+  {
+    "it": "compiere",
+    "pos": "verb",
+    "ro": "a împlini; a efectua",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Domani compio trent'anni.",
+        "ro": "Mâine împlinesc treizeci de ani."
+      },
+      {
+        "it": "Compiamo un grande passo.",
+        "ro": "Facem un pas mare."
+      }
+    ]
+  },
+  {
+    "it": "funerale",
+    "pos": "noun",
+    "ro": "înmormântare",
+    "tags": [
+      "social"
+    ],
+    "examples": [
+      {
+        "it": "Il funerale è domani.",
+        "ro": "Înmormântarea este mâine."
+      },
+      {
+        "it": "Vado al funerale di un amico.",
+        "ro": "Merg la înmormântarea unui prieten."
+      }
+    ]
+  },
+  {
+    "it": "terapia",
+    "pos": "noun",
+    "ro": "terapie",
+    "tags": [
+      "sănătate"
+    ],
+    "examples": [
+      {
+        "it": "La terapia dura sei mesi.",
+        "ro": "Terapia durează șase luni."
+      },
+      {
+        "it": "Segue una terapia nuova.",
+        "ro": "Urmează o terapie nouă."
+      }
+    ]
+  },
+  {
+    "it": "frattempo",
+    "pos": "noun",
+    "ro": "interval; între timp",
+    "tags": [
+      "timp"
+    ],
+    "examples": [
+      {
+        "it": "Nel frattempo preparo il caffè.",
+        "ro": "Între timp fac cafeaua."
+      },
+      {
+        "it": "Nel frattempo aspettiamo.",
+        "ro": "Între timp așteptăm."
+      }
+    ],
+    "uncountable": true,
+    "note": "Se folosește aproape mereu în «nel frattempo»."
+  },
+  {
+    "it": "settore",
+    "pos": "noun",
+    "ro": "sector; domeniu",
+    "tags": [
+      "muncă"
+    ],
+    "examples": [
+      {
+        "it": "Lavora nel settore turistico.",
+        "ro": "Lucrează în sectorul turistic."
+      },
+      {
+        "it": "Questo settore cresce.",
+        "ro": "Acest sector crește."
+      }
+    ]
+  },
+  {
+    "it": "profilo",
+    "pos": "noun",
+    "ro": "profil",
+    "tags": [
+      "generale"
+    ],
+    "examples": [
+      {
+        "it": "Aggiorno il mio profilo online.",
+        "ro": "Îmi actualizez profilul online."
+      },
+      {
+        "it": "Disegno il profilo di una donna.",
+        "ro": "Desenez profilul unei femei."
+      }
+    ]
+  },
+  {
+    "it": "amante",
+    "pos": "noun",
+    "ro": "iubitor; amant",
+    "tags": [
+      "persoane"
+    ],
+    "examples": [
+      {
+        "it": "Sono un amante della musica.",
+        "ro": "Sunt un iubitor de muzică."
+      },
+      {
+        "it": "È un'amante dei gatti.",
+        "ro": "E o iubitoare de pisici."
+      }
+    ],
+    "gender": "m",
+    "note": "Feminin: l'amante. Pentru relații sentimentale înseamnă «amant, amantă»."
+  },
+  {
+    "it": "carica",
+    "pos": "noun",
+    "ro": "funcție; încărcare",
+    "tags": [
+      "muncă"
+    ],
+    "examples": [
+      {
+        "it": "Ha una carica importante in azienda.",
+        "ro": "Are o funcție importantă în firmă."
+      },
+      {
+        "it": "La carica della batteria è bassa.",
+        "ro": "Încărcarea bateriei este scăzută."
+      }
+    ]
+  },
+  {
+    "it": "copertura",
+    "pos": "noun",
+    "ro": "acoperire",
+    "tags": [
+      "generale"
+    ],
+    "examples": [
+      {
+        "it": "Non c'è copertura qui.",
+        "ro": "Aici nu e acoperire."
+      },
+      {
+        "it": "La copertura del tetto è nuova.",
+        "ro": "Învelișul acoperișului este nou."
+      }
+    ]
+  },
+  {
+    "it": "calma",
+    "pos": "noun",
+    "ro": "calm; liniște",
+    "tags": [
+      "stare"
+    ],
+    "examples": [
+      {
+        "it": "Mantieni la calma.",
+        "ro": "Păstrează-ți calmul."
+      },
+      {
+        "it": "In casa c'è molta calma.",
+        "ro": "În casă e mare liniște."
+      }
+    ],
+    "uncountable": true
+  },
+  {
+    "it": "mattino",
+    "pos": "noun",
+    "ro": "dimineață",
+    "tags": [
+      "timp"
+    ],
+    "examples": [
+      {
+        "it": "Mi sveglio presto al mattino.",
+        "ro": "Mă trezesc devreme dimineața."
+      },
+      {
+        "it": "Il mattino è il mio momento preferito.",
+        "ro": "Dimineața este momentul meu preferat."
+      }
+    ]
+  },
+  {
+    "it": "terreno",
+    "pos": "noun",
+    "ro": "teren; pământ",
+    "tags": [
+      "natură"
+    ],
+    "examples": [
+      {
+        "it": "Compriamo un terreno in campagna.",
+        "ro": "Cumpărăm un teren la țară."
+      },
+      {
+        "it": "Il terreno è bagnato.",
+        "ro": "Pământul este ud."
+      }
+    ]
+  },
+  {
+    "it": "trattenere",
+    "pos": "verb",
+    "ro": "a ține; a reține",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Trattengo il fiato.",
+        "ro": "Îmi țin respirația."
+      },
+      {
+        "it": "Non riesco a trattenere le lacrime.",
+        "ro": "Nu pot opri lacrimile."
+      }
+    ]
+  },
+  {
+    "it": "comunicazione",
+    "pos": "noun",
+    "ro": "comunicare; comunicat",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "La comunicazione è importante.",
+        "ro": "Comunicarea este importantă."
+      },
+      {
+        "it": "Ho ricevuto una comunicazione dall'ufficio.",
+        "ro": "Am primit un comunicat de la birou."
+      }
+    ]
+  },
+  {
+    "it": "territorio",
+    "pos": "noun",
+    "ro": "teritoriu; zonă",
+    "tags": [
+      "loc"
+    ],
+    "examples": [
+      {
+        "it": "Il territorio è montuoso.",
+        "ro": "Teritoriul este muntos."
+      },
+      {
+        "it": "Conosco bene il territorio.",
+        "ro": "Cunosc bine zona."
+      }
+    ]
+  },
+  {
+    "it": "ghiaccio",
+    "pos": "noun",
+    "ro": "gheață",
+    "tags": [
+      "natură"
+    ],
+    "examples": [
+      {
+        "it": "Metto il ghiaccio nel bicchiere.",
+        "ro": "Pun gheață în pahar."
+      },
+      {
+        "it": "Il ghiaccio è scivoloso.",
+        "ro": "Gheața este alunecoasă."
+      }
+    ],
+    "uncountable": true
+  },
+  {
+    "it": "soggetto",
+    "pos": "noun",
+    "ro": "subiect",
+    "tags": [
+      "gramatică"
+    ],
+    "examples": [
+      {
+        "it": "Il soggetto della frase è «io».",
+        "ro": "Subiectul propoziției este «io»."
+      },
+      {
+        "it": "Parliamo di un soggetto interessante.",
+        "ro": "Vorbim despre un subiect interesant."
+      }
+    ]
+  },
+  {
+    "it": "salvo",
+    "pos": "preposition",
+    "ro": "cu excepția",
+    "tags": [
+      "gramatică"
+    ],
+    "examples": [
+      {
+        "it": "Siamo aperti tutti i giorni, salvo la domenica.",
+        "ro": "Suntem deschiși zilnic, cu excepția duminicii."
+      },
+      {
+        "it": "Arrivo domani, salvo imprevisti.",
+        "ro": "Ajung mâine, dacă nu apar neprevăzute."
+      }
+    ]
+  },
+  {
+    "it": "nudo",
+    "pos": "adjective",
+    "ro": "gol; dezvelit",
+    "tags": [
+      "descriere"
+    ],
+    "examples": [
+      {
+        "it": "Il bambino cammina a piedi nudi.",
+        "ro": "Copilul merge desculț."
+      },
+      {
+        "it": "Il muro è nudo.",
+        "ro": "Peretele este gol."
+      }
+    ]
+  },
+  {
+    "it": "sfuggire",
+    "pos": "verb",
+    "ro": "a scăpa; a evita",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Non mi sfugge nulla.",
+        "ro": "Nu-mi scapă nimic."
+      },
+      {
+        "it": "Il nome mi sfugge.",
+        "ro": "Nu-mi vine numele."
+      }
+    ]
+  },
+  {
+    "it": "figura",
+    "pos": "noun",
+    "ro": "figură; siluetă",
+    "tags": [
+      "generale"
+    ],
+    "examples": [
+      {
+        "it": "Una figura alta entra nella stanza.",
+        "ro": "O siluetă înaltă intră în cameră."
+      },
+      {
+        "it": "Ho fatto una brutta figura.",
+        "ro": "Am făcut o impresie proastă."
+      }
+    ]
+  },
+  {
+    "it": "trucco",
+    "pos": "noun",
+    "ro": "machiaj; truc",
+    "tags": [
+      "generale"
+    ],
+    "examples": [
+      {
+        "it": "Il trucco è molto leggero.",
+        "ro": "Machiajul este foarte ușor."
+      },
+      {
+        "it": "Conosco un trucco per ricordare.",
+        "ro": "Cunosc un truc ca să țin minte."
+      }
+    ]
+  },
+  {
+    "it": "ripresa",
+    "pos": "noun",
+    "ro": "reluare; filmare",
+    "tags": [
+      "generale"
+    ],
+    "examples": [
+      {
+        "it": "La ripresa delle lezioni è lunedì.",
+        "ro": "Reluarea cursurilor este luni."
+      },
+      {
+        "it": "La ripresa del film è bellissima.",
+        "ro": "Filmarea este foarte frumoasă."
+      }
+    ]
+  },
+  {
+    "it": "urlare",
+    "pos": "verb",
+    "ro": "a urla",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "Non urlare!",
+        "ro": "Nu urla!"
+      },
+      {
+        "it": "I bambini urlano di gioia.",
+        "ro": "Copiii urlă de bucurie."
+      }
+    ]
+  },
+  {
+    "it": "velocemente",
+    "pos": "adverb",
+    "ro": "repede",
+    "tags": [
+      "mod"
+    ],
+    "examples": [
+      {
+        "it": "Cammina velocemente.",
+        "ro": "Merge repede."
+      },
+      {
+        "it": "Rispondi velocemente alla mail.",
+        "ro": "Răspunde repede la e-mail."
+      }
+    ]
+  },
+  {
+    "it": "presa",
+    "pos": "noun",
+    "ro": "priză; strângere",
+    "tags": [
+      "casă"
+    ],
+    "examples": [
+      {
+        "it": "La presa elettrica è rotta.",
+        "ro": "Priza electrică este stricată."
+      },
+      {
+        "it": "Ha una presa molto forte.",
+        "ro": "Are o strânsoare foarte puternică."
+      }
+    ]
+  },
+  {
+    "it": "lamentarsi",
+    "pos": "verb",
+    "ro": "a se plânge",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "Si lamenta sempre del tempo.",
+        "ro": "Se plânge mereu de vreme."
+      },
+      {
+        "it": "Non mi lamento.",
+        "ro": "Nu mă plâng."
+      }
+    ]
+  },
+  {
+    "it": "concedere",
+    "pos": "verb",
+    "ro": "a acorda; a permite",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "Mi concedi un minuto?",
+        "ro": "Îmi acorzi un minut?"
+      },
+      {
+        "it": "Il capo concede le ferie.",
+        "ro": "Șeful acordă concediul."
+      }
+    ]
+  },
+  {
+    "it": "allarme",
+    "pos": "noun",
+    "ro": "alarmă",
+    "tags": [
+      "urgențe"
+    ],
+    "examples": [
+      {
+        "it": "L'allarme suona alle sette.",
+        "ro": "Alarma sună la șapte."
+      },
+      {
+        "it": "È scattato l'allarme.",
+        "ro": "A pornit alarma."
+      }
+    ]
+  },
+  {
+    "it": "fiamma",
+    "pos": "noun",
+    "ro": "flacără",
+    "tags": [
+      "natură"
+    ],
+    "examples": [
+      {
+        "it": "La fiamma è alta.",
+        "ro": "Flacăra este mare."
+      },
+      {
+        "it": "Cuocio a fiamma bassa.",
+        "ro": "Gătesc la foc mic."
+      }
+    ]
+  },
+  {
+    "it": "dipendente",
+    "pos": "noun",
+    "ro": "angajat",
+    "tags": [
+      "muncă"
+    ],
+    "examples": [
+      {
+        "it": "I dipendenti lavorano otto ore.",
+        "ro": "Angajații lucrează opt ore."
+      },
+      {
+        "it": "Sono un dipendente dell'azienda.",
+        "ro": "Sunt angajat al firmei."
+      }
+    ],
+    "gender": "m",
+    "note": "Feminin: la dipendente."
+  },
+  {
+    "it": "consegna",
+    "pos": "noun",
+    "ro": "livrare; predare",
+    "tags": [
+      "cumpărături"
+    ],
+    "examples": [
+      {
+        "it": "La consegna è domani.",
+        "ro": "Livrarea este mâine."
+      },
+      {
+        "it": "La consegna delle chiavi è alle dieci.",
+        "ro": "Predarea cheilor este la zece."
+      }
+    ]
+  },
+  {
+    "it": "eseguire",
+    "pos": "verb",
+    "ro": "a executa; a efectua",
+    "tags": [
+      "muncă"
+    ],
+    "examples": [
+      {
+        "it": "Eseguo l'ordine.",
+        "ro": "Execut comanda."
+      },
+      {
+        "it": "Il musicista esegue un pezzo.",
+        "ro": "Muzicianul execută o piesă."
+      }
+    ]
+  },
+  {
+    "it": "palco",
+    "pos": "noun",
+    "ro": "scenă; loggie",
+    "tags": [
+      "timp liber"
+    ],
+    "examples": [
+      {
+        "it": "Il cantante sale sul palco.",
+        "ro": "Cântărețul urcă pe scenă."
+      },
+      {
+        "it": "Il palco è molto alto.",
+        "ro": "Scena este foarte înaltă."
+      }
+    ]
+  },
+  {
+    "it": "sezione",
+    "pos": "noun",
+    "ro": "secțiune",
+    "tags": [
+      "generale"
+    ],
+    "examples": [
+      {
+        "it": "Leggo la sezione sport.",
+        "ro": "Citesc secțiunea de sport."
+      },
+      {
+        "it": "La sezione è chiusa.",
+        "ro": "Secțiunea este închisă."
+      }
+    ]
+  },
+  {
+    "it": "nascosto",
+    "pos": "adjective",
+    "ro": "ascuns",
+    "tags": [
+      "descriere"
+    ],
+    "examples": [
+      {
+        "it": "Il tesoro è nascosto.",
+        "ro": "Comoara este ascunsă."
+      },
+      {
+        "it": "Ha un talento nascosto.",
+        "ro": "Are un talent ascuns."
+      }
+    ]
+  },
+  {
+    "it": "reparto",
+    "pos": "noun",
+    "ro": "secție; raion",
+    "tags": [
+      "loc"
+    ],
+    "examples": [
+      {
+        "it": "Il reparto di pediatria è al terzo piano.",
+        "ro": "Secția de pediatrie e la etajul trei."
+      },
+      {
+        "it": "Cerco il reparto scarpe.",
+        "ro": "Caut raionul de încălțăminte."
+      }
+    ]
+  },
+  {
+    "it": "torto",
+    "pos": "noun",
+    "ro": "greșeală; nedreptate",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "Hai torto.",
+        "ro": "Greșești."
+      },
+      {
+        "it": "Ho torto o ragione?",
+        "ro": "Greșesc sau am dreptate?"
+      }
+    ],
+    "uncountable": true,
+    "note": "«Avere torto» = a greși; «avere ragione» = a avea dreptate."
+  },
+  {
+    "it": "odio",
+    "pos": "noun",
+    "ro": "ură",
+    "tags": [
+      "sentimente"
+    ],
+    "examples": [
+      {
+        "it": "L'odio non risolve niente.",
+        "ro": "Ura nu rezolvă nimic."
+      },
+      {
+        "it": "Provo odio per le bugie.",
+        "ro": "Simt ură față de minciuni."
+      }
+    ],
+    "uncountable": true
+  },
+  {
+    "it": "ignorare",
+    "pos": "verb",
+    "ro": "a ignora",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "Ignoro il messaggio.",
+        "ro": "Ignor mesajul."
+      },
+      {
+        "it": "Non puoi ignorare il problema.",
+        "ro": "Nu poți ignora problema."
+      }
+    ]
+  },
+  {
+    "it": "proseguire",
+    "pos": "verb",
+    "ro": "a continua; a merge mai departe",
+    "tags": [
+      "mișcare"
+    ],
+    "examples": [
+      {
+        "it": "Proseguiamo dritto.",
+        "ro": "Mergem înainte."
+      },
+      {
+        "it": "Il lavoro prosegue bene.",
+        "ro": "Munca continuă bine."
+      }
+    ],
+    "auxiliary": "both"
+  },
+  {
+    "it": "fallire",
+    "pos": "verb",
+    "ro": "a eșua; a da faliment",
+    "tags": [
+      "muncă"
+    ],
+    "examples": [
+      {
+        "it": "Il piano è fallito.",
+        "ro": "Planul a eșuat."
+      },
+      {
+        "it": "L'azienda ha fallito.",
+        "ro": "Firma a dat faliment."
+      }
+    ],
+    "auxiliary": "both"
+  },
+  {
+    "it": "tecnico",
+    "pos": "adjective",
+    "ro": "tehnic",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "Ho un problema tecnico.",
+        "ro": "Am o problemă tehnică."
+      },
+      {
+        "it": "Il personale tecnico arriva domani.",
+        "ro": "Personalul tehnic ajunge mâine."
+      }
+    ],
+    "forms": [
+      "tecnico",
+      "tecnica",
+      "tecnici",
+      "tecniche"
+    ]
+  },
+  {
+    "it": "dispositivo",
+    "pos": "noun",
+    "ro": "dispozitiv",
+    "tags": [
+      "obiecte"
+    ],
+    "examples": [
+      {
+        "it": "Il dispositivo non funziona.",
+        "ro": "Dispozitivul nu funcționează."
+      },
+      {
+        "it": "Compro un dispositivo nuovo.",
+        "ro": "Cumpăr un dispozitiv nou."
+      }
+    ]
+  },
+  {
+    "it": "attirare",
+    "pos": "verb",
+    "ro": "a atrage",
+    "tags": [
+      "sentimente"
+    ],
+    "examples": [
+      {
+        "it": "Il profumo attira le persone.",
+        "ro": "Parfumul atrage oamenii."
+      },
+      {
+        "it": "Il museo attira molti visitatori.",
+        "ro": "Muzeul atrage mulți vizitatori."
+      }
+    ]
+  },
+  {
+    "it": "disposizione",
+    "pos": "noun",
+    "ro": "dispoziție; aranjare",
+    "tags": [
+      "generale"
+    ],
+    "examples": [
+      {
+        "it": "Sono a tua disposizione.",
+        "ro": "Sunt la dispoziția ta."
+      },
+      {
+        "it": "La disposizione dei mobili è comoda.",
+        "ro": "Aranjarea mobilei este comodă."
+      }
+    ]
+  },
+  {
+    "it": "banda",
+    "pos": "noun",
+    "ro": "bandă; fanfară",
+    "tags": [
+      "timp liber"
+    ],
+    "examples": [
+      {
+        "it": "Nella banda suono la tromba.",
+        "ro": "În fanfară cânt la trompetă."
+      },
+      {
+        "it": "Sentiamo la banda per la strada.",
+        "ro": "Auzim fanfara pe stradă."
+      }
+    ]
+  },
+  {
+    "it": "scritta",
+    "pos": "noun",
+    "ro": "inscripție",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "C'è una scritta sul muro.",
+        "ro": "E o inscripție pe zid."
+      },
+      {
+        "it": "La scritta è in rosso.",
+        "ro": "Inscripția este roșie."
+      }
+    ]
+  },
+  {
+    "it": "dirigere",
+    "pos": "verb",
+    "ro": "a conduce; a dirija",
+    "tags": [
+      "muncă"
+    ],
+    "examples": [
+      {
+        "it": "Dirigo un piccolo team.",
+        "ro": "Conduc o echipă mică."
+      },
+      {
+        "it": "Il maestro dirige l'orchestra.",
+        "ro": "Dirijorul conduce orchestra."
+      }
+    ]
+  },
+  {
+    "it": "trascinare",
+    "pos": "verb",
+    "ro": "a târî",
+    "tags": [
+      "mișcare"
+    ],
+    "examples": [
+      {
+        "it": "Trascino la valigia.",
+        "ro": "Târăsc valiza."
+      },
+      {
+        "it": "Il cane trascina il bastone.",
+        "ro": "Câinele târăște bățul."
+      }
+    ]
+  },
+  {
+    "it": "assistente",
+    "pos": "noun",
+    "ro": "asistent",
+    "tags": [
+      "profesii"
+    ],
+    "examples": [
+      {
+        "it": "L'assistente aiuta il medico.",
+        "ro": "Asistentul îl ajută pe medic."
+      },
+      {
+        "it": "Lavora come assistente.",
+        "ro": "Lucrează ca asistent."
+      }
+    ],
+    "gender": "m",
+    "note": "Feminin: l'assistente."
+  },
+  {
+    "it": "reagire",
+    "pos": "verb",
+    "ro": "a reacționa",
+    "tags": [
+      "comportament"
+    ],
+    "examples": [
+      {
+        "it": "Come reagisci alle critiche?",
+        "ro": "Cum reacționezi la critici?"
+      },
+      {
+        "it": "Non ha reagito.",
+        "ro": "Nu a reacționat."
+      }
+    ]
+  },
+  {
+    "it": "opzione",
+    "pos": "noun",
+    "ro": "opțiune",
+    "tags": [
+      "gândire"
+    ],
+    "examples": [
+      {
+        "it": "Ho due opzioni.",
+        "ro": "Am două opțiuni."
+      },
+      {
+        "it": "Questa opzione è migliore.",
+        "ro": "Această opțiune este mai bună."
+      }
+    ]
+  },
+  {
+    "it": "affidare",
+    "pos": "verb",
+    "ro": "a încredința",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "Affido le chiavi a mia sorella.",
+        "ro": "Încredințez cheile surorii mele."
+      },
+      {
+        "it": "Mi affida un lavoro importante.",
+        "ro": "Îmi încredințează o lucrare importantă."
+      }
+    ]
+  },
+  {
+    "it": "combinare",
+    "pos": "verb",
+    "ro": "a combina; a face (ceva)",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Combino i colori con cura.",
+        "ro": "Combin culorile cu grijă."
+      },
+      {
+        "it": "Che cosa hai combinato?",
+        "ro": "Ce ai mai făcut?"
+      }
+    ]
+  },
+  {
+    "it": "giudizio",
+    "pos": "noun",
+    "ro": "judecată; părere",
+    "tags": [
+      "gândire"
+    ],
+    "examples": [
+      {
+        "it": "Ha un buon giudizio.",
+        "ro": "Are judecată bună."
+      },
+      {
+        "it": "Aspetto il tuo giudizio.",
+        "ro": "Aștept părerea ta."
+      }
+    ]
+  },
+  {
+    "it": "giurare",
+    "pos": "verb",
+    "ro": "a jura",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "Giuro di dire la verità.",
+        "ro": "Jur să spun adevărul."
+      },
+      {
+        "it": "Te lo giuro!",
+        "ro": "Îți jur!"
+      }
+    ]
+  }
+]

@@ -35,7 +35,16 @@
     "v-tacere": ["taccio","taci","tace","tacciamo","tacete","tacciono"],
     "v-comparire": ["compaio","compari","compare","compariamo","comparite","compaiono"],
     "v-avviare": ["avvio","avvii","avvia","avviamo","avviate","avviano"],
-    "v-sciogliere": ["sciolgo","sciogli","scioglie","sciogliamo","sciogliete","sciolgono"]
+    "v-sciogliere": ["sciolgo","sciogli","scioglie","sciogliamo","sciogliete","sciolgono"],
+    "v-possedere": ["possiedo","possiedi","possiede","possediamo","possedete","possiedono"],
+    "v-compiere": ["compio","compi","compie","compiamo","compiete","compiono"],
+    "v-trattenere": ["trattengo","trattieni","trattiene","tratteniamo","trattenete","trattengono"],
+    "v-rifare": ["rifaccio","rifai","rifà","rifacciamo","rifate","rifanno"],
+    "v-risalire": ["risalgo","risali","risale","risaliamo","risalite","risalgono"],
+    "v-provenire": ["provengo","provieni","proviene","proveniamo","provenite","provengono"],
+    "v-intervenire": ["intervengo","intervieni","interviene","interveniamo","intervenite","intervengono"],
+    "v-cogliere": ["colgo","cogli","coglie","cogliamo","cogliete","colgono"],
+    "v-convenire": ["convengo","convieni","conviene","conveniamo","convenite","convengono"]
   },
   "imperfetto": {
     "v-essere": ["ero","eri","era","eravamo","eravate","erano"]
@@ -43,7 +52,8 @@
   "imperfettoStem": {
     "v-fare": "face",
     "v-dire": "dice",
-    "v-bere": "beve"
+    "v-bere": "beve",
+    "v-rifare": "riface"
   },
   "futuroStem": {
     "v-essere": "sar",
@@ -66,7 +76,12 @@
     "v-rivedere": "rivedr",
     "v-ottenere": "otterr",
     "v-mantenere": "manterr",
-    "v-scadere": "scadr"
+    "v-scadere": "scadr",
+    "v-trattenere": "tratterr",
+    "v-rifare": "rifar",
+    "v-provenire": "proverr",
+    "v-intervenire": "interverr",
+    "v-convenire": "converr"
   },
   "congiuntivo": {
     "v-essere": ["sia","sia","sia","siamo","siate","siano"],
@@ -103,7 +118,16 @@
     "v-tacere": [["taccia","taci"],["taccia","taci"],["taccia","taci"],["tacciamo","tacemo"],["tacciate","tacete"],["tacciano","tacino"]],
     "v-comparire": [["compaia","comparisca"],["compaia","comparisca"],["compaia","comparisca"],"compariamo","compariate",["compaiano","compariscano"]],
     "v-avviare": ["avvii","avvii","avvii","avviamo","avviate","avviino"],
-    "v-sciogliere": ["sciolga","sciolga","sciolga","sciogliamo","sciogliate","sciolgano"]
+    "v-sciogliere": ["sciolga","sciolga","sciolga","sciogliamo","sciogliate","sciolgano"],
+    "v-possedere": [["possieda","possegga"],["possieda","possegga"],["possieda","possegga"],"possediamo","possediate",["possiedano","posseggano"]],
+    "v-compiere": ["compia","compia","compia","compiamo","compiate","compiano"],
+    "v-trattenere": ["trattenga","trattenga","trattenga","tratteniamo","tratteniate","trattengano"],
+    "v-rifare": ["rifaccia","rifaccia","rifaccia","rifacciamo","rifacciate","rifacciano"],
+    "v-risalire": ["risalga","risalga","risalga","risaliamo","risaliate","risalgano"],
+    "v-provenire": ["provenga","provenga","provenga","proveniamo","proveniate","provengano"],
+    "v-intervenire": ["intervenga","intervenga","intervenga","interveniamo","interveniate","intervengano"],
+    "v-cogliere": ["colga","colga","colga","cogliamo","cogliate","colgano"],
+    "v-convenire": ["convenga","convenga","convenga","conveniamo","conveniate","convengano"]
   },
   "imperativo": {
     "v-andare": [["va'","vai"],"vada","andiamo","andate","vadano"],
@@ -113,7 +137,8 @@
     "v-essere": ["sii","sia","siamo","siate","siano"],
     "v-fare": [["fa'","fai"],"faccia","facciamo","fate","facciano"],
     "v-sapere": ["sappi","sappia","sappiamo","sappiate","sappiano"],
-    "v-stare": [["sta'","stai"],"stia","stiamo","state","stiano"]
+    "v-stare": [["sta'","stai"],"stia","stiamo","state","stiano"],
+    "v-rifare": [["rifai","rifa'"],"rifaccia","rifacciamo","rifate","rifacciano"]
   },
   "noImperativo": ["v-dovere","v-potere","v-volere"]
 }
