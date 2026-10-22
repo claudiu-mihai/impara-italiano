@@ -101,8 +101,10 @@ export function WordCard({ word, direction, rate, flipped, onFlip, onSwipe }: Wo
   const x = useMotionValue(0);
   const tilt = useTransform(x, [-200, 200], [-8, 8]);
 
+  // touch-pan-y: fețele se pot derula vertical (exemple lungi), dar gestul orizontal rămâne pentru swipe. Fără el, pe
+  // ecran tactil browserul ia gestul pentru elementul derulabil, anulează evenimentele și cardul nu mai poate fi tras.
   const face =
-    "absolute inset-0 overflow-y-auto rounded-3xl bg-white shadow-md dark:bg-slate-900";
+    "absolute inset-0 touch-pan-y overflow-y-auto rounded-3xl bg-white shadow-md dark:bg-slate-900";
   const front = <FrontFace word={word} direction={direction} rate={rate} />;
   const back = <BackFace word={word} direction={direction} rate={rate} />;
 
@@ -110,7 +112,7 @@ export function WordCard({ word, direction, rate, flipped, onFlip, onSwipe }: Wo
     <div className="relative min-h-[22rem] flex-1" style={{ perspective: 1200 }}>
       <motion.div
         className="absolute inset-0"
-        style={{ x, rotateZ: tilt, transformStyle: "preserve-3d" }}
+        style={{ x, rotateZ: tilt, transformStyle: "preserve-3d", touchAction: "pan-y" }}
         drag={flipped ? "x" : false}
         dragSnapToOrigin
         dragElastic={0.5}
