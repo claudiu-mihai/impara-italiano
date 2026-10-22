@@ -16,6 +16,8 @@ export interface SessionSettings {
   newPerDay: number;
   maxReviewsPerDay: number;
   direction: Direction;
+  /** Procentul de substantive printre cuvintele de conținut noi; lipsă sau 0 = doar după frecvență. */
+  nounShare?: number;
 }
 
 export interface SessionItem {
@@ -66,7 +68,10 @@ export function buildDailySession({
   const introducedToday = vocab.filter((c) => c.introducedOn === today).length;
   const newBudget = Math.max(0, settings.newPerDay - introducedToday);
   const known = new Set(vocab.map((c) => c.wordId));
-  const fresh = orderNewWords(words.filter((w) => !known.has(w.id) && isUpTo(w.level, settings.level))).slice(
+  const fresh = orderNewWords(
+    words.filter((w) => !known.has(w.id) && isUpTo(w.level, settings.level)),
+    settings.nounShare,
+  ).slice(
     0,
     newBudget,
   );

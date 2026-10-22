@@ -11,6 +11,8 @@ export interface Settings {
   level: Level;
   /** Cuvinte (carduri) noi introduse pe zi. */
   newPerDay: number;
+  /** Procentul de substantive printre cuvintele noi de conținut (0 = ordinea frecvenței, fără preferință). */
+  nounShare: number;
   /** Timpuri verbale (carduri de conjugare) noi pe zi. */
   newConjPerDay: number;
   /** Limita zilnică de repetiții. */
@@ -31,6 +33,7 @@ export interface Settings {
 export const DEFAULT_SETTINGS: Settings = {
   level: "A1",
   newPerDay: 10,
+  nounShare: 0,
   newConjPerDay: 3,
   maxReviewsPerDay: 100,
   retention: 0.9,

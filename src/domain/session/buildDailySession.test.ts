@@ -108,3 +108,14 @@ test("la un nivel mai mare se continuă cu cardurile deja începute (repetițiil
   const queue = buildDailySession({ now: NOW, settings, cards: [started], words: higherWords, reviewsDoneToday: 0 });
   expect(queue.map((i) => [i.wordId, i.isNew])).toEqual([["w1", false]]);
 });
+
+test("nounShare din setări se aplică la cuvintele noi ale sesiunii", () => {
+  const pool = [
+    ...Array.from({ length: 4 }, (_, i) => ({ id: `v-${i}`, rank: i + 1, level: "A1" as const, pos: "verb" as const })),
+    ...Array.from({ length: 4 }, (_, i) => ({ id: `n-${i}`, rank: i + 10, level: "A1" as const, pos: "noun" as const })),
+  ];
+  const ids = (nounShare?: number) =>
+    buildDailySession({ now: NOW, settings: { ...settings, newPerDay: 4, nounShare }, cards: [], words: pool, reviewsDoneToday: 0 }).map((i) => i.wordId);
+  expect(ids()).toEqual(["v-0", "v-1", "v-2", "v-3"]);
+  expect(ids(50)).toEqual(["n-0", "v-0", "n-1", "v-1"]);
+});

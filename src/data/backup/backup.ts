@@ -56,6 +56,7 @@ export const reviewLogSchema = z.object({
 export const settingsSchema = z.object({
   level: z.enum(["A1", "A2", "B1", "B2", "C1", "C2"]),
   newPerDay: int.min(0).max(200),
+  nounShare: int.min(0).max(100),
   newConjPerDay: int.min(0).max(50),
   maxReviewsPerDay: int.min(0).max(1000),
   retention: z.number().min(0.7).max(0.99),
