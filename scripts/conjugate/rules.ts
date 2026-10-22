@@ -17,8 +17,62 @@ export type PersonForms = string[][];
 const AUX_AVERE = ["ho", "hai", "ha", "abbiamo", "avete", "hanno"];
 const AUX_ESSERE = ["sono", "sei", "è", "siamo", "siete", "sono"];
 
+// ---------------------------------------------------------------------------
+// Verbele contrase în -rre
+// ---------------------------------------------------------------------------
+
+/**
+ * Verbele în -rre sunt verbe de conjugarea a II-a contrase din infinitive latine (porre < ponere, trarre < trahere,
+ * condurre < conducere). Se conjugă după tema latină, nu după infinitiv, și există doar trei familii:
+ * porre (+ proporre, supporre, esporre, comporre…), trarre (+ attrarre, estrarre, contrarre…) și -durre (condurre, produrre…).
+ */
+interface ContractedFamily {
+  /** Sfârșitul infinitivului care definește familia; ce rămâne în față este prefixul (supporre → „sup”). */
+  ending: string;
+  /** Tema formelor cu terminație moale (tu, lui/lei, noi, voi, imperfetto): pon-, tra-, duc-. */
+  weak: string;
+  /** Tema formelor cu terminație -o / -a (io, loro, congiuntivo la persoanele 1–3 și 6): pong-, tragg-, duc-. */
+  strong: string;
+  /** Participiul trecut, mereu neregulat (porre → posto). */
+  participle: string;
+}
+
+const CONTRACTED_FAMILIES: readonly ContractedFamily[] = [
+  { ending: "porre", weak: "pon", strong: "pong", participle: "posto" },
+  { ending: "trarre", weak: "tra", strong: "tragg", participle: "tratto" },
+  { ending: "durre", weak: "duc", strong: "duc", participle: "dotto" },
+];
+
+/** Verb contras: infinitivul se termină în -rre (porre, trarre, condurre și derivatele lor). */
+export const isContracted = (infinitive: string): boolean => infinitive.endsWith("rre");
+
+function contractedParts(infinitive: string) {
+  const family = CONTRACTED_FAMILIES.find((f) => infinitive.endsWith(f.ending));
+  if (!family) {
+    throw new Error(`${infinitive}: verb în -rre din afara familiilor porre / trarre / -durre, conjugarea nu poate fi generată`);
+  }
+  const prefix = infinitive.slice(0, -family.ending.length);
+  return { weak: prefix + family.weak, strong: prefix + family.strong, participle: prefix + family.participle };
+}
+
+/** Participiul verbului contras din familia lui (supporre → supposto, condurre → condotto). */
+export const contractedParticiple = (infinitive: string): string => contractedParts(infinitive).participle;
+
+/** Presente: pongo, poni, pone, poniamo, ponete, pongono. */
+function contractedPresente(infinitive: string): string[] {
+  const { weak, strong } = contractedParts(infinitive);
+  return [`${strong}o`, `${weak}i`, `${weak}e`, `${weak}iamo`, `${weak}ete`, `${strong}ono`];
+}
+
+/** Congiuntivo presente: ponga ×3, poniamo, poniate, pongano. */
+function contractedCongiuntivo(infinitive: string): string[] {
+  const { weak, strong } = contractedParts(infinitive);
+  return [`${strong}a`, `${strong}a`, `${strong}a`, `${weak}iamo`, `${weak}iate`, `${strong}ano`];
+}
+
 /** Presente indicativo al unui verb regulat, din infinitiv și grupă. */
 export function presenteRegular(infinitive: string, group: Group): string[] {
+  if (isContracted(infinitive)) return contractedPresente(infinitive);
   const stem = infinitive.slice(0, -3);
 
   switch (group) {
@@ -97,12 +151,15 @@ const IMPERFETTO_ENDINGS = ["vo", "vi", "va", "vamo", "vate", "vano"];
  * (parlare → parlavo). `irregularStem` acoperă temele speciale: fare → „face” (facevo).
  */
 export function imperfetto(infinitive: string, irregularStem?: string): string[] {
-  const stem = irregularStem ?? infinitive.slice(0, -2);
+  // verbele contrase au tema latină: porre → ponevo, trarre → traevo, condurre → conducevo
+  const stem = irregularStem ?? (isContracted(infinitive) ? `${contractedParts(infinitive).weak}e` : infinitive.slice(0, -2));
   return IMPERFETTO_ENDINGS.map((ending) => `${stem}${ending}`);
 }
 
 /** Tema de viitor / condițional dintr-un infinitiv regulat (parlare → parler, sentire → sentir). */
 export function futureStem(infinitive: string, group: Group): string {
+  // verbele contrase păstrează -rr-: porre → porr- (porrò), condurre → condurr- (condurrò)
+  if (isContracted(infinitive)) return infinitive.slice(0, -1);
   const stem = stemOf(infinitive);
   if (group === "are") {
     // -care / -gare păstrează sunetul tare (giocherò); -ciare / -giare pierd „i” (mangerò, comincerò).
@@ -131,6 +188,7 @@ export function condizionale(stem: string): string[] {
  * -are: parli … parliamo, parliate, parlino; -ere/-ire: creda … crediamo, crediate, credano.
  */
 export function congiuntivoRegular(infinitive: string, group: Group): string[] {
+  if (isContracted(infinitive)) return contractedCongiuntivo(infinitive);
   const stem = stemOf(infinitive);
 
   if (group === "are") {

@@ -3,10 +3,12 @@ import type { Conjugations, ParsedVerb } from "../../src/domain/content/schema.t
 import {
   condizionale,
   congiuntivoRegular,
+  contractedParticiple,
   futuro,
   futureStem,
   imperativo,
   imperfetto,
+  isContracted,
   passatoProssimo,
   presenteRegular,
   reflexivize,
@@ -80,6 +82,20 @@ export function buildConjugations(
     const explicit = irregular.presente[verb.id];
     // verbele reflexive se conjugă ca verbul de bază (svegliarsi → svegliare); pronumele se adaugă la final
     const infinitive = verb.reflexive ? reflexiveBase(verb.it) : verb.it;
+
+    // verbele în -rre (porre, trarre, condurre…) se conjugă după familia lor; sunt mereu neregulate, din grupa -ere
+    if (isContracted(infinitive)) {
+      let expected: string;
+      try {
+        expected = contractedParticiple(infinitive);
+      } catch (error) {
+        errors.push(`${verb.id}: ${(error as Error).message}`);
+        continue;
+      }
+      if (verb.group !== "ere") errors.push(`${verb.id}: verbele în -rre sunt din grupa "ere", nu "${verb.group}"`);
+      if (!verb.irregular) errors.push(`${verb.id}: verbele în -rre sunt mereu neregulate`);
+      if (verb.pastParticiple !== expected) errors.push(`${verb.id}: participiul "${verb.pastParticiple}" ≠ "${expected}" (familia verbului)`);
+    }
     const regularPart = regularParticiple(infinitive, verb.group);
 
     if (!verb.irregular && explicit) {

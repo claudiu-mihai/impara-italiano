@@ -1,0 +1,381 @@
+[
+  {
+    "id": "v-proporre",
+    "it": "proporre",
+    "ro": "a propune",
+    "tags": [
+      "comunicare"
+    ],
+    "rank": 683,
+    "examples": [
+      {
+        "it": "Propongo una soluzione.",
+        "ro": "Propun o soluție."
+      },
+      {
+        "it": "Ti propongo di uscire stasera.",
+        "ro": "Îți propun să ieșim diseară."
+      }
+    ],
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "avere",
+    "pastParticiple": "proposto",
+    "irregular": true,
+    "reflexive": false
+  },
+  {
+    "id": "v-contrarre",
+    "it": "contrarre",
+    "ro": "a contracta; a lua (o boală)",
+    "tags": [
+      "sănătate"
+    ],
+    "rank": 922,
+    "examples": [
+      {
+        "it": "Ha contratto l'influenza.",
+        "ro": "A luat gripa."
+      },
+      {
+        "it": "Hanno contratto un mutuo per la casa.",
+        "ro": "Au contractat un credit pentru casă."
+      }
+    ],
+    "note": "«Contrarre» = a contracta (un credit, o boală) și a contrage (un mușchi).",
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "avere",
+    "pastParticiple": "contratto",
+    "irregular": true,
+    "reflexive": false
+  },
+  {
+    "id": "v-condurre",
+    "it": "condurre",
+    "ro": "a conduce; a duce",
+    "tags": [
+      "mișcare"
+    ],
+    "rank": 1015,
+    "examples": [
+      {
+        "it": "Questa strada conduce al mare.",
+        "ro": "Drumul acesta duce la mare."
+      },
+      {
+        "it": "Conduco una vita tranquilla.",
+        "ro": "Duc o viață liniștită."
+      }
+    ],
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "avere",
+    "pastParticiple": "condotto",
+    "irregular": true,
+    "reflexive": false
+  },
+  {
+    "id": "v-trarre",
+    "it": "trarre",
+    "ro": "a trage; a scoate",
+    "tags": [
+      "gândire"
+    ],
+    "rank": 1360,
+    "examples": [
+      {
+        "it": "Possiamo trarre una conclusione.",
+        "ro": "Putem trage o concluzie."
+      },
+      {
+        "it": "Traggo energia dalla musica.",
+        "ro": "Îmi iau energia din muzică."
+      }
+    ],
+    "note": "«Trarre una conclusione» = a trage o concluzie.",
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "avere",
+    "pastParticiple": "tratto",
+    "irregular": true,
+    "reflexive": false
+  },
+  {
+    "id": "v-disporre",
+    "it": "disporre",
+    "ro": "a dispune; a aranja",
+    "tags": [
+      "acțiune"
+    ],
+    "rank": 1419,
+    "examples": [
+      {
+        "it": "Dispongo i libri sul tavolo.",
+        "ro": "Aranjez cărțile pe masă."
+      },
+      {
+        "it": "Dispone di molto tempo libero.",
+        "ro": "Dispune de mult timp liber."
+      }
+    ],
+    "note": "«Disporre di» = a dispune de.",
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "avere",
+    "pastParticiple": "disposto",
+    "irregular": true,
+    "reflexive": false
+  },
+  {
+    "id": "v-produrre",
+    "it": "produrre",
+    "ro": "a produce",
+    "tags": [
+      "muncă"
+    ],
+    "rank": 1576,
+    "examples": [
+      {
+        "it": "La fabbrica produce scarpe.",
+        "ro": "Fabrica produce pantofi."
+      },
+      {
+        "it": "Questo paese produce vino.",
+        "ro": "Țara aceasta produce vin."
+      }
+    ],
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "avere",
+    "pastParticiple": "prodotto",
+    "irregular": true,
+    "reflexive": false
+  },
+  {
+    "id": "v-tradurre",
+    "it": "tradurre",
+    "ro": "a traduce",
+    "tags": [
+      "comunicare"
+    ],
+    "rank": 1624,
+    "examples": [
+      {
+        "it": "Traduco una lettera dall'italiano.",
+        "ro": "Traduc o scrisoare din italiană."
+      },
+      {
+        "it": "Sai tradurre questa frase?",
+        "ro": "Știi să traduci această frază?"
+      }
+    ],
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "avere",
+    "pastParticiple": "tradotto",
+    "irregular": true,
+    "reflexive": false
+  },
+  {
+    "id": "v-porre",
+    "it": "porre",
+    "ro": "a pune; a așeza",
+    "tags": [
+      "comunicare"
+    ],
+    "rank": 1673,
+    "examples": [
+      {
+        "it": "Voglio porre una domanda.",
+        "ro": "Vreau să pun o întrebare."
+      },
+      {
+        "it": "Poniamo che sia vero.",
+        "ro": "Să presupunem că e adevărat."
+      }
+    ],
+    "note": "«Porre una domanda» = a pune o întrebare; pentru obiecte se spune de obicei «mettere».",
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "avere",
+    "pastParticiple": "posto",
+    "irregular": true,
+    "reflexive": false
+  },
+  {
+    "id": "v-ridurre",
+    "it": "ridurre",
+    "ro": "a reduce",
+    "tags": [
+      "acțiune"
+    ],
+    "rank": 1825,
+    "examples": [
+      {
+        "it": "Dobbiamo ridurre le spese.",
+        "ro": "Trebuie să reducem cheltuielile."
+      },
+      {
+        "it": "Riduco lo zucchero nel caffè.",
+        "ro": "Reduc zahărul din cafea."
+      }
+    ],
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "avere",
+    "pastParticiple": "ridotto",
+    "irregular": true,
+    "reflexive": false
+  },
+  {
+    "id": "v-esporre",
+    "it": "esporre",
+    "ro": "a expune",
+    "tags": [
+      "comunicare"
+    ],
+    "rank": 2014,
+    "examples": [
+      {
+        "it": "Il museo espone quadri antichi.",
+        "ro": "Muzeul expune tablouri vechi."
+      },
+      {
+        "it": "Espongo il problema al direttore.",
+        "ro": "Îi expun problema directorului."
+      }
+    ],
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "avere",
+    "pastParticiple": "esposto",
+    "irregular": true,
+    "reflexive": false
+  },
+  {
+    "id": "v-supporre",
+    "it": "supporre",
+    "ro": "a presupune",
+    "tags": [
+      "gândire"
+    ],
+    "rank": 2482,
+    "examples": [
+      {
+        "it": "Suppongo che sia vero.",
+        "ro": "Presupun că e adevărat."
+      },
+      {
+        "it": "Supponiamo di arrivare presto.",
+        "ro": "Să presupunem că ajungem devreme."
+      }
+    ],
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "avere",
+    "pastParticiple": "supposto",
+    "irregular": true,
+    "reflexive": false
+  },
+  {
+    "id": "v-attrarre",
+    "it": "attrarre",
+    "ro": "a atrage",
+    "tags": [
+      "sentimente"
+    ],
+    "rank": 2495,
+    "examples": [
+      {
+        "it": "La città attrae molti turisti.",
+        "ro": "Orașul atrage mulți turiști."
+      },
+      {
+        "it": "Il suo sorriso mi attrae.",
+        "ro": "Zâmbetul ei mă atrage."
+      }
+    ],
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "avere",
+    "pastParticiple": "attratto",
+    "irregular": true,
+    "reflexive": false
+  },
+  {
+    "id": "v-estrarre",
+    "it": "estrarre",
+    "ro": "a extrage; a scoate",
+    "tags": [
+      "acțiune"
+    ],
+    "rank": 2549,
+    "examples": [
+      {
+        "it": "Estraggo una carta dal mazzo.",
+        "ro": "Scot o carte din pachet."
+      },
+      {
+        "it": "Estrae un biglietto dalla tasca.",
+        "ro": "Scoate un bilet din buzunar."
+      }
+    ],
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "avere",
+    "pastParticiple": "estratto",
+    "irregular": true,
+    "reflexive": false
+  },
+  {
+    "id": "v-comporre",
+    "it": "comporre",
+    "ro": "a compune; a forma",
+    "tags": [
+      "acțiune"
+    ],
+    "rank": 2771,
+    "examples": [
+      {
+        "it": "Compongo il numero.",
+        "ro": "Formez numărul."
+      },
+      {
+        "it": "Il compositore compone musica.",
+        "ro": "Compozitorul compune muzică."
+      }
+    ],
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "avere",
+    "pastParticiple": "composto",
+    "irregular": true,
+    "reflexive": false
+  },
+  {
+    "id": "v-ritrarre",
+    "it": "ritrarre",
+    "ro": "a portretiza; a retrage",
+    "tags": [
+      "acțiune"
+    ],
+    "rank": 2957,
+    "examples": [
+      {
+        "it": "Il pittore ritrae una donna.",
+        "ro": "Pictorul portretizează o femeie."
+      },
+      {
+        "it": "Ritraggo la mano dal fuoco.",
+        "ro": "Îmi retrag mâna de la foc."
+      }
+    ],
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "avere",
+    "pastParticiple": "ritratto",
+    "irregular": true,
+    "reflexive": false
+  }
+]

@@ -5,7 +5,7 @@ import type { Level } from "../../src/domain/content/constants.ts";
 import { ID_PREFIX } from "../../src/domain/content/wordsCodec.ts";
 import { wordSchema, type Word } from "../../src/domain/content/schema.ts";
 import { buildConjugations } from "../conjugate/build.ts";
-import { regularParticiple } from "../conjugate/rules.ts";
+import { isContracted, regularParticiple } from "../conjugate/rules.ts";
 import { ROOT } from "../content.ts";
 import { loadFrequency } from "../frequency/ranks.ts";
 import { plainForm, readLexicon, type LexiconEntry } from "../frequency/lexicon.ts";
@@ -148,9 +148,10 @@ function adjective(draft: Draft, entry: LexiconEntry | undefined) {
 function verb(draft: Draft, entry: LexiconEntry | undefined) {
   const reflexive = reflexiveDraft(draft);
   const infinitive = lemmaKey(draft);
-  const group = infinitive.slice(-3) as "are" | "ere" | "ire";
+  // verbele în -rre (porre, condurre) sunt contrase din -ere latin și se conjugă ca grupa "ere"
+  const group = (isContracted(infinitive) ? "ere" : infinitive.slice(-3)) as "are" | "ere" | "ire";
   if (!["are", "ere", "ire"].includes(group)) {
-    errors.push(`${draft.it}: nu se termină în -are/-ere/-ire`);
+    errors.push(`${draft.it}: nu se termină în -are/-ere/-ire/-rre`);
     return {};
   }
   const third = entry ? cellForms(entry, "presente", 2).standard[0] : undefined;
@@ -167,7 +168,7 @@ function verb(draft: Draft, entry: LexiconEntry | undefined) {
   const candidate = {
     id: `v-${draft.it}`, it: infinitive, group: verbGroup, auxiliary, pastParticiple: participle ?? "", irregular: false, reflexive: false,
   } as never;
-  let irregular = participle !== undefined && participle !== regularParticiple(infinitive, verbGroup);
+  let irregular = isContracted(infinitive) || (participle !== undefined && participle !== regularParticiple(infinitive, verbGroup));
   if (entry && !irregular) {
     const generated = buildConjugations([candidate], { presente: {} }).conjugations[`v-${draft.it}`]!;
     for (const tense of Object.keys(TENSE_TAGS)) {
