@@ -225,7 +225,7 @@ interface Sentence {
 `domain/session/buildDailySession.ts` este o funcție pură: `(now, settings, cards, content) → queue`.
 
 * Cardurile scadente, cele mai întârziate primele, limitate la `maxReviewsPerDay` (implicit 100) minus repetițiile deja făcute azi. Un card în faza de repetare (`State.Review`) este scadent dacă `due` cade înainte de sfârșitul zilei de studiu (04:00 următor); un card în (re)învățare, dacă `due ≤ now + 20 min` (`LEARN_AHEAD_MS`).
-* Cuvinte noi, în ordinea rangului: `newPerDay − cuvinte introduse azi` (implicit 10).
+* Cuvinte noi, nivelurile mai ușoare întâi și apoi în ordinea rangului: `newPerDay − cuvinte introduse azi` (implicit 10). Setarea `nounShare` (0, 33, 50 sau 67) aduce substantivele mai devreme, în acel procent din cuvintele de conținut, tot în ordinea frecvenței; cuvintele gramaticale se intercalează la fiecare 3 cuvinte de conținut.
 * Intercalare: un card nou la fiecare ~4 repetiții.
 * Cardurile notate *Din nou* revin în aceeași sesiune când devin scadente (pașii de învățare FSRS).
 * „Azi” este calculat de `domain/time/studyDay.ts`: ziua de studiu începe la 04:00 ora locală.

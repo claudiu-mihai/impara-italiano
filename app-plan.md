@@ -188,7 +188,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 
 #### **FR6. Setări și Date**
 
-* Cuvinte noi pe zi, limită zilnică de repetiții, retenție țintă FSRS.
+* Cuvinte noi pe zi, procentul de substantive printre cuvintele noi (după frecvență, 1 din 3, 1 din 2 sau 2 din 3), limită zilnică de repetiții, retenție țintă FSRS.
 * Direcția implicită a cardurilor (IT → RO, RO → IT, mixt).
 * Viteza TTS, sunete activate / dezactivate.
 * Temă: automat (sistem) / luminos / întunecat.

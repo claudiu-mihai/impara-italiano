@@ -214,6 +214,19 @@ export function SettingsPage() {
         <Field label="Cuvinte noi pe zi">
           <NumberSelect label="Cuvinte noi pe zi" value={settings.newPerDay} presets={[0, 5, 10, 15, 20, 30, 50]} onChange={(n) => update("newPerDay", n)} />
         </Field>
+        <Field label="Substantive printre cuvintele noi" hint="Cât din cuvintele noi de conținut să fie substantive. „După frecvență” păstrează ordinea implicită.">
+          <select
+            aria-label="Substantive printre cuvintele noi"
+            value={settings.nounShare}
+            onChange={(e) => update("nounShare", Number(e.target.value))}
+            className={control}
+          >
+            <option value={0}>După frecvență (implicit)</option>
+            <option value={33}>1 din 3</option>
+            <option value={50}>1 din 2</option>
+            <option value={67}>2 din 3</option>
+          </select>
+        </Field>
         <Field label="Timpuri noi la conjugare pe zi">
           <NumberSelect label="Timpuri noi la conjugare pe zi" value={settings.newConjPerDay} presets={[0, 1, 2, 3, 5, 10]} onChange={(n) => update("newConjPerDay", n)} />
         </Field>
