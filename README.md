@@ -30,6 +30,8 @@ Toate datele din aplicație sunt generate la build din `content/` (nu există ba
    mesaje clare dacă ceva nu se potrivește (cuvânt inexistent, formă absentă etc.).
 4. **Verbele neregulate:** `npm run irregular` compară regulile de conjugare cu Wiktionary și adaugă în
    `content/verbs/irregular.json` doar excepțiile.
+   Verbele în -rre (*porre*, *trarre*, *condurre* și derivatele lor) nu au nevoie de excepții: `rules.ts` le conjugă pe
+   familii (porre, trarre, -durre) și `npm run validate` dă eroare pentru orice alt verb în -rre.
 5. **Verifici:** `npm run validate` și `npm run verify:wiktionary` (compară toate formele conjugate cu Wiktionary).
 6. **Rangul și nivelul CEFR** ale fiecărui cuvânt se calculează la build (rangul din frecvența lemei, nivelul din benzile din `content/levels.json`); nu se scriu de mână. Pentru un cuvânt care nu este de nivelul frecvenței lui sau care nu are rang de frecvență (ex. culori, zilele săptămânii), adaugă-l în `overrides` din `content/levels.json`, altfel `npm run validate` dă eroare.
 
