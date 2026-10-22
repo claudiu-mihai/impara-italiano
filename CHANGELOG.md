@@ -4,6 +4,13 @@ Formatul urmează [Keep a Changelog](https://keepachangelog.com/ro/1.1.0/), iar 
 [versionarea semantică](https://semver.org/lang/ro/). Intrările noi sunt scrise automat de release-please din
 commit-urile `feat:` / `fix:` (vezi README, „Versionare și release-uri”).
 
+## [1.5.1](https://github.com/claudiu-mihai/impara-italiano/compare/v1.5.0...v1.5.1) (2026-10-22)
+
+
+### Corecturi
+
+* **flashcards:** swipe pe ecran tactil (touch-action pan-y pe fețele cardului) ([#15](https://github.com/claudiu-mihai/impara-italiano/issues/15)) ([3351a8d](https://github.com/claudiu-mihai/impara-italiano/commit/3351a8dff234ae2dc4bf444db70ee66a6f267984))
+
 ## [1.5.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.4.0...v1.5.0) (2026-10-22)
 
 
