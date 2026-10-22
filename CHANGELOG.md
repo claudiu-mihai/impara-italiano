@@ -4,6 +4,13 @@ Formatul urmează [Keep a Changelog](https://keepachangelog.com/ro/1.1.0/), iar 
 [versionarea semantică](https://semver.org/lang/ro/). Intrările noi sunt scrise automat de release-please din
 commit-urile `feat:` / `fix:` (vezi README, „Versionare și release-uri”).
 
+## [1.3.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.2.0...v1.3.0) (2026-10-22)
+
+
+### Funcționalități
+
+* **conjugation:** suport pentru verbele în -rre (porre, trarre, -durre) și 15 verbe noi ([#9](https://github.com/claudiu-mihai/impara-italiano/issues/9)) ([421190d](https://github.com/claudiu-mihai/impara-italiano/commit/421190dcf4f970dc6203230ee0e473693b802b58))
+
 ## [1.2.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.1.0...v1.2.0) (2026-10-22)
 
 
