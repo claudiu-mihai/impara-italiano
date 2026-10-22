@@ -8,8 +8,7 @@ import { db } from "../../data/db/instance.ts";
 import { getSettings, saveSettings } from "../../data/db/repositories.ts";
 import { AccountSection } from "./AccountSection.tsx";
 import { downloadBackup } from "./backupDownload.ts";
-import { DEFAULT_SETTINGS, type ConjugationMode, type Settings } from "../../domain/settings.ts";
-import type { Direction } from "../../domain/srs/types.ts";
+import { DEFAULT_SETTINGS, type ConjugationMode, type Settings, type StudyDirection } from "../../domain/settings.ts";
 import { studyDayOf } from "../../domain/time/studyDay.ts";
 import { getVoiceDiagnostics, speak, useItalianVoices, useTtsStatus } from "../../services/tts.ts";
 import { isCloudVoice } from "../../services/voices.ts";
@@ -188,17 +187,31 @@ export function SettingsPage() {
             })}
           </select>
         </Field>
-        <Field label="Direcția cardurilor" hint="Fiecare direcție are propriul progres.">
+        <Field
+          label="Direcția cardurilor"
+          hint="Fiecare direcție are propriul progres. La „Ambele”, cardul Română → Italiană al unui cuvânt apare după ce îl știi sigur în sensul Italiană → Română (stabilitate de cel puțin 7 zile)."
+        >
           <select
             aria-label="Direcția cardurilor"
             value={settings.direction}
-            onChange={(e) => update("direction", e.target.value as Direction)}
+            onChange={(e) => update("direction", e.target.value as StudyDirection)}
             className={control}
           >
             <option value="it-ro">Italiană → Română</option>
             <option value="ro-it">Română → Italiană</option>
+            <option value="both">Ambele</option>
           </select>
         </Field>
+        {settings.direction === "both" && (
+          <Field label="Carduri inverse noi pe zi" hint="Câte cuvinte deja știute primesc pe zi și cardul Română → Italiană.">
+            <NumberSelect
+              label="Carduri inverse noi pe zi"
+              value={settings.newReversePerDay}
+              presets={[0, 5, 10, 15, 20, 30]}
+              onChange={(n) => update("newReversePerDay", n)}
+            />
+          </Field>
+        )}
         <Field label="Varianta de conjugare" hint="Scrie: 3 persoane pe rând. Flip: te evaluezi singur. Tabel: toate persoanele deodată.">
           <select
             aria-label="Varianta de conjugare"

@@ -2,7 +2,8 @@ import { State } from "ts-fsrs";
 import { expect, test } from "vitest";
 import { newStoredCard } from "../srs/scheduler.ts";
 import { vocabCardId, type StoredCard } from "../srs/types.ts";
-import { buildDailySession, type SessionSettings } from "./buildDailySession.ts";
+import { studyDayOf } from "../time/studyDay.ts";
+import { buildDailySession, spreadSameWord, type SessionSettings } from "./buildDailySession.ts";
 
 const NOW = new Date(2026, 9, 20, 10, 0, 0);
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -118,4 +119,77 @@ test("nounShare din setări se aplică la cuvintele noi ale sesiunii", () => {
     buildDailySession({ now: NOW, settings: { ...settings, newPerDay: 4, nounShare }, cards: [], words: pool, reviewsDoneToday: 0 }).map((i) => i.wordId);
   expect(ids()).toEqual(["v-0", "v-1", "v-2", "v-3"]);
   expect(ids(50)).toEqual(["n-0", "v-0", "n-1", "v-1"]);
+});
+
+// ---- modul „ambele” ----
+
+const studyDayOfNow = () => studyDayOf(NOW);
+
+const both = (cards: StoredCard[], over: Partial<SessionSettings> = {}) =>
+  build(cards, { direction: "both", newReversePerDay: 10, ...over });
+
+/** Card în repetare, în direcția dată, ne-scadent, repetat ultima dată acum 3 zile. */
+function stable(wordId: string, variant: "it-ro" | "ro-it", stability: number, over: Partial<StoredCard> = {}): StoredCard {
+  return {
+    ...newStoredCard({ cardId: vocabCardId(wordId, variant), wordId, kind: "vocab", variant }, NOW, "2026-10-01"),
+    state: State.Review,
+    stability,
+    due: new Date(NOW.getTime() + 10 * DAY_MS),
+    last_review: new Date(NOW.getTime() - 3 * DAY_MS),
+    ...over,
+  };
+}
+
+test("ambele: repetițiile vin din ambele direcții, cuvintele noi se introduc IT → RO", () => {
+  const cards = [card("w1"), { ...card("w2"), cardId: vocabCardId("w2", "ro-it"), variant: "ro-it" }];
+  const queue = both(cards, { newPerDay: 2 });
+  expect(queue.filter((i) => !i.isNew).map((i) => `${i.wordId}:${i.variant}`).sort()).toEqual(["w1:it-ro", "w2:ro-it"]);
+  expect(queue.filter((i) => i.isNew).map((i) => i.variant)).toEqual(["it-ro", "it-ro"]);
+});
+
+test("cardul invers se deblochează de la 7 zile de stabilitate, nu în ziua repetiției și doar dacă lipsește", () => {
+  const cards = [
+    stable("w1", "it-ro", 7),
+    stable("w2", "it-ro", 6.9),
+    stable("w3", "it-ro", 20, { last_review: NOW }),
+    stable("w4", "it-ro", 30),
+    stable("w4", "ro-it", 2),
+    stable("w5", "it-ro", 12, { state: State.Learning }),
+  ];
+  const reversed = both(cards, { newPerDay: 0 }).filter((i) => i.reverse);
+  expect(reversed).toEqual([{ cardId: vocabCardId("w1", "ro-it"), wordId: "w1", variant: "ro-it", isNew: true, reverse: true }]);
+});
+
+test("simetric: un cuvânt învățat doar RO → IT primește cardul IT → RO", () => {
+  const reversed = both([stable("w1", "ro-it", 9)], { newPerDay: 0 }).filter((i) => i.reverse);
+  expect(reversed.map((i) => i.variant)).toEqual(["it-ro"]);
+});
+
+test("bugetul cardurilor inverse e separat: scade cu cele deblocate azi și nu consumă cuvintele noi", () => {
+  const eligible = ["w1", "w2", "w3", "w4", "w5"].map((w, i) => stable(w, "it-ro", 8 + i));
+  // w6 a primit azi cardul invers (cardul IT → RO e mai vechi)
+  const today = studyDayOfNow();
+  const unlockedToday = [stable("w6", "it-ro", 15), { ...stable("w6", "ro-it", 0.5), introducedOn: today }];
+  const queue = both([...eligible, ...unlockedToday], { newReversePerDay: 3, newPerDay: 4 });
+  const reversed = queue.filter((i) => i.reverse);
+  expect(reversed).toHaveLength(2);
+  // cele mai stabile primele
+  expect(reversed.map((i) => i.wordId)).toEqual(["w5", "w4"]);
+  expect(queue.filter((i) => i.isNew && !i.reverse)).toHaveLength(4);
+});
+
+test("o singură direcție: nu apar carduri inverse, oricât de stabile ar fi cardurile", () => {
+  const queue = build([stable("w1", "it-ro", 30)], { direction: "it-ro", newReversePerDay: 10, newPerDay: 0 });
+  expect(queue).toEqual([]);
+});
+
+test("cele două direcții ale aceluiași cuvânt nu stau una după alta în coadă", () => {
+  const cards = [
+    card("w1", { due: new Date(NOW.getTime() - 3 * DAY_MS) }),
+    { ...card("w1", { due: new Date(NOW.getTime() - 2 * DAY_MS) }), cardId: vocabCardId("w1", "ro-it"), variant: "ro-it" },
+    card("w2", { due: new Date(NOW.getTime() - DAY_MS) }),
+  ];
+  const ids = both(cards, { newPerDay: 0 }).map((i) => i.wordId);
+  expect(ids).toEqual(["w1", "w2", "w1"]);
+  expect(spreadSameWord([{ wordId: "a" }, { wordId: "a" }]).map((x) => x.wordId)).toEqual(["a", "a"]);
 });

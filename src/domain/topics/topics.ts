@@ -2,7 +2,8 @@ import type { Topic } from "../content/schema.ts";
 import type { Direction, StoredCard } from "../srs/types.ts";
 import { masteryByWord } from "../srs/mastery.ts";
 import { vocabCardId } from "../srs/types.ts";
-import { isDue, type SessionItem } from "../session/buildDailySession.ts";
+import { directionsOf, isDue, spreadSameWord, type SessionItem } from "../session/buildDailySession.ts";
+import type { StudyDirection } from "../settings.ts";
 import { interleave } from "../session/interleave.ts";
 import { endOfStudyDay } from "../time/studyDay.ts";
 
@@ -40,7 +41,8 @@ export function dueSkillTopics<T extends Pick<Topic, "skill">>(topics: readonly 
 
 export interface TopicSessionArgs {
   now: Date;
-  direction: Direction;
+  /** În modul „ambele”: repetițiile din ambele direcții, cuvintele noi IT → RO (cardurile inverse vin din sesiunea zilnică). */
+  direction: StudyDirection;
   cards: readonly StoredCard[];
   wordIds: readonly string[];
   maxNew?: number;
@@ -59,18 +61,19 @@ export function buildTopicSession({
 }: TopicSessionArgs): SessionItem[] {
   const inTopic = new Set(wordIds);
   const endOfDay = endOfStudyDay(now);
-  const vocab = cards.filter((c) => c.kind === "vocab" && c.variant === direction && inTopic.has(c.wordId));
+  const { active, forNewWords } = directionsOf(direction);
+  const vocab = cards.filter((c) => c.kind === "vocab" && active.includes(c.variant as Direction) && inTopic.has(c.wordId));
 
   const reviews = vocab
     .filter((c) => isDue(c, now, endOfDay))
     .sort((a, b) => a.due.getTime() - b.due.getTime())
-    .map((c): SessionItem => ({ cardId: c.cardId, wordId: c.wordId, variant: direction, isNew: false }));
+    .map((c): SessionItem => ({ cardId: c.cardId, wordId: c.wordId, variant: c.variant as Direction, isNew: false }));
 
   const known = new Set(vocab.map((c) => c.wordId));
   const fresh = wordIds
     .filter((id) => !known.has(id))
     .slice(0, maxNew)
-    .map((id): SessionItem => ({ cardId: vocabCardId(id, direction), wordId: id, variant: direction, isNew: true }));
+    .map((id): SessionItem => ({ cardId: vocabCardId(id, forNewWords), wordId: id, variant: forNewWords, isNew: true }));
 
-  return interleave(reviews, fresh);
+  return spreadSameWord(interleave(reviews, fresh));
 }
