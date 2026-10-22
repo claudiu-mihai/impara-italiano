@@ -31,7 +31,11 @@
     "v-ottenere": ["ottengo","ottieni","ottiene","otteniamo","ottenete","ottengono"],
     "v-mantenere": ["mantengo","mantieni","mantiene","manteniamo","mantenete","mantengono"],
     "v-riempire": ["riempio","riempi","riempie","riempiamo","riempite","riempiono"],
-    "v-accogliere": ["accolgo","accogli","accoglie","accogliamo","accogliete","accolgono"]
+    "v-accogliere": ["accolgo","accogli","accoglie","accogliamo","accogliete","accolgono"],
+    "v-tacere": ["taccio","taci","tace","tacciamo","tacete","tacciono"],
+    "v-comparire": ["compaio","compari","compare","compariamo","comparite","compaiono"],
+    "v-avviare": ["avvio","avvii","avvia","avviamo","avviate","avviano"],
+    "v-sciogliere": ["sciolgo","sciogli","scioglie","sciogliamo","sciogliete","sciolgono"]
   },
   "imperfetto": {
     "v-essere": ["ero","eri","era","eravamo","eravate","erano"]
@@ -61,7 +65,8 @@
     "v-cadere": "cadr",
     "v-rivedere": "rivedr",
     "v-ottenere": "otterr",
-    "v-mantenere": "manterr"
+    "v-mantenere": "manterr",
+    "v-scadere": "scadr"
   },
   "congiuntivo": {
     "v-essere": ["sia","sia","sia","siamo","siate","siano"],
@@ -94,7 +99,11 @@
     "v-ottenere": ["ottenga","ottenga","ottenga","otteniamo","otteniate","ottengano"],
     "v-mantenere": ["mantenga","mantenga","mantenga","manteniamo","manteniate","mantengano"],
     "v-riempire": ["riempia","riempia","riempia","riempiamo","riempiate","riempiano"],
-    "v-accogliere": ["accolga","accolga","accolga","accogliamo","accogliate","accolgano"]
+    "v-accogliere": ["accolga","accolga","accolga","accogliamo","accogliate","accolgano"],
+    "v-tacere": [["taccia","taci"],["taccia","taci"],["taccia","taci"],["tacciamo","tacemo"],["tacciate","tacete"],["tacciano","tacino"]],
+    "v-comparire": [["compaia","comparisca"],["compaia","comparisca"],["compaia","comparisca"],"compariamo","compariate",["compaiano","compariscano"]],
+    "v-avviare": ["avvii","avvii","avvii","avviamo","avviate","avviino"],
+    "v-sciogliere": ["sciolga","sciolga","sciolga","sciogliamo","sciogliate","sciolgano"]
   },
   "imperativo": {
     "v-andare": [["va'","vai"],"vada","andiamo","andate","vadano"],
