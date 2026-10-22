@@ -4,6 +4,13 @@ Formatul urmează [Keep a Changelog](https://keepachangelog.com/ro/1.1.0/), iar 
 [versionarea semantică](https://semver.org/lang/ro/). Intrările noi sunt scrise automat de release-please din
 commit-urile `feat:` / `fix:` (vezi README, „Versionare și release-uri”).
 
+## [1.1.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.0.1...v1.1.0) (2026-10-21)
+
+
+### Funcționalități
+
+* **games:** jocuri de gramatică (cartonașe, potrivire, introducere text) ([#5](https://github.com/claudiu-mihai/impara-italiano/issues/5)) ([44a8815](https://github.com/claudiu-mihai/impara-italiano/commit/44a8815de1562e375ff697d67dcf68271af44a50))
+
 ## [1.0.1](https://github.com/claudiu-mihai/impara-italiano/compare/v1.0.0...v1.0.1) (2026-10-21)
 
 
