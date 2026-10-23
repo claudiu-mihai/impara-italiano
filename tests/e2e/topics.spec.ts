@@ -197,6 +197,9 @@ test("temele din etapa a doua au fișă, reguli și toate cuvintele cu rând", a
     await page.goto(`/learn/topics/${id}`);
     await expect(page.getByRole("heading", { name: t.title, level: 1 })).toBeVisible();
     await expect(page.getByRole("heading", { name: "De reținut" })).toBeVisible();
+    // regulile sunt ascunse până atingi titlul
+    await expect(page.getByText(t.rules[0]!, { exact: true })).toBeHidden();
+    await page.getByRole("button", { name: "De reținut" }).click();
     for (const rule of t.rules) await expect(page.getByText(rule, { exact: true })).toBeVisible();
     expect(await page.getByRole("link", { name: /^(?!Studiază|Quiz|Potrivește|Ordonează|Înapoi).+/ }).count()).toBeGreaterThan(0);
   }

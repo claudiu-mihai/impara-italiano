@@ -8,6 +8,7 @@ import { topicProgress } from "../../domain/topics/topics.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { BackLink } from "../../ui/BackLink.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
+import { RulesBox } from "../../ui/RulesBox.tsx";
 
 // Toate acțiunile (Studiază, Quiz, exerciții) stau într-o grilă cu două coloane: padding mic, ca să încapă pe ecrane înguste.
 // Studiază și Quiz stau pe un rând; exercițiile, cu etichete mai lungi, ocupă fiecare toată lățimea.
@@ -73,16 +74,7 @@ export function TopicPage() {
         </section>
       ))}
 
-      <section aria-labelledby="rules" className="rounded-2xl bg-amber-50 p-5 text-amber-950 dark:bg-amber-950 dark:text-amber-50">
-        <h2 id="rules" className="text-sm font-semibold uppercase tracking-wide">
-          De reținut
-        </h2>
-        <ul className="mt-2 flex list-disc flex-col gap-2 pl-5">
-          {topic.rules.map((rule) => (
-            <li key={rule}>{rule}</li>
-          ))}
-        </ul>
-      </section>
+      <RulesBox rules={topic.rules} />
 
       <div className="grid grid-cols-2 gap-3" data-testid="topic-actions">
         <Link to={`/learn/topics/${topic.id}/flashcards`} className={`${filled} whitespace-nowrap`}>
