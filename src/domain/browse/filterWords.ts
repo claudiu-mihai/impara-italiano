@@ -10,8 +10,8 @@ export interface BrowseFilters {
   pos: Pos | "all";
   /** Progresul personal la acel cuvânt: nou, în învățare, stăpânit. */
   progress: Mastery | "all";
-  /** Grupele de niveluri CEFR alese: A (A1–A2), B (B1–B2), C (C1–C2). Gol = toate nivelurile. */
-  cefr: readonly LevelGroup[];
+  /** Grupa de niveluri CEFR aleasă: A (A1–A2), B (B1–B2) sau C (C1–C2); „all” = toate nivelurile. */
+  cefr: LevelGroup | "all";
 }
 
 /** Text de căutare: minuscule și fără diacritice (ă → a, ș → s, è → e), ca „ști” să se găsească cu „sti”. */
@@ -27,7 +27,7 @@ export function filterWords(
 
   const rows = words.flatMap((word) => {
     if (pos !== "all" && word.pos !== pos) return [];
-    if (cefr.length > 0 && !cefr.includes(levelGroupOf(word.level))) return [];
+    if (cefr !== "all" && levelGroupOf(word.level) !== cefr) return [];
     if (progress !== "all" && (levels.get(word.id) ?? "new") !== progress) return [];
     if (!needle) return [{ word, prefix: false }];
 

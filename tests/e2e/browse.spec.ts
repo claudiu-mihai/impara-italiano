@@ -135,7 +135,7 @@ test("tema „automată” urmează setarea sistemului", async ({ page }) => {
   await expect.poll(() => page.evaluate(() => document.documentElement.classList.contains("dark"))).toBe(false);
 });
 
-test("filtru după grupele de niveluri (A, B, C): fără niciuna apăsată se văd toate, grupele se combină", async ({ page }) => {
+test("filtru după grupa de niveluri (A, B, C): un singur buton activ, deselectat prin apăsarea lui", async ({ page }) => {
   await page.goto("/browse");
   const group = page.getByRole("group", { name: "Nivel CEFR" });
   const level = (letter: string) => group.getByRole("button", { name: new RegExp(`^Nivel ${letter}`) });
@@ -149,15 +149,16 @@ test("filtru după grupele de niveluri (A, B, C): fără niciuna apăsată se v�
   await expect(page.getByRole("link", { name: /scegliere/ })).toBeVisible(); // A2
   await expect(level("A")).toHaveAttribute("aria-pressed", "true");
 
-  // a doua grupă se adaugă la prima
+  // alegerea altui buton îl înlocuiește pe cel activ
   await level("B").click();
-  await expect(page.getByRole("status")).toHaveText(`${inGroup("A") + inGroup("B")} cuvinte`);
-
-  await level("A").click();
   await expect(page.getByRole("status")).toHaveText(`${inGroup("B")} cuvinte`);
+  await expect(level("B")).toHaveAttribute("aria-pressed", "true");
+  await expect(level("A")).toHaveAttribute("aria-pressed", "false");
   await expect(page.getByRole("link", { name: /essere/ })).toHaveCount(0); // A1
 
-  await level("B").click(); // niciuna apăsată: toate nivelurile
+  // apăsarea butonului activ îl deselectează: toate nivelurile
+  await level("B").click();
+  await expect(level("B")).toHaveAttribute("aria-pressed", "false");
   await expect(page.getByRole("status")).toHaveText(TOTAL);
 
   await level("C").click();
