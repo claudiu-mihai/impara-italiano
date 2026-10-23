@@ -137,6 +137,11 @@ test("statistici: repetițiile de azi apar în serie și în progres", async ({ 
   await expect(page.getByRole("heading", { name: "Statistici" })).toBeVisible();
   await expect(page.getByText(/Azi: 2 din 10 repetiții/)).toBeVisible();
   await expect(page.getByTestId("streak")).toContainText("0");
+  // 2 repetiții azi: o zi de studiu (sub pragul seriei), fără serie record
+  await expect(page.getByTestId("active-days")).toContainText("1");
+  await expect(page.getByTestId("longest-streak")).toContainText("0");
+  await expect(page.getByRole("heading", { name: "Calendar de activitate" })).toBeVisible();
+  await expect(page.getByRole("img", { name: /Activitate în ultimele 16 săptămâni: 1 zi cu repetiții/ })).toBeVisible();
   await expect(page.getByText(/2 în învățare|0 stăpânite din 50/).first()).toBeVisible();
 });
 

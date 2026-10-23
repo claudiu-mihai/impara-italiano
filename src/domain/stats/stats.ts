@@ -31,8 +31,30 @@ export interface LevelProgress {
   mastered: number;
 }
 
+/** Câte săptămâni are calendarul de activitate. */
+export const CALENDAR_WEEKS = 16;
+
+/** Intensitatea unei zile în calendar: 0 = nicio repetiție, 4 = de cel puțin 3 ori pragul pentru serie. */
+export type ActivityLevel = 0 | 1 | 2 | 3 | 4;
+
+export interface CalendarDay {
+  day: string;
+  reviews: number;
+  level: ActivityLevel;
+  /** Zi de după azi, în ultima săptămână: nu se colorează. */
+  future: boolean;
+}
+
 export interface Stats {
   streak: number;
+  /** Cea mai lungă serie din toată istoria (zile consecutive cu cel puțin MIN_REVIEWS_FOR_STREAK repetiții). */
+  longestStreak: number;
+  /** Zile de studiu în care s-a făcut cel puțin o repetiție, în total. */
+  activeDays: number;
+  /** Prima zi cu repetiții, sau null fără date. */
+  firstDay: string | null;
+  /** Ultimele CALENDAR_WEEKS săptămâni, de la cea mai veche; fiecare săptămână are 7 zile, de luni până duminică. */
+  calendar: CalendarDay[][];
   todayReviews: number;
   /** Ultimele `days` zile, de la cea mai veche la azi. */
   daily: DayStat[];
@@ -59,6 +81,51 @@ export function currentStreak(reviewsByDay: ReadonlyMap<string, number>, today: 
     day = addDays(day, -1);
   }
   return streak;
+}
+
+/** Cea mai lungă serie de zile consecutive cu cel puțin MIN_REVIEWS_FOR_STREAK repetiții. */
+export function longestStreak(reviewsByDay: ReadonlyMap<string, number>): number {
+  const reached = [...reviewsByDay].filter(([, n]) => n >= MIN_REVIEWS_FOR_STREAK).map(([day]) => day).sort();
+  let best = 0;
+  let run = 0;
+  let previous: string | undefined;
+  for (const day of reached) {
+    run = previous !== undefined && addDays(previous, 1) === day ? run + 1 : 1;
+    best = Math.max(best, run);
+    previous = day;
+  }
+  return best;
+}
+
+export function activityLevel(reviews: number): ActivityLevel {
+  if (reviews <= 0) return 0;
+  if (reviews < MIN_REVIEWS_FOR_STREAK / 2) return 1;
+  if (reviews < MIN_REVIEWS_FOR_STREAK) return 2;
+  if (reviews < MIN_REVIEWS_FOR_STREAK * 3) return 3;
+  return 4;
+}
+
+/** Ziua săptămânii a unei zile de studiu, cu luni = 0 și duminică = 6. */
+const weekdayOf = (day: string): number => (new Date(`${day}T00:00:00Z`).getUTCDay() + 6) % 7;
+
+/**
+ * Calendarul de activitate: `weeks` săptămâni calendaristice (luni–duminică) care se termină cu cea de azi.
+ * Zilele de după azi din ultima săptămână sunt marcate `future`.
+ */
+export function activityCalendar(
+  reviewsByDay: ReadonlyMap<string, number>,
+  today: string,
+  weeks: number = CALENDAR_WEEKS,
+): CalendarDay[][] {
+  const thisMonday = addDays(today, -weekdayOf(today));
+  const start = addDays(thisMonday, -7 * (weeks - 1));
+  return Array.from({ length: weeks }, (_, w) =>
+    Array.from({ length: 7 }, (_, d): CalendarDay => {
+      const day = addDays(start, w * 7 + d);
+      const reviews = reviewsByDay.get(day) ?? 0;
+      return { day, reviews, level: activityLevel(reviews), future: day > today };
+    }),
+  );
 }
 
 export interface ComputeStatsArgs {
@@ -116,8 +183,14 @@ export function computeStats({ now, days, log, cards, words }: ComputeStatsArgs)
   const wordLevels = [...mastery.values()];
   const conjCards = cards.filter((c) => c.kind === "conj" && c.state !== State.New);
 
+  const activeDays = [...reviewsByDay.keys()].sort();
+
   return {
     streak: currentStreak(reviewsByDay, today),
+    longestStreak: longestStreak(reviewsByDay),
+    activeDays: activeDays.length,
+    firstDay: activeDays[0] ?? null,
+    calendar: activityCalendar(reviewsByDay, today),
     todayReviews: reviewsByDay.get(today) ?? 0,
     daily,
     forecast,

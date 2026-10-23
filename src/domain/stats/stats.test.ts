@@ -3,7 +3,7 @@ import { expect, test } from "vitest";
 import { newStoredCard } from "../srs/scheduler.ts";
 import type { StoredCard } from "../srs/types.ts";
 import { addDays } from "../time/dayMath.ts";
-import { computeStats, currentStreak, MIN_REVIEWS_FOR_STREAK } from "./stats.ts";
+import { activityCalendar, activityLevel, CALENDAR_WEEKS, computeStats, currentStreak, longestStreak, MIN_REVIEWS_FOR_STREAK } from "./stats.ts";
 
 const NOW = new Date(2026, 9, 20, 10, 0, 0); // ziua de studiu 2026-10-20
 const TODAY = "2026-10-20";
@@ -104,4 +104,79 @@ test("progres pe niveluri CEFR: total, începute și stăpânite, inclusiv nivel
   expect(levels[0]).toEqual({ level: "A1", total: 3, started: 2, mastered: 1 });
   expect(levels[1]).toEqual({ level: "A2", total: 1, started: 1, mastered: 1 });
   expect(levels[2]).toEqual({ level: "B1", total: 0, started: 0, mastered: 0 });
+});
+
+// ---- zile totale, serie record, calendar ----
+
+const GOAL = MIN_REVIEWS_FOR_STREAK;
+
+test("cea mai lungă serie: ia cea mai lungă secvență, ignoră zilele sub prag și golurile", () => {
+  const reviews = days({
+    "2026-10-01": GOAL, "2026-10-02": GOAL, "2026-10-03": GOAL, // 3
+    "2026-10-04": GOAL - 1, // sub prag: rupe seria
+    "2026-10-05": GOAL, "2026-10-06": GOAL, // 2
+    "2026-10-09": GOAL * 2, "2026-10-10": GOAL, "2026-10-11": GOAL, "2026-10-12": GOAL, // 4, după un gol
+  });
+  expect(longestStreak(reviews)).toBe(4);
+  expect(longestStreak(days({}))).toBe(0);
+  expect(longestStreak(days({ "2026-10-01": 3 }))).toBe(0);
+  expect(longestStreak(days({ "2026-12-31": GOAL, "2027-01-01": GOAL }))).toBe(2); // trece peste an
+});
+
+test("statistici: zile de studiu totale (și cele sub prag), prima zi, seria record", () => {
+  const log = [
+    { studyDay: "2026-09-01", rating: 3 },
+    { studyDay: "2026-09-01", rating: 3 },
+    { studyDay: "2026-10-18", rating: 3 },
+    ...Array.from({ length: GOAL }, () => ({ studyDay: "2026-10-19", rating: 3 })),
+    ...Array.from({ length: GOAL }, () => ({ studyDay: "2026-10-20", rating: 3 })),
+  ];
+  const stats = computeStats({ now: NOW, days: 7, log, cards: [], words: [] });
+  expect(stats.activeDays).toBe(4);
+  expect(stats.firstDay).toBe("2026-09-01");
+  expect(stats.streak).toBe(2);
+  expect(stats.longestStreak).toBe(2);
+
+  const empty = computeStats({ now: NOW, days: 7, log: [], cards: [], words: [] });
+  expect(empty).toMatchObject({ activeDays: 0, firstDay: null, longestStreak: 0 });
+});
+
+test("nivelul de intensitate al unei zile", () => {
+  expect(activityLevel(0)).toBe(0);
+  expect(activityLevel(1)).toBe(1);
+  expect(activityLevel(GOAL / 2 - 1)).toBe(1);
+  expect(activityLevel(GOAL / 2)).toBe(2);
+  expect(activityLevel(GOAL - 1)).toBe(2);
+  expect(activityLevel(GOAL)).toBe(3);
+  expect(activityLevel(GOAL * 3 - 1)).toBe(3);
+  expect(activityLevel(GOAL * 3)).toBe(4);
+});
+
+test("calendar: săptămâni luni–duminică, ultima conține azi, zilele de după azi sunt viitoare", () => {
+  // 2026-10-20 este marți
+  const calendar = activityCalendar(days({ "2026-10-20": GOAL, "2026-10-19": 2 }), TODAY, 4);
+  expect(calendar).toHaveLength(4);
+  expect(calendar.every((week) => week.length === 7)).toBe(true);
+  expect(calendar[3]!.map((d) => d.day)).toEqual([
+    "2026-10-19", "2026-10-20", "2026-10-21", "2026-10-22", "2026-10-23", "2026-10-24", "2026-10-25",
+  ]);
+  expect(calendar[0]![0]!.day).toBe("2026-09-28"); // luni, cu 3 săptămâni înainte
+  expect(calendar[3]!.map((d) => d.future)).toEqual([false, false, true, true, true, true, true]);
+  expect(calendar[3]![0]).toMatchObject({ reviews: 2, level: 1 });
+  expect(calendar[3]![1]).toMatchObject({ reviews: GOAL, level: 3 });
+  // fiecare zi apare o singură dată, în ordine, fără goluri
+  const all = calendar.flat().map((d) => d.day);
+  expect(all).toEqual(all.map((_, i) => addDays("2026-09-28", i)));
+});
+
+test("calendar: duminica este ultima zi a săptămânii, iar luni începe una nouă", () => {
+  expect(activityCalendar(days({}), "2026-10-18", 1)[0]!.map((d) => d.day)[6]).toBe("2026-10-18"); // duminică
+  expect(activityCalendar(days({}), "2026-10-19", 2)[1]![0]!.day).toBe("2026-10-19"); // luni
+  expect(activityCalendar(days({}), "2026-10-19", 1)[0]!.slice(1).every((d) => d.future)).toBe(true);
+});
+
+test("statistici: calendarul are CALENDAR_WEEKS săptămâni și acoperă și zilele vechi", () => {
+  const stats = computeStats({ now: NOW, days: 7, log: [{ studyDay: "2026-08-10", rating: 3 }], cards: [], words: [] });
+  expect(stats.calendar).toHaveLength(CALENDAR_WEEKS);
+  expect(stats.calendar.flat().find((d) => d.day === "2026-08-10")?.reviews).toBe(1);
 });
