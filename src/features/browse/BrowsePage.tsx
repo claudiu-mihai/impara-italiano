@@ -1,12 +1,12 @@
 import { useLiveQuery } from "dexie-react-hooks";
 import { memo, useEffect, useMemo, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useContent } from "../../app/content.tsx";
 import { db } from "../../data/db/instance.ts";
-import { filterWords, presentCategories, type BrowseFilters } from "../../domain/browse/filterWords.ts";
+import { filterWords, filtersFromSearch, presentCategories, type BrowseFilters } from "../../domain/browse/filterWords.ts";
 import type { Pos } from "../../domain/content/constants.ts";
 import { POS } from "../../domain/content/constants.ts";
-import { italianText, POS_ICON, POS_LABEL } from "../../domain/content/display.ts";
+import { italianText, LEVEL_LABEL, POS_ICON, POS_LABEL } from "../../domain/content/display.ts";
 import type { CoreWord } from "../../domain/content/types.ts";
 import { LEVEL_GROUP_LABEL, LEVEL_GROUPS } from "../../domain/content/levels.ts";
 import { masteryByWord, type Mastery } from "../../domain/srs/mastery.ts";
@@ -116,10 +116,18 @@ function CategoryIcons({
   );
 }
 
+/** Pagina se reia (filtre din adresă) când adresa se schimbă, de exemplu dintr-un link din Statistici. */
 export function BrowsePage() {
+  const [params] = useSearchParams();
+  return <BrowseView key={params.toString()} />;
+}
+
+function BrowseView() {
   const content = useContent();
   const cards = useLiveQuery(() => db.cards.where("kind").equals("vocab").toArray(), []);
-  const [filters, setFilters] = useState<BrowseFilters>({ query: "", pos: "all", cefr: "all" });
+  // filtrele pot veni din adresă (linkurile din Statistici: /browse?pos=verb&progress=learning)
+  const [params] = useSearchParams();
+  const [filters, setFilters] = useState<BrowseFilters>(() => filtersFromSearch(params));
 
   const levels = useMemo(() => masteryByWord(cards ?? []), [cards]);
   // în ordinea fixă a categoriilor, ca iconițele să nu-și schimbe locul
@@ -127,7 +135,7 @@ export function BrowsePage() {
     const present = new Set(presentCategories(content.words));
     return POS.filter((pos) => present.has(pos));
   }, [content.words]);
-  const results = useMemo(() => filterWords(content.words, filters), [content.words, filters]);
+  const results = useMemo(() => filterWords(content.words, filters, levels), [content.words, filters, levels]);
 
   // listă incrementală: 2000+ de rânduri deodată încarcă inutil pagina; se adaugă încă o pagină când ajungi la sfârșit
   const [shown, setShown] = useState(PAGE_SIZE);
@@ -166,6 +174,20 @@ export function BrowsePage() {
       <CategoryIcons categories={categories} value={filters.pos} onChange={(pos) => setFilters({ ...filters, pos })} />
 
       <LevelButtons value={filters.cefr} onChange={(cefr) => setFilters({ ...filters, cefr })} />
+
+      {filters.progress !== "all" && (
+        <button
+          type="button"
+          onClick={() => setFilters({ ...filters, progress: "all" })}
+          aria-label={`Scoate filtrul Progres: ${LEVEL_LABEL[filters.progress]}`}
+          className="flex min-h-12 w-fit items-center gap-2 rounded-full border-2 border-brand bg-brand/10 pl-4 pr-3 text-sm font-semibold text-brand-fg"
+        >
+          Progres: {LEVEL_LABEL[filters.progress]}
+          <span aria-hidden="true" className="text-base">
+            ✕
+          </span>
+        </button>
+      )}
 
       <p className="text-sm text-muted" role="status">
         {results.length} {results.length === 1 ? "cuvânt" : "cuvinte"}

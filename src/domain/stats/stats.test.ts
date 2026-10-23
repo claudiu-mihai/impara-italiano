@@ -92,10 +92,10 @@ test("progres: cuvinte învățate/stăpânite și conjugări", () => {
 
 test("progres pe niveluri CEFR: total, începute și stăpânite, inclusiv niveluri goale", () => {
   const words = [
-    { id: "a", level: "A1" as const },
-    { id: "b", level: "A1" as const },
-    { id: "c", level: "A1" as const },
-    { id: "d", level: "A2" as const },
+    { id: "a", level: "A1" as const, pos: "verb" as const },
+    { id: "b", level: "A1" as const, pos: "verb" as const },
+    { id: "c", level: "A1" as const, pos: "noun" as const },
+    { id: "d", level: "A2" as const, pos: "noun" as const },
   ];
   const cards = [card("a", { stability: 40 }), card("b", { stability: 3 }), card("d", { stability: 25 })];
   const { levels } = computeStats({ now: NOW, days: 7, log: [], cards, words });
@@ -104,6 +104,31 @@ test("progres pe niveluri CEFR: total, începute și stăpânite, inclusiv nivel
   expect(levels[0]).toEqual({ level: "A1", total: 3, started: 2, mastered: 1 });
   expect(levels[1]).toEqual({ level: "A2", total: 1, started: 1, mastered: 1 });
   expect(levels[2]).toEqual({ level: "B1", total: 0, started: 0, mastered: 0 });
+});
+
+test("cuvinte pe progres (nou / în învățare / stăpânit) și pe categorii, din tot dicționarul", () => {
+  const words = [
+    { id: "a", level: "A1" as const, pos: "verb" as const },
+    { id: "b", level: "A1" as const, pos: "verb" as const },
+    { id: "c", level: "A1" as const, pos: "noun" as const },
+    { id: "d", level: "A2" as const, pos: "noun" as const },
+    { id: "e", level: "A2" as const, pos: "adverb" as const },
+  ];
+  const cards = [card("a", { stability: 40 }), card("b", { stability: 3 }), card("d", { stability: 25 })];
+  const { progress, categories } = computeStats({ now: NOW, days: 7, log: [], cards, words });
+
+  expect(progress).toEqual({ new: 2, learning: 1, mastered: 2 });
+  expect(progress.new + progress.learning + progress.mastered).toBe(words.length);
+  // ordinea fixă a categoriilor (verb, substantiv, … adverb); doar cele prezente
+  expect(categories).toEqual([
+    { pos: "verb", total: 2, learning: 1, mastered: 1 },
+    { pos: "noun", total: 2, learning: 0, mastered: 1 },
+    { pos: "adverb", total: 1, learning: 0, mastered: 0 },
+  ]);
+  expect(computeStats({ now: NOW, days: 7, log: [], cards: [], words: [] })).toMatchObject({
+    progress: { new: 0, learning: 0, mastered: 0 },
+    categories: [],
+  });
 });
 
 // ---- zile totale, serie record, calendar ----

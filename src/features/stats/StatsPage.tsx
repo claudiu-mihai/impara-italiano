@@ -1,9 +1,13 @@
 import { useLiveQuery } from "dexie-react-hooks";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useContent } from "../../app/content.tsx";
 import { db } from "../../data/db/instance.ts";
 import { loadStats } from "../../data/queries.ts";
 import { LEVEL_NAME } from "../../domain/content/levels.ts";
+import { POS_ICON, POS_LABEL, LEVEL_LABEL } from "../../domain/content/display.ts";
+import { browseHref } from "../../domain/browse/filterWords.ts";
+import type { Mastery } from "../../domain/srs/mastery.ts";
 import { getSettings } from "../../data/db/repositories.ts";
 import { MIN_REVIEWS_FOR_STREAK } from "../../domain/stats/stats.ts";
 import { ActivityCalendar } from "../../ui/ActivityCalendar.tsx";
@@ -12,6 +16,7 @@ import { CALENDAR_WEEKS } from "../../domain/stats/stats.ts";
 
 const dayLabel = (day: string) => `${day.slice(8, 10)}.${day.slice(5, 7)}`;
 const fullDate = (day: string) => `${day.slice(8, 10)}.${day.slice(5, 7)}.${day.slice(0, 4)}`;
+const PROGRESS_ORDER: Mastery[] = ["new", "learning", "mastered"];
 const plural = (n: number, one: string, many: string) => (n === 1 ? one : many);
 const card = "rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900";
 const heading = "text-sm font-semibold uppercase tracking-wide text-muted";
@@ -137,6 +142,54 @@ export function StatsPage() {
                   style={{ width: `${l.total ? (l.mastered / l.total) * 100 : 0}%` }}
                 />
               </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className={card} aria-labelledby="words-progress">
+        <h2 id="words-progress" className={heading}>
+          Cuvinte după progres
+        </h2>
+        <ul className="mt-3 grid grid-cols-3 gap-2">
+          {PROGRESS_ORDER.map((progress) => (
+            <li key={progress}>
+              <Link
+                to={browseHref({ progress })}
+                data-testid={`progress-${progress}`}
+                className="flex min-h-20 flex-col items-center justify-center rounded-xl bg-slate-100 p-2 text-center active:bg-slate-200 dark:bg-slate-800 dark:active:bg-slate-700"
+              >
+                <span className="text-2xl font-bold">{stats.progress[progress]}</span>
+                <span className="text-sm text-muted">{LEVEL_LABEL[progress]}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className={card} aria-labelledby="words-categories">
+        <h2 id="words-categories" className={heading}>
+          Cuvinte pe categorii
+        </h2>
+        <ul className="mt-2 divide-y divide-slate-200 dark:divide-slate-700">
+          {stats.categories.map((c) => (
+            <li key={c.pos}>
+              <Link
+                to={browseHref({ pos: c.pos })}
+                data-testid={`category-${c.pos}`}
+                className="flex min-h-14 items-center gap-3 py-2"
+              >
+                <span aria-hidden="true" className="w-8 text-center text-2xl">
+                  {POS_ICON[c.pos]}
+                </span>
+                <span className="flex-1">
+                  <span className="block font-semibold capitalize">{POS_LABEL[c.pos]}</span>
+                  <span className="block text-sm text-muted">
+                    {c.mastered} stăpânite · {c.learning} în învățare
+                  </span>
+                </span>
+                <span className="text-lg font-bold">{c.total}</span>
+              </Link>
             </li>
           ))}
         </ul>

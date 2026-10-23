@@ -165,3 +165,35 @@ test("filtru după grupa de niveluri (A, B, C): un singur buton activ, deselecta
   await level("C").click();
   await expect(page.getByRole("link", { name: /essere/ }).getByTitle(/^A1 · Începător/)).toBeVisible();
 });
+
+test("Statistici: cuvintele pe progres și pe categorii, cu link în Dicționar cu filtrul aplicat", async ({ page }) => {
+  await page.goto("/stats");
+  const categories = [...new Set(WORDS.map((w) => w.pos))];
+  const verbs = WORDS.filter((w) => w.pos === "verb").length;
+
+  // fără carduri, toate cuvintele sunt noi
+  await expect(page.getByTestId("progress-new")).toContainText(String(WORDS.length));
+  await expect(page.getByTestId("progress-learning")).toContainText("0");
+  await expect(page.getByTestId("progress-mastered")).toContainText("0");
+  await expect(page.locator('[data-testid^="category-"]')).toHaveCount(categories.length);
+  await expect(page.getByTestId("category-verb")).toContainText(String(verbs));
+
+  // categoria: Dicționar filtrat după ea, cu iconița apăsată
+  await page.getByTestId("category-verb").click();
+  await expect(page).toHaveURL(/\/browse\?pos=verb$/);
+  await expect(page.getByRole("heading", { name: "Dicționar" })).toBeVisible();
+  await expect(page.getByRole("status")).toHaveText(`${verbs} cuvinte`);
+  await expect(page.getByRole("button", { name: "verb", exact: true })).toHaveAttribute("aria-pressed", "true");
+
+  // progresul: chip care se poate scoate, fără selector
+  await page.goto("/stats");
+  await page.getByTestId("progress-mastered").click();
+  await expect(page).toHaveURL(/\/browse\?progress=mastered$/);
+  const chip = page.getByRole("button", { name: /Scoate filtrul Progres: Stăpânit/ });
+  await expect(chip).toBeVisible();
+  await expect(page.getByText("Niciun cuvânt găsit.")).toBeVisible();
+  await chip.click();
+  await expect(chip).toHaveCount(0);
+  await expect(page.getByRole("status")).toHaveText(TOTAL);
+  await expect(page.getByLabel("Progres", { exact: true })).toHaveCount(0);
+});

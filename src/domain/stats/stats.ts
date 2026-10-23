@@ -1,6 +1,6 @@
 import { State } from "ts-fsrs";
-import { LEVELS, type Level } from "../content/constants.ts";
-import { masteryByWord, MASTERED_STABILITY_DAYS } from "../srs/mastery.ts";
+import { LEVELS, POS, type Level, type Pos } from "../content/constants.ts";
+import { masteryByWord, MASTERED_STABILITY_DAYS, type Mastery } from "../srs/mastery.ts";
 import type { StoredCard } from "../srs/types.ts";
 import { addDays } from "../time/dayMath.ts";
 import { endOfStudyDay, studyDayOf } from "../time/studyDay.ts";
@@ -45,7 +45,19 @@ export interface CalendarDay {
   future: boolean;
 }
 
+export interface CategoryStat {
+  pos: Pos;
+  /** Cuvintele din dicționar din această categorie. */
+  total: number;
+  learning: number;
+  mastered: number;
+}
+
 export interface Stats {
+  /** Câte cuvinte sunt noi (fără card), în învățare sau stăpânite, din tot dicționarul. */
+  progress: Record<Mastery, number>;
+  /** Cuvintele pe categorii gramaticale (în ordinea fixă a categoriilor, doar cele prezente), cu progresul lor. */
+  categories: CategoryStat[];
   streak: number;
   /** Cea mai lungă serie din toată istoria (zile consecutive cu cel puțin MIN_REVIEWS_FOR_STREAK repetiții). */
   longestStreak: number;
@@ -133,7 +145,7 @@ export interface ComputeStatsArgs {
   days: number;
   log: readonly LogRow[];
   cards: readonly StoredCard[];
-  words: readonly { id: string; level: Level }[];
+  words: readonly { id: string; level: Level; pos: Pos }[];
 }
 
 export function computeStats({ now, days, log, cards, words }: ComputeStatsArgs): Stats {
@@ -181,11 +193,27 @@ export function computeStats({ now, days, log, cards, words }: ComputeStatsArgs)
     };
   });
   const wordLevels = [...mastery.values()];
+  const progress: Record<Mastery, number> = { new: 0, learning: 0, mastered: 0 };
+  for (const word of words) progress[mastery.get(word.id) ?? "new"]++;
+  const categories = POS.flatMap((pos): CategoryStat[] => {
+    const inCategory = words.filter((w) => w.pos === pos);
+    if (inCategory.length === 0) return [];
+    return [
+      {
+        pos,
+        total: inCategory.length,
+        learning: inCategory.filter((w) => mastery.get(w.id) === "learning").length,
+        mastered: inCategory.filter((w) => mastery.get(w.id) === "mastered").length,
+      },
+    ];
+  });
   const conjCards = cards.filter((c) => c.kind === "conj" && c.state !== State.New);
 
   const activeDays = [...reviewsByDay.keys()].sort();
 
   return {
+    progress,
+    categories,
     streak: currentStreak(reviewsByDay, today),
     longestStreak: longestStreak(reviewsByDay),
     activeDays: activeDays.length,
