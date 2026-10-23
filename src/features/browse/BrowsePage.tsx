@@ -6,7 +6,7 @@ import { db } from "../../data/db/instance.ts";
 import { filterWords, presentCategories, type BrowseFilters } from "../../domain/browse/filterWords.ts";
 import type { Pos } from "../../domain/content/constants.ts";
 import { POS } from "../../domain/content/constants.ts";
-import { italianText, LEVEL_LABEL, POS_ICON, POS_LABEL } from "../../domain/content/display.ts";
+import { italianText, POS_ICON, POS_LABEL } from "../../domain/content/display.ts";
 import type { CoreWord } from "../../domain/content/types.ts";
 import { LEVEL_GROUP_LABEL, LEVEL_GROUPS } from "../../domain/content/levels.ts";
 import { masteryByWord, type Mastery } from "../../domain/srs/mastery.ts";
@@ -119,7 +119,7 @@ function CategoryIcons({
 export function BrowsePage() {
   const content = useContent();
   const cards = useLiveQuery(() => db.cards.where("kind").equals("vocab").toArray(), []);
-  const [filters, setFilters] = useState<BrowseFilters>({ query: "", pos: "all", progress: "all", cefr: "all" });
+  const [filters, setFilters] = useState<BrowseFilters>({ query: "", pos: "all", cefr: "all" });
 
   const levels = useMemo(() => masteryByWord(cards ?? []), [cards]);
   // în ordinea fixă a categoriilor, ca iconițele să nu-și schimbe locul
@@ -127,7 +127,7 @@ export function BrowsePage() {
     const present = new Set(presentCategories(content.words));
     return POS.filter((pos) => present.has(pos));
   }, [content.words]);
-  const results = useMemo(() => filterWords(content.words, filters, levels), [content.words, filters, levels]);
+  const results = useMemo(() => filterWords(content.words, filters), [content.words, filters]);
 
   // listă incrementală: 2000+ de rânduri deodată încarcă inutil pagina; se adaugă încă o pagină când ajungi la sfârșit
   const [shown, setShown] = useState(PAGE_SIZE);
@@ -166,20 +166,6 @@ export function BrowsePage() {
       <CategoryIcons categories={categories} value={filters.pos} onChange={(pos) => setFilters({ ...filters, pos })} />
 
       <LevelButtons value={filters.cefr} onChange={(cefr) => setFilters({ ...filters, cefr })} />
-
-      <select
-        aria-label="Progres"
-        value={filters.progress}
-        onChange={(e) => setFilters({ ...filters, progress: e.target.value as Mastery | "all" })}
-        className={`${control} w-full`}
-      >
-        <option value="all">Tot progresul</option>
-        {(Object.keys(LEVEL_LABEL) as Mastery[]).map((progress) => (
-          <option key={progress} value={progress}>
-            {LEVEL_LABEL[progress]}
-          </option>
-        ))}
-      </select>
 
       <p className="text-sm text-muted" role="status">
         {results.length} {results.length === 1 ? "cuvânt" : "cuvinte"}

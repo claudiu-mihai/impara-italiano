@@ -24,7 +24,7 @@ test("dicționarul listează toate cuvintele și caută în italiană și român
   await expect(page.getByText("Niciun cuvânt găsit.")).toBeVisible();
 });
 
-test("filtre după categorie și după nivel", async ({ page }) => {
+test("filtru după categorie, ca iconițe", async ({ page }) => {
   await page.goto("/browse");
   const categories = [...new Set(WORDS.map((w) => w.pos))];
   // categoriile oferite sunt doar cele din dicționar, ca iconițe (plus „Toate categoriile”)
@@ -38,10 +38,9 @@ test("filtre după categorie și după nivel", async ({ page }) => {
   await expect(page.getByRole("button", { name: "verb", exact: true })).toHaveAttribute("aria-pressed", "true");
 
   await page.getByRole("button", { name: "Toate categoriile" }).click();
-  await page.getByLabel("Progres", { exact: true }).selectOption("mastered");
-  await expect(page.getByText("Niciun cuvânt găsit.")).toBeVisible();
-  await page.getByLabel("Progres", { exact: true }).selectOption("new");
   await expect(page.getByRole("status")).toHaveText(TOTAL);
+  // filtrul de progres nu mai există
+  await expect(page.getByLabel("Progres", { exact: true })).toHaveCount(0);
 });
 
 test("lista se încarcă pe pagini: 40 de cuvinte, apoi încă 40 la „Arată mai multe”, iar filtrul o resetează", async ({ page }) => {
