@@ -56,9 +56,14 @@ export function HomePage() {
             <CefrBadge level={level} /> Nivel curent: {LEVEL_NAME[level]}
           </p>
         )}
-        {stats && stats.streak > 0 && (
+        {stats && stats.activeDays > 0 && (
           <p className="mt-3 inline-block rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-900">
-            🔥 {stats.streak} {stats.streak === 1 ? "zi" : "zile"} la rând
+            {stats.streak > 0 && (
+              <>
+                🔥 {stats.streak} {stats.streak === 1 ? "zi" : "zile"} la rând ·{" "}
+              </>
+            )}
+            📅 {stats.activeDays} {stats.activeDays === 1 ? "zi" : "zile"} în total
           </p>
         )}
       </header>

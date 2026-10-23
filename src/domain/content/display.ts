@@ -17,6 +17,20 @@ export const POS_LABEL: Record<Pos, string> = {
   expression: "expresie",
 };
 
+/** O iconiță pentru fiecare categorie gramaticală (filtrul din Dicționar). */
+export const POS_ICON: Record<Pos, string> = {
+  verb: "🏃",
+  noun: "📦",
+  adjective: "🎨",
+  adverb: "⚡",
+  pronoun: "🙋",
+  preposition: "📍",
+  conjunction: "🔗",
+  numeral: "🔢",
+  interjection: "❗",
+  expression: "💬",
+};
+
 /** Forma italiană afișată pe card: substantivele apar mereu cu articolul (il libro, l'amico). */
 export function italianText(word: Pick<CoreWord, "it" | "pos" | "article">): string {
   if (word.pos !== "noun" || !word.article) return word.it;
