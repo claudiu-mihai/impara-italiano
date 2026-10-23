@@ -13,20 +13,27 @@ import { studyDayOf } from "../../domain/time/studyDay.ts";
 import { getVoiceDiagnostics, speak, useItalianVoices, useTtsStatus } from "../../services/tts.ts";
 import { isCloudVoice } from "../../services/voices.ts";
 
+import { InfoBox, InfoButton, InfoHeading, useInfo } from "../../ui/Info.tsx";
+
 const card = "rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900";
 const heading = "text-sm font-semibold uppercase tracking-wide text-muted";
 const control = "min-h-12 rounded-lg border border-slate-300 bg-white px-3 dark:border-slate-700 dark:bg-slate-800";
 const action = "min-h-12 rounded-xl border-2 border-brand-fg px-4 font-semibold text-brand-fg";
 
+/** Un rând din Setări: eticheta, controlul și, dacă există explicație, un buton (i) care deschide sub rând o casetă. */
 function Field({ label, hint, children }: { label: string; hint?: string; children: ReactNode }) {
+  const info = useInfo();
   return (
-    <label className="flex items-center justify-between gap-4 py-2">
-      <span>
-        {label}
-        {hint && <span className="block text-sm text-muted">{hint}</span>}
-      </span>
-      {children}
-    </label>
+    <div className="py-1">
+      <div className="flex items-center justify-between gap-4">
+        <span className="flex min-w-0 items-center">
+          <span id={info.labelId}>{label}</span>
+          {hint && <InfoButton open={info.open} onToggle={info.toggle} boxId={info.boxId} labelId={info.labelId} />}
+        </span>
+        {children}
+      </div>
+      {hint && info.open && <InfoBox id={info.boxId}>{hint}</InfoBox>}
+    </div>
   );
 }
 
@@ -325,13 +332,15 @@ export function SettingsPage() {
           <VoiceDiagnosticsPanel />
         </details>
         <Field label="Sunet la răspunsuri" hint="Quiz și conjugare.">
-          <input
-            type="checkbox"
-            aria-label="Sunet la răspunsuri"
-            checked={settings.soundEnabled}
-            onChange={(e) => update("soundEnabled", e.target.checked)}
-            className="size-6 accent-brand"
-          />
+          <span className="flex size-12 items-center justify-center">
+            <input
+              type="checkbox"
+              aria-label="Sunet la răspunsuri"
+              checked={settings.soundEnabled}
+              onChange={(e) => update("soundEnabled", e.target.checked)}
+              className="size-6 accent-brand"
+            />
+          </span>
         </Field>
         <button type="button" onClick={() => void saveSettings(db, DEFAULT_SETTINGS)} className="mt-2 text-sm text-muted underline">
           Revino la setările implicite
@@ -341,15 +350,12 @@ export function SettingsPage() {
       <AccountSection />
 
       <section className={card} aria-labelledby="data">
-        <h2 id="data" className={heading}>
-          Date
-        </h2>
-        <p className="mt-2 text-sm text-muted">
+        <InfoHeading id="data" title="Date" className={heading}>
           {signedIn
             ? "Progresul se sincronizează cu contul tău. Un backup rămâne util ca arhivă."
             : "Progresul rămâne doar pe acest dispozitiv. Fă periodic un backup ca să nu-l pierzi."}
-          {lastExport && <> Ultimul backup: {studyDayOf(new Date(lastExport))}.</>}
-        </p>
+        </InfoHeading>
+        {lastExport && <p className="mt-2 text-sm text-muted">Ultimul backup: {studyDayOf(new Date(lastExport))}.</p>}
         <div className="mt-3 flex flex-col gap-3">
           <button type="button" disabled={busy} onClick={() => void doExport()} className={action}>
             Exportă progresul
