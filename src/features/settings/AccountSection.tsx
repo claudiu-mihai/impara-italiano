@@ -4,6 +4,7 @@ import { useContent } from "../../app/content.tsx";
 import { db } from "../../data/db/instance.ts";
 import { passwordProblem } from "../../data/sync/messages.ts";
 import { pendingCount } from "../../data/sync/pending.ts";
+import { InfoHeading } from "../../ui/Info.tsx";
 import { downloadBackup } from "./backupDownload.ts";
 
 // Modulul cu SDK-ul PocketBase se încarcă doar când ai deja un cont sau când te autentifici.
@@ -342,20 +343,17 @@ export function AccountSection() {
 
   return (
     <section className={card} aria-labelledby="account">
-      <h2 id="account" className={heading}>
-        Cont
-      </h2>
-      {!state ? null : state.userId ? (
-        <SignedIn state={state} />
+      {state && !state.userId ? (
+        <InfoHeading id="account" title="Cont" className={heading}>
+          Opțional. Fără cont, progresul rămâne doar pe acest telefon și aplicația nu trimite nimic pe internet. Cu cont,
+          progresul se sincronizează cu serverul și îl poți folosi și pe alte dispozitive.
+        </InfoHeading>
       ) : (
-        <>
-          <p className="mt-2 text-sm text-muted">
-            Opțional. Fără cont, progresul rămâne doar pe acest telefon și aplicația nu trimite nimic pe internet. Cu cont,
-            progresul se sincronizează cu serverul și îl poți folosi și pe alte dispozitive.
-          </p>
-          <SignInForm />
-        </>
+        <h2 id="account" className={heading}>
+          Cont
+        </h2>
       )}
+      {!state ? null : state.userId ? <SignedIn state={state} /> : <SignInForm />}
     </section>
   );
 }

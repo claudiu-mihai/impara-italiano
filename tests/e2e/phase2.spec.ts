@@ -186,3 +186,23 @@ test("backup: un fișier greșit primește un mesaj clar și nu șterge nimic", 
   await page.goto("/");
   await expect(page.getByText(/9 cuvinte noi/)).toBeVisible();
 });
+
+test("setări: explicațiile se deschid și se închid din butonul (i)", async ({ page }) => {
+  await page.goto("/settings");
+  const row = page.locator("div.py-1", { hasText: "Retenție țintă" });
+  const info = row.getByRole("button", { name: "Informații" });
+  const text = page.getByText("Mai mare = mai multe repetiții.");
+
+  // explicația nu mai stă afișată în rând, ci în caseta de după (i)
+  await expect(text).toHaveCount(0);
+  await expect(info).toHaveAttribute("aria-expanded", "false");
+
+  await info.click();
+  await expect(info).toHaveAttribute("aria-expanded", "true");
+  await expect(text).toBeVisible();
+
+  await info.click();
+  await expect(text).toHaveCount(0);
+  // controlul rămâne câmpul cu numele lui; butonul (i) nu e luat drept câmp
+  await expect(page.getByLabel("Retenție țintă")).toHaveCount(1);
+});
