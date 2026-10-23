@@ -4,6 +4,15 @@ Formatul urmează [Keep a Changelog](https://keepachangelog.com/ro/1.1.0/), iar 
 [versionarea semantică](https://semver.org/lang/ro/). Intrările noi sunt scrise automat de release-please din
 commit-urile `feat:` / `fix:` (vezi README, „Versionare și release-uri”).
 
+## [1.7.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.6.0...v1.7.0) (2026-10-23)
+
+
+### Funcționalități
+
+* **settings:** explicațiile din Setări se deschid din butonul (i) ([#21](https://github.com/claudiu-mihai/impara-italiano/issues/21)) ([e0c6817](https://github.com/claudiu-mihai/impara-italiano/commit/e0c68178f12305c13f986c0620bf3d88ffd23f41))
+* **stats,browse:** statistici pe cuvinte, calendar de activitate și Dicționar cu iconițe ([#20](https://github.com/claudiu-mihai/impara-italiano/issues/20)) ([b730e03](https://github.com/claudiu-mihai/impara-italiano/commit/b730e03c6697b7a1e10171084f56d08b9c743397))
+* **topics:** caseta „De reținut” este restrânsă implicit și se extinde la atingere ([#22](https://github.com/claudiu-mihai/impara-italiano/issues/22)) ([fb1bd22](https://github.com/claudiu-mihai/impara-italiano/commit/fb1bd22c1c140f3d3baa25d6b32fbea98ae0ba42))
+
 ## [1.6.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.5.1...v1.6.0) (2026-10-23)
 
 
