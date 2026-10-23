@@ -4,6 +4,13 @@ Formatul urmează [Keep a Changelog](https://keepachangelog.com/ro/1.1.0/), iar 
 [versionarea semantică](https://semver.org/lang/ro/). Intrările noi sunt scrise automat de release-please din
 commit-urile `feat:` / `fix:` (vezi README, „Versionare și release-uri”).
 
+## [1.6.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.5.1...v1.6.0) (2026-10-23)
+
+
+### Funcționalități
+
+* **flashcards:** direcția „Ambele” cu deblocarea cardului RO → IT după 7 zile ([#17](https://github.com/claudiu-mihai/impara-italiano/issues/17)) ([428f6d2](https://github.com/claudiu-mihai/impara-italiano/commit/428f6d2143e60dae307e64be8d7ab009da80fe92))
+
 ## [1.5.1](https://github.com/claudiu-mihai/impara-italiano/compare/v1.5.0...v1.5.1) (2026-10-22)
 
 
