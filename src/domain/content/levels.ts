@@ -9,6 +9,19 @@ export const maxLevel = (a: Level, b: Level): Level => (levelIndex(a) >= levelIn
 
 export const nextLevel = (level: Level): Level | undefined => LEVELS[levelIndex(level) + 1];
 
+/** Grupele mari ale nivelurilor CEFR, pentru filtre simple: A = A1–A2, B = B1–B2, C = C1–C2. */
+export const LEVEL_GROUPS = ["A", "B", "C"] as const;
+export type LevelGroup = (typeof LEVEL_GROUPS)[number];
+
+export const levelGroupOf = (level: Level): LevelGroup => level[0] as LevelGroup;
+
+/** Cum se numește grupa în interfață (tooltip și etichetă accesibilă). */
+export const LEVEL_GROUP_LABEL: Record<LevelGroup, string> = {
+  A: "Nivel A (A1–A2): începător și elementar",
+  B: "Nivel B (B1–B2): intermediar",
+  C: "Nivel C (C1–C2): avansat",
+};
+
 export const LEVEL_NAME: Record<Level, string> = {
   A1: "Începător",
   A2: "Elementar",

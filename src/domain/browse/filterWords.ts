@@ -1,5 +1,6 @@
 import { italianText } from "../content/display.ts";
-import type { Level, Pos } from "../content/constants.ts";
+import type { Pos } from "../content/constants.ts";
+import { levelGroupOf, type LevelGroup } from "../content/levels.ts";
 import type { CoreWord } from "../content/types.ts";
 import { normalize, stripAccents } from "../grading/normalize.ts";
 import type { Mastery } from "../srs/mastery.ts";
@@ -9,8 +10,8 @@ export interface BrowseFilters {
   pos: Pos | "all";
   /** Progresul personal la acel cuvânt: nou, în învățare, stăpânit. */
   progress: Mastery | "all";
-  /** Nivelul CEFR al cuvântului. */
-  cefr: Level | "all";
+  /** Grupa de niveluri CEFR a cuvântului: A (A1–A2), B (B1–B2) sau C (C1–C2). */
+  cefr: LevelGroup | "all";
 }
 
 /** Text de căutare: minuscule și fără diacritice (ă → a, ș → s, è → e), ca „ști” să se găsească cu „sti”. */
@@ -26,7 +27,7 @@ export function filterWords(
 
   const rows = words.flatMap((word) => {
     if (pos !== "all" && word.pos !== pos) return [];
-    if (cefr !== "all" && word.level !== cefr) return [];
+    if (cefr !== "all" && levelGroupOf(word.level) !== cefr) return [];
     if (progress !== "all" && (levels.get(word.id) ?? "new") !== progress) return [];
     if (!needle) return [{ word, prefix: false }];
 

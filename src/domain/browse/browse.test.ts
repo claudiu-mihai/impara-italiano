@@ -63,16 +63,18 @@ test("categoriile prezente", () => {
   expect(presentCategories(words)).toEqual(["verb", "noun"]);
 });
 
-test("filtru după nivelul CEFR, combinabil cu progresul", () => {
+test("filtru după grupa de niveluri CEFR (A, B, C), combinabil cu progresul", () => {
   const list = [
     w("a", "uno", "unu", 1, "numeral", { level: "A1" }),
     w("b", "due", "doi", 2, "numeral", { level: "A2" }),
-    w("c", "tre", "trei", 3, "numeral", { level: "A2" }),
+    w("c", "tre", "trei", 3, "numeral", { level: "B1" }),
+    w("d", "quattro", "patru", 4, "numeral", { level: "B2" }),
   ];
-  const ids = (cefr: "A1" | "A2" | "B1" | "all", progress: Mastery | "all" = "all", m = none) =>
+  const ids = (cefr: "A" | "B" | "C" | "all", progress: Mastery | "all" = "all", m = none) =>
     filterWords(list, { ...all, cefr, progress }, m).map((x) => x.id);
-  expect(ids("A1")).toEqual(["a"]);
-  expect(ids("A2")).toEqual(["b", "c"]);
-  expect(ids("B1")).toEqual([]);
-  expect(ids("A2", "learning", new Map<string, Mastery>([["b", "learning"]]))).toEqual(["b"]);
+  expect(ids("A")).toEqual(["a", "b"]);
+  expect(ids("B")).toEqual(["c", "d"]);
+  expect(ids("C")).toEqual([]);
+  expect(ids("all")).toEqual(["a", "b", "c", "d"]);
+  expect(ids("A", "learning", new Map<string, Mastery>([["b", "learning"]]))).toEqual(["b"]);
 });

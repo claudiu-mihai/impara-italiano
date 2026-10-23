@@ -5,10 +5,10 @@ import { useContent } from "../../app/content.tsx";
 import { db } from "../../data/db/instance.ts";
 import { filterWords, presentCategories, type BrowseFilters } from "../../domain/browse/filterWords.ts";
 import type { Pos } from "../../domain/content/constants.ts";
-import { LEVELS, POS, type Level } from "../../domain/content/constants.ts";
+import { POS } from "../../domain/content/constants.ts";
 import { italianText, LEVEL_LABEL, POS_ICON, POS_LABEL } from "../../domain/content/display.ts";
 import type { CoreWord } from "../../domain/content/types.ts";
-import { LEVEL_NAME } from "../../domain/content/levels.ts";
+import { LEVEL_GROUP_LABEL, LEVEL_GROUPS } from "../../domain/content/levels.ts";
 import { masteryByWord, type Mastery } from "../../domain/srs/mastery.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
@@ -38,6 +38,35 @@ const WordRow = memo(function WordRow({ word, mastery }: { word: CoreWord; maste
     </li>
   );
 });
+
+/** Filtrul de nivel: butoane Toate · A · B · C (grupe de niveluri CEFR), unul apăsat odată. */
+function LevelButtons({ value, onChange }: { value: BrowseFilters["cefr"]; onChange: (cefr: BrowseFilters["cefr"]) => void }) {
+  const options: { value: BrowseFilters["cefr"]; text: string; label: string }[] = [
+    { value: "all", text: "Toate", label: "Toate nivelurile" },
+    ...LEVEL_GROUPS.map((g) => ({ value: g, text: g, label: LEVEL_GROUP_LABEL[g] })),
+  ];
+  return (
+    <div role="group" aria-label="Nivel CEFR" className="grid grid-cols-4 gap-1">
+      {options.map((o) => (
+        <button
+          key={o.value}
+          type="button"
+          aria-label={o.label}
+          title={o.label}
+          aria-pressed={o.value === value}
+          onClick={() => onChange(o.value)}
+          className={`min-h-12 rounded-xl border-2 text-base font-semibold ${
+            o.value === value
+              ? "border-brand bg-brand/10 text-brand-fg"
+              : "border-transparent bg-white active:bg-slate-100 dark:bg-slate-900 dark:active:bg-slate-800"
+          }`}
+        >
+          {o.text}
+        </button>
+      ))}
+    </div>
+  );
+}
 
 /** Filtrul de categorie: o iconiță pe categorie, cu numele ca etichetă accesibilă și ca tooltip. */
 function CategoryIcons({
@@ -134,34 +163,21 @@ export function BrowsePage() {
 
       <CategoryIcons categories={categories} value={filters.pos} onChange={(pos) => setFilters({ ...filters, pos })} />
 
-      <div className="grid grid-cols-2 gap-2">
-        <select
-          aria-label="Nivel CEFR"
-          value={filters.cefr}
-          onChange={(e) => setFilters({ ...filters, cefr: e.target.value as Level | "all" })}
-          className={control}
-        >
-          <option value="all">Toate nivelurile</option>
-          {LEVELS.map((level) => (
-            <option key={level} value={level}>
-              {level} · {LEVEL_NAME[level]}
-            </option>
-          ))}
-        </select>
-        <select
-          aria-label="Progres"
-          value={filters.progress}
-          onChange={(e) => setFilters({ ...filters, progress: e.target.value as Mastery | "all" })}
-          className={control}
-        >
-          <option value="all">Tot progresul</option>
-          {(Object.keys(LEVEL_LABEL) as Mastery[]).map((progress) => (
-            <option key={progress} value={progress}>
-              {LEVEL_LABEL[progress]}
-            </option>
-          ))}
-        </select>
-      </div>
+      <LevelButtons value={filters.cefr} onChange={(cefr) => setFilters({ ...filters, cefr })} />
+
+      <select
+        aria-label="Progres"
+        value={filters.progress}
+        onChange={(e) => setFilters({ ...filters, progress: e.target.value as Mastery | "all" })}
+        className={`${control} w-full`}
+      >
+        <option value="all">Tot progresul</option>
+        {(Object.keys(LEVEL_LABEL) as Mastery[]).map((progress) => (
+          <option key={progress} value={progress}>
+            {LEVEL_LABEL[progress]}
+          </option>
+        ))}
+      </select>
 
       <p className="text-sm text-muted" role="status">
         {results.length} {results.length === 1 ? "cuvânt" : "cuvinte"}
