@@ -23,3 +23,7 @@ playwright-report/
 
 # binarul și datele PocketBase de dezvoltare (npm run pocketbase)
 .pocketbase/
+
+# baza locală a uneltelor Ruflo (AgentDB / RVF)
+agentdb.rvf
+agentdb.rvf.*
