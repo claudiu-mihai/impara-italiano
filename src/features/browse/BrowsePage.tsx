@@ -8,7 +8,7 @@ import type { Pos } from "../../domain/content/constants.ts";
 import { POS } from "../../domain/content/constants.ts";
 import { italianText, LEVEL_LABEL, POS_ICON, POS_LABEL } from "../../domain/content/display.ts";
 import type { CoreWord } from "../../domain/content/types.ts";
-import { LEVEL_GROUP_LABEL, LEVEL_GROUPS } from "../../domain/content/levels.ts";
+import { LEVEL_GROUP_LABEL, LEVEL_GROUPS, type LevelGroup } from "../../domain/content/levels.ts";
 import { masteryByWord, type Mastery } from "../../domain/srs/mastery.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
@@ -39,31 +39,35 @@ const WordRow = memo(function WordRow({ word, mastery }: { word: CoreWord; maste
   );
 });
 
-/** Filtrul de nivel: butoane Toate · A · B · C (grupe de niveluri CEFR), unul apăsat odată. */
+/**
+ * Filtrul de nivel: trei butoane comutator, A · B · C (grupe de niveluri CEFR). Se pot combina; dacă niciunul nu e
+ * apăsat, se afișează toate nivelurile.
+ */
 function LevelButtons({ value, onChange }: { value: BrowseFilters["cefr"]; onChange: (cefr: BrowseFilters["cefr"]) => void }) {
-  const options: { value: BrowseFilters["cefr"]; text: string; label: string }[] = [
-    { value: "all", text: "Toate", label: "Toate nivelurile" },
-    ...LEVEL_GROUPS.map((g) => ({ value: g, text: g, label: LEVEL_GROUP_LABEL[g] })),
-  ];
+  const toggle = (group: LevelGroup) =>
+    onChange(value.includes(group) ? value.filter((g) => g !== group) : LEVEL_GROUPS.filter((g) => g === group || value.includes(g)));
   return (
-    <div role="group" aria-label="Nivel CEFR" className="grid grid-cols-4 gap-1">
-      {options.map((o) => (
-        <button
-          key={o.value}
-          type="button"
-          aria-label={o.label}
-          title={o.label}
-          aria-pressed={o.value === value}
-          onClick={() => onChange(o.value)}
-          className={`min-h-12 rounded-xl border-2 text-base font-semibold ${
-            o.value === value
-              ? "border-brand bg-brand/10 text-brand-fg"
-              : "border-transparent bg-white active:bg-slate-100 dark:bg-slate-900 dark:active:bg-slate-800"
-          }`}
-        >
-          {o.text}
-        </button>
-      ))}
+    <div role="group" aria-label="Nivel CEFR" className="grid grid-cols-3 gap-1">
+      {LEVEL_GROUPS.map((group) => {
+        const active = value.includes(group);
+        return (
+          <button
+            key={group}
+            type="button"
+            aria-label={LEVEL_GROUP_LABEL[group]}
+            title={LEVEL_GROUP_LABEL[group]}
+            aria-pressed={active}
+            onClick={() => toggle(group)}
+            className={`min-h-12 rounded-xl border-2 text-base font-semibold ${
+              active
+                ? "border-brand bg-brand/10 text-brand-fg"
+                : "border-transparent bg-white active:bg-slate-100 dark:bg-slate-900 dark:active:bg-slate-800"
+            }`}
+          >
+            {group}
+          </button>
+        );
+      })}
     </div>
   );
 }
@@ -117,7 +121,7 @@ function CategoryIcons({
 export function BrowsePage() {
   const content = useContent();
   const cards = useLiveQuery(() => db.cards.where("kind").equals("vocab").toArray(), []);
-  const [filters, setFilters] = useState<BrowseFilters>({ query: "", pos: "all", progress: "all", cefr: "all" });
+  const [filters, setFilters] = useState<BrowseFilters>({ query: "", pos: "all", progress: "all", cefr: [] });
 
   const levels = useMemo(() => masteryByWord(cards ?? []), [cards]);
   // în ordinea fixă a categoriilor, ca iconițele să nu-și schimbe locul

@@ -135,25 +135,33 @@ test("tema „automată” urmează setarea sistemului", async ({ page }) => {
   await expect.poll(() => page.evaluate(() => document.documentElement.classList.contains("dark"))).toBe(false);
 });
 
-test("filtru după grupa de niveluri (A, B, C) și insigne de nivel pe fiecare cuvânt", async ({ page }) => {
+test("filtru după grupele de niveluri (A, B, C): fără niciuna apăsată se văd toate, grupele se combină", async ({ page }) => {
   await page.goto("/browse");
   const group = page.getByRole("group", { name: "Nivel CEFR" });
-  await expect(group.getByRole("button")).toHaveCount(4);
-  await expect(group.getByRole("button", { name: "Toate nivelurile" })).toHaveAttribute("aria-pressed", "true");
+  const level = (letter: string) => group.getByRole("button", { name: new RegExp(`^Nivel ${letter}`) });
+  await expect(group.getByRole("button")).toHaveCount(3);
+  await expect(page.getByRole("status")).toHaveText(TOTAL);
+  for (const l of ["A", "B", "C"]) await expect(level(l)).toHaveAttribute("aria-pressed", "false");
 
-  await group.getByRole("button", { name: /^Nivel A/ }).click();
+  await level("A").click();
   await expect(page.getByRole("status")).toHaveText(`${inGroup("A")} cuvinte`);
   await expect(page.getByRole("link", { name: /essere/ })).toBeVisible(); // A1
   await expect(page.getByRole("link", { name: /scegliere/ })).toBeVisible(); // A2
-  await expect(group.getByRole("button", { name: /^Nivel A/ })).toHaveAttribute("aria-pressed", "true");
+  await expect(level("A")).toHaveAttribute("aria-pressed", "true");
 
-  await group.getByRole("button", { name: /^Nivel B/ }).click();
+  // a doua grupă se adaugă la prima
+  await level("B").click();
+  await expect(page.getByRole("status")).toHaveText(`${inGroup("A") + inGroup("B")} cuvinte`);
+
+  await level("A").click();
   await expect(page.getByRole("status")).toHaveText(`${inGroup("B")} cuvinte`);
   await expect(page.getByRole("link", { name: /essere/ })).toHaveCount(0); // A1
 
-  await group.getByRole("button", { name: /^Nivel C/ }).click();
-  await expect(page.getByText("Niciun cuvânt găsit.")).toBeVisible();
+  await level("B").click(); // niciuna apăsată: toate nivelurile
+  await expect(page.getByRole("status")).toHaveText(TOTAL);
 
-  await group.getByRole("button", { name: "Toate nivelurile" }).click();
+  await level("C").click();
+  await expect(page.getByText("Niciun cuvânt găsit.")).toBeVisible();
+  await level("C").click();
   await expect(page.getByRole("link", { name: /essere/ }).getByTitle(/^A1 · Începător/)).toBeVisible();
 });
