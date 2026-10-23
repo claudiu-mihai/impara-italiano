@@ -51,3 +51,11 @@ test("abilitățile scadente apar la zi; cele neîncepute sau neajunse la scaden
   expect(dueSkillTopics(topics, cards, NOW).map((t) => t.id)).toEqual(["n"]);
   expect(dueSkillTopics(topics, [], NOW)).toEqual([]);
 });
+
+test("Studiază tema în modul „ambele”: repetiții din ambele direcții, cuvinte noi IT → RO", () => {
+  const due = { due: new Date(NOW.getTime() - DAY), state: State.Review };
+  const cards = [card("vocab", "w1", "it-ro", due), card("vocab", "w2", "ro-it", due)];
+  const queue = buildTopicSession({ now: NOW, direction: "both", cards, wordIds: topicWordIds(topic) });
+  expect(queue.filter((i) => !i.isNew).map((i) => `${i.wordId}:${i.variant}`).sort()).toEqual(["w1:it-ro", "w2:ro-it"]);
+  expect(queue.filter((i) => i.isNew).map((i) => `${i.wordId}:${i.variant}`)).toEqual(["w3:it-ro", "w4:it-ro"]);
+});

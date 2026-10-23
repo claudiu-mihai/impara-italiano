@@ -3,6 +3,9 @@ import type { Direction } from "./srs/types.ts";
 
 export type Theme = "auto" | "light" | "dark";
 
+/** Direcția cardurilor de vocabular: una singură sau ambele (a doua direcție se deblochează după prima). */
+export type StudyDirection = Direction | "both";
+
 /** Varianta cardurilor de conjugare: scrii pe rând, autoevaluare (Flip) sau tot tabelul deodată. */
 export type ConjugationMode = "write" | "flip" | "table";
 
@@ -19,7 +22,9 @@ export interface Settings {
   maxReviewsPerDay: number;
   /** Retenția țintă FSRS (0.8–0.95). */
   retention: number;
-  direction: Direction;
+  direction: StudyDirection;
+  /** În modul „ambele”: câte carduri din a doua direcție (de obicei RO → IT) se deblochează pe zi. */
+  newReversePerDay: number;
   conjugationMode: ConjugationMode;
   ttsRate: number;
   /** `voiceURI` al vocii italiene alese; null = automat (vocea din sistem, calitatea cea mai bună). */
@@ -38,6 +43,7 @@ export const DEFAULT_SETTINGS: Settings = {
   maxReviewsPerDay: 100,
   retention: 0.9,
   direction: "it-ro",
+  newReversePerDay: 10,
   conjugationMode: "write",
   ttsRate: 0.9,
   ttsVoiceURI: null,

@@ -227,6 +227,7 @@ interface Sentence {
 * Cardurile scadente, cele mai întârziate primele, limitate la `maxReviewsPerDay` (implicit 100) minus repetițiile deja făcute azi. Un card în faza de repetare (`State.Review`) este scadent dacă `due` cade înainte de sfârșitul zilei de studiu (04:00 următor); un card în (re)învățare, dacă `due ≤ now + 20 min` (`LEARN_AHEAD_MS`).
 * Cuvinte noi, nivelurile mai ușoare întâi și apoi în ordinea rangului: `newPerDay − cuvinte introduse azi` (implicit 10). Setarea `nounShare` (0, 33, 50 sau 67) aduce substantivele mai devreme, în acel procent din cuvintele de conținut, tot în ordinea frecvenței; cuvintele gramaticale se intercalează la fiecare 3 cuvinte de conținut.
 * Intercalare: un card nou la fiecare ~4 repetiții.
+* Direcția `both` („Ambele”): repetițiile vin din ambele direcții, cuvintele noi se introduc IT → RO, iar cardul celeilalte direcții al unui cuvânt se deblochează când cardul existent e în repetare, are stabilitatea ≥ 7 zile (`REVERSE_UNLOCK_STABILITY_DAYS`) și nu a fost repetat azi; cel mult `newReversePerDay` pe zi (implicit 10), separat de `newPerDay`, cele mai stabile primele. Cele două direcții ale aceluiași cuvânt nu stau alături în coadă (`spreadSameWord`). Quiz-ul întreabă fiecare card în direcția lui; „Studiază tema” ia repetițiile din ambele direcții.
 * Cardurile notate *Din nou* revin în aceeași sesiune când devin scadente (pașii de învățare FSRS).
 * „Azi” este calculat de `domain/time/studyDay.ts`: ziua de studiu începe la 04:00 ora locală.
 

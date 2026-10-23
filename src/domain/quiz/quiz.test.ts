@@ -89,3 +89,14 @@ test("în direcția RO → IT variantele sunt în italiană", () => {
   const q = buildQuizRound({ now: NOW, direction: "ro-it", cards: [c], words })[0]!;
   expect(q.options[q.correctIndex]).toBe("parlare");
 });
+
+test("ambele direcții: fiecare întrebare e în direcția cardului ei", () => {
+  const roIt = { ...card("v-dire"), cardId: vocabCardId("v-dire", "ro-it"), variant: "ro-it" };
+  const round = buildQuizRound({ now: NOW, direction: "both", cards: [card("v-parlare"), roIt], words });
+  const byWord = Object.fromEntries(round.map((q) => [q.wordId, q]));
+  expect(byWord["v-parlare"]!.direction).toBe("it-ro");
+  expect(byWord["v-parlare"]!.options[byWord["v-parlare"]!.correctIndex]).toBe("a vorbi");
+  expect(byWord["v-dire"]!.direction).toBe("ro-it");
+  expect(byWord["v-dire"]!.cardId).toBe(vocabCardId("v-dire", "ro-it"));
+  expect(byWord["v-dire"]!.options[byWord["v-dire"]!.correctIndex]).toBe("dire");
+});

@@ -181,7 +181,16 @@ export function FlashcardsPage() {
         </span>
       </header>
 
-      {item.isNew && <p className="text-center text-sm font-semibold text-brand-fg">Cuvânt nou</p>}
+      {settings.direction === "both" && (
+        <p className="text-center text-xs font-semibold uppercase tracking-wide text-muted" data-testid="card-direction">
+          {item.variant === "it-ro" ? "Italiană → Română" : "Română → Italiană"}
+        </p>
+      )}
+      {item.isNew && (
+        <p className="text-center text-sm font-semibold text-brand-fg">
+          {item.reverse ? "Nou: acum spune-l în italiană" : "Cuvânt nou"}
+        </p>
+      )}
 
       <WordCard
         key={`${item.cardId}-${index}`}

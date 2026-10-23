@@ -1,7 +1,8 @@
 import { answerText } from "../content/display.ts";
 import type { CoreWord } from "../content/types.ts";
 import { shuffle, type Random } from "../random.ts";
-import { isDue } from "../session/buildDailySession.ts";
+import { directionsOf, isDue } from "../session/buildDailySession.ts";
+import type { StudyDirection } from "../settings.ts";
 import type { Direction, StoredCard } from "../srs/types.ts";
 import { vocabCardId } from "../srs/types.ts";
 import { endOfStudyDay } from "../time/studyDay.ts";
@@ -19,7 +20,8 @@ export interface QuizQuestion {
 
 export interface QuizRoundArgs {
   now: Date;
-  direction: Direction;
+  /** În modul „ambele”, fiecare întrebare e în direcția cardului ei. */
+  direction: StudyDirection;
   cards: StoredCard[];
   words: readonly CoreWord[];
   size?: number;
@@ -41,7 +43,8 @@ export function buildQuizRound({
   const endOfDay = endOfStudyDay(now);
   const byId = new Map(words.map((w) => [w.id, w]));
 
-  const vocab = cards.filter((c) => c.kind === "vocab" && c.variant === direction && byId.has(c.wordId));
+  const { active } = directionsOf(direction);
+  const vocab = cards.filter((c) => c.kind === "vocab" && active.includes(c.variant as Direction) && byId.has(c.wordId));
   const due = vocab
     .filter((c) => isDue(c, now, endOfDay))
     .sort((a, b) => a.due.getTime() - b.due.getTime());
@@ -50,15 +53,16 @@ export function buildQuizRound({
 
   return [...due, ...rest].slice(0, size).map((card) => {
     const word = byId.get(card.wordId)!;
-    const correct = answerText(word, direction);
-    const wrong = pickDistractors({ target: word, pool: words, direction, random }).map((w) =>
-      answerText(w, direction),
+    const asked = card.variant as Direction;
+    const correct = answerText(word, asked);
+    const wrong = pickDistractors({ target: word, pool: words, direction: asked, random }).map((w) =>
+      answerText(w, asked),
     );
     const options = shuffle([correct, ...wrong], random);
     return {
       cardId: card.cardId,
       wordId: word.id,
-      direction,
+      direction: asked,
       options,
       correctIndex: options.indexOf(correct),
     };
@@ -67,7 +71,7 @@ export function buildQuizRound({
 
 export interface TopicQuizArgs {
   now: Date;
-  direction: Direction;
+  direction: StudyDirection;
   cards: StoredCard[];
   /** Cuvintele temei, în ordinea fișei. */
   topicWords: readonly CoreWord[];
@@ -91,35 +95,45 @@ export function buildTopicQuizRound({
   random = Math.random,
 }: TopicQuizArgs): QuizQuestion[] {
   const endOfDay = endOfStudyDay(now);
-  const byCard = new Map(
-    cards.filter((c) => c.kind === "vocab" && c.variant === direction).map((c) => [c.wordId, c] as const),
-  );
+  const { active, forNewWords } = directionsOf(direction);
+  const byWord = new Map<string, StoredCard[]>();
+  for (const c of cards) {
+    if (c.kind !== "vocab" || !active.includes(c.variant as Direction)) continue;
+    byWord.set(c.wordId, [...(byWord.get(c.wordId) ?? []), c]);
+  }
+  // cardul întrebat: cel scadent, altfel unul dintre cele existente; fără card, direcția cuvintelor noi
+  const cardFor = (w: CoreWord) => {
+    const list = byWord.get(w.id) ?? [];
+    return list.find((c) => isDue(c, now, endOfDay)) ?? list[Math.floor(random() * list.length)];
+  };
+  const chosen = new Map(topicWords.map((w) => [w.id, cardFor(w)] as const));
   const priority = (w: CoreWord) => {
-    const card = byCard.get(w.id);
+    const card = chosen.get(w.id);
     if (!card) return 1;
     return isDue(card, now, endOfDay) ? 0 : 2;
   };
   const ordered = shuffle([...topicWords], random).sort((a, b) => priority(a) - priority(b));
 
   return ordered.slice(0, size).map((word) => {
-    const correct = answerText(word, direction);
-    const local = pickDistractors({ target: word, pool: topicWords, direction, random });
+    const asked = (chosen.get(word.id)?.variant as Direction | undefined) ?? forNewWords;
+    const correct = answerText(word, asked);
+    const local = pickDistractors({ target: word, pool: topicWords, direction: asked, random });
     const missing = 3 - local.length;
     const extra =
       missing > 0
         ? pickDistractors({
             target: word,
             pool: words.filter((w) => !local.some((l) => l.id === w.id)),
-            direction,
+            direction: asked,
             count: missing,
             random,
           })
         : [];
-    const options = shuffle([correct, ...[...local, ...extra].map((w) => answerText(w, direction))], random);
+    const options = shuffle([correct, ...[...local, ...extra].map((w) => answerText(w, asked))], random);
     return {
-      cardId: vocabCardId(word.id, direction),
+      cardId: vocabCardId(word.id, asked),
       wordId: word.id,
-      direction,
+      direction: asked,
       options,
       correctIndex: options.indexOf(correct),
     };

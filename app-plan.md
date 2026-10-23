@@ -67,7 +67,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 #### **FR2. Module de Învățare**
 
 1. **Flashcards Vocabular:**
-   * Două direcții, configurabile: **IT → RO** (recunoaștere) și **RO → IT** (producție).
+   * Două direcții, configurabile: **IT → RO** (recunoaștere) și **RO → IT** (producție), sau **Ambele**: cardul RO → IT al unui cuvânt se deblochează după ce cardul IT → RO ajunge la o stabilitate de 7 zile, cu o limită zilnică separată („Carduri inverse noi pe zi”, implicit 10).
    * La tap, cardul se rotește și arată traducerea, exemplul și eventualul avertisment de prieten fals.
    * După rotire, 4 butoane de evaluare (FSRS): **Din nou** / **Greu** / **Bine** / **Ușor**.
    * Gesturi: *swipe left* = Din nou, *swipe right* = Bine. Butoanele rămân mereu disponibile ca alternativă.
