@@ -27,18 +27,35 @@ test("dicționarul listează toate cuvintele și caută în italiană și român
 test("filtre după categorie și după nivel", async ({ page }) => {
   await page.goto("/browse");
   const categories = [...new Set(WORDS.map((w) => w.pos))];
-  // categoriile oferite sunt doar cele din dicționar
-  await expect(page.getByLabel("Categorie").locator("option")).toHaveCount(categories.length + 1);
+  // categoriile oferite sunt doar cele din dicționar, ca iconițe (plus „Toate categoriile”)
+  const icons = page.getByRole("group", { name: "Categorie" }).getByRole("button");
+  await expect(icons).toHaveCount(categories.length + 1);
+  await expect(page.getByRole("button", { name: "Toate categoriile" })).toHaveAttribute("aria-pressed", "true");
 
   const verbs = WORDS.filter((w) => w.pos === "verb").length;
-  await page.getByLabel("Categorie").selectOption("verb");
+  await page.getByRole("button", { name: "verb", exact: true }).click();
   await expect(page.getByRole("status")).toHaveText(`${verbs} cuvinte`);
+  await expect(page.getByRole("button", { name: "verb", exact: true })).toHaveAttribute("aria-pressed", "true");
 
-  await page.getByLabel("Categorie").selectOption("all");
+  await page.getByRole("button", { name: "Toate categoriile" }).click();
   await page.getByLabel("Progres", { exact: true }).selectOption("mastered");
   await expect(page.getByText("Niciun cuvânt găsit.")).toBeVisible();
   await page.getByLabel("Progres", { exact: true }).selectOption("new");
   await expect(page.getByRole("status")).toHaveText(TOTAL);
+});
+
+test("lista se încarcă pe pagini: 40 de cuvinte, apoi încă 40 la „Arată mai multe”, iar filtrul o resetează", async ({ page }) => {
+  await page.goto("/browse");
+  const rows = page.locator("main ul > li");
+  await expect(rows).toHaveCount(40);
+  await expect(page.getByRole("status")).toHaveText(TOTAL); // numărul total, nu cel afișat
+
+  await page.getByRole("button", { name: /^Arată mai multe/ }).click();
+  await expect(rows).toHaveCount(80);
+
+  await page.getByLabel("Caută în dicționar").fill("vorbi");
+  await expect(rows).toHaveCount(1);
+  await expect(page.getByRole("button", { name: /^Arată mai multe/ })).toHaveCount(0);
 });
 
 test("pagina unui cuvânt: informații despre verb, exemple și tabele de conjugare", async ({ page }) => {
