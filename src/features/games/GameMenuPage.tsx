@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { BackLink } from "../../ui/BackLink.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
+import { RulesBox } from "../../ui/RulesBox.tsx";
 import { useGrammarTopic } from "./useGrammarTopic.ts";
 
 const GAMES = [
@@ -32,16 +33,7 @@ export function GameMenuPage() {
         <CefrBadge level={topic.level} />
       </header>
 
-      <section aria-labelledby="rules" className="rounded-2xl bg-amber-50 p-5 text-amber-950 dark:bg-amber-950 dark:text-amber-50">
-        <h2 id="rules" className="text-sm font-semibold uppercase tracking-wide">
-          De reținut
-        </h2>
-        <ul className="mt-2 flex list-disc flex-col gap-2 pl-5">
-          {topic.rules.map((rule) => (
-            <li key={rule}>{rule}</li>
-          ))}
-        </ul>
-      </section>
+      <RulesBox rules={topic.rules} />
 
       <section aria-labelledby="games" className="flex flex-col gap-3">
         <h2 id="games" className="text-sm font-semibold uppercase tracking-wide text-muted">

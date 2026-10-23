@@ -26,6 +26,15 @@ test("Învață → Jocuri: temele în ordinea de învățare, apoi cele 3 jocur
   await page.getByRole("link", { name: /Articolul hotărât/ }).click();
   await expect(page.getByRole("heading", { name: articoli.title, level: 1 })).toBeVisible();
   await expect(page.getByRole("heading", { name: "De reținut" })).toBeVisible();
+  // implicit restrâns; se extinde la atingere
+  const rules = page.getByRole("button", { name: "De reținut" });
+  await expect(rules).toHaveAttribute("aria-expanded", "false");
+  await expect(page.getByText(/Articolul hotărât arată ceva anume/)).toBeHidden();
+  await rules.click();
+  await expect(rules).toHaveAttribute("aria-expanded", "true");
+  await expect(page.getByText(/Articolul hotărât arată ceva anume/)).toBeVisible();
+  await rules.click();
+  await expect(page.getByText(/Articolul hotărât arată ceva anume/)).toBeHidden();
   for (const game of ["Cartonașe", "Potrivire", "Introducere text"]) {
     await expect(page.getByRole("link", { name: new RegExp(game) })).toBeVisible();
   }
