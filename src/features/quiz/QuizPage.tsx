@@ -16,6 +16,7 @@ import { playFeedback } from "../../services/sound.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
+import { Lupino } from "../../ui/mascot/Lupino.tsx";
 
 export function QuizPage() {
   const content = useContent();
@@ -165,9 +166,18 @@ export function QuizPage() {
       <div className="mt-auto flex flex-col gap-3" aria-live="polite">
         {answered && (
           <>
-            <p className={`text-center font-semibold ${selected === question.correctIndex ? "text-green-700 dark:text-green-400" : "text-red-700 dark:text-red-400"}`}>
-              {selected === question.correctIndex ? "Corect!" : "Nu chiar."}
-            </p>
+            <div className="flex items-center justify-center gap-3">
+              {/* key: la fiecare întrebare Lupino reapare (cu animația), chiar dacă ipostaza e aceeași */}
+              <Lupino
+                key={index}
+                pose={selected === question.correctIndex ? "bravo" : "pensa"}
+                size={64}
+                className="lupino-react"
+              />
+              <p className={`font-semibold ${selected === question.correctIndex ? "text-green-700 dark:text-green-400" : "text-red-700 dark:text-red-400"}`}>
+                {selected === question.correctIndex ? "Corect!" : "Nu chiar."}
+              </p>
+            </div>
             {example && (
               <p className="text-center text-sm text-muted">
                 {example.it} — {example.ro}
