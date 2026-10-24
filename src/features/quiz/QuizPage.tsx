@@ -163,11 +163,13 @@ export function QuizPage() {
         })}
       </div>
 
-      {/* Lupino reacționează la răspuns și ocupă jumătate din spațiul liber de sub variante */}
+      {/* Lupino reacționează la răspuns și ocupă cea mai mare parte din spațiul liber de sub variante */}
       {answered && (
         <LupinoFill
           key={index}
           pose={selected === question.correctIndex ? "bravo" : "pensa"}
+          ratio={0.8}
+          max={420}
           className="lupino-react"
         />
       )}
