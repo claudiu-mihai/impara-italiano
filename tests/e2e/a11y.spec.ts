@@ -20,7 +20,7 @@ for (const scheme of ["light", "dark"] as const) {
       await seedLearnedWords(page, LEARNED);
 
       for (const [path, ready] of [
-        ["/", "Impara l'Italiano"],
+        ["/", "Impara l'italiano con Lupino"],
         ["/learn", "Învață"],
         ["/browse", "Dicționar"],
         ["/browse/v-parlare", "parlare"],

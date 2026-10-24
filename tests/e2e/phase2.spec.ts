@@ -85,6 +85,9 @@ test("quiz: o rundă cu 4 variante, feedback și scor final", async ({ page }) =
     await expect(options).toHaveCount(4);
     await options.first().click();
     await expect(page.getByText(/^(Corect!|Nu chiar\.)$/)).toBeVisible();
+    // Lupino reacționează: „bravo” la răspuns corect, „pensa” la greșit
+    const correct = await page.getByText("Corect!").isVisible();
+    await expect(page.locator(`img.mascot[src*="lupino-${correct ? "bravo" : "pensa"}"]`)).toBeVisible();
     // după răspuns, varianta corectă este marcată pentru cititoarele de ecran
     await expect(page.getByText("(răspuns corect)").or(page.getByText("(răspunsul tău, greșit)")).first()).toBeAttached();
     await page.getByRole("button", { name: /^(Continuă|Vezi rezultatul)$/ }).click();

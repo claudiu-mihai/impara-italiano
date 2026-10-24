@@ -15,6 +15,7 @@ import type { StoredCard } from "../../domain/srs/types.ts";
 import { studyDayOf } from "../../domain/time/studyDay.ts";
 import { useSessionStore } from "../../store/sessionStore.ts";
 import { WordCard } from "./WordCard.tsx";
+import { Lupino } from "../../ui/mascot/Lupino.tsx";
 
 const BUTTONS = [
   { grade: Rating.Again, label: "Din nou", color: "bg-red-700" },
@@ -129,9 +130,7 @@ export function FlashcardsPage() {
   if (!item) {
     return (
       <div className="flex flex-1 flex-col items-center justify-center gap-4 p-6 text-center">
-        <p className="text-5xl" aria-hidden="true">
-          🎉
-        </p>
+        <Lupino pose={answered > 0 ? "bravo" : "relax"} size={160} />
         <h1 className="text-2xl font-bold">
           {answered > 0 ? "Sesiune încheiată" : "Nimic de făcut acum"}
         </h1>

@@ -16,6 +16,7 @@ import { playFeedback } from "../../services/sound.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
+import { LupinoFill } from "../../ui/mascot/Lupino.tsx";
 
 export function QuizPage() {
   const content = useContent();
@@ -161,6 +162,17 @@ export function QuizPage() {
           );
         })}
       </div>
+
+      {/* Lupino reacționează la răspuns și ocupă cea mai mare parte din spațiul liber de sub variante */}
+      {answered && (
+        <LupinoFill
+          key={index}
+          pose={selected === question.correctIndex ? "bravo" : "pensa"}
+          ratio={0.8}
+          max={420}
+          className="lupino-react"
+        />
+      )}
 
       <div className="mt-auto flex flex-col gap-3" aria-live="polite">
         {answered && (

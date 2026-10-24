@@ -8,6 +8,11 @@ export default defineConfig({
   use: {
     baseURL: "http://localhost:4173",
     trace: "retain-on-failure",
+    // fără ecranul de întâmpinare (3 secunde la fiecare deschidere); îl testează separat splash.spec.ts
+    storageState: {
+      cookies: [],
+      origins: [{ origin: "http://localhost:4173", localStorage: [{ name: "impara.splash", value: "off" }] }],
+    },
   },
   projects: [{ name: "mobile-chrome", use: { ...devices["Pixel 7"] } }],
   webServer: [

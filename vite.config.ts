@@ -16,8 +16,9 @@ export default defineConfig({
       registerType: "prompt",
       includeAssets: ["icons/icon.svg"],
       manifest: {
-        name: "Impara l'Italiano",
-        short_name: "Impara",
+        // numele aplicației instalate pe telefon
+        name: "Lupino",
+        short_name: "Lupino",
         description: "Învață italiana cu repetiție spațiată, direct pe telefon.",
         lang: "ro",
         start_url: "/",

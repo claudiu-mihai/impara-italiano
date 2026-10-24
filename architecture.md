@@ -60,7 +60,7 @@ scripts/                 pipeline build-time (rulat direct cu Node 24, care elim
   content.ts             încarcă și validează conținutul (Zod + verificări încrucișate)
   validate-content.ts    `npm run validate`
   build-data.ts          `npm run build:data` — emite src/data/generated/*.json + meta.json (dataVersion)
-  make-icons.ts          `npm run icons` — iconițele PWA
+  design/mascot.py       `npm run mascot` — Lupino: SVG-urile ipostazelor (din design/lupino/*.jpg) și iconițele PWA
 src/
   app/                   App.tsx, router, layout cu bottom nav, providers
   features/              flashcards, conjugation, quiz, sentence, browse, topics, games, stats, settings, about

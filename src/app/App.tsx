@@ -1,5 +1,5 @@
 import { useLiveQuery } from "dexie-react-hooks";
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useState } from "react";
 import { BrowserRouter, NavLink, Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { db } from "../data/db/instance.ts";
 import { getSettings } from "../data/db/repositories.ts";
@@ -9,6 +9,8 @@ import { applyPwaUpdate, usePwaNeedRefresh } from "../services/pwaUpdate.ts";
 import { applyTheme } from "../services/theme.ts";
 import { setPreferredVoice, useTtsStatus } from "../services/tts.ts";
 import { ContentProvider } from "./content.tsx";
+import { Splash } from "../features/splash/Splash.tsx";
+import { shouldShowSplash } from "../services/splash.ts";
 
 // Ecranele în afară de cel de start se încarcă la nevoie, ca pornirea să rămână rapidă;
 // service worker-ul le pune oricum în cache pentru funcționarea offline.
@@ -153,40 +155,46 @@ function Layout() {
 export function App() {
   // sincronizarea automată pornește doar cu cont; fără cont nu face nimic și nu încarcă nimic
   useEffect(() => startAutoSync(db), []);
+  // Lupino te salută la deschiderea aplicației; ecranul Acasă se încarcă între timp dedesubt
+  const [splash, setSplash] = useState(() => shouldShowSplash(window.location.pathname));
+  const hideSplash = useCallback(() => setSplash(false), []);
 
   return (
-    <BrowserRouter>
-      <ContentProvider>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route index element={<HomePage />} />
-            <Route path="learn" element={<LearnPage />} />
-            <Route path="learn/vocab" element={<FlashcardsPage />} />
-            <Route path="learn/conjugation" element={<ConjugationPage />} />
-            <Route path="learn/sentence" element={<SentencePage />} />
-            <Route path="learn/topics" element={<TopicsPage />} />
-            <Route path="learn/topics/:id" element={<TopicPage />} />
-            <Route path="learn/topics/:id/flashcards" element={<FlashcardsPage />} />
-            <Route path="learn/topics/:id/quiz" element={<QuizPage />} />
-            <Route path="learn/topics/:id/match" element={<MatchPage />} />
-            <Route path="learn/topics/:id/order" element={<OrderPage />} />
-            <Route path="learn/topics/:id/numbers" element={<SkillPage />} />
-            <Route path="learn/topics/:id/clock" element={<SkillPage />} />
-            <Route path="learn/topics/:id/cat" element={<CatPage />} />
-            <Route path="learn/games" element={<GamesPage />} />
-            <Route path="learn/games/:id" element={<GameMenuPage />} />
-            <Route path="learn/games/:id/cards" element={<GameCardsPage />} />
-            <Route path="learn/games/:id/match" element={<GameMatchPage />} />
-            <Route path="learn/games/:id/type" element={<GameTypePage />} />
-            <Route path="quiz" element={<QuizPage />} />
-            <Route path="browse" element={<BrowsePage />} />
-            <Route path="browse/:id" element={<WordDetailPage />} />
-            <Route path="stats" element={<StatsPage />} />
-            <Route path="settings" element={<SettingsPage />} />
-            <Route path="about" element={<AboutPage />} />
-          </Route>
-        </Routes>
-      </ContentProvider>
-    </BrowserRouter>
+    <>
+      {splash && <Splash onDone={hideSplash} />}
+      <BrowserRouter>
+        <ContentProvider>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route index element={<HomePage />} />
+              <Route path="learn" element={<LearnPage />} />
+              <Route path="learn/vocab" element={<FlashcardsPage />} />
+              <Route path="learn/conjugation" element={<ConjugationPage />} />
+              <Route path="learn/sentence" element={<SentencePage />} />
+              <Route path="learn/topics" element={<TopicsPage />} />
+              <Route path="learn/topics/:id" element={<TopicPage />} />
+              <Route path="learn/topics/:id/flashcards" element={<FlashcardsPage />} />
+              <Route path="learn/topics/:id/quiz" element={<QuizPage />} />
+              <Route path="learn/topics/:id/match" element={<MatchPage />} />
+              <Route path="learn/topics/:id/order" element={<OrderPage />} />
+              <Route path="learn/topics/:id/numbers" element={<SkillPage />} />
+              <Route path="learn/topics/:id/clock" element={<SkillPage />} />
+              <Route path="learn/topics/:id/cat" element={<CatPage />} />
+              <Route path="learn/games" element={<GamesPage />} />
+              <Route path="learn/games/:id" element={<GameMenuPage />} />
+              <Route path="learn/games/:id/cards" element={<GameCardsPage />} />
+              <Route path="learn/games/:id/match" element={<GameMatchPage />} />
+              <Route path="learn/games/:id/type" element={<GameTypePage />} />
+              <Route path="quiz" element={<QuizPage />} />
+              <Route path="browse" element={<BrowsePage />} />
+              <Route path="browse/:id" element={<WordDetailPage />} />
+              <Route path="stats" element={<StatsPage />} />
+              <Route path="settings" element={<SettingsPage />} />
+              <Route path="about" element={<AboutPage />} />
+            </Route>
+          </Routes>
+        </ContentProvider>
+      </BrowserRouter>
+    </>
   );
 }

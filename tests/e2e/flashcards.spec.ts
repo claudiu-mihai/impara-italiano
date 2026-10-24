@@ -11,7 +11,7 @@ async function startSession(page: Page) {
 
 test("pagina de start arată cuvintele noi ale zilei", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: "Impara l'Italiano" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Impara l'italiano con Lupino" })).toBeVisible();
   await expect(page.getByText(/10 cuvinte noi/)).toBeVisible();
 });
 
@@ -55,7 +55,7 @@ test("progresul persistă după reîncărcarea paginii", async ({ page }) => {
 
   await page.reload();
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: "Impara l'Italiano" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Impara l'italiano con Lupino" })).toBeVisible();
   // „essere” a fost învățat: nu mai e nou, iar cardul revine ca repetiție în curând.
   await expect(page.getByText(/1 repetiție/)).toBeVisible();
   await expect(page.getByText(/9 cuvinte noi/)).toBeVisible();
@@ -63,7 +63,7 @@ test("progresul persistă după reîncărcarea paginii", async ({ page }) => {
 
 test("aplicația pornește și funcționează fără internet", async ({ page, context }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: "Impara l'Italiano" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Impara l'italiano con Lupino" })).toBeVisible();
 
   // Așteaptă ca service worker-ul să preia controlul paginii.
   await page.evaluate(() => navigator.serviceWorker.ready);
@@ -72,7 +72,7 @@ test("aplicația pornește și funcționează fără internet", async ({ page, c
 
   await context.setOffline(true);
   await page.reload();
-  await expect(page.getByRole("heading", { name: "Impara l'Italiano" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Impara l'italiano con Lupino" })).toBeVisible();
 
   await page.getByRole("link", { name: "Începe sesiunea" }).click();
   await expect(front(page).getByText("essere", { exact: true })).toBeVisible();
@@ -85,7 +85,8 @@ test("manifestul PWA este valid și instalabil", async ({ page, request }) => {
   await page.goto("/");
   const href = await page.locator('link[rel="manifest"]').getAttribute("href");
   const manifest = await (await request.get(href!)).json();
-  expect(manifest.name).toBe("Impara l'Italiano");
+  expect(manifest.name).toBe("Lupino");
+  expect(manifest.short_name).toBe("Lupino");
   expect(manifest.display).toBe("standalone");
   const sizes = manifest.icons.map((i: { sizes: string }) => i.sizes);
   expect(sizes).toContain("192x192");

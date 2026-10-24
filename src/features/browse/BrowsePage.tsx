@@ -12,6 +12,7 @@ import { LEVEL_GROUP_LABEL, LEVEL_GROUPS } from "../../domain/content/levels.ts"
 import { masteryByWord, type Mastery } from "../../domain/srs/mastery.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
+import { LupinoSays } from "../../ui/mascot/Lupino.tsx";
 import { LevelBadge } from "./LevelBadge.tsx";
 
 const control = "min-h-12 rounded-lg border border-slate-300 bg-white px-3 dark:border-slate-700 dark:bg-slate-800";
@@ -206,7 +207,13 @@ function BrowseView() {
       </p>
 
       {results.length === 0 ? (
-        <p className="rounded-2xl bg-white p-6 text-center text-muted dark:bg-slate-900">Niciun cuvânt găsit.</p>
+        <LupinoSays
+          pose="pensa"
+          size={96}
+          it="Fammi pensare…"
+          ro="Niciun cuvânt găsit."
+          className="rounded-2xl bg-white p-4 dark:bg-slate-900"
+        />
       ) : (
         <>
           <ul className="flex flex-col gap-2">
