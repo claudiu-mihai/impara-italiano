@@ -4,6 +4,13 @@ Formatul urmează [Keep a Changelog](https://keepachangelog.com/ro/1.1.0/), iar 
 [versionarea semantică](https://semver.org/lang/ro/). Intrările noi sunt scrise automat de release-please din
 commit-urile `feat:` / `fix:` (vezi README, „Versionare și release-uri”).
 
+## [1.8.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.7.1...v1.8.0) (2026-10-24)
+
+
+### Funcționalități
+
+* mascota Lupino (ipostaze, întâmpinare, Quiz și iconițe) ([#26](https://github.com/claudiu-mihai/impara-italiano/issues/26)) ([f483e1f](https://github.com/claudiu-mihai/impara-italiano/commit/f483e1f7f5585d4f1e70fa744a48f15053e62b4c))
+
 ## [1.7.1](https://github.com/claudiu-mihai/impara-italiano/compare/v1.7.0...v1.7.1) (2026-10-24)
 
 
