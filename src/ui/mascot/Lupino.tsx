@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import bravo from "./lupino-bravo.svg";
 import cap from "./lupino-cap.svg";
 import ciao from "./lupino-ciao.svg";
@@ -45,6 +46,40 @@ export function Lupino({ pose, size = 120, className = "" }: LupinoProps) {
       decoding="async"
       className={`mascot shrink-0 select-none ${className}`}
     />
+  );
+}
+
+interface LupinoFillProps {
+  pose: LupinoPose;
+  /** Ce parte din înălțimea spațiului liber ocupă Lupino. */
+  ratio?: number;
+  /** Latura minimă și maximă, în pixeli. */
+  min?: number;
+  max?: number;
+  className?: string;
+}
+
+/**
+ * Lupino care umple spațiul liber: containerul crește cât locul rămas în coloană (flex-1), iar Lupino ia `ratio` din
+ * înălțimea lui, între `min` și `max`. Pe ecrane mici rămâne cel puțin `min`, ca restul paginii să încapă.
+ */
+export function LupinoFill({ pose, ratio = 0.5, min = 64, max = 320, className = "" }: LupinoFillProps) {
+  const box = useRef<HTMLDivElement>(null);
+  const [size, setSize] = useState(min);
+  useEffect(() => {
+    const el = box.current;
+    if (!el || typeof ResizeObserver === "undefined") return;
+    const observer = new ResizeObserver(([entry]) => {
+      const free = entry?.contentRect.height ?? 0;
+      setSize(Math.round(Math.min(max, Math.max(min, free * ratio))));
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [ratio, min, max]);
+  return (
+    <div ref={box} className="flex flex-1 items-center justify-center" style={{ minHeight: min }}>
+      <Lupino pose={pose} size={size} className={className} />
+    </div>
   );
 }
 

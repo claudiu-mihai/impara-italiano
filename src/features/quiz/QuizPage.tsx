@@ -16,7 +16,7 @@ import { playFeedback } from "../../services/sound.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
-import { Lupino } from "../../ui/mascot/Lupino.tsx";
+import { LupinoFill } from "../../ui/mascot/Lupino.tsx";
 
 export function QuizPage() {
   const content = useContent();
@@ -163,21 +163,21 @@ export function QuizPage() {
         })}
       </div>
 
+      {/* Lupino reacționează la răspuns și ocupă jumătate din spațiul liber de sub variante */}
+      {answered && (
+        <LupinoFill
+          key={index}
+          pose={selected === question.correctIndex ? "bravo" : "pensa"}
+          className="lupino-react"
+        />
+      )}
+
       <div className="mt-auto flex flex-col gap-3" aria-live="polite">
         {answered && (
           <>
-            <div className="flex items-center justify-center gap-3">
-              {/* key: la fiecare întrebare Lupino reapare (cu animația), chiar dacă ipostaza e aceeași */}
-              <Lupino
-                key={index}
-                pose={selected === question.correctIndex ? "bravo" : "pensa"}
-                size={64}
-                className="lupino-react"
-              />
-              <p className={`font-semibold ${selected === question.correctIndex ? "text-green-700 dark:text-green-400" : "text-red-700 dark:text-red-400"}`}>
-                {selected === question.correctIndex ? "Corect!" : "Nu chiar."}
-              </p>
-            </div>
+            <p className={`text-center font-semibold ${selected === question.correctIndex ? "text-green-700 dark:text-green-400" : "text-red-700 dark:text-red-400"}`}>
+              {selected === question.correctIndex ? "Corect!" : "Nu chiar."}
+            </p>
             {example && (
               <p className="text-center text-sm text-muted">
                 {example.it} — {example.ro}
