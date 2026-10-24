@@ -3,7 +3,7 @@ import { memo, useEffect, useMemo, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useContent } from "../../app/content.tsx";
 import { db } from "../../data/db/instance.ts";
-import { filterWords, filtersFromSearch, presentCategories, type BrowseFilters } from "../../domain/browse/filterWords.ts";
+import { filterWords, filtersFromSearch, NO_FILTERS, presentCategories, type BrowseFilters } from "../../domain/browse/filterWords.ts";
 import type { Pos } from "../../domain/content/constants.ts";
 import { POS } from "../../domain/content/constants.ts";
 import { italianText, LEVEL_LABEL, POS_ICON, POS_LABEL } from "../../domain/content/display.ts";
@@ -116,6 +116,12 @@ function CategoryIcons({
   );
 }
 
+/**
+ * Ultimele filtre folosite, ținute cât timp aplicația rămâne deschisă: după ce intri pe un cuvânt și te întorci în
+ * Dicționar (cu „Înapoi” sau din meniu), filtrele rămân cum le-ai lăsat.
+ */
+let lastFilters: BrowseFilters = NO_FILTERS;
+
 /** Pagina se reia (filtre din adresă) când adresa se schimbă, de exemplu dintr-un link din Statistici. */
 export function BrowsePage() {
   const [params] = useSearchParams();
@@ -127,7 +133,13 @@ function BrowseView() {
   const cards = useLiveQuery(() => db.cards.where("kind").equals("vocab").toArray(), []);
   // filtrele pot veni din adresă (linkurile din Statistici: /browse?pos=verb&progress=learning)
   const [params] = useSearchParams();
-  const [filters, setFilters] = useState<BrowseFilters>(() => filtersFromSearch(params));
+  // fără filtre în adresă (ex. din meniu sau din „Înapoi”) se reiau ultimele filtre folosite
+  const [filters, setFilters] = useState<BrowseFilters>(() =>
+    params.size > 0 ? filtersFromSearch(params) : lastFilters,
+  );
+  useEffect(() => {
+    lastFilters = filters;
+  }, [filters]);
 
   const levels = useMemo(() => masteryByWord(cards ?? []), [cards]);
   // în ordinea fixă a categoriilor, ca iconițele să nu-și schimbe locul
