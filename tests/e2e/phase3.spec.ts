@@ -46,6 +46,7 @@ test("ordinea corectă primește „Corect!”, iar răspunsul greșit arată va
   await place(page, sentence.acceptedOrders[0]!.map((i) => sentence.tokens[i]!));
   await page.getByRole("button", { name: "Verifică" }).click();
   await expect(page.getByText("Corect!")).toBeVisible();
+  await expect(page.locator('img.mascot[src*="lupino-bravo"]')).toBeVisible();
   await page.getByRole("button", { name: /^(Continuă|Vezi rezultatul)$/ }).click();
 
   // A doua întrebare: răspuns greșit (blocurile în ordinea amestecată, aproape sigur incorectă).
@@ -57,6 +58,7 @@ test("ordinea corectă primește „Corect!”, iar răspunsul greșit arată va
   await place(page, wrong);
   await page.getByRole("button", { name: "Verifică" }).click();
   await expect(page.getByText("Nu chiar. Varianta corectă:")).toBeVisible();
+  await expect(page.locator('img.mascot[src*="lupino-pensa"]')).toBeVisible();
 });
 
 test("o variantă acceptată de ordine este recunoscută ca „Corect!”", async ({ page }) => {

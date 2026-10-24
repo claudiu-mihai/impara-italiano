@@ -15,6 +15,7 @@ import { playFeedback } from "../../services/sound.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
+import { LupinoFill } from "../../ui/mascot/Lupino.tsx";
 
 const block =
   "min-h-12 rounded-lg border-2 border-slate-300 bg-white px-4 text-lg font-medium active:bg-slate-100 disabled:opacity-60 dark:border-slate-600 dark:bg-slate-800";
@@ -147,6 +148,17 @@ export function SentencePage() {
           </button>
         ))}
       </div>
+
+      {/* ca în Quiz: Lupino reacționează la răspuns și ocupă cea mai mare parte din spațiul liber */}
+      {result !== null && (
+        <LupinoFill
+          key={index}
+          pose={result === "correct" ? "bravo" : "pensa"}
+          ratio={0.8}
+          max={420}
+          className="lupino-react"
+        />
+      )}
 
       <div className="mt-auto flex flex-col gap-3" aria-live="polite">
         {result === "correct" && <p className="text-center font-semibold text-green-700 dark:text-green-400">Corect!</p>}
