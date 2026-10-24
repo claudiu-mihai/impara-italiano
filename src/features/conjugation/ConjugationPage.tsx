@@ -64,7 +64,7 @@ export function ConjugationPage() {
   if (!item) {
     return (
       <SessionDone
-        emoji={answered > 0 ? "🎉" : "🔒"}
+        emoji={answered > 0 ? undefined : "🔒"}
         title={answered > 0 ? "Sesiune încheiată" : "Nimic de conjugat acum"}
         text={
           answered > 0

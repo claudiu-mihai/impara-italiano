@@ -53,3 +53,9 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Lupino în tema întunecată: contur alb subțire, ca un autocolant, ca simbolurile negre („?”, „zzz”) și conturul să se
+   vadă pe fundalul închis. */
+.dark .mascot {
+  filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 1px #fff) drop-shadow(0 0 2.5px rgb(255 255 255 / 0.7));
+}

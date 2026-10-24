@@ -11,7 +11,6 @@
     "build:data": "node scripts/build-data.ts",
     "validate": "node scripts/validate-content.ts",
     "predev": "npm run build:data",
-    "icons": "node scripts/make-icons.ts",
     "test": "vitest run",
     "test:e2e": "playwright test",
     "typecheck": "npm run build:data && tsc",
@@ -20,7 +19,8 @@
     "verify:wiktionary": "node scripts/frequency/verify-conjugations.ts",
     "frequency:lexicon": "node scripts/frequency/build-lexicon.ts",
     "frequency:candidates": "node scripts/frequency/candidates.ts",
-    "lint:examples": ".venv/bin/python scripts/frequency/lint_examples.py"
+    "lint:examples": ".venv/bin/python scripts/frequency/lint_examples.py",
+    "mascot": ".venv/bin/python scripts/design/mascot.py"
   },
   "dependencies": {
     "dexie": "^4.4.6",

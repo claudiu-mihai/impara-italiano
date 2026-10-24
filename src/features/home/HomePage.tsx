@@ -7,6 +7,7 @@ import { getSettings, saveSettings } from "../../data/db/repositories.ts";
 import { loadStats, loadStudyOverview } from "../../data/queries.ts";
 import { LEVEL_NAME, nextLevel } from "../../domain/content/levels.ts";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
+import { Lupino, LupinoSays } from "../../ui/mascot/Lupino.tsx";
 import { masteryByWord } from "../../domain/srs/mastery.ts";
 import { dueSkillTopics } from "../../domain/topics/topics.ts";
 
@@ -49,8 +50,13 @@ export function HomePage() {
   return (
     <div className="flex flex-1 flex-col gap-6 px-4 pb-6 pt-8">
       <header>
-        <h1 className="text-3xl font-bold">Impara l'Italiano</h1>
-        <p className="mt-1 text-muted">Învață italiana, puțin în fiecare zi.</p>
+        <div className="flex items-center gap-3">
+          <div className="min-w-0 flex-1">
+            <h1 className="text-3xl font-bold">Impara l'Italiano</h1>
+            <p className="mt-1 text-muted">Învață italiana, puțin în fiecare zi.</p>
+          </div>
+          <Lupino pose="cap" size={72} />
+        </div>
         {level && (
           <p className="mt-3 flex items-center gap-2 text-sm text-muted">
             <CefrBadge level={level} /> Nivel curent: {LEVEL_NAME[level]}
@@ -104,16 +110,31 @@ export function HomePage() {
               <strong>{overview.newCount}</strong> {overview.newCount === 1 ? "cuvânt nou" : "cuvinte noi"}
             </p>
             {todo > 0 ? (
-              <Link
-                to="/learn/vocab"
-                className="mt-5 flex min-h-14 items-center justify-center rounded-xl bg-brand text-lg font-semibold text-white active:bg-brand-dark"
-              >
-                Începe sesiunea
-              </Link>
+              <>
+                {cards?.length === 0 ? (
+                  <LupinoSays
+                    pose="ciao"
+                    it="Ciao! Sono Lupino."
+                    ro="Salut! Eu sunt Lupino. Hai să începem!"
+                    className="mt-4"
+                  />
+                ) : (
+                  <LupinoSays
+                    pose="in-bocca-al-lupo"
+                    it="In bocca al lupo!"
+                    ro="Baftă! Italienii răspund: «Crepi!»"
+                    className="mt-4"
+                  />
+                )}
+                <Link
+                  to="/learn/vocab"
+                  className="mt-5 flex min-h-14 items-center justify-center rounded-xl bg-brand text-lg font-semibold text-white active:bg-brand-dark"
+                >
+                  Începe sesiunea
+                </Link>
+              </>
             ) : (
-              <p className="mt-5 rounded-xl bg-slate-100 p-4 text-center dark:bg-slate-800">
-                Ai terminat pentru azi. 🎉
-              </p>
+              <LupinoSays pose="a-domani" it="A domani!" ro="Ai terminat pentru azi. Pe mâine!" className="mt-4" />
             )}
           </>
         ) : (

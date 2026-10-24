@@ -56,6 +56,14 @@ După descărcare: `npm run frequency:lexicon` extrage datele din kaikki. Lista 
 (`content/frequency/it-lemmas.json`) este în git; se regenerează doar dacă se schimbă sursele, cu
 `scripts/frequency/build_lemmas.py` (necesită `pip install simplemma`).
 
+## Mascota Lupino
+
+Lupino, puiul de lup al aplicației, pornește din desenele JPG din `design/lupino/`. `npm run mascot` le vectorizează
+(fără fundal) în `src/ui/mascot/*.svg` și generează iconițele PWA din capul lui, în `public/icons/`. Ipostaza
+„serie” primește capul din „in-bocca-al-lupo”, ca să fie veselă. Scriptul cere o singură dată
+`.venv/bin/pip install -r scripts/design/requirements.txt`. Textul pe care îl „spune” Lupino stă în aplicație
+(`LupinoSays`), nu în desen; în tema întunecată primește un contur alb subțire (clasa `mascot` din `src/index.css`).
+
 ## Conturi și sincronizare (opțional)
 
 Aplicația merge complet fără cont. Cu cont, progresul se sincronizează cu un server propriu **PocketBase** (SQLite),

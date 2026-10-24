@@ -12,6 +12,7 @@ import { getSettings } from "../../data/db/repositories.ts";
 import { MIN_REVIEWS_FOR_STREAK } from "../../domain/stats/stats.ts";
 import { ActivityCalendar } from "../../ui/ActivityCalendar.tsx";
 import { BarChart } from "../../ui/BarChart.tsx";
+import { Lupino } from "../../ui/mascot/Lupino.tsx";
 import { CALENDAR_WEEKS } from "../../domain/stats/stats.ts";
 
 const dayLabel = (day: string) => `${day.slice(8, 10)}.${day.slice(5, 7)}`;
@@ -65,9 +66,22 @@ export function StatsPage() {
         <h2 id="streak" className={heading}>
           Serie de zile
         </h2>
-        <p className="mt-2 text-4xl font-bold" data-testid="streak">
-          {stats.streak} <span className="text-lg font-normal text-muted">{stats.streak === 1 ? "zi" : "zile"} 🔥</span>
-        </p>
+        <div className="mt-2 flex items-center justify-between gap-3">
+          <p className="text-4xl font-bold" data-testid="streak">
+            {stats.streak} <span className="text-lg font-normal text-muted">{stats.streak === 1 ? "zi" : "zile"} 🔥</span>
+          </p>
+          {stats.streak > 0 && (
+            <span className="flex items-center gap-2 text-right">
+              <span className="text-sm text-muted">
+                <span lang="it" className="block font-semibold text-slate-900 dark:text-slate-100">
+                  Continua così!
+                </span>
+                Ține-o tot așa!
+              </span>
+              <Lupino pose="serie" size={72} />
+            </span>
+          )}
+        </div>
         <p className="mt-1 text-sm text-muted">
           Azi: {stats.todayReviews} din {MIN_REVIEWS_FOR_STREAK} repetiții necesare pentru serie.
         </p>
