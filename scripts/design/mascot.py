@@ -27,8 +27,9 @@ ICONS = ROOT / "public/icons"
 
 POSES = ["ciao", "in-bocca-al-lupo", "bravo", "serie", "pensa", "a-domani", "relax", "cap"]
 # zone închise în care se vede fundalul (de aceeași culoare cu albul din desen, deci nu se pot deosebi automat):
-# câte un punct din fiecare, în pixelii desenului sursă; se fac transparente
-HOLES = {"relax": [(1179, 1690), (1352, 1297)]}
+# câte un punct din fiecare, în pixelii desenului sursă; se fac transparente. Exemplu: {"relax": [(1179, 1690)]}.
+# Când refaci un desen, verifică dacă punctele mai cad în găuri (scriptul se oprește cu eroare dacă nu).
+HOLES: dict[str, list[tuple[int, int]]] = {}
 # desenele cu margini mari se decupează la conținut, ca personajul să aibă aceeași mărime ca în celelalte
 CROP_TO_CONTENT = {"relax"}
 WORK_SIZE = 1160  # latura la care se trasează (desenele de 580 px, mărite de 2 ori)
@@ -109,12 +110,20 @@ def trace(img: Image.Image) -> str:
     with tempfile.TemporaryDirectory() as tmp:
         png, svg_path = Path(tmp) / "in.png", Path(tmp) / "out.svg"
         img.save(png)
+        # argumente poziționale: cu nume, vtracer 0.6.15 cade (segmentation fault) pe Python 3.14
         vtracer.convert_image_to_svg_py(
             str(png), str(svg_path),
-            colormode="color", hierarchical="stacked", mode="spline",
-            filter_speckle=10, color_precision=6, layer_difference=18,
-            corner_threshold=80, length_threshold=8.0, max_iterations=10,
-            splice_threshold=60, path_precision=0,
+            "color",  # colormode
+            "stacked",  # hierarchical
+            "spline",  # mode
+            10,  # filter_speckle
+            6,  # color_precision
+            18,  # layer_difference
+            80,  # corner_threshold
+            8.0,  # length_threshold
+            10,  # max_iterations
+            60,  # splice_threshold
+            0,  # path_precision
         )
         svg = svg_path.read_text()
 
