@@ -52,7 +52,9 @@ export function HomePage() {
       <header>
         <div className="flex items-center gap-3">
           <div className="min-w-0 flex-1">
-            <h1 className="text-3xl font-bold">Impara l'Italiano</h1>
+            <h1 lang="it" className="text-3xl font-bold">
+              Impara l'italiano con Lupino
+            </h1>
             <p className="mt-1 text-muted">Învață italiana, puțin în fiecare zi.</p>
           </div>
           <Lupino pose="cap" size={72} />

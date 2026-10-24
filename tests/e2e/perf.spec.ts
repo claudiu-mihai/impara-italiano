@@ -16,7 +16,7 @@ async function throttle(page: Page, network: keyof typeof NETWORKS, cpu = 4) {
 }
 
 async function measureLcp(page: Page): Promise<number> {
-  await expect(page.getByRole("heading", { name: "Impara l'Italiano" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Impara l'italiano con Lupino" })).toBeVisible();
   await page.waitForTimeout(1500); // LCP se poate actualiza încă puțin după randare
   return page.evaluate(
     () =>
