@@ -1,13 +1,16 @@
-import aDomani from "./lupino-a-domani.svg";
 import bravo from "./lupino-bravo.svg";
 import cap from "./lupino-cap.svg";
 import ciao from "./lupino-ciao.svg";
 import inBoccaAlLupo from "./lupino-in-bocca-al-lupo.svg";
 import pensa from "./lupino-pensa.svg";
+import relax from "./lupino-relax.svg";
 import serie from "./lupino-serie.svg";
 
-/** Ipostazele lui Lupino, mascota aplicației (desenele din design/lupino/, vectorizate cu `npm run mascot`). */
-export type LupinoPose = "ciao" | "in-bocca-al-lupo" | "bravo" | "serie" | "pensa" | "a-domani" | "cap";
+/**
+ * Ipostazele lui Lupino, mascota aplicației (desenele din design/lupino/, vectorizate cu `npm run mascot`).
+ * lupino-a-domani.svg (somnoros) e generat, dar nu e folosit încă, deci nu intră în build; e păstrat pentru notificări.
+ */
+export type LupinoPose = "ciao" | "in-bocca-al-lupo" | "bravo" | "serie" | "pensa" | "relax" | "cap";
 
 const SRC: Record<LupinoPose, string> = {
   ciao,
@@ -15,7 +18,7 @@ const SRC: Record<LupinoPose, string> = {
   bravo,
   serie,
   pensa,
-  "a-domani": aDomani,
+  relax,
   cap,
 };
 

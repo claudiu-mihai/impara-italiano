@@ -136,7 +136,7 @@ export function HomePage() {
                 </Link>
               </>
             ) : (
-              <LupinoSays pose="a-domani" it="A domani!" ro="Ai terminat pentru azi. Pe mâine!" className="mt-4" />
+              <LupinoSays pose="relax" it="Fatto! Ora relax." ro="Ai terminat pentru azi. Acum relaxează-te!" className="mt-4" />
             )}
           </>
         ) : (

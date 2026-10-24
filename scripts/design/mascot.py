@@ -25,15 +25,23 @@ SRC = ROOT / "design/lupino"
 OUT = ROOT / "src/ui/mascot"
 ICONS = ROOT / "public/icons"
 
-POSES = ["ciao", "in-bocca-al-lupo", "bravo", "serie", "pensa", "a-domani", "cap"]
+POSES = ["ciao", "in-bocca-al-lupo", "bravo", "serie", "pensa", "a-domani", "relax", "cap"]
+# zone închise în care se vede fundalul (de aceeași culoare cu albul din desen, deci nu se pot deosebi automat):
+# câte un punct din fiecare, în pixelii desenului sursă; se fac transparente
+HOLES = {"relax": [(1179, 1690), (1352, 1297)]}
+# desenele cu margini mari se decupează la conținut, ca personajul să aibă aceeași mărime ca în celelalte
+CROP_TO_CONTENT = {"relax"}
+WORK_SIZE = 1160  # latura la care se trasează (desenele de 580 px, mărite de 2 ori)
 KEY = (255, 0, 255)  # culoare-cheie pentru fundal, eliminată după trasare
-SCALE = 2
 # fundalul iconiței: bleumarinul din iconița desenată (design/lupino/lupino-app-icon.jpg)
 ICON_BG = "#1e3f5a"
 
 
-def remove_background(img: Image.Image) -> Image.Image:
-    """Pune culoarea-cheie pe fundalul deschis legat de margini (inclusiv umbra difuză de sub picioare)."""
+def remove_background(img: Image.Image, holes: list[tuple[int, int]] = ()) -> Image.Image:
+    """
+    Pune culoarea-cheie pe fundalul deschis legat de margini (inclusiv umbra difuză de sub picioare) și pe zonele
+    închise date prin câte un punct (`holes`).
+    """
     a = np.asarray(img).astype(np.int32)
     h, w, _ = a.shape
     lum = (a[..., 0] * 299 + a[..., 1] * 587 + a[..., 2] * 114) // 1000
@@ -46,6 +54,11 @@ def remove_background(img: Image.Image) -> Image.Image:
             if (y in (0, h - 1) or x in (0, w - 1)) and candidate[y, x]:
                 seen[y, x] = True
                 queue.append((y, x))
+    for x, y in holes:
+        if not candidate[y, x]:
+            raise ValueError(f"punctul ({x}, {y}) nu e într-o zonă de fundal")
+        seen[y, x] = True
+        queue.append((y, x))
     while queue:
         y, x = queue.popleft()
         for ny, nx in ((y + 1, x), (y - 1, x), (y, x + 1), (y, x - 1)):
@@ -69,11 +82,23 @@ def happy_streak() -> Image.Image:
     return Image.composite(shifted, serie, mask.filter(ImageFilter.GaussianBlur(3)))
 
 
-def prepare(img: Image.Image) -> Image.Image:
+def prepare(img: Image.Image, holes: list[tuple[int, int]] = (), crop: bool = False) -> Image.Image:
     img = img.convert("RGB").filter(ImageFilter.MedianFilter(3))
-    keyed = np.asarray(remove_background(img))
+    keyed = np.asarray(remove_background(img, holes))
     mask = Image.fromarray(((keyed == np.array(KEY)).all(axis=2) * 255).astype(np.uint8))
-    size = (img.width * SCALE, img.height * SCALE)
+    if crop:
+        # pătrat în jurul conținutului, cu o margine de 3%, ca la celelalte desene
+        ys, xs = np.nonzero(np.asarray(mask) == 0)
+        side = int(max(xs.max() - xs.min(), ys.max() - ys.min()) * 1.06)
+        cx, cy = (xs.min() + xs.max()) // 2, (ys.min() + ys.max()) // 2
+        left, top = cx - side // 2, cy - side // 2
+        # pe o pânză nouă, ca zona care ar ieși din imagine să fie fundal (cheie), nu desen
+        canvas = Image.new("RGB", (side, side), (255, 255, 255))
+        canvas.paste(img, (-left, -top))
+        canvas_mask = Image.new("L", (side, side), 255)
+        canvas_mask.paste(mask, (-left, -top))
+        img, mask = canvas, canvas_mask
+    size = (WORK_SIZE, WORK_SIZE)
     big = img.resize(size, Image.LANCZOS).filter(ImageFilter.MedianFilter(5))
     a = np.asarray(big).copy()
     a[np.asarray(mask.resize(size, Image.NEAREST)) > 0] = KEY
@@ -142,8 +167,8 @@ def write_png(svg: str, path: Path, size: int) -> None:
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     for pose in POSES:
-        source = happy_streak() if pose == "serie" else Image.open(SRC / f"lupino-{pose}.jpg")
-        svg = trace(prepare(source))
+        source = happy_streak() if pose == "serie" else Image.open(next(SRC.glob(f"lupino-{pose}.jp*g")))
+        svg = trace(prepare(source, HOLES.get(pose, ()), pose in CROP_TO_CONTENT))
         (OUT / f"lupino-{pose}.svg").write_text(svg + "\n")
         print(f"src/ui/mascot/lupino-{pose}.svg: {len(svg) // 1024} KB")
 
