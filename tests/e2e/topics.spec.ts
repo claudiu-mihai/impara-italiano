@@ -278,16 +278,16 @@ test("Ceasul: citește ora de pe cadran și alege cadranul după ora scrisă", a
   await expect.poll(() => cardCount(page, "skill:clock")).toBe(1);
 });
 
-test("Unde e pisica?: 6 întrebări, jumătate cu variante, jumătate scrise", async ({ page }) => {
+test("Unde e Lupino?: 6 întrebări, jumătate cu variante, jumătate scrise", async ({ page }) => {
   await page.goto("/learn/topics/pozitia-obiectelor/cat");
-  await expect(page.getByRole("heading", { name: "Unde e pisica?" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Unde e Lupino?" })).toBeVisible();
   for (let i = 0; i < 3; i++) {
     await page.getByRole("group", { name: "Variante de răspuns" }).getByRole("button").first().click();
     await expect(page.getByTestId("cat-feedback")).toBeVisible();
     await page.getByRole("button", { name: /^(Continuă|Vezi rezultatul)$/ }).click();
   }
   for (let i = 0; i < 3; i++) {
-    await page.getByLabel(/Scrie unde e pisica/).fill("nicăieri");
+    await page.getByLabel(/Scrie unde e Lupino/).fill("nicăieri");
     await page.getByRole("button", { name: "Verifică" }).click();
     await expect(page.getByTestId("cat-feedback")).toContainText("Nu chiar");
     await page.getByRole("button", { name: /^(Continuă|Vezi rezultatul)$/ }).click();

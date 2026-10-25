@@ -40,7 +40,7 @@ test("ordonare: următorul element corect", () => {
   expect(isNextInSequence(["a", "b", "c"], ["a"], "c")).toBe(false);
 });
 
-test("unde e pisica: 12 poziții, variante distincte care conțin răspunsul", () => {
+test("unde e Lupino: 12 poziții, variante distincte care conțin răspunsul", () => {
   expect(CAT_ITEMS).toHaveLength(12);
   for (let i = 0; i < 30; i++) {
     const round = buildCatRound(6);

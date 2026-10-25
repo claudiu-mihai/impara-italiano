@@ -23,6 +23,9 @@ const SRC: Record<LupinoPose, string> = {
   cap,
 };
 
+/** Adresa desenului unei ipostaze (pentru scene SVG compuse, ca în „Unde e Lupino?”). */
+export const lupinoSrc = (pose: LupinoPose): string => SRC[pose];
+
 interface LupinoProps {
   pose: LupinoPose;
   /** Latura, în pixeli (desenele sunt pătrate). */

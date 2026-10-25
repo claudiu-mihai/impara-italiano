@@ -47,8 +47,8 @@ for (const scheme of ["light", "dark"] as const) {
       await audit(page, "ordonează");
 
       await page.goto("/learn/topics/pozitia-obiectelor/cat");
-      await expect(page.getByRole("heading", { name: "Unde e pisica?" })).toBeVisible();
-      await audit(page, "unde e pisica");
+      await expect(page.getByRole("heading", { name: "Unde e Lupino?" })).toBeVisible();
+      await audit(page, "unde e Lupino");
 
       await page.goto("/learn/topics/ora/clock");
       await expect(page.getByText("Repetiție")).toBeVisible();
