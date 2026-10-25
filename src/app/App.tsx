@@ -4,6 +4,7 @@ import { BrowserRouter, NavLink, Outlet, Route, Routes, useLocation } from "reac
 import { db } from "../data/db/instance.ts";
 import { getSettings } from "../data/db/repositories.ts";
 import { startAutoSync } from "../data/sync/autoSync.ts";
+import { setUiLanguage, useT, type Key } from "../i18n/index.ts";
 import { HomePage } from "../features/home/HomePage.tsx";
 import { applyPwaUpdate, usePwaNeedRefresh } from "../services/pwaUpdate.ts";
 import { applyTheme } from "../services/theme.ts";
@@ -47,6 +48,7 @@ function readDismissed(): boolean {
 }
 
 function Banners() {
+  const { t } = useT();
   const needRefresh = usePwaNeedRefresh();
   const tts = useTtsStatus();
   const settings = useLiveQuery(() => getSettings(db), []);
@@ -56,6 +58,9 @@ function Banners() {
   useEffect(() => {
     if (settings) applyTheme(settings.theme);
   }, [settings?.theme]);
+  useEffect(() => {
+    if (settings) void setUiLanguage(settings.uiLanguage);
+  }, [settings?.uiLanguage]);
   const [dismissed, setDismissed] = useState(readDismissed);
 
   const dismiss = () => {
@@ -71,24 +76,20 @@ function Banners() {
     <>
       {needRefresh && (
         <div role="status" className="flex items-center justify-between gap-3 bg-brand px-4 py-3 text-white">
-          <span>Versiune nouă disponibilă</span>
+          <span>{t("banner.update")}</span>
           <button
             type="button"
             onClick={applyPwaUpdate}
             className="min-h-12 rounded-lg bg-white/20 px-4 font-semibold"
           >
-            Reîncarcă
+            {t("banner.reload")}
           </button>
         </div>
       )}
       {tts === "no-voice" && !dismissed && (
         <div role="status" className="flex items-start justify-between gap-3 bg-amber-100 px-4 py-3 text-amber-950">
-          <span>
-            Dispozitivul nu are o voce italiană, deci butonul de audio este ascuns. Mac: Setări de sistem →
-            Accesibilitate → Conținut vorbit → Voce de sistem → Gestionează vocile. iPhone: Setări → Accesibilitate →
-            Conținut vorbit → Voci. Android: Setări → Gestionare generală → Text în vorbire.
-          </span>
-          <button type="button" onClick={dismiss} aria-label="Închide" className="min-h-12 min-w-12 text-xl">
+          <span>{t("banner.noVoice")}</span>
+          <button type="button" onClick={dismiss} aria-label={t("common.close")} className="min-h-12 min-w-12 text-xl">
             ✕
           </button>
         </div>
@@ -97,12 +98,12 @@ function Banners() {
   );
 }
 
-const NAV = [
-  { to: "/", label: "Acasă", icon: "🏠", end: true },
-  { to: "/learn", label: "Învață", icon: "🃏", end: false },
-  { to: "/browse", label: "Dicționar", icon: "📖", end: false },
-  { to: "/stats", label: "Statistici", icon: "📈", end: false },
-  { to: "/settings", label: "Setări", icon: "⚙️", end: false },
+const NAV: { to: string; label: Key; icon: string; end: boolean }[] = [
+  { to: "/", label: "nav.home", icon: "🏠", end: true },
+  { to: "/learn", label: "nav.learn", icon: "🃏", end: false },
+  { to: "/browse", label: "nav.browse", icon: "📖", end: false },
+  { to: "/stats", label: "nav.stats", icon: "📈", end: false },
+  { to: "/settings", label: "nav.settings", icon: "⚙️", end: false },
 ];
 
 // Ecranele de studiu ocupă tot ecranul: bara de jos este ascunsă acolo.
@@ -113,6 +114,7 @@ const isStudyRoute = (pathname: string) =>
   STUDY_ROUTES.includes(pathname) || /^\/learn\/(topics|games)\/[^/]+\/[a-z]+$/.test(pathname);
 
 function Layout() {
+  const { t } = useT();
   const { pathname } = useLocation();
   const studying = isStudyRoute(pathname);
 
@@ -120,30 +122,35 @@ function Layout() {
     <div className="mx-auto flex min-h-dvh max-w-xl flex-col">
       <Banners />
       <main className="flex flex-1 flex-col">
-        <Suspense fallback={<p className="p-6 text-center text-muted">Se încarcă…</p>}>
+        <Suspense fallback={<p className="p-6 text-center text-muted">{t("common.loading")}</p>}>
           <Outlet />
         </Suspense>
       </main>
       {!studying && (
         <nav
-          aria-label="Navigare principală"
+          aria-label={t("nav.label")}
           className="sticky bottom-0 grid grid-cols-5 border-t border-slate-200 bg-white pb-[env(safe-area-inset-bottom)] dark:border-slate-800 dark:bg-slate-900"
         >
           {NAV.map((item) => (
+            // doar iconițe: numele rămâne ca etichetă de accesibilitate și ca tooltip; pagina activă are un fundal
             <NavLink
               key={item.to}
               to={item.to}
               end={item.end}
-              className={({ isActive }) =>
-                `flex min-h-16 flex-col items-center justify-center gap-0.5 text-sm ${
-                  isActive ? "font-semibold text-brand-fg" : "text-muted"
-                }`
-              }
+              aria-label={t(item.label)}
+              title={t(item.label)}
+              className="flex min-h-16 items-center justify-center"
             >
-              <span aria-hidden="true" className="text-xl">
-                {item.icon}
-              </span>
-              {item.label}
+              {({ isActive }) => (
+                <span
+                  aria-hidden="true"
+                  className={`flex size-12 items-center justify-center rounded-2xl text-2xl transition-colors motion-reduce:transition-none ${
+                    isActive ? "bg-brand/15 dark:bg-brand/30" : "opacity-70"
+                  }`}
+                >
+                  {item.icon}
+                </span>
+              )}
             </NavLink>
           ))}
         </nav>

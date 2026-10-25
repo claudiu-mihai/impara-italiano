@@ -7,6 +7,8 @@ import { useWordDetails } from "../../app/wordDetails.ts";
 import { db } from "../../data/db/instance.ts";
 import { saveReview } from "../../data/db/repositories.ts";
 import { loadQuizRound, loadTopicQuiz } from "../../data/queries.ts";
+import { useT } from "../../i18n/index.ts";
+import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { promptText } from "../../domain/content/display.ts";
 import type { QuizQuestion } from "../../domain/quiz/buildQuizRound.ts";
 import { DEFAULT_SETTINGS, type Settings } from "../../domain/settings.ts";
@@ -19,12 +21,13 @@ import { StudyHeader } from "../../ui/StudyHeader.tsx";
 import { LupinoFill } from "../../ui/mascot/Lupino.tsx";
 
 export function QuizPage() {
+  const { t } = useT();
   const content = useContent();
   const details = useWordDetails();
   // în „Studiază tema” întrebările vin doar din cuvintele temei
   const { id: topicId } = useParams();
   const topics = useTopics();
-  const topic = topicId ? topics?.find((t) => t.id === topicId) : undefined;
+  const topic = topicId ? topics?.find((x) => x.id === topicId) : undefined;
   const exitTo = topicId ? `/learn/topics/${topicId}` : "/learn";
   const [round, setRound] = useState(0);
   const [ready, setReady] = useState(false);
@@ -82,19 +85,19 @@ export function QuizPage() {
     setShownAt(Date.now());
   };
 
-  if (!ready) return <p className="p-6 text-center text-muted">Se încarcă…</p>;
+  if (!ready) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
 
   if (questions.length === 0) {
     return (
       <SessionDone
         emoji="🃏"
-        title="Încă nu ai cuvinte de testat"
-        text="Învață mai întâi câteva cuvinte în Flashcards; apoi le poți verifica aici."
+        title={t("quiz.noWords")}
+        text={t("quiz.noWordsText")}
         backTo={exitTo}
-        backLabel={topicId ? "Înapoi la temă" : undefined}
+        backLabel={topicId ? t("flash.backToTopic") : undefined}
       >
         <Link to="/learn/vocab" className={primaryButton}>
-          Mergi la Flashcards
+          {t("conj.goFlashcards")}
         </Link>
       </SessionDone>
     );
@@ -103,13 +106,13 @@ export function QuizPage() {
   if (!question) {
     return (
       <SessionDone
-        title={`${score} din ${questions.length}`}
-        text={score === questions.length ? "Perfect!" : "Cuvintele greșite vor reveni mai curând la repetiție."}
+        title={t("common.outOf", { n: score, total: questions.length })}
+        text={score === questions.length ? t("common.perfect") : t("quiz.wrongReturn")}
         backTo={exitTo}
-        backLabel={topicId ? "Înapoi la temă" : undefined}
+        backLabel={topicId ? t("flash.backToTopic") : undefined}
       >
         <button type="button" onClick={() => setRound((r) => r + 1)} className={primaryButton}>
-          Încă o rundă
+          {t("common.anotherRound")}
         </button>
       </SessionDone>
     );
@@ -123,21 +126,23 @@ export function QuizPage() {
 
   return (
     <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
-      <StudyHeader index={index} total={questions.length} label="Progresul rundei" exitTo={exitTo} />
+      <StudyHeader index={index} total={questions.length} label={t("quiz.roundProgress")} exitTo={exitTo} />
 
       <section className="flex flex-col items-center gap-3 rounded-3xl bg-white p-6 text-center shadow-md dark:bg-slate-900">
         <p className="text-sm text-muted">
-          {question.direction === "it-ro" ? "Ce înseamnă?" : "Cum se spune în italiană?"}
+          {t(question.direction === "it-ro" ? "quiz.askItRo" : "quiz.askRoIt")}
         </p>
         <div className="flex items-center gap-3">
-          <p className="text-4xl font-bold">{promptText(word, question.direction)}</p>
+          <p lang={question.direction === "it-ro" ? "it" : NATIVE_LANGUAGE} className="text-4xl font-bold">
+            {promptText(word, question.direction)}
+          </p>
           {question.direction === "it-ro" && (
             <AudioButton text={promptText(word, question.direction)} rate={settings.ttsRate} />
           )}
         </div>
       </section>
 
-      <div className="flex flex-col gap-3" role="group" aria-label="Variante de răspuns">
+      <div className="flex flex-col gap-3" role="group" aria-label={t("quiz.options")}>
         {question.options.map((option, i) => {
           const isCorrect = i === question.correctIndex;
           const state = !answered
@@ -155,9 +160,9 @@ export function QuizPage() {
               onClick={() => void choose(i)}
               className={`min-h-14 rounded-xl border-2 px-4 text-left text-lg ${state}`}
             >
-              {option}
-              {answered && isCorrect && <span className="sr-only"> (răspuns corect)</span>}
-              {answered && i === selected && !isCorrect && <span className="sr-only"> (răspunsul tău, greșit)</span>}
+              <span lang={question.direction === "it-ro" ? NATIVE_LANGUAGE : "it"}>{option}</span>
+              {answered && isCorrect && <span className="sr-only">{t("quiz.srCorrect")}</span>}
+              {answered && i === selected && !isCorrect && <span className="sr-only">{t("quiz.srWrong")}</span>}
             </button>
           );
         })}
@@ -178,15 +183,15 @@ export function QuizPage() {
         {answered && (
           <>
             <p className={`text-center font-semibold ${selected === question.correctIndex ? "text-green-700 dark:text-green-400" : "text-red-700 dark:text-red-400"}`}>
-              {selected === question.correctIndex ? "Corect!" : "Nu chiar."}
+              {selected === question.correctIndex ? t("conj.correct") : t("quiz.notQuite")}
             </p>
             {example && (
               <p className="text-center text-sm text-muted">
-                {example.it} — {example.ro}
+                {example.it} — <span lang={NATIVE_LANGUAGE}>{example.ro}</span>
               </p>
             )}
             <button type="button" onClick={next} className={`${primaryButton} w-full`}>
-              {index + 1 < questions.length ? "Continuă" : "Vezi rezultatul"}
+              {index + 1 < questions.length ? t("common.continue") : t("common.seeResult")}
             </button>
           </>
         )}

@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { App } from "./app/App.tsx";
 import { loadContentStore } from "./data/content/contentStore.ts";
+import { initUiLanguage } from "./i18n/index.ts";
 import { initPwa } from "./services/pwaUpdate.ts";
 import { requestPersistentStorage } from "./services/storagePersist.ts";
 import { initTheme } from "./services/theme.ts";
@@ -13,8 +14,11 @@ void loadContentStore();
 initPwa();
 void requestPersistentStorage();
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+// italiana (dacă e aleasă) se încarcă înainte de prima afișare; româna e deja în pachet
+void initUiLanguage().then(() =>
+  createRoot(document.getElementById("root")!).render(
+    <StrictMode>
+      <App />
+    </StrictMode>,
+  ),
 );

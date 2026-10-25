@@ -1,4 +1,5 @@
 import { useId, type ReactNode } from "react";
+import { useT } from "../i18n/index.ts";
 import type { CatItem } from "../domain/topics/cat.ts";
 import { lupinoSrc, type LupinoPose } from "./mascot/Lupino.tsx";
 
@@ -72,6 +73,7 @@ const BoxFront = ({ open }: { open: boolean }) => (
  * (altfel s-ar vedea întreg printre picioarele mesei, ca „sotto”). „Accanto” are cutia închisă, „fuori” deschisă și goală.
  */
 export function CatScene({ item, size = 300 }: CatSceneProps) {
+  const { t } = useT();
   // useId dă id-uri cu „:”, pe care le sanitizăm ca să intre sigur în url(#…)
   const clipId = `clip-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const scenes: Record<string, ReactNode> = {
@@ -158,7 +160,7 @@ export function CatScene({ item, size = 300 }: CatSceneProps) {
   };
 
   return (
-    <svg viewBox="0 0 300 210" width={size} role="img" aria-label="Scenă cu Lupino" className="max-w-full rounded-2xl">
+    <svg viewBox="0 0 300 210" width={size} role="img" aria-label={t("cat.scene")} className="max-w-full rounded-2xl">
       <rect width="300" height="170" fill="#f3efe7" />
       <rect y="170" width="300" height="40" fill="#e2cfae" />
       <line x1="0" y1="170" x2="300" y2="170" stroke="#c8ad84" strokeWidth="2" />

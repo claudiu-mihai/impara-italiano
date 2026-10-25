@@ -1,6 +1,8 @@
 import { useEffect, useId, useRef, useState } from "react";
+import { NATIVE_LANGUAGE } from "../domain/content/constants.ts";
 import { useNativeHelp } from "../app/nativeHelp.ts";
 import type { Localized } from "../domain/content/schema.ts";
+import { useT } from "../i18n/index.ts";
 import { nativeText } from "./BilingualLabel.tsx";
 import { RulesBox } from "./RulesBox.tsx";
 
@@ -86,6 +88,7 @@ function Face({ title, rules, open, onToggle, onFlip, flipLabel, flipLang, back,
 
 /** Caseta „De reținut” cu două fețe: regulile limbii italiane și, pe spate, cele în limba maternă (cu cele comparate). */
 function TwoFacedRules({ italian, native }: { italian: readonly string[]; native: readonly string[] }) {
+  const { t, language } = useT();
   const [open, setOpen] = useState(false);
   const [showNative, setShowNative] = useState(false);
   const frontFlip = useRef<HTMLButtonElement>(null);
@@ -120,19 +123,20 @@ function TwoFacedRules({ italian, native }: { italian: readonly string[]; native
           open={open}
           onToggle={toggle}
           onFlip={flip}
-          flipLabel="Arată în română"
-          flipLang="ro"
+          flipLabel={t("rules.showNative")}
+          flipLang={language}
           hidden={showNative}
           flipRef={frontFlip}
         />
         <Face
           back
           title="De reținut"
+          lang={NATIVE_LANGUAGE}
           rules={native}
           open={open}
           onToggle={toggle}
           onFlip={flip}
-          flipLabel="Mostra in italiano"
+          flipLabel={t("rules.showItalian")}
           flipLang="it"
           hidden={!showNative}
           flipRef={backFlip}

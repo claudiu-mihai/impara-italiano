@@ -1,37 +1,39 @@
 import { useContent } from "../../app/content.tsx";
 import { APP_VERSION } from "../../app/version.ts";
+import { useT } from "../../i18n/index.ts";
 
 export function AboutPage() {
   const { meta } = useContent();
+  const { t, rich } = useT();
 
   return (
     <div className="flex flex-col gap-5 px-4 pb-8 pt-8">
-      <h1 className="text-2xl font-bold">Despre</h1>
+      <h1 className="text-2xl font-bold">{t("about.title")}</h1>
 
       <section className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
-        <h2 className="font-semibold">Aplicație</h2>
+        <h2 className="font-semibold">{t("about.app")}</h2>
         <p className="mt-2 text-slate-600 dark:text-slate-300">
-          Impara l&apos;Italiano · versiune <span data-testid="app-version">{APP_VERSION}</span>
+          {rich("about.version", { version: <span data-testid="app-version">{APP_VERSION}</span> })}
         </p>
       </section>
 
       <section className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
-        <h2 className="font-semibold">Date</h2>
+        <h2 className="font-semibold">{t("about.data")}</h2>
         <p className="mt-2 text-slate-600 dark:text-slate-300">
-          {meta.wordCount} cuvinte · versiune {meta.dataVersion} · generat la {meta.generatedAt}
+          {t("about.dataLine", { count: meta.wordCount, version: meta.dataVersion, date: meta.generatedAt })}
         </p>
         {meta.rankBasis === "provisional" && (
           <p className="mt-2 text-sm text-amber-700 dark:text-amber-400">
-            Ordinea cuvintelor este provizorie; va fi recalculată pe baza listelor de frecvență.
+            {t("about.provisional")}
           </p>
         )}
       </section>
 
       <section className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
-        <h2 className="font-semibold">Surse</h2>
+        <h2 className="font-semibold">{t("about.sources")}</h2>
         {meta.sources.length === 0 ? (
           <p className="mt-2 text-slate-600 dark:text-slate-300">
-            Nicio listă externă de frecvență nu este folosită încă.
+            {t("about.noSources")}
           </p>
         ) : (
           <ul className="mt-2 flex flex-col gap-2">
@@ -50,18 +52,16 @@ export function AboutPage() {
       </section>
 
       <section className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
-        <h2 className="font-semibold">Niveluri</h2>
+        <h2 className="font-semibold">{t("about.levels")}</h2>
         <p className="mt-2 text-slate-600 dark:text-slate-300">
-          Nivelurile CEFR (A1–C2) ale cuvintelor sunt <strong>estimate</strong> din frecvența lor în limba vorbită și
-          scrisă, cu corecturi manuale; nu provin dintr-o listă oficială. Nivelul timpurilor verbale urmează programele
-          uzuale de italiană.
+          {rich("about.levelsText", { estimated: <strong>{t("about.estimated")}</strong> })}
         </p>
       </section>
 
       <section className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
-        <h2 className="font-semibold">Algoritm</h2>
+        <h2 className="font-semibold">{t("about.algorithm")}</h2>
         <p className="mt-2 text-slate-600 dark:text-slate-300">
-          Repetiția spațiată folosește FSRS, prin biblioteca ts-fsrs (open-spaced-repetition, licență MIT).
+          {t("about.algorithmText")}
         </p>
       </section>
     </div>

@@ -5,6 +5,7 @@ import { syncUserOf } from "../db/repositories.ts";
 import { runSync } from "./engine.ts";
 import { hasLocalProgress, pendingCount } from "./pending.ts";
 import { PocketBaseRemote } from "./pocketbaseRemote.ts";
+import { t } from "../../i18n/standalone.ts";
 import { normalizeEmail, registerErrorMessage } from "./messages.ts";
 import type { SyncReport } from "./types.ts";
 
@@ -33,14 +34,14 @@ export interface SyncOutcome {
   message?: string;
 }
 
-/** Un mesaj în română pentru o eroare de autentificare. */
+/** Un mesaj (în limba interfeței) pentru o eroare de autentificare. */
 function loginMessage(error: unknown): string {
   if (error instanceof ClientResponseError) {
-    if (error.status === 0) return "Nu pot contacta serverul. Verifică conexiunea.";
-    if (error.status === 429) return "Prea multe încercări. Așteaptă puțin și încearcă din nou.";
-    if (error.status === 400 || error.status === 403) return "Email sau parolă greșite.";
+    if (error.status === 0) return t("err.cannotReachServer");
+    if (error.status === 429) return t("err.tooManyAttempts");
+    if (error.status === 400 || error.status === 403) return t("err.wrongCredentials");
   }
-  return "Autentificarea a eșuat. Încearcă din nou.";
+  return t("err.signInFailed");
 }
 
 async function setStatus(db: ImparaDb, status: SyncStatus, message?: string): Promise<void> {
@@ -83,7 +84,7 @@ async function syncOnce(db: ImparaDb): Promise<SyncOutcome> {
     const status = statusOf(error);
     if (status === 0) return fail("offline");
     // 429 = prea multe cereri într-un timp scurt: nu are legătură cu sesiunea, se reîncearcă mai târziu
-    if (status === 429) return fail("error", "Prea multe cereri într-un timp scurt. Încearcă din nou peste câteva secunde.");
+    if (status === 429) return fail("error", t("err.tooManyRequests"));
     if (status !== undefined && status < 500) return fail("auth-required");
     return fail("error", error instanceof Error ? error.message : undefined);
   }
@@ -96,7 +97,7 @@ async function syncOnce(db: ImparaDb): Promise<SyncOutcome> {
     const status = statusOf(error);
     if (status === 0) return fail("offline");
     if (status === 401 || status === 403) return fail("auth-required");
-    return fail("error", error instanceof Error ? error.message : "Eroare necunoscută.");
+    return fail("error", error instanceof Error ? error.message : t("err.unknown"));
   }
 }
 
@@ -125,7 +126,7 @@ export async function signIn(db: ImparaDb, email: string, password: string): Pro
   const current = await syncUserOf(db);
   if (current && current !== userId) {
     pb.authStore.clear();
-    return { status: "error", message: "Pe acest dispozitiv este deja asociat alt cont. Deconectează-te mai întâi." };
+    return { status: "error", message: t("err.otherAccount") };
   }
 
   if (current === userId) {
@@ -162,7 +163,7 @@ export async function register(db: ImparaDb, email: string, password: string): P
   }
   const result = await signIn(db, address, password);
   if (result.status === "error") {
-    return { status: "error", message: `Contul a fost creat, dar autentificarea a eșuat. ${result.message}` };
+    return { status: "error", message: t("err.createdButSignIn", { message: result.message }) };
   }
   return result;
 }
@@ -180,7 +181,7 @@ export function cancelSignIn(): void {
  */
 export async function completeSignIn(db: ImparaDb, mode: "merge" | "account-only"): Promise<SignInResult> {
   const login = pendingLogin;
-  if (!login) return { status: "error", message: "Sesiunea de autentificare a expirat. Autentifică-te din nou." };
+  if (!login) return { status: "error", message: t("err.loginExpired") };
   pendingLogin = undefined;
 
   if (mode === "account-only") await wipeLocalData(db);
@@ -229,26 +230,26 @@ export async function deleteAccount(db: ImparaDb, password: string): Promise<Del
   const pb = pocketbase();
   const userId = await syncUserOf(db);
   const email = (await db.meta.get("syncEmail"))?.value as string | undefined;
-  if (!userId || !email) return { status: "error", message: "Nu ești autentificat." };
+  if (!userId || !email) return { status: "error", message: t("err.notSignedIn") };
 
   try {
     const auth = await pb.collection("users").authWithPassword(email, password);
     if (auth.record.id !== userId) {
       pb.authStore.clear();
-      return { status: "error", message: "Parola e greșită." };
+      return { status: "error", message: t("err.wrongPassword") };
     }
   } catch (error) {
     const status = error instanceof ClientResponseError ? error.status : undefined;
-    if (status === 0) return { status: "error", message: "Nu pot contacta serverul. Verifică conexiunea." };
-    if (status === 429) return { status: "error", message: "Prea multe încercări. Așteaptă puțin și încearcă din nou." };
-    return { status: "error", message: "Parola e greșită." };
+    if (status === 0) return { status: "error", message: t("err.cannotReachServer") };
+    if (status === 429) return { status: "error", message: t("err.tooManyAttempts") };
+    return { status: "error", message: t("err.wrongPassword") };
   }
 
   try {
     await pb.collection("users").delete(userId);
   } catch (error) {
     const offline = error instanceof ClientResponseError && error.status === 0;
-    return { status: "error", message: offline ? "Nu pot contacta serverul. Verifică conexiunea." : "Nu am putut șterge contul." };
+    return { status: "error", message: offline ? t("err.cannotReachServer") : t("err.deleteFailed") };
   }
   await wipeLocalData(db);
   pb.authStore.clear();

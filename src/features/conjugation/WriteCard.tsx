@@ -4,6 +4,8 @@ import { spokenConjugation } from "../../domain/content/spokenConjugation.ts";
 import { compareAnswer, type AnswerResult } from "../../domain/grading/compareAnswer.ts";
 import { gradeConjugation, PERSONS_PER_REVIEW } from "../../domain/grading/gradeConjugation.ts";
 import { shuffle } from "../../domain/random.ts";
+import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
+import { useT } from "../../i18n/index.ts";
 import { playFeedback } from "../../services/sound.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { primaryButton } from "../../ui/SessionDone.tsx";
@@ -16,6 +18,7 @@ interface Feedback {
 
 /** Varianta „Scrie răspunsul”: 3 persoane pe rând, notă automată. */
 export function WriteCard({ item, verb, forms, settings, onFinish }: ConjCardProps) {
+  const { t } = useT();
   const inputRef = useRef<HTMLInputElement>(null);
   const [persons] = useState(() =>
     shuffle(Array.from({ length: forms.length }, (_, i) => i)).slice(0, PERSONS_PER_REVIEW),
@@ -63,17 +66,23 @@ export function WriteCard({ item, verb, forms, settings, onFinish }: ConjCardPro
   return (
     <>
       <section className="flex flex-col items-center gap-2 rounded-3xl bg-white p-6 text-center shadow-md dark:bg-slate-900">
-        <p className="text-sm text-muted">{TENSE_LABEL[item.tense]}</p>
+        <p className="text-sm text-muted">{t(TENSE_LABEL[item.tense])}</p>
         <div className="flex items-center gap-2">
           <p className="text-3xl font-bold">{verb.it}</p>
           <AudioButton text={verb.it} rate={settings.ttsRate} size="sm" />
         </div>
-        <p className="text-muted">{verb.ro}</p>
+        <p lang={NATIVE_LANGUAGE} className="text-muted">
+          {verb.ro}
+        </p>
         <p className="mt-3 text-4xl font-bold text-brand-fg" data-testid="person">
           {personLabel.it}
         </p>
-        {personLabel.ro !== personLabel.it && <p className="text-sm text-muted">({personLabel.ro})</p>}
-        <ol className="mt-2 flex gap-2" aria-label={`Persoana ${step + 1} din ${persons.length}`}>
+        {personLabel.ro !== personLabel.it && (
+          <p lang={NATIVE_LANGUAGE} className="text-sm text-muted">
+            ({personLabel.ro})
+          </p>
+        )}
+        <ol className="mt-2 flex gap-2" aria-label={t("conj.personOf", { n: step + 1, total: persons.length })}>
           {persons.map((p, i) => (
             <li
               key={p}
@@ -96,15 +105,15 @@ export function WriteCard({ item, verb, forms, settings, onFinish }: ConjCardPro
 
       <form onSubmit={onSubmit} className="mt-auto flex flex-col gap-3">
         <div aria-live="polite" className="min-h-14">
-          {feedback?.result === "correct" && <p className="text-center font-semibold text-green-700 dark:text-green-400">Corect!</p>}
+          {feedback?.result === "correct" && <p className="text-center font-semibold text-green-700 dark:text-green-400">{t("conj.correct")}</p>}
           {feedback?.result === "almost" && (
             <p className="text-center font-semibold text-amber-700 dark:text-amber-400">
-              Aproape! Atenție la accente: {feedback.expected[0]}
+              {t("conj.almostAccents", { form: feedback.expected[0] ?? "" })}
             </p>
           )}
           {feedback?.result === "wrong" && (
             <p className="text-center font-semibold text-red-700 dark:text-red-400">
-              Răspuns corect: {feedback.expected.join(" / ")}
+              {t("conj.correctAnswer", { form: feedback.expected.join(" / ") })}
             </p>
           )}
           {feedback && (
@@ -120,8 +129,8 @@ export function WriteCard({ item, verb, forms, settings, onFinish }: ConjCardPro
           value={input}
           onChange={(e) => setInput(e.target.value)}
           readOnly={feedback !== null}
-          aria-label={`Forma pentru ${personLabel.it}`}
-          placeholder="Scrie forma verbului"
+          aria-label={t("conj.formFor", { person: personLabel.it })}
+          placeholder={t("conj.placeholder")}
           lang="it"
           autoFocus
           autoCapitalize="none"
@@ -132,7 +141,7 @@ export function WriteCard({ item, verb, forms, settings, onFinish }: ConjCardPro
           className="min-h-14 rounded-xl border-2 border-slate-300 bg-white px-4 text-center text-xl dark:border-slate-700 dark:bg-slate-900"
         />
 
-        <div className="flex justify-center gap-2" aria-label="Litere cu accent">
+        <div className="flex justify-center gap-2" aria-label={t("conj.accents")}>
           {ACCENTS.map((char) => (
             <button
               key={char}
@@ -148,7 +157,7 @@ export function WriteCard({ item, verb, forms, settings, onFinish }: ConjCardPro
         </div>
 
         <button type="submit" className={`${primaryButton} w-full`}>
-          {!feedback ? "Verifică" : lastStep ? "Termină cardul" : "Continuă"}
+          {!feedback ? t("conj.check") : lastStep ? t("conj.finishCard") : t("common.continue")}
         </button>
       </form>
     </>

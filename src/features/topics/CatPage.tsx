@@ -3,6 +3,7 @@ import { db } from "../../data/db/instance.ts";
 import { getSettings } from "../../data/db/repositories.ts";
 import { compareAnswer } from "../../domain/grading/compareAnswer.ts";
 import { buildCatRound } from "../../domain/topics/cat.ts";
+import { useT } from "../../i18n/index.ts";
 import { playFeedback } from "../../services/sound.ts";
 import { CatScene } from "../../ui/CatScene.tsx";
 import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
@@ -11,13 +12,17 @@ import { useTopic } from "./useTopic.ts";
 
 /** Unde e Lupino?: scenă SVG → se alege sau se scrie prepoziția (sotto il tavolo, dentro la scatola). */
 export function CatPage() {
+  const { t } = useT();
   const { id, topic, loading } = useTopic();
-  if (loading) return <p className="p-6 text-center text-muted">Se încarcă…</p>;
-  if (!topic) return <SessionDone emoji="🤔" title="Tema nu există" text="" backTo="/learn/topics" backLabel="Înapoi la teme" />;
+  if (loading) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
+  if (!topic) {
+    return <SessionDone emoji="🤔" title={t("topics.notFound")} text="" backTo="/learn/topics" backLabel={t("topics.backToList")} />;
+  }
   return <CatGame key={id} topicId={topic.id} />;
 }
 
 function CatGame({ topicId }: { topicId: string }) {
+  const { t, language } = useT();
   const exitTo = `/learn/topics/${topicId}`;
   const [attempt, setAttempt] = useState(0);
   const questions = useMemo(
@@ -52,7 +57,12 @@ function CatGame({ topicId }: { topicId: string }) {
 
   if (!question) {
     return (
-      <SessionDone title={`${score} din ${questions.length}`} text={score === questions.length ? "Perfect!" : "Mai încearcă o rundă."} backTo={exitTo} backLabel="Înapoi la temă">
+      <SessionDone
+        title={t("common.outOf", { n: score, total: questions.length })}
+        text={score === questions.length ? t("common.perfect") : t("cat.tryAgain")}
+        backTo={exitTo}
+        backLabel={t("flash.backToTopic")}
+      >
         <button
           type="button"
           className={primaryButton}
@@ -65,7 +75,7 @@ function CatGame({ topicId }: { topicId: string }) {
             setResult(undefined);
           }}
         >
-          Încă o rundă
+          {t("common.anotherRound")}
         </button>
       </SessionDone>
     );
@@ -82,19 +92,21 @@ function CatGame({ topicId }: { topicId: string }) {
 
   return (
     <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
-      <StudyHeader index={index} total={questions.length} label="Progresul rundei" exitTo={exitTo} />
+      <StudyHeader index={index} total={questions.length} label={t("quiz.roundProgress")} exitTo={exitTo} />
       <div className="text-center">
-        <h1 className="text-xl font-semibold">Unde e Lupino?</h1>
-        <p lang="it" className="text-sm text-muted">
-          Dov'è Lupino?
-        </p>
+        <h1 className="text-xl font-semibold">{t("exercise.cat")}</h1>
+        {language !== "it" && (
+          <p lang="it" className="text-sm text-muted">
+            Dov'è Lupino?
+          </p>
+        )}
       </div>
       <div className="flex justify-center">
         <CatScene item={question.item} />
       </div>
 
       {question.mode === "choose" ? (
-        <div className="flex flex-col gap-3" role="group" aria-label="Variante de răspuns">
+        <div className="flex flex-col gap-3" role="group" aria-label={t("quiz.options")}>
           {question.options.map((option) => {
             const isCorrect = option === question.item.answer;
             const state = !answered
@@ -116,20 +128,20 @@ function CatGame({ topicId }: { topicId: string }) {
                 className={`min-h-14 rounded-xl border-2 px-4 text-left text-lg ${state}`}
               >
                 {option}
-                {answered && isCorrect && <span className="sr-only"> (răspuns corect)</span>}
+                {answered && isCorrect && <span className="sr-only">{t("quiz.srCorrect")}</span>}
               </button>
             );
           })}
           {answered && (
             <button type="button" className={`${primaryButton} w-full`} onClick={next}>
-              {index + 1 < questions.length ? "Continuă" : "Vezi rezultatul"}
+              {index + 1 < questions.length ? t("common.continue") : t("common.seeResult")}
             </button>
           )}
         </div>
       ) : (
         <form onSubmit={submit} className="flex flex-col gap-3">
           <label htmlFor="cat-answer" className="text-center text-sm text-muted">
-            Scrie unde e Lupino (ex. «sotto il tavolo»)
+            {t("cat.writePrompt")}
           </label>
           <input
             id="cat-answer"
@@ -144,15 +156,14 @@ function CatGame({ topicId }: { topicId: string }) {
             className="min-h-14 rounded-xl border-2 border-slate-300 bg-white px-4 text-center text-xl dark:border-slate-600 dark:bg-slate-900"
           />
           <button type="submit" className={`${primaryButton} w-full`}>
-            {answered ? (index + 1 < questions.length ? "Continuă" : "Vezi rezultatul") : "Verifică"}
+            {answered ? (index + 1 < questions.length ? t("common.continue") : t("common.seeResult")) : t("conj.check")}
           </button>
         </form>
       )}
 
       {answered && (
         <p className="text-center text-lg font-semibold" aria-live="polite" data-testid="cat-feedback">
-          {result === "wrong" ? "Nu chiar: " : "Corect: "}
-          {question.item.answer}
+          {t(result === "wrong" ? "cat.notQuite" : "cat.correctIs", { answer: question.item.answer })}
         </p>
       )}
     </div>

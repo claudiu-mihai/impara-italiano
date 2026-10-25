@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 
 import type { Tense } from "../domain/content/constants.ts";
 import { personsOf } from "../domain/content/display.ts";
+import { useT } from "../i18n/index.ts";
 import { spokenConjugation } from "../domain/content/spokenConjugation.ts";
 import { speak, speakSequence, stopSpeaking, useSpeaking, useTtsStatus } from "../services/tts.ts";
 
@@ -19,6 +20,7 @@ interface ConjugationTableProps {
  * Fără voce italiană rândurile rămân text simplu; fără internet (și fără voce locală) butoanele sunt inactive.
  */
 export function ConjugationTable({ id, tense, forms, rate }: ConjugationTableProps) {
+  const { t } = useT();
   const status = useTtsStatus();
   const speaking = useSpeaking();
   const audio = status !== "unsupported" && status !== "no-voice";
@@ -41,15 +43,15 @@ export function ConjugationTable({ id, tense, forms, rate }: ConjugationTablePro
     <div className="mb-3">
       {audio && (
         <div className="flex items-center justify-between gap-2 pb-2">
-          <p className="text-sm text-muted">Apasă pe un rând ca să-l asculți.</p>
+          <p className="text-sm text-muted">{t("table.hint")}</p>
           <button
             type="button"
             disabled={offline}
-            title={offline ? "Audio necesită internet" : undefined}
+            title={offline ? t("audio.needsInternet") : undefined}
             onClick={() => (active === null ? speakSequence(id, spoken, rate) : stopSpeaking())}
             className="min-h-12 shrink-0 rounded-xl bg-slate-200 px-4 font-semibold disabled:opacity-40 dark:bg-slate-700"
           >
-            {active === null ? "▶ Ascultă tot" : "■ Oprește"}
+            {active === null ? t("table.listenAll") : t("table.stop")}
           </button>
         </div>
       )}

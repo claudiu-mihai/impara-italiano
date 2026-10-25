@@ -7,6 +7,7 @@ import { useWordDetails } from "../../app/wordDetails.ts";
 import { db } from "../../data/db/instance.ts";
 import { saveReview } from "../../data/db/repositories.ts";
 import { loadStudyOverview, loadTopicStudy } from "../../data/queries.ts";
+import { useT, type Key } from "../../i18n/index.ts";
 import { LEARN_AHEAD_MS } from "../../domain/session/buildDailySession.ts";
 import { DEFAULT_SETTINGS, type Settings } from "../../domain/settings.ts";
 import { formatInterval } from "../../domain/srs/format.ts";
@@ -17,12 +18,12 @@ import { useSessionStore } from "../../store/sessionStore.ts";
 import { WordCard } from "./WordCard.tsx";
 import { Lupino } from "../../ui/mascot/Lupino.tsx";
 
-const BUTTONS = [
-  { grade: Rating.Again, label: "Din nou", color: "bg-red-700" },
-  { grade: Rating.Hard, label: "Greu", color: "bg-amber-700" },
-  { grade: Rating.Good, label: "Bine", color: "bg-brand" },
-  { grade: Rating.Easy, label: "Ușor", color: "bg-sky-700" },
-] as const;
+const BUTTONS: { grade: Grade; label: Key; color: string }[] = [
+  { grade: Rating.Again, label: "rate.again", color: "bg-red-700" },
+  { grade: Rating.Hard, label: "rate.hard", color: "bg-amber-700" },
+  { grade: Rating.Good, label: "rate.good", color: "bg-brand" },
+  { grade: Rating.Easy, label: "rate.easy", color: "bg-sky-700" },
+];
 
 interface CurrentCard {
   card: StoredCard;
@@ -30,12 +31,13 @@ interface CurrentCard {
 }
 
 export function FlashcardsPage() {
+  const { t, tp } = useT();
   const content = useContent();
   const details = useWordDetails();
   // în „Studiază tema” sesiunea conține doar cuvintele temei
   const { id: topicId } = useParams();
   const topics = useTopics();
-  const topic = topicId ? topics?.find((t) => t.id === topicId) : undefined;
+  const topic = topicId ? topics?.find((x) => x.id === topicId) : undefined;
   const exitTo = topicId ? `/learn/topics/${topicId}` : "/";
   const { queue, index, flipped, shownAt, answered, start, flip, advance, reset } = useSessionStore();
   const [ready, setReady] = useState(false);
@@ -79,10 +81,10 @@ export function FlashcardsPage() {
       setCurrent({
         card,
         labels: {
-          [Rating.Again]: formatInterval(due[Rating.Again], now),
-          [Rating.Hard]: formatInterval(due[Rating.Hard], now),
-          [Rating.Good]: formatInterval(due[Rating.Good], now),
-          [Rating.Easy]: formatInterval(due[Rating.Easy], now),
+          [Rating.Again]: formatInterval(due[Rating.Again], now, tp),
+          [Rating.Hard]: formatInterval(due[Rating.Hard], now, tp),
+          [Rating.Good]: formatInterval(due[Rating.Good], now, tp),
+          [Rating.Easy]: formatInterval(due[Rating.Easy], now, tp),
         },
       });
     });
@@ -124,7 +126,7 @@ export function FlashcardsPage() {
   });
 
   if (!ready || !details) {
-    return <p className="p-6 text-center text-muted">Se încarcă…</p>;
+    return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
   }
 
   if (!item) {
@@ -132,15 +134,13 @@ export function FlashcardsPage() {
       <div className="flex flex-1 flex-col items-center justify-center gap-4 p-6 text-center">
         <Lupino pose={answered > 0 ? "bravo" : "relax"} size={160} />
         <h1 className="text-2xl font-bold">
-          {answered > 0 ? "Sesiune încheiată" : "Nimic de făcut acum"}
+          {answered > 0 ? t("flash.done") : t("learn.nothingToDo")}
         </h1>
         <p className="text-muted">
-          {answered > 0
-            ? `Ai parcurs ${answered} ${answered === 1 ? "card" : "carduri"}.`
-            : "Revino mai târziu pentru noi repetiții."}
+          {answered > 0 ? tp("flash.reviewed", answered) : t("flash.comeBack")}
         </p>
         <Link to={exitTo} className="flex min-h-14 items-center rounded-xl bg-brand px-8 text-lg font-semibold text-white">
-          {topicId ? "Înapoi la temă" : "Înapoi acasă"}
+          {topicId ? t("flash.backToTopic") : t("flash.backHome")}
         </Link>
       </div>
     );
@@ -151,9 +151,9 @@ export function FlashcardsPage() {
     // Cuvântul a dispărut din dicționar după o actualizare; îl sărim fără a-l nota.
     return (
       <div className="p-6 text-center">
-        <p className="mb-4">Acest card nu mai există în dicționar.</p>
+        <p className="mb-4">{t("flash.cardGone")}</p>
         <button type="button" onClick={() => advance()} className="min-h-12 rounded-xl bg-brand px-6 text-white">
-          Continuă
+          {t("common.continue")}
         </button>
       </div>
     );
@@ -162,7 +162,7 @@ export function FlashcardsPage() {
   return (
     <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
       <header className="flex items-center gap-3">
-        <Link to={exitTo} aria-label="Ieși din sesiune" className="flex size-12 items-center justify-center text-2xl">
+        <Link to={exitTo} aria-label={t("study.exit")} className="flex size-12 items-center justify-center text-2xl">
           ✕
         </Link>
         <div
@@ -170,7 +170,7 @@ export function FlashcardsPage() {
           aria-valuemin={0}
           aria-valuemax={queue.length}
           aria-valuenow={index}
-          aria-label="Progresul sesiunii"
+          aria-label={t("study.progress")}
           className="h-2 flex-1 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700"
         >
           <div className="h-full bg-brand transition-[width]" style={{ width: `${(index / queue.length) * 100}%` }} />
@@ -182,12 +182,12 @@ export function FlashcardsPage() {
 
       {settings.direction === "both" && (
         <p className="text-center text-xs font-semibold uppercase tracking-wide text-muted" data-testid="card-direction">
-          {item.variant === "it-ro" ? "Italiană → Română" : "Română → Italiană"}
+          {t(item.variant === "it-ro" ? "dir.itRo" : "dir.roIt")}
         </p>
       )}
       {item.isNew && (
         <p className="text-center text-sm font-semibold text-brand-fg">
-          {item.reverse ? "Nou: acum spune-l în italiană" : "Cuvânt nou"}
+          {item.reverse ? t("flash.newReverse") : t("flash.newWord")}
         </p>
       )}
 
@@ -202,7 +202,7 @@ export function FlashcardsPage() {
       />
 
       {flipped ? (
-        <div className="grid grid-cols-4 gap-2" role="group" aria-label="Cât de bine ai știut cuvântul?">
+        <div className="grid grid-cols-4 gap-2" role="group" aria-label={t("flash.howWell")}>
           {BUTTONS.map(({ grade, label, color }) => (
             <button
               key={grade}
@@ -211,7 +211,7 @@ export function FlashcardsPage() {
               onClick={() => void rate(grade)}
               className={`flex min-h-16 flex-col items-center justify-center rounded-xl text-white disabled:opacity-50 ${color}`}
             >
-              <span className="font-semibold">{label}</span>
+              <span className="font-semibold">{t(label)}</span>
               <span className="text-xs">{current?.labels[grade] ?? "…"}</span>
             </button>
           ))}
@@ -222,7 +222,7 @@ export function FlashcardsPage() {
           onClick={flip}
           className="min-h-16 rounded-xl bg-brand text-lg font-semibold text-white active:bg-brand-dark"
         >
-          Arată răspunsul
+          {t("flash.showAnswer")}
         </button>
       )}
     </div>

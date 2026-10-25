@@ -10,6 +10,7 @@ import { formatNumber } from "../../domain/skills/numbers.ts";
 import { formatDigital } from "../../domain/skills/time.ts";
 import { endOfStudyDay, studyDayOf } from "../../domain/time/studyDay.ts";
 import { DEFAULT_SETTINGS, type Settings } from "../../domain/settings.ts";
+import { useT } from "../../i18n/index.ts";
 import { playFeedback } from "../../services/sound.ts";
 import { speak, useTtsStatus } from "../../services/tts.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
@@ -23,10 +24,11 @@ const ACCENTS = ["à", "è", "é", "ì", "ò", "ù"];
 
 /** Numere (ascultă și scrie cifrele) și Ceasul: abilități cu itemi generați; unitatea SRS este abilitatea. */
 export function SkillPage() {
+  const { t } = useT();
   const { id, topic, loading } = useTopic();
-  if (loading) return <p className="p-6 text-center text-muted">Se încarcă…</p>;
+  if (loading) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
   if (!topic?.skill) {
-    return <SessionDone emoji="🤔" title="Exercițiul nu există" text="" backTo="/learn/topics" backLabel="Înapoi la teme" />;
+    return <SessionDone emoji="🤔" title={t("topics.exerciseMissing")} text="" backTo="/learn/topics" backLabel={t("topics.backToList")} />;
   }
   return <SkillGame key={id} topicId={topic.id} skill={topic.skill} />;
 }
@@ -37,6 +39,7 @@ interface Feedback {
 }
 
 function SkillGame({ topicId, skill }: { topicId: string; skill: Skill }) {
+  const { t } = useT();
   const exitTo = `/learn/topics/${topicId}`;
   const tts = useTtsStatus();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -119,20 +122,16 @@ function SkillGame({ topicId, skill }: { topicId: string; skill: Skill }) {
     playFeedback(result === "correct", settings.soundEnabled);
   };
 
-  if (!ready) return <p className="p-6 text-center text-muted">Se încarcă…</p>;
+  if (!ready) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
 
   if (!item) {
     const right = results.filter((r) => r !== "wrong").length;
     return (
       <SessionDone
-        title={`${right} din ${results.length}`}
-        text={
-          countsForSrs && round === 0
-            ? "Repetiția a fost notată; abilitatea revine la timpul potrivit."
-            : "Antrenament liber: nu schimbă programul de repetare."
-        }
+        title={t("common.outOf", { n: right, total: results.length })}
+        text={countsForSrs && round === 0 ? t("skill.noted") : t("skill.freePractice")}
         backTo={exitTo}
-        backLabel="Înapoi la temă"
+        backLabel={t("flash.backToTopic")}
       >
         <button
           type="button"
@@ -147,7 +146,7 @@ function SkillGame({ topicId, skill }: { topicId: string; skill: Skill }) {
             setCountsForSrs(false);
           }}
         >
-          Încă o rundă
+          {t("common.anotherRound")}
         </button>
       </SessionDone>
     );
@@ -158,13 +157,13 @@ function SkillGame({ topicId, skill }: { topicId: string; skill: Skill }) {
 
   return (
     <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
-      <StudyHeader index={index} total={items.length} label="Progresul rundei" exitTo={exitTo} />
-      {countsForSrs && round === 0 && <p className="text-center text-sm font-semibold text-brand-fg">Repetiție</p>}
+      <StudyHeader index={index} total={items.length} label={t("quiz.roundProgress")} exitTo={exitTo} />
+      {countsForSrs && round === 0 && <p className="text-center text-sm font-semibold text-brand-fg">{t("skill.review")}</p>}
 
       <section className="flex flex-col items-center gap-3 rounded-3xl bg-white p-6 text-center shadow-md dark:bg-slate-900">
         {item.type === "listen-number" && (
           <>
-            <p className="text-sm text-muted">Ascultă și scrie numărul cu cifre</p>
+            <p className="text-sm text-muted">{t("skill.listen")}</p>
             {tts === "ready" ? (
               <AudioButton text={item.spoken} rate={settings.ttsRate} />
             ) : (
@@ -177,7 +176,7 @@ function SkillGame({ topicId, skill }: { topicId: string; skill: Skill }) {
         )}
         {item.type === "write-number" && (
           <>
-            <p className="text-sm text-muted">Scrie numărul cu litere</p>
+            <p className="text-sm text-muted">{t("skill.writeNumber")}</p>
             <p className="text-5xl font-bold" data-testid="digits">
               {formatNumber(item.n)}
             </p>
@@ -185,13 +184,13 @@ function SkillGame({ topicId, skill }: { topicId: string; skill: Skill }) {
         )}
         {item.type === "clock-write" && (
           <>
-            <p className="text-sm text-muted">Cât este ceasul? Scrie ora în italiană</p>
+            <p className="text-sm text-muted">{t("skill.clockWrite")}</p>
             <ClockFace time={item.time} />
           </>
         )}
         {item.type === "clock-pick" && (
           <>
-            <p className="text-sm text-muted">Alege ceasul potrivit</p>
+            <p className="text-sm text-muted">{t("skill.clockPick")}</p>
             <p className="text-2xl font-bold" data-testid="phrase">
               {item.phrase}
             </p>
@@ -200,7 +199,7 @@ function SkillGame({ topicId, skill }: { topicId: string; skill: Skill }) {
       </section>
 
       {item.type === "clock-pick" ? (
-        <div className="grid grid-cols-2 gap-3" role="group" aria-label="Ceasuri">
+        <div className="grid grid-cols-2 gap-3" role="group" aria-label={t("skill.clocks")}>
           {item.options.map((option, i) => {
             const isCorrect = i === item.correctIndex;
             const state = !feedback
@@ -214,10 +213,10 @@ function SkillGame({ topicId, skill }: { topicId: string; skill: Skill }) {
                 type="button"
                 disabled={!!feedback}
                 onClick={() => pick(i)}
-                aria-label={`Ceasul ${formatDigital(option)}`}
+                aria-label={t("skill.clockOption", { time: formatDigital(option) })}
                 className={`flex min-h-14 items-center justify-center rounded-xl border-2 bg-white p-2 ${state}`}
               >
-                <ClockFace time={option} size={110} label={`Ceas ${formatDigital(option)}`} />
+                <ClockFace time={option} size={110} label={t("skill.clockLabel", { time: formatDigital(option) })} />
               </button>
             );
           })}
@@ -225,7 +224,7 @@ function SkillGame({ topicId, skill }: { topicId: string; skill: Skill }) {
       ) : (
         <form onSubmit={submit} className="flex flex-col gap-3">
           <label className="sr-only" htmlFor="answer">
-            Răspunsul tău
+            {t("sentence.yourAnswer")}
           </label>
           <input
             id="answer"
@@ -241,7 +240,7 @@ function SkillGame({ topicId, skill }: { topicId: string; skill: Skill }) {
             className="min-h-14 rounded-xl border-2 border-slate-300 bg-white px-4 text-center text-2xl dark:border-slate-600 dark:bg-slate-900"
           />
           {typed && item.type !== "listen-number" && (
-            <div className="flex justify-center gap-2" role="group" aria-label="Litere cu accent">
+            <div className="flex justify-center gap-2" role="group" aria-label={t("conj.accents")}>
               {ACCENTS.map((char) => (
                 <button
                   key={char}
@@ -255,7 +254,7 @@ function SkillGame({ topicId, skill }: { topicId: string; skill: Skill }) {
             </div>
           )}
           <button type="submit" className={`${primaryButton} w-full`}>
-            {feedback ? (index + 1 < items.length ? "Continuă" : "Vezi rezultatul") : "Verifică"}
+            {feedback ? (index + 1 < items.length ? t("common.continue") : t("common.seeResult")) : t("conj.check")}
           </button>
         </form>
       )}
@@ -267,7 +266,7 @@ function SkillGame({ topicId, skill }: { topicId: string; skill: Skill }) {
               feedback.result === "wrong" ? "text-red-700 dark:text-red-400" : "text-green-700 dark:text-green-400"
             }`}
           >
-            {feedback.result === "correct" ? "Corect!" : feedback.result === "almost" ? "Aproape: verifică accentele." : "Nu chiar."}
+            {feedback.result === "correct" ? t("conj.correct") : feedback.result === "almost" ? t("skill.almost") : t("quiz.notQuite")}
           </p>
           <p className="text-center text-xl font-semibold" data-testid="expected">
             {feedback.expected}
@@ -281,7 +280,7 @@ function SkillGame({ topicId, skill }: { topicId: string; skill: Skill }) {
                 setIndex((i) => i + 1);
               }}
             >
-              {index + 1 < items.length ? "Continuă" : "Vezi rezultatul"}
+              {index + 1 < items.length ? t("common.continue") : t("common.seeResult")}
             </button>
           )}
         </div>

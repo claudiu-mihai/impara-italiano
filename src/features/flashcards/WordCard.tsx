@@ -1,5 +1,7 @@
 import { motion, useMotionValue, useReducedMotion, useTransform } from "motion/react";
+import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { italianText, POS_LABEL } from "../../domain/content/display.ts";
+import { useT } from "../../i18n/index.ts";
 import type { Word } from "../../domain/content/schema.ts";
 import type { Direction } from "../../domain/srs/types.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
@@ -13,13 +15,16 @@ interface FaceProps {
 }
 
 function FrontFace({ word, direction, rate }: FaceProps) {
+  const { t } = useT();
   const fromItalian = direction === "it-ro";
   const text = fromItalian ? italianText(word) : word.ro;
   return (
     <div className="flex h-full flex-col items-center justify-center gap-4 p-6 text-center">
-      <span className="text-sm uppercase tracking-wide text-muted">{POS_LABEL[word.pos]}</span>
+      <span className="text-sm uppercase tracking-wide text-muted">{t(POS_LABEL[word.pos])}</span>
       <div className="flex items-center gap-3">
-        <span className="text-4xl font-bold">{text}</span>
+        <span lang={fromItalian ? "it" : NATIVE_LANGUAGE} className="text-4xl font-bold">
+          {text}
+        </span>
         {fromItalian && <AudioButton text={text} rate={rate} />}
       </div>
     </div>
@@ -27,26 +32,33 @@ function FrontFace({ word, direction, rate }: FaceProps) {
 }
 
 function BackFace({ word, direction, rate }: FaceProps) {
+  const { t } = useT();
   const fromItalian = direction === "it-ro";
   const question = fromItalian ? italianText(word) : word.ro;
   const answer = fromItalian ? word.ro : italianText(word);
 
   return (
     <div className="flex flex-col items-center gap-4 p-6 text-center">
-      <span className="text-sm text-muted">{question}</span>
+      <span lang={fromItalian ? "it" : NATIVE_LANGUAGE} className="text-sm text-muted">
+        {question}
+      </span>
       <div className="flex items-center gap-3">
-        <span className="text-3xl font-bold">{answer}</span>
+        <span lang={fromItalian ? NATIVE_LANGUAGE : "it"} className="text-3xl font-bold">
+          {answer}
+        </span>
         {!fromItalian && <AudioButton text={answer} rate={rate} />}
       </div>
 
       {word.pos === "verb" && (
         <p className="flex flex-wrap justify-center gap-2 text-sm">
           <span className="rounded-full bg-slate-100 px-3 py-1 dark:bg-slate-800">
-            auxiliar: {word.auxiliary === "both" ? "avere / essere" : word.auxiliary}
+            {t("card.auxiliary", { aux: word.auxiliary === "both" ? "avere / essere" : word.auxiliary })}
           </span>
-          <span className="rounded-full bg-slate-100 px-3 py-1 dark:bg-slate-800">participiu: {word.pastParticiple}</span>
+          <span className="rounded-full bg-slate-100 px-3 py-1 dark:bg-slate-800">
+            {t("card.participle", { participle: word.pastParticiple })}
+          </span>
           {word.irregular && (
-            <span className="rounded-full bg-amber-100 px-3 py-1 text-amber-900">neregulat</span>
+            <span className="rounded-full bg-amber-100 px-3 py-1 text-amber-900">{t("word.irregular")}</span>
           )}
         </p>
       )}
@@ -54,10 +66,10 @@ function BackFace({ word, direction, rate }: FaceProps) {
       {word.pos === "noun" && !word.uncountable && (
         <p className="flex flex-wrap justify-center gap-2 text-sm">
           <span className="rounded-full bg-slate-100 px-3 py-1 dark:bg-slate-800">
-            plural: {word.pluralArticle} {word.plural}
+            {t("word.plural", { plural: `${word.pluralArticle} ${word.plural}` })}
           </span>
           {word.irregularPlural && (
-            <span className="rounded-full bg-amber-100 px-3 py-1 text-amber-900">plural neregulat</span>
+            <span className="rounded-full bg-amber-100 px-3 py-1 text-amber-900">{t("card.irregularPlural")}</span>
           )}
         </p>
       )}
@@ -69,7 +81,9 @@ function BackFace({ word, direction, rate }: FaceProps) {
       )}
 
       {word.falseFriend && (
-        <p className="rounded-xl bg-amber-100 p-3 text-left text-sm text-amber-950">⚠️ {word.falseFriend}</p>
+        <p lang={NATIVE_LANGUAGE} className="rounded-xl bg-amber-100 p-3 text-left text-sm text-amber-950">
+          ⚠️ {word.falseFriend}
+        </p>
       )}
 
       <ul className="flex w-full flex-col gap-3 text-left">
@@ -77,14 +91,20 @@ function BackFace({ word, direction, rate }: FaceProps) {
           <li key={example.it} className="flex items-start gap-2">
             <div className="flex-1">
               <p className="font-medium">{example.it}</p>
-              <p className="text-sm text-muted">{example.ro}</p>
+              <p lang={NATIVE_LANGUAGE} className="text-sm text-muted">
+                {example.ro}
+              </p>
             </div>
             <AudioButton text={example.it} rate={rate} size="sm" />
           </li>
         ))}
       </ul>
 
-      {word.note && <p className="w-full text-left text-sm text-muted">{word.note}</p>}
+      {word.note && (
+        <p lang={NATIVE_LANGUAGE} className="w-full text-left text-sm text-muted">
+          {word.note}
+        </p>
+      )}
     </div>
   );
 }

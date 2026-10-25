@@ -1,3 +1,4 @@
+import { useT } from "../i18n/index.ts";
 import { speak, useTtsStatus } from "../services/tts.ts";
 
 /** Viteza butonului 🐢: aceeași frază, rostită mai rar. */
@@ -13,11 +14,12 @@ interface AudioButtonProps {
 
 /** Buton de redare a pronunției. Se ascunde fără voce italiană și se dezactivează fără internet. */
 export function AudioButton({ text, rate, size = "md", slow = false }: AudioButtonProps) {
+  const { t } = useT();
   const status = useTtsStatus();
   if (status === "unsupported" || status === "no-voice") return null;
 
   const offline = status === "offline";
-  const label = offline ? "Audio necesită internet" : `${slow ? "Ascultă rar" : "Ascultă pronunția"}: ${text}`;
+  const label = offline ? t("audio.needsInternet") : t(slow ? "audio.listenSlow" : "audio.listen", { text });
   return (
     <button
       type="button"

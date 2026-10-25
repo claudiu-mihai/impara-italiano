@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { pickSession } from "../../domain/grammar/games.ts";
 import type { GrammarItem } from "../../domain/content/schema.ts";
+import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
+import { useT } from "../../i18n/index.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
@@ -9,13 +11,17 @@ import { useGrammarTopic } from "./useGrammarTopic.ts";
 
 /** Cartonașe: se vede expresia cu lacună, se întoarce cartonașul, apoi „Am știut” sau „Mai exersez”. */
 export function CardsPage() {
+  const { t } = useT();
   const { id, topic, loading } = useGrammarTopic();
-  if (loading) return <p className="p-6 text-center text-muted">Se încarcă…</p>;
-  if (!topic) return <SessionDone emoji="🤔" title="Tema nu există" text="" backTo="/learn/games" backLabel="Înapoi la jocuri" />;
+  if (loading) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
+  if (!topic) {
+    return <SessionDone emoji="🤔" title={t("topics.notFound")} text="" backTo="/learn/games" backLabel={t("games.backToList")} />;
+  }
   return <CardsGame key={id} topicId={topic.id} items={topic.items} />;
 }
 
 function CardsGame({ topicId, items }: { topicId: string; items: GrammarItem[] }) {
+  const { t, tp } = useT();
   const exitTo = `/learn/games/${topicId}`;
   const [session, setSession] = useState(() => pickSession(items));
   // coada cartonașelor rămase: „Mai exersez” îl mută la sfârșit
@@ -27,7 +33,7 @@ function CardsGame({ topicId, items }: { topicId: string; items: GrammarItem[] }
 
   if (!current) {
     return (
-      <SessionDone title="Ai terminat cartonașele" text={`Ai parcurs ${session.length} cartonașe.`} backTo={exitTo} backLabel="Înapoi la temă">
+      <SessionDone title={t("cards.done")} text={tp("cards.reviewed", session.length)} backTo={exitTo} backLabel={t("flash.backToTopic")}>
         <button
           type="button"
           className={primaryButton}
@@ -38,7 +44,7 @@ function CardsGame({ topicId, items }: { topicId: string; items: GrammarItem[] }
             setFlipped(false);
           }}
         >
-          Încă o rundă
+          {t("common.anotherRound")}
         </button>
       </SessionDone>
     );
@@ -51,7 +57,7 @@ function CardsGame({ topicId, items }: { topicId: string; items: GrammarItem[] }
 
   return (
     <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
-      <StudyHeader index={known} total={session.length} label="Progresul cartonașelor" exitTo={exitTo} />
+      <StudyHeader index={known} total={session.length} label={t("cards.progress")} exitTo={exitTo} />
 
       <section
         className="flex flex-1 flex-col items-center justify-center gap-4 rounded-3xl bg-white p-6 text-center shadow-md dark:bg-slate-900"
@@ -60,7 +66,9 @@ function CardsGame({ topicId, items }: { topicId: string; items: GrammarItem[] }
         <p className="text-4xl font-bold">
           <GapText it={current.it} gap={current.gap} filled={flipped ? current.gap : undefined} tone={flipped ? "correct" : "neutral"} />
         </p>
-        <p className="text-muted">{current.ro}</p>
+        <p lang={NATIVE_LANGUAGE} className="text-muted">
+          {current.ro}
+        </p>
 
         {flipped && (
           <div className="flex flex-col items-center gap-2 border-t border-slate-200 pt-4 dark:border-slate-700" data-testid="grammar-answer">
@@ -68,7 +76,11 @@ function CardsGame({ topicId, items }: { topicId: string; items: GrammarItem[] }
               <p className="text-xl font-semibold">{current.it}</p>
               <AudioButton text={current.it} size="sm" />
             </div>
-            {current.note && <p className="text-sm text-muted">{current.note}</p>}
+            {current.note && (
+              <p lang={NATIVE_LANGUAGE} className="text-sm text-muted">
+                {current.note}
+              </p>
+            )}
           </div>
         )}
       </section>
@@ -80,15 +92,15 @@ function CardsGame({ topicId, items }: { topicId: string; items: GrammarItem[] }
             onClick={() => advance(false)}
             className="flex min-h-14 items-center justify-center rounded-xl bg-amber-700 text-lg font-semibold text-white"
           >
-            Mai exersez
+            {t("cards.again")}
           </button>
           <button type="button" onClick={() => advance(true)} className={primaryButton}>
-            Am știut
+            {t("cards.knew")}
           </button>
         </div>
       ) : (
         <button type="button" onClick={() => setFlipped(true)} className={`${primaryButton} w-full`}>
-          Arată răspunsul
+          {t("flash.showAnswer")}
         </button>
       )}
     </div>

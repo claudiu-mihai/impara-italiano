@@ -63,6 +63,7 @@ scripts/                 pipeline build-time (rulat direct cu Node 24, care elim
   design/mascot.py       `npm run mascot` — Lupino: SVG-urile ipostazelor (din design/lupino/*.jpg) și iconițele PWA
 src/
   app/                   App.tsx, router, layout cu bottom nav, providers
+  i18n/                  textele interfeței: ro.ts (chei), it.ts (italiana, la cerere), useT(), plurale
   features/              flashcards, conjugation, quiz, sentence, browse, topics, games, stats, settings, about
   domain/                logică pură, acoperită integral de teste unitare
     content/             tipuri + scheme Zod (partajate cu scripts/)
@@ -321,7 +322,7 @@ React Router, cu următoarele rute:
 | `/settings` | Setări, export / import |
 | `/about` | Despre, atribuirea surselor |
 
-* **Bottom nav:** Acasă, Învață, Dicționar, Statistici, Setări.
+* **Bottom nav:** Acasă, Învață, Dicționar, Statistici, Setări, **doar cu iconițe** (🏠 🃏 📖 📈 ⚙️): numele este eticheta de accesibilitate (`aria-label`) și tooltip, în limba interfeței, iar pagina activă are un fundal în jurul iconiței. Zonă de atingere de minim 48 px.
 * **Code splitting:** `stats`, `sentence`, `topics`, `conjugations.json` și `topics.json` se încarcă lazy, pentru LCP < 1.5s.
 * **Hosting:** container nginx cu fișierele statice și fallback SPA (`Dockerfile`, `docker-compose.yml`), în spatele Traefik (HTTPS, provider de fișiere, `italiano.l61.eu`). Din Faza 6, nginx trimite și `/api/` la PocketBase, pe rețeaua internă (§14).
 
@@ -567,7 +568,21 @@ Abatere de la planul inițial: **nu există tabel `outbox`**. Ce așteaptă trim
 
 ---
 
-### 15. Versionare și release-uri
+### 15. Limba interfeței (Faza 8, implementat)
+
+Cerința este FR8 din [app-plan.md](app-plan.md). Limba interfeței (română / italiană) este separată de limba maternă (FR7): schimbă meniurile, butoanele și mesajele, nu traducerile cuvintelor.
+
+* **Dicționarele** sunt `src/i18n/ro.ts` (sursa cheilor, în pachetul principal) și `src/i18n/it.ts` (același tip `Record<Key, string>`, deci TypeScript refuză o cheie lipsă). Italiana se încarcă **la cerere** (chunk separat, ~8,5 KB gzip), doar la cine o folosește; până atunci orice text apare în română. Toată italiana de interfață stă într-un singur fișier, pentru revizuire.
+* **Chei:** `zona.nume`, cu plurale `nume_one` / `nume_few` / `nume_other` (se alege cu `Intl.PluralRules`; `_other` e obligatoriu și servește drept rezervă) și `{loc}` pentru parametri. `PluralBase` (tip) cuprinde bazele cu `_other`.
+* **API:** `useT()` în componente (`t`, `tp` pentru plural, `rich` pentru texte cu noduri React, ex. un `<strong>`; plus `language` și `locale`) și `t` / `tp` din `i18n/standalone.ts`, fără React, pentru cod din afara componentelor (mesajele contului și ale backup-ului, scrise în limba curentă la momentul erorii). `translate.ts` este partea pură (testată în Node).
+* **Starea:** `i18n/store.ts` ține limba curentă (inițial din `localStorage` `impara.lang`, ca prima imagine să fie direct în limba aleasă) și o anunță prin `useSyncExternalStore`. `setUiLanguage` încarcă întâi dicționarul, apoi schimbă limba, reține alegerea și setează `<html lang>`; `initUiLanguage` rulează înainte de prima afișare (`main.tsx`). `App` aplică `Settings.uiLanguage` când se schimbă setările (și din sincronizare); scriptul din `index.html` setează `lang` devreme.
+* **Setarea** `Settings.uiLanguage` (`"ro"` | `"it"`, implicit `"ro"`) este în backup (`settingsSchema`), în sincronizare și independentă de nivel; backup-urile și setările vechi primesc româna.
+* **Etichete din domeniu** (`POS_LABEL`, `TENSE_LABEL`, `LEVEL_LABEL`, `LEVEL_NAME`, `EXERCISE_LABEL`, `CONJUGATION_MODE_LABEL`, `LEVEL_GROUP_LABEL`) sunt acum **chei** de text (`Record<…, Key>`), afișate cu `t(LABEL[x])`. `formatInterval` primește un formator (`tp`), ca intervalele („3 zile” / „3 giorni”) să urmeze limba. Numele grupurilor și titlurile temelor rămân `{ it, ro }` (conținut, FR7).
+* **Conținutul în limba maternă** (traduceri, exemple, note, prieteni falși, fața în română a casetei „De reținut”, temele de gramatică) rămâne neschimbat și primește `lang="ro"` (`NATIVE_LANGUAGE`), ca vocea și cititoarele de ecran să-l pronunțe corect cu interfața în italiană.
+* **Teste:** `src/i18n/i18n.test.ts` (aceleași chei și aceleași `{locuri}` în ambele limbi, fără texte goale, plurale 0/1/2/20, completarea parametrilor); `src/i18n/noHardcodedText.test.ts` (refuză text românesc scris direct în cod, cu o listă scurtă de excepții justificate: conținut în limba maternă și erori pentru dezvoltatori); `tests/e2e/ui-language.spec.ts` (comutarea, `<html lang>`, persistența, ecranele principale, conținutul în română cu `lang="ro"`, casetele, Contul) și o verificare axe pe ecranele principale în italiană.
+* **Rămâne în română:** numele și descrierea din manifestul PWA (statice) și titlul din `index.html`.
+
+### 16. Versionare și release-uri
 
 * **SemVer** (`MAJOR.MINOR.PATCH`), de la **1.0.0**. Sursa de adevăr este `version` din `package.json` (și `package-lock.json`), pe care o urcă release-please; regulile (ce înseamnă „incompatibil” pentru această aplicație, formatul commit-urilor) sunt în README.
 * **Versiunea în aplicație:** `vite.config.ts` citește `package.json` și o injectează ca `__APP_VERSION__` (`define`; declarația de tip în `src/env.d.ts`); `src/app/version.ts` o exportă ca `APP_VERSION`, iar ecranul „Despre” o afișează (`data-testid="app-version"`). Testul `tests/e2e/version.spec.ts` verifică potrivirea cu `package.json`. Nu se confundă cu `meta.dataVersion` (hash-ul conținutului din `content/`), care urmărește datele, nu aplicația.

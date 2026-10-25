@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { greetingFor } from "../../domain/greeting.ts";
+import { useT } from "../../i18n/index.ts";
 import { Lupino } from "../../ui/mascot/Lupino.tsx";
 
 /** Cât stă Lupino pe ecran, apoi cât durează dispariția. */
@@ -11,6 +12,7 @@ const FADE_MS = 300;
  * O atingere, Enter, Spațiu sau Esc sar peste așteptare.
  */
 export function Splash({ onDone }: { onDone: () => void }) {
+  const { t } = useT();
   const greeting = useMemo(() => greetingFor(new Date()), []);
   const [leaving, setLeaving] = useState(false);
 
@@ -50,7 +52,7 @@ export function Splash({ onDone }: { onDone: () => void }) {
         </p>
         <p className="mt-1 text-lg text-muted">{greeting.ro}</p>
       </div>
-      <p className="absolute bottom-[max(1.5rem,env(safe-area-inset-bottom))] text-sm text-muted">Atinge ca să continui</p>
+      <p className="absolute bottom-[max(1.5rem,env(safe-area-inset-bottom))] text-sm text-muted">{t("splash.tap")}</p>
     </div>
   );
 }

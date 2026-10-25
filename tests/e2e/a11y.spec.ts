@@ -37,6 +37,29 @@ for (const scheme of ["light", "dark"] as const) {
       }
     });
 
+    test("ecranele principale, cu interfața în italiană", async ({ page }) => {
+      await seedLearnedWords(page, LEARNED);
+      await page.goto("/settings");
+      await page.getByLabel("Limba interfeței / Lingua dell'interfaccia").selectOption("it");
+      await expect(page.getByRole("heading", { name: "Impostazioni", level: 1 })).toBeVisible();
+
+      for (const [path, ready] of [
+        ["/", "Impara l'italiano con Lupino"],
+        ["/learn", "Impara"],
+        ["/browse", "Dizionario"],
+        ["/browse/v-parlare", "parlare"],
+        ["/stats", "Statistiche"],
+        ["/settings", "Impostazioni"],
+        ["/about", "Informazioni"],
+        ["/learn/topics", "Temi"],
+        ["/learn/topics/zilele-saptamanii", "I giorni della settimana"],
+      ] as const) {
+        await page.goto(path);
+        await expect(page.getByRole("heading", { name: ready }).first()).toBeVisible();
+        await audit(page, `${path} (it)`);
+      }
+    });
+
     test("caseta „De reținut”, pe ambele fețe", async ({ page }) => {
       await page.goto("/learn/topics/familia");
       await page.getByRole("button", { name: "Da ricordare" }).click();

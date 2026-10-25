@@ -5,25 +5,25 @@ import { db } from "../../data/db/instance.ts";
 import { TOPIC_GROUPS } from "../../domain/content/constants.ts";
 import { TOPIC_GROUP_LABEL } from "../../domain/content/display.ts";
 import { topicProgress } from "../../domain/topics/topics.ts";
+import { useT } from "../../i18n/index.ts";
 import { BackLink } from "../../ui/BackLink.tsx";
 import { BilingualLabel } from "../../ui/BilingualLabel.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
 import { NativeHelpNotice } from "../../ui/NativeHelpNotice.tsx";
 
 export function TopicsPage() {
+  const { t } = useT();
   const topics = useTopics();
   const cards = useLiveQuery(() => db.cards.where("kind").equals("vocab").toArray(), []);
 
-  if (!topics || !cards) return <p className="p-6 text-center text-muted">Se încarcă…</p>;
+  if (!topics || !cards) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
 
   return (
     <div className="flex flex-col gap-5 px-4 pb-8 pt-4">
-      <BackLink to="/learn" label="Învață" />
-      <h1 className="text-2xl font-bold">Teme</h1>
+      <BackLink to="/learn" label={t("nav.learn")} />
+      <h1 className="text-2xl font-bold">{t("learn.topics")}</h1>
       <NativeHelpNotice />
-      <p className="text-muted">
-        Cuvinte uzuale grupate pe subiecte, într-o ordine firească (luni → duminică), cu reguli scurte și exerciții.
-      </p>
+      <p className="text-muted">{t("topics.intro")}</p>
 
       {TOPIC_GROUPS.map((group) => {
         const inGroup = topics.filter((t) => t.group === group);
@@ -48,7 +48,7 @@ export function TopicsPage() {
                     <CefrBadge level={topic.level} />
                   </span>
                   <span className="text-sm text-muted">
-                    {progress.started} din {progress.total} începute · {progress.mastered} stăpânite
+                    {t("topics.progress", { started: progress.started, total: progress.total, mastered: progress.mastered })}
                   </span>
                 </Link>
               );

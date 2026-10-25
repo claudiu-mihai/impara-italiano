@@ -1,4 +1,4 @@
-import type { Level } from "./content/constants.ts";
+import type { Level, UiLanguage } from "./content/constants.ts";
 import { levelGroupOf } from "./content/levels.ts";
 import type { Direction } from "./srs/types.ts";
 
@@ -39,6 +39,8 @@ export interface Settings {
    * maternă. Oprită: doar italiana.
    */
   nativeHelp: boolean;
+  /** Limba interfeței (FR8); independentă de limba maternă și de nivel. */
+  uiLanguage: UiLanguage;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -56,6 +58,7 @@ export const DEFAULT_SETTINGS: Settings = {
   theme: "auto",
   soundEnabled: true,
   nativeHelp: true,
+  uiLanguage: "ro",
 };
 
 /**

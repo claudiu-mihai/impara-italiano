@@ -5,7 +5,8 @@ import { useTopics } from "../../app/topics.ts";
 import { db } from "../../data/db/instance.ts";
 import { changeLevel } from "../../data/db/repositories.ts";
 import { loadStats, loadStudyOverview } from "../../data/queries.ts";
-import { LEVEL_NAME, nextLevel } from "../../domain/content/levels.ts";
+import { nextLevel } from "../../domain/content/levels.ts";
+import { useT } from "../../i18n/index.ts";
 import { BilingualLabel } from "../../ui/BilingualLabel.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
 import { Lupino, LupinoSays } from "../../ui/mascot/Lupino.tsx";
@@ -15,6 +16,7 @@ import { dueSkillTopics } from "../../domain/topics/topics.ts";
 const BACKUP_REMINDER_DAYS = 14;
 
 export function HomePage() {
+  const { t, tp, rich } = useT();
   const content = useContent();
   const overview = useLiveQuery(() => loadStudyOverview(db, content), [content]);
   const cards = useLiveQuery(() => db.cards.toArray(), []);
@@ -56,39 +58,43 @@ export function HomePage() {
             <h1 lang="it" className="text-3xl font-bold">
               Impara l'italiano con Lupino
             </h1>
-            <p className="mt-1 text-muted">Învață italiana, puțin în fiecare zi.</p>
+            <p className="mt-1 text-muted">{t("home.tagline")}</p>
           </div>
           <Lupino pose="cap" size={72} />
         </div>
         {level && (
           <p className="mt-3 flex items-center gap-2 text-sm text-muted">
-            <CefrBadge level={level} /> Nivel curent: {LEVEL_NAME[level]}
+            <CefrBadge level={level} /> {t("home.currentLevel", { name: t(`level.${level}`) })}
           </p>
         )}
         {stats && stats.activeDays > 0 && (
           <p className="mt-3 inline-block rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-900">
             {stats.streak > 0 && (
               <>
-                🔥 {stats.streak} {stats.streak === 1 ? "zi" : "zile"} la rând ·{" "}
+                🔥 {tp("home.streak", stats.streak)} ·{" "}
               </>
             )}
-            📅 {stats.activeDays} {stats.activeDays === 1 ? "zi" : "zile"} în total
+            📅 {tp("home.activeDays", stats.activeDays)}
           </p>
         )}
       </header>
 
       {canAdvance && next && (
-        <section className="rounded-2xl bg-white p-4 shadow-sm dark:bg-slate-900" aria-label="Următorul nivel">
+        <section className="rounded-2xl bg-white p-4 shadow-sm dark:bg-slate-900" aria-label={t("home.nextLevel")}>
           <p>
-            Ai început toate cele {current!.total} cuvinte din <strong>{level}</strong>. Vrei să treci la{" "}
-            <strong>{next}</strong> ({LEVEL_NAME[next]})?
+            {rich("home.nextLevelText", {
+              total: current!.total,
+              level: <strong>{level}</strong>,
+              next: <strong>{next}</strong>,
+              name: t(`level.${next}`),
+            })}
           </p>
           <button
             type="button"
             onClick={() => void advance()}
             className="mt-3 min-h-12 rounded-xl border-2 border-brand-fg px-4 font-semibold text-brand-fg"
           >
-            Treci la {next}
+            {t("home.moveTo", { next })}
           </button>
         </section>
       )}
@@ -98,19 +104,19 @@ export function HomePage() {
           to="/settings"
           className="rounded-2xl bg-amber-100 p-4 text-sm text-amber-950"
         >
-          Progresul tău este doar pe acest dispozitiv. <strong>Fă un backup</strong> din Setări.
+          {rich("home.backupNotice", { action: <strong>{t("home.backupAction")}</strong> })}
         </Link>
       )}
 
       <section aria-labelledby="today" className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
         <h2 id="today" className="text-sm font-semibold uppercase tracking-wide text-muted">
-          Astăzi
+          {t("home.today")}
         </h2>
         {overview ? (
           <>
             <p className="mt-3 text-lg">
-              <strong>{overview.dueCount}</strong> {overview.dueCount === 1 ? "repetiție" : "repetiții"} ·{" "}
-              <strong>{overview.newCount}</strong> {overview.newCount === 1 ? "cuvânt nou" : "cuvinte noi"}
+              <strong>{overview.dueCount}</strong> {tp("home.dueLabel", overview.dueCount)} ·{" "}
+              <strong>{overview.newCount}</strong> {tp("home.newLabel", overview.newCount)}
             </p>
             {todo > 0 ? (
               <>
@@ -133,7 +139,7 @@ export function HomePage() {
                   to="/learn/vocab"
                   className="mt-5 flex min-h-14 items-center justify-center rounded-xl bg-brand text-lg font-semibold text-white active:bg-brand-dark"
                 >
-                  Începe sesiunea
+                  {t("home.startSession")}
                 </Link>
               </>
             ) : (
@@ -141,14 +147,14 @@ export function HomePage() {
             )}
           </>
         ) : (
-          <p className="mt-3 text-muted">Se încarcă…</p>
+          <p className="mt-3 text-muted">{t("common.loading")}</p>
         )}
       </section>
 
       {dueSkills.length > 0 && (
         <section aria-labelledby="skills" className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
           <h2 id="skills" className="text-sm font-semibold uppercase tracking-wide text-muted">
-            Abilități de repetat
+            {t("home.skillsDue")}
           </h2>
           <ul className="mt-3 flex flex-col gap-2">
             {dueSkills.map((topic) => (
@@ -169,17 +175,21 @@ export function HomePage() {
 
       <section aria-labelledby="progress" className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
         <h2 id="progress" className="text-sm font-semibold uppercase tracking-wide text-muted">
-          Progres
+          {t("home.progress")}
         </h2>
         <p className="mt-3">
-          Stăpânite: <strong>{mastered}</strong> din {total} · în învățare: <strong>{learning - mastered}</strong>
+          {rich("home.progressLine", {
+            mastered: <strong>{mastered}</strong>,
+            total,
+            learning: <strong>{learning - mastered}</strong>,
+          })}
         </p>
         <div
           role="progressbar"
           aria-valuemin={0}
           aria-valuemax={total}
           aria-valuenow={mastered}
-          aria-label="Cuvinte stăpânite"
+          aria-label={t("home.masteredWords")}
           className="mt-3 h-3 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700"
         >
           <div className="h-full bg-brand" style={{ width: `${total ? (mastered / total) * 100 : 0}%` }} />

@@ -1,4 +1,5 @@
 import { useId, useState, type ReactNode } from "react";
+import { useT } from "../i18n/index.ts";
 
 /** Starea unui buton (i) și a casetei lui: ids pentru `aria-controls` / `aria-describedby` și comutatorul. */
 export function useInfo() {
@@ -21,10 +22,11 @@ interface InfoButtonProps {
  * apare și în numele butonului, ca să nu fie confundat cu câmpul însuși.
  */
 export function InfoButton({ open, onToggle, boxId, labelId }: InfoButtonProps) {
+  const { t } = useT();
   return (
     <button
       type="button"
-      aria-label="Informații"
+      aria-label={t("info.label")}
       aria-describedby={labelId}
       aria-expanded={open}
       aria-controls={boxId}

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { useT } from "../i18n/index.ts";
 import { Lupino, type LupinoPose } from "./mascot/Lupino.tsx";
 
 interface SessionDoneProps {
@@ -26,8 +27,9 @@ export function SessionDone({
   text,
   children,
   backTo = "/learn",
-  backLabel = "Înapoi la învățare",
+  backLabel,
 }: SessionDoneProps) {
+  const { t } = useT();
   return (
     <div className="flex flex-1 flex-col items-center justify-center gap-4 p-6 text-center">
       {emoji ? (
@@ -42,7 +44,7 @@ export function SessionDone({
       <div className="flex flex-col gap-3">
         {children}
         <Link to={backTo} className="flex min-h-12 items-center justify-center text-brand-fg underline">
-          {backLabel}
+          {backLabel ?? t("common.backToStudy")}
         </Link>
       </div>
     </div>

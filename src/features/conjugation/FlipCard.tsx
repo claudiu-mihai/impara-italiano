@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Rating, type Grade } from "ts-fsrs";
 import { db } from "../../data/db/instance.ts";
+import { useT, type Key } from "../../i18n/index.ts";
+import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { personsOf, TENSE_LABEL } from "../../domain/content/display.ts";
 import { spokenConjugation } from "../../domain/content/spokenConjugation.ts";
 import { formatInterval } from "../../domain/srs/format.ts";
@@ -10,15 +12,16 @@ import { AudioButton } from "../../ui/AudioButton.tsx";
 import { primaryButton } from "../../ui/SessionDone.tsx";
 import type { ConjCardProps } from "./types.ts";
 
-const BUTTONS = [
-  { grade: Rating.Again, label: "Din nou", color: "bg-red-700" },
-  { grade: Rating.Hard, label: "Greu", color: "bg-amber-700" },
-  { grade: Rating.Good, label: "Bine", color: "bg-brand" },
-  { grade: Rating.Easy, label: "Ușor", color: "bg-sky-700" },
-] as const;
+const BUTTONS: { grade: Grade; label: Key; color: string }[] = [
+  { grade: Rating.Again, label: "rate.again", color: "bg-red-700" },
+  { grade: Rating.Hard, label: "rate.hard", color: "bg-amber-700" },
+  { grade: Rating.Good, label: "rate.good", color: "bg-brand" },
+  { grade: Rating.Easy, label: "rate.easy", color: "bg-sky-700" },
+];
 
 /** Varianta „Flip”: persoană pe față, forma pe spate, autoevaluare cu cele 4 butoane FSRS. */
 export function FlipCard({ item, verb, forms, settings, onFinish }: ConjCardProps) {
+  const { t, tp } = useT();
   // o singură persoană pe card, ca în exemplul „parlare · passato prossimo · noi”
   const [person] = useState(() => Math.floor(Math.random() * forms.length));
   const [flipped, setFlipped] = useState(false);
@@ -34,10 +37,10 @@ export function FlipCard({ item, verb, forms, settings, onFinish }: ConjCardProp
         newStoredCard({ cardId: item.cardId, wordId: item.verbId, kind: "conj", variant: item.tense }, now, studyDayOf(now));
       const due = previewDue(card, now, settings.retention);
       setLabels({
-        [Rating.Again]: formatInterval(due[Rating.Again], now),
-        [Rating.Hard]: formatInterval(due[Rating.Hard], now),
-        [Rating.Good]: formatInterval(due[Rating.Good], now),
-        [Rating.Easy]: formatInterval(due[Rating.Easy], now),
+        [Rating.Again]: formatInterval(due[Rating.Again], now, tp),
+        [Rating.Hard]: formatInterval(due[Rating.Hard], now, tp),
+        [Rating.Good]: formatInterval(due[Rating.Good], now, tp),
+        [Rating.Easy]: formatInterval(due[Rating.Easy], now, tp),
       });
     });
     return () => {
@@ -71,16 +74,22 @@ export function FlipCard({ item, verb, forms, settings, onFinish }: ConjCardProp
         className="flex flex-col items-center gap-2 rounded-3xl bg-white p-6 text-center shadow-md dark:bg-slate-900"
         data-testid="flip-card"
       >
-        <p className="text-sm text-muted">{TENSE_LABEL[item.tense]}</p>
+        <p className="text-sm text-muted">{t(TENSE_LABEL[item.tense])}</p>
         <div className="flex items-center gap-2">
           <p className="text-3xl font-bold">{verb.it}</p>
           <AudioButton text={verb.it} rate={settings.ttsRate} size="sm" />
         </div>
-        <p className="text-muted">{verb.ro}</p>
+        <p lang={NATIVE_LANGUAGE} className="text-muted">
+          {verb.ro}
+        </p>
         <p className="mt-3 text-4xl font-bold text-brand-fg" data-testid="person">
           {personLabel.it}
         </p>
-        {personLabel.ro !== personLabel.it && <p className="text-sm text-muted">({personLabel.ro})</p>}
+        {personLabel.ro !== personLabel.it && (
+          <p lang={NATIVE_LANGUAGE} className="text-sm text-muted">
+            ({personLabel.ro})
+          </p>
+        )}
 
         {flipped && (
           <div className="mt-4 flex flex-col items-center gap-2 border-t border-slate-200 pt-4 dark:border-slate-700" data-testid="flip-answer">
@@ -95,7 +104,7 @@ export function FlipCard({ item, verb, forms, settings, onFinish }: ConjCardProp
 
       <div className="mt-auto">
         {flipped ? (
-          <div className="grid grid-cols-4 gap-2" role="group" aria-label="Cât de bine ai știut forma?">
+          <div className="grid grid-cols-4 gap-2" role="group" aria-label={t("conj.howWell")}>
             {BUTTONS.map(({ grade, label, color }) => (
               <button
                 key={grade}
@@ -103,14 +112,14 @@ export function FlipCard({ item, verb, forms, settings, onFinish }: ConjCardProp
                 onClick={() => onFinish(grade)}
                 className={`flex min-h-16 flex-col items-center justify-center rounded-xl text-white ${color}`}
               >
-                <span className="font-semibold">{label}</span>
+                <span className="font-semibold">{t(label)}</span>
                 <span className="text-xs">{labels?.[grade] ?? "…"}</span>
               </button>
             ))}
           </div>
         ) : (
           <button type="button" onClick={() => setFlipped(true)} className={`${primaryButton} w-full`}>
-            Arată răspunsul
+            {t("flash.showAnswer")}
           </button>
         )}
       </div>

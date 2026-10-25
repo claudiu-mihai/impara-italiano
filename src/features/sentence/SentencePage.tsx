@@ -4,6 +4,8 @@ import { useSentences } from "../../app/sentences.ts";
 import { db } from "../../data/db/instance.ts";
 import { getSettings } from "../../data/db/repositories.ts";
 import { loadSentenceRound } from "../../data/queries.ts";
+import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
+import { useT } from "../../i18n/index.ts";
 import {
   isCorrectArrangement,
   scrambleOrder,
@@ -21,6 +23,7 @@ const block =
   "min-h-12 rounded-lg border-2 border-slate-300 bg-white px-4 text-lg font-medium active:bg-slate-100 disabled:opacity-60 dark:border-slate-600 dark:bg-slate-800";
 
 export function SentencePage() {
+  const { t } = useT();
   const sentences = useSentences();
   const [round, setRound] = useState(0);
   const [ready, setReady] = useState(false);
@@ -59,17 +62,17 @@ export function SentencePage() {
     setResult(null);
   }, [question?.id, index]);
 
-  if (!ready) return <p className="p-6 text-center text-muted">Se încarcă…</p>;
+  if (!ready) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
 
   if (questions.length === 0) {
     return (
       <SessionDone
         emoji="🧩"
-        title="Încă nu ai propoziții de construit"
-        text="Propozițiile apar după ce înveți câteva cuvinte în Flashcards."
+        title={t("sentence.none")}
+        text={t("sentence.noneText")}
       >
         <Link to="/learn/vocab" className={primaryButton}>
-          Mergi la Flashcards
+          {t("conj.goFlashcards")}
         </Link>
       </SessionDone>
     );
@@ -78,11 +81,11 @@ export function SentencePage() {
   if (!question) {
     return (
       <SessionDone
-        title={`${score} din ${questions.length}`}
-        text={score === questions.length ? "Perfect!" : "Mai încearcă o rundă ca să te obișnuiești cu ordinea cuvintelor."}
+        title={t("common.outOf", { n: score, total: questions.length })}
+        text={score === questions.length ? t("common.perfect") : t("sentence.tryAgain")}
       >
         <button type="button" onClick={() => setRound((r) => r + 1)} className={primaryButton}>
-          Încă o rundă
+          {t("common.anotherRound")}
         </button>
       </SessionDone>
     );
@@ -102,15 +105,17 @@ export function SentencePage() {
 
   return (
     <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
-      <StudyHeader index={index} total={questions.length} label="Progresul rundei" />
+      <StudyHeader index={index} total={questions.length} label={t("quiz.roundProgress")} />
 
       <section className="rounded-3xl bg-white p-6 text-center shadow-md dark:bg-slate-900">
-        <p className="text-sm text-muted">Scrie în italiană:</p>
-        <p className="mt-2 text-2xl font-bold">{question.ro}</p>
+        <p className="text-sm text-muted">{t("sentence.writeItalian")}</p>
+        <p lang={NATIVE_LANGUAGE} className="mt-2 text-2xl font-bold">
+          {question.ro}
+        </p>
       </section>
 
       <div
-        aria-label="Răspunsul tău"
+        aria-label={t("sentence.yourAnswer")}
         className={`flex min-h-24 flex-wrap content-start items-center gap-2 rounded-2xl border-2 border-dashed p-3 ${
           result === "correct"
             ? "border-green-600 bg-green-50 dark:bg-green-950"
@@ -119,14 +124,14 @@ export function SentencePage() {
               : "border-slate-300 dark:border-slate-600"
         }`}
       >
-        {placed.length === 0 && <span className="text-muted">Atinge cuvintele de mai jos, în ordine.</span>}
+        {placed.length === 0 && <span className="text-muted">{t("sentence.tapWords")}</span>}
         {placed.map((i) => (
           <button
             key={i}
             type="button"
             disabled={result !== null}
             onClick={() => setPlaced((p) => p.filter((x) => x !== i))}
-            aria-label={`${question.tokens[i]} (scoate din răspuns)`}
+            aria-label={t("sentence.removeWord", { word: question.tokens[i] ?? "" })}
             className={block}
           >
             {question.tokens[i]}
@@ -135,7 +140,7 @@ export function SentencePage() {
         {placed.length > 0 && <span className="text-lg font-medium">{question.punctuation}</span>}
       </div>
 
-      <div className="flex flex-wrap justify-center gap-2" role="group" aria-label="Cuvinte disponibile">
+      <div className="flex flex-wrap justify-center gap-2" role="group" aria-label={t("sentence.available")}>
         {bank.map((i) => (
           <button
             key={i}
@@ -161,10 +166,10 @@ export function SentencePage() {
       )}
 
       <div className="mt-auto flex flex-col gap-3" aria-live="polite">
-        {result === "correct" && <p className="text-center font-semibold text-green-700 dark:text-green-400">Corect!</p>}
+        {result === "correct" && <p className="text-center font-semibold text-green-700 dark:text-green-400">{t("conj.correct")}</p>}
         {result === "wrong" && (
           <div className="text-center">
-            <p className="font-semibold text-red-700 dark:text-red-400">Nu chiar. Varianta corectă:</p>
+            <p className="font-semibold text-red-700 dark:text-red-400">{t("sentence.correctVersion")}</p>
             <p className="mt-1 flex items-center justify-center gap-2 text-lg">
               {sentenceText(question)}
               <AudioButton text={sentenceText(question)} rate={settings.ttsRate} size="sm" />
@@ -185,15 +190,15 @@ export function SentencePage() {
               onClick={() => setPlaced([])}
               className="min-h-14 rounded-xl border-2 border-slate-300 px-5 font-semibold disabled:opacity-40 dark:border-slate-600"
             >
-              Reia
+              {t("sentence.reset")}
             </button>
             <button type="button" disabled={!complete} onClick={check} className={`${primaryButton} flex-1 disabled:opacity-40`}>
-              Verifică
+              {t("conj.check")}
             </button>
           </div>
         ) : (
           <button type="button" onClick={next} className={`${primaryButton} w-full`}>
-            {index + 1 < questions.length ? "Continuă" : "Vezi rezultatul"}
+            {index + 1 < questions.length ? t("common.continue") : t("common.seeResult")}
           </button>
         )}
       </div>

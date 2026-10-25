@@ -6,6 +6,7 @@ import { useContent } from "../../app/content.tsx";
 import { db } from "../../data/db/instance.ts";
 import { getSettings, saveReview, saveSettings } from "../../data/db/repositories.ts";
 import { loadConjugationOverview } from "../../data/queries.ts";
+import { useT } from "../../i18n/index.ts";
 import { CONJUGATION_MODE_LABEL } from "../../domain/content/display.ts";
 import { LEARN_AHEAD_MS } from "../../domain/session/buildDailySession.ts";
 import type { ConjItem } from "../../domain/session/buildConjugationSession.ts";
@@ -21,6 +22,7 @@ import { WriteCard } from "./WriteCard.tsx";
 const MODES: ConjugationMode[] = ["write", "flip", "table"];
 
 export function ConjugationPage() {
+  const { t, tp } = useT();
   const content = useContent();
   const conjugations = useConjugations();
   const busy = useRef(false);
@@ -59,22 +61,18 @@ export function ConjugationPage() {
     await saveSettings(db, { ...(await getSettings(db)), conjugationMode: mode });
   };
 
-  if (!ready || !conjugations) return <p className="p-6 text-center text-muted">Se încarcă…</p>;
+  if (!ready || !conjugations) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
 
   if (!item) {
     return (
       <SessionDone
         emoji={answered > 0 ? undefined : "🔒"}
-        title={answered > 0 ? "Sesiune încheiată" : "Nimic de conjugat acum"}
-        text={
-          answered > 0
-            ? `Ai parcurs ${answered} ${answered === 1 ? "card" : "carduri"}.`
-            : "Conjugarea unui verb se deblochează după ce îl înveți în Flashcards și ajunge la repetare."
-        }
+        title={answered > 0 ? t("flash.done") : t("conj.nothing")}
+        text={answered > 0 ? tp("flash.reviewed", answered) : t("conj.locked")}
       >
         {answered === 0 && (
           <Link to="/learn/vocab" className={primaryButton}>
-            Mergi la Flashcards
+            {t("conj.goFlashcards")}
           </Link>
         )}
       </SessionDone>
@@ -117,9 +115,9 @@ export function ConjugationPage() {
   return (
     <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
       <StudyHeader index={index} total={queue.length} />
-      {item.isNew && <p className="text-center text-sm font-semibold text-brand-fg">Timp nou</p>}
+      {item.isNew && <p className="text-center text-sm font-semibold text-brand-fg">{t("conj.newTense")}</p>}
 
-      <div role="radiogroup" aria-label="Varianta de conjugare" className="grid grid-cols-3 gap-2">
+      <div role="radiogroup" aria-label={t("conj.mode")} className="grid grid-cols-3 gap-2">
         {MODES.map((mode) => {
           const active = settings.conjugationMode === mode;
           return (
@@ -135,7 +133,7 @@ export function ConjugationPage() {
                   : "border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-900"
               }`}
             >
-              {CONJUGATION_MODE_LABEL[mode]}
+              {t(CONJUGATION_MODE_LABEL[mode])}
             </button>
           );
         })}

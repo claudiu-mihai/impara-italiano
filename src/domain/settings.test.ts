@@ -40,3 +40,10 @@ test("valoarea salvată are prioritate față de cea dedusă din nivel", () => {
   expect(withSettingDefaults({ level: "B1", nativeHelp: true }).nativeHelp).toBe(true);
   expect(withSettingDefaults({ level: "A1", nativeHelp: false }).nativeHelp).toBe(false);
 });
+
+test("limba interfeței este româna implicit și nu depinde de nivel", () => {
+  expect(DEFAULT_SETTINGS.uiLanguage).toBe("ro");
+  expect(withSettingDefaults({ level: "B2" }).uiLanguage).toBe("ro");
+  expect(withSettingDefaults({ uiLanguage: "it" }).uiLanguage).toBe("it");
+  expect(settingsForLevel({ ...at("A2", true), uiLanguage: "it" }, "B1").uiLanguage).toBe("it");
+});

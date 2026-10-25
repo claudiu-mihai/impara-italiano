@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useContent } from "../../app/content.tsx";
 import { LEVELS, type Level } from "../../domain/content/constants.ts";
 import { LEVEL_NAME } from "../../domain/content/levels.ts";
+import { setUiLanguage, useT } from "../../i18n/index.ts";
 import { db } from "../../data/db/instance.ts";
 import { changeLevel, getSettings, NATIVE_HELP_STOPPED, saveSettings } from "../../data/db/repositories.ts";
 import { AccountSection } from "./AccountSection.tsx";
@@ -26,8 +27,9 @@ function Field({ label, hint, children }: { label: string; hint?: string; childr
   const info = useInfo();
   return (
     <div className="py-1">
-      <div className="flex items-center justify-between gap-4">
-        <span className="flex min-w-0 items-center">
+      {/* selectorul își păstrează lățimea (max. 55%), iar eticheta se strânge în locul rămas; mai ales în italiană */}
+      <div className="flex items-center justify-between gap-4 [&>select]:max-w-[55%] [&>select]:shrink-0">
+        <span className="flex min-w-0 flex-1 items-center">
           <span id={info.labelId}>{label}</span>
           {hint && <InfoButton open={info.open} onToggle={info.toggle} boxId={info.boxId} labelId={info.labelId} />}
         </span>
@@ -73,6 +75,7 @@ function NumberSelect({
 }
 
 function VoiceDiagnosticsPanel() {
+  const { t } = useT();
   // Se re-randează când se schimbă lista de voci (voiceschanged) sau starea rețelei.
   useItalianVoices();
   useTtsStatus();
@@ -82,17 +85,16 @@ function VoiceDiagnosticsPanel() {
   return (
     <div className="space-y-2 text-slate-600 dark:text-slate-300">
       <p>
-        Stare: <strong>{info.status}</strong> · online: {info.online ? "da" : "nu"} · {info.total} voci expuse de browser
+        {t("settings.diagStatus", { status: info.status, online: t(info.online ? "settings.yes" : "settings.no"), total: info.total })}
       </p>
       <p>
-        Vocea folosită acum:{" "}
-        <strong>{info.chosen ? `${info.chosen.name} (${info.chosen.lang})` : "niciuna"}</strong>
+        {t("settings.diagVoice", { voice: info.chosen ? `${info.chosen.name} (${info.chosen.lang})` : t("settings.none") })}
       </p>
       <ul className="max-h-48 overflow-y-auto rounded-lg bg-slate-100 p-2 text-xs dark:bg-slate-800">
         {info.voices.map((v) => (
           <li key={v.voiceURI} className={v.voiceURI === info.chosen?.voiceURI ? "font-bold" : undefined}>
-            {v.name} · {v.lang} · {v.cloud ? "cloud" : "sistem"}
-            {v.cloud && v.localService ? " (declarată locală)" : ""}
+            {v.name} · {v.lang} · {t(v.cloud ? "settings.voiceCloud" : "settings.voiceSystem")}
+            {v.cloud && v.localService ? t("settings.declaredLocal") : ""}
           </li>
         ))}
       </ul>
@@ -101,13 +103,14 @@ function VoiceDiagnosticsPanel() {
         onClick={() => void navigator.clipboard?.writeText(report)}
         className="min-h-10 rounded-lg bg-slate-100 px-3 dark:bg-slate-800"
       >
-        Copiază raportul
+        {t("settings.copyReport")}
       </button>
     </div>
   );
 }
 
 export function SettingsPage() {
+  const { t, tp } = useT();
   const { meta, words } = useContent();
   const settings = useLiveQuery(() => getSettings(db), []);
   const lastExport = useLiveQuery(async () => (await db.meta.get("lastExportAt"))?.value as string | undefined, []);
@@ -117,7 +120,7 @@ export function SettingsPage() {
   const [status, setStatus] = useState<{ text: string; error?: boolean }>();
   const [busy, setBusy] = useState(false);
 
-  if (!settings) return <p className="p-6 text-center text-muted">Se încarcă…</p>;
+  if (!settings) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
 
   const update = <K extends keyof Settings>(key: K, value: Settings[K]) =>
     void saveSettings(db, { ...settings, [key]: value });
@@ -126,9 +129,9 @@ export function SettingsPage() {
     setBusy(true);
     try {
       await downloadBackup(meta.dataVersion);
-      setStatus({ text: "Backup descărcat. Păstrează fișierul într-un loc sigur." });
+      setStatus({ text: t("settings.exported") });
     } catch {
-      setStatus({ text: "Nu am putut crea backup-ul.", error: true });
+      setStatus({ text: t("settings.exportFailed"), error: true });
     } finally {
       setBusy(false);
     }
@@ -144,15 +147,18 @@ export function SettingsPage() {
       try {
         const backup = parseBackup(await file.text());
         const ok = window.confirm(
-          `Importul înlocuiește tot progresul actual${signedIn ? " (inclusiv din cont)" : ""} cu cel din fișier ` +
-            `(${backup.cards.length} carduri, ${backup.reviewLog.length} repetiții, ` +
-            `exportat la ${studyDayOf(backup.exportedAt)}). Continui?`,
+          t("settings.confirmImport", {
+            cloud: signedIn ? t("settings.inCloud") : "",
+            cards: backup.cards.length,
+            reviews: backup.reviewLog.length,
+            date: studyDayOf(backup.exportedAt),
+          }),
         );
         if (!ok) return;
         await importBackup(db, backup);
-        setStatus({ text: "Progres importat." });
+        setStatus({ text: t("settings.imported") });
       } catch (error) {
-        setStatus({ text: error instanceof BackupError ? error.message : "Nu am putut citi fișierul.", error: true });
+        setStatus({ text: error instanceof BackupError ? error.message : t("settings.readFailed"), error: true });
       }
     } finally {
       setBusy(false);
@@ -160,27 +166,27 @@ export function SettingsPage() {
   };
 
   const doReset = async () => {
-    const scope = signedIn ? " Se șterge și din cont, deci și de pe celelalte dispozitive care se sincronizează după aceea." : "";
-    if (!window.confirm(`Ștergi tot progresul (carduri și istoric)?${scope} Acțiunea nu poate fi anulată.`)) return;
+    const scope = signedIn ? t("settings.resetScope") : "";
+    if (!window.confirm(t("settings.confirmReset", { scope }))) return;
     const { resetProgress } = await import("../../data/backup/backup.ts");
     await resetProgress(db);
-    setStatus({ text: "Progresul a fost șters." });
+    setStatus({ text: t("settings.resetDone") });
   };
 
   return (
     <div className="flex flex-col gap-5 px-4 pb-8 pt-8">
-      <h1 className="text-2xl font-bold">Setări</h1>
+      <h1 className="text-2xl font-bold">{t("nav.settings")}</h1>
 
       <section className={card} aria-labelledby="study">
         <h2 id="study" className={heading}>
-          Studiu
+          {t("settings.study")}
         </h2>
         <Field
-          label="Nivelul curent"
-          hint="Cuvinte și timpuri noi apar doar până la acest nivel (CEFR, estimat). Repetițiile continuă."
+          label={t("settings.level")}
+          hint={t("settings.levelHint")}
         >
           <select
-            aria-label="Nivelul curent"
+            aria-label={t("settings.level")}
             value={settings.level}
             onChange={(e) => void changeLevel(db, e.target.value as Level)}
             className={`${control} max-w-48`}
@@ -189,7 +195,7 @@ export function SettingsPage() {
               const count = words.filter((w) => w.level === level).length;
               return (
                 <option key={level} value={level}>
-                  {level} · {LEVEL_NAME[level]} ({count === 0 ? "în pregătire" : `${count} cuvinte`})
+                  {level} · {t(LEVEL_NAME[level])} ({count === 0 ? t("stats.comingSoon") : tp("settings.wordCount", count)})
                 </option>
               );
             })}
@@ -197,13 +203,31 @@ export function SettingsPage() {
         </Field>
         <NativeHelpNotice inSettings />
         <Field
-          label="Traducere în limba maternă"
-          hint="Ajutor pentru începători: sub numele în italiană din Teme apare traducerea, iar caseta „De reținut” se întoarce pe fața în română. Oprită, vezi doar italiana. Se oprește singură când treci de nivelul A."
+          label={t("settings.uiLanguage")}
+          hint={t("settings.uiLanguageHint")}
+        >
+          <select
+            aria-label={t("settings.uiLanguage")}
+            value={settings.uiLanguage}
+            onChange={(e) => {
+              const language = e.target.value as Settings["uiLanguage"];
+              void setUiLanguage(language);
+              update("uiLanguage", language);
+            }}
+            className={control}
+          >
+            <option value="ro">Română</option>
+            <option value="it">Italiano</option>
+          </select>
+        </Field>
+        <Field
+          label={t("settings.nativeHelp")}
+          hint={t("settings.nativeHelpHint")}
         >
           <span className="flex size-12 items-center justify-center">
             <input
               type="checkbox"
-              aria-label="Traducere în limba maternă"
+              aria-label={t("settings.nativeHelp")}
               checked={settings.nativeHelp}
               onChange={(e) => {
                 update("nativeHelp", e.target.checked);
@@ -214,67 +238,67 @@ export function SettingsPage() {
           </span>
         </Field>
         <Field
-          label="Direcția cardurilor"
-          hint="Fiecare direcție are propriul progres. La „Ambele”, cardul Română → Italiană al unui cuvânt apare după ce îl știi sigur în sensul Italiană → Română (stabilitate de cel puțin 7 zile)."
+          label={t("settings.direction")}
+          hint={t("settings.directionHint")}
         >
           <select
-            aria-label="Direcția cardurilor"
+            aria-label={t("settings.direction")}
             value={settings.direction}
             onChange={(e) => update("direction", e.target.value as StudyDirection)}
             className={control}
           >
-            <option value="it-ro">Italiană → Română</option>
-            <option value="ro-it">Română → Italiană</option>
-            <option value="both">Ambele</option>
+            <option value="it-ro">{t("dir.itRo")}</option>
+            <option value="ro-it">{t("dir.roIt")}</option>
+            <option value="both">{t("settings.both")}</option>
           </select>
         </Field>
         {settings.direction === "both" && (
-          <Field label="Carduri inverse noi pe zi" hint="Câte cuvinte deja știute primesc pe zi și cardul Română → Italiană.">
+          <Field label={t("settings.reverse")} hint={t("settings.reverseHint")}>
             <NumberSelect
-              label="Carduri inverse noi pe zi"
+              label={t("settings.reverse")}
               value={settings.newReversePerDay}
               presets={[0, 5, 10, 15, 20, 30]}
               onChange={(n) => update("newReversePerDay", n)}
             />
           </Field>
         )}
-        <Field label="Varianta de conjugare" hint="Scrie: 3 persoane pe rând. Flip: te evaluezi singur. Tabel: toate persoanele deodată.">
+        <Field label={t("conj.mode")} hint={t("settings.modeHint")}>
           <select
-            aria-label="Varianta de conjugare"
+            aria-label={t("conj.mode")}
             value={settings.conjugationMode}
             onChange={(e) => update("conjugationMode", e.target.value as ConjugationMode)}
             className={control}
           >
-            <option value="write">Scrie răspunsul</option>
-            <option value="flip">Flip (autoevaluare)</option>
-            <option value="table">Tabel (toate persoanele)</option>
+            <option value="write">{t("settings.modeWrite")}</option>
+            <option value="flip">{t("settings.modeFlip")}</option>
+            <option value="table">{t("settings.modeTable")}</option>
           </select>
         </Field>
-        <Field label="Cuvinte noi pe zi">
-          <NumberSelect label="Cuvinte noi pe zi" value={settings.newPerDay} presets={[0, 5, 10, 15, 20, 30, 50]} onChange={(n) => update("newPerDay", n)} />
+        <Field label={t("settings.newPerDay")}>
+          <NumberSelect label={t("settings.newPerDay")} value={settings.newPerDay} presets={[0, 5, 10, 15, 20, 30, 50]} onChange={(n) => update("newPerDay", n)} />
         </Field>
-        <Field label="Substantive printre cuvintele noi" hint="Cât din cuvintele noi de conținut să fie substantive. „După frecvență” păstrează ordinea implicită.">
+        <Field label={t("settings.nounShare")} hint={t("settings.nounShareHint")}>
           <select
-            aria-label="Substantive printre cuvintele noi"
+            aria-label={t("settings.nounShare")}
             value={settings.nounShare}
             onChange={(e) => update("nounShare", Number(e.target.value))}
             className={control}
           >
-            <option value={0}>După frecvență (implicit)</option>
-            <option value={33}>1 din 3</option>
-            <option value={50}>1 din 2</option>
-            <option value={67}>2 din 3</option>
+            <option value={0}>{t("settings.byFrequency")}</option>
+            <option value={33}>{t("settings.oneOfThree")}</option>
+            <option value={50}>{t("settings.oneOfTwo")}</option>
+            <option value={67}>{t("settings.twoOfThree")}</option>
           </select>
         </Field>
-        <Field label="Timpuri noi la conjugare pe zi">
-          <NumberSelect label="Timpuri noi la conjugare pe zi" value={settings.newConjPerDay} presets={[0, 1, 2, 3, 5, 10]} onChange={(n) => update("newConjPerDay", n)} />
+        <Field label={t("settings.newConj")}>
+          <NumberSelect label={t("settings.newConj")} value={settings.newConjPerDay} presets={[0, 1, 2, 3, 5, 10]} onChange={(n) => update("newConjPerDay", n)} />
         </Field>
-        <Field label="Limită de repetiții pe zi">
-          <NumberSelect label="Limită de repetiții pe zi" value={settings.maxReviewsPerDay} presets={[25, 50, 100, 200, 500]} onChange={(n) => update("maxReviewsPerDay", n)} />
+        <Field label={t("settings.maxReviews")}>
+          <NumberSelect label={t("settings.maxReviews")} value={settings.maxReviewsPerDay} presets={[25, 50, 100, 200, 500]} onChange={(n) => update("maxReviewsPerDay", n)} />
         </Field>
-        <Field label="Retenție țintă" hint="Mai mare = mai multe repetiții.">
+        <Field label={t("settings.retention")} hint={t("settings.retentionHint")}>
           <NumberSelect
-            label="Retenție țintă"
+            label={t("settings.retention")}
             value={Math.round(settings.retention * 100)}
             presets={[80, 85, 90, 92, 95]}
             format={(n) => `${n}%`}
@@ -285,29 +309,29 @@ export function SettingsPage() {
 
       <section className={card} aria-labelledby="look">
         <h2 id="look" className={heading}>
-          Aspect
+          {t("settings.look")}
         </h2>
-        <Field label="Tema">
+        <Field label={t("settings.theme")}>
           <select
-            aria-label="Tema"
+            aria-label={t("settings.theme")}
             value={settings.theme}
             onChange={(e) => update("theme", e.target.value as Settings["theme"])}
             className={control}
           >
-            <option value="auto">Automată (ca sistemul)</option>
-            <option value="light">Luminoasă</option>
-            <option value="dark">Întunecată</option>
+            <option value="auto">{t("settings.themeAuto")}</option>
+            <option value="light">{t("settings.themeLight")}</option>
+            <option value="dark">{t("settings.themeDark")}</option>
           </select>
         </Field>
       </section>
 
       <section className={card} aria-labelledby="sound">
         <h2 id="sound" className={heading}>
-          Sunet
+          {t("settings.sound")}
         </h2>
-        <Field label="Viteza pronunției">
+        <Field label={t("settings.speed")}>
           <NumberSelect
-            label="Viteza pronunției"
+            label={t("settings.speed")}
             value={Math.round(settings.ttsRate * 10)}
             presets={[6, 7, 8, 9, 10, 11]}
             format={(n) => `${(n / 10).toFixed(1)}×`}
@@ -315,25 +339,21 @@ export function SettingsPage() {
           />
         </Field>
         <Field
-          label="Vocea italiană"
-          hint={
-            voices.length === 0
-              ? "Nu am găsit voci italiene pe acest dispozitiv."
-              : "Vocile din sistem funcționează și fără internet. Pe Mac poți instala voci mai bune din Setări de sistem → Accesibilitate → Conținut vorbit."
-          }
+          label={t("settings.voice")}
+          hint={voices.length === 0 ? t("settings.noVoices") : t("settings.voicesHint")}
         >
           <select
-            aria-label="Vocea italiană"
+            aria-label={t("settings.voice")}
             value={settings.ttsVoiceURI ?? ""}
             onChange={(e) => update("ttsVoiceURI", e.target.value || null)}
             disabled={voices.length === 0}
             className={`${control} max-w-48`}
           >
-            <option value="">Automat</option>
+            <option value="">{t("settings.automatic")}</option>
             {voices.map((v) => (
               <option key={v.voiceURI} value={v.voiceURI}>
                 {v.name}
-                {isCloudVoice(v) ? " (online)" : ""}
+                {isCloudVoice(v) ? ` (${t("settings.online")})` : ""}
               </option>
             ))}
           </select>
@@ -344,17 +364,17 @@ export function SettingsPage() {
           onClick={() => speak("Ciao, come stai? Sono contento di conoscerti.", settings.ttsRate)}
           className="mb-2 min-h-12 rounded-lg bg-slate-100 px-4 text-sm font-semibold disabled:opacity-40 dark:bg-slate-800"
         >
-          🔊 Ascultă vocea
+          {t("settings.listenVoice")}
         </button>
         <details className="mb-2 text-sm">
-          <summary className="min-h-12 cursor-pointer py-3 text-muted">Diagnostic voci</summary>
+          <summary className="min-h-12 cursor-pointer py-3 text-muted">{t("settings.diagnostics")}</summary>
           <VoiceDiagnosticsPanel />
         </details>
-        <Field label="Sunet la răspunsuri" hint="Quiz și conjugare.">
+        <Field label={t("settings.soundEffects")} hint={t("settings.soundEffectsHint")}>
           <span className="flex size-12 items-center justify-center">
             <input
               type="checkbox"
-              aria-label="Sunet la răspunsuri"
+              aria-label={t("settings.soundEffects")}
               checked={settings.soundEnabled}
               onChange={(e) => update("soundEnabled", e.target.checked)}
               className="size-6 accent-brand"
@@ -362,29 +382,27 @@ export function SettingsPage() {
           </span>
         </Field>
         <button type="button" onClick={() => void saveSettings(db, DEFAULT_SETTINGS)} className="mt-2 text-sm text-muted underline">
-          Revino la setările implicite
+          {t("settings.resetDefaults")}
         </button>
       </section>
 
       <AccountSection />
 
       <section className={card} aria-labelledby="data">
-        <InfoHeading id="data" title="Date" className={heading}>
-          {signedIn
-            ? "Progresul se sincronizează cu contul tău. Un backup rămâne util ca arhivă."
-            : "Progresul rămâne doar pe acest dispozitiv. Fă periodic un backup ca să nu-l pierzi."}
+        <InfoHeading id="data" title={t("about.data")} className={heading}>
+          {signedIn ? t("settings.dataSignedIn") : t("settings.dataLocal")}
         </InfoHeading>
-        {lastExport && <p className="mt-2 text-sm text-muted">Ultimul backup: {studyDayOf(new Date(lastExport))}.</p>}
+        {lastExport && <p className="mt-2 text-sm text-muted">{t("settings.lastBackup", { date: studyDayOf(new Date(lastExport)) })}</p>}
         <div className="mt-3 flex flex-col gap-3">
           <button type="button" disabled={busy} onClick={() => void doExport()} className={action}>
-            Exportă progresul
+            {t("settings.export")}
           </button>
           <label className={`${action} flex cursor-pointer items-center justify-center`}>
-            Importă progresul
+            {t("settings.import")}
             <input type="file" accept="application/json,.json" onChange={(e) => void doImport(e)} className="sr-only" />
           </label>
           <button type="button" onClick={() => void doReset()} className="min-h-12 rounded-xl border-2 border-red-600 px-4 font-semibold text-red-700 dark:text-red-400">
-            Șterge tot progresul
+            {t("settings.resetAll")}
           </button>
         </div>
         {status && (
@@ -395,7 +413,7 @@ export function SettingsPage() {
       </section>
 
       <Link to="/about" className="min-h-12 text-center text-brand-fg underline">
-        Despre aplicație și surse
+        {t("settings.about")}
       </Link>
     </div>
   );
