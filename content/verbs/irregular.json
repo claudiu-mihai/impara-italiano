@@ -48,7 +48,10 @@
     "v-svenire": ["svengo","svieni","sviene","sveniamo","svenite","svengono"],
     "v-cucire": ["cucio","cuci","cuce","cuciamo","cucite","cuciono"],
     "v-sciare": ["scio","scii","scia","sciamo","sciate","sciano"],
-    "v-cuocere": ["cuocio","cuoci","cuoce","cuociamo","cuocete","cuociono"]
+    "v-cuocere": ["cuocio","cuoci","cuoce","cuociamo","cuocete","cuociono"],
+    "v-intrattenere": ["intrattengo","intrattieni","intrattiene","intratteniamo","intrattenete","intrattengono"],
+    "v-prevalere": ["prevalgo","prevali","prevale","prevaliamo","prevalete","prevalgono"],
+    "v-contraddire": ["contraddico","contraddici","contraddice","contraddiciamo","contraddite","contraddicono"]
   },
   "imperfetto": {
     "v-essere": ["ero","eri","era","eravamo","eravate","erano"]
@@ -57,7 +60,8 @@
     "v-fare": "face",
     "v-dire": "dice",
     "v-bere": "beve",
-    "v-rifare": "riface"
+    "v-rifare": "riface",
+    "v-contraddire": "contraddice"
   },
   "futuroStem": {
     "v-essere": "sar",
@@ -87,7 +91,9 @@
     "v-intervenire": "interverr",
     "v-convenire": "converr",
     "v-svenire": "sverr",
-    "v-sciare": "scier"
+    "v-sciare": "scier",
+    "v-intrattenere": "intratterr",
+    "v-prevalere": "prevarr"
   },
   "congiuntivo": {
     "v-essere": ["sia","sia","sia","siamo","siate","siano"],
@@ -137,7 +143,10 @@
     "v-svenire": ["svenga","svenga","svenga","sveniamo","sveniate","svengano"],
     "v-cucire": ["cucia","cucia","cucia","cuciamo","cuciate","cuciano"],
     "v-sciare": ["scii","scii","scii","sciamo","sciate","sciino"],
-    "v-cuocere": ["cuocia","cuocia","cuocia","cuociamo","cuociate","cuociano"]
+    "v-cuocere": ["cuocia","cuocia","cuocia","cuociamo","cuociate","cuociano"],
+    "v-intrattenere": ["intrattenga","intrattenga","intrattenga","intratteniamo","intratteniate","intrattengano"],
+    "v-prevalere": ["prevalga","prevalga","prevalga","prevaliamo","prevaliate","prevalgano"],
+    "v-contraddire": ["contraddica","contraddica","contraddica","contraddiciamo","contraddiciate","contraddicano"]
   },
   "imperativo": {
     "v-andare": [["va'","vai"],"vada","andiamo","andate","vadano"],
