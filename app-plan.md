@@ -378,6 +378,7 @@ Conținutul este partea cea mai costisitoare a proiectului și se tratează ca f
       * cu setarea oprită, ecranele arată ca înainte;
     * `npm run validate` trece pe toate cele 42 de teme;
     * verificarea axe trece pe ambele fețe ale casetei, în tema luminoasă și în cea întunecată.
+  * **Stare:** implementat — setarea „Italiană întâi” (implicit pornită; oprire automată la trecerea de la A la B1 sau mai sus, prin `changeLevel`, folosită de Setări și de sugestia de nivel de pe Acasă; mesaj care apare o dată, cu „Am înțeles”), `BilingualLabel` pentru cele 7 grupuri, 42 de teme și 112 subgrupe (și în „Vezi tema” și în „Abilități de repetat”), `TopicRulesBox` cu două fețe (rotire pe Y, `inert` pe fața din spate, focus mutat pe fața nouă, fără rotire la `prefers-reduced-motion`), schema `{ it, ro }` + `contrast.ro` și cele 42 de fișiere migrate (128 de reguli în italiană; 29 de reguli comparate cu româna, în 28 de teme). Setările vechi și backup-urile vechi, fără câmp, primesc valoarea după nivelul salvat. Teste: 8 unitare pentru setări, 3 de integrare pentru `changeLevel`, 1 pentru backup, 6 E2E noi (`tests/e2e/italian-first.spec.ts`) și axe pe ambele fețe în ambele teme. `levels.spec` (1), `browse.spec` (3) și `games.spec` (1) pică la fel și pe `main`, din motive fără legătură cu această fază.
 * **Ulterior:**
   * a doua limbă maternă (FR7), ca flux de conținut separat;
   * limba aplicației în altă limbă decât româna (necesită extragerea textelor din interfață);

@@ -1,17 +1,32 @@
 {
   "id": "casa",
-  "title": "Casa",
+  "title": {
+    "it": "La casa",
+    "ro": "Casa"
+  },
   "group": "zi-de-zi",
   "level": "A2",
   "first": false,
   "rules": [
-    "În Italia «piano terra» = parter, «primo piano» = etajul 1: «abito al terzo piano».",
-    "«Stanza» = cameră în general; «camera» = cameră (și dormitor); «camera da letto» = dormitor.",
-    "Cu locul: «in cucina», «in bagno», «in salotto»."
+    {
+      "it": "In Italia «piano terra» è il livello della strada e «primo piano» è il piano sopra: «abito al terzo piano».",
+      "ro": "În Italia «piano terra» = parter, «primo piano» = etajul 1: «abito al terzo piano»."
+    },
+    {
+      "it": "«Stanza» indica un ambiente in generale; «camera» è una stanza (anche per dormire); «camera da letto» è dove si dorme.",
+      "ro": "«Stanza» = cameră în general; «camera» = cameră (și dormitor); «camera da letto» = dormitor."
+    },
+    {
+      "it": "Con il luogo: «in cucina», «in bagno», «in salotto».",
+      "ro": "Cu locul: «in cucina», «in bagno», «in salotto»."
+    }
   ],
   "subgroups": [
     {
-      "title": "Camere",
+      "title": {
+        "it": "Le stanze",
+        "ro": "Camere"
+      },
       "wordIds": [
         "n-casa",
         "n-appartamento",
@@ -25,7 +40,10 @@
       ]
     },
     {
-      "title": "Mobilă",
+      "title": {
+        "it": "I mobili",
+        "ro": "Mobilă"
+      },
       "wordIds": [
         "n-letto",
         "n-tavolo",
@@ -35,7 +53,10 @@
       ]
     },
     {
-      "title": "Altele",
+      "title": {
+        "it": "Altro",
+        "ro": "Altele"
+      },
       "wordIds": [
         "n-finestra",
         "n-porta",

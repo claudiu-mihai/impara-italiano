@@ -1,18 +1,41 @@
 {
   "id": "numere-100-1000000",
-  "title": "Numerele 100–1.000.000",
+  "title": {
+    "it": "I numeri da 100 a 1.000.000",
+    "ro": "Numerele 100–1.000.000"
+  },
   "group": "numere",
   "level": "A2",
   "first": false,
   "rules": [
-    "Sutele se scriu legat: duecento, trecento, cinquecento. «Cento» nu primește «uno»: 101 = «centouno», 180 = «centottanta».",
-    "«Mille» (1000) devine «mila» la plural și se scrie legat: duemila, tremila, ventimila, duemilacinquecento (2500).",
-    "«Milione» e substantiv: «un milione», «due milioni», iar substantivul vine cu «di»: «un milione di euro».",
-    "În scris, miile se despart cu punct: 1.250.000."
+    {
+      "it": "Le centinaia si scrivono unite: duecento, trecento, cinquecento. «Cento» non prende «uno»: 101 = «centouno», 180 = «centottanta».",
+      "ro": "Sutele se scriu legat: duecento, trecento, cinquecento. «Cento» nu primește «uno»: 101 = «centouno», 180 = «centottanta»."
+    },
+    {
+      "it": "«Mille» (1000) diventa «mila» al plurale e si scrive unito: duemila, tremila, ventimila, duemilacinquecento (2500).",
+      "ro": "«Mille» (1000) devine «mila» la plural și se scrie legat: duemila, tremila, ventimila, duemilacinquecento (2500)."
+    },
+    {
+      "it": "«Milione» è un sostantivo: «un milione», «due milioni», e dopo viene «di»: «un milione di euro».",
+      "ro": "«Milione» e substantiv: «un milione», «due milioni», iar substantivul vine cu «di»: «un milione di euro»."
+    },
+    {
+      "it": "Nella scrittura, le migliaia si separano con il punto: 1.250.000.",
+      "ro": "În scris, miile se despart cu punct: 1.250.000."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "În română „o sută”, „două sute” se scriu separat; în italiană totul se scrie legat: «cento», «duecento»."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Repere",
+      "title": {
+        "it": "Punti di riferimento",
+        "ro": "Repere"
+      },
       "wordIds": [
         "num-cento",
         "num-mille",

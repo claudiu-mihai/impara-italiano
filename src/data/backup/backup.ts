@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { DEFAULT_SETTINGS, type Settings } from "../../domain/settings.ts";
+import { withSettingDefaults, type Settings } from "../../domain/settings.ts";
 import type { ReviewLogEntry, StoredCard } from "../../domain/srs/types.ts";
 import type { ImparaDb, ReportRow } from "../db/db.ts";
 import { getSettings, syncUserOf } from "../db/repositories.ts";
@@ -67,6 +67,7 @@ export const settingsSchema = z.object({
   ttsVoiceURI: z.string().nullable(),
   theme: z.enum(["auto", "light", "dark"]),
   soundEnabled: z.boolean(),
+  italianFirst: z.boolean(),
 });
 
 export const reportSchema = z.object({
@@ -144,7 +145,7 @@ export function parseBackup(json: string): Backup {
     throw new BackupError(`Backup invalid (${issue?.path.join(".") ?? "?"}: ${issue?.message ?? "eroare"}).`);
   }
   const { settings, ...rest } = parsed.data;
-  return { ...rest, settings: { ...DEFAULT_SETTINGS, ...settings } } as Backup;
+  return { ...rest, settings: withSettingDefaults(settings) } as Backup;
 }
 
 /**

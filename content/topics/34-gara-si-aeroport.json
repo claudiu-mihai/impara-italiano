@@ -1,17 +1,32 @@
 {
   "id": "gara-si-aeroport",
-  "title": "La gară și la aeroport",
+  "title": {
+    "it": "In stazione e in aeroporto",
+    "ro": "La gară și la aeroport"
+  },
   "group": "oras",
   "level": "A2",
   "first": false,
   "rules": [
-    "«Da che binario parte il treno?» = De pe ce linie pleacă trenul? «Il treno è in ritardo» = trenul are întârziere.",
-    "«Andata» = dus, «andata e ritorno» = dus-întors.",
-    "«Partire» = a pleca, «arrivare» = a ajunge."
+    {
+      "it": "«Da che binario parte il treno?» «Il treno è in ritardo».",
+      "ro": "«Da che binario parte il treno?» = De pe ce linie pleacă trenul? «Il treno è in ritardo» = trenul are întârziere."
+    },
+    {
+      "it": "«Andata» = solo per andare; «andata e ritorno» = per andare e tornare.",
+      "ro": "«Andata» = dus, «andata e ritorno» = dus-întors."
+    },
+    {
+      "it": "«Partire» = lasciare un luogo; «arrivare» = raggiungere un luogo.",
+      "ro": "«Partire» = a pleca, «arrivare» = a ajunge."
+    }
   ],
   "subgroups": [
     {
-      "title": "Gara",
+      "title": {
+        "it": "La stazione",
+        "ro": "Gara"
+      },
       "wordIds": [
         "n-stazione",
         "n-treno",
@@ -20,7 +35,10 @@
       ]
     },
     {
-      "title": "Aeroportul",
+      "title": {
+        "it": "L'aeroporto",
+        "ro": "Aeroportul"
+      },
       "wordIds": [
         "n-aeroporto",
         "n-aereo",
@@ -30,7 +48,10 @@
       ]
     },
     {
-      "title": "Program",
+      "title": {
+        "it": "Orari",
+        "ro": "Program"
+      },
       "wordIds": [
         "n-partenza",
         "n-arrivo",

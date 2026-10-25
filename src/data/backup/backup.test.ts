@@ -81,6 +81,16 @@ test("setările lipsă din backup primesc valorile implicite", async () => {
   expect(parsed.settings).toEqual({ ...DEFAULT_SETTINGS, newPerDay: 7 });
 });
 
+test("un backup vechi, fără „Italiană întâi”, primește valoarea după nivelul din backup", async () => {
+  const backup = JSON.parse(backupToJson(await exportBackup(db, "x", NOW)));
+  backup.settings = { level: "B1" };
+  expect(parseBackup(JSON.stringify(backup)).settings.italianFirst).toBe(false);
+  backup.settings = { level: "A2" };
+  expect(parseBackup(JSON.stringify(backup)).settings.italianFirst).toBe(true);
+  backup.settings = { level: "B1", italianFirst: true };
+  expect(parseBackup(JSON.stringify(backup)).settings.italianFirst).toBe(true);
+});
+
 test("resetarea șterge progresul, dar păstrează setările", async () => {
   await learn("v-parlare");
   await saveSettings(db, { ...DEFAULT_SETTINGS, newPerDay: 4 });

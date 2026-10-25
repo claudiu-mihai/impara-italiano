@@ -1,5 +1,6 @@
 import type { ReviewLog } from "ts-fsrs";
-import { DEFAULT_SETTINGS, type Settings } from "../../domain/settings.ts";
+import type { Level } from "../../domain/content/constants.ts";
+import { DEFAULT_SETTINGS, settingsForLevel, withSettingDefaults, type Settings } from "../../domain/settings.ts";
 import { Rating } from "ts-fsrs";
 import { newStoredCard, reviewStoredCard } from "../../domain/srs/scheduler.ts";
 import { vocabCardId, type Direction, type ReviewSource, type StoredCard } from "../../domain/srs/types.ts";
@@ -49,12 +50,23 @@ export async function getSettings(db: ImparaDb): Promise<Settings> {
   if (!row) return DEFAULT_SETTINGS;
   const { key: _key, updatedAt: _updatedAt, dirty: _dirty, ...saved } = row;
   // Câmpurile adăugate ulterior primesc valoarea implicită.
-  return { ...DEFAULT_SETTINGS, ...saved };
+  return withSettingDefaults(saved);
 }
 
 export async function saveSettings(db: ImparaDb, settings: Settings): Promise<void> {
   await db.settings.put({ ...settings, key: "app", updatedAt: Date.now(), dirty: 1 });
   notifyLocalChange();
+}
+
+/** Cheia din `meta` care ține minte că „Italiană întâi” s-a oprit singură (valoarea: nivelul), până se închide mesajul. */
+export const ITALIAN_FIRST_STOPPED = "italianFirstStopped";
+
+/** Schimbă nivelul curent; „Italiană întâi” se oprește singură la trecerea peste A, cu un mesaj care se arată o dată. */
+export async function changeLevel(db: ImparaDb, level: Level): Promise<void> {
+  const current = await getSettings(db);
+  const next = settingsForLevel(current, level);
+  await saveSettings(db, next);
+  if (current.italianFirst && !next.italianFirst) await db.meta.put({ key: ITALIAN_FIRST_STOPPED, value: level });
 }
 
 /** `introducedOn` pentru cuvintele marcate „Știu deja”: nu consumă limita de cuvinte noi a zilei. */

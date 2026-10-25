@@ -1,17 +1,37 @@
 {
   "id": "fractii-si-cantitati",
-  "title": "Fracții și cantități",
+  "title": {
+    "it": "Frazioni e quantità",
+    "ro": "Fracții și cantități"
+  },
   "group": "numere",
   "level": "A2",
   "first": false,
   "rules": [
-    "«Mezzo» se acordă ca adjectiv (mezzo litro, mezza torta); «metà» e substantiv: «la metà del prezzo».",
-    "«Un etto» = 100 g, «mezzo chilo» = 500 g, «un chilo e mezzo» = 1,5 kg.",
-    "După o cantitate vine «di»: «un chilo di mele», «un litro d'acqua», «un paio di scarpe» (un paio = câteva sau o pereche)."
+    {
+      "it": "«Mezzo» si accorda come un aggettivo (mezzo litro, mezza torta); «metà» è un sostantivo: «la metà del prezzo».",
+      "ro": "«Mezzo» se acordă ca adjectiv (mezzo litro, mezza torta); «metà» e substantiv: «la metà del prezzo»."
+    },
+    {
+      "it": "«Un etto» = 100 g, «mezzo chilo» = 500 g, «un chilo e mezzo» = 1,5 kg.",
+      "ro": "«Un etto» = 100 g, «mezzo chilo» = 500 g, «un chilo e mezzo» = 1,5 kg."
+    },
+    {
+      "it": "Dopo una quantità viene «di»: «un chilo di mele», «un litro d'acqua», «un paio di scarpe» (un paio = alcuni o due cose insieme).",
+      "ro": "După o cantitate vine «di»: «un chilo di mele», «un litro d'acqua», «un paio di scarpe» (un paio = câteva sau o pereche)."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "«Di» corespunde lui „de” din română: «un chilo di mele» = „un kilogram de mere”."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Fracții",
+      "title": {
+        "it": "Frazioni",
+        "ro": "Fracții"
+      },
       "wordIds": [
         "n-mezzo",
         "n-metà",
@@ -20,7 +40,10 @@
       ]
     },
     {
-      "title": "Măsuri",
+      "title": {
+        "it": "Misure",
+        "ro": "Măsuri"
+      },
       "wordIds": [
         "n-chilo",
         "n-etto",
@@ -32,7 +55,10 @@
       ]
     },
     {
-      "title": "Cât",
+      "title": {
+        "it": "Quanto",
+        "ro": "Cât"
+      },
       "wordIds": [
         "a-tutto",
         "adv-molto",

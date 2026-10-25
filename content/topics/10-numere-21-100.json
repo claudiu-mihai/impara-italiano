@@ -1,17 +1,37 @@
 {
   "id": "numere-21-100",
-  "title": "Numerele 21–100",
+  "title": {
+    "it": "I numeri da 21 a 100",
+    "ro": "Numerele 21–100"
+  },
   "group": "numere",
   "level": "A1",
   "first": true,
   "rules": [
-    "Zeci + unități se scriu legat: ventidue, trentacinque, novantanove.",
-    "Înaintea lui «uno» și «otto» zecea pierde vocala finală: ventuno, ventotto, trentuno, trentotto.",
-    "La final, «tre» primește accent: ventitré, trentatré. «Cento» = 100; 200 = «duecento»."
+    {
+      "it": "Decine e unità si scrivono unite: ventidue, trentacinque, novantanove.",
+      "ro": "Zeci + unități se scriu legat: ventidue, trentacinque, novantanove."
+    },
+    {
+      "it": "Davanti a «uno» e «otto» la decina perde la vocale finale: ventuno, ventotto, trentuno, trentotto.",
+      "ro": "Înaintea lui «uno» și «otto» zecea pierde vocala finală: ventuno, ventotto, trentuno, trentotto."
+    },
+    {
+      "it": "In fondo «tre» prende l'accento: ventitré, trentatré. «Cento» = 100; 200 = «duecento».",
+      "ro": "La final, «tre» primește accent: ventitré, trentatré. «Cento» = 100; 200 = «duecento»."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "În română „douăzeci și doi” are «și», iar după 20 vine „de”: „douăzeci de mere”. În italiană numărul se scrie legat, fără «e» și fără «di»: «ventidue», «venti mele»."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Zecile",
+      "title": {
+        "it": "Le decine",
+        "ro": "Zecile"
+      },
       "wordIds": [
         "num-venti",
         "num-trenta",

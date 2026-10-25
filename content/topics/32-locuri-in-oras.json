@@ -1,17 +1,32 @@
 {
   "id": "locuri-in-oras",
-  "title": "Locuri în oraș",
+  "title": {
+    "it": "Luoghi in città",
+    "ro": "Locuri în oraș"
+  },
   "group": "oras",
   "level": "A2",
   "first": false,
   "rules": [
-    "Cu «in», fără articol: in centro, in banca, in farmacia, in chiesa. Cu «a»: a scuola, a teatro, al cinema, al bar, alla posta, alla stazione.",
-    "«Dov'è…?» = unde este…? «C'è una farmacia qui vicino?» = Este o farmacie pe aproape?",
-    "«Centro» = centrul orașului; «quartiere» = cartier."
+    {
+      "it": "Con «in», senza articolo: in centro, in banca, in farmacia, in chiesa. Con «a»: a scuola, a teatro, al cinema, al bar, alla posta, alla stazione.",
+      "ro": "Cu «in», fără articol: in centro, in banca, in farmacia, in chiesa. Cu «a»: a scuola, a teatro, al cinema, al bar, alla posta, alla stazione."
+    },
+    {
+      "it": "«Dov'è…?» è la domanda sul luogo. «C'è una farmacia qui vicino?»",
+      "ro": "«Dov'è…?» = unde este…? «C'è una farmacia qui vicino?» = Este o farmacie pe aproape?"
+    },
+    {
+      "it": "«Centro» = il centro della città; «quartiere» = una zona della città.",
+      "ro": "«Centro» = centrul orașului; «quartiere» = cartier."
+    }
   ],
   "subgroups": [
     {
-      "title": "Servicii",
+      "title": {
+        "it": "Servizi",
+        "ro": "Servicii"
+      },
       "wordIds": [
         "n-banca",
         "n-posta",
@@ -23,7 +38,10 @@
       ]
     },
     {
-      "title": "Cultură și timp liber",
+      "title": {
+        "it": "Cultura e tempo libero",
+        "ro": "Cultură și timp liber"
+      },
       "wordIds": [
         "n-museo",
         "n-teatro",
@@ -35,7 +53,10 @@
       ]
     },
     {
-      "title": "Pe hartă",
+      "title": {
+        "it": "Sulla mappa",
+        "ro": "Pe hartă"
+      },
       "wordIds": [
         "n-centro",
         "n-quartiere",

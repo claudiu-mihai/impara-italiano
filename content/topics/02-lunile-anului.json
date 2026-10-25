@@ -1,17 +1,37 @@
 {
   "id": "lunile-anului",
-  "title": "Lunile anului",
+  "title": {
+    "it": "I mesi dell'anno",
+    "ro": "Lunile anului"
+  },
   "group": "timp",
   "level": "A1",
   "first": true,
   "rules": [
-    "Lunile se scriu cu literă mică și sunt masculine: «a maggio» sau «in maggio» = în mai.",
-    "Data: «il primo maggio» (prima zi, ordinal), apoi cardinale: «il due maggio», «il venti maggio».",
-    "Anul se spune cu «nel»: «nel duemilaventi» = în 2020."
+    {
+      "it": "I mesi si scrivono con la minuscola e sono maschili: «a maggio» o «in maggio».",
+      "ro": "Lunile se scriu cu literă mică și sunt masculine: «a maggio» sau «in maggio» = în mai."
+    },
+    {
+      "it": "La data: «il primo maggio» (primo giorno, ordinale), poi i numeri cardinali: «il due maggio», «il venti maggio».",
+      "ro": "Data: «il primo maggio» (prima zi, ordinal), apoi cardinale: «il due maggio», «il venti maggio»."
+    },
+    {
+      "it": "L'anno si dice con «nel»: «nel duemilaventi».",
+      "ro": "Anul se spune cu «nel»: «nel duemilaventi» = în 2020."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "În română data se spune fără articol („2 mai”); în italiană cere articolul «il»: «il due maggio»."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Lunile",
+      "title": {
+        "it": "I mesi",
+        "ro": "Lunile"
+      },
       "wordIds": [
         "n-gennaio",
         "n-febbraio",
@@ -28,7 +48,10 @@
       ]
     },
     {
-      "title": "Cuvinte utile",
+      "title": {
+        "it": "Parole utili",
+        "ro": "Cuvinte utile"
+      },
       "wordIds": [
         "n-mese",
         "n-anno",

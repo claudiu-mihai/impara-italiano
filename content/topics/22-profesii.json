@@ -1,17 +1,37 @@
 {
   "id": "profesii",
-  "title": "Profesii",
+  "title": {
+    "it": "Le professioni",
+    "ro": "Profesii"
+  },
   "group": "oameni",
   "level": "A2",
   "first": false,
   "rules": [
-    "După «essere», profesia nu cere articol: «sono ingegnere», «è medico»; cu adjectiv, da: «è un bravo medico».",
-    "Feminin: -o → -a (cuoco → cuoca, commesso → commessa); -tore → -trice (attore → attrice); la -ista, -ante, -e rămâne la fel (la giornalista, l'insegnante).",
-    "«Che lavoro fai?» = Cu ce te ocupi?"
+    {
+      "it": "Dopo «essere» la professione non vuole l'articolo: «sono ingegnere», «è medico»; con un aggettivo, sì: «è un bravo medico».",
+      "ro": "După «essere», profesia nu cere articol: «sono ingegnere», «è medico»; cu adjectiv, da: «è un bravo medico»."
+    },
+    {
+      "it": "Femminile: -o → -a (cuoco → cuoca, commesso → commessa); -tore → -trice (attore → attrice); con -ista, -ante, -e resta uguale (la giornalista, l'insegnante).",
+      "ro": "Feminin: -o → -a (cuoco → cuoca, commesso → commessa); -tore → -trice (attore → attrice); la -ista, -ante, -e rămâne la fel (la giornalista, l'insegnante)."
+    },
+    {
+      "it": "«Che lavoro fai?» è la domanda sulla professione.",
+      "ro": "«Che lavoro fai?» = Cu ce te ocupi?"
+    }
   ],
+  "contrast": {
+    "ro": [
+      "Ca în română („sunt inginer”), profesia nu are articol după «essere»: «sono ingegnere»."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Sănătate și drept",
+      "title": {
+        "it": "Salute e legge",
+        "ro": "Sănătate și drept"
+      },
       "wordIds": [
         "n-medico",
         "n-dottore",
@@ -20,7 +40,10 @@
       ]
     },
     {
-      "title": "Școală și birou",
+      "title": {
+        "it": "Scuola e ufficio",
+        "ro": "Școală și birou"
+      },
       "wordIds": [
         "n-insegnante",
         "n-professore",
@@ -32,7 +55,10 @@
       ]
     },
     {
-      "title": "Servicii",
+      "title": {
+        "it": "Servizi",
+        "ro": "Servicii"
+      },
       "wordIds": [
         "n-cuoco",
         "n-cameriere",
@@ -42,7 +68,10 @@
       ]
     },
     {
-      "title": "Artă și presă",
+      "title": {
+        "it": "Arte e stampa",
+        "ro": "Artă și presă"
+      },
       "wordIds": [
         "n-artista",
         "n-attore",

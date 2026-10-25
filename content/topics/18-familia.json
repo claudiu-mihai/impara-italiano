@@ -1,17 +1,38 @@
 {
   "id": "familia",
-  "title": "Familia",
+  "title": {
+    "it": "La famiglia",
+    "ro": "Familia"
+  },
   "group": "oameni",
   "level": "A2",
   "first": false,
   "rules": [
-    "Cu rudele la singular, posesivul stă fără articol: «mia madre», «mio fratello»; la plural cu articol: «i miei fratelli». Cu diminutive articolul rămâne: «la mia mamma».",
-    "«Nipote» înseamnă nepot/nepoată (al bunicilor sau al unchilor): «il nipote», «la nipote».",
-    "Atenție: «parenti» = rude (nu părinți). Părinții sunt «genitori»."
+    {
+      "it": "Con i parenti al singolare il possessivo va senza articolo: «mia madre», «mio fratello»; al plurale con l'articolo: «i miei fratelli». Con i diminutivi l'articolo resta: «la mia mamma».",
+      "ro": "Cu rudele la singular, posesivul stă fără articol: «mia madre», «mio fratello»; la plural cu articol: «i miei fratelli». Cu diminutive articolul rămâne: «la mia mamma»."
+    },
+    {
+      "it": "«Nipote» vuol dire sia nipote dei nonni sia degli zii: «il nipote», «la nipote».",
+      "ro": "«Nipote» înseamnă nepot/nepoată (al bunicilor sau al unchilor): «il nipote», «la nipote»."
+    },
+    {
+      "it": "«Parenti» sono i familiari in generale; i genitori sono «genitori».",
+      "ro": "«Parenti» = rudele în general; mama și tata sunt «genitori»."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "Atenție, prieten fals: «parenti» seamănă cu „părinți”, dar înseamnă „rude”. Părinții sunt «genitori».",
+      "În română posesivul vine după substantiv („mama mea”); în italiană vine înainte, fără articol la rudele la singular: «mia madre»."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Părinți și copii",
+      "title": {
+        "it": "Genitori e figli",
+        "ro": "Părinți și copii"
+      },
       "wordIds": [
         "n-famiglia",
         "n-madre",
@@ -24,7 +45,10 @@
       ]
     },
     {
-      "title": "Frați și bunici",
+      "title": {
+        "it": "Fratelli e nonni",
+        "ro": "Frați și bunici"
+      },
       "wordIds": [
         "n-fratello",
         "n-sorella",
@@ -33,7 +57,10 @@
       ]
     },
     {
-      "title": "Alte rude",
+      "title": {
+        "it": "Altri parenti",
+        "ro": "Alte rude"
+      },
       "wordIds": [
         "n-zio",
         "n-zia",
@@ -43,7 +70,10 @@
       ]
     },
     {
-      "title": "Cuplu",
+      "title": {
+        "it": "Coppia",
+        "ro": "Cuplu"
+      },
       "wordIds": [
         "n-marito",
         "n-moglie",

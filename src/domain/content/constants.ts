@@ -31,6 +31,12 @@ export type Level = (typeof LEVELS)[number];
 export type Pos = (typeof POS)[number];
 export type Tense = (typeof TENSES)[number];
 
+/** Limbile materne cu conținut (traduceri, reguli comparate); deocamdată doar româna. */
+export const NATIVE_LANGUAGES = ["ro"] as const;
+
+/** Limba maternă a celui care învață; deocamdată fixă, fără selector (vezi FR7 din plan). */
+export const NATIVE_LANGUAGE: NativeLanguage = "ro";
+
 /** Grupurile de teme, în ordinea în care apar în listă. */
 export const TOPIC_GROUPS = ["timp", "numere", "spatiu", "oameni", "zi-de-zi", "oras", "conversatie"] as const;
 
@@ -40,6 +46,7 @@ export const TOPIC_EXERCISES = ["match", "order", "numbers", "clock", "cat"] as 
 /** Abilități cu itemi generați din reguli (unitate SRS = abilitatea, nu itemul). */
 export const SKILLS = ["numbers-0-20", "numbers-21-100", "numbers-big", "clock"] as const;
 
+export type NativeLanguage = (typeof NATIVE_LANGUAGES)[number];
 export type TopicGroup = (typeof TOPIC_GROUPS)[number];
 export type TopicExercise = (typeof TOPIC_EXERCISES)[number];
 export type Skill = (typeof SKILLS)[number];

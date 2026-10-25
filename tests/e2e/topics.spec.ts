@@ -6,9 +6,9 @@ import { WORDS, type WordData } from "./helpers.ts";
 
 interface TopicData {
   id: string;
-  title: string;
-  rules: string[];
-  subgroups: { title: string; wordIds: string[] }[];
+  title: { it: string; ro: string };
+  rules: { it: string; ro: string }[];
+  subgroups: { title: { it: string; ro: string }; wordIds: string[] }[];
   exercises: string[];
   sequence?: string[];
   skill?: string;
@@ -54,7 +54,7 @@ test("Învață → Teme: lista pe grupuri și fișa temei", async ({ page }) =>
 
   await page.getByRole("link", { name: /Zilele săptămânii/ }).click();
   await expect(page.getByRole("heading", { name: "Zilele săptămânii", level: 1 })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "De reținut" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Da ricordare" })).toBeVisible();
   await expect(page.getByText(/il lunedì/).first()).toBeVisible();
   await expect(page.getByTestId("topic-progress")).toContainText(`0 din ${wordIdsOf(topic("zilele-saptamanii")).length} cuvinte începute`);
   // bara de jos rămâne vizibilă pe fișă
@@ -63,7 +63,7 @@ test("Învață → Teme: lista pe grupuri și fișa temei", async ({ page }) =>
 
 test("pagina cuvântului trimite la temă", async ({ page }) => {
   await page.goto("/browse/n-lunedì");
-  await page.getByRole("link", { name: /Vezi tema „Zilele săptămânii”/ }).click();
+  await page.getByRole("link", { name: /Vezi tema.*Zilele săptămânii/ }).click();
   await expect(page.getByRole("heading", { name: "Zilele săptămânii", level: 1 })).toBeVisible();
 });
 
@@ -195,12 +195,12 @@ test("temele din etapa a doua au fișă, reguli și toate cuvintele cu rând", a
   for (const id of ["familia", "la-hotel", "expresii-colocviale"]) {
     const t = topic(id);
     await page.goto(`/learn/topics/${id}`);
-    await expect(page.getByRole("heading", { name: t.title, level: 1 })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "De reținut" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: t.title.ro, level: 1 })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Da ricordare" })).toBeVisible();
     // regulile sunt ascunse până atingi titlul
-    await expect(page.getByText(t.rules[0]!, { exact: true })).toBeHidden();
-    await page.getByRole("button", { name: "De reținut" }).click();
-    for (const rule of t.rules) await expect(page.getByText(rule, { exact: true })).toBeVisible();
+    await expect(page.getByText(t.rules[0]!.it, { exact: true })).toBeHidden();
+    await page.getByRole("button", { name: "Da ricordare" }).click();
+    for (const rule of t.rules) await expect(page.getByText(rule.it, { exact: true })).toBeVisible();
     expect(await page.getByRole("link", { name: /^(?!Studiază|Quiz|Potrivește|Ordonează|Înapoi).+/ }).count()).toBeGreaterThan(0);
   }
 });
@@ -340,6 +340,6 @@ test("Acasă: abilitățile scadente apar la „Abilități de repetat”", asyn
   });
   await page.reload();
   await expect(page.getByRole("heading", { name: "Abilități de repetat" })).toBeVisible();
-  await page.getByRole("link", { name: "Ora", exact: true }).click();
+  await page.getByRole("link", { name: /L'ora/ }).click();
   await expect(page.getByText("Repetiție", { exact: true })).toBeVisible();
 });

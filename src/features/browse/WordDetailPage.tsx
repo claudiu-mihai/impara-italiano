@@ -11,6 +11,7 @@ import { TENSES } from "../../domain/content/constants.ts";
 import { masteryOf } from "../../domain/srs/mastery.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { BackLink } from "../../ui/BackLink.tsx";
+import { BilingualLabel } from "../../ui/BilingualLabel.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
 import { ConjugationTable } from "../../ui/ConjugationTable.tsx";
 import { LevelBadge } from "./LevelBadge.tsx";
@@ -75,8 +76,11 @@ export function WordDetailPage() {
       {inTopics.length > 0 && (
         <p className="text-sm">
           {inTopics.map((topic) => (
-            <Link key={topic.id} to={`/learn/topics/${topic.id}`} className="mr-4 inline-flex min-h-12 items-center text-brand-fg underline">
-              Vezi tema „{topic.title}”
+            <Link key={topic.id} to={`/learn/topics/${topic.id}`} className="mr-4 inline-flex min-h-12 flex-col justify-center text-brand-fg">
+              <span className="underline">Vezi tema</span>
+              <span className="font-semibold">
+                <BilingualLabel text={topic.title} />
+              </span>
             </Link>
           ))}
         </p>

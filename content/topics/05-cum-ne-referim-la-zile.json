@@ -1,17 +1,37 @@
 {
   "id": "cum-ne-referim-la-zile",
-  "title": "Cum ne referim la zile",
+  "title": {
+    "it": "Come parliamo dei giorni",
+    "ro": "Cum ne referim la zile"
+  },
   "group": "timp",
   "level": "A2",
   "first": true,
   "rules": [
-    "«Fa» vine după durată: «due giorni fa» = acum două zile. «Fra/tra» + durată = peste: «fra una settimana».",
-    "«Scorso» = trecut, «prossimo» = viitor; stau după substantiv: «la settimana scorsa», «il mese prossimo».",
-    "«Ieri sera» = aseară, «ieri mattina» = ieri dimineață, «domani sera» = mâine seară."
+    {
+      "it": "«Fa» viene dopo la durata: «due giorni fa». «Fra/tra» + durata significa «dopo»: «fra una settimana».",
+      "ro": "«Fa» vine după durată: «due giorni fa» = acum două zile. «Fra/tra» + durată = peste: «fra una settimana»."
+    },
+    {
+      "it": "«Scorso» indica il passato e «prossimo» il futuro; stanno dopo il sostantivo: «la settimana scorsa», «il mese prossimo».",
+      "ro": "«Scorso» = trecut, «prossimo» = viitor; stau după substantiv: «la settimana scorsa», «il mese prossimo»."
+    },
+    {
+      "it": "«Ieri sera», «ieri mattina», «domani sera».",
+      "ro": "«Ieri sera» = aseară, «ieri mattina» = ieri dimineață, «domani sera» = mâine seară."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "În română „acum” stă înaintea duratei („acum două zile”); în italiană «fa» vine după ea: «due giorni fa»."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Ieri, azi, mâine",
+      "title": {
+        "it": "Ieri, oggi, domani",
+        "ro": "Ieri, azi, mâine"
+      },
       "wordIds": [
         "e-l'altro_ieri",
         "adv-ieri",
@@ -21,7 +41,10 @@
       ]
     },
     {
-      "title": "Cu durată",
+      "title": {
+        "it": "Con una durata",
+        "ro": "Cu durată"
+      },
       "wordIds": [
         "e-due_giorni_fa",
         "e-fra_una_settimana",
@@ -30,7 +53,10 @@
       ]
     },
     {
-      "title": "Cuvinte utile",
+      "title": {
+        "it": "Parole utili",
+        "ro": "Cuvinte utile"
+      },
       "wordIds": [
         "a-scorso",
         "a-prossimo",

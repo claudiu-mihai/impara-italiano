@@ -1,17 +1,37 @@
 {
   "id": "mesele-zilei",
-  "title": "Mesele zilei",
+  "title": {
+    "it": "I pasti",
+    "ro": "Mesele zilei"
+  },
   "group": "zi-de-zi",
   "level": "A2",
   "first": false,
   "rules": [
-    "«Fare colazione», «pranzare», «cenare»: «pranzo» = prânz, «cena» = cină.",
-    "«Ho fame», «ho sete» – cu «avere», nu «essere».",
-    "Orele obișnuite în Italia: colazione 7–8, pranzo 12:30–14, cena 20–21."
+    {
+      "it": "«Fare colazione», «pranzare», «cenare»: «il pranzo» è a mezzogiorno, «la cena» è la sera.",
+      "ro": "«Fare colazione», «pranzare», «cenare»: «pranzo» = prânz, «cena» = cină."
+    },
+    {
+      "it": "«Ho fame», «ho sete» – con «avere», non «essere».",
+      "ro": "«Ho fame», «ho sete» – cu «avere», nu «essere»."
+    },
+    {
+      "it": "Orari tipici in Italia: colazione 7–8, pranzo 12:30–14, cena 20–21.",
+      "ro": "Orele obișnuite în Italia: colazione 7–8, pranzo 12:30–14, cena 20–21."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "În română „mi-e foame, mi-e sete”; în italiană se spune „am”: «ho fame», «ho sete»."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Mesele",
+      "title": {
+        "it": "I pasti",
+        "ro": "Mesele"
+      },
       "wordIds": [
         "n-colazione",
         "n-pranzo",
@@ -21,7 +41,10 @@
       ]
     },
     {
-      "title": "Pe masă",
+      "title": {
+        "it": "In tavola",
+        "ro": "Pe masă"
+      },
       "wordIds": [
         "v-mangiare",
         "v-bere",
@@ -37,7 +60,10 @@
       ]
     },
     {
-      "title": "Stări",
+      "title": {
+        "it": "Stati",
+        "ro": "Stări"
+      },
       "wordIds": [
         "n-fame",
         "n-sete"

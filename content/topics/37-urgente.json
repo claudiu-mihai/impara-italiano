@@ -1,17 +1,32 @@
 {
   "id": "urgente",
-  "title": "Urgențe",
+  "title": {
+    "it": "Emergenze",
+    "ro": "Urgențe"
+  },
   "group": "oras",
   "level": "A2",
   "first": false,
   "rules": [
-    "Numere de urgență în Italia: 112 (urgențe), 118 (ambulanță), 113 (poliție), 115 (pompieri).",
-    "«Aiuto!» = ajutor! «Ho bisogno di aiuto» = am nevoie de ajutor.",
-    "«Chiamo la polizia / l'ambulanza.»"
+    {
+      "it": "Numeri di emergenza in Italia: 112 (emergenze), 118 (ambulanza), 113 (polizia), 115 (vigili del fuoco).",
+      "ro": "Numere de urgență în Italia: 112 (urgențe), 118 (ambulanță), 113 (poliție), 115 (pompieri)."
+    },
+    {
+      "it": "«Aiuto!» «Ho bisogno di aiuto».",
+      "ro": "«Aiuto!» = ajutor! «Ho bisogno di aiuto» = am nevoie de ajutor."
+    },
+    {
+      "it": "«Chiamo la polizia / l'ambulanza» per chiedere aiuto per telefono.",
+      "ro": "«Chiamo la polizia / l'ambulanza» = chem poliția / ambulanța."
+    }
   ],
   "subgroups": [
     {
-      "title": "Cuvinte",
+      "title": {
+        "it": "Parole",
+        "ro": "Cuvinte"
+      },
       "wordIds": [
         "n-aiuto",
         "n-ambulanza",
@@ -24,7 +39,10 @@
       ]
     },
     {
-      "title": "Fraze",
+      "title": {
+        "it": "Frasi",
+        "ro": "Fraze"
+      },
       "wordIds": [
         "e-ho_bisogno_di_aiuto",
         "e-mi_sono_perso",

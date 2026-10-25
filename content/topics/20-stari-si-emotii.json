@@ -1,17 +1,37 @@
 {
   "id": "stari-si-emotii",
-  "title": "Stări și emoții",
+  "title": {
+    "it": "Stati d'animo ed emozioni",
+    "ro": "Stări și emoții"
+  },
   "group": "oameni",
   "level": "A2",
   "first": false,
   "rules": [
-    "Cu «avere»: «ho paura», «ho fame», «ho sete», «ho freddo», «ho ragione» (în română «mi-e frică», în italiană «am frică»).",
-    "«Sentirsi» + adjectiv: «mi sento bene», «ti senti stanco».",
-    "Adjectivele se acordă cu cine vorbește: «sono stanco» (el) / «sono stanca» (ea)."
+    {
+      "it": "Con «avere»: «ho paura», «ho fame», «ho sete», «ho freddo», «ho ragione».",
+      "ro": "Cu «avere»: «ho paura», «ho fame», «ho sete», «ho freddo», «ho ragione»."
+    },
+    {
+      "it": "«Sentirsi» + aggettivo: «mi sento bene», «ti senti stanco».",
+      "ro": "«Sentirsi» + adjectiv: «mi sento bene», «ti senti stanco»."
+    },
+    {
+      "it": "Gli aggettivi si accordano con chi parla: «sono stanco» (lui) / «sono stanca» (lei).",
+      "ro": "Adjectivele se acordă cu cine vorbește: «sono stanco» (el) / «sono stanca» (ea)."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "În română „mi-e frică, mi-e foame, mi-e frig”; în italiană se spune „am”: «ho paura», «ho fame», «ho freddo»."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Cum te simți",
+      "title": {
+        "it": "Come ti senti",
+        "ro": "Cum te simți"
+      },
       "wordIds": [
         "a-felice",
         "a-contento",
@@ -22,7 +42,10 @@
       ]
     },
     {
-      "title": "Emoții",
+      "title": {
+        "it": "Emozioni",
+        "ro": "Emoții"
+      },
       "wordIds": [
         "a-arrabbiato",
         "a-annoiato",
@@ -32,7 +55,10 @@
       ]
     },
     {
-      "title": "Substantive",
+      "title": {
+        "it": "Sostantivi",
+        "ro": "Substantive"
+      },
       "wordIds": [
         "n-paura",
         "n-gioia",
@@ -41,7 +67,10 @@
       ]
     },
     {
-      "title": "Verb",
+      "title": {
+        "it": "Verbo",
+        "ro": "Verb"
+      },
       "wordIds": [
         "v-sentirsi"
       ]

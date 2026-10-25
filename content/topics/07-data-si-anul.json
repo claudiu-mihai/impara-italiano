@@ -1,17 +1,37 @@
 {
   "id": "data-si-anul",
-  "title": "Data și anul",
+  "title": {
+    "it": "La data e l'anno",
+    "ro": "Data și anul"
+  },
   "group": "timp",
   "level": "A2",
   "first": false,
   "rules": [
-    "Data se spune cu articolul și cu numărul cardinal: «oggi è il quindici marzo»; doar prima zi e ordinal: «il primo maggio».",
-    "Anul se citește ca un singur număr: 2025 = «duemilaventicinque»; cu «nel»: «nel duemilaventicinque».",
-    "«Quanti anni hai?» = Câți ani ai? → «ho trent'anni» (cu «avere», nu «essere»). «Quando sei nato?» → «sono nato il tre maggio»."
+    {
+      "it": "La data si dice con l'articolo e il numero cardinale: «oggi è il quindici marzo»; solo il primo giorno è ordinale: «il primo maggio».",
+      "ro": "Data se spune cu articolul și cu numărul cardinal: «oggi è il quindici marzo»; doar prima zi e ordinal: «il primo maggio»."
+    },
+    {
+      "it": "L'anno si legge come un solo numero: 2025 = «duemilaventicinque»; con «nel»: «nel duemilaventicinque».",
+      "ro": "Anul se citește ca un singur număr: 2025 = «duemilaventicinque»; cu «nel»: «nel duemilaventicinque»."
+    },
+    {
+      "it": "«Quanti anni hai?» → «ho trent'anni» (con «avere», non «essere»). «Quando sei nato?» → «sono nato il tre maggio».",
+      "ro": "«Quanti anni hai?» = Câți ani ai? → «ho trent'anni» (cu «avere», nu «essere»). «Quando sei nato?» → «sono nato il tre maggio»."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "Ca în română („am treizeci de ani”), vârsta se spune cu «a avea»: «ho trent'anni». În italiană dispare „de”: nu se spune «trenta di anni»."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Cuvinte",
+      "title": {
+        "it": "Parole",
+        "ro": "Cuvinte"
+      },
       "wordIds": [
         "n-data",
         "e-data_di_nascita",
@@ -24,7 +44,10 @@
       ]
     },
     {
-      "title": "Reper",
+      "title": {
+        "it": "Riferimenti",
+        "ro": "Reper"
+      },
       "wordIds": [
         "adv-oggi",
         "adv-ieri",

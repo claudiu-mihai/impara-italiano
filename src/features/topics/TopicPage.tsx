@@ -1,6 +1,7 @@
 import { useLiveQuery } from "dexie-react-hooks";
 import { Link, useParams } from "react-router-dom";
 import { useContent } from "../../app/content.tsx";
+import { useItalianFirst } from "../../app/italianFirst.ts";
 import { useTopics } from "../../app/topics.ts";
 import { db } from "../../data/db/instance.ts";
 import { EXERCISE_ICON, EXERCISE_LABEL, italianText } from "../../domain/content/display.ts";
@@ -8,7 +9,8 @@ import { topicProgress } from "../../domain/topics/topics.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { BackLink } from "../../ui/BackLink.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
-import { RulesBox } from "../../ui/RulesBox.tsx";
+import { BilingualLabel, plainLabel } from "../../ui/BilingualLabel.tsx";
+import { TopicRulesBox } from "../../ui/TopicRulesBox.tsx";
 
 // Toate acțiunile (Studiază, Quiz, exerciții) stau într-o grilă cu două coloane: padding mic, ca să încapă pe ecrane înguste.
 // Studiază și Quiz stau pe un rând; exercițiile, cu etichete mai lungi, ocupă fiecare toată lățimea.
@@ -21,6 +23,7 @@ export function TopicPage() {
   const content = useContent();
   const topics = useTopics();
   const cards = useLiveQuery(() => db.cards.where("kind").equals("vocab").toArray(), []);
+  const italianFirst = useItalianFirst();
 
   if (!topics || !cards) return <p className="p-6 text-center text-muted">Se încarcă…</p>;
 
@@ -44,7 +47,9 @@ export function TopicPage() {
 
       <header className="flex flex-col gap-2">
         <div className="flex items-center gap-3">
-          <h1 className="flex-1 text-3xl font-bold">{topic.title}</h1>
+          <h1 className="flex-1 text-3xl font-bold">
+            <BilingualLabel text={topic.title} />
+          </h1>
           <CefrBadge level={topic.level} />
         </div>
         <p className="text-muted" data-testid="topic-progress">
@@ -53,8 +58,10 @@ export function TopicPage() {
       </header>
 
       {topic.subgroups.map((sub) => (
-        <section key={sub.title} aria-label={sub.title} className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">{sub.title}</h2>
+        <section key={sub.title.it} aria-label={plainLabel(sub.title, italianFirst)} className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">
+            <BilingualLabel text={sub.title} />
+          </h2>
           <ul className="mt-2 divide-y divide-slate-200 dark:divide-slate-700">
             {sub.wordIds.map((wordId) => {
               const word = content.byId(wordId);
@@ -74,7 +81,7 @@ export function TopicPage() {
         </section>
       ))}
 
-      <RulesBox rules={topic.rules} />
+      <TopicRulesBox rules={topic.rules} contrast={topic.contrast?.ro} />
 
       <div className="grid grid-cols-2 gap-3" data-testid="topic-actions">
         <Link to={`/learn/topics/${topic.id}/flashcards`} className={`${filled} whitespace-nowrap`}>

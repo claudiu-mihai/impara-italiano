@@ -20,6 +20,9 @@ const text = z
 
 const example = z.object({ it: text, ro: text }).strict();
 
+/** Text în italiană și în limba maternă (chei: `it` și codurile din NATIVE_LANGUAGES). */
+const localized = z.object({ it: text, ro: text }).strict();
+
 const baseShape = {
   id: z.string().regex(/^[a-z]{1,3}-[\p{L}'_-]+$/u, "id invalid (ex. v-parlare)"),
   it: text,
@@ -107,15 +110,17 @@ export const conjugationsSchema = z.record(
 export const topicSchema = z
   .object({
     id: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, "id invalid (ex. zilele-saptamanii)"),
-    title: text,
+    title: localized,
     group: z.enum(TOPIC_GROUPS),
     level: z.enum(LEVELS),
     /** ★ = prima etapă (Faza 4). */
     first: z.boolean(),
     intro: text.optional(),
-    /** 2–4 reguli scurte pentru vorbitori de română. */
-    rules: z.array(text).min(1).max(4),
-    subgroups: z.array(z.object({ title: text, wordIds: z.array(z.string()).min(1) }).strict()).min(1),
+    /** 1–4 reguli ale limbii italiane: `it` pe fața italiană a casetei „De reținut”, traducerea pe cea în limba maternă. */
+    rules: z.array(localized).min(1).max(4),
+    /** Reguli comparate cu limba maternă (doar pe fața în limba maternă), grupate după codul limbii. */
+    contrast: z.object({ ro: z.array(text).min(1).max(4) }).strict().optional(),
+    subgroups: z.array(z.object({ title: localized, wordIds: z.array(z.string()).min(1) }).strict()).min(1),
     exercises: z.array(z.enum(TOPIC_EXERCISES)),
     /** Secvență ciclică (zile, luni, anotimpuri): după ultimul element vine primul. */
     cyclic: z.boolean().optional(),
@@ -187,6 +192,8 @@ export type Word = z.infer<typeof wordSchema> & { level: Level };
 export type ParsedVerb = z.infer<typeof verbSchema>;
 export type Verb = Extract<Word, { pos: "verb" }>;
 export type Topic = z.infer<typeof topicSchema>;
+/** Un text în italiană și în limba maternă. */
+export type Localized = z.infer<typeof localized>;
 export type Sentence = z.infer<typeof sentenceSchema>;
 export type GrammarItem = z.infer<typeof grammarItemSchema>;
 export type GrammarTopic = z.infer<typeof grammarTopicSchema>;

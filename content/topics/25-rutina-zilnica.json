@@ -1,17 +1,37 @@
 {
   "id": "rutina-zilnica",
-  "title": "Rutina zilnică",
+  "title": {
+    "it": "La routine quotidiana",
+    "ro": "Rutina zilnică"
+  },
   "group": "zi-de-zi",
   "level": "A2",
   "first": false,
   "rules": [
-    "Verbele reflexive au pronumele înainte: «mi sveglio», «ti alzi»; la imperativ se lipește: «alzati!», «svegliati!».",
-    "La passato prossimo reflexivele cer «essere»: «mi sono svegliato / svegliata».",
-    "Cu părțile corpului: «mi lavo le mani» (articol, nu posesiv)."
+    {
+      "it": "I verbi riflessivi hanno il pronome prima del verbo: «mi sveglio», «ti alzi»; all'imperativo si attacca: «alzati!», «svegliati!».",
+      "ro": "Verbele reflexive au pronumele înainte: «mi sveglio», «ti alzi»; la imperativ se lipește: «alzati!», «svegliati!»."
+    },
+    {
+      "it": "Al passato prossimo i riflessivi vogliono «essere»: «mi sono svegliato / svegliata».",
+      "ro": "La passato prossimo reflexivele cer «essere»: «mi sono svegliato / svegliata»."
+    },
+    {
+      "it": "Con le parti del corpo: «mi lavo le mani» (articolo, non possessivo).",
+      "ro": "Cu părțile corpului: «mi lavo le mani» (articol, nu posesiv)."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "În română „m-am trezit” se formează cu «a avea»; în italiană cu «essere»: «mi sono svegliato»."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Dimineața",
+      "title": {
+        "it": "Al mattino",
+        "ro": "Dimineața"
+      },
       "wordIds": [
         "v-svegliarsi",
         "v-alzarsi",
@@ -25,7 +45,10 @@
       ]
     },
     {
-      "title": "Peste zi",
+      "title": {
+        "it": "Durante il giorno",
+        "ro": "Peste zi"
+      },
       "wordIds": [
         "v-uscire",
         "v-tornare",
@@ -34,7 +57,10 @@
       ]
     },
     {
-      "title": "Seara",
+      "title": {
+        "it": "La sera",
+        "ro": "Seara"
+      },
       "wordIds": [
         "v-sedersi",
         "v-riposarsi",

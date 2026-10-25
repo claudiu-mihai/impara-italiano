@@ -1,17 +1,37 @@
 {
   "id": "saluturi-si-politete",
-  "title": "Saluturi și politețe",
+  "title": {
+    "it": "Saluti e cortesia",
+    "ro": "Saluturi și politețe"
+  },
   "group": "conversatie",
   "level": "A1",
   "first": true,
   "rules": [
-    "«Tu» (prieteni, copii) și «Lei» (formal): «come stai?» / «come sta?»; cu «Lei» verbul stă la persoana a III-a singular.",
-    "«Ciao» se spune și la salut, și la despărțire; «salve» este neutru; «arrivederci» este formal.",
-    "«Scusa» (tu) / «scusi» (Lei) = scuză-mă / scuzați-mă. «Prego» = cu plăcere (răspuns la «grazie»)."
+    {
+      "it": "«Tu» (amici, bambini) e «Lei» (formale): «come stai?» / «come sta?»; con «Lei» il verbo è alla terza persona singolare.",
+      "ro": "«Tu» (prieteni, copii) și «Lei» (formal): «come stai?» / «come sta?»; cu «Lei» verbul stă la persoana a III-a singular."
+    },
+    {
+      "it": "«Ciao» si dice sia per salutare sia per congedarsi; «salve» è neutro; «arrivederci» è formale.",
+      "ro": "«Ciao» se spune și la salut, și la despărțire; «salve» este neutru; «arrivederci» este formal."
+    },
+    {
+      "it": "«Scusa» (tu) / «scusi» (Lei). «Prego» = risposta a «grazie».",
+      "ro": "«Scusa» (tu) / «scusi» (Lei) = scuză-mă / scuzați-mă. «Prego» = cu plăcere (răspuns la «grazie»)."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "Pentru „dumneavoastră” româna folosește persoana a II-a plural („cum vă simțiți?”); italiana folosește «Lei» cu persoana a III-a singular: «come sta?»."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Salut și rămas bun",
+      "title": {
+        "it": "Saluti e addii",
+        "ro": "Salut și rămas bun"
+      },
       "wordIds": [
         "int-ciao",
         "int-salve",
@@ -25,7 +45,10 @@
       ]
     },
     {
-      "title": "Politețe",
+      "title": {
+        "it": "Cortesia",
+        "ro": "Politețe"
+      },
       "wordIds": [
         "int-grazie",
         "int-prego",
@@ -38,7 +61,10 @@
       ]
     },
     {
-      "title": "Cum ești?",
+      "title": {
+        "it": "Come stai?",
+        "ro": "Cum ești?"
+      },
       "wordIds": [
         "e-come_stai",
         "e-come_sta",

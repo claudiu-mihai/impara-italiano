@@ -1,17 +1,37 @@
 {
   "id": "directii",
-  "title": "Direcții",
+  "title": {
+    "it": "Le direzioni",
+    "ro": "Direcții"
+  },
   "group": "spatiu",
   "level": "A1",
   "first": true,
   "rules": [
-    "Pentru «tu»: «gira a destra», «vai dritto». Pentru «Lei»: «giri a destra», «vada dritto».",
-    "«Sempre dritto» = mereu înainte; «fino a» = până la: «fino al semaforo».",
-    "«Al semaforo», «all'incrocio», «all'angolo» = la semafor, la intersecție, la colț."
+    {
+      "it": "Per «tu»: «gira a destra», «vai dritto». Per «Lei»: «giri a destra», «vada dritto».",
+      "ro": "Pentru «tu»: «gira a destra», «vai dritto». Pentru «Lei»: «giri a destra», «vada dritto»."
+    },
+    {
+      "it": "«Sempre dritto» = senza girare; «fino a» indica il limite: «fino al semaforo».",
+      "ro": "«Sempre dritto» = mereu înainte; «fino a» = până la: «fino al semaforo»."
+    },
+    {
+      "it": "«Al semaforo», «all'incrocio», «all'angolo».",
+      "ro": "«Al semaforo», «all'incrocio», «all'angolo» = la semafor, la intersecție, la colț."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "Pentru „dumneavoastră” româna folosește persoana a II-a plural („mergeți drept”); italiana folosește «Lei» cu persoana a III-a singular: «vada dritto»."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Direcții",
+      "title": {
+        "it": "Direzioni",
+        "ro": "Direcții"
+      },
       "wordIds": [
         "n-destra",
         "n-sinistra",
@@ -24,14 +44,20 @@
       ]
     },
     {
-      "title": "Acțiuni",
+      "title": {
+        "it": "Azioni",
+        "ro": "Acțiuni"
+      },
       "wordIds": [
         "v-girare",
         "v-svoltare"
       ]
     },
     {
-      "title": "Pe stradă",
+      "title": {
+        "it": "In strada",
+        "ro": "Pe stradă"
+      },
       "wordIds": [
         "n-strada",
         "n-piazza",

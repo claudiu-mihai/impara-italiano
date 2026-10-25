@@ -1,17 +1,37 @@
 {
   "id": "culori",
-  "title": "Culorile",
+  "title": {
+    "it": "I colori",
+    "ro": "Culorile"
+  },
   "group": "zi-de-zi",
   "level": "A1",
   "first": true,
   "rules": [
-    "Culorile sunt adjective și se acordă în gen și număr: rosso/rossa/rossi/rosse; dar «blu», «rosa», «viola» sunt invariabile.",
-    "Culoarea stă după substantiv: «una macchina rossa».",
-    "«Chiaro» și «scuro» se pun după culoare și nu se acordă: «blu scuro», «verde chiaro»."
+    {
+      "it": "I colori sono aggettivi e si accordano in genere e numero: rosso/rossa/rossi/rosse; ma «blu», «rosa», «viola» sono invariabili.",
+      "ro": "Culorile sunt adjective și se acordă în gen și număr: rosso/rossa/rossi/rosse; dar «blu», «rosa», «viola» sunt invariabile."
+    },
+    {
+      "it": "Il colore sta dopo il sostantivo: «una macchina rossa».",
+      "ro": "Culoarea stă după substantiv: «una macchina rossa»."
+    },
+    {
+      "it": "«Chiaro» e «scuro» si mettono dopo il colore e non si accordano: «blu scuro», «verde chiaro».",
+      "ro": "«Chiaro» și «scuro» se pun după culoare și nu se acordă: «blu scuro», «verde chiaro»."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "Ca în română, culoarea stă după substantiv: „mașina roșie” = «la macchina rossa»."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Culorile",
+      "title": {
+        "it": "I colori",
+        "ro": "Culorile"
+      },
       "wordIds": [
         "a-rosso",
         "a-blu",
@@ -28,7 +48,10 @@
       ]
     },
     {
-      "title": "Nuanțe",
+      "title": {
+        "it": "Sfumature",
+        "ro": "Nuanțe"
+      },
       "wordIds": [
         "n-colore",
         "a-chiaro",

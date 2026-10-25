@@ -1,17 +1,37 @@
 {
   "id": "la-bar",
-  "title": "La bar",
+  "title": {
+    "it": "Al bar",
+    "ro": "La bar"
+  },
   "group": "zi-de-zi",
   "level": "A2",
   "first": false,
   "rules": [
-    "Cerere politicoasă: «vorrei un caffè, per favore» sau «prendo un caffè».",
-    "«Un caffè» înseamnă espresso. Cappuccino se bea de obicei doar dimineața.",
-    "Adesea se plătește întâi la casă, iar cu bonul (scontrino) comanzi la tejghea."
+    {
+      "it": "Richiesta gentile: «vorrei un caffè, per favore» oppure «prendo un caffè».",
+      "ro": "Cerere politicoasă: «vorrei un caffè, per favore» sau «prendo un caffè»."
+    },
+    {
+      "it": "«Un caffè» è un espresso. Il cappuccino si beve di solito solo la mattina.",
+      "ro": "«Un caffè» înseamnă espresso. Cappuccino se bea de obicei doar dimineața."
+    },
+    {
+      "it": "Spesso si paga prima alla cassa e con lo scontrino si ordina al banco.",
+      "ro": "Adesea se plătește întâi la casă, iar cu bonul (scontrino) comanzi la tejghea."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "«Un caffè» nu e „o cafea” mare: în Italia înseamnă un espresso mic și tare."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Băuturi",
+      "title": {
+        "it": "Bevande",
+        "ro": "Băuturi"
+      },
       "wordIds": [
         "n-caffè",
         "n-cappuccino",
@@ -24,7 +44,10 @@
       ]
     },
     {
-      "title": "Mâncare",
+      "title": {
+        "it": "Cibo",
+        "ro": "Mâncare"
+      },
       "wordIds": [
         "n-cornetto",
         "n-panino",
@@ -32,7 +55,10 @@
       ]
     },
     {
-      "title": "Comenzi",
+      "title": {
+        "it": "Ordinazioni",
+        "ro": "Comenzi"
+      },
       "wordIds": [
         "e-vorrei",
         "e-per_favore",

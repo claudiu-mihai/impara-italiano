@@ -37,6 +37,18 @@ for (const scheme of ["light", "dark"] as const) {
       }
     });
 
+    test("caseta „De reținut”, pe ambele fețe", async ({ page }) => {
+      await page.goto("/learn/topics/familia");
+      await page.getByRole("button", { name: "Da ricordare" }).click();
+      await page.waitForTimeout(100);
+      await audit(page, "de reținut (italiană, deschisă)");
+
+      await page.getByRole("button", { name: "Arată în română" }).click();
+      await expect(page.getByRole("heading", { name: "De reținut" })).toBeVisible();
+      await page.waitForTimeout(700); // animația de întoarcere
+      await audit(page, "de reținut (română, deschisă)");
+    });
+
     test("exercițiile din Teme", async ({ page }) => {
       await page.goto("/learn/topics/culori/match");
       await expect(page.getByRole("heading", { name: "Potrivește perechile" })).toBeVisible();

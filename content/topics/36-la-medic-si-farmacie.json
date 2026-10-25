@@ -1,17 +1,37 @@
 {
   "id": "la-medic-si-farmacie",
-  "title": "La medic și la farmacie",
+  "title": {
+    "it": "Dal medico e in farmacia",
+    "ro": "La medic și la farmacie"
+  },
   "group": "oras",
   "level": "A2",
   "first": false,
   "rules": [
-    "«Mi fa male la testa» (singular) / «mi fanno male i piedi» (plural).",
-    "«Avere mal di testa / di stomaco / di gola»; «ho la febbre» = am febră.",
-    "Medicamentele se iau de la «farmacia»; unele cer «ricetta» (rețetă)."
+    {
+      "it": "«Mi fa male la testa» (singolare) / «mi fanno male i piedi» (plurale).",
+      "ro": "«Mi fa male la testa» (singular) / «mi fanno male i piedi» (plural)."
+    },
+    {
+      "it": "«Avere mal di testa / di stomaco / di gola»; «ho la febbre».",
+      "ro": "«Avere mal di testa / di stomaco / di gola»; «ho la febbre» = am febră."
+    },
+    {
+      "it": "I medicinali si comprano in «farmacia»; alcuni vogliono la «ricetta».",
+      "ro": "Medicamentele se iau de la «farmacia»; unele cer «ricetta» (rețetă)."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "În română „mă doare capul / mă dor picioarele”; în italiană «mi fa male…» / «mi fanno male…», după numărul părții corpului."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Persoane și locuri",
+      "title": {
+        "it": "Persone e luoghi",
+        "ro": "Persoane și locuri"
+      },
       "wordIds": [
         "n-medico",
         "n-dottore",
@@ -20,7 +40,10 @@
       ]
     },
     {
-      "title": "Probleme",
+      "title": {
+        "it": "Problemi",
+        "ro": "Probleme"
+      },
       "wordIds": [
         "a-malato",
         "n-febbre",
@@ -31,7 +54,10 @@
       ]
     },
     {
-      "title": "Tratament",
+      "title": {
+        "it": "Cura",
+        "ro": "Tratament"
+      },
       "wordIds": [
         "n-medicina",
         "n-ricetta",
