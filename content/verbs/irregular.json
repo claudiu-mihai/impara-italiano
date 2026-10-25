@@ -51,7 +51,8 @@
     "v-cuocere": ["cuocio","cuoci","cuoce","cuociamo","cuocete","cuociono"],
     "v-intrattenere": ["intrattengo","intrattieni","intrattiene","intratteniamo","intrattenete","intrattengono"],
     "v-prevalere": ["prevalgo","prevali","prevale","prevaliamo","prevalete","prevalgono"],
-    "v-contraddire": ["contraddico","contraddici","contraddice","contraddiciamo","contraddite","contraddicono"]
+    "v-contraddire": ["contraddico","contraddici","contraddice","contraddiciamo","contraddite","contraddicono"],
+    "v-nuocere": ["noccio","nuoci","nuoce","nuociamo","nuocete","nocciono"]
   },
   "imperfetto": {
     "v-essere": ["ero","eri","era","eravamo","eravate","erano"]
@@ -146,7 +147,8 @@
     "v-cuocere": ["cuocia","cuocia","cuocia","cuociamo","cuociate","cuociano"],
     "v-intrattenere": ["intrattenga","intrattenga","intrattenga","intratteniamo","intratteniate","intrattengano"],
     "v-prevalere": ["prevalga","prevalga","prevalga","prevaliamo","prevaliate","prevalgano"],
-    "v-contraddire": ["contraddica","contraddica","contraddica","contraddiciamo","contraddiciate","contraddicano"]
+    "v-contraddire": ["contraddica","contraddica","contraddica","contraddiciamo","contraddiciate","contraddicano"],
+    "v-nuocere": [["noccia","nuoccia"],["noccia","nuoccia"],["noccia","nuoccia"],"nuociamo","nuociate",["nocciano","nuocciano"]]
   },
   "imperativo": {
     "v-andare": [["va'","vai"],"vada","andiamo","andate","vadano"],
