@@ -47,7 +47,8 @@
     "v-convenire": ["convengo","convieni","conviene","conveniamo","convenite","convengono"],
     "v-svenire": ["svengo","svieni","sviene","sveniamo","svenite","svengono"],
     "v-cucire": ["cucio","cuci","cuce","cuciamo","cucite","cuciono"],
-    "v-sciare": ["scio","scii","scia","sciamo","sciate","sciano"]
+    "v-sciare": ["scio","scii","scia","sciamo","sciate","sciano"],
+    "v-cuocere": ["cuocio","cuoci","cuoce","cuociamo","cuocete","cuociono"]
   },
   "imperfetto": {
     "v-essere": ["ero","eri","era","eravamo","eravate","erano"]
@@ -135,7 +136,8 @@
     "v-convenire": ["convenga","convenga","convenga","conveniamo","conveniate","convengano"],
     "v-svenire": ["svenga","svenga","svenga","sveniamo","sveniate","svengano"],
     "v-cucire": ["cucia","cucia","cucia","cuciamo","cuciate","cuciano"],
-    "v-sciare": ["scii","scii","scii","sciamo","sciate","sciino"]
+    "v-sciare": ["scii","scii","scii","sciamo","sciate","sciino"],
+    "v-cuocere": ["cuocia","cuocia","cuocia","cuociamo","cuociate","cuociano"]
   },
   "imperativo": {
     "v-andare": [["va'","vai"],"vada","andiamo","andate","vadano"],
