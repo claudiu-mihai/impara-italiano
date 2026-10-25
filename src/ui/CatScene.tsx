@@ -1,7 +1,19 @@
-import { useId, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { useT } from "../i18n/index.ts";
 import type { CatItem } from "../domain/topics/cat.ts";
 import { lupinoSrc, type LupinoPose } from "./mascot/Lupino.tsx";
+import davanti from "./mascot/lupino-masa-davanti.jpg";
+import dietro from "./mascot/lupino-masa-dietro.jpg";
+import sopra from "./mascot/lupino-masa-sopra.jpg";
+import sotto from "./mascot/lupino-masa-sotto.jpg";
+
+/** Ilustrațiile cu masa (design/dov-e-lupino/, redimensionate la 1000 px); celelalte poziții rămân desenate în SVG. */
+const TABLE_PHOTOS: Record<string, string> = {
+  "table-on": sopra,
+  "table-under": sotto,
+  "table-front": davanti,
+  "table-behind": dietro,
+};
 
 interface CatSceneProps {
   item: CatItem;
@@ -68,44 +80,13 @@ const BoxFront = ({ open }: { open: boolean }) => (
 );
 
 /**
- * Scena din „Unde e Lupino?”: Lupino față de o masă, o masă cu scaun sau o cutie. Elementele se desenează în ordine,
- * ca mobila să-l acopere pe Lupino când e în spate sau înăuntru. „Dietro il tavolo” îl arată doar deasupra blatului
- * (altfel s-ar vedea întreg printre picioarele mesei, ca „sotto”). „Accanto” are cutia închisă, „fuori” deschisă și goală.
+ * Scena din „Unde e Lupino?”: Lupino față de o masă, o masă cu scaun sau o cutie. Pozițiile sopra, sotto, davanti și dietro
+ * față de masă sunt ilustrații; restul sunt desenate în SVG, cu elementele în ordine, ca mobila să-l acopere pe Lupino
+ * când e înăuntru. „Accanto” are cutia închisă, „fuori” deschisă și goală.
  */
 export function CatScene({ item, size = 300 }: CatSceneProps) {
   const { t } = useT();
-  // useId dă id-uri cu „:”, pe care le sanitizăm ca să intre sigur în url(#…)
-  const clipId = `clip-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const scenes: Record<string, ReactNode> = {
-    "table-on": (
-      <>
-        <Table x={90} />
-        <LupinoAt pose="ciao" cx={150} feet={95} height={74} />
-      </>
-    ),
-    "table-under": (
-      <>
-        <Table x={90} />
-        <LupinoAt pose="relax" cx={150} feet={170} height={56} />
-      </>
-    ),
-    "table-front": (
-      <>
-        <Table x={90} />
-        <LupinoAt pose="ciao" cx={150} feet={206} height={104} />
-      </>
-    ),
-    "table-behind": (
-      <>
-        <clipPath id={clipId}>
-          <rect width="300" height="96" />
-        </clipPath>
-        <g clipPath={`url(#${clipId})`}>
-          <LupinoAt pose="ciao" cx={150} feet={140} height={96} />
-        </g>
-        <Table x={90} />
-      </>
-    ),
     "table-beside": (
       <>
         <Table x={70} />
@@ -158,6 +139,21 @@ export function CatScene({ item, size = 300 }: CatSceneProps) {
       </>
     ),
   };
+
+  const photo = TABLE_PHOTOS[item.id];
+  if (photo) {
+    return (
+      <img
+        src={photo}
+        width={size}
+        height={Math.round((size * 671) / 1000)}
+        alt={t("cat.scene")}
+        draggable={false}
+        decoding="async"
+        className="max-w-full rounded-2xl"
+      />
+    );
+  }
 
   return (
     <svg viewBox="0 0 300 210" width={size} role="img" aria-label={t("cat.scene")} className="max-w-full rounded-2xl">

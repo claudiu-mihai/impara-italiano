@@ -447,7 +447,7 @@ Cerința este în FR2.5 din [app-plan.md](app-plan.md). Sunt 42 de teme (14 ★ 
 #### 12.4 Interfață
 
 * Rute: `/learn/topics` (listă pe grupuri, cu progres), `/learn/topics/:id` (fișa: reguli, subgrupe cu 🔊, butoane), `/learn/topics/:id/{flashcards,quiz,match,order,numbers,clock,cat}` (pe tot ecranul, fără bara de jos). Link „Vezi tema” pe pagina cuvântului.
-* `ui/ClockFace.tsx`: cadran SVG cu `aria-label` cu ora în cifre. `ui/CatScene.tsx`: scenă SVG (masă, scaun, cutie, pisică), fără text care să dezvăluie răspunsul.
+* `ui/ClockFace.tsx`: cadran SVG cu `aria-label` cu ora în cifre. `ui/CatScene.tsx`: scena din „Unde e Lupino?”, fără text care să dezvăluie răspunsul; pozițiile față de masă (sopra, sotto, davanti, dietro) sunt ilustrații JPG din `src/ui/mascot/` (originalele, în `design/dov-e-lupino/`), restul sunt desenate în SVG (masă, scaun, cutie, Lupino).
 * **Ascultă și scrie cifrele:** dacă nu există voce italiană, numărul apare ca text în loc să fie rostit.
 * **Teste:** unitare pentru numere, ore, abilități, exerciții și sesiunea temei; E2E în `tests/e2e/topics.spec.ts` (listă, fișă, Studiază, Quiz, fiecare exercițiu, Acasă) și verificare axe pe ecranele noi.
 
