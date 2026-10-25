@@ -1,0 +1,1990 @@
+[
+  {
+    "it": "cooperare",
+    "pos": "verb",
+    "ro": "a coopera",
+    "tags": [
+      "social"
+    ],
+    "examples": [
+      {
+        "it": "Dobbiamo cooperare per finire presto.",
+        "ro": "Trebuie să cooperăm ca să terminăm repede."
+      },
+      {
+        "it": "I due paesi cooperano da anni.",
+        "ro": "Cele două țări cooperează de ani."
+      }
+    ]
+  },
+  {
+    "it": "barattare",
+    "pos": "verb",
+    "ro": "a face schimb",
+    "tags": [
+      "cumpărături"
+    ],
+    "examples": [
+      {
+        "it": "Baratto un libro con un disco.",
+        "ro": "Fac schimb de o carte pe un disc."
+      },
+      {
+        "it": "Barattiamo i vestiti dei bambini.",
+        "ro": "Facem schimb de haine de copii."
+      }
+    ]
+  },
+  {
+    "it": "ansimare",
+    "pos": "verb",
+    "ro": "a gâfâi",
+    "tags": [
+      "corp"
+    ],
+    "examples": [
+      {
+        "it": "Ansimo dopo la corsa.",
+        "ro": "Gâfâi după alergare."
+      },
+      {
+        "it": "Saliva le scale ansimando.",
+        "ro": "Urca scările gâfâind."
+      }
+    ]
+  },
+  {
+    "it": "radere",
+    "pos": "verb",
+    "ro": "a rade; a bărbieri",
+    "tags": [
+      "corp"
+    ],
+    "examples": [
+      {
+        "it": "Mi rado ogni mattina.",
+        "ro": "Mă bărbieresc în fiecare dimineață."
+      },
+      {
+        "it": "Il barbiere rade la barba.",
+        "ro": "Frizerul rade barba."
+      }
+    ]
+  },
+  {
+    "it": "dondolare",
+    "pos": "verb",
+    "ro": "a legăna; a bălăngăni",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Dondolo il bambino sulle ginocchia.",
+        "ro": "Leagăn copilul pe genunchi."
+      },
+      {
+        "it": "Le gambe dondolano dal tavolo.",
+        "ro": "Picioarele se bălăngăne de pe masă."
+      }
+    ]
+  },
+  {
+    "it": "capovolgere",
+    "pos": "verb",
+    "ro": "a răsturna",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Capovolgo la bottiglia.",
+        "ro": "Răstorn sticla."
+      },
+      {
+        "it": "La barca si è capovolta.",
+        "ro": "Barca s-a răsturnat."
+      }
+    ]
+  },
+  {
+    "it": "inghiottire",
+    "pos": "verb",
+    "ro": "a înghiți",
+    "tags": [
+      "corp"
+    ],
+    "examples": [
+      {
+        "it": "Non riesco a inghiottire.",
+        "ro": "Nu reușesc să înghit."
+      },
+      {
+        "it": "Ha inghiottito una caramella intera.",
+        "ro": "A înghițit o bomboană întreagă."
+      }
+    ]
+  },
+  {
+    "it": "sgridare",
+    "pos": "verb",
+    "ro": "a certa",
+    "tags": [
+      "comportament"
+    ],
+    "examples": [
+      {
+        "it": "La mamma mi sgrida sempre.",
+        "ro": "Mama mă ceartă mereu."
+      },
+      {
+        "it": "Il professore ha sgridato la classe.",
+        "ro": "Profesorul a certat clasa."
+      }
+    ]
+  },
+  {
+    "it": "pedalare",
+    "pos": "verb",
+    "ro": "a pedala",
+    "tags": [
+      "timp liber"
+    ],
+    "examples": [
+      {
+        "it": "Pedalo per un'ora.",
+        "ro": "Pedalez o oră."
+      },
+      {
+        "it": "Pedaliamo lungo il fiume.",
+        "ro": "Pedalăm de-a lungul râului."
+      }
+    ]
+  },
+  {
+    "it": "conteggiare",
+    "pos": "verb",
+    "ro": "a socoti; a număra",
+    "tags": [
+      "numere"
+    ],
+    "examples": [
+      {
+        "it": "Conteggio le spese del mese.",
+        "ro": "Socotesc cheltuielile lunii."
+      },
+      {
+        "it": "Hanno conteggiato i voti.",
+        "ro": "Au numărat voturile."
+      }
+    ]
+  },
+  {
+    "it": "visualizzare",
+    "pos": "verb",
+    "ro": "a afișa; a vizualiza",
+    "tags": [
+      "obiecte"
+    ],
+    "examples": [
+      {
+        "it": "Il telefono visualizza il messaggio.",
+        "ro": "Telefonul afișează mesajul."
+      },
+      {
+        "it": "Visualizzo la mappa.",
+        "ro": "Vizualizez harta."
+      }
+    ]
+  },
+  {
+    "it": "allagare",
+    "pos": "verb",
+    "ro": "a inunda",
+    "tags": [
+      "natură"
+    ],
+    "examples": [
+      {
+        "it": "La pioggia ha allagato la strada.",
+        "ro": "Ploaia a inundat strada."
+      },
+      {
+        "it": "Il bagno si è allagato.",
+        "ro": "Baia s-a inundat."
+      }
+    ]
+  },
+  {
+    "it": "stordire",
+    "pos": "verb",
+    "ro": "a ameți; a buimăci",
+    "tags": [
+      "corp"
+    ],
+    "examples": [
+      {
+        "it": "Il rumore mi stordisce.",
+        "ro": "Zgomotul mă buimăcește."
+      },
+      {
+        "it": "Il colpo l'ha stordito.",
+        "ro": "Lovitura l-a buimăcit."
+      }
+    ]
+  },
+  {
+    "it": "tardare",
+    "pos": "verb",
+    "ro": "a întârzia",
+    "tags": [
+      "timp"
+    ],
+    "examples": [
+      {
+        "it": "Il treno tarda ad arrivare.",
+        "ro": "Trenul întârzie să sosească."
+      },
+      {
+        "it": "Non tardare, ti aspetto.",
+        "ro": "Nu întârzia, te aștept."
+      }
+    ]
+  },
+  {
+    "it": "lusingare",
+    "pos": "verb",
+    "ro": "a flata",
+    "tags": [
+      "comportament"
+    ],
+    "examples": [
+      {
+        "it": "Mi lusinga il tuo complimento.",
+        "ro": "Complimentul tău mă flatează."
+      },
+      {
+        "it": "Non cercare di lusingarmi.",
+        "ro": "Nu încerca să mă flatezi."
+      }
+    ]
+  },
+  {
+    "it": "strofinare",
+    "pos": "verb",
+    "ro": "a freca",
+    "tags": [
+      "casă"
+    ],
+    "examples": [
+      {
+        "it": "Strofino il pavimento.",
+        "ro": "Frec podeaua."
+      },
+      {
+        "it": "Strofina bene le mani.",
+        "ro": "Freacă bine mâinile."
+      }
+    ]
+  },
+  {
+    "it": "addebitare",
+    "pos": "verb",
+    "ro": "a debita",
+    "tags": [
+      "cumpărături"
+    ],
+    "examples": [
+      {
+        "it": "Addebitano la spesa sul conto.",
+        "ro": "Debitează cheltuiala în cont."
+      },
+      {
+        "it": "Mi hanno addebitato dieci euro.",
+        "ro": "Mi-au debitat zece euro."
+      }
+    ]
+  },
+  {
+    "it": "strizzare",
+    "pos": "verb",
+    "ro": "a stoarce",
+    "tags": [
+      "casă"
+    ],
+    "examples": [
+      {
+        "it": "Strizzo il panno bagnato.",
+        "ro": "Storc cârpa udă."
+      },
+      {
+        "it": "Strizza un limone nell'insalata.",
+        "ro": "Stoarce o lămâie în salată."
+      }
+    ]
+  },
+  {
+    "it": "distendere",
+    "pos": "verb",
+    "ro": "a întinde; a relaxa",
+    "tags": [
+      "corp"
+    ],
+    "examples": [
+      {
+        "it": "Mi distendo sul divano.",
+        "ro": "Mă întind pe canapea."
+      },
+      {
+        "it": "Distende le gambe sotto il tavolo.",
+        "ro": "Își întinde picioarele sub masă."
+      }
+    ]
+  },
+  {
+    "it": "etichettare",
+    "pos": "verb",
+    "ro": "a eticheta",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Etichetto le scatole.",
+        "ro": "Etichetez cutiile."
+      },
+      {
+        "it": "Non etichettare le persone.",
+        "ro": "Nu eticheta oamenii."
+      }
+    ]
+  },
+  {
+    "it": "inaugurare",
+    "pos": "verb",
+    "ro": "a inaugura",
+    "tags": [
+      "social"
+    ],
+    "examples": [
+      {
+        "it": "Inaugurano il nuovo museo domani.",
+        "ro": "Inaugurează muzeul nou mâine."
+      },
+      {
+        "it": "Il sindaco ha inaugurato il ponte.",
+        "ro": "Primarul a inaugurat podul."
+      }
+    ]
+  },
+  {
+    "it": "contrattare",
+    "pos": "verb",
+    "ro": "a negocia (prețul)",
+    "tags": [
+      "cumpărături"
+    ],
+    "examples": [
+      {
+        "it": "Contrattiamo il prezzo al mercato.",
+        "ro": "Negociem prețul la piață."
+      },
+      {
+        "it": "Non so contrattare.",
+        "ro": "Nu știu să negociez."
+      }
+    ]
+  },
+  {
+    "it": "affilare",
+    "pos": "verb",
+    "ro": "a ascuți",
+    "tags": [
+      "casă"
+    ],
+    "examples": [
+      {
+        "it": "Affilo il coltello.",
+        "ro": "Ascut cuțitul."
+      },
+      {
+        "it": "Devi affilare le forbici.",
+        "ro": "Trebuie să ascuți foarfecele."
+      }
+    ]
+  },
+  {
+    "it": "allarmare",
+    "pos": "verb",
+    "ro": "a alarma",
+    "tags": [
+      "sentimente"
+    ],
+    "examples": [
+      {
+        "it": "La notizia ha allarmato tutti.",
+        "ro": "Vestea i-a alarmat pe toți."
+      },
+      {
+        "it": "Non voglio allarmarti.",
+        "ro": "Nu vreau să te alarmez."
+      }
+    ]
+  },
+  {
+    "it": "rallegrare",
+    "pos": "verb",
+    "ro": "a înveseli",
+    "tags": [
+      "sentimente"
+    ],
+    "examples": [
+      {
+        "it": "La musica mi rallegra.",
+        "ro": "Muzica mă înveselește."
+      },
+      {
+        "it": "Il tuo messaggio mi ha rallegrato.",
+        "ro": "Mesajul tău m-a înveselit."
+      }
+    ]
+  },
+  {
+    "it": "fiorire",
+    "pos": "verb",
+    "ro": "a înflori",
+    "tags": [
+      "natură"
+    ],
+    "examples": [
+      {
+        "it": "Il giardino fiorisce in maggio.",
+        "ro": "Grădina înflorește în mai."
+      },
+      {
+        "it": "Le rose sono fiorite.",
+        "ro": "Trandafirii au înflorit."
+      }
+    ]
+  },
+  {
+    "it": "campare",
+    "pos": "verb",
+    "ro": "a trăi; a se descurca",
+    "tags": [
+      "viață"
+    ],
+    "examples": [
+      {
+        "it": "Come campi con questo stipendio?",
+        "ro": "Cum te descurci cu salariul acesta?"
+      },
+      {
+        "it": "Campiamo di agricoltura.",
+        "ro": "Trăim din agricultură."
+      }
+    ]
+  },
+  {
+    "it": "persuadere",
+    "pos": "verb",
+    "ro": "a convinge",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "Voglio persuadere mio padre.",
+        "ro": "Vreau să-mi conving tatăl."
+      },
+      {
+        "it": "Mi ha persuaso a restare.",
+        "ro": "M-a convins să rămân."
+      }
+    ]
+  },
+  {
+    "it": "rovistare",
+    "pos": "verb",
+    "ro": "a scotoci",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Rovisto nella borsa.",
+        "ro": "Scotocesc în geantă."
+      },
+      {
+        "it": "Ha rovistato nei cassetti.",
+        "ro": "A scotocit prin sertare."
+      }
+    ]
+  },
+  {
+    "it": "vibrare",
+    "pos": "verb",
+    "ro": "a vibra",
+    "tags": [
+      "acțiune"
+    ],
+    "examples": [
+      {
+        "it": "Il telefono vibra.",
+        "ro": "Telefonul vibrează."
+      },
+      {
+        "it": "La voce vibrava di emozione.",
+        "ro": "Vocea vibra de emoție."
+      }
+    ]
+  },
+  {
+    "it": "insufficiente",
+    "pos": "adjective",
+    "ro": "insuficient",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "Il tempo è insufficiente.",
+        "ro": "Timpul e insuficient."
+      },
+      {
+        "it": "Ho preso un voto insufficiente.",
+        "ro": "Am luat o notă insuficientă."
+      }
+    ]
+  },
+  {
+    "it": "meticoloso",
+    "pos": "adjective",
+    "ro": "meticulos",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "È una persona meticolosa.",
+        "ro": "E o persoană meticuloasă."
+      },
+      {
+        "it": "Fa un lavoro meticoloso.",
+        "ro": "Face o muncă meticuloasă."
+      }
+    ]
+  },
+  {
+    "it": "goffo",
+    "pos": "adjective",
+    "ro": "stângaci",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "Sono goffo con le mani.",
+        "ro": "Sunt stângaci cu mâinile."
+      },
+      {
+        "it": "Ha un modo di fare goffo.",
+        "ro": "Are un fel stângaci de a se purta."
+      }
+    ]
+  },
+  {
+    "it": "impulsivo",
+    "pos": "adjective",
+    "ro": "impulsiv",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "Sono troppo impulsivo.",
+        "ro": "Sunt prea impulsiv."
+      },
+      {
+        "it": "È stata una reazione impulsiva.",
+        "ro": "A fost o reacție impulsivă."
+      }
+    ]
+  },
+  {
+    "it": "piccolino",
+    "pos": "adjective",
+    "ro": "micuț",
+    "tags": [
+      "descriere"
+    ],
+    "examples": [
+      {
+        "it": "Il gattino è piccolino.",
+        "ro": "Pisoiul e micuț."
+      },
+      {
+        "it": "Che bimbo piccolino!",
+        "ro": "Ce copil micuț!"
+      }
+    ]
+  },
+  {
+    "it": "muscoloso",
+    "pos": "adjective",
+    "ro": "musculos",
+    "tags": [
+      "corp"
+    ],
+    "examples": [
+      {
+        "it": "È un uomo muscoloso.",
+        "ro": "E un bărbat musculos."
+      },
+      {
+        "it": "Ha le braccia muscolose.",
+        "ro": "Are brațele musculoase."
+      }
+    ]
+  },
+  {
+    "it": "confortante",
+    "pos": "adjective",
+    "ro": "liniștitor",
+    "tags": [
+      "sentimente"
+    ],
+    "examples": [
+      {
+        "it": "È una notizia confortante.",
+        "ro": "E o veste liniștitoare."
+      },
+      {
+        "it": "Le sue parole sono confortanti.",
+        "ro": "Cuvintele lui sunt liniștitoare."
+      }
+    ]
+  },
+  {
+    "it": "privilegiato",
+    "pos": "adjective",
+    "ro": "privilegiat",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "Siamo privilegiati.",
+        "ro": "Suntem privilegiați."
+      },
+      {
+        "it": "Ha una posizione privilegiata.",
+        "ro": "Are o poziție privilegiată."
+      }
+    ]
+  },
+  {
+    "it": "distruttivo",
+    "pos": "adjective",
+    "ro": "distructiv",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "Il fuoco è distruttivo.",
+        "ro": "Focul e distructiv."
+      },
+      {
+        "it": "Ha un comportamento distruttivo.",
+        "ro": "Are un comportament distructiv."
+      }
+    ]
+  },
+  {
+    "it": "socievole",
+    "pos": "adjective",
+    "ro": "sociabil",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "Mia sorella è molto socievole.",
+        "ro": "Sora mea e foarte sociabilă."
+      },
+      {
+        "it": "È un cane socievole.",
+        "ro": "E un câine sociabil."
+      }
+    ]
+  },
+  {
+    "it": "tagliente",
+    "pos": "adjective",
+    "ro": "tăios; ascuțit",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "Il coltello è tagliente.",
+        "ro": "Cuțitul e ascuțit."
+      },
+      {
+        "it": "Ha un tono tagliente.",
+        "ro": "Are un ton tăios."
+      }
+    ]
+  },
+  {
+    "it": "nutriente",
+    "pos": "adjective",
+    "ro": "hrănitor",
+    "tags": [
+      "mâncare"
+    ],
+    "examples": [
+      {
+        "it": "La frutta è nutriente.",
+        "ro": "Fructele sunt hrănitoare."
+      },
+      {
+        "it": "Questa zuppa è molto nutriente.",
+        "ro": "Supa asta e foarte hrănitoare."
+      }
+    ]
+  },
+  {
+    "it": "ecologico",
+    "pos": "adjective",
+    "ro": "ecologic",
+    "tags": [
+      "natură"
+    ],
+    "examples": [
+      {
+        "it": "Uso un detersivo ecologico.",
+        "ro": "Folosesc un detergent ecologic."
+      },
+      {
+        "it": "Preferisco i prodotti ecologici.",
+        "ro": "Prefer produsele ecologice."
+      }
+    ],
+    "forms": [
+      "ecologico",
+      "ecologica",
+      "ecologici",
+      "ecologiche"
+    ]
+  },
+  {
+    "it": "suscettibile",
+    "pos": "adjective",
+    "ro": "susceptibil",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "Sei troppo suscettibile.",
+        "ro": "Ești prea susceptibil."
+      },
+      {
+        "it": "Una persona suscettibile.",
+        "ro": "O persoană susceptibilă."
+      }
+    ]
+  },
+  {
+    "it": "spiritoso",
+    "pos": "adjective",
+    "ro": "spiritual; hazliu",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "Mio zio è molto spiritoso.",
+        "ro": "Unchiul meu e foarte spiritual."
+      },
+      {
+        "it": "Che battuta spiritosa!",
+        "ro": "Ce glumă spirituală!"
+      }
+    ]
+  },
+  {
+    "it": "ingegnoso",
+    "pos": "adjective",
+    "ro": "ingenios",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "È un'idea ingegnosa.",
+        "ro": "E o idee ingenioasă."
+      },
+      {
+        "it": "Un sistema ingegnoso.",
+        "ro": "Un sistem ingenios."
+      }
+    ]
+  },
+  {
+    "it": "insoddisfatto",
+    "pos": "adjective",
+    "ro": "nemulțumit",
+    "tags": [
+      "sentimente"
+    ],
+    "examples": [
+      {
+        "it": "Sono insoddisfatto del lavoro.",
+        "ro": "Sunt nemulțumit de muncă."
+      },
+      {
+        "it": "Il cliente è insoddisfatto.",
+        "ro": "Clientul e nemulțumit."
+      }
+    ]
+  },
+  {
+    "it": "compatto",
+    "pos": "adjective",
+    "ro": "compact",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "Il telefono è compatto.",
+        "ro": "Telefonul e compact."
+      },
+      {
+        "it": "Abbiamo un'auto compatta.",
+        "ro": "Avem o mașină compactă."
+      }
+    ]
+  },
+  {
+    "it": "rurale",
+    "pos": "adjective",
+    "ro": "rural",
+    "tags": [
+      "natură"
+    ],
+    "examples": [
+      {
+        "it": "Viviamo in una zona rurale.",
+        "ro": "Locuim într-o zonă rurală."
+      },
+      {
+        "it": "Mi piace la vita rurale.",
+        "ro": "Îmi place viața rurală."
+      }
+    ]
+  },
+  {
+    "it": "genuino",
+    "pos": "adjective",
+    "ro": "autentic; natural",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "Mangio cibo genuino.",
+        "ro": "Mănânc mâncare naturală."
+      },
+      {
+        "it": "Il suo sorriso è genuino.",
+        "ro": "Zâmbetul lui e autentic."
+      }
+    ]
+  },
+  {
+    "it": "emergente",
+    "pos": "adjective",
+    "ro": "emergent; în ascensiune",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "È un artista emergente.",
+        "ro": "E un artist în ascensiune."
+      },
+      {
+        "it": "Il paese è una potenza emergente.",
+        "ro": "Țara e o putere emergentă."
+      }
+    ]
+  },
+  {
+    "it": "scortese",
+    "pos": "adjective",
+    "ro": "nepoliticos",
+    "tags": [
+      "comportament"
+    ],
+    "examples": [
+      {
+        "it": "È stato molto scortese.",
+        "ro": "A fost foarte nepoliticos."
+      },
+      {
+        "it": "Non essere scortese con lei.",
+        "ro": "Nu fi nepoliticos cu ea."
+      }
+    ]
+  },
+  {
+    "it": "indegno",
+    "pos": "adjective",
+    "ro": "nedemn",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "È un comportamento indegno.",
+        "ro": "E un comportament nedemn."
+      },
+      {
+        "it": "Mi sento indegno di questo premio.",
+        "ro": "Mă simt nedemn de acest premiu."
+      }
+    ]
+  },
+  {
+    "it": "lecito",
+    "pos": "adjective",
+    "ro": "permis; legal",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "Non è lecito parcheggiare qui.",
+        "ro": "Nu e permis să parchezi aici."
+      },
+      {
+        "it": "È lecito chiedere?",
+        "ro": "E permis să întreb?"
+      }
+    ]
+  },
+  {
+    "it": "rinomato",
+    "pos": "adjective",
+    "ro": "renumit",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "È un ristorante rinomato.",
+        "ro": "E un restaurant renumit."
+      },
+      {
+        "it": "Una città rinomata per il vino.",
+        "ro": "Un oraș renumit pentru vin."
+      }
+    ]
+  },
+  {
+    "it": "antiquato",
+    "pos": "adjective",
+    "ro": "învechit",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "Il metodo è antiquato.",
+        "ro": "Metoda e învechită."
+      },
+      {
+        "it": "Ha idee antiquate.",
+        "ro": "Are idei învechite."
+      }
+    ]
+  },
+  {
+    "it": "costruttivo",
+    "pos": "adjective",
+    "ro": "constructiv",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "Sono critiche costruttive.",
+        "ro": "Sunt critici constructive."
+      },
+      {
+        "it": "È stato un incontro costruttivo.",
+        "ro": "A fost o întâlnire constructivă."
+      }
+    ]
+  },
+  {
+    "it": "tormentato",
+    "pos": "adjective",
+    "ro": "chinuit",
+    "tags": [
+      "sentimente"
+    ],
+    "examples": [
+      {
+        "it": "Ha avuto una vita tormentata.",
+        "ro": "A avut o viață chinuită."
+      },
+      {
+        "it": "È tormentato dai dubbi.",
+        "ro": "E chinuit de îndoieli."
+      }
+    ]
+  },
+  {
+    "it": "violentemente",
+    "pos": "adverb",
+    "ro": "violent",
+    "tags": [
+      "mod"
+    ],
+    "examples": [
+      {
+        "it": "La porta si è chiusa violentemente.",
+        "ro": "Ușa s-a închis violent."
+      },
+      {
+        "it": "Il vento soffia violentemente.",
+        "ro": "Vântul suflă violent."
+      }
+    ]
+  },
+  {
+    "it": "straordinariamente",
+    "pos": "adverb",
+    "ro": "extraordinar de",
+    "tags": [
+      "mod"
+    ],
+    "examples": [
+      {
+        "it": "È straordinariamente bravo.",
+        "ro": "E extraordinar de bun."
+      },
+      {
+        "it": "Il tempo è straordinariamente bello.",
+        "ro": "Vremea e extraordinar de frumoasă."
+      }
+    ]
+  },
+  {
+    "it": "notevolmente",
+    "pos": "adverb",
+    "ro": "considerabil",
+    "tags": [
+      "mod"
+    ],
+    "examples": [
+      {
+        "it": "I prezzi sono saliti notevolmente.",
+        "ro": "Prețurile au crescut considerabil."
+      },
+      {
+        "it": "Sto notevolmente meglio.",
+        "ro": "Mă simt mult mai bine."
+      }
+    ]
+  },
+  {
+    "it": "preferibilmente",
+    "pos": "adverb",
+    "ro": "de preferat",
+    "tags": [
+      "mod"
+    ],
+    "examples": [
+      {
+        "it": "Vieni preferibilmente di mattina.",
+        "ro": "Vino de preferat dimineața."
+      },
+      {
+        "it": "Preferibilmente senza zucchero.",
+        "ro": "De preferat fără zahăr."
+      }
+    ]
+  },
+  {
+    "it": "manualmente",
+    "pos": "adverb",
+    "ro": "manual",
+    "tags": [
+      "mod"
+    ],
+    "examples": [
+      {
+        "it": "Lo faccio manualmente.",
+        "ro": "O fac manual."
+      },
+      {
+        "it": "Si apre manualmente.",
+        "ro": "Se deschide manual."
+      }
+    ]
+  },
+  {
+    "it": "eccessivamente",
+    "pos": "adverb",
+    "ro": "excesiv",
+    "tags": [
+      "mod"
+    ],
+    "examples": [
+      {
+        "it": "È eccessivamente caro.",
+        "ro": "E excesiv de scump."
+      },
+      {
+        "it": "Non bere eccessivamente.",
+        "ro": "Nu bea excesiv."
+      }
+    ]
+  },
+  {
+    "it": "possibilmente",
+    "pos": "adverb",
+    "ro": "dacă e posibil",
+    "tags": [
+      "mod"
+    ],
+    "examples": [
+      {
+        "it": "Vorrei possibilmente un tavolo vicino alla finestra.",
+        "ro": "Aș vrea, dacă e posibil, o masă lângă fereastră."
+      },
+      {
+        "it": "Rispondi possibilmente oggi.",
+        "ro": "Răspunde, dacă se poate, azi."
+      }
+    ]
+  },
+  {
+    "it": "casualmente",
+    "pos": "adverb",
+    "ro": "întâmplător",
+    "tags": [
+      "mod"
+    ],
+    "examples": [
+      {
+        "it": "Ci siamo incontrati casualmente.",
+        "ro": "Ne-am întâlnit întâmplător."
+      },
+      {
+        "it": "L'ho trovato casualmente.",
+        "ro": "L-am găsit întâmplător."
+      }
+    ]
+  },
+  {
+    "it": "scalo",
+    "pos": "noun",
+    "ro": "escală",
+    "tags": [
+      "călătorie"
+    ],
+    "examples": [
+      {
+        "it": "Facciamo scalo a Francoforte.",
+        "ro": "Facem escală la Frankfurt."
+      },
+      {
+        "it": "Il volo ha uno scalo.",
+        "ro": "Zborul are o escală."
+      }
+    ]
+  },
+  {
+    "it": "bebè",
+    "pos": "noun",
+    "ro": "bebeluș",
+    "tags": [
+      "familie"
+    ],
+    "examples": [
+      {
+        "it": "Il bebè dorme.",
+        "ro": "Bebelușul doarme."
+      },
+      {
+        "it": "Hanno un bebè di due mesi.",
+        "ro": "Au un bebeluș de două luni."
+      }
+    ],
+    "gender": "m",
+    "plural": "bebè"
+  },
+  {
+    "it": "serenità",
+    "pos": "noun",
+    "ro": "seninătate",
+    "tags": [
+      "stare"
+    ],
+    "examples": [
+      {
+        "it": "Ha una grande serenità.",
+        "ro": "Are o mare seninătate."
+      },
+      {
+        "it": "Cerco la serenità.",
+        "ro": "Caut seninătatea."
+      }
+    ]
+  },
+  {
+    "it": "gradino",
+    "pos": "noun",
+    "ro": "treaptă",
+    "tags": [
+      "locuință"
+    ],
+    "examples": [
+      {
+        "it": "Attenzione al gradino!",
+        "ro": "Atenție la treaptă!"
+      },
+      {
+        "it": "Mi siedo sul gradino.",
+        "ro": "Mă așez pe treaptă."
+      }
+    ]
+  },
+  {
+    "it": "sinfonia",
+    "pos": "noun",
+    "ro": "simfonie",
+    "tags": [
+      "timp liber"
+    ],
+    "examples": [
+      {
+        "it": "Ascolto una sinfonia di Beethoven.",
+        "ro": "Ascult o simfonie de Beethoven."
+      },
+      {
+        "it": "La sinfonia dura quaranta minuti.",
+        "ro": "Simfonia durează patruzeci de minute."
+      }
+    ]
+  },
+  {
+    "it": "sconfitta",
+    "pos": "noun",
+    "ro": "înfrângere",
+    "tags": [
+      "generale"
+    ],
+    "examples": [
+      {
+        "it": "La squadra ha subito una sconfitta.",
+        "ro": "Echipa a suferit o înfrângere."
+      },
+      {
+        "it": "Accetto la sconfitta.",
+        "ro": "Accept înfrângerea."
+      }
+    ]
+  },
+  {
+    "it": "certificato",
+    "pos": "noun",
+    "ro": "certificat",
+    "tags": [
+      "muncă"
+    ],
+    "examples": [
+      {
+        "it": "Mi serve un certificato medico.",
+        "ro": "Am nevoie de un certificat medical."
+      },
+      {
+        "it": "Il certificato è valido un anno.",
+        "ro": "Certificatul e valabil un an."
+      }
+    ]
+  },
+  {
+    "it": "virgola",
+    "pos": "noun",
+    "ro": "virgulă",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "Metto la virgola qui.",
+        "ro": "Pun virgula aici."
+      },
+      {
+        "it": "Il numero ha due cifre dopo la virgola.",
+        "ro": "Numărul are două cifre după virgulă."
+      }
+    ]
+  },
+  {
+    "it": "mitologia",
+    "pos": "noun",
+    "ro": "mitologie",
+    "tags": [
+      "studiu"
+    ],
+    "examples": [
+      {
+        "it": "Studio la mitologia greca.",
+        "ro": "Studiez mitologia greacă."
+      },
+      {
+        "it": "La mitologia romana mi piace.",
+        "ro": "Îmi place mitologia romană."
+      }
+    ]
+  },
+  {
+    "it": "nocciola",
+    "pos": "noun",
+    "ro": "alună (de pădure)",
+    "tags": [
+      "mâncare"
+    ],
+    "examples": [
+      {
+        "it": "Mangio la crema di nocciola.",
+        "ro": "Mănânc cremă de alune."
+      },
+      {
+        "it": "Un gelato alla nocciola, per favore.",
+        "ro": "O înghețată de alune, vă rog."
+      }
+    ]
+  },
+  {
+    "it": "calamaro",
+    "pos": "noun",
+    "ro": "calmar",
+    "tags": [
+      "mâncare"
+    ],
+    "examples": [
+      {
+        "it": "Mangio il calamaro fritto.",
+        "ro": "Mănânc calmar prăjit."
+      },
+      {
+        "it": "Il calamaro è fresco.",
+        "ro": "Calmarul e proaspăt."
+      }
+    ]
+  },
+  {
+    "it": "canoa",
+    "pos": "noun",
+    "ro": "canoe",
+    "tags": [
+      "timp liber"
+    ],
+    "examples": [
+      {
+        "it": "Facciamo un giro in canoa.",
+        "ro": "Facem o tură cu canoea."
+      },
+      {
+        "it": "La canoa è sul lago.",
+        "ro": "Canoea e pe lac."
+      }
+    ]
+  },
+  {
+    "it": "caffetteria",
+    "pos": "noun",
+    "ro": "cafenea",
+    "tags": [
+      "oraș"
+    ],
+    "examples": [
+      {
+        "it": "Ci vediamo in caffetteria.",
+        "ro": "Ne vedem la cafenea."
+      },
+      {
+        "it": "La caffetteria apre alle sette.",
+        "ro": "Cafeneaua se deschide la șapte."
+      }
+    ]
+  },
+  {
+    "it": "violoncello",
+    "pos": "noun",
+    "ro": "violoncel",
+    "tags": [
+      "timp liber"
+    ],
+    "examples": [
+      {
+        "it": "Suono il violoncello.",
+        "ro": "Cânt la violoncel."
+      },
+      {
+        "it": "Il violoncello ha un suono caldo.",
+        "ro": "Violoncelul are un sunet cald."
+      }
+    ]
+  },
+  {
+    "it": "deodorante",
+    "pos": "noun",
+    "ro": "deodorant",
+    "tags": [
+      "obiecte"
+    ],
+    "examples": [
+      {
+        "it": "Uso un deodorante senza profumo.",
+        "ro": "Folosesc un deodorant fără parfum."
+      },
+      {
+        "it": "Ho finito il deodorante.",
+        "ro": "Mi s-a terminat deodorantul."
+      }
+    ]
+  },
+  {
+    "it": "laguna",
+    "pos": "noun",
+    "ro": "lagună",
+    "tags": [
+      "natură"
+    ],
+    "examples": [
+      {
+        "it": "La laguna è vicino al mare.",
+        "ro": "Laguna e lângă mare."
+      },
+      {
+        "it": "La laguna è molto tranquilla.",
+        "ro": "Laguna e foarte liniștită."
+      }
+    ]
+  },
+  {
+    "it": "bisnonno",
+    "pos": "noun",
+    "ro": "străbunic",
+    "tags": [
+      "familie"
+    ],
+    "examples": [
+      {
+        "it": "Mio bisnonno viveva in campagna.",
+        "ro": "Străbunicul meu trăia la țară."
+      },
+      {
+        "it": "Il mio bisnonno era molto vecchio.",
+        "ro": "Străbunicul meu era foarte bătrân."
+      }
+    ]
+  },
+  {
+    "it": "benzinaio",
+    "pos": "noun",
+    "ro": "benzinărie; angajat la benzinărie",
+    "tags": [
+      "transport"
+    ],
+    "examples": [
+      {
+        "it": "Mi fermo dal benzinaio.",
+        "ro": "Mă opresc la benzinărie."
+      },
+      {
+        "it": "Il benzinaio è aperto di notte.",
+        "ro": "Benzinăria e deschisă noaptea."
+      }
+    ]
+  },
+  {
+    "it": "pettine",
+    "pos": "noun",
+    "ro": "pieptene",
+    "tags": [
+      "obiecte"
+    ],
+    "examples": [
+      {
+        "it": "Mi pettino con il pettine.",
+        "ro": "Mă piaptăn cu pieptenele."
+      },
+      {
+        "it": "Ho perso il pettine.",
+        "ro": "Mi-am pierdut pieptenele."
+      }
+    ]
+  },
+  {
+    "it": "anestesia",
+    "pos": "noun",
+    "ro": "anestezie",
+    "tags": [
+      "sănătate"
+    ],
+    "examples": [
+      {
+        "it": "Faccio l'anestesia dal dentista.",
+        "ro": "Fac anestezie la dentist."
+      },
+      {
+        "it": "L'anestesia dura due ore.",
+        "ro": "Anestezia durează două ore."
+      }
+    ]
+  },
+  {
+    "it": "rinoceronte",
+    "pos": "noun",
+    "ro": "rinocer",
+    "tags": [
+      "animale"
+    ],
+    "examples": [
+      {
+        "it": "Il rinoceronte è un animale grande.",
+        "ro": "Rinocerul e un animal mare."
+      },
+      {
+        "it": "Allo zoo c'è un rinoceronte.",
+        "ro": "La grădina zoologică e un rinocer."
+      }
+    ]
+  },
+  {
+    "it": "anguilla",
+    "pos": "noun",
+    "ro": "țipar; anghilă",
+    "tags": [
+      "animale"
+    ],
+    "examples": [
+      {
+        "it": "L'anguilla vive nei fiumi.",
+        "ro": "Țiparul trăiește în râuri."
+      },
+      {
+        "it": "A Natale mangiamo l'anguilla.",
+        "ro": "De Crăciun mâncăm anghilă."
+      }
+    ]
+  },
+  {
+    "it": "vigneto",
+    "pos": "noun",
+    "ro": "vie; podgorie",
+    "tags": [
+      "natură"
+    ],
+    "examples": [
+      {
+        "it": "Il vigneto è sulla collina.",
+        "ro": "Via e pe deal."
+      },
+      {
+        "it": "Visitiamo un vigneto in Toscana.",
+        "ro": "Vizităm o podgorie în Toscana."
+      }
+    ]
+  },
+  {
+    "it": "banchina",
+    "pos": "noun",
+    "ro": "chei; peron",
+    "tags": [
+      "transport"
+    ],
+    "examples": [
+      {
+        "it": "Aspetto sulla banchina.",
+        "ro": "Aștept pe chei."
+      },
+      {
+        "it": "Il treno è in banchina.",
+        "ro": "Trenul e la peron."
+      }
+    ]
+  },
+  {
+    "it": "grattacielo",
+    "pos": "noun",
+    "ro": "zgârie-nori",
+    "tags": [
+      "oraș"
+    ],
+    "examples": [
+      {
+        "it": "Il grattacielo è altissimo.",
+        "ro": "Zgârie-norii e foarte înalt."
+      },
+      {
+        "it": "Viviamo in un grattacielo.",
+        "ro": "Locuim într-un zgârie-nori."
+      }
+    ]
+  },
+  {
+    "it": "pagnotta",
+    "pos": "noun",
+    "ro": "pâine (rotundă)",
+    "tags": [
+      "mâncare"
+    ],
+    "examples": [
+      {
+        "it": "Compro una pagnotta calda.",
+        "ro": "Cumpăr o pâine caldă."
+      },
+      {
+        "it": "La pagnotta è croccante.",
+        "ro": "Pâinea e crocantă."
+      }
+    ]
+  },
+  {
+    "it": "scoiattolo",
+    "pos": "noun",
+    "ro": "veveriță",
+    "tags": [
+      "animale"
+    ],
+    "examples": [
+      {
+        "it": "Lo scoiattolo sale sull'albero.",
+        "ro": "Veverița se urcă în copac."
+      },
+      {
+        "it": "Ho visto uno scoiattolo nel parco.",
+        "ro": "Am văzut o veveriță în parc."
+      }
+    ]
+  },
+  {
+    "it": "pipistrello",
+    "pos": "noun",
+    "ro": "liliac",
+    "tags": [
+      "animale"
+    ],
+    "examples": [
+      {
+        "it": "Il pipistrello vola di notte.",
+        "ro": "Liliacul zboară noaptea."
+      },
+      {
+        "it": "C'è un pipistrello nella grotta.",
+        "ro": "E un liliac în peșteră."
+      }
+    ]
+  },
+  {
+    "it": "vocabolario",
+    "pos": "noun",
+    "ro": "vocabular; dicționar",
+    "tags": [
+      "studiu"
+    ],
+    "examples": [
+      {
+        "it": "Il suo vocabolario è ricco.",
+        "ro": "Vocabularul lui e bogat."
+      },
+      {
+        "it": "Imparo nuovo vocabolario ogni giorno.",
+        "ro": "Învăț vocabular nou în fiecare zi."
+      }
+    ]
+  },
+  {
+    "it": "capra",
+    "pos": "noun",
+    "ro": "capră",
+    "tags": [
+      "animale"
+    ],
+    "examples": [
+      {
+        "it": "La capra mangia l'erba.",
+        "ro": "Capra mănâncă iarba."
+      },
+      {
+        "it": "Facciamo formaggio con il latte di capra.",
+        "ro": "Facem brânză din lapte de capră."
+      }
+    ]
+  },
+  {
+    "it": "pagella",
+    "pos": "noun",
+    "ro": "carnet de note",
+    "tags": [
+      "școală"
+    ],
+    "examples": [
+      {
+        "it": "Oggi arriva la pagella.",
+        "ro": "Azi vine carnetul de note."
+      },
+      {
+        "it": "Ho una buona pagella.",
+        "ro": "Am un carnet de note bun."
+      }
+    ]
+  },
+  {
+    "it": "anca",
+    "pos": "noun",
+    "ro": "șold",
+    "tags": [
+      "corp"
+    ],
+    "examples": [
+      {
+        "it": "Mi fa male l'anca.",
+        "ro": "Mă doare șoldul."
+      },
+      {
+        "it": "Ha un problema all'anca.",
+        "ro": "Are o problemă la șold."
+      }
+    ]
+  },
+  {
+    "it": "gergo",
+    "pos": "noun",
+    "ro": "jargon; argou",
+    "tags": [
+      "comunicare"
+    ],
+    "examples": [
+      {
+        "it": "Parlano in gergo.",
+        "ro": "Vorbesc în argou."
+      },
+      {
+        "it": "Non capisco il gergo dei giovani.",
+        "ro": "Nu înțeleg argoul tinerilor."
+      }
+    ]
+  },
+  {
+    "it": "sorso",
+    "pos": "noun",
+    "ro": "înghițitură",
+    "tags": [
+      "mâncare"
+    ],
+    "examples": [
+      {
+        "it": "Bevo un sorso d'acqua.",
+        "ro": "Beau o înghițitură de apă."
+      },
+      {
+        "it": "Un sorso di vino, grazie.",
+        "ro": "O înghițitură de vin, mulțumesc."
+      }
+    ]
+  },
+  {
+    "it": "baccano",
+    "pos": "noun",
+    "ro": "gălăgie",
+    "tags": [
+      "comportament"
+    ],
+    "examples": [
+      {
+        "it": "Che baccano nel cortile!",
+        "ro": "Ce gălăgie în curte!"
+      },
+      {
+        "it": "Fanno baccano tutta la sera.",
+        "ro": "Fac gălăgie toată seara."
+      }
+    ]
+  },
+  {
+    "it": "pattinaggio",
+    "pos": "noun",
+    "ro": "patinaj",
+    "tags": [
+      "timp liber"
+    ],
+    "examples": [
+      {
+        "it": "Faccio pattinaggio sul ghiaccio.",
+        "ro": "Fac patinaj pe gheață."
+      },
+      {
+        "it": "Il pattinaggio è il mio sport.",
+        "ro": "Patinajul e sportul meu."
+      }
+    ]
+  },
+  {
+    "it": "limonata",
+    "pos": "noun",
+    "ro": "limonadă",
+    "tags": [
+      "mâncare"
+    ],
+    "examples": [
+      {
+        "it": "Vorrei una limonata fredda.",
+        "ro": "Aș vrea o limonadă rece."
+      },
+      {
+        "it": "La limonata è dolce.",
+        "ro": "Limonada e dulce."
+      }
+    ]
+  },
+  {
+    "it": "villetta",
+    "pos": "noun",
+    "ro": "căsuță cu grădină",
+    "tags": [
+      "locuință"
+    ],
+    "examples": [
+      {
+        "it": "Abitano in una villetta.",
+        "ro": "Locuiesc într-o căsuță cu grădină."
+      },
+      {
+        "it": "La villetta ha un piccolo giardino.",
+        "ro": "Căsuța are o grădină mică."
+      }
+    ]
+  },
+  {
+    "it": "malaria",
+    "pos": "noun",
+    "ro": "malarie",
+    "tags": [
+      "sănătate"
+    ],
+    "examples": [
+      {
+        "it": "La malaria è una malattia tropicale.",
+        "ro": "Malaria e o boală tropicală."
+      },
+      {
+        "it": "Si prende la malaria con le zanzare.",
+        "ro": "Malaria se ia de la țânțari."
+      }
+    ]
+  },
+  {
+    "it": "credibilità",
+    "pos": "noun",
+    "ro": "credibilitate",
+    "tags": [
+      "calități"
+    ],
+    "examples": [
+      {
+        "it": "Ha perso la credibilità.",
+        "ro": "Și-a pierdut credibilitatea."
+      },
+      {
+        "it": "La credibilità è importante.",
+        "ro": "Credibilitatea e importantă."
+      }
+    ]
+  },
+  {
+    "it": "segnaletica",
+    "pos": "noun",
+    "ro": "semnalizare rutieră",
+    "tags": [
+      "transport"
+    ],
+    "examples": [
+      {
+        "it": "La segnaletica è chiara.",
+        "ro": "Semnalizarea e clară."
+      },
+      {
+        "it": "Seguiamo la segnaletica.",
+        "ro": "Urmăm indicatoarele."
+      }
+    ]
+  },
+  {
+    "it": "contabilità",
+    "pos": "noun",
+    "ro": "contabilitate",
+    "tags": [
+      "muncă"
+    ],
+    "examples": [
+      {
+        "it": "Studio contabilità.",
+        "ro": "Studiez contabilitate."
+      },
+      {
+        "it": "Mia sorella fa la contabilità.",
+        "ro": "Sora mea ține contabilitatea."
+      }
+    ]
+  },
+  {
+    "it": "restauro",
+    "pos": "noun",
+    "ro": "restaurare",
+    "tags": [
+      "oraș"
+    ],
+    "examples": [
+      {
+        "it": "Il restauro dura due anni.",
+        "ro": "Restaurarea durează doi ani."
+      },
+      {
+        "it": "La chiesa è in restauro.",
+        "ro": "Biserica e în restaurare."
+      }
+    ]
+  },
+  {
+    "it": "briciolo",
+    "pos": "noun",
+    "ro": "fărâmă; strop",
+    "tags": [
+      "cantitate"
+    ],
+    "examples": [
+      {
+        "it": "Non ho un briciolo di fame.",
+        "ro": "Nu am nici strop de foame."
+      },
+      {
+        "it": "Ha un briciolo di speranza.",
+        "ro": "Are un strop de speranță."
+      }
+    ]
+  }
+]
