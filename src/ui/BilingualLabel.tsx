@@ -1,22 +1,22 @@
-import { useItalianFirst } from "../app/italianFirst.ts";
+import { useNativeHelp } from "../app/nativeHelp.ts";
 import { NATIVE_LANGUAGE } from "../domain/content/constants.ts";
 import type { Localized } from "../domain/content/schema.ts";
 
 /** Textul în limba maternă dintr-un text în două limbi. */
 export const nativeText = (text: Localized): string => text[NATIVE_LANGUAGE];
 
-/** Textul pentru etichete accesibile (aria-label): italiana și, între paranteze, limba maternă. */
-export function plainLabel(text: Localized, italianFirst: boolean): string {
-  return italianFirst ? `${text.it} (${nativeText(text)})` : nativeText(text);
+/** Textul pentru etichete accesibile (aria-label): italiana și, cu traducerea pornită, limba maternă între paranteze. */
+export function plainLabel(text: Localized, nativeHelp: boolean): string {
+  return nativeHelp ? `${text.it} (${nativeText(text)})` : text.it;
 }
 
 /**
- * Un nume afișat conform setării „Italiană întâi”: pornită, italiana (`lang="it"`) și sub ea, mult mai mic,
- * limba maternă; oprită, doar limba maternă.
+ * Un nume în italiană (`lang="it"`); cu setarea „Traducere în limba maternă” pornită, sub el apare, mult mai mic,
+ * traducerea, ca ajutor pentru începători.
  */
 export function BilingualLabel({ text }: { text: Localized }) {
-  const italianFirst = useItalianFirst();
-  if (!italianFirst) return <>{nativeText(text)}</>;
+  const nativeHelp = useNativeHelp();
+  if (!nativeHelp) return <span lang="it">{text.it}</span>;
   return (
     <>
       <span lang="it">{text.it}</span>

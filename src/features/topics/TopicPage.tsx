@@ -1,7 +1,7 @@
 import { useLiveQuery } from "dexie-react-hooks";
 import { Link, useParams } from "react-router-dom";
 import { useContent } from "../../app/content.tsx";
-import { useItalianFirst } from "../../app/italianFirst.ts";
+import { useNativeHelp } from "../../app/nativeHelp.ts";
 import { useTopics } from "../../app/topics.ts";
 import { db } from "../../data/db/instance.ts";
 import { EXERCISE_ICON, EXERCISE_LABEL, italianText } from "../../domain/content/display.ts";
@@ -23,7 +23,7 @@ export function TopicPage() {
   const content = useContent();
   const topics = useTopics();
   const cards = useLiveQuery(() => db.cards.where("kind").equals("vocab").toArray(), []);
-  const italianFirst = useItalianFirst();
+  const nativeHelp = useNativeHelp();
 
   if (!topics || !cards) return <p className="p-6 text-center text-muted">Se încarcă…</p>;
 
@@ -58,7 +58,7 @@ export function TopicPage() {
       </header>
 
       {topic.subgroups.map((sub) => (
-        <section key={sub.title.it} aria-label={plainLabel(sub.title, italianFirst)} className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
+        <section key={sub.title.it} aria-label={plainLabel(sub.title, nativeHelp)} className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
           <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">
             <BilingualLabel text={sub.title} />
           </h2>

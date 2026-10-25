@@ -34,8 +34,11 @@ export interface Settings {
   theme: Theme;
   /** Sunet la răspuns corect/greșit (quiz și conjugare). */
   soundEnabled: boolean;
-  /** „Italiană întâi”: Temele și „De reținut” arată italiana mare, cu limba maternă dedesubt (FR7). */
-  italianFirst: boolean;
+  /**
+   * „Traducere în limba maternă” (FR7): sub italiana din Teme apare traducerea, iar „De reținut” are și fața în limba
+   * maternă. Oprită: doar italiana.
+   */
+  nativeHelp: boolean;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -52,23 +55,23 @@ export const DEFAULT_SETTINGS: Settings = {
   ttsVoiceURI: null,
   theme: "auto",
   soundEnabled: true,
-  italianFirst: true,
+  nativeHelp: true,
 };
 
 /**
- * Setările salvate, completate cu valorile implicite. „Italiană întâi” lipsește din setările vechi (sau din backup-uri
+ * Setările salvate, completate cu valorile implicite. „Traducere în limba maternă” lipsește din setările vechi (sau din backup-uri
  * vechi): acolo se pornește doar dacă nivelul salvat este A, ca la o instalare nouă.
  */
 export function withSettingDefaults(saved: Partial<Settings>): Settings {
   const level = saved.level ?? DEFAULT_SETTINGS.level;
-  return { ...DEFAULT_SETTINGS, italianFirst: levelGroupOf(level) === "A", ...saved };
+  return { ...DEFAULT_SETTINGS, nativeHelp: levelGroupOf(level) === "A", ...saved };
 }
 
 /**
- * Setările după schimbarea nivelului. „Italiană întâi” se oprește când nivelul trece de A (A2 → B1 sau mai sus);
+ * Setările după schimbarea nivelului. „Traducere în limba maternă” se oprește când nivelul trece de A (A2 → B1 sau mai sus);
  * revenirea la A nu o repornește, iar dacă a fost pornită manual la B1 sau mai sus, rămâne pornită.
  */
 export function settingsForLevel(settings: Settings, level: Level): Settings {
   const leavesA = levelGroupOf(settings.level) === "A" && levelGroupOf(level) !== "A";
-  return { ...settings, level, italianFirst: leavesA ? false : settings.italianFirst };
+  return { ...settings, level, nativeHelp: leavesA ? false : settings.nativeHelp };
 }

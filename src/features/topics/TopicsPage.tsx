@@ -8,7 +8,7 @@ import { topicProgress } from "../../domain/topics/topics.ts";
 import { BackLink } from "../../ui/BackLink.tsx";
 import { BilingualLabel } from "../../ui/BilingualLabel.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
-import { ItalianFirstNotice } from "../../ui/ItalianFirstNotice.tsx";
+import { NativeHelpNotice } from "../../ui/NativeHelpNotice.tsx";
 
 export function TopicsPage() {
   const topics = useTopics();
@@ -20,7 +20,7 @@ export function TopicsPage() {
     <div className="flex flex-col gap-5 px-4 pb-8 pt-4">
       <BackLink to="/learn" label="Învață" />
       <h1 className="text-2xl font-bold">Teme</h1>
-      <ItalianFirstNotice />
+      <NativeHelpNotice />
       <p className="text-muted">
         Cuvinte uzuale grupate pe subiecte, într-o ordine firească (luni → duminică), cu reguli scurte și exerciții.
       </p>

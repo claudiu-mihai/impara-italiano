@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 
-const toggle = (page: Page) => page.getByRole("checkbox", { name: "Italiană întâi" });
+const toggle = (page: Page) => page.getByRole("checkbox", { name: "Traducere în limba maternă" });
 const stoppedNotice = (page: Page) =>
   page.getByRole("status").filter({ hasText: /s-a oprit pentru nivelul/ });
 
@@ -67,24 +67,33 @@ test("întoarcerea merge și cu animațiile reduse și mută focusul pe fața no
   await expect(page.getByRole("button", { name: "Arată în română" })).toBeFocused();
 });
 
-test("oprită din Setări, Temele și „De reținut” arată doar limba maternă", async ({ page }) => {
+test("oprită din Setări, Temele și „De reținut” arată doar italiana", async ({ page }) => {
   await page.goto("/settings");
   await expect(toggle(page)).toBeChecked();
   await toggle(page).click();
   await expect(toggle(page)).not.toBeChecked();
 
   await page.goto("/learn/topics");
-  await expect(page.getByRole("heading", { name: "Timp", level: 2, exact: true })).toBeVisible();
-  await expect(page.getByText("Tempo")).toHaveCount(0);
-  await expect(page.getByText("I giorni della settimana")).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "Tempo", level: 2, exact: true })).toBeVisible();
+  await expect(page.getByText("Timp", { exact: true })).toHaveCount(0);
+  const link = page.getByRole("link", { name: /I giorni della settimana/ });
+  await expect(link).toBeVisible();
+  await expect(link).not.toContainText("Zilele săptămânii");
+  await expect(link.locator('[lang="it"]')).toHaveText("I giorni della settimana");
 
   await page.goto("/learn/topics/familia");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("La famiglia");
+  // traducerea cuvintelor de pe fișă nu depinde de setare
+  await expect(page.getByText("soție", { exact: true })).toBeVisible();
+
+  // „De reținut”: o singură casetă, în italiană, fără întoarcere și fără regulile comparate cu româna
   await expect(page.getByTestId("rules-box")).toHaveCount(0);
-  await expect(page.getByText("Da ricordare")).toHaveCount(0);
-  await page.getByRole("button", { name: "De reținut" }).click();
-  await expect(page.getByText(/Cu rudele la singular, posesivul stă fără articol/)).toBeVisible();
-  await expect(page.getByText(/prieten fals: «parenti»/)).toBeVisible();
-  await expect(page.getByText(/Con i parenti al singolare/)).toHaveCount(0);
+  await expect(page.getByText("De reținut")).toHaveCount(0);
+  await page.getByRole("button", { name: "Da ricordare" }).click();
+  await expect(page.getByText(/Con i parenti al singolare/)).toBeVisible();
+  await expect(page.getByRole("button", { name: "Arată în română" })).toHaveCount(0);
+  await expect(page.getByText(/Cu rudele la singular/)).toHaveCount(0);
+  await expect(page.getByText(/prieten fals/)).toHaveCount(0);
 });
 
 test("la trecerea peste nivelul A se oprește singură, cu un mesaj care apare o singură dată", async ({ page }) => {
@@ -98,8 +107,9 @@ test("la trecerea peste nivelul A se oprește singură, cu un mesaj care apare o
   await expect(stoppedNotice(page)).toContainText("nivelul B1");
 
   await page.goto("/learn/topics");
-  await expect(stoppedNotice(page)).toContainText("o poți reporni din Setări");
-  await expect(page.getByText("Tempo")).toHaveCount(0);
+  await expect(stoppedNotice(page)).toContainText("O poți reporni din Setări");
+  await expect(page.getByRole("heading", { name: "Tempo", level: 2, exact: true })).toBeVisible();
+  await expect(page.getByText("Timp", { exact: true })).toHaveCount(0);
   await page.getByRole("button", { name: "Am înțeles" }).click();
   await expect(stoppedNotice(page)).toHaveCount(0);
   await page.reload();

@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef, useState } from "react";
-import { useItalianFirst } from "../app/italianFirst.ts";
+import { useNativeHelp } from "../app/nativeHelp.ts";
 import type { Localized } from "../domain/content/schema.ts";
 import { nativeText } from "./BilingualLabel.tsx";
 import { RulesBox } from "./RulesBox.tsx";
@@ -143,12 +143,12 @@ function TwoFacedRules({ italian, native }: { italian: readonly string[]; native
 }
 
 /**
- * „De reținut” pentru o temă: cu „Italiană întâi” pornită, două fețe (italiană / limba maternă) care se întorc
- * toate deodată, cu titlu cu tot; oprită, caseta obișnuită, doar în limba maternă (regulile și cele comparate).
+ * „De reținut” pentru o temă: cu „Traducere în limba maternă” pornită, două fețe (italiană / limba maternă, cu regulile
+ * comparate) care se întorc toate deodată, cu titlu cu tot; oprită, o singură casetă, doar în italiană, fără întoarcere.
  */
 export function TopicRulesBox({ rules, contrast = [] }: { rules: readonly Localized[]; contrast?: readonly string[] }) {
-  const italianFirst = useItalianFirst();
-  const native = [...rules.map(nativeText), ...contrast];
-  if (!italianFirst) return <RulesBox rules={native} />;
-  return <TwoFacedRules italian={rules.map((r) => r.it)} native={native} />;
+  const nativeHelp = useNativeHelp();
+  const italian = rules.map((r) => r.it);
+  if (!nativeHelp) return <RulesBox title="Da ricordare" lang="it" rules={italian} />;
+  return <TwoFacedRules italian={italian} native={[...rules.map(nativeText), ...contrast]} />;
 }

@@ -67,7 +67,7 @@ export const settingsSchema = z.object({
   ttsVoiceURI: z.string().nullable(),
   theme: z.enum(["auto", "light", "dark"]),
   soundEnabled: z.boolean(),
-  italianFirst: z.boolean(),
+  nativeHelp: z.boolean(),
 });
 
 export const reportSchema = z.object({

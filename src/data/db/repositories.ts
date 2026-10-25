@@ -58,15 +58,15 @@ export async function saveSettings(db: ImparaDb, settings: Settings): Promise<vo
   notifyLocalChange();
 }
 
-/** Cheia din `meta` care ține minte că „Italiană întâi” s-a oprit singură (valoarea: nivelul), până se închide mesajul. */
-export const ITALIAN_FIRST_STOPPED = "italianFirstStopped";
+/** Cheia din `meta` care ține minte că „Traducere în limba maternă” s-a oprit singură (valoarea: nivelul), până se închide mesajul. */
+export const NATIVE_HELP_STOPPED = "nativeHelpStopped";
 
-/** Schimbă nivelul curent; „Italiană întâi” se oprește singură la trecerea peste A, cu un mesaj care se arată o dată. */
+/** Schimbă nivelul curent; „Traducere în limba maternă” se oprește singură la trecerea peste A, cu un mesaj care se arată o dată. */
 export async function changeLevel(db: ImparaDb, level: Level): Promise<void> {
   const current = await getSettings(db);
   const next = settingsForLevel(current, level);
   await saveSettings(db, next);
-  if (current.italianFirst && !next.italianFirst) await db.meta.put({ key: ITALIAN_FIRST_STOPPED, value: level });
+  if (current.nativeHelp && !next.nativeHelp) await db.meta.put({ key: NATIVE_HELP_STOPPED, value: level });
 }
 
 /** `introducedOn` pentru cuvintele marcate „Știu deja”: nu consumă limita de cuvinte noi a zilei. */

@@ -4,11 +4,20 @@ import { useId, useState } from "react";
  * Caseta „De reținut” a unei teme: regulile stau ascunse până atingi titlul, ca fișa să înceapă cu cuvintele.
  * Titlul este un buton într-un <h2> (șablonul „disclosure”), deci rămâne titlu de secțiune pentru cititoarele de ecran.
  */
-export function RulesBox({ rules }: { rules: readonly string[] }) {
+export function RulesBox({
+  rules,
+  title = "De reținut",
+  lang,
+}: {
+  rules: readonly string[];
+  title?: string;
+  /** Limba titlului și a regulilor, dacă nu e cea a paginii (ex. `it`). */
+  lang?: string;
+}) {
   const [open, setOpen] = useState(false);
   const id = useId();
   return (
-    <section aria-labelledby={`${id}-title`} className="rounded-2xl bg-amber-50 text-amber-950 dark:bg-amber-950 dark:text-amber-50">
+    <section aria-labelledby={`${id}-title`} lang={lang} className="rounded-2xl bg-amber-50 text-amber-950 dark:bg-amber-950 dark:text-amber-50">
       <h2 id={`${id}-title`} className="text-sm font-semibold uppercase tracking-wide">
         <button
           type="button"
@@ -17,7 +26,7 @@ export function RulesBox({ rules }: { rules: readonly string[] }) {
           onClick={() => setOpen((o) => !o)}
           className="flex min-h-14 w-full items-center justify-between gap-3 rounded-2xl p-5 text-left uppercase"
         >
-          De reținut
+          {title}
           <svg
             aria-hidden="true"
             viewBox="0 0 24 24"
