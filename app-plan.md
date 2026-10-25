@@ -2,7 +2,7 @@
 
 Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de limba română**, concepută ca **Progressive Web App (PWA)** mobile-first: rulează în browser pe telefon sau desktop, se poate instala pe ecranul principal și funcționează offline.
 
-**Interfața aplicației este în limba română.**
+**Interfața aplicației este în limba română** sau, la alegere, **în italiană** (FR8); traducerile și explicațiile rămân în limba maternă (FR7).
 
 ---
 
@@ -18,7 +18,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 | Surse de frecvență | **FrequencyWords** (sursă principală, italiană vorbită) + **Leipzig Corpora Collection** (italiană scrisă) + **Wiktionary** (verificare); vezi §4 |
 | Audio | Web Speech API (`it-IT`) cu vocile din sistem (macOS, iOS, Android, Windows); vocile de rețea doar online (vezi FR4) |
 | Versionare | **Semantică** (SemVer, `MAJOR.MINOR.PATCH`), pornită de la 1.0.0; release-uri automate cu **release-please** din commit-urile conventional (`feat:`, `fix:`, `!`); CHANGELOG generat; versiunea apare în ecranul „Despre”; vezi README |
-| Limbi | **Limba aplicației** (meniuri, butoane) și **limba maternă** (traduceri, reguli comparate cu limba ta) sunt concepte separate; deocamdată ambele sunt **româna**, alte limbi materne vin ulterior ca flux de conținut; vezi FR7 |
+| Limbi | **Limba interfeței** (meniuri, butoane, mesaje) și **limba maternă** (traduceri, reguli comparate cu limba ta) sunt concepte separate. Interfața: **română** (implicit) sau **italiană**, la alegere în Setări (FR8). Limba maternă: deocamdată **româna**; alte limbi materne vin ulterior ca flux de conținut (FR7) |
 | Backend / sincronizare | **Opțional** (Faza 6): cont pe un server propriu **PocketBase** (SQLite), în spatele nginx și Traefik; fără cont, totul rămâne local, ca în versiunea 1. Backup prin export/import JSON în ambele moduri |
 
 ---
@@ -193,6 +193,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 * Direcția implicită a cardurilor (IT → RO, RO → IT, mixt).
 * Viteza TTS, sunete activate / dezactivate.
 * Temă: automat (sistem) / luminos / întunecat.
+* **Limba interfeței:** Română / Italiano (FR8).
 * **Traducere în limba maternă** (pornit / oprit): textul ajutător în limba maternă din Teme și „De reținut”; oprit, doar italiana (FR7).
 * **Export / import progres** (fișier JSON) ca backup și pentru mutarea pe alt dispozitiv.
 * **Resetare progres** (cu confirmare).
@@ -217,7 +218,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 #### **FR7. Limba maternă și traducerea ajutătoare**
 
 * **Două limbi distincte:**
-  * **Limba aplicației:** meniuri, butoane, mesaje, Setări. Deocamdată doar **româna**, fără selector.
+  * **Limba interfeței:** meniuri, butoane, mesaje, Setări. Română sau italiană, la alegere (FR8); nu schimbă limba maternă.
   * **Limba maternă:** limba celui care învață. Din ea vin traducerile cuvintelor, exemplele, notele, prietenii falși și regulile comparate cu limba ta. Deocamdată doar **româna**, fără selector.
   * Modelul de date și codul se pregătesc de acum pentru mai multe limbi materne (tip `NativeLanguage = "ro"`, texte de conținut indexate după cod de limbă). O limbă nouă (ex. franceza) înseamnă un flux de conținut complet: cuvinte, exemple, note, **prieteni falși proprii** (cei de acum sunt specifici românei) și reguli comparate cu acea limbă. Nu se face în această fază.
 * **Setarea „Traducere în limba maternă”:** un singur comutator în Setări, care controlează atât Temele, cât și „De reținut”. Italiana se vede mereu; comutatorul adaugă sau scoate doar textul ajutător în limba maternă, de care începătorul are nevoie, iar cine avansează nu mai are. Traducerea cuvintelor de pe fișa temei nu depinde de comutator.
@@ -247,6 +248,30 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
   * fiecare regulă din `rules` are ambele versiuni;
   * fiecare temă are cel puțin o regulă în `rules`, ca fața italiană să nu fie goală;
   * `contrast` are doar coduri de limbă maternă cunoscute.
+
+#### **FR8. Limba interfeței (română / italiană)**
+
+* **Ce se schimbă:** tot textul interfeței: navigarea, Acasă, Învață, Dicționar, Statistici, Setări (inclusiv Cont și sincronizare), Despre, ecranul de întâmpinare, sesiunile, exercițiile, jocurile, mesajele de eroare și de stare, etichetele ARIA, numele nivelurilor (*Principiante, Elementare…*), categoriile gramaticale (*verbo, sostantivo…*), etichetele direcțiilor și ale exercițiilor.
+* **Ce nu se schimbă** (este conținut în limba maternă, FR7):
+  * traducerile cuvintelor, ale exemplelor și ale propozițiilor, notele, prietenii falși;
+  * fața în limba maternă a casetei „De reținut” și regulile comparate;
+  * temele de gramatică din Jocuri (titluri, reguli, explicații), care rămân în limba maternă; trecerea lor la `{ it, ro }`, ca la Teme, e o etapă ulterioară.
+  * Cu interfața în italiană, *la moglie* se traduce tot „soție”.
+* **Alegerea:** în Setări, câmpul **„Limba interfeței / Lingua dell'interfaccia”**, cu eticheta mereu în ambele limbi, ca să poți reveni dacă ai schimbat-o din greșeală. Opțiunile sunt scrise fiecare în limba ei: **Română** (implicit) și **Italiano**. Schimbarea se aplică imediat, fără reîncărcare.
+* **Independentă de nivel:** limba interfeței este o preferință, nu un pas de nivel: nu se schimbă automat și nu are legătură cu „Traducere în limba maternă” (FR7). Cele două se combină liber (ex. interfața în italiană și traducerile încă pornite).
+* **Setarea** (`uiLanguage: "ro" | "it"`) intră în backup și se sincronizează cu contul, ca restul setărilor; setările și backup-urile vechi, fără câmp, primesc româna.
+* **Numele limbii materne** în interfață vine din limba interfeței: „Italiană → Română” devine „Italiano → Rumeno”, „Arată în română” devine „Mostra in rumeno”.
+* **Formatare:** datele, orele și numerele se formatează după limba interfeței (`ro-RO` / `it-IT`, prin `Intl`); pluralele prin `Intl.PluralRules` („1 zi / 2 zile”, „1 giorno / 2 giorni”).
+* **Accesibilitate:** `<html lang>` urmează limba interfeței; textele în limba maternă primesc `lang="ro"` când interfața e în italiană (așa cum italiana are `lang="it"` acum), ca cititoarele de ecran să le pronunțe corect.
+* **Rămân în română:** numele și descrierea din manifestul PWA (ecranul de instalare), care sunt statice.
+* **Implementare:**
+  * modul propriu, fără bibliotecă: `src/i18n/ro.ts` (sursa) și `src/i18n/it.ts`, cu același tip, deci TypeScript refuză o cheie lipsă; un hook `useT()` care citește setarea;
+  * textele din afara componentelor (mesajele contului și ale sincronizării, erorile de backup) devin coduri traduse în interfață;
+  * ambele dicționare în pachetul principal, dacă adaugă sub ~10 KB gzip; altfel italiana se încarcă la cerere;
+  * toate textele în italiană stau în `src/i18n/it.ts`, ca să poată fi revizuite într-un singur loc, cu aceeași revizuire ca regulile (§4).
+* **Validare:**
+  * test unitar: cele două dicționare au aceleași chei și niciun text gol;
+  * test care caută în componente text românesc rămas scris direct (cu o listă scurtă de excepții justificate), ca să nu apară texte noi netraduse.
 ---
 
 ### 2. Cerințe Non-Funcționale & UI/UX Mobile-First
@@ -379,7 +404,18 @@ Conținutul este partea cea mai costisitoare a proiectului și se tratează ca f
     * `npm run validate` trece pe toate cele 42 de teme;
     * verificarea axe trece pe ambele fețe ale casetei, în tema luminoasă și în cea întunecată.
   * **Stare:** implementat — setarea „Traducere în limba maternă” (`Settings.nativeHelp`, implicit pornită; oprită: doar italiana; oprire automată la trecerea de la A la B1 sau mai sus, prin `changeLevel`, folosită de Setări și de sugestia de nivel de pe Acasă; mesaj care apare o dată, cu „Am înțeles”), `BilingualLabel` pentru cele 7 grupuri, 42 de teme și 112 subgrupe (și în „Vezi tema” și în „Abilități de repetat”), `TopicRulesBox` cu două fețe (rotire pe Y, `inert` pe fața din spate, focus mutat pe fața nouă, fără rotire la `prefers-reduced-motion`), schema `{ it, ro }` + `contrast.ro` și cele 42 de fișiere migrate (128 de reguli în italiană; 29 de reguli comparate cu româna, în 28 de teme). Setările vechi și backup-urile vechi, fără câmp, primesc valoarea după nivelul salvat. Teste: 8 unitare pentru setări, 3 de integrare pentru `changeLevel`, 1 pentru backup, 6 E2E noi (`tests/e2e/native-help.spec.ts`) și axe pe ambele fețe în ambele teme. `levels.spec` (1), `browse.spec` (3) și `games.spec` (1) pică la fel și pe `main`, din motive fără legătură cu această fază.
+* **Faza 8 — Limba interfeței (~3–4 zile):** modulul `src/i18n` (dicționare RO și IT, `useT()`, plurale și formatare cu `Intl`); extragerea tuturor textelor din interfață (~50 de componente, câteva sute de texte, inclusiv etichete ARIA și mesaje de eroare); câmpul „Limba interfeței / Lingua dell'interfaccia” în Setări; `uiLanguage` în setări, backup și sincronizare; `lang` pe pagină și pe textele în limba maternă (FR8).
+  * **Gata când:**
+    * testele unitare verifică: aceleași chei în ambele dicționare, fără texte goale; pluralele (1 / 2 / 20 în ambele limbi); citirea setărilor și backup-urilor vechi fără câmpul nou (→ română);
+    * testul de texte rămase scrise direct trece;
+    * testele E2E verifică:
+      * comutarea în italiană schimbă imediat navigarea (*Home, Impara, Dizionario, Statistiche, Impostazioni*), Acasă și Setări, iar `<html lang>` devine `it`;
+      * traducerile cuvintelor rămân în română și au `lang="ro"`;
+      * revenirea la română;
+      * suita existentă trece neschimbată, în română;
+    * verificarea axe trece pe ecranele principale și cu interfața în italiană, în ambele teme;
+    * pachetul principal crește cu cel mult ~10 KB gzip.
 * **Ulterior:**
   * a doua limbă maternă (FR7), ca flux de conținut separat;
-  * limba aplicației în altă limbă decât româna (necesită extragerea textelor din interfață);
+  * temele de gramatică din Jocuri cu titluri și reguli `{ it, ro }`, ca Temele (FR8);
   * optimizarea parametrilor FSRS pe datele proprii.
