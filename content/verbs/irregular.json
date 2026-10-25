@@ -44,7 +44,8 @@
     "v-provenire": ["provengo","provieni","proviene","proveniamo","provenite","provengono"],
     "v-intervenire": ["intervengo","intervieni","interviene","interveniamo","intervenite","intervengono"],
     "v-cogliere": ["colgo","cogli","coglie","cogliamo","cogliete","colgono"],
-    "v-convenire": ["convengo","convieni","conviene","conveniamo","convenite","convengono"]
+    "v-convenire": ["convengo","convieni","conviene","conveniamo","convenite","convengono"],
+    "v-svenire": ["svengo","svieni","sviene","sveniamo","svenite","svengono"]
   },
   "imperfetto": {
     "v-essere": ["ero","eri","era","eravamo","eravate","erano"]
@@ -81,7 +82,8 @@
     "v-rifare": "rifar",
     "v-provenire": "proverr",
     "v-intervenire": "interverr",
-    "v-convenire": "converr"
+    "v-convenire": "converr",
+    "v-svenire": "sverr"
   },
   "congiuntivo": {
     "v-essere": ["sia","sia","sia","siamo","siate","siano"],
@@ -127,7 +129,8 @@
     "v-provenire": ["provenga","provenga","provenga","proveniamo","proveniate","provengano"],
     "v-intervenire": ["intervenga","intervenga","intervenga","interveniamo","interveniate","intervengano"],
     "v-cogliere": ["colga","colga","colga","cogliamo","cogliate","colgano"],
-    "v-convenire": ["convenga","convenga","convenga","conveniamo","conveniate","convengano"]
+    "v-convenire": ["convenga","convenga","convenga","conveniamo","conveniate","convengano"],
+    "v-svenire": ["svenga","svenga","svenga","sveniamo","sveniate","svengano"]
   },
   "imperativo": {
     "v-andare": [["va'","vai"],"vada","andiamo","andate","vadano"],
