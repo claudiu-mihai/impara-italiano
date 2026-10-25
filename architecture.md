@@ -322,7 +322,7 @@ React Router, cu următoarele rute:
 | `/settings` | Setări, export / import |
 | `/about` | Despre, atribuirea surselor |
 
-* **Bottom nav:** Acasă, Învață, Dicționar, Statistici, Setări.
+* **Bottom nav:** Acasă, Învață, Dicționar, Statistici, Setări, **doar cu iconițe** (🏠 🃏 📖 📈 ⚙️): numele este eticheta de accesibilitate (`aria-label`) și tooltip, în limba interfeței, iar pagina activă are un fundal în jurul iconiței. Zonă de atingere de minim 48 px.
 * **Code splitting:** `stats`, `sentence`, `topics`, `conjugations.json` și `topics.json` se încarcă lazy, pentru LCP < 1.5s.
 * **Hosting:** container nginx cu fișierele statice și fallback SPA (`Dockerfile`, `docker-compose.yml`), în spatele Traefik (HTTPS, provider de fișiere, `italiano.l61.eu`). Din Faza 6, nginx trimite și `/api/` la PocketBase, pe rețeaua internă (§14).
 

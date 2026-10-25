@@ -114,7 +114,7 @@ const isStudyRoute = (pathname: string) =>
   STUDY_ROUTES.includes(pathname) || /^\/learn\/(topics|games)\/[^/]+\/[a-z]+$/.test(pathname);
 
 function Layout() {
-  const { t, language } = useT();
+  const { t } = useT();
   const { pathname } = useLocation();
   const studying = isStudyRoute(pathname);
 
@@ -132,23 +132,25 @@ function Layout() {
           className="sticky bottom-0 grid grid-cols-5 border-t border-slate-200 bg-white pb-[env(safe-area-inset-bottom)] dark:border-slate-800 dark:bg-slate-900"
         >
           {NAV.map((item) => (
+            // doar iconițe: numele rămâne ca etichetă de accesibilitate și ca tooltip; pagina activă are un fundal
             <NavLink
               key={item.to}
               to={item.to}
               end={item.end}
-              className={({ isActive }) =>
-                `flex min-h-16 min-w-0 flex-col items-center justify-center gap-0.5 px-0.5 ${
-                  // etichetele italiene sunt mai lungi („Impostazioni”): corp mai mic, ca să încapă în cele 5 coloane
-                  language === "it" ? "text-xs" : "text-sm"
-                } ${
-                  isActive ? "font-semibold text-brand-fg" : "text-muted"
-                }`
-              }
+              aria-label={t(item.label)}
+              title={t(item.label)}
+              className="flex min-h-16 items-center justify-center"
             >
-              <span aria-hidden="true" className="text-xl">
-                {item.icon}
-              </span>
-              {t(item.label)}
+              {({ isActive }) => (
+                <span
+                  aria-hidden="true"
+                  className={`flex size-12 items-center justify-center rounded-2xl text-2xl transition-colors motion-reduce:transition-none ${
+                    isActive ? "bg-brand/15 dark:bg-brand/30" : "opacity-70"
+                  }`}
+                >
+                  {item.icon}
+                </span>
+              )}
             </NavLink>
           ))}
         </nav>
