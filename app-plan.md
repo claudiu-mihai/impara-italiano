@@ -18,6 +18,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 | Surse de frecvență | **FrequencyWords** (sursă principală, italiană vorbită) + **Leipzig Corpora Collection** (italiană scrisă) + **Wiktionary** (verificare); vezi §4 |
 | Audio | Web Speech API (`it-IT`) cu vocile din sistem (macOS, iOS, Android, Windows); vocile de rețea doar online (vezi FR4) |
 | Versionare | **Semantică** (SemVer, `MAJOR.MINOR.PATCH`), pornită de la 1.0.0; release-uri automate cu **release-please** din commit-urile conventional (`feat:`, `fix:`, `!`); CHANGELOG generat; versiunea apare în ecranul „Despre”; vezi README |
+| Limbi | **Limba aplicației** (meniuri, butoane) și **limba maternă** (traduceri, reguli comparate cu limba ta) sunt concepte separate; deocamdată ambele sunt **româna**, alte limbi materne vin ulterior ca flux de conținut; vezi FR7 |
 | Backend / sincronizare | **Opțional** (Faza 6): cont pe un server propriu **PocketBase** (SQLite), în spatele nginx și Traefik; fără cont, totul rămâne local, ca în versiunea 1. Backup prin export/import JSON în ambele moduri |
 
 ---
@@ -192,6 +193,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 * Direcția implicită a cardurilor (IT → RO, RO → IT, mixt).
 * Viteza TTS, sunete activate / dezactivate.
 * Temă: automat (sistem) / luminos / întunecat.
+* **Italiană întâi** (pornit / oprit): afișarea bilingvă din Teme și „De reținut” (FR7).
 * **Export / import progres** (fișier JSON) ca backup și pentru mutarea pe alt dispozitiv.
 * **Resetare progres** (cu confirmare).
 
@@ -211,6 +213,40 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 * **Import de backup când ești autentificat:** înlocuiește progresul și în cont, după o confirmare explicită. **Resetarea progresului** șterge și datele din cont. Celelalte dispozitive deja sincronizate primesc cardurile modificate, dar nu și ștergerea istoricului (jurnalul este doar-adăugare); pentru o curățare completă, un dispozitiv se deconectează și se reconectează cu „Folosește doar progresul din cont”.
 * **Ștergerea contului:** buton în Setări care **cere parola**; șterge contul și toate datele lui de pe server, iar telefonul revine la modul fără cont. Merge și cu sesiunea expirată (parola reautentifică).
 * **În Setări, secțiunea „Cont”:** starea („Sincronizat acum 2 minute”, „3 modificări în așteptare”, „Offline”), „Sincronizează acum”, „Deconectează-te”, „Șterge contul”.
+
+#### **FR7. Limba maternă și afișarea „Italiană întâi”**
+
+* **Două limbi distincte:**
+  * **Limba aplicației:** meniuri, butoane, mesaje, Setări. Deocamdată doar **româna**, fără selector.
+  * **Limba maternă:** limba celui care învață. Din ea vin traducerile cuvintelor, exemplele, notele, prietenii falși și regulile comparate cu limba ta. Deocamdată doar **româna**, fără selector.
+  * Modelul de date și codul se pregătesc de acum pentru mai multe limbi materne (tip `NativeLanguage = "ro"`, texte de conținut indexate după cod de limbă). O limbă nouă (ex. franceza) înseamnă un flux de conținut complet: cuvinte, exemple, note, **prieteni falși proprii** (cei de acum sunt specifici românei) și reguli comparate cu acea limbă. Nu se face în această fază.
+* **Setarea „Italiană întâi”:** un singur comutator în Setări, care controlează atât Temele, cât și „De reținut”.
+  * **Implicit pornit**, pentru că utilizatorul începe la nivelul A.
+  * **Se oprește automat** când nivelul curent trece de A (A2 → B1 sau mai sus), fie din Setări, fie din sugestia de nivel de pe Acasă. La oprirea automată apare o singură dată mesajul „Italiană întâi s-a oprit pentru nivelul B1; o poți reporni din Setări”. Utilizatorul îl poate reporni oricând, iar întoarcerea la nivelul A nu îl repornește automat.
+  * Setarea se salvează în backup și se sincronizează cu contul (FR6.1), ca restul setărilor. Backup-urile vechi, fără acest câmp, primesc valoarea implicită.
+* **Teme, când setarea e pornită:** numele în italiană, mare, și sub el, mult mai mic (text secundar, culoare atenuată), numele în limba maternă:
+  * cele **7 grupuri** (*Tempo* / Timp, *Numeri* / Numere, *Spazio* / Spațiu, *Persone* / Oameni, *Vita quotidiana* / Zi de zi, *Città e viaggi* / Oraș și călătorii, *Conversazione* / Conversație);
+  * cele **42 de titluri de temă** (*I giorni della settimana* / Zilele săptămânii), oriunde apar: lista de teme, antetul fișei, linkul „Vezi tema” de pe pagina cuvântului;
+  * cele **112 subgrupe** din fișele temelor.
+  * Toate trec printr-o singură componentă (ex. `BilingualLabel`). Textul italian are `lang="it"`, ca cititoarele de ecran și TTS să-l pronunțe corect.
+  * Când setarea e oprită, totul arată ca acum: doar în limba maternă.
+* **„De reținut”, când setarea e pornită:** caseta are două fețe și se întoarce **toată deodată**, inclusiv titlul.
+  * **Fața italiană:** titlul *Da ricordare* și **regulile limbii italiane**, scrise în italiană (ex. *«Lunedì» è il giorno; «il lunedì» vuol dire ogni lunedì*).
+  * **Fața în limba maternă:** titlul „De reținut”, aceleași reguli traduse, plus **regulile comparate cu limba maternă**, care există doar pe această față (ex. *„în română articolul stă la final (casa), în italiană în față (la casa)”*). Pentru o altă limbă maternă, aceste reguli se scriu separat, comparate cu acea limbă.
+  * **Interacțiune:** butonul cu săgeata deschide și închide caseta, ca acum. Atingerea casetei deschise o întoarce pe cealaltă față. Caseta pornește închisă, pe fața italiană. Ambele zone de atingere au minim 48px, iar cea de întoarcere are o etichetă ARIA („Arată în română” / „Mostra in italiano”).
+  * **Animație:** rotire pe axa Y, ca la Flashcards. Cu `prefers-reduced-motion`, fețele se schimbă fără rotire.
+  * Când setarea e oprită, caseta arată direct fața în limba maternă, fără întoarcere, adică exact ca acum.
+* **Conținut:**
+  * Câmpurile cu text tradus primesc o formă indexată după limbă: `title: { "it": "I giorni della settimana", "ro": "Zilele săptămânii" }`, la fel la subgrupe și la etichetele grupurilor.
+  * Regulile se împart în două liste:
+    * `rules`: reguli ale limbii italiane, fiecare cu `it` și traducerile ei (`ro`);
+    * `contrast`: reguli comparate cu limba maternă, grupate după limbă (`contrast.ro: [...]`).
+  * Cele **128 de reguli** de acum, scrise amestecat italiană și română, se rescriu pe această structură și trec prin aceeași revizuire ca traducerile (§4).
+* **Validare** (`npm run validate`, în CI):
+  * fiecare grup, temă și subgrupă are titlul în italiană și în română;
+  * fiecare regulă din `rules` are ambele versiuni;
+  * fiecare temă are cel puțin o regulă în `rules`, ca fața italiană să nu fie goală;
+  * `contrast` are doar coduri de limbă maternă cunoscute.
 ---
 
 ### 2. Cerințe Non-Funcționale & UI/UX Mobile-First
@@ -332,4 +368,17 @@ Conținutul este partea cea mai costisitoare a proiectului și se tratează ca f
 * **Faza 6 — Conturi și sincronizare (3–4 zile):** serviciul PocketBase în `docker-compose`, accesibil prin nginx pe `/api/` (Traefik rămâne neschimbat), panoul de administrare doar prin tunel SSH; autentificare opțională din Setări; sincronizarea progresului (FR6.1) cu coadă locală, combinare fără conflicte și ștergeri marcate; alegerea la prima autentificare când există progres în ambele locuri; deconectare sigură; ștergerea contului.
   * **Gata când:** fără cont aplicația nu face nicio cerere de rețea (verificat în E2E); două dispozitive (două contexte de browser) cu același cont ajung la același progres după repetiții făcute offline pe ambele; statisticile și streak-ul sunt identice pe ambele; deconectarea cu modificări netrimise avertizează; ștergerea contului elimină datele de pe server; testele unitare pentru combinare trec.
   * **Stare:** implementat și testat — cont opțional din Setări (**creare cont din aplicație**, autentificare, alegerea combinării la prima autentificare, deconectare cu avertisment, ștergerea contului **cu parolă**, „Sesiune expirată” cu reautentificare doar cu parola), sincronizare automată (la pornire, la reconectare, la 20 s după modificări, la trecerea în fundal) și manuală, PocketBase 0.40.5 în `docker-compose` în spatele nginx, migrări în git, limite de cereri și IP real al clientului. Dexie v2 (`updatedAt`, `uid`, marcaje `dirty`, `tombstones`) cu migrare testată. Teste: 21 de integrare cu două „dispozitive” (server în memorie), 15 + 11 unitare (combinare; mesaje și validări de cont), 22 E2E cu PocketBase real (două contexte de browser = două telefoane, inclusiv offline, sesiune expirată, izolare între utilizatori și axe în ambele teme). Fără cont nu se încarcă niciun cod de sincronizare (verificat în E2E), iar pachetul principal nu a crescut. **Neverificat pe un server real cu Traefik:** stiva a fost testată prin nginx într-un compose izolat, nu în spatele Traefik-ului tău, iar workflow-ul GitHub care publică și imaginea PocketBase nu a rulat.
-* **Ulterior (opțional):** optimizarea parametrilor FSRS pe datele proprii.
+* **Faza 7 — Limba maternă și „Italiană întâi” (~2 zile cod + conținut):** separarea limbii aplicației de limba maternă în model (FR7); setarea „Italiană întâi” cu oprire automată la trecerea peste nivelul A; afișarea bilingvă a grupurilor, temelor și subgrupelor; caseta „De reținut” cu două fețe; schema nouă a temelor și validarea ei.
+  * **Conținut:** 7 grupuri, 42 de titluri de temă și 112 subgrupe traduse în italiană; cele 128 de reguli împărțite în reguli ale limbii italiane (IT + RO) și reguli comparate cu româna (doar RO), rescrise și revizuite.
+  * **Gata când:**
+    * testele unitare acoperă oprirea automată (A2 → B1 o oprește; B1 → A2 nu o repornește; o repornire manuală la B1 rămâne pornită) și citirea backup-urilor vechi fără câmpul nou;
+    * testele E2E verifică:
+      * la A1 Temele arată *Tempo* cu „Timp” dedesubt;
+      * atingerea casetei deschise schimbă *Da ricordare* în „De reținut” și arată regulile de contrast;
+      * cu setarea oprită, ecranele arată ca înainte;
+    * `npm run validate` trece pe toate cele 42 de teme;
+    * verificarea axe trece pe ambele fețe ale casetei, în tema luminoasă și în cea întunecată.
+* **Ulterior:**
+  * a doua limbă maternă (FR7), ca flux de conținut separat;
+  * limba aplicației în altă limbă decât româna (necesită extragerea textelor din interfață);
+  * optimizarea parametrilor FSRS pe datele proprii.
