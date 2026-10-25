@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useT } from "../i18n/index.ts";
 
 interface StudyHeaderProps {
   index: number;
@@ -9,10 +10,11 @@ interface StudyHeaderProps {
 }
 
 /** Antetul comun al sesiunilor de studiu: ieșire, bară de progres și contor. */
-export function StudyHeader({ index, total, label = "Progresul sesiunii", exitTo = "/learn" }: StudyHeaderProps) {
+export function StudyHeader({ index, total, label, exitTo = "/learn" }: StudyHeaderProps) {
+  const { t } = useT();
   return (
     <header className="flex items-center gap-3">
-      <Link to={exitTo} aria-label="Ieși din sesiune" className="flex size-12 items-center justify-center text-2xl">
+      <Link to={exitTo} aria-label={t("study.exit")} className="flex size-12 items-center justify-center text-2xl">
         ✕
       </Link>
       <div
@@ -20,7 +22,7 @@ export function StudyHeader({ index, total, label = "Progresul sesiunii", exitTo
         aria-valuemin={0}
         aria-valuemax={total}
         aria-valuenow={index}
-        aria-label={label}
+        aria-label={label ?? t("study.progress")}
         className="h-2 flex-1 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700"
       >
         <div

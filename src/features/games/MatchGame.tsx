@@ -4,6 +4,8 @@ import { getSettings } from "../../data/db/repositories.ts";
 import type { GrammarItem } from "../../domain/content/schema.ts";
 import { buildGrammarMatchRounds, type GrammarPair } from "../../domain/grammar/games.ts";
 import { shuffle } from "../../domain/random.ts";
+import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
+import { useT } from "../../i18n/index.ts";
 import { playFeedback } from "../../services/sound.ts";
 import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
@@ -11,13 +13,17 @@ import { useGrammarTopic } from "./useGrammarTopic.ts";
 
 /** Potrivire: 5 perechi expresie italiană ↔ traducere pe rundă; se atinge câte una din fiecare coloană. */
 export function MatchPage() {
+  const { t } = useT();
   const { id, topic, loading } = useGrammarTopic();
-  if (loading) return <p className="p-6 text-center text-muted">Se încarcă…</p>;
-  if (!topic) return <SessionDone emoji="🤔" title="Tema nu există" text="" backTo="/learn/games" backLabel="Înapoi la jocuri" />;
+  if (loading) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
+  if (!topic) {
+    return <SessionDone emoji="🤔" title={t("topics.notFound")} text="" backTo="/learn/games" backLabel={t("games.backToList")} />;
+  }
   return <MatchGame key={id} topicId={topic.id} items={topic.items} />;
 }
 
 function MatchGame({ topicId, items }: { topicId: string; items: GrammarItem[] }) {
+  const { t, tp } = useT();
   const exitTo = `/learn/games/${topicId}`;
   const [attempt, setAttempt] = useState(0);
   const rounds = useMemo(
@@ -62,7 +68,9 @@ function MatchGame({ topicId, items }: { topicId: string; items: GrammarItem[] }
   };
 
   if (!round) {
-    return <SessionDone emoji="🧩" title="Nimic de potrivit" text="Tema nu are exemple." backTo={exitTo} backLabel="Înapoi la temă" />;
+    return (
+      <SessionDone emoji="🧩" title={t("match.nothing")} text={t("games.noExamples")} backTo={exitTo} backLabel={t("flash.backToTopic")} />
+    );
   }
 
   const roundDone = round.every((p) => matched.has(p.id));
@@ -71,10 +79,10 @@ function MatchGame({ topicId, items }: { topicId: string; items: GrammarItem[] }
   if (roundDone && lastRound) {
     return (
       <SessionDone
-        title="Ai potrivit toate perechile"
-        text={mistakes === 0 ? "Fără nicio greșeală!" : `${mistakes} ${mistakes === 1 ? "greșeală" : "greșeli"}.`}
+        title={t("match.allDone")}
+        text={mistakes === 0 ? t("match.noMistakes") : tp("match.mistakes", mistakes)}
         backTo={exitTo}
-        backLabel="Înapoi la temă"
+        backLabel={t("flash.backToTopic")}
       >
         <button
           type="button"
@@ -86,7 +94,7 @@ function MatchGame({ topicId, items }: { topicId: string; items: GrammarItem[] }
             setMistakes(0);
           }}
         >
-          Încă o rundă
+          {t("common.anotherRound")}
         </button>
       </SessionDone>
     );
@@ -112,20 +120,20 @@ function MatchGame({ topicId, items }: { topicId: string; items: GrammarItem[] }
         onClick={() => void choose(side, pair.id)}
         className={`min-h-16 rounded-xl border-2 px-3 text-lg font-medium ${style}`}
       >
-        {side === "left" ? pair.it : pair.ro}
+        <span lang={side === "left" ? "it" : NATIVE_LANGUAGE}>{side === "left" ? pair.it : pair.ro}</span>
       </button>
     );
   };
 
   return (
     <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
-      <StudyHeader index={roundIndex} total={rounds.length} label="Progresul jocului" exitTo={exitTo} />
-      <h1 className="text-center text-lg font-semibold">Potrivește perechile</h1>
+      <StudyHeader index={roundIndex} total={rounds.length} label={t("games.progress")} exitTo={exitTo} />
+      <h1 className="text-center text-lg font-semibold">{t("match.title")}</h1>
       <div className="grid grid-cols-2 gap-3">
-        <div className="flex flex-col gap-3" role="group" aria-label="Italiană">
+        <div className="flex flex-col gap-3" role="group" aria-label={t("lang.it")}>
           {round.map((p) => cell(p, "left"))}
         </div>
-        <div className="flex flex-col gap-3" role="group" aria-label="Română">
+        <div className="flex flex-col gap-3" role="group" aria-label={t("lang.ro")}>
           {rightOrder.map((p) => cell(p, "right"))}
         </div>
       </div>
@@ -139,7 +147,7 @@ function MatchGame({ topicId, items }: { topicId: string; items: GrammarItem[] }
               setMatched(new Set());
             }}
           >
-            Runda următoare
+            {t("match.next")}
           </button>
         </div>
       )}

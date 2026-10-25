@@ -1,3 +1,4 @@
+import type { Key } from "../../i18n/ro.ts";
 import { LEVELS, type Level, type Tense } from "./constants.ts";
 
 export const levelIndex = (level: Level): number => LEVELS.indexOf(level);
@@ -15,20 +16,21 @@ export type LevelGroup = (typeof LEVEL_GROUPS)[number];
 
 export const levelGroupOf = (level: Level): LevelGroup => level[0] as LevelGroup;
 
-/** Cum se numește grupa în interfață (tooltip și etichetă accesibilă). */
-export const LEVEL_GROUP_LABEL: Record<LevelGroup, string> = {
-  A: "Nivel A (A1–A2): începător și elementar",
-  B: "Nivel B (B1–B2): intermediar",
-  C: "Nivel C (C1–C2): avansat",
+/** Cheile textelor (în `i18n`) pentru numele grupelor, în tooltip și etichetă accesibilă: `t(LEVEL_GROUP_LABEL[group])`. */
+export const LEVEL_GROUP_LABEL: Record<LevelGroup, Key> = {
+  A: "levelGroup.A",
+  B: "levelGroup.B",
+  C: "levelGroup.C",
 };
 
-export const LEVEL_NAME: Record<Level, string> = {
-  A1: "Începător",
-  A2: "Elementar",
-  B1: "Intermediar",
-  B2: "Intermediar avansat",
-  C1: "Avansat",
-  C2: "Competență deplină",
+/** Cheile numelor nivelurilor (Începător, Elementar…): `t(LEVEL_NAME[level])`. */
+export const LEVEL_NAME: Record<Level, Key> = {
+  A1: "level.A1",
+  A2: "level.A2",
+  B1: "level.B1",
+  B2: "level.B2",
+  C1: "level.C1",
+  C2: "level.C2",
 };
 
 /**

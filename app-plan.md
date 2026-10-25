@@ -267,7 +267,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 * **Implementare:**
   * modul propriu, fără bibliotecă: `src/i18n/ro.ts` (sursa) și `src/i18n/it.ts`, cu același tip, deci TypeScript refuză o cheie lipsă; un hook `useT()` care citește setarea;
   * textele din afara componentelor (mesajele contului și ale sincronizării, erorile de backup) devin coduri traduse în interfață;
-  * ambele dicționare în pachetul principal, dacă adaugă sub ~10 KB gzip; altfel italiana se încarcă la cerere;
+  * româna (sursa cheilor) în pachetul principal; italiana se încarcă la cerere, deoarece cele două dicționare împreună au depășit bugetul de ~10 KB gzip;
   * toate textele în italiană stau în `src/i18n/it.ts`, ca să poată fi revizuite într-un singur loc, cu aceeași revizuire ca regulile (§4).
 * **Validare:**
   * test unitar: cele două dicționare au aceleași chei și niciun text gol;
@@ -415,6 +415,7 @@ Conținutul este partea cea mai costisitoare a proiectului și se tratează ca f
       * suita existentă trece neschimbată, în română;
     * verificarea axe trece pe ecranele principale și cu interfața în italiană, în ambele teme;
     * pachetul principal crește cu cel mult ~10 KB gzip.
+  * **Stare:** implementat — `src/i18n` (`ro.ts` ca sursă de chei, `it.ts` încărcat la cerere, ~8,5 KB gzip; `useT()`, plurale cu `Intl.PluralRules`, `{loc}` și noduri React), toată interfața extrasă (483 de chei, cu pluralele, inclusiv etichete ARIA, mesajele contului și ale backup-ului, intervalele și etichetele de domeniu), câmpul „Limba interfeței / Lingua dell'interfaccia” în Setări (aplicat imediat, păstrat local pentru prima afișare), `Settings.uiLanguage` în setări, backup și sincronizare, `<html lang>` și `lang="ro"` pe conținutul în limba maternă. Pachetul principal nu a crescut peste buget (LCP pe Slow 4G, 1,44 s). Teste: unitare pentru dicționare (chei, `{locuri}`, plurale), pentru setare și backup; testul care refuză text românesc scris direct; 9 E2E noi (`tests/e2e/ui-language.spec.ts`) și axe în italiană, în ambele teme. Aspect: etichetele italiene mai lungi au cerut o bară de jos cu corp mai mic și rânduri de Setări în care eticheta se strânge, nu selectorul.
 * **Ulterior:**
   * a doua limbă maternă (FR7), ca flux de conținut separat;
   * temele de gramatică din Jocuri cu titluri și reguli `{ it, ro }`, ca Temele (FR8);

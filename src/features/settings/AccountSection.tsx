@@ -4,6 +4,7 @@ import { useContent } from "../../app/content.tsx";
 import { db } from "../../data/db/instance.ts";
 import { passwordProblem } from "../../data/sync/messages.ts";
 import { pendingCount } from "../../data/sync/pending.ts";
+import { useT } from "../../i18n/index.ts";
 import { InfoHeading } from "../../ui/Info.tsx";
 import { downloadBackup } from "./backupDownload.ts";
 
@@ -45,8 +46,8 @@ function useAccountState(): AccountState | undefined {
   }, []);
 }
 
-const formatTime = (iso: string) =>
-  new Date(iso).toLocaleString("ro-RO", { dateStyle: "short", timeStyle: "short" });
+const formatTime = (iso: string, locale: string) =>
+  new Date(iso).toLocaleString(locale, { dateStyle: "short", timeStyle: "short" });
 
 function Message({ text, error }: { text?: string; error?: boolean }) {
   if (!text) return null;
@@ -58,6 +59,7 @@ function Message({ text, error }: { text?: string; error?: boolean }) {
 }
 
 function SignInForm({ lockedEmail, onDone }: { lockedEmail?: string; onDone?: () => void }) {
+  const { t, rich } = useT();
   const { meta } = useContent();
   const [email, setEmail] = useState(lockedEmail ?? "");
   const [password, setPassword] = useState("");
@@ -119,23 +121,21 @@ function SignInForm({ lockedEmail, onDone }: { lockedEmail?: string; onDone?: ()
 
   if (choice) {
     return (
-      <div className="mt-3 flex flex-col gap-3" role="group" aria-label="Cum combinăm progresul?">
-        <p>
-          Există progres și pe acest telefon, și în cont. Cum le combinăm?
-        </p>
+      <div className="mt-3 flex flex-col gap-3" role="group" aria-label={t("account.combineQuestion")}>
+        <p>{t("account.bothHaveProgress")}</p>
         <button type="button" disabled={busy} onClick={() => void finish("merge")} className={primary}>
-          Combină cu contul
+          {t("account.merge")}
         </button>
-        <p className="-mt-1 text-sm text-muted">Păstrează versiunea mai nouă a fiecărui card; repetițiile din ambele părți se adună.</p>
+        <p className="-mt-1 text-sm text-muted">{t("account.mergeHint")}</p>
         <button type="button" disabled={busy} onClick={() => void finish("account-only")} className={outline}>
-          Folosește doar progresul din cont
+          {t("account.accountOnly")}
         </button>
-        <p className="-mt-1 text-sm text-muted">Progresul de pe acest telefon se șterge. Alege asta dacă telefonul nu e al tău.</p>
+        <p className="-mt-1 text-sm text-muted">{t("account.accountOnlyHint")}</p>
         <button type="button" disabled={busy} onClick={() => void downloadBackup(meta.dataVersion)} className="min-h-12 rounded-lg bg-slate-100 px-4 text-sm font-semibold dark:bg-slate-800">
-          Descarcă mai întâi un backup local
+          {t("account.backupFirst")}
         </button>
         <button type="button" disabled={busy} onClick={() => void cancel()} className="min-h-12 text-sm text-muted underline">
-          Renunță
+          {t("account.cancel")}
         </button>
         <Message text={error} error />
       </div>
@@ -146,26 +146,26 @@ function SignInForm({ lockedEmail, onDone }: { lockedEmail?: string; onDone?: ()
     <form onSubmit={(e) => void submit(e)} className="mt-3 flex flex-col gap-3">
       {lockedEmail ? (
         <p className="text-sm text-muted">
-          Cont: <strong>{lockedEmail}</strong>
+          {rich("account.lockedAccount", { email: <strong>{lockedEmail}</strong> })}
         </p>
       ) : (
         <>
-          <div role="group" aria-label="Tipul de acces" className="grid grid-cols-2 gap-2">
+          <div role="group" aria-label={t("account.accessType")} className="grid grid-cols-2 gap-2">
             <button type="button" aria-pressed={!registering} onClick={() => switchMode("signin")} className={tab(!registering)}>
-              Am deja cont
+              {t("account.haveAccount")}
             </button>
             <button type="button" aria-pressed={registering} onClick={() => switchMode("register")} className={tab(registering)}>
-              Cont nou
+              {t("account.newAccount")}
             </button>
           </div>
           <label className="flex flex-col gap-1">
-            <span>Email</span>
+            <span>{t("account.email")}</span>
             <input type="email" required autoComplete="username" value={email} onChange={(e) => setEmail(e.target.value)} className={input} />
           </label>
         </>
       )}
       <label className="flex flex-col gap-1">
-        <span>Parola</span>
+        <span>{t("account.password")}</span>
         <input
           type="password"
           required
@@ -178,16 +178,14 @@ function SignInForm({ lockedEmail, onDone }: { lockedEmail?: string; onDone?: ()
       {registering && (
         <>
           <label className="flex flex-col gap-1">
-            <span>Confirmă parola</span>
+            <span>{t("account.confirmPassword")}</span>
             <input type="password" required autoComplete="new-password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className={input} />
           </label>
-          <p className="text-sm text-muted">
-            Cel puțin 8 caractere. Dacă o uiți, parola nu se poate reseta din aplicație: o resetează administratorul serverului.
-          </p>
+          <p className="text-sm text-muted">{t("account.passwordHint")}</p>
         </>
       )}
       <button type="submit" disabled={busy} className={primary}>
-        {registering ? (busy ? "Se creează…" : "Creează cont") : busy ? "Se autentifică…" : "Autentifică-te"}
+        {registering ? (busy ? t("account.creating") : t("account.create")) : busy ? t("account.signingIn") : t("account.signIn")}
       </button>
       <Message text={error} error />
     </form>
@@ -195,6 +193,7 @@ function SignInForm({ lockedEmail, onDone }: { lockedEmail?: string; onDone?: ()
 }
 
 function SignedIn({ state }: { state: AccountState }) {
+  const { t, tp, rich, locale } = useT();
   const [busy, setBusy] = useState(false);
   const [note, setNote] = useState<{ text: string; error?: boolean }>();
   const authRequired = state.status === "auth-required";
@@ -207,23 +206,21 @@ function SignedIn({ state }: { state: AccountState }) {
     try {
       const { syncNow: run } = await loadAccount();
       const outcome = await run(db);
-      if (outcome.status === "offline") setNote({ text: "Ești offline. Modificările se trimit când revine conexiunea.", error: true });
-      else if (outcome.status === "error") setNote({ text: `Sincronizarea a eșuat: ${outcome.message ?? "eroare necunoscută"}`, error: true });
+      if (outcome.status === "offline") setNote({ text: t("account.offlineNote"), error: true });
+      else if (outcome.status === "error") setNote({ text: t("account.syncFailed", { message: outcome.message ?? t("account.unknownError") }), error: true });
     } finally {
       setBusy(false);
     }
   };
 
   const signOut = async () => {
-    if (!window.confirm("Te deconectezi? Progresul de pe acest telefon se șterge (rămâne în cont) și aplicația revine la modul fără cont.")) return;
+    if (!window.confirm(t("account.confirmSignOut"))) return;
     setBusy(true);
     try {
       const { signOut: run } = await loadAccount();
       const result = await run(db);
       if (result.status === "pending") {
-        const force = window.confirm(
-          `Ai ${result.pending} modificări care nu au ajuns încă în cont. Dacă te deconectezi acum, se pierd. Te deconectezi oricum?`,
-        );
+        const force = window.confirm(tp("account.confirmPending", result.pending));
         if (force) await run(db, true);
       }
     } finally {
@@ -246,20 +243,21 @@ function SignedIn({ state }: { state: AccountState }) {
   };
 
   let line: string;
-  if (state.status === "offline") line = `Offline · ${state.pending} modificări în așteptare`;
-  else if (state.status === "error") line = `Sincronizarea a eșuat · ${state.pending} modificări în așteptare`;
-  else if (state.pending > 0) line = `${state.pending} modificări în așteptare`;
-  else line = state.lastAt ? `Sincronizat · ${formatTime(state.lastAt)}` : "Se sincronizează…";
+  const pending = tp("account.pending", state.pending);
+  if (state.status === "offline") line = t("account.lineOffline", { pending });
+  else if (state.status === "error") line = t("account.lineError", { pending });
+  else if (state.pending > 0) line = pending;
+  else line = state.lastAt ? t("account.lineSynced", { time: formatTime(state.lastAt, locale) }) : t("account.lineSyncing");
 
   return (
     <div className="mt-3 flex flex-col gap-3">
       <p>
-        Conectat ca <strong>{state.email ?? "cont"}</strong>
+        {rich("account.connectedAs", { email: <strong>{state.email ?? t("account.fallbackName")}</strong> })}
       </p>
       {authRequired ? (
         <>
           <p role="alert" className="text-amber-800 dark:text-amber-300">
-            Sesiunea a expirat. Poți învăța în continuare; modificările se trimit după ce te autentifici din nou.
+            {t("account.sessionExpired")}
           </p>
           <SignInForm lockedEmail={state.email} />
         </>
@@ -270,24 +268,21 @@ function SignedIn({ state }: { state: AccountState }) {
       )}
       {!authRequired && (
         <button type="button" disabled={busy} onClick={() => void syncNow()} className={outline}>
-          {busy ? "Se sincronizează…" : "Sincronizează acum"}
+          {busy ? t("account.lineSyncing") : t("account.syncNow")}
         </button>
       )}
       <button type="button" disabled={busy} onClick={() => void signOut()} className={outline}>
-        Deconectează-te
+        {t("account.signOut")}
       </button>
       {deleting ? (
         <form
           onSubmit={(e) => void deleteAccount(e)}
-          aria-label="Confirmă ștergerea contului"
+          aria-label={t("account.confirmDeletion")}
           className="flex flex-col gap-3 rounded-xl border-2 border-red-600 p-4"
         >
-          <p>
-            Contul și toate datele lui se șterg definitiv de pe server, iar progresul de pe acest telefon se șterge și el.
-            Acțiunea nu poate fi anulată.
-          </p>
+          <p>{t("account.deleteWarning")}</p>
           <label className="flex flex-col gap-1">
-            <span>Parola pentru confirmare</span>
+            <span>{t("account.passwordForConfirm")}</span>
             <input
               type="password"
               required
@@ -299,7 +294,7 @@ function SignedIn({ state }: { state: AccountState }) {
             />
           </label>
           <button type="submit" disabled={busy} className={danger}>
-            {busy ? "Se șterge…" : "Confirmă ștergerea"}
+            {busy ? t("account.deleting") : t("account.confirmDelete")}
           </button>
           <button
             type="button"
@@ -311,12 +306,12 @@ function SignedIn({ state }: { state: AccountState }) {
             }}
             className="min-h-12 text-sm text-muted underline"
           >
-            Renunță
+            {t("account.cancel")}
           </button>
         </form>
       ) : (
         <button type="button" disabled={busy} onClick={() => setDeleting(true)} className={danger}>
-          Șterge contul
+          {t("account.delete")}
         </button>
       )}
       <Message text={note?.text} error={note?.error} />
@@ -326,6 +321,7 @@ function SignedIn({ state }: { state: AccountState }) {
 
 /** Secțiunea „Cont” din Setări: autentificare opțională și starea sincronizării. */
 export function AccountSection() {
+  const { t } = useT();
   const state = useAccountState();
 
   // fără cont nu păstrăm nicio sesiune veche a SDK-ului (ex. o autentificare abandonată la alegerea combinării)
@@ -344,13 +340,12 @@ export function AccountSection() {
   return (
     <section className={card} aria-labelledby="account">
       {state && !state.userId ? (
-        <InfoHeading id="account" title="Cont" className={heading}>
-          Opțional. Fără cont, progresul rămâne doar pe acest telefon și aplicația nu trimite nimic pe internet. Cu cont,
-          progresul se sincronizează cu serverul și îl poți folosi și pe alte dispozitive.
+        <InfoHeading id="account" title={t("account.title")} className={heading}>
+          {t("account.optional")}
         </InfoHeading>
       ) : (
         <h2 id="account" className={heading}>
-          Cont
+          {t("account.title")}
         </h2>
       )}
       {!state ? null : state.userId ? <SignedIn state={state} /> : <SignInForm />}

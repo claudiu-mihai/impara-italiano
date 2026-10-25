@@ -1,3 +1,4 @@
+import { useT } from "../i18n/index.ts";
 import { formatDigital, type ClockTime } from "../domain/skills/time.ts";
 
 interface ClockFaceProps {
@@ -9,6 +10,7 @@ interface ClockFaceProps {
 
 /** Cadran analogic desenat în SVG, cu limbile ceasului în poziția orei date. */
 export function ClockFace({ time, size = 180, label }: ClockFaceProps) {
+  const { t } = useT();
   const hourAngle = ((time.hour % 12) + time.minute / 60) * 30;
   const minuteAngle = time.minute * 6;
   const hand = (angle: number, length: number, width: number) => {
@@ -27,7 +29,7 @@ export function ClockFace({ time, size = 180, label }: ClockFaceProps) {
   };
 
   return (
-    <svg viewBox="0 0 100 100" width={size} height={size} role="img" aria-label={label ?? `Ceas: ${formatDigital(time)}`}>
+    <svg viewBox="0 0 100 100" width={size} height={size} role="img" aria-label={label ?? t("clock.label", { time: formatDigital(time) })}>
       <circle cx="50" cy="50" r="47" fill="white" stroke="currentColor" strokeWidth="3" className="text-slate-700" />
       {Array.from({ length: 12 }, (_, i) => {
         const rad = ((i * 30 - 90) * Math.PI) / 180;

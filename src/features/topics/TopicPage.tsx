@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useContent } from "../../app/content.tsx";
 import { useNativeHelp } from "../../app/nativeHelp.ts";
 import { useTopics } from "../../app/topics.ts";
+import { useT } from "../../i18n/index.ts";
 import { db } from "../../data/db/instance.ts";
 import { EXERCISE_ICON, EXERCISE_LABEL, italianText } from "../../domain/content/display.ts";
 import { topicProgress } from "../../domain/topics/topics.ts";
@@ -19,21 +20,22 @@ const filled = `${action} bg-brand text-lg text-white active:bg-brand-dark`;
 const outlined = `${action} border-2 border-brand text-brand-fg active:bg-slate-100 dark:active:bg-slate-800`;
 
 export function TopicPage() {
+  const { t } = useT();
   const { id = "" } = useParams();
   const content = useContent();
   const topics = useTopics();
   const cards = useLiveQuery(() => db.cards.where("kind").equals("vocab").toArray(), []);
   const nativeHelp = useNativeHelp();
 
-  if (!topics || !cards) return <p className="p-6 text-center text-muted">Se încarcă…</p>;
+  if (!topics || !cards) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
 
-  const topic = topics.find((t) => t.id === id);
+  const topic = topics.find((x) => x.id === id);
   if (!topic) {
     return (
       <div className="p-6 text-center">
-        <p className="mb-4">Tema nu există.</p>
+        <p className="mb-4">{t("topics.notFound")}.</p>
         <Link to="/learn/topics" className="text-brand-fg underline">
-          Înapoi la teme
+          {t("topics.backToList")}
         </Link>
       </div>
     );
@@ -43,7 +45,7 @@ export function TopicPage() {
 
   return (
     <div className="flex flex-col gap-5 px-4 pb-8 pt-4">
-      <BackLink to="/learn/topics" label="Teme" />
+      <BackLink to="/learn/topics" label={t("learn.topics")} />
 
       <header className="flex flex-col gap-2">
         <div className="flex items-center gap-3">
@@ -53,7 +55,7 @@ export function TopicPage() {
           <CefrBadge level={topic.level} />
         </div>
         <p className="text-muted" data-testid="topic-progress">
-          {progress.started} din {progress.total} cuvinte începute · {progress.mastered} stăpânite
+          {t("topics.progressWords", { started: progress.started, total: progress.total, mastered: progress.mastered })}
         </p>
       </header>
 
@@ -86,16 +88,16 @@ export function TopicPage() {
       <div className="grid grid-cols-2 gap-3" data-testid="topic-actions">
         <Link to={`/learn/topics/${topic.id}/flashcards`} className={`${filled} whitespace-nowrap`}>
           <span aria-hidden="true">📖</span>
-          Studiază
+          {t("topics.study")}
         </Link>
         <Link to={`/learn/topics/${topic.id}/quiz`} className={`${outlined} whitespace-nowrap text-lg`}>
           <span aria-hidden="true">❓</span>
-          Quiz
+          {t("learn.quiz")}
         </Link>
         {topic.exercises.map((exercise) => (
           <Link key={exercise} to={`/learn/topics/${topic.id}/${exercise}`} className={`${outlined} col-span-2 text-lg`}>
             <span aria-hidden="true">{EXERCISE_ICON[exercise]}</span>
-            {EXERCISE_LABEL[exercise]}
+            {t(EXERCISE_LABEL[exercise])}
           </Link>
         ))}
       </div>

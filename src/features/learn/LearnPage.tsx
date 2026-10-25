@@ -5,6 +5,7 @@ import { useConjugations } from "../../app/conjugations.ts";
 import { useSentences } from "../../app/sentences.ts";
 import { useContent } from "../../app/content.tsx";
 import { db } from "../../data/db/instance.ts";
+import { useT } from "../../i18n/index.ts";
 import { loadConjugationOverview, loadQuizRound, loadSentenceRound, loadStudyOverview } from "../../data/queries.ts";
 
 interface TileProps {
@@ -37,10 +38,10 @@ function Tile({ to, emoji, title, children, disabled }: TileProps) {
   );
 }
 
-const counts = (due: number, fresh: number, newLabel: string) =>
-  due + fresh === 0 ? "Nimic de făcut acum" : `${due} repetiții · ${fresh} ${newLabel}`;
-
 export function LearnPage() {
+  const { t, tp } = useT();
+  const counts = (due: number, fresh: number, newBase: "learn.newWords" | "learn.newTenses") =>
+    due + fresh === 0 ? t("learn.nothingToDo") : `${tp("learn.due", due)} · ${tp(newBase, fresh)}`;
   const content = useContent();
   const conjugations = useConjugations();
   const vocab = useLiveQuery(() => loadStudyOverview(db, content), [content]);
@@ -57,47 +58,47 @@ export function LearnPage() {
 
   return (
     <div className="flex flex-col gap-4 px-4 pb-8 pt-8">
-      <h1 className="text-2xl font-bold">Învață</h1>
+      <h1 className="text-2xl font-bold">{t("learn.title")}</h1>
 
-      <Tile to="/learn/vocab" emoji="🃏" title="Flashcards">
-        {vocab ? counts(vocab.dueCount, vocab.newCount, "cuvinte noi") : "Se încarcă…"}
+      <Tile to="/learn/vocab" emoji="🃏" title={t("learn.flashcards")}>
+        {vocab ? counts(vocab.dueCount, vocab.newCount, "learn.newWords") : t("common.loading")}
       </Tile>
 
-      <Tile to="/learn/conjugation" emoji="✍️" title="Conjugare">
+      <Tile to="/learn/conjugation" emoji="✍️" title={t("learn.conjugation")}>
         {conj
           ? conj.queue.length > 0
-            ? counts(conj.dueCount, conj.newCount, "timpuri noi")
-            : "Se deblochează după ce înveți verbe în Flashcards"
-          : "Se încarcă…"}
+            ? counts(conj.dueCount, conj.newCount, "learn.newTenses")
+            : t("learn.conjLocked")
+          : t("common.loading")}
       </Tile>
 
       <Tile
         to="/learn/sentence"
         emoji="🧩"
-        title="Reconstruire propoziție"
+        title={t("learn.sentence")}
         disabled={sentenceRound !== undefined && sentenceRound.length === 0}
       >
         {sentenceRound
           ? sentenceRound.length > 0
-            ? "Ordonează cuvintele în italiană"
-            : "Învață mai întâi câteva cuvinte"
-          : "Se încarcă…"}
+            ? t("learn.sentenceHint")
+            : t("learn.learnWordsFirst")
+          : t("common.loading")}
       </Tile>
 
-      <Tile to="/learn/topics" emoji="🗂️" title="Teme">
-        Zile, luni, numere, ora, direcții, culori, saluturi
+      <Tile to="/learn/topics" emoji="🗂️" title={t("learn.topics")}>
+        {t("learn.topicsHint")}
       </Tile>
 
-      <Tile to="/learn/games" emoji="🎲" title="Jocuri">
-        Gramatică: articole, verbele essere și avere
+      <Tile to="/learn/games" emoji="🎲" title={t("learn.games")}>
+        {t("learn.gamesHint")}
       </Tile>
 
-      <Tile to="/quiz" emoji="❓" title="Quiz" disabled={quiz !== undefined && quiz.questions.length === 0}>
+      <Tile to="/quiz" emoji="❓" title={t("learn.quiz")} disabled={quiz !== undefined && quiz.questions.length === 0}>
         {quiz
           ? quiz.questions.length > 0
-            ? `O rundă de ${quiz.questions.length} întrebări cu 4 variante`
-            : "Învață mai întâi câteva cuvinte"
-          : "Se încarcă…"}
+            ? tp("learn.quizRound", quiz.questions.length)
+            : t("learn.learnWordsFirst")
+          : t("common.loading")}
       </Tile>
     </div>
   );

@@ -1,3 +1,4 @@
+import { useT } from "../i18n/index.ts";
 import type { ActivityLevel, CalendarDay } from "../domain/stats/stats.ts";
 
 const LEVEL_CLASS: Record<ActivityLevel, string> = {
@@ -20,6 +21,7 @@ const dayLabel = (day: string) => `${day.slice(8, 10)}.${day.slice(5, 7)}`;
 
 /** Calendar de activitate (o coloană pe săptămână, luni sus), colorat după numărul de repetiții din zi. */
 export function ActivityCalendar({ weeks, ariaLabel }: ActivityCalendarProps) {
+  const { t, tp } = useT();
   return (
     <div role="img" aria-label={ariaLabel}>
       <div
@@ -30,17 +32,17 @@ export function ActivityCalendar({ weeks, ariaLabel }: ActivityCalendarProps) {
         {weeks.flat().map((d) => (
           <div
             key={d.day}
-            title={d.future ? undefined : `${dayLabel(d.day)}: ${d.reviews} repetiții`}
+            title={d.future ? undefined : tp("calendar.day", d.reviews, { day: dayLabel(d.day) })}
             className={`aspect-square rounded-sm ${d.future ? "bg-transparent" : LEVEL_CLASS[d.level]}`}
           />
         ))}
       </div>
       <div className="mt-2 flex items-center justify-end gap-1 text-[10px] text-muted" aria-hidden="true">
-        <span>mai puțin</span>
+        <span>{t("calendar.less")}</span>
         {LEGEND_LEVELS.map((level) => (
           <span key={level} className={`size-3 rounded-sm ${LEVEL_CLASS[level]}`} />
         ))}
-        <span>mai mult</span>
+        <span>{t("calendar.more")}</span>
       </div>
     </div>
   );

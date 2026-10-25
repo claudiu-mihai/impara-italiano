@@ -1,4 +1,5 @@
 import { ClientResponseError, type default as PocketBase } from "pocketbase";
+import { t } from "../../i18n/standalone.ts";
 import { withRetry } from "./retry.ts";
 import type { Collection, RemoteItem, SyncItem, SyncRemote } from "./types.ts";
 
@@ -9,7 +10,7 @@ import type { Collection, RemoteItem, SyncItem, SyncRemote } from "./types.ts";
  */
 export async function recordId(userId: string, collection: Collection, key: string): Promise<string> {
   if (typeof crypto === "undefined" || !crypto.subtle) {
-    throw new Error("Sincronizarea cere o conexiune securizată (HTTPS).");
+    throw new Error(t("err.httpsRequired"));
   }
   const bytes = new TextEncoder().encode(`${userId}\n${collection}\n${key}`);
   const hash = new Uint8Array(await crypto.subtle.digest("SHA-256", bytes));

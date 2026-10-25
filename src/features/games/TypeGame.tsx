@@ -4,6 +4,8 @@ import { getSettings } from "../../data/db/repositories.ts";
 import type { GrammarItem } from "../../domain/content/schema.ts";
 import type { AnswerResult } from "../../domain/grading/compareAnswer.ts";
 import { gradeGap, pickSession } from "../../domain/grammar/games.ts";
+import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
+import { useT } from "../../i18n/index.ts";
 import { playFeedback } from "../../services/sound.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
@@ -14,13 +16,17 @@ import { useGrammarTopic } from "./useGrammarTopic.ts";
 
 /** Introducere text: se scrie cuvântul care lipsește din expresie; traducerea română e indiciul. */
 export function TypePage() {
+  const { t } = useT();
   const { id, topic, loading } = useGrammarTopic();
-  if (loading) return <p className="p-6 text-center text-muted">Se încarcă…</p>;
-  if (!topic) return <SessionDone emoji="🤔" title="Tema nu există" text="" backTo="/learn/games" backLabel="Înapoi la jocuri" />;
+  if (loading) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
+  if (!topic) {
+    return <SessionDone emoji="🤔" title={t("topics.notFound")} text="" backTo="/learn/games" backLabel={t("games.backToList")} />;
+  }
   return <TypeGame key={id} topicId={topic.id} items={topic.items} />;
 }
 
 function TypeGame({ topicId, items }: { topicId: string; items: GrammarItem[] }) {
+  const { t } = useT();
   const exitTo = `/learn/games/${topicId}`;
   const inputRef = useRef<HTMLInputElement>(null);
   const [attempt, setAttempt] = useState(0);
@@ -40,10 +46,10 @@ function TypeGame({ topicId, items }: { topicId: string; items: GrammarItem[] })
   if (!item) {
     return (
       <SessionDone
-        title={`${score} din ${session.length}`}
-        text={score === session.length ? "Toate răspunsurile sunt corecte!" : "Mai încearcă o rundă ca să exersezi."}
+        title={t("common.outOf", { n: score, total: session.length })}
+        text={score === session.length ? t("type.allCorrect") : t("type.tryAgain")}
         backTo={exitTo}
-        backLabel="Înapoi la temă"
+        backLabel={t("flash.backToTopic")}
       >
         <button
           type="button"
@@ -56,7 +62,7 @@ function TypeGame({ topicId, items }: { topicId: string; items: GrammarItem[] })
             setResult(undefined);
           }}
         >
-          Încă o rundă
+          {t("common.anotherRound")}
         </button>
       </SessionDone>
     );
@@ -93,30 +99,36 @@ function TypeGame({ topicId, items }: { topicId: string; items: GrammarItem[] })
 
   return (
     <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
-      <StudyHeader index={step} total={session.length} label="Progresul jocului" exitTo={exitTo} />
+      <StudyHeader index={step} total={session.length} label={t("games.progress")} exitTo={exitTo} />
 
       <section className="flex flex-1 flex-col items-center justify-center gap-3 rounded-3xl bg-white p-6 text-center shadow-md dark:bg-slate-900">
-        <p className="text-sm text-muted">Completează cuvântul care lipsește</p>
+        <p className="text-sm text-muted">{t("type.complete")}</p>
         <p className="text-3xl font-bold" data-testid="grammar-prompt">
           <GapText it={item.it} gap={item.gap} filled={result ? item.gap : undefined} tone={tone} />
         </p>
-        <p className="text-muted">{item.ro}</p>
+        <p lang={NATIVE_LANGUAGE} className="text-muted">
+          {item.ro}
+        </p>
       </section>
 
       <form onSubmit={(e) => void onSubmit(e)} className="flex flex-col gap-3">
         <div aria-live="polite" className="min-h-14">
-          {result === "correct" && <p className="text-center font-semibold text-green-700 dark:text-green-400">Corect!</p>}
+          {result === "correct" && <p className="text-center font-semibold text-green-700 dark:text-green-400">{t("conj.correct")}</p>}
           {result === "almost" && (
             <p className="text-center font-semibold text-amber-700 dark:text-amber-400">
-              Aproape! Atenție la accent: {item.gap}
+              {t("type.almost", { gap: item.gap })}
             </p>
           )}
           {result === "wrong" && (
-            <p className="text-center font-semibold text-red-700 dark:text-red-400">Răspuns corect: {item.gap}</p>
+            <p className="text-center font-semibold text-red-700 dark:text-red-400">{t("conj.correctAnswer", { form: item.gap })}</p>
           )}
           {result && (
             <div className="mt-1 flex items-center justify-center gap-2">
-              {item.note && <p className="text-sm text-muted">{item.note}</p>}
+              {item.note && (
+                <p lang={NATIVE_LANGUAGE} className="text-sm text-muted">
+                  {item.note}
+                </p>
+              )}
               <AudioButton text={item.it} size="sm" />
             </div>
           )}
@@ -127,8 +139,8 @@ function TypeGame({ topicId, items }: { topicId: string; items: GrammarItem[] })
           value={input}
           onChange={(e) => setInput(e.target.value)}
           readOnly={result !== undefined}
-          aria-label="Cuvântul care lipsește"
-          placeholder="Scrie cuvântul"
+          aria-label={t("type.missing")}
+          placeholder={t("type.placeholder")}
           lang="it"
           autoFocus
           autoCapitalize="none"
@@ -139,7 +151,7 @@ function TypeGame({ topicId, items }: { topicId: string; items: GrammarItem[] })
           className="min-h-14 rounded-xl border-2 border-slate-300 bg-white px-4 text-center text-xl dark:border-slate-700 dark:bg-slate-900"
         />
 
-        <div className="flex justify-center gap-2" aria-label="Litere cu accent">
+        <div className="flex justify-center gap-2" aria-label={t("conj.accents")}>
           {ACCENTS.map((char) => (
             <button
               key={char}
@@ -155,7 +167,7 @@ function TypeGame({ topicId, items }: { topicId: string; items: GrammarItem[] })
         </div>
 
         <button type="submit" className={`${primaryButton} w-full`}>
-          {!result ? "Verifică" : step + 1 >= session.length ? "Vezi rezultatul" : "Continuă"}
+          {!result ? t("conj.check") : step + 1 >= session.length ? t("common.seeResult") : t("common.continue")}
         </button>
       </form>
     </div>

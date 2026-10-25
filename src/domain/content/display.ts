@@ -1,3 +1,4 @@
+import type { Key } from "../../i18n/ro.ts";
 import type { Mastery } from "../srs/mastery.ts";
 import type { Direction } from "../srs/types.ts";
 import type { ConjugationMode } from "../settings.ts";
@@ -5,17 +6,18 @@ import type { Pos, Tense, TopicExercise, TopicGroup } from "./constants.ts";
 import type { Localized } from "./schema.ts";
 import type { CoreWord } from "./types.ts";
 
-export const POS_LABEL: Record<Pos, string> = {
-  verb: "verb",
-  noun: "substantiv",
-  adjective: "adjectiv",
-  adverb: "adverb",
-  pronoun: "pronume",
-  preposition: "prepoziție",
-  conjunction: "conjuncție",
-  numeral: "numeral",
-  interjection: "interjecție",
-  expression: "expresie",
+/** Cheia textului (în `i18n`) pentru fiecare etichetă: se afișează cu `t(POS_LABEL[pos])`. */
+export const POS_LABEL: Record<Pos, Key> = {
+  verb: "pos.verb",
+  noun: "pos.noun",
+  adjective: "pos.adjective",
+  adverb: "pos.adverb",
+  pronoun: "pos.pronoun",
+  preposition: "pos.preposition",
+  conjunction: "pos.conjunction",
+  numeral: "pos.numeral",
+  interjection: "pos.interjection",
+  expression: "pos.expression",
 };
 
 /** O iconiță pentru fiecare categorie gramaticală (filtrul din Dicționar). */
@@ -48,14 +50,14 @@ export function answerText(word: CoreWord, direction: Direction): string {
   return direction === "it-ro" ? word.ro : italianText(word);
 }
 
-export const TENSE_LABEL: Record<Tense, string> = {
-  presente: "Prezent (presente)",
-  passatoProssimo: "Perfect compus (passato prossimo)",
-  imperfetto: "Imperfect (imperfetto)",
-  futuro: "Viitor (futuro semplice)",
-  condizionale: "Condițional (condizionale)",
-  imperativo: "Imperativ afirmativ (imperativo)",
-  congiuntivo: "Conjunctiv (congiuntivo presente)",
+export const TENSE_LABEL: Record<Tense, Key> = {
+  presente: "tense.presente",
+  passatoProssimo: "tense.passatoProssimo",
+  imperfetto: "tense.imperfetto",
+  futuro: "tense.futuro",
+  condizionale: "tense.condizionale",
+  imperativo: "tense.imperativo",
+  congiuntivo: "tense.congiuntivo",
 };
 
 /** Cele 6 persoane, în ordinea din datele de conjugare. */
@@ -92,18 +94,18 @@ export const TOPIC_GROUP_LABEL: Record<TopicGroup, Localized> = {
   conversatie: { it: "Conversazione", ro: "Conversație" },
 };
 
-export const CONJUGATION_MODE_LABEL: Record<ConjugationMode, string> = {
-  write: "Scrie",
-  flip: "Flip",
-  table: "Tabel",
+export const CONJUGATION_MODE_LABEL: Record<ConjugationMode, Key> = {
+  write: "mode.write",
+  flip: "mode.flip",
+  table: "mode.table",
 };
 
-export const EXERCISE_LABEL: Record<TopicExercise, string> = {
-  match: "Potrivește perechi",
-  order: "Ordonează",
-  numbers: "Ascultă și scrie cifrele",
-  clock: "Ceasul",
-  cat: "Unde e Lupino?",
+export const EXERCISE_LABEL: Record<TopicExercise, Key> = {
+  match: "exercise.match",
+  order: "exercise.order",
+  numbers: "exercise.numbers",
+  clock: "exercise.clock",
+  cat: "exercise.cat",
 };
 
 export const EXERCISE_ICON: Record<TopicExercise, string> = {
@@ -114,8 +116,8 @@ export const EXERCISE_ICON: Record<TopicExercise, string> = {
   cat: "🐺",
 };
 
-export const LEVEL_LABEL: Record<Mastery, string> = {
-  new: "Nou",
-  learning: "În învățare",
-  mastered: "Stăpânit",
+export const LEVEL_LABEL: Record<Mastery, Key> = {
+  new: "mastery.new",
+  learning: "mastery.learning",
+  mastered: "mastery.mastered",
 };

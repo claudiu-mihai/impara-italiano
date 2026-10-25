@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import bravo from "./lupino-bravo.svg";
 import cap from "./lupino-cap.svg";
 import ciao from "./lupino-ciao.svg";
@@ -89,12 +90,14 @@ export function LupinoFill({ pose, ratio = 0.5, min = 64, max = 320, className =
 interface LupinoSaysProps extends LupinoProps {
   /** Fraza în italiană, din balon. */
   it: string;
-  /** Traducerea sau explicația în română, sub frază. */
+  /** Traducerea sau explicația în limba maternă, sub frază. */
   ro: string;
+  /** Limba textului de sub frază; implicit limba maternă (la mesaje de interfață: limba interfeței). */
+  roLang?: string;
 }
 
 /** Lupino cu un balon: fraza italiană (marcată `lang="it"`, ca vocea și cititoarele de ecran s-o pronunțe corect) și traducerea. */
-export function LupinoSays({ pose, size = 104, it, ro, className = "" }: LupinoSaysProps) {
+export function LupinoSays({ pose, size = 104, it, ro, roLang = NATIVE_LANGUAGE, className = "" }: LupinoSaysProps) {
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       <Lupino pose={pose} size={size} />
@@ -106,7 +109,9 @@ export function LupinoSays({ pose, size = 104, it, ro, className = "" }: LupinoS
         <p lang="it" className="relative text-lg font-bold">
           {it}
         </p>
-        <p className="relative text-sm text-muted">{ro}</p>
+        <p lang={roLang} className="relative text-sm text-muted">
+          {ro}
+        </p>
       </div>
     </div>
   );

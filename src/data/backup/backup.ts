@@ -4,6 +4,7 @@ import type { ReviewLogEntry, StoredCard } from "../../domain/srs/types.ts";
 import type { ImparaDb, ReportRow } from "../db/db.ts";
 import { getSettings, syncUserOf } from "../db/repositories.ts";
 import { newUid } from "../../domain/sync/serialize.ts";
+import { t } from "../../i18n/standalone.ts";
 import { notifyLocalChange } from "../sync/signal.ts";
 
 export const BACKUP_FORMAT = "impara-backup";
@@ -68,6 +69,7 @@ export const settingsSchema = z.object({
   theme: z.enum(["auto", "light", "dark"]),
   soundEnabled: z.boolean(),
   nativeHelp: z.boolean(),
+  uiLanguage: z.enum(["ro", "it"]),
 });
 
 export const reportSchema = z.object({
@@ -128,21 +130,23 @@ export function backupToJson(backup: Backup): string {
 
 export class BackupError extends Error {}
 
-/** Citește și validează un fișier de backup; aruncă BackupError cu un mesaj clar în română. */
+/** Citește și validează un fișier de backup; aruncă BackupError cu un mesaj clar, în limba interfeței. */
 export function parseBackup(json: string): Backup {
   let raw: unknown;
   try {
     raw = JSON.parse(json);
   } catch {
-    throw new BackupError("Fișierul nu este JSON valid.");
+    throw new BackupError(t("err.backupNotJson"));
   }
   if (typeof raw === "object" && raw !== null && (raw as { format?: unknown }).format !== BACKUP_FORMAT) {
-    throw new BackupError("Fișierul nu este un backup Impara l'Italiano.");
+    throw new BackupError(t("err.backupNotOurs"));
   }
   const parsed = backupSchema.safeParse(raw);
   if (!parsed.success) {
     const issue = parsed.error.issues[0];
-    throw new BackupError(`Backup invalid (${issue?.path.join(".") ?? "?"}: ${issue?.message ?? "eroare"}).`);
+    throw new BackupError(
+      t("err.backupInvalid", { path: issue?.path.join(".") ?? "?", issue: issue?.message ?? t("err.backupGeneric") }),
+    );
   }
   const { settings, ...rest } = parsed.data;
   return { ...rest, settings: withSettingDefaults(settings) } as Backup;

@@ -1,6 +1,7 @@
 import { Rating, State } from "ts-fsrs";
 import { expect, test } from "vitest";
-import { formatInterval } from "./format.ts";
+import { loadItalian, translatePlural } from "../../i18n/translate.ts";
+import { formatInterval as formatIntervalWith } from "./format.ts";
 import { masteryOf } from "./mastery.ts";
 import { newStoredCard, previewDue, reviewStoredCard } from "./scheduler.ts";
 import { vocabCardId } from "./types.ts";
@@ -48,8 +49,11 @@ test("nivelul de stăpânire: nou / în învățare / stăpânit", () => {
   expect(masteryOf([{ stability: 90 }, { stability: 3 }])).toBe("learning");
 });
 
-test("etichete pentru intervale", () => {
+test("etichete pentru intervale", async () => {
+  await loadItalian();
   const at = (ms: number) => new Date(NOW.getTime() + ms);
+  const formatInterval = (due: Date, now: Date) =>
+    formatIntervalWith(due, now, (base, n) => translatePlural("ro", base, n));
   const MIN = 60_000;
   const DAY = 24 * 60 * MIN;
   expect(formatInterval(at(10_000), NOW)).toBe("< 1 min");
@@ -58,4 +62,9 @@ test("etichete pentru intervale", () => {
   expect(formatInterval(at(DAY), NOW)).toBe("1 zi");
   expect(formatInterval(at(5 * DAY), NOW)).toBe("5 zile");
   expect(formatInterval(at(60 * DAY), NOW)).toBe("2 luni");
+  // în italiană, cu pluralul limbii
+  const it = (due: Date) => formatIntervalWith(due, NOW, (base, n) => translatePlural("it", base, n));
+  expect(it(at(DAY))).toBe("1 giorno");
+  expect(it(at(5 * DAY))).toBe("5 giorni");
+  expect(it(at(60 * DAY))).toBe("2 mesi");
 });

@@ -9,6 +9,7 @@ import { POS } from "../../domain/content/constants.ts";
 import { italianText, LEVEL_LABEL, POS_ICON, POS_LABEL } from "../../domain/content/display.ts";
 import type { CoreWord } from "../../domain/content/types.ts";
 import { LEVEL_GROUP_LABEL, LEVEL_GROUPS } from "../../domain/content/levels.ts";
+import { useT } from "../../i18n/index.ts";
 import { masteryByWord, type Mastery } from "../../domain/srs/mastery.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
@@ -45,16 +46,17 @@ const WordRow = memo(function WordRow({ word, mastery }: { word: CoreWord; maste
  * deselectează; fără niciunul activ se afișează toate nivelurile.
  */
 function LevelButtons({ value, onChange }: { value: BrowseFilters["cefr"]; onChange: (cefr: BrowseFilters["cefr"]) => void }) {
+  const { t } = useT();
   return (
-    <div role="group" aria-label="Nivel CEFR" className="grid grid-cols-3 gap-1">
+    <div role="group" aria-label={t("browse.levelFilter")} className="grid grid-cols-3 gap-1">
       {LEVEL_GROUPS.map((group) => {
         const active = group === value;
         return (
           <button
             key={group}
             type="button"
-            aria-label={LEVEL_GROUP_LABEL[group]}
-            title={LEVEL_GROUP_LABEL[group]}
+            aria-label={t(LEVEL_GROUP_LABEL[group])}
+            title={t(LEVEL_GROUP_LABEL[group])}
             aria-pressed={active}
             onClick={() => onChange(active ? "all" : group)}
             className={`min-h-12 rounded-xl border-2 text-base font-semibold ${
@@ -81,14 +83,15 @@ function CategoryIcons({
   value: BrowseFilters["pos"];
   onChange: (pos: BrowseFilters["pos"]) => void;
 }) {
+  const { t } = useT();
   const options: { value: BrowseFilters["pos"]; icon: string; label: string }[] = [
-    { value: "all", icon: "🗂️", label: "Toate categoriile" },
-    ...categories.map((pos) => ({ value: pos, icon: POS_ICON[pos], label: POS_LABEL[pos] })),
+    { value: "all", icon: "🗂️", label: t("browse.allCategories") },
+    ...categories.map((pos) => ({ value: pos, icon: POS_ICON[pos], label: t(POS_LABEL[pos]) })),
   ];
   const current = options.find((o) => o.value === value);
   return (
     <div>
-      <div role="group" aria-label="Categorie" className="grid grid-cols-6 gap-1">
+      <div role="group" aria-label={t("browse.category")} className="grid grid-cols-6 gap-1">
         {options.map((o) => {
           const active = o.value === value;
           return (
@@ -130,6 +133,7 @@ export function BrowsePage() {
 }
 
 function BrowseView() {
+  const { t, tp, language } = useT();
   const content = useContent();
   const cards = useLiveQuery(() => db.cards.where("kind").equals("vocab").toArray(), []);
   // filtrele pot veni din adresă (linkurile din Statistici: /browse?pos=verb&progress=learning)
@@ -170,12 +174,12 @@ function BrowseView() {
 
   return (
     <div className="flex flex-col gap-4 px-4 pb-8 pt-8">
-      <h1 className="text-2xl font-bold">Dicționar</h1>
+      <h1 className="text-2xl font-bold">{t("browse.title")}</h1>
 
       <input
         type="search"
-        aria-label="Caută în dicționar"
-        placeholder="Caută în italiană sau română"
+        aria-label={t("browse.searchLabel")}
+        placeholder={t("browse.searchPlaceholder")}
         value={filters.query}
         onChange={(e) => setFilters({ ...filters, query: e.target.value })}
         autoCapitalize="none"
@@ -192,10 +196,10 @@ function BrowseView() {
         <button
           type="button"
           onClick={() => setFilters({ ...filters, progress: "all" })}
-          aria-label={`Scoate filtrul Progres: ${LEVEL_LABEL[filters.progress]}`}
+          aria-label={t("browse.removeFilter", { value: t(LEVEL_LABEL[filters.progress]) })}
           className="flex min-h-12 w-fit items-center gap-2 rounded-full border-2 border-brand bg-brand/10 pl-4 pr-3 text-sm font-semibold text-brand-fg"
         >
-          Progres: {LEVEL_LABEL[filters.progress]}
+          {t("browse.progressFilter", { value: t(LEVEL_LABEL[filters.progress]) })}
           <span aria-hidden="true" className="text-base">
             ✕
           </span>
@@ -203,7 +207,7 @@ function BrowseView() {
       )}
 
       <p className="text-sm text-muted" role="status">
-        {results.length} {results.length === 1 ? "cuvânt" : "cuvinte"}
+        {tp("browse.count", results.length)}
       </p>
 
       {results.length === 0 ? (
@@ -211,7 +215,8 @@ function BrowseView() {
           pose="pensa"
           size={96}
           it="Fammi pensare…"
-          ro="Niciun cuvânt găsit."
+          ro={t("browse.empty")}
+          roLang={language}
           className="rounded-2xl bg-white p-4 dark:bg-slate-900"
         />
       ) : (
@@ -228,7 +233,7 @@ function BrowseView() {
                 onClick={() => setShown((n) => n + PAGE_SIZE)}
                 className="min-h-12 w-full rounded-xl bg-white text-sm font-semibold text-brand-fg shadow-sm active:bg-slate-100 dark:bg-slate-900 dark:active:bg-slate-800"
               >
-                Arată mai multe ({results.length - shown} rămase)
+                {t("browse.showMore", { n: results.length - shown })}
               </button>
             </div>
           )}

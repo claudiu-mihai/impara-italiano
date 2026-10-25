@@ -91,6 +91,16 @@ test("un backup vechi, fără „Traducere în limba maternă”, primește valo
   expect(parseBackup(JSON.stringify(backup)).settings.nativeHelp).toBe(true);
 });
 
+test("limba interfeței: backup-urile vechi primesc româna, cele noi o păstrează", async () => {
+  const backup = JSON.parse(backupToJson(await exportBackup(db, "x", NOW)));
+  backup.settings = { level: "B1" };
+  expect(parseBackup(JSON.stringify(backup)).settings.uiLanguage).toBe("ro");
+  backup.settings = { uiLanguage: "it" };
+  expect(parseBackup(JSON.stringify(backup)).settings.uiLanguage).toBe("it");
+  backup.settings = { uiLanguage: "fr" };
+  expect(() => parseBackup(JSON.stringify(backup))).toThrow(BackupError);
+});
+
 test("resetarea șterge progresul, dar păstrează setările", async () => {
   await learn("v-parlare");
   await saveSettings(db, { ...DEFAULT_SETTINGS, newPerDay: 4 });

@@ -1,7 +1,9 @@
 /**
- * Validări și mesaje în română pentru crearea contului. Fără dependențe (nici SDK, nici Zod): erorile serverului se
+ * Validări și mesaje (în limba interfeței) pentru crearea contului. Fără dependențe (nici SDK, nici Zod): erorile serverului se
  * citesc „pe formă” (`status`, `response.data`), ca modulul să rămână testabil și ușor.
  */
+
+import { t } from "../../i18n/standalone.ts";
 
 export const PASSWORD_MIN_LENGTH = 8;
 /** Serverul refuză parolele de 72 de octeți sau mai mari (limita algoritmului de hash); diacriticele ocupă doi octeți. */
@@ -12,13 +14,13 @@ export const normalizeEmail = (email: string): string => email.trim().toLowerCas
 
 const byteLength = (text: string) => new TextEncoder().encode(text).length;
 
-/** Prima problemă a parolei (sau a confirmării ei), în română; undefined dacă e în regulă. */
+/** Prima problemă a parolei (sau a confirmării ei), în limba interfeței; undefined dacă e în regulă. */
 export function passwordProblem(password: string, confirm?: string): string | undefined {
-  if (password.length < PASSWORD_MIN_LENGTH) return `Parola trebuie să aibă cel puțin ${PASSWORD_MIN_LENGTH} caractere.`;
+  if (password.length < PASSWORD_MIN_LENGTH) return t("err.passwordMin", { min: PASSWORD_MIN_LENGTH });
   if (byteLength(password) > PASSWORD_MAX_BYTES) {
-    return `Parola poate avea cel mult ${PASSWORD_MAX_BYTES} de caractere (literele cu diacritice contează dublu).`;
+    return t("err.passwordMax", { max: PASSWORD_MAX_BYTES });
   }
-  if (confirm !== undefined && password !== confirm) return "Parolele nu coincid.";
+  if (confirm !== undefined && password !== confirm) return t("err.passwordMismatch");
   return undefined;
 }
 
@@ -30,23 +32,21 @@ interface ServerError {
 /** Mesajul pentru o eroare la crearea contului. */
 export function registerErrorMessage(error: unknown): string {
   const { status, response } = (error ?? {}) as ServerError;
-  if (status === 0) return "Nu pot contacta serverul. Verifică conexiunea.";
-  if (status === 429) return "Prea multe conturi create de pe această adresă. Încearcă din nou mai târziu.";
-  if (status === 403) return "Crearea de conturi nu este disponibilă acum.";
+  if (status === 0) return t("err.cannotReachServer");
+  if (status === 429) return t("err.tooManyAccounts");
+  if (status === 403) return t("err.registrationClosed");
 
   const fields = response?.data ?? {};
   if (fields.email) {
-    return fields.email.code === "validation_not_unique"
-      ? "Există deja un cont cu acest email."
-      : "Adresa de email nu este validă.";
+    return t(fields.email.code === "validation_not_unique" ? "err.emailTaken" : "err.emailInvalid");
   }
   if (fields.password) {
     return fields.password.code === "validation_min_text_constraint"
-      ? `Parola trebuie să aibă cel puțin ${PASSWORD_MIN_LENGTH} caractere.`
-      : `Parola nu este acceptată. Alege una de ${PASSWORD_MIN_LENGTH}–${PASSWORD_MAX_BYTES} de caractere.`;
+      ? t("err.passwordMin", { min: PASSWORD_MIN_LENGTH })
+      : t("err.passwordRejected", { min: PASSWORD_MIN_LENGTH, max: PASSWORD_MAX_BYTES });
   }
-  if (fields.passwordConfirm) return "Parolele nu coincid.";
+  if (fields.passwordConfirm) return t("err.passwordMismatch");
   // 400 fără detalii: așa răspunde serverul la o parolă prea lungă
-  if (status === 400) return `Parola nu este acceptată. Alege una de ${PASSWORD_MIN_LENGTH}–${PASSWORD_MAX_BYTES} de caractere.`;
-  return "Nu am putut crea contul. Încearcă din nou.";
+  if (status === 400) return t("err.passwordRejected", { min: PASSWORD_MIN_LENGTH, max: PASSWORD_MAX_BYTES });
+  return t("err.createFailed");
 }

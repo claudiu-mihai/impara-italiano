@@ -3,6 +3,8 @@ import { personsOf, TENSE_LABEL } from "../../domain/content/display.ts";
 import { spokenConjugation } from "../../domain/content/spokenConjugation.ts";
 import { compareAnswer, type AnswerResult } from "../../domain/grading/compareAnswer.ts";
 import { gradeConjugationTable } from "../../domain/grading/gradeConjugation.ts";
+import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
+import { useT } from "../../i18n/index.ts";
 import { playFeedback } from "../../services/sound.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { primaryButton } from "../../ui/SessionDone.tsx";
@@ -10,6 +12,7 @@ import { ACCENTS, type ConjCardProps } from "./types.ts";
 
 /** Varianta „Tabel”: toate persoanele deodată; nota rezultă din câte forme sunt corecte. */
 export function TableCard({ item, verb, forms, settings, onFinish }: ConjCardProps) {
+  const { t } = useT();
   const persons = personsOf(item.tense);
   const refs = useRef<(HTMLInputElement | null)[]>([]);
   const [values, setValues] = useState<string[]>(() => forms.map(() => ""));
@@ -55,12 +58,14 @@ export function TableCard({ item, verb, forms, settings, onFinish }: ConjCardPro
   return (
     <>
       <section className="flex flex-col items-center gap-1 rounded-3xl bg-white p-5 text-center shadow-md dark:bg-slate-900">
-        <p className="text-sm text-muted">{TENSE_LABEL[item.tense]}</p>
+        <p className="text-sm text-muted">{t(TENSE_LABEL[item.tense])}</p>
         <div className="flex items-center gap-2">
           <p className="text-3xl font-bold">{verb.it}</p>
           <AudioButton text={verb.it} rate={settings.ttsRate} size="sm" />
         </div>
-        <p className="text-muted">{verb.ro}</p>
+        <p lang={NATIVE_LANGUAGE} className="text-muted">
+          {verb.ro}
+        </p>
       </section>
 
       <form onSubmit={onSubmit} className="flex flex-1 flex-col gap-3">
@@ -103,8 +108,7 @@ export function TableCard({ item, verb, forms, settings, onFinish }: ConjCardPro
                 </div>
                 {result && result !== "correct" && (
                   <p className="ml-[5.75rem] text-sm font-semibold text-red-700 dark:text-red-400" data-testid="expected">
-                    {result === "almost" ? "Aproape (accente): " : "Corect: "}
-                    {(forms[i] ?? []).join(" / ")}
+                    {t(result === "almost" ? "conj.almostShort" : "conj.correctShort", { form: (forms[i] ?? []).join(" / ") })}
                   </p>
                 )}
               </li>
@@ -115,7 +119,7 @@ export function TableCard({ item, verb, forms, settings, onFinish }: ConjCardPro
         {checked && (
           <div className="flex flex-col items-center gap-2" aria-live="polite">
             <p className="text-center text-lg font-semibold" data-testid="table-score">
-              {right} din {forms.length} corecte
+              {t("conj.score", { n: right, total: forms.length })}
             </p>
             <div className="flex gap-2">
               <AudioButton text={persons.map((_, i) => spokenConjugation(item.tense, i, forms[i] ?? [])).join(". ")} rate={settings.ttsRate} size="sm" />
@@ -125,7 +129,7 @@ export function TableCard({ item, verb, forms, settings, onFinish }: ConjCardPro
         )}
 
         {!checked && (
-          <div className="flex justify-center gap-2" aria-label="Litere cu accent">
+          <div className="flex justify-center gap-2" aria-label={t("conj.accents")}>
             {ACCENTS.map((char) => (
               <button
                 key={char}
@@ -141,7 +145,7 @@ export function TableCard({ item, verb, forms, settings, onFinish }: ConjCardPro
         )}
 
         <button type="submit" className={`${primaryButton} mt-auto w-full`}>
-          {checked ? "Termină cardul" : "Verifică tabelul"}
+          {checked ? t("conj.finishCard") : t("conj.checkTable")}
         </button>
       </form>
     </>
