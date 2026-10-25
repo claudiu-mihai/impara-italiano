@@ -1,6 +1,6 @@
 import { shuffle, type Random } from "../random.ts";
 
-/** Scena desenată: pisica față de o masă, o masă cu scaun sau o cutie. */
+/** Scena desenată: Lupino față de o masă, o masă cu scaun sau o cutie. */
 export type CatScene = "table" | "table-chair" | "box";
 export type CatPosition = "on" | "under" | "front" | "behind" | "beside" | "between" | "inside" | "outside";
 
@@ -14,7 +14,7 @@ export interface CatItem {
   alternatives: string[];
 }
 
-/** Cele 12 poziții din exercițiul „Unde e pisica?”. */
+/** Cele 12 poziții din exercițiul „Unde e Lupino?” (fost „Unde e pisica?”; id-urile interne „cat” au rămas). */
 export const CAT_ITEMS: readonly CatItem[] = [
   { id: "table-on", scene: "table", position: "on", answer: "sopra il tavolo", alternatives: ["sul tavolo"] },
   { id: "table-under", scene: "table", position: "under", answer: "sotto il tavolo", alternatives: [] },

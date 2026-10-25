@@ -102,7 +102,7 @@ export const EXERCISE_LABEL: Record<TopicExercise, string> = {
   order: "Ordonează",
   numbers: "Ascultă și scrie cifrele",
   clock: "Ceasul",
-  cat: "Unde e pisica?",
+  cat: "Unde e Lupino?",
 };
 
 export const EXERCISE_ICON: Record<TopicExercise, string> = {
@@ -110,7 +110,7 @@ export const EXERCISE_ICON: Record<TopicExercise, string> = {
   order: "🔢",
   numbers: "🎧",
   clock: "🕒",
-  cat: "🐱",
+  cat: "🐺",
 };
 
 export const LEVEL_LABEL: Record<Mastery, string> = {

@@ -9,7 +9,7 @@ import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
 import { useTopic } from "./useTopic.ts";
 
-/** Unde e pisica?: scenă SVG → se alege sau se scrie prepoziția (sotto il tavolo, dentro la scatola). */
+/** Unde e Lupino?: scenă SVG → se alege sau se scrie prepoziția (sotto il tavolo, dentro la scatola). */
 export function CatPage() {
   const { id, topic, loading } = useTopic();
   if (loading) return <p className="p-6 text-center text-muted">Se încarcă…</p>;
@@ -83,7 +83,12 @@ function CatGame({ topicId }: { topicId: string }) {
   return (
     <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
       <StudyHeader index={index} total={questions.length} label="Progresul rundei" exitTo={exitTo} />
-      <h1 className="text-center text-xl font-semibold">Unde e pisica?</h1>
+      <div className="text-center">
+        <h1 className="text-xl font-semibold">Unde e Lupino?</h1>
+        <p lang="it" className="text-sm text-muted">
+          Dov'è Lupino?
+        </p>
+      </div>
       <div className="flex justify-center">
         <CatScene item={question.item} />
       </div>
@@ -124,7 +129,7 @@ function CatGame({ topicId }: { topicId: string }) {
       ) : (
         <form onSubmit={submit} className="flex flex-col gap-3">
           <label htmlFor="cat-answer" className="text-center text-sm text-muted">
-            Scrie unde e pisica (ex. «sotto il tavolo»)
+            Scrie unde e Lupino (ex. «sotto il tavolo»)
           </label>
           <input
             id="cat-answer"
