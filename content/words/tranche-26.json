@@ -1,0 +1,3021 @@
+[
+  {
+    "id": "v-convivere",
+    "it": "convivere",
+    "ro": "a conviețui; a locui împreună",
+    "tags": [
+      "social"
+    ],
+    "rank": 3509,
+    "examples": [
+      {
+        "it": "Convivono da due anni.",
+        "ro": "Conviețuiesc de doi ani."
+      },
+      {
+        "it": "Dobbiamo imparare a convivere con il rumore.",
+        "ro": "Trebuie să învățăm să trăim cu zgomotul."
+      }
+    ],
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "avere",
+    "pastParticiple": "convissuto",
+    "irregular": true,
+    "reflexive": false
+  },
+  {
+    "id": "v-favorire",
+    "it": "favorire",
+    "ro": "a favoriza",
+    "tags": [
+      "acțiune"
+    ],
+    "rank": 3521,
+    "examples": [
+      {
+        "it": "Il clima favorisce l'agricoltura.",
+        "ro": "Clima favorizează agricultura."
+      },
+      {
+        "it": "Il buon tempo favorisce il turismo.",
+        "ro": "Vremea bună favorizează turismul."
+      }
+    ],
+    "pos": "verb",
+    "group": "isc",
+    "auxiliary": "avere",
+    "pastParticiple": "favorito",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-compilare",
+    "it": "compilare",
+    "ro": "a completa (un formular)",
+    "tags": [
+      "muncă"
+    ],
+    "rank": 3532,
+    "examples": [
+      {
+        "it": "Compilo il modulo online.",
+        "ro": "Completez formularul online."
+      },
+      {
+        "it": "Devi compilare tutti i campi.",
+        "ro": "Trebuie să completezi toate câmpurile."
+      }
+    ],
+    "note": "La formulare se spune «compilare un modulo» (nu «completare»).",
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "compilato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-emergere",
+    "it": "emergere",
+    "ro": "a ieși la iveală; a apărea",
+    "tags": [
+      "acțiune"
+    ],
+    "rank": 3543,
+    "examples": [
+      {
+        "it": "Dall'acqua emerge una roccia.",
+        "ro": "Din apă iese la iveală o stâncă."
+      },
+      {
+        "it": "Sono emersi nuovi problemi.",
+        "ro": "Au ieșit la iveală probleme noi."
+      }
+    ],
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "essere",
+    "pastParticiple": "emerso",
+    "irregular": true,
+    "reflexive": false
+  },
+  {
+    "id": "v-bucare",
+    "it": "bucare",
+    "ro": "a găuri; a perfora",
+    "tags": [
+      "acțiune"
+    ],
+    "rank": 3546,
+    "examples": [
+      {
+        "it": "Ho bucato una gomma in autostrada.",
+        "ro": "Am avut o pană de cauciuc pe autostradă."
+      },
+      {
+        "it": "Il controllore buca i biglietti.",
+        "ro": "Controlorul perforează biletele."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "bucato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-rinchiudere",
+    "it": "rinchiudere",
+    "ro": "a închide (a încuia)",
+    "tags": [
+      "acțiune"
+    ],
+    "rank": 3577,
+    "examples": [
+      {
+        "it": "L'hanno rinchiuso in una stanza.",
+        "ro": "L-au închis într-o cameră."
+      },
+      {
+        "it": "Non rinchiuderti in casa tutto il giorno.",
+        "ro": "Nu te închide în casă toată ziua."
+      }
+    ],
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "avere",
+    "pastParticiple": "rinchiuso",
+    "irregular": true,
+    "reflexive": false
+  },
+  {
+    "id": "v-criticare",
+    "it": "criticare",
+    "ro": "a critica",
+    "tags": [
+      "comunicare"
+    ],
+    "rank": 3773,
+    "examples": [
+      {
+        "it": "Non criticare sempre tutto.",
+        "ro": "Nu critica mereu totul."
+      },
+      {
+        "it": "Il film è stato criticato dalla stampa.",
+        "ro": "Filmul a fost criticat de presă."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "criticato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-scalare",
+    "it": "scalare",
+    "ro": "a escalada; a urca",
+    "tags": [
+      "acțiune"
+    ],
+    "rank": 3620,
+    "examples": [
+      {
+        "it": "Scaliamo la montagna in due giorni.",
+        "ro": "Urcăm muntele în două zile."
+      },
+      {
+        "it": "Vogliamo scalare quella parete.",
+        "ro": "Vrem să escaladăm peretele acela."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "scalato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-detestare",
+    "it": "detestare",
+    "ro": "a detesta",
+    "tags": [
+      "sentimente"
+    ],
+    "rank": 3625,
+    "examples": [
+      {
+        "it": "Detesto aspettare in fila.",
+        "ro": "Detest să aștept la coadă."
+      },
+      {
+        "it": "Detesta il suo capo.",
+        "ro": "Își detestă șeful."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "detestato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-accertare",
+    "it": "accertare",
+    "ro": "a verifica; a se asigura",
+    "tags": [
+      "gândire"
+    ],
+    "rank": 3630,
+    "examples": [
+      {
+        "it": "Devo accertare l'orario del treno.",
+        "ro": "Trebuie să verific ora trenului."
+      },
+      {
+        "it": "Accertati che la porta sia chiusa.",
+        "ro": "Asigură-te că ușa e închisă."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "accertato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-soffocare",
+    "it": "soffocare",
+    "ro": "a sufoca; a înăbuși",
+    "tags": [
+      "corp"
+    ],
+    "rank": 3645,
+    "examples": [
+      {
+        "it": "Fa così caldo che mi sento soffocare.",
+        "ro": "E atât de cald că mă simt sufocat."
+      },
+      {
+        "it": "Hanno soffocato le fiamme con una coperta.",
+        "ro": "Au înăbușit flăcările cu o pătură."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "soffocato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-accumulare",
+    "it": "accumulare",
+    "ro": "a acumula; a aduna",
+    "tags": [
+      "acțiune"
+    ],
+    "rank": 3671,
+    "examples": [
+      {
+        "it": "Accumulo i punti della tessera.",
+        "ro": "Adun punctele de pe card."
+      },
+      {
+        "it": "Abbiamo accumulato troppi debiti.",
+        "ro": "Am acumulat prea multe datorii."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "accumulato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-riaprire",
+    "it": "riaprire",
+    "ro": "a redeschide",
+    "tags": [
+      "acțiune"
+    ],
+    "rank": 3675,
+    "examples": [
+      {
+        "it": "Il negozio riapre lunedì.",
+        "ro": "Magazinul se redeschide luni."
+      },
+      {
+        "it": "Hanno riaperto la strada.",
+        "ro": "Au redeschis drumul."
+      }
+    ],
+    "pos": "verb",
+    "group": "ire",
+    "auxiliary": "avere",
+    "pastParticiple": "riaperto",
+    "irregular": true,
+    "reflexive": false
+  },
+  {
+    "id": "v-somigliare",
+    "it": "somigliare",
+    "ro": "a semăna",
+    "tags": [
+      "descriere"
+    ],
+    "rank": 3680,
+    "examples": [
+      {
+        "it": "Somigli molto a tua madre.",
+        "ro": "Semeni foarte mult cu mama ta."
+      },
+      {
+        "it": "Questa città somiglia a Roma.",
+        "ro": "Orașul acesta seamănă cu Roma."
+      }
+    ],
+    "note": "Se construiește cu «a»: «somigliare a qualcuno».",
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "somigliato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-umiliare",
+    "it": "umiliare",
+    "ro": "a umili",
+    "tags": [
+      "sentimente"
+    ],
+    "rank": 3685,
+    "examples": [
+      {
+        "it": "Non voglio umiliare nessuno.",
+        "ro": "Nu vreau să umilesc pe nimeni."
+      },
+      {
+        "it": "Si è sentito umiliato.",
+        "ro": "S-a simțit umilit."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "umiliato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-dominare",
+    "it": "dominare",
+    "ro": "a domina",
+    "tags": [
+      "acțiune"
+    ],
+    "rank": 3705,
+    "examples": [
+      {
+        "it": "Il castello domina la città.",
+        "ro": "Castelul domină orașul."
+      },
+      {
+        "it": "La nostra squadra ha dominato la partita.",
+        "ro": "Echipa noastră a dominat meciul."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "dominato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-estendere",
+    "it": "estendere",
+    "ro": "a extinde; a întinde",
+    "tags": [
+      "acțiune"
+    ],
+    "rank": 3709,
+    "examples": [
+      {
+        "it": "Estendiamo l'invito a tutti.",
+        "ro": "Extindem invitația la toți."
+      },
+      {
+        "it": "Il parco si estende per chilometri.",
+        "ro": "Parcul se întinde pe kilometri."
+      }
+    ],
+    "pos": "verb",
+    "group": "ere",
+    "auxiliary": "avere",
+    "pastParticiple": "esteso",
+    "irregular": true,
+    "reflexive": false
+  },
+  {
+    "id": "v-riscaldare",
+    "it": "riscaldare",
+    "ro": "a încălzi",
+    "tags": [
+      "casă"
+    ],
+    "rank": 3717,
+    "examples": [
+      {
+        "it": "Riscaldo la zuppa sul fuoco.",
+        "ro": "Încălzesc supa pe foc."
+      },
+      {
+        "it": "Il camino riscalda tutta la casa.",
+        "ro": "Șemineul încălzește toată casa."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "riscaldato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-allargare",
+    "it": "allargare",
+    "ro": "a lărgi; a desface",
+    "tags": [
+      "acțiune"
+    ],
+    "rank": 3723,
+    "examples": [
+      {
+        "it": "Allarga le braccia.",
+        "ro": "Desfă brațele."
+      },
+      {
+        "it": "Devo allargare questa giacca.",
+        "ro": "Trebuie să lărgesc geaca asta."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "allargato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-anticipare",
+    "it": "anticipare",
+    "ro": "a devansa; a anticipa",
+    "tags": [
+      "timp"
+    ],
+    "rank": 3727,
+    "examples": [
+      {
+        "it": "Anticipiamo la partenza di un'ora.",
+        "ro": "Devansăm plecarea cu o oră."
+      },
+      {
+        "it": "Non voglio anticipare nulla.",
+        "ro": "Nu vreau să anticipez nimic."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "anticipato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-fondare",
+    "it": "fondare",
+    "ro": "a fonda; a întemeia",
+    "tags": [
+      "acțiune"
+    ],
+    "rank": 3853,
+    "examples": [
+      {
+        "it": "Hanno fondato l'azienda nel 1990.",
+        "ro": "Au fondat compania în 1990."
+      },
+      {
+        "it": "Questa idea si fonda su dati reali.",
+        "ro": "Ideea aceasta se bazează pe date reale."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "fondato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-stancare",
+    "it": "stancare",
+    "ro": "a obosi",
+    "tags": [
+      "stare"
+    ],
+    "rank": 3865,
+    "examples": [
+      {
+        "it": "Il viaggio mi ha stancato.",
+        "ro": "Călătoria m-a obosit."
+      },
+      {
+        "it": "Non stancarti troppo.",
+        "ro": "Nu te obosi prea tare."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "stancato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-stimare",
+    "it": "stimare",
+    "ro": "a stima; a aprecia",
+    "tags": [
+      "sentimente"
+    ],
+    "rank": 3896,
+    "examples": [
+      {
+        "it": "Stimo molto il mio professore.",
+        "ro": "Îl stimez mult pe profesorul meu."
+      },
+      {
+        "it": "Stimiamo una spesa di mille euro.",
+        "ro": "Estimăm o cheltuială de o mie de euro."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "stimato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-sdraiare",
+    "it": "sdraiare",
+    "ro": "a întinde (culcat)",
+    "tags": [
+      "corp"
+    ],
+    "rank": 3897,
+    "examples": [
+      {
+        "it": "Sdraio il bambino sul letto.",
+        "ro": "Întind copilul pe pat."
+      },
+      {
+        "it": "Ci sdraiamo sull'erba.",
+        "ro": "Ne întindem pe iarbă."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "sdraiato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-implicare",
+    "it": "implicare",
+    "ro": "a implica",
+    "tags": [
+      "gândire"
+    ],
+    "rank": 3900,
+    "examples": [
+      {
+        "it": "Questo lavoro implica molta responsabilità.",
+        "ro": "Munca aceasta implică multă responsabilitate."
+      },
+      {
+        "it": "Non voglio essere implicato.",
+        "ro": "Nu vreau să fiu implicat."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "implicato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-agganciare",
+    "it": "agganciare",
+    "ro": "a agăța; a cupla",
+    "tags": [
+      "acțiune"
+    ],
+    "rank": 3910,
+    "examples": [
+      {
+        "it": "Aggancio il rimorchio all'auto.",
+        "ro": "Cuplez remorca la mașină."
+      },
+      {
+        "it": "Mi ha agganciato il telefono in faccia.",
+        "ro": "Mi-a închis telefonul în nas."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "agganciato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-tifare",
+    "it": "tifare",
+    "ro": "a ține cu (o echipă); a fi suporter",
+    "tags": [
+      "timp liber"
+    ],
+    "rank": 3912,
+    "examples": [
+      {
+        "it": "Tifo per il Milan.",
+        "ro": "Țin cu Milan."
+      },
+      {
+        "it": "Tutta la città tifa per la squadra.",
+        "ro": "Tot orașul ține cu echipa."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "tifato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-sottolineare",
+    "it": "sottolineare",
+    "ro": "a sublinia",
+    "tags": [
+      "comunicare"
+    ],
+    "rank": 3938,
+    "examples": [
+      {
+        "it": "Sottolineo le parole importanti.",
+        "ro": "Subliniez cuvintele importante."
+      },
+      {
+        "it": "Voglio sottolineare un punto.",
+        "ro": "Vreau să subliniez un punct."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "sottolineato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-sperimentare",
+    "it": "sperimentare",
+    "ro": "a experimenta; a încerca",
+    "tags": [
+      "acțiune"
+    ],
+    "rank": 3957,
+    "examples": [
+      {
+        "it": "Sperimentiamo una nuova ricetta.",
+        "ro": "Încercăm o rețetă nouă."
+      },
+      {
+        "it": "Hanno sperimentato il vaccino.",
+        "ro": "Au experimentat vaccinul."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "sperimentato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "v-svelare",
+    "it": "svelare",
+    "ro": "a dezvălui",
+    "tags": [
+      "comunicare"
+    ],
+    "rank": 3761,
+    "examples": [
+      {
+        "it": "Non svelare il segreto!",
+        "ro": "Nu dezvălui secretul!"
+      },
+      {
+        "it": "Ha svelato il suo piano.",
+        "ro": "Și-a dezvăluit planul."
+      }
+    ],
+    "pos": "verb",
+    "group": "are",
+    "auxiliary": "avere",
+    "pastParticiple": "svelato",
+    "irregular": false,
+    "reflexive": false
+  },
+  {
+    "id": "a-avanzato",
+    "it": "avanzato",
+    "ro": "avansat",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3549,
+    "examples": [
+      {
+        "it": "Il corso è per studenti avanzati.",
+        "ro": "Cursul e pentru studenți avansați."
+      },
+      {
+        "it": "È una tecnologia avanzata.",
+        "ro": "E o tehnologie avansată."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "avanzato",
+      "fs": "avanzata",
+      "mp": "avanzati",
+      "fp": "avanzate"
+    }
+  },
+  {
+    "id": "a-frequente",
+    "it": "frequente",
+    "ro": "frecvent",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3569,
+    "examples": [
+      {
+        "it": "È un errore molto frequente.",
+        "ro": "E o greșeală foarte frecventă."
+      },
+      {
+        "it": "Ci sono treni frequenti.",
+        "ro": "Sunt trenuri frecvente."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "frequente",
+      "fs": "frequente",
+      "mp": "frequenti",
+      "fp": "frequenti"
+    }
+  },
+  {
+    "id": "a-incapace",
+    "it": "incapace",
+    "ro": "incapabil",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3572,
+    "examples": [
+      {
+        "it": "Sono incapace di mentire.",
+        "ro": "Sunt incapabil să mint."
+      },
+      {
+        "it": "Si sente incapace di decidere.",
+        "ro": "Se simte incapabil să decidă."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "incapace",
+      "fs": "incapace",
+      "mp": "incapaci",
+      "fp": "incapaci"
+    }
+  },
+  {
+    "id": "a-furbo",
+    "it": "furbo",
+    "ro": "șiret; isteț",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3574,
+    "examples": [
+      {
+        "it": "Il gatto è molto furbo.",
+        "ro": "Pisica e foarte șireată."
+      },
+      {
+        "it": "Sei stato furbo a non rispondere.",
+        "ro": "Ai fost isteț că n-ai răspuns."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "furbo",
+      "fs": "furba",
+      "mp": "furbi",
+      "fp": "furbe"
+    }
+  },
+  {
+    "id": "a-instabile",
+    "it": "instabile",
+    "ro": "instabil",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3591,
+    "examples": [
+      {
+        "it": "Il tavolo è instabile.",
+        "ro": "Masa e instabilă."
+      },
+      {
+        "it": "Il tempo è instabile.",
+        "ro": "Vremea e instabilă."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "instabile",
+      "fs": "instabile",
+      "mp": "instabili",
+      "fp": "instabili"
+    }
+  },
+  {
+    "id": "a-compatibile",
+    "it": "compatibile",
+    "ro": "compatibil",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3593,
+    "examples": [
+      {
+        "it": "Questo caricatore è compatibile.",
+        "ro": "Încărcătorul acesta e compatibil."
+      },
+      {
+        "it": "Gli orari non sono compatibili.",
+        "ro": "Programele nu sunt compatibile."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "compatibile",
+      "fs": "compatibile",
+      "mp": "compatibili",
+      "fp": "compatibili"
+    }
+  },
+  {
+    "id": "a-noto",
+    "it": "noto",
+    "ro": "cunoscut",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3595,
+    "examples": [
+      {
+        "it": "È un cantante molto noto.",
+        "ro": "E un cântăreț foarte cunoscut."
+      },
+      {
+        "it": "Il suo nome è noto a tutti.",
+        "ro": "Numele lui e cunoscut de toți."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "noto",
+      "fs": "nota",
+      "mp": "noti",
+      "fp": "note"
+    }
+  },
+  {
+    "id": "a-convincente",
+    "it": "convincente",
+    "ro": "convingător",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3608,
+    "examples": [
+      {
+        "it": "La tua spiegazione non è convincente.",
+        "ro": "Explicația ta nu e convingătoare."
+      },
+      {
+        "it": "Ha dato una risposta convincente.",
+        "ro": "A dat un răspuns convingător."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "convincente",
+      "fs": "convincente",
+      "mp": "convincenti",
+      "fp": "convincenti"
+    }
+  },
+  {
+    "id": "a-ordinario",
+    "it": "ordinario",
+    "ro": "obișnuit; ordinar",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3614,
+    "examples": [
+      {
+        "it": "È una giornata ordinaria.",
+        "ro": "E o zi obișnuită."
+      },
+      {
+        "it": "Non è niente di ordinario.",
+        "ro": "Nu e nimic obișnuit."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "ordinario",
+      "fs": "ordinaria",
+      "mp": "ordinari",
+      "fp": "ordinarie"
+    }
+  },
+  {
+    "id": "a-spontaneo",
+    "it": "spontaneo",
+    "ro": "spontan",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3639,
+    "examples": [
+      {
+        "it": "È una persona molto spontanea.",
+        "ro": "E o persoană foarte spontană."
+      },
+      {
+        "it": "Il suo sorriso è spontaneo.",
+        "ro": "Zâmbetul lui e spontan."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "spontaneo",
+      "fs": "spontanea",
+      "mp": "spontanei",
+      "fp": "spontanee"
+    }
+  },
+  {
+    "id": "a-limitato",
+    "it": "limitato",
+    "ro": "limitat",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3636,
+    "examples": [
+      {
+        "it": "Il tempo è limitato.",
+        "ro": "Timpul e limitat."
+      },
+      {
+        "it": "I posti sono limitati.",
+        "ro": "Locurile sunt limitate."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "limitato",
+      "fs": "limitata",
+      "mp": "limitati",
+      "fp": "limitate"
+    }
+  },
+  {
+    "id": "a-stupendo",
+    "it": "stupendo",
+    "ro": "minunat",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3664,
+    "examples": [
+      {
+        "it": "Abbiamo visto un panorama stupendo.",
+        "ro": "Am văzut un peisaj minunat."
+      },
+      {
+        "it": "È una giornata stupenda!",
+        "ro": "Ce zi minunată!"
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "stupendo",
+      "fs": "stupenda",
+      "mp": "stupendi",
+      "fp": "stupende"
+    }
+  },
+  {
+    "id": "a-asciutto",
+    "it": "asciutto",
+    "ro": "uscat",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3810,
+    "examples": [
+      {
+        "it": "I vestiti sono già asciutti.",
+        "ro": "Hainele sunt deja uscate."
+      },
+      {
+        "it": "Ho la pelle asciutta.",
+        "ro": "Am pielea uscată."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "asciutto",
+      "fs": "asciutta",
+      "mp": "asciutti",
+      "fp": "asciutte"
+    }
+  },
+  {
+    "id": "a-sordo",
+    "it": "sordo",
+    "ro": "surd",
+    "tags": [
+      "corp"
+    ],
+    "rank": 3819,
+    "examples": [
+      {
+        "it": "Mio nonno è sordo.",
+        "ro": "Bunicul meu e surd."
+      },
+      {
+        "it": "Si sentì un rumore sordo.",
+        "ro": "Se auzi un zgomot înfundat."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "sordo",
+      "fs": "sorda",
+      "mp": "sordi",
+      "fp": "sorde"
+    }
+  },
+  {
+    "id": "a-emotivo",
+    "it": "emotivo",
+    "ro": "emotiv; emoțional",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3852,
+    "examples": [
+      {
+        "it": "Sono una persona molto emotiva.",
+        "ro": "Sunt o persoană foarte emotivă."
+      },
+      {
+        "it": "Ho avuto una reazione emotiva.",
+        "ro": "Am avut o reacție emoțională."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "emotivo",
+      "fs": "emotiva",
+      "mp": "emotivi",
+      "fp": "emotive"
+    }
+  },
+  {
+    "id": "a-efficiente",
+    "it": "efficiente",
+    "ro": "eficient",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3890,
+    "examples": [
+      {
+        "it": "Il servizio è molto efficiente.",
+        "ro": "Serviciul e foarte eficient."
+      },
+      {
+        "it": "È un sistema efficiente.",
+        "ro": "E un sistem eficient."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "efficiente",
+      "fs": "efficiente",
+      "mp": "efficienti",
+      "fp": "efficienti"
+    }
+  },
+  {
+    "id": "a-favoloso",
+    "it": "favoloso",
+    "ro": "fabulos",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3913,
+    "examples": [
+      {
+        "it": "È stata una serata favolosa.",
+        "ro": "A fost o seară fabuloasă."
+      },
+      {
+        "it": "Il tuo vestito è favoloso.",
+        "ro": "Rochia ta e fabuloasă."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "favoloso",
+      "fs": "favolosa",
+      "mp": "favolosi",
+      "fp": "favolose"
+    }
+  },
+  {
+    "id": "a-ingenuo",
+    "it": "ingenuo",
+    "ro": "naiv",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3928,
+    "examples": [
+      {
+        "it": "Sei troppo ingenuo.",
+        "ro": "Ești prea naiv."
+      },
+      {
+        "it": "Era una domanda ingenua.",
+        "ro": "Era o întrebare naivă."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "ingenuo",
+      "fs": "ingenua",
+      "mp": "ingenui",
+      "fp": "ingenue"
+    }
+  },
+  {
+    "id": "a-assente",
+    "it": "assente",
+    "ro": "absent",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3983,
+    "examples": [
+      {
+        "it": "Marco oggi è assente.",
+        "ro": "Marco e absent azi."
+      },
+      {
+        "it": "Ha uno sguardo assente.",
+        "ro": "Are o privire absentă."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "assente",
+      "fs": "assente",
+      "mp": "assenti",
+      "fp": "assenti"
+    }
+  },
+  {
+    "id": "a-brutale",
+    "it": "brutale",
+    "ro": "brutal",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3989,
+    "examples": [
+      {
+        "it": "Il film è molto brutale.",
+        "ro": "Filmul e foarte brutal."
+      },
+      {
+        "it": "Ha usato un linguaggio brutale.",
+        "ro": "A folosit un limbaj brutal."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "brutale",
+      "fs": "brutale",
+      "mp": "brutali",
+      "fp": "brutali"
+    }
+  },
+  {
+    "id": "a-gigantesco",
+    "it": "gigantesco",
+    "ro": "gigantic; uriaș",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3992,
+    "examples": [
+      {
+        "it": "Hanno costruito un edificio gigantesco.",
+        "ro": "Au construit o clădire gigantică."
+      },
+      {
+        "it": "Ho un problema gigantesco.",
+        "ro": "Am o problemă uriașă."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "gigantesco",
+      "fs": "gigantesca",
+      "mp": "giganteschi",
+      "fp": "gigantesche"
+    }
+  },
+  {
+    "id": "a-opportuno",
+    "it": "opportuno",
+    "ro": "potrivit; oportun",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3996,
+    "examples": [
+      {
+        "it": "Non è il momento opportuno.",
+        "ro": "Nu e momentul potrivit."
+      },
+      {
+        "it": "Ritengo opportuno aspettare.",
+        "ro": "Consider potrivit să așteptăm."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "opportuno",
+      "fs": "opportuna",
+      "mp": "opportuni",
+      "fp": "opportune"
+    }
+  },
+  {
+    "id": "a-prudente",
+    "it": "prudente",
+    "ro": "prudent",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3738,
+    "examples": [
+      {
+        "it": "È un guidatore prudente.",
+        "ro": "E un șofer prudent."
+      },
+      {
+        "it": "Sii prudente con i soldi.",
+        "ro": "Fii prudent cu banii."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "prudente",
+      "fs": "prudente",
+      "mp": "prudenti",
+      "fp": "prudenti"
+    }
+  },
+  {
+    "id": "a-deluso",
+    "it": "deluso",
+    "ro": "dezamăgit",
+    "tags": [
+      "sentimente"
+    ],
+    "rank": 3728,
+    "examples": [
+      {
+        "it": "Sono deluso dal risultato.",
+        "ro": "Sunt dezamăgit de rezultat."
+      },
+      {
+        "it": "Mi sembri deluso.",
+        "ro": "Mi se pare că ești dezamăgit."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "deluso",
+      "fs": "delusa",
+      "mp": "delusi",
+      "fp": "deluse"
+    }
+  },
+  {
+    "id": "a-banale",
+    "it": "banale",
+    "ro": "banal",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3758,
+    "examples": [
+      {
+        "it": "È una domanda banale.",
+        "ro": "E o întrebare banală."
+      },
+      {
+        "it": "La storia è un po' banale.",
+        "ro": "Povestea e puțin banală."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "banale",
+      "fs": "banale",
+      "mp": "banali",
+      "fp": "banali"
+    }
+  },
+  {
+    "id": "a-visibile",
+    "it": "visibile",
+    "ro": "vizibil",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3764,
+    "examples": [
+      {
+        "it": "La luna è visibile stasera.",
+        "ro": "Luna se vede în seara asta."
+      },
+      {
+        "it": "Il cartello è ben visibile.",
+        "ro": "Indicatorul se vede bine."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "visibile",
+      "fs": "visibile",
+      "mp": "visibili",
+      "fp": "visibili"
+    }
+  },
+  {
+    "id": "a-amaro",
+    "it": "amaro",
+    "ro": "amar",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 3696,
+    "examples": [
+      {
+        "it": "Questo caffè è troppo amaro.",
+        "ro": "Cafeaua asta e prea amară."
+      },
+      {
+        "it": "La verità è amara.",
+        "ro": "Adevărul e amar."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "amaro",
+      "fs": "amara",
+      "mp": "amari",
+      "fp": "amare"
+    }
+  },
+  {
+    "id": "a-pratico",
+    "it": "pratico",
+    "ro": "practic",
+    "tags": [
+      "calități"
+    ],
+    "rank": 3834,
+    "examples": [
+      {
+        "it": "È un lavoro molto pratico.",
+        "ro": "E o muncă foarte practică."
+      },
+      {
+        "it": "Questa borsa è pratica.",
+        "ro": "Geanta aceasta e practică."
+      }
+    ],
+    "pos": "adjective",
+    "forms": {
+      "ms": "pratico",
+      "fs": "pratica",
+      "mp": "pratici",
+      "fp": "pratiche"
+    }
+  },
+  {
+    "id": "adv-apparentemente",
+    "it": "apparentemente",
+    "ro": "aparent",
+    "tags": [
+      "mod"
+    ],
+    "rank": 3538,
+    "examples": [
+      {
+        "it": "Apparentemente è tutto a posto.",
+        "ro": "Aparent, totul e în regulă."
+      },
+      {
+        "it": "È apparentemente semplice.",
+        "ro": "E aparent simplu."
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-costantemente",
+    "it": "costantemente",
+    "ro": "în mod constant",
+    "tags": [
+      "mod"
+    ],
+    "rank": 3623,
+    "examples": [
+      {
+        "it": "Mi chiama costantemente.",
+        "ro": "Mă sună în mod constant."
+      },
+      {
+        "it": "I prezzi aumentano costantemente.",
+        "ro": "Prețurile cresc constant."
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-necessariamente",
+    "it": "necessariamente",
+    "ro": "neapărat",
+    "tags": [
+      "mod"
+    ],
+    "rank": 3654,
+    "examples": [
+      {
+        "it": "Non è necessariamente vero.",
+        "ro": "Nu e neapărat adevărat."
+      },
+      {
+        "it": "Non devi necessariamente venire.",
+        "ro": "Nu trebuie neapărat să vii."
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-francamente",
+    "it": "francamente",
+    "ro": "sincer; deschis",
+    "tags": [
+      "mod"
+    ],
+    "rank": 3711,
+    "examples": [
+      {
+        "it": "Francamente non mi interessa.",
+        "ro": "Sincer, nu mă interesează."
+      },
+      {
+        "it": "Dimmi francamente cosa pensi.",
+        "ro": "Spune-mi sincer ce crezi."
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-precisamente",
+    "it": "precisamente",
+    "ro": "exact; întocmai",
+    "tags": [
+      "mod"
+    ],
+    "rank": 3698,
+    "examples": [
+      {
+        "it": "Sono arrivato precisamente alle otto.",
+        "ro": "Am sosit exact la opt."
+      },
+      {
+        "it": "Ecco precisamente cosa volevo.",
+        "ro": "Iată exact ce voiam."
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-principalmente",
+    "it": "principalmente",
+    "ro": "mai ales; în principal",
+    "tags": [
+      "mod"
+    ],
+    "rank": 3817,
+    "examples": [
+      {
+        "it": "Lavoro principalmente da casa.",
+        "ro": "Lucrez mai ales de acasă."
+      },
+      {
+        "it": "Mangio principalmente verdura.",
+        "ro": "Mănânc în principal legume."
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-regolarmente",
+    "it": "regolarmente",
+    "ro": "în mod regulat",
+    "tags": [
+      "frecvență"
+    ],
+    "rank": 3902,
+    "examples": [
+      {
+        "it": "Vado in palestra regolarmente.",
+        "ro": "Merg la sală în mod regulat."
+      },
+      {
+        "it": "Pago le bollette regolarmente.",
+        "ro": "Plătesc facturile la timp."
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "adv-gravemente",
+    "it": "gravemente",
+    "ro": "grav",
+    "tags": [
+      "mod"
+    ],
+    "rank": 3924,
+    "examples": [
+      {
+        "it": "È gravemente malato.",
+        "ro": "E grav bolnav."
+      },
+      {
+        "it": "Il ponte è stato gravemente danneggiato.",
+        "ro": "Podul a fost grav avariat."
+      }
+    ],
+    "pos": "adverb"
+  },
+  {
+    "id": "n-cravatta",
+    "it": "cravatta",
+    "ro": "cravată",
+    "tags": [
+      "haine"
+    ],
+    "rank": 3502,
+    "examples": [
+      {
+        "it": "Porto la cravatta per il colloquio.",
+        "ro": "Port cravată pentru interviu."
+      },
+      {
+        "it": "Questa cravatta è di seta.",
+        "ro": "Cravata aceasta e din mătase."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "cravatte",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-scimmia",
+    "it": "scimmia",
+    "ro": "maimuță",
+    "tags": [
+      "animale"
+    ],
+    "rank": 3503,
+    "examples": [
+      {
+        "it": "La scimmia mangia una banana.",
+        "ro": "Maimuța mănâncă o banană."
+      },
+      {
+        "it": "Allo zoo ci sono molte scimmie.",
+        "ro": "La grădina zoologică sunt multe maimuțe."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "scimmie",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-coniglio",
+    "it": "coniglio",
+    "ro": "iepure",
+    "tags": [
+      "animale"
+    ],
+    "rank": 3511,
+    "examples": [
+      {
+        "it": "Il coniglio mangia la carota.",
+        "ro": "Iepurele mănâncă morcovul."
+      },
+      {
+        "it": "Mia figlia ha un coniglio bianco.",
+        "ro": "Fiica mea are un iepure alb."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "conigli",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-vernice",
+    "it": "vernice",
+    "ro": "vopsea; lac",
+    "tags": [
+      "casă"
+    ],
+    "rank": 3520,
+    "examples": [
+      {
+        "it": "Compro la vernice per la cucina.",
+        "ro": "Cumpăr vopsea pentru bucătărie."
+      },
+      {
+        "it": "Attenzione, vernice fresca!",
+        "ro": "Atenție, vopsea proaspătă!"
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "vernici",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-sposo",
+    "it": "sposo",
+    "ro": "mire; soț (în ziua nunții)",
+    "tags": [
+      "familie"
+    ],
+    "rank": 3526,
+    "examples": [
+      {
+        "it": "Lo sposo arriva in chiesa.",
+        "ro": "Mirele ajunge la biserică."
+      },
+      {
+        "it": "Gli sposi sono molto felici.",
+        "ro": "Mirii sunt foarte fericiți."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "lo",
+    "plural": "sposi",
+    "pluralArticle": "gli",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-barista",
+    "it": "barista",
+    "ro": "barman; barmaniță",
+    "tags": [
+      "profesii"
+    ],
+    "rank": 3527,
+    "examples": [
+      {
+        "it": "Il barista prepara il caffè.",
+        "ro": "Barmanul pregătește cafeaua."
+      },
+      {
+        "it": "Lavoro come barista da due anni.",
+        "ro": "Lucrez ca barman de doi ani."
+      }
+    ],
+    "note": "Același cuvânt pentru bărbat și femeie: «il barista», «la barista».",
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "baristi",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-previsione",
+    "it": "previsione",
+    "ro": "prognoză; previziune",
+    "tags": [
+      "timp"
+    ],
+    "rank": 3531,
+    "examples": [
+      {
+        "it": "Le previsioni del tempo dicono pioggia.",
+        "ro": "Prognoza meteo anunță ploaie."
+      },
+      {
+        "it": "La mia previsione era giusta.",
+        "ro": "Previziunea mea era corectă."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "previsioni",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-stufa",
+    "it": "stufa",
+    "ro": "sobă; aeroterma",
+    "tags": [
+      "casă"
+    ],
+    "rank": 3533,
+    "examples": [
+      {
+        "it": "Accendo la stufa in salotto.",
+        "ro": "Aprind soba în sufragerie."
+      },
+      {
+        "it": "La stufa scalda tutta la stanza.",
+        "ro": "Soba încălzește toată camera."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "stufe",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-illusione",
+    "it": "illusione",
+    "ro": "iluzie",
+    "tags": [
+      "sentimente"
+    ],
+    "rank": 3534,
+    "examples": [
+      {
+        "it": "È solo un'illusione.",
+        "ro": "E doar o iluzie."
+      },
+      {
+        "it": "Non farti illusioni.",
+        "ro": "Nu-ți face iluzii."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "l'",
+    "plural": "illusioni",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-clima",
+    "it": "clima",
+    "ro": "climă",
+    "tags": [
+      "natură"
+    ],
+    "rank": 3535,
+    "examples": [
+      {
+        "it": "Il clima qui è mite.",
+        "ro": "Clima de aici e blândă."
+      },
+      {
+        "it": "Il clima sta cambiando.",
+        "ro": "Clima se schimbă."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "climi",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-piega",
+    "it": "piega",
+    "ro": "cută",
+    "tags": [
+      "haine"
+    ],
+    "rank": 3539,
+    "examples": [
+      {
+        "it": "Questa camicia ha una piega.",
+        "ro": "Cămașa aceasta are o cută."
+      },
+      {
+        "it": "Stira bene le pieghe.",
+        "ro": "Calcă bine cutele."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "pieghe",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-sfortuna",
+    "it": "sfortuna",
+    "ro": "ghinion",
+    "tags": [
+      "generale"
+    ],
+    "rank": 3547,
+    "examples": [
+      {
+        "it": "Che sfortuna, ho perso il treno!",
+        "ro": "Ce ghinion, am pierdut trenul!"
+      },
+      {
+        "it": "Ha avuto molta sfortuna.",
+        "ro": "A avut mult ghinion."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "sfortune",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-fungo",
+    "it": "fungo",
+    "ro": "ciupercă",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 3548,
+    "examples": [
+      {
+        "it": "Raccolgo funghi nel bosco.",
+        "ro": "Culeg ciuperci în pădure."
+      },
+      {
+        "it": "Questi funghi sono molto buoni.",
+        "ro": "Ciupercile acestea sunt foarte bune."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "funghi",
+    "pluralArticle": "i",
+    "irregularPlural": true
+  },
+  {
+    "id": "n-disturbo",
+    "it": "disturbo",
+    "ro": "deranj; tulburare",
+    "tags": [
+      "generale"
+    ],
+    "rank": 3550,
+    "examples": [
+      {
+        "it": "Scusa il disturbo.",
+        "ro": "Scuze pentru deranj."
+      },
+      {
+        "it": "Ho un disturbo allo stomaco.",
+        "ro": "Am o tulburare la stomac."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "disturbi",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-manica",
+    "it": "manica",
+    "ro": "mânecă",
+    "tags": [
+      "haine"
+    ],
+    "rank": 3552,
+    "examples": [
+      {
+        "it": "Ha le maniche lunghe.",
+        "ro": "Are mâneci lungi."
+      },
+      {
+        "it": "Ha una camicia a maniche corte.",
+        "ro": "Are o cămașă cu mâneci scurte."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "maniche",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-zuppa",
+    "it": "zuppa",
+    "ro": "supă",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 3553,
+    "examples": [
+      {
+        "it": "Questa sera mangiamo la zuppa.",
+        "ro": "Diseară mâncăm supă."
+      },
+      {
+        "it": "La zuppa è ancora calda.",
+        "ro": "Supa e încă fierbinte."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "zuppe",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-limone",
+    "it": "limone",
+    "ro": "lămâie; lămâi",
+    "tags": [
+      "mâncare"
+    ],
+    "rank": 3562,
+    "examples": [
+      {
+        "it": "Metto un limone nel tè.",
+        "ro": "Pun o lămâie în ceai."
+      },
+      {
+        "it": "L'albero di limone cresce in giardino.",
+        "ro": "Lămâiul crește în grădină."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "limoni",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-timore",
+    "it": "timore",
+    "ro": "teamă",
+    "tags": [
+      "sentimente"
+    ],
+    "rank": 3565,
+    "examples": [
+      {
+        "it": "Ho timore di sbagliare.",
+        "ro": "Mi-e teamă să nu greșesc."
+      },
+      {
+        "it": "Non c'è motivo di timore.",
+        "ro": "Nu e motiv de teamă."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "timori",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-gentilezza",
+    "it": "gentilezza",
+    "ro": "amabilitate",
+    "tags": [
+      "comportament"
+    ],
+    "rank": 3578,
+    "examples": [
+      {
+        "it": "Grazie per la gentilezza.",
+        "ro": "Mulțumesc pentru amabilitate."
+      },
+      {
+        "it": "Mi ha trattato con gentilezza.",
+        "ro": "M-a tratat cu amabilitate."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "gentilezze",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-cartone",
+    "it": "cartone",
+    "ro": "carton; desen animat",
+    "tags": [
+      "obiecte"
+    ],
+    "rank": 3581,
+    "examples": [
+      {
+        "it": "La scatola è di cartone.",
+        "ro": "Cutia e din carton."
+      },
+      {
+        "it": "I bambini guardano un cartone animato.",
+        "ro": "Copiii se uită la un desen animat."
+      }
+    ],
+    "note": "«Cartone animato» = desen animat.",
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "cartoni",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-manifestazione",
+    "it": "manifestazione",
+    "ro": "demonstrație; eveniment",
+    "tags": [
+      "social"
+    ],
+    "rank": 3588,
+    "examples": [
+      {
+        "it": "Ci sono manifestazioni in centro oggi.",
+        "ro": "Azi sunt demonstrații în centru."
+      },
+      {
+        "it": "Domani c'è una manifestazione di beneficenza.",
+        "ro": "Mâine e un eveniment caritabil."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "manifestazioni",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-secchio",
+    "it": "secchio",
+    "ro": "găleată",
+    "tags": [
+      "casă"
+    ],
+    "rank": 3594,
+    "examples": [
+      {
+        "it": "Riempi il secchio d'acqua.",
+        "ro": "Umple găleata cu apă."
+      },
+      {
+        "it": "I bambini giocano con il secchio.",
+        "ro": "Copiii se joacă cu găleata."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "secchi",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-disordine",
+    "it": "disordine",
+    "ro": "dezordine",
+    "tags": [
+      "casă"
+    ],
+    "rank": 3596,
+    "examples": [
+      {
+        "it": "Che disordine in camera tua!",
+        "ro": "Ce dezordine în camera ta!"
+      },
+      {
+        "it": "C'è sempre disordine qui.",
+        "ro": "Aici e mereu dezordine."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "disordini",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-mucchio",
+    "it": "mucchio",
+    "ro": "grămadă",
+    "tags": [
+      "cantitate"
+    ],
+    "rank": 3618,
+    "examples": [
+      {
+        "it": "Ho un mucchio di cose da fare.",
+        "ro": "Am o grămadă de lucruri de făcut."
+      },
+      {
+        "it": "C'è un mucchio di foglie in giardino.",
+        "ro": "E o grămadă de frunze în grădină."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "mucchi",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-noia",
+    "it": "noia",
+    "ro": "plictiseală",
+    "tags": [
+      "sentimente"
+    ],
+    "rank": 3634,
+    "examples": [
+      {
+        "it": "Che noia questo film!",
+        "ro": "Ce plictiseală filmul ăsta!"
+      },
+      {
+        "it": "Mi muoio di noia.",
+        "ro": "Mor de plictiseală."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "noie",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-contesto",
+    "it": "contesto",
+    "ro": "context",
+    "tags": [
+      "gândire"
+    ],
+    "rank": 3631,
+    "examples": [
+      {
+        "it": "Dipende dal contesto.",
+        "ro": "Depinde de context."
+      },
+      {
+        "it": "Nel contesto attuale è difficile.",
+        "ro": "În contextul actual e greu."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "contesti",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-veicolo",
+    "it": "veicolo",
+    "ro": "vehicul",
+    "tags": [
+      "transport"
+    ],
+    "rank": 3647,
+    "examples": [
+      {
+        "it": "Il veicolo è fermo.",
+        "ro": "Vehiculul e oprit."
+      },
+      {
+        "it": "I veicoli non possono entrare.",
+        "ro": "Vehiculele nu au voie să intre."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "veicoli",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-necessità",
+    "it": "necessità",
+    "ro": "necesitate; nevoie",
+    "tags": [
+      "generale"
+    ],
+    "rank": 3651,
+    "examples": [
+      {
+        "it": "Ho la necessità di riposare.",
+        "ro": "Am nevoie să mă odihnesc."
+      },
+      {
+        "it": "Non c'è necessità di correre.",
+        "ro": "Nu e nevoie să alergăm."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "necessità",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-immaginazione",
+    "it": "immaginazione",
+    "ro": "imaginație",
+    "tags": [
+      "gândire"
+    ],
+    "rank": 3659,
+    "examples": [
+      {
+        "it": "Hai molta immaginazione.",
+        "ro": "Ai multă imaginație."
+      },
+      {
+        "it": "Non è reale, è immaginazione.",
+        "ro": "Nu e real, e imaginație."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "l'",
+    "plural": "immaginazioni",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-curiosità",
+    "it": "curiosità",
+    "ro": "curiozitate",
+    "tags": [
+      "sentimente"
+    ],
+    "rank": 3666,
+    "examples": [
+      {
+        "it": "Lo faccio per curiosità.",
+        "ro": "O fac din curiozitate."
+      },
+      {
+        "it": "I bambini hanno molta curiosità.",
+        "ro": "Copiii au multă curiozitate."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "curiosità",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-filosofia",
+    "it": "filosofia",
+    "ro": "filosofie",
+    "tags": [
+      "studiu"
+    ],
+    "rank": 3677,
+    "examples": [
+      {
+        "it": "Studio filosofia all'università.",
+        "ro": "Studiez filosofie la universitate."
+      },
+      {
+        "it": "Questa è la mia filosofia di vita.",
+        "ro": "Aceasta e filosofia mea de viață."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "filosofie",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-libreria",
+    "it": "libreria",
+    "ro": "librărie; bibliotecă (mobilă)",
+    "tags": [
+      "oraș"
+    ],
+    "rank": 3684,
+    "examples": [
+      {
+        "it": "Compro i libri in libreria.",
+        "ro": "Cumpăr cărțile la librărie."
+      },
+      {
+        "it": "La libreria è piena di libri.",
+        "ro": "Biblioteca e plină de cărți."
+      }
+    ],
+    "falseFriend": "«Libreria» = librărie (magazin) sau bibliotecă de perete (mobilă); biblioteca publică se numește «biblioteca».",
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "librerie",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-mensa",
+    "it": "mensa",
+    "ro": "cantină",
+    "tags": [
+      "oraș"
+    ],
+    "rank": 3682,
+    "examples": [
+      {
+        "it": "Pranzo alla mensa dell'università.",
+        "ro": "Prânzesc la cantina universității."
+      },
+      {
+        "it": "La mensa chiude alle due.",
+        "ro": "Cantina se închide la două."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "mense",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-bottone",
+    "it": "bottone",
+    "ro": "nasture; buton",
+    "tags": [
+      "haine"
+    ],
+    "rank": 3707,
+    "examples": [
+      {
+        "it": "Si è staccato un bottone.",
+        "ro": "S-a desprins un nasture."
+      },
+      {
+        "it": "Premi il bottone rosso.",
+        "ro": "Apasă butonul roșu."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "bottoni",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-ferrovia",
+    "it": "ferrovia",
+    "ro": "cale ferată",
+    "tags": [
+      "transport"
+    ],
+    "rank": 3718,
+    "examples": [
+      {
+        "it": "La ferrovia passa vicino a casa.",
+        "ro": "Calea ferată trece pe lângă casă."
+      },
+      {
+        "it": "Lavora per le ferrovie dello Stato.",
+        "ro": "Lucrează pentru căile ferate de stat."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "ferrovie",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-alleanza",
+    "it": "alleanza",
+    "ro": "alianță",
+    "tags": [
+      "social"
+    ],
+    "rank": 3726,
+    "examples": [
+      {
+        "it": "Hanno fatto un'alleanza.",
+        "ro": "Au făcut o alianță."
+      },
+      {
+        "it": "L'alleanza tra i due partiti è fragile.",
+        "ro": "Alianța dintre cele două partide e fragilă."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "l'",
+    "plural": "alleanze",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-sciocchezza",
+    "it": "sciocchezza",
+    "ro": "prostie",
+    "tags": [
+      "comportament"
+    ],
+    "rank": 3745,
+    "examples": [
+      {
+        "it": "Non dire sciocchezze!",
+        "ro": "Nu spune prostii!"
+      },
+      {
+        "it": "È stata una sciocchezza.",
+        "ro": "A fost o prostie."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "sciocchezze",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-rimedio",
+    "it": "rimedio",
+    "ro": "remediu; leac",
+    "tags": [
+      "sănătate"
+    ],
+    "rank": 3766,
+    "examples": [
+      {
+        "it": "Esiste un rimedio per il mal di testa?",
+        "ro": "Există un remediu pentru durerea de cap?"
+      },
+      {
+        "it": "Non c'è rimedio.",
+        "ro": "Nu mai e nimic de făcut."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "rimedi",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-ginnastica",
+    "it": "ginnastica",
+    "ro": "gimnastică",
+    "tags": [
+      "sănătate"
+    ],
+    "rank": 3793,
+    "examples": [
+      {
+        "it": "Faccio ginnastica ogni mattina.",
+        "ro": "Fac gimnastică în fiecare dimineață."
+      },
+      {
+        "it": "La ginnastica fa bene alla schiena.",
+        "ro": "Gimnastica face bine la spate."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "ginnastiche",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-muscolo",
+    "it": "muscolo",
+    "ro": "mușchi",
+    "tags": [
+      "corp"
+    ],
+    "rank": 3805,
+    "examples": [
+      {
+        "it": "Mi fa male un muscolo.",
+        "ro": "Mă doare un mușchi."
+      },
+      {
+        "it": "Faccio esercizi per i muscoli.",
+        "ro": "Fac exerciții pentru mușchi."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "muscoli",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-miglioramento",
+    "it": "miglioramento",
+    "ro": "îmbunătățire",
+    "tags": [
+      "generale"
+    ],
+    "rank": 3825,
+    "examples": [
+      {
+        "it": "C'è un miglioramento.",
+        "ro": "E o îmbunătățire."
+      },
+      {
+        "it": "Il miglioramento è lento.",
+        "ro": "Îmbunătățirea e lentă."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "miglioramenti",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-babbo",
+    "it": "babbo",
+    "ro": "tată; tati",
+    "tags": [
+      "familie"
+    ],
+    "rank": 3826,
+    "examples": [
+      {
+        "it": "Mio babbo lavora in banca.",
+        "ro": "Tata lucrează la bancă."
+      },
+      {
+        "it": "Babbo Natale arriva stanotte.",
+        "ro": "Moș Crăciun vine în noaptea asta."
+      }
+    ],
+    "note": "În Toscana «babbo» înseamnă tată; «Babbo Natale» = Moș Crăciun.",
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "babbi",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-marinaio",
+    "it": "marinaio",
+    "ro": "marinar",
+    "tags": [
+      "profesii"
+    ],
+    "rank": 3828,
+    "examples": [
+      {
+        "it": "Il marinaio guarda il mare.",
+        "ro": "Marinarul se uită la mare."
+      },
+      {
+        "it": "Mio nonno era marinaio.",
+        "ro": "Bunicul meu era marinar."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "marinai",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-poeta",
+    "it": "poeta",
+    "ro": "poet",
+    "tags": [
+      "persoane"
+    ],
+    "rank": 3831,
+    "examples": [
+      {
+        "it": "Dante è un grande poeta.",
+        "ro": "Dante e un mare poet."
+      },
+      {
+        "it": "Il poeta legge una poesia.",
+        "ro": "Poetul citește o poezie."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "poeti",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-dignità",
+    "it": "dignità",
+    "ro": "demnitate",
+    "tags": [
+      "sentimente"
+    ],
+    "rank": 3833,
+    "examples": [
+      {
+        "it": "Ogni persona ha la sua dignità.",
+        "ro": "Fiecare persoană are demnitatea ei."
+      },
+      {
+        "it": "Ha perso la dignità.",
+        "ro": "Și-a pierdut demnitatea."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "dignità",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-psicologo",
+    "it": "psicologo",
+    "ro": "psiholog",
+    "tags": [
+      "profesii"
+    ],
+    "rank": 3840,
+    "examples": [
+      {
+        "it": "Vado da uno psicologo.",
+        "ro": "Merg la un psiholog."
+      },
+      {
+        "it": "Lo psicologo ascolta con attenzione.",
+        "ro": "Psihologul ascultă cu atenție."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "lo",
+    "plural": "psicologi",
+    "pluralArticle": "gli",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-riparazione",
+    "it": "riparazione",
+    "ro": "reparație",
+    "tags": [
+      "generale"
+    ],
+    "rank": 3855,
+    "examples": [
+      {
+        "it": "La riparazione costa cinquanta euro.",
+        "ro": "Reparația costă cincizeci de euro."
+      },
+      {
+        "it": "La macchina è in riparazione.",
+        "ro": "Mașina e în reparație."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "riparazioni",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-lenzuolo",
+    "it": "lenzuolo",
+    "ro": "cearșaf",
+    "tags": [
+      "casă"
+    ],
+    "rank": 3879,
+    "examples": [
+      {
+        "it": "Cambio le lenzuola ogni settimana.",
+        "ro": "Schimb cearșafurile în fiecare săptămână."
+      },
+      {
+        "it": "Il lenzuolo è bianco.",
+        "ro": "Cearșaful e alb."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "lenzuola",
+    "pluralArticle": "le",
+    "irregularPlural": true
+  },
+  {
+    "id": "n-finestrino",
+    "it": "finestrino",
+    "ro": "geam (de mașină, tren)",
+    "tags": [
+      "transport"
+    ],
+    "rank": 3901,
+    "examples": [
+      {
+        "it": "Apri il finestrino, per favore.",
+        "ro": "Deschide geamul, te rog."
+      },
+      {
+        "it": "Guardo fuori dal finestrino.",
+        "ro": "Mă uit pe geam."
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "finestrini",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-tartaruga",
+    "it": "tartaruga",
+    "ro": "țestoasă",
+    "tags": [
+      "animale"
+    ],
+    "rank": 3908,
+    "examples": [
+      {
+        "it": "La tartaruga cammina piano.",
+        "ro": "Țestoasa merge încet."
+      },
+      {
+        "it": "Abbiamo una tartaruga in giardino.",
+        "ro": "Avem o țestoasă în grădină."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "tartarughe",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-vela",
+    "it": "vela",
+    "ro": "velă",
+    "tags": [
+      "călătorie"
+    ],
+    "rank": 3939,
+    "examples": [
+      {
+        "it": "La barca ha una vela bianca.",
+        "ro": "Barca are o velă albă."
+      },
+      {
+        "it": "Il vento gonfia le vele.",
+        "ro": "Vântul umflă velele."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "vele",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-capolavoro",
+    "it": "capolavoro",
+    "ro": "capodoperă",
+    "tags": [
+      "generale"
+    ],
+    "rank": 3940,
+    "examples": [
+      {
+        "it": "Questo quadro è un capolavoro.",
+        "ro": "Tabloul acesta e o capodoperă."
+      },
+      {
+        "it": "Hai cucinato un capolavoro!",
+        "ro": "Ai gătit o capodoperă!"
+      }
+    ],
+    "pos": "noun",
+    "gender": "m",
+    "article": "il",
+    "plural": "capolavori",
+    "pluralArticle": "i",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-ironia",
+    "it": "ironia",
+    "ro": "ironie",
+    "tags": [
+      "comunicare"
+    ],
+    "rank": 3956,
+    "examples": [
+      {
+        "it": "Detesto la sua ironia.",
+        "ro": "Detest ironia lui."
+      },
+      {
+        "it": "Che ironia della sorte!",
+        "ro": "Ce ironie a sorții!"
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "l'",
+    "plural": "ironie",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-gratitudine",
+    "it": "gratitudine",
+    "ro": "recunoștință",
+    "tags": [
+      "sentimente"
+    ],
+    "rank": 3981,
+    "examples": [
+      {
+        "it": "Ti devo gratitudine.",
+        "ro": "Îți datorez recunoștință."
+      },
+      {
+        "it": "Ha espresso la sua gratitudine.",
+        "ro": "Și-a exprimat recunoștința."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "gratitudini",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  },
+  {
+    "id": "n-nausea",
+    "it": "nausea",
+    "ro": "greață",
+    "tags": [
+      "corp"
+    ],
+    "rank": 4000,
+    "examples": [
+      {
+        "it": "Ho la nausea.",
+        "ro": "Mi-e greață."
+      },
+      {
+        "it": "Il viaggio in barca mi dà la nausea.",
+        "ro": "Călătoria cu barca îmi dă greață."
+      }
+    ],
+    "pos": "noun",
+    "gender": "f",
+    "article": "la",
+    "plural": "nausee",
+    "pluralArticle": "le",
+    "irregularPlural": false
+  }
+]
