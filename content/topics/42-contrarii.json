@@ -1,17 +1,32 @@
 {
   "id": "contrarii",
-  "title": "Contrarii",
+  "title": {
+    "it": "I contrari",
+    "ro": "Contrarii"
+  },
   "group": "conversatie",
   "level": "A2",
   "first": false,
   "rules": [
-    "Multe contrarii se formează cu prefix: possibile → impossibile, felice → infelice, utile → inutile, contento → scontento.",
-    "«Buono» are comparativul «migliore», «cattivo» are «peggiore».",
-    "Se învață în perechi: grande ↔ piccolo, caldo ↔ freddo, aperto ↔ chiuso."
+    {
+      "it": "Molti contrari si formano con un prefisso: possibile → impossibile, felice → infelice, utile → inutile, contento → scontento.",
+      "ro": "Multe contrarii se formează cu prefix: possibile → impossibile, felice → infelice, utile → inutile, contento → scontento."
+    },
+    {
+      "it": "«Buono» ha il comparativo «migliore», «cattivo» ha «peggiore».",
+      "ro": "«Buono» are comparativul «migliore», «cattivo» are «peggiore»."
+    },
+    {
+      "it": "Si imparano a coppie: grande ↔ piccolo, caldo ↔ freddo, aperto ↔ chiuso.",
+      "ro": "Se învață în perechi: grande ↔ piccolo, caldo ↔ freddo, aperto ↔ chiuso."
+    }
   ],
   "subgroups": [
     {
-      "title": "Mărime",
+      "title": {
+        "it": "Dimensione",
+        "ro": "Mărime"
+      },
       "wordIds": [
         "a-grande",
         "a-piccolo",
@@ -22,7 +37,10 @@
       ]
     },
     {
-      "title": "Vechi și nou",
+      "title": {
+        "it": "Vecchio e nuovo",
+        "ro": "Vechi și nou"
+      },
       "wordIds": [
         "a-nuovo",
         "a-vecchio",
@@ -32,7 +50,10 @@
       ]
     },
     {
-      "title": "Calități",
+      "title": {
+        "it": "Qualità",
+        "ro": "Calități"
+      },
       "wordIds": [
         "a-buono",
         "a-facile",
@@ -46,7 +67,10 @@
       ]
     },
     {
-      "title": "Temperatură",
+      "title": {
+        "it": "Temperatura",
+        "ro": "Temperatură"
+      },
       "wordIds": [
         "a-caldo",
         "a-freddo"

@@ -1,17 +1,32 @@
 {
   "id": "conectori",
-  "title": "Conectori",
+  "title": {
+    "it": "Connettivi",
+    "ro": "Conectori"
+  },
   "group": "conversatie",
   "level": "A2",
   "first": false,
   "rules": [
-    "«Ma» și «però» = dar; «però» poate sta și la sfârșit sau în mijlocul propoziției.",
-    "«Invece» = în schimb; «anzi» = ba chiar / dimpotrivă.",
-    "«Quindi» = deci; «comunque» = oricum; «infatti» = într-adevăr / de fapt."
+    {
+      "it": "«Ma» e «però» introducono un'opposizione; «però» può stare anche alla fine o in mezzo alla frase.",
+      "ro": "«Ma» și «però» = dar; «però» poate sta și la sfârșit sau în mijlocul propoziției."
+    },
+    {
+      "it": "«Invece» = al contrario; «anzi» = al contrario, o ancora di più.",
+      "ro": "«Invece» = în schimb; «anzi» = ba chiar / dimpotrivă."
+    },
+    {
+      "it": "«Quindi» = di conseguenza; «comunque» = in ogni caso; «infatti» = in effetti.",
+      "ro": "«Quindi» = deci; «comunque» = oricum; «infatti» = într-adevăr / de fapt."
+    }
   ],
   "subgroups": [
     {
-      "title": "Opoziție",
+      "title": {
+        "it": "Opposizione",
+        "ro": "Opoziție"
+      },
       "wordIds": [
         "c-ma",
         "c-però",
@@ -21,7 +36,10 @@
       ]
     },
     {
-      "title": "Consecință",
+      "title": {
+        "it": "Conseguenza",
+        "ro": "Consecință"
+      },
       "wordIds": [
         "c-quindi",
         "c-dunque",
@@ -30,7 +48,10 @@
       ]
     },
     {
-      "title": "Alegere",
+      "title": {
+        "it": "Scelta",
+        "ro": "Alegere"
+      },
       "wordIds": [
         "c-o",
         "c-oppure",

@@ -1,17 +1,32 @@
 {
   "id": "la-hotel",
-  "title": "La hotel",
+  "title": {
+    "it": "In hotel",
+    "ro": "La hotel"
+  },
   "group": "oras",
   "level": "A2",
   "first": false,
   "rules": [
-    "«Ho una prenotazione a nome Rossi» = am o rezervare pe numele Rossi.",
-    "«La colazione è inclusa?» = micul dejun este inclus?",
-    "Camere: «camera singola» (o persoană), «camera doppia» (două persoane)."
+    {
+      "it": "«Ho una prenotazione a nome Rossi».",
+      "ro": "«Ho una prenotazione a nome Rossi» = am o rezervare pe numele Rossi."
+    },
+    {
+      "it": "«La colazione è inclusa?»",
+      "ro": "«La colazione è inclusa?» = micul dejun este inclus?"
+    },
+    {
+      "it": "Camere: «camera singola» (una persona), «camera doppia» (due persone).",
+      "ro": "Camere: «camera singola» (o persoană), «camera doppia» (două persoane)."
+    }
   ],
   "subgroups": [
     {
-      "title": "Cameră",
+      "title": {
+        "it": "La camera",
+        "ro": "Cameră"
+      },
       "wordIds": [
         "n-albergo",
         "n-hotel",
@@ -25,7 +40,10 @@
       ]
     },
     {
-      "title": "Rezervare",
+      "title": {
+        "it": "La prenotazione",
+        "ro": "Rezervare"
+      },
       "wordIds": [
         "v-prenotare",
         "n-prenotazione",

@@ -1,17 +1,37 @@
 {
   "id": "aici-si-acolo",
-  "title": "Aici și acolo",
+  "title": {
+    "it": "Qui e là",
+    "ro": "Aici și acolo"
+  },
   "group": "spatiu",
   "level": "A2",
   "first": false,
   "rules": [
-    "«Qui / qua» = aici (aproape de cel care vorbește); «lì / là» = acolo (mai departe). «Qui» și «lì» sunt mai precise.",
-    "«Ecco» = iată: «ecco il bus!», «eccolo!» = iată-l.",
-    "«Dov'è» + singular, «dove sono» + plural: «dov'è il bagno?», «dove sono le chiavi?»."
+    {
+      "it": "«Qui / qua» = vicino a chi parla; «lì / là» = più lontano. «Qui» e «lì» sono più precisi.",
+      "ro": "«Qui / qua» = aici (aproape de cel care vorbește); «lì / là» = acolo (mai departe). «Qui» și «lì» sunt mai precise."
+    },
+    {
+      "it": "«Ecco» serve per mostrare: «ecco il bus!», «eccolo!».",
+      "ro": "«Ecco» = iată: «ecco il bus!», «eccolo!» = iată-l."
+    },
+    {
+      "it": "«Dov'è» + singolare, «dove sono» + plurale: «dov'è il bagno?», «dove sono le chiavi?».",
+      "ro": "«Dov'è» + singular, «dove sono» + plural: «dov'è il bagno?», «dove sono le chiavi?»."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "«Ecco» corespunde lui „iată / uite”: «eccolo!» = „iată-l!”."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Aici și acolo",
+      "title": {
+        "it": "Qui e là",
+        "ro": "Aici și acolo"
+      },
       "wordIds": [
         "adv-qui",
         "adv-qua",
@@ -20,7 +40,10 @@
       ]
     },
     {
-      "title": "Alte",
+      "title": {
+        "it": "Altre parole",
+        "ro": "Alte"
+      },
       "wordIds": [
         "adv-ecco",
         "e-dov'è",

@@ -1,17 +1,37 @@
 {
   "id": "ordinale",
-  "title": "Numerele ordinale",
+  "title": {
+    "it": "I numeri ordinali",
+    "ro": "Numerele ordinale"
+  },
   "group": "numere",
   "level": "A2",
   "first": true,
   "rules": [
-    "Ordinalele sunt adjective și se acordă: il primo giorno, la prima volta, i primi anni.",
-    "După «decimo» se adaugă -esimo la cardinal: undicesimo, dodicesimo, ventesimo.",
-    "La date doar prima zi e ordinal: «il primo maggio», dar «il due maggio». Se scriu și 1º, 2º, 3º."
+    {
+      "it": "Gli ordinali sono aggettivi e si accordano: il primo giorno, la prima volta, i primi anni.",
+      "ro": "Ordinalele sunt adjective și se acordă: il primo giorno, la prima volta, i primi anni."
+    },
+    {
+      "it": "Dopo «decimo» si aggiunge -esimo al cardinale: undicesimo, dodicesimo, ventesimo.",
+      "ro": "După «decimo» se adaugă -esimo la cardinal: undicesimo, dodicesimo, ventesimo."
+    },
+    {
+      "it": "Nelle date solo il primo giorno è ordinale: «il primo maggio», ma «il due maggio». Si scrivono anche 1º, 2º, 3º.",
+      "ro": "La date doar prima zi e ordinal: «il primo maggio», dar «il due maggio». Se scriu și 1º, 2º, 3º."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "În română ordinalele se formează cu „al … -lea” („al doilea”); în italiană sunt adjective care se acordă: «il secondo», «la seconda»."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Primele zece",
+      "title": {
+        "it": "I primi dieci",
+        "ro": "Primele zece"
+      },
       "wordIds": [
         "a-primo",
         "a-secondo",

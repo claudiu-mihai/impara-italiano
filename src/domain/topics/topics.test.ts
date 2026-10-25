@@ -12,7 +12,12 @@ function card(kind: StoredCard["kind"], wordId: string, variant: string, over: P
   return { ...base, ...over };
 }
 
-const topic = { subgroups: [{ title: "a", wordIds: ["w1", "w2", "w3"] }, { title: "b", wordIds: ["w3", "w4"] }] };
+const topic = {
+  subgroups: [
+    { title: { it: "a", ro: "a" }, wordIds: ["w1", "w2", "w3"] },
+    { title: { it: "b", ro: "b" }, wordIds: ["w3", "w4"] },
+  ],
+};
 
 test("cuvintele temei, în ordinea fișei, fără duplicate", () => {
   expect(topicWordIds(topic)).toEqual(["w1", "w2", "w3", "w4"]);

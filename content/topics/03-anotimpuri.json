@@ -1,17 +1,32 @@
 {
   "id": "anotimpuri",
-  "title": "Anotimpurile",
+  "title": {
+    "it": "Le stagioni",
+    "ro": "Anotimpurile"
+  },
   "group": "timp",
   "level": "A2",
   "first": true,
   "rules": [
-    "Cu anotimpul se folosește «in»: «in estate», «in inverno», «in primavera», «in autunno» (și «d'estate», «d'inverno»).",
-    "«L'estate» este feminin, «l'inverno» și «l'autunno» sunt masculine; «la primavera» este feminin.",
-    "«Stagione» = anotimp; «bella stagione» = anotimpul cald."
+    {
+      "it": "Con la stagione si usa «in»: «in estate», «in inverno», «in primavera», «in autunno» (e anche «d'estate», «d'inverno»).",
+      "ro": "Cu anotimpul se folosește «in»: «in estate», «in inverno», «in primavera», «in autunno» (și «d'estate», «d'inverno»)."
+    },
+    {
+      "it": "«L'estate» e «la primavera» sono femminili; «l'inverno» e «l'autunno» sono maschili.",
+      "ro": "«L'estate» este feminin, «l'inverno» și «l'autunno» sunt masculine; «la primavera» este feminin."
+    },
+    {
+      "it": "«Stagione» indica una delle quattro parti dell'anno; «la bella stagione» è il periodo caldo.",
+      "ro": "«Stagione» = anotimp; «bella stagione» = anotimpul cald."
+    }
   ],
   "subgroups": [
     {
-      "title": "Anotimpurile",
+      "title": {
+        "it": "Le stagioni",
+        "ro": "Anotimpurile"
+      },
       "wordIds": [
         "n-primavera",
         "n-estate",
@@ -20,7 +35,10 @@
       ]
     },
     {
-      "title": "Cuvinte utile",
+      "title": {
+        "it": "Parole utili",
+        "ro": "Cuvinte utile"
+      },
       "wordIds": [
         "n-stagione",
         "a-caldo",

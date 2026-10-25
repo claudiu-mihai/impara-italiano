@@ -1,17 +1,37 @@
 {
   "id": "tari-si-nationalitati",
-  "title": "Țări și naționalități",
+  "title": {
+    "it": "Paesi e nazionalità",
+    "ro": "Țări și naționalități"
+  },
   "group": "oameni",
   "level": "A2",
   "first": false,
   "rules": [
-    "Țările au articol: «l'Italia», «la Romania»; cu «in» articolul dispare: «vivo in Italia», «vado in Francia».",
-    "Naționalitățile se scriu cu literă mică și se acordă: «sono romeno / romena», «parlo italiano».",
-    "«Di dove sei?» = De unde ești? → «Sono di Roma» (oraș) sau «Sono romeno»."
+    {
+      "it": "I paesi hanno l'articolo: «l'Italia», «la Romania»; con «in» l'articolo sparisce: «vivo in Italia», «vado in Francia».",
+      "ro": "Țările au articol: «l'Italia», «la Romania»; cu «in» articolul dispare: «vivo in Italia», «vado in Francia»."
+    },
+    {
+      "it": "Le nazionalità si scrivono con la minuscola e si accordano: «sono romeno / romena», «parlo italiano».",
+      "ro": "Naționalitățile se scriu cu literă mică și se acordă: «sono romeno / romena», «parlo italiano»."
+    },
+    {
+      "it": "«Di dove sei?» → «Sono di Roma» (città) oppure «Sono romeno».",
+      "ro": "«Di dove sei?» = De unde ești? → «Sono di Roma» (oraș) sau «Sono romeno»."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "În română numele țărilor nu au articol („Italia”, „România”); în italiană da: «l'Italia», «la Romania»."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Țări",
+      "title": {
+        "it": "Paesi",
+        "ro": "Țări"
+      },
       "wordIds": [
         "n-Italia",
         "n-Romania",
@@ -24,7 +44,10 @@
       ]
     },
     {
-      "title": "Naționalități",
+      "title": {
+        "it": "Nazionalità",
+        "ro": "Naționalități"
+      },
       "wordIds": [
         "a-italiano",
         "a-romeno",
@@ -38,7 +61,10 @@
       ]
     },
     {
-      "title": "Alte",
+      "title": {
+        "it": "Altre parole",
+        "ro": "Alte"
+      },
       "wordIds": [
         "n-paese"
       ]

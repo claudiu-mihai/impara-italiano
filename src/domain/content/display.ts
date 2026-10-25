@@ -2,6 +2,7 @@ import type { Mastery } from "../srs/mastery.ts";
 import type { Direction } from "../srs/types.ts";
 import type { ConjugationMode } from "../settings.ts";
 import type { Pos, Tense, TopicExercise, TopicGroup } from "./constants.ts";
+import type { Localized } from "./schema.ts";
 import type { CoreWord } from "./types.ts";
 
 export const POS_LABEL: Record<Pos, string> = {
@@ -81,14 +82,14 @@ export function personsOf(tense: Tense): readonly { it: string; ro: string }[] {
   return tense === "imperativo" ? IMPERATIVE_PERSONS : PERSONS;
 }
 
-export const TOPIC_GROUP_LABEL: Record<TopicGroup, string> = {
-  timp: "Timp",
-  numere: "Numere",
-  spatiu: "Spațiu",
-  oameni: "Oameni",
-  "zi-de-zi": "Zi de zi",
-  oras: "Oraș și călătorii",
-  conversatie: "Conversație",
+export const TOPIC_GROUP_LABEL: Record<TopicGroup, Localized> = {
+  timp: { it: "Tempo", ro: "Timp" },
+  numere: { it: "Numeri", ro: "Numere" },
+  spatiu: { it: "Spazio", ro: "Spațiu" },
+  oameni: { it: "Persone", ro: "Oameni" },
+  "zi-de-zi": { it: "Vita quotidiana", ro: "Zi de zi" },
+  oras: { it: "Città e viaggi", ro: "Oraș și călătorii" },
+  conversatie: { it: "Conversazione", ro: "Conversație" },
 };
 
 export const CONJUGATION_MODE_LABEL: Record<ConjugationMode, string> = {

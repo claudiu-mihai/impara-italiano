@@ -1,17 +1,37 @@
 {
   "id": "zilele-saptamanii",
-  "title": "Zilele săptămânii",
+  "title": {
+    "it": "I giorni della settimana",
+    "ro": "Zilele săptămânii"
+  },
   "group": "timp",
   "level": "A1",
   "first": true,
   "rules": [
-    "«Lunedì» (fără articol) = luni, ziua aceasta sau cea apropiată; «il lunedì» = în fiecare luni. La fel: «di lunedì», «ogni lunedì».",
-    "Zilele sunt masculine (il lunedì), în afară de «la domenica». Se scriu cu literă mică, iar săptămâna începe luni.",
-    "«Il fine settimana» sau «il weekend» = sâmbăta și duminica."
+    {
+      "it": "«Lunedì» senza articolo indica questo lunedì o il prossimo; «il lunedì» vuol dire ogni lunedì. Anche: «di lunedì», «ogni lunedì».",
+      "ro": "«Lunedì» (fără articol) = luni, ziua aceasta sau cea apropiată; «il lunedì» = în fiecare luni. La fel: «di lunedì», «ogni lunedì»."
+    },
+    {
+      "it": "I giorni sono maschili (il lunedì), tranne «la domenica». Si scrivono con la minuscola e la settimana inizia il lunedì.",
+      "ro": "Zilele sunt masculine (il lunedì), în afară de «la domenica». Se scriu cu literă mică, iar săptămâna începe luni."
+    },
+    {
+      "it": "«Il fine settimana» o «il weekend» indicano sabato e domenica.",
+      "ro": "«Il fine settimana» sau «il weekend» = sâmbăta și duminica."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "«Il lunedì» corespunde lui „lunea” din română (articolul hotărât se lipește la final): «il lunedì» = „lunea” = în fiecare luni."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Zilele",
+      "title": {
+        "it": "I giorni",
+        "ro": "Zilele"
+      },
       "wordIds": [
         "n-lunedì",
         "n-martedì",
@@ -23,7 +43,10 @@
       ]
     },
     {
-      "title": "Cuvinte utile",
+      "title": {
+        "it": "Parole utili",
+        "ro": "Cuvinte utile"
+      },
       "wordIds": [
         "n-giorno",
         "n-settimana",

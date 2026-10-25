@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import { useContent } from "../../app/content.tsx";
 import { useTopics } from "../../app/topics.ts";
 import { db } from "../../data/db/instance.ts";
-import { getSettings, saveSettings } from "../../data/db/repositories.ts";
+import { changeLevel } from "../../data/db/repositories.ts";
 import { loadStats, loadStudyOverview } from "../../data/queries.ts";
 import { LEVEL_NAME, nextLevel } from "../../domain/content/levels.ts";
+import { BilingualLabel } from "../../ui/BilingualLabel.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
 import { Lupino, LupinoSays } from "../../ui/mascot/Lupino.tsx";
 import { masteryByWord } from "../../domain/srs/mastery.ts";
@@ -39,7 +40,7 @@ export function HomePage() {
   const canAdvance =
     !!current && !!next && !!upcoming && current.total > 0 && current.started === current.total && upcoming.total > 0;
   const advance = async () => {
-    if (next) await saveSettings(db, { ...(await getSettings(db)), level: next });
+    if (next) await changeLevel(db, next);
   };
 
   // Amintește de backup dacă există progres, nu s-a făcut niciun backup recent și progresul nu se sincronizează
@@ -156,7 +157,9 @@ export function HomePage() {
                   to={`/learn/topics/${topic.id}/${topic.skill === "clock" ? "clock" : "numbers"}`}
                   className="flex min-h-12 items-center rounded-xl bg-slate-100 px-4 font-semibold dark:bg-slate-800"
                 >
-                  {topic.title}
+                  <span>
+                    <BilingualLabel text={topic.title} />
+                  </span>
                 </Link>
               </li>
             ))}

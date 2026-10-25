@@ -1,17 +1,32 @@
 {
   "id": "numere-0-20",
-  "title": "Numerele 0–20",
+  "title": {
+    "it": "I numeri da 0 a 20",
+    "ro": "Numerele 0–20"
+  },
   "group": "numere",
   "level": "A1",
   "first": true,
   "rules": [
-    "«Uno» devine «un/una/uno» înaintea substantivelor: un libro, una casa, uno studente.",
-    "11–16 au terminația -ici (undici, dodici, tredici, quattordici, quindici, sedici); 17–19 = zece + unitate (diciassette, diciotto, diciannove).",
-    "Numerele se scriu dintr-o bucată, fără cratimă."
+    {
+      "it": "«Uno» diventa «un/una/uno» davanti ai sostantivi: un libro, una casa, uno studente.",
+      "ro": "«Uno» devine «un/una/uno» înaintea substantivelor: un libro, una casa, uno studente."
+    },
+    {
+      "it": "Da 11 a 16 finiscono in -ici (undici, dodici, tredici, quattordici, quindici, sedici); da 17 a 19 = dieci + unità (diciassette, diciotto, diciannove).",
+      "ro": "11–16 au terminația -ici (undici, dodici, tredici, quattordici, quindici, sedici); 17–19 = zece + unitate (diciassette, diciotto, diciannove)."
+    },
+    {
+      "it": "I numeri si scrivono in una parola sola, senza trattino.",
+      "ro": "Numerele se scriu dintr-o bucată, fără cratimă."
+    }
   ],
   "subgroups": [
     {
-      "title": "0–10",
+      "title": {
+        "it": "0–10",
+        "ro": "0–10"
+      },
       "wordIds": [
         "num-zero",
         "num-uno",
@@ -27,7 +42,10 @@
       ]
     },
     {
-      "title": "11–20",
+      "title": {
+        "it": "11–20",
+        "ro": "11–20"
+      },
       "wordIds": [
         "num-undici",
         "num-dodici",

@@ -1,17 +1,32 @@
 {
   "id": "momentele-zilei",
-  "title": "Momentele zilei",
+  "title": {
+    "it": "I momenti della giornata",
+    "ro": "Momentele zilei"
+  },
   "group": "timp",
   "level": "A1",
   "first": true,
   "rules": [
-    "«Stamattina», «stasera», «stanotte» = azi-dimineață, diseară, azi-noapte; «la mattina», «la sera» = dimineața, seara (în general).",
-    "«Buongiorno» se spune până după-amiaza devreme, «buonasera» de după-amiază, «buonanotte» doar la culcare.",
-    "«Mezzogiorno» = ora 12 (amiază), «mezzanotte» = miezul nopții; se folosesc cu «è»: «è mezzogiorno»."
+    {
+      "it": "«Stamattina», «stasera», «stanotte» indicano oggi (la mattina, la sera, la notte); «la mattina», «la sera» indicano in generale.",
+      "ro": "«Stamattina», «stasera», «stanotte» = azi-dimineață, diseară, azi-noapte; «la mattina», «la sera» = dimineața, seara (în general)."
+    },
+    {
+      "it": "«Buongiorno» si dice fino al primo pomeriggio, «buonasera» dal pomeriggio, «buonanotte» solo quando si va a dormire.",
+      "ro": "«Buongiorno» se spune până după-amiaza devreme, «buonasera» de după-amiază, «buonanotte» doar la culcare."
+    },
+    {
+      "it": "«Mezzogiorno» sono le 12 e «mezzanotte» le 24; si usano con «è»: «è mezzogiorno».",
+      "ro": "«Mezzogiorno» = ora 12 (amiază), «mezzanotte» = miezul nopții; se folosesc cu «è»: «è mezzogiorno»."
+    }
   ],
   "subgroups": [
     {
-      "title": "Părțile zilei",
+      "title": {
+        "it": "Le parti del giorno",
+        "ro": "Părțile zilei"
+      },
       "wordIds": [
         "n-mattina",
         "n-pomeriggio",
@@ -20,7 +35,10 @@
       ]
     },
     {
-      "title": "Azi",
+      "title": {
+        "it": "Oggi",
+        "ro": "Azi"
+      },
       "wordIds": [
         "adv-stamattina",
         "adv-stasera",
@@ -28,7 +46,10 @@
       ]
     },
     {
-      "title": "Repere",
+      "title": {
+        "it": "Punti di riferimento",
+        "ro": "Repere"
+      },
       "wordIds": [
         "n-mezzogiorno",
         "n-mezzanotte"

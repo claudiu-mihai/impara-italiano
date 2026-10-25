@@ -5,7 +5,7 @@ import { useContent } from "../../app/content.tsx";
 import { LEVELS, type Level } from "../../domain/content/constants.ts";
 import { LEVEL_NAME } from "../../domain/content/levels.ts";
 import { db } from "../../data/db/instance.ts";
-import { getSettings, saveSettings } from "../../data/db/repositories.ts";
+import { changeLevel, getSettings, NATIVE_HELP_STOPPED, saveSettings } from "../../data/db/repositories.ts";
 import { AccountSection } from "./AccountSection.tsx";
 import { downloadBackup } from "./backupDownload.ts";
 import { DEFAULT_SETTINGS, type ConjugationMode, type Settings, type StudyDirection } from "../../domain/settings.ts";
@@ -14,6 +14,7 @@ import { getVoiceDiagnostics, speak, useItalianVoices, useTtsStatus } from "../.
 import { isCloudVoice } from "../../services/voices.ts";
 
 import { InfoBox, InfoButton, InfoHeading, useInfo } from "../../ui/Info.tsx";
+import { NativeHelpNotice } from "../../ui/NativeHelpNotice.tsx";
 
 const card = "rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900";
 const heading = "text-sm font-semibold uppercase tracking-wide text-muted";
@@ -181,7 +182,7 @@ export function SettingsPage() {
           <select
             aria-label="Nivelul curent"
             value={settings.level}
-            onChange={(e) => update("level", e.target.value as Level)}
+            onChange={(e) => void changeLevel(db, e.target.value as Level)}
             className={`${control} max-w-48`}
           >
             {LEVELS.map((level) => {
@@ -193,6 +194,24 @@ export function SettingsPage() {
               );
             })}
           </select>
+        </Field>
+        <NativeHelpNotice inSettings />
+        <Field
+          label="Traducere în limba maternă"
+          hint="Ajutor pentru începători: sub numele în italiană din Teme apare traducerea, iar caseta „De reținut” se întoarce pe fața în română. Oprită, vezi doar italiana. Se oprește singură când treci de nivelul A."
+        >
+          <span className="flex size-12 items-center justify-center">
+            <input
+              type="checkbox"
+              aria-label="Traducere în limba maternă"
+              checked={settings.nativeHelp}
+              onChange={(e) => {
+                update("nativeHelp", e.target.checked);
+                if (e.target.checked) void db.meta.delete(NATIVE_HELP_STOPPED);
+              }}
+              className="size-6 accent-brand"
+            />
+          </span>
         </Field>
         <Field
           label="Direcția cardurilor"

@@ -1,17 +1,37 @@
 {
   "id": "corpul",
-  "title": "Corpul",
+  "title": {
+    "it": "Il corpo",
+    "ro": "Corpul"
+  },
   "group": "oameni",
   "level": "A2",
   "first": false,
   "rules": [
-    "Cu părțile corpului se folosește articolul, nu posesivul: «mi lavo le mani», «ho mal di testa».",
-    "Plural neregulat: il braccio → le braccia, il dito → le dita; «la mano» e feminin: le mani; l'orecchio → le orecchie.",
-    "«Mi fa male…» (singular) / «mi fanno male…» (plural): «mi fa male la testa», «mi fanno male i piedi»."
+    {
+      "it": "Con le parti del corpo si usa l'articolo, non il possessivo: «mi lavo le mani», «ho mal di testa».",
+      "ro": "Cu părțile corpului se folosește articolul, nu posesivul: «mi lavo le mani», «ho mal di testa»."
+    },
+    {
+      "it": "Plurali irregolari: il braccio → le braccia, il dito → le dita; «la mano» è femminile: le mani; l'orecchio → le orecchie.",
+      "ro": "Plural neregulat: il braccio → le braccia, il dito → le dita; «la mano» e feminin: le mani; l'orecchio → le orecchie."
+    },
+    {
+      "it": "«Mi fa male…» (singolare) / «mi fanno male…» (plurale): «mi fa male la testa», «mi fanno male i piedi».",
+      "ro": "«Mi fa male…» (singular) / «mi fanno male…» (plural): «mi fa male la testa», «mi fanno male i piedi»."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "În română „mă doare capul / mă dor picioarele”; în italiană «mi fa male la testa / mi fanno male i piedi», cu verbul «fare»."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Cap",
+      "title": {
+        "it": "Testa",
+        "ro": "Cap"
+      },
       "wordIds": [
         "n-testa",
         "n-capello",
@@ -24,7 +44,10 @@
       ]
     },
     {
-      "title": "Trunchi",
+      "title": {
+        "it": "Tronco",
+        "ro": "Trunchi"
+      },
       "wordIds": [
         "n-collo",
         "n-spalla",
@@ -35,7 +58,10 @@
       ]
     },
     {
-      "title": "Membre",
+      "title": {
+        "it": "Arti",
+        "ro": "Membre"
+      },
       "wordIds": [
         "n-braccio",
         "n-mano",

@@ -1,17 +1,37 @@
 {
   "id": "transport",
-  "title": "Transport",
+  "title": {
+    "it": "I trasporti",
+    "ro": "Transport"
+  },
   "group": "oras",
   "level": "A2",
   "first": false,
   "rules": [
-    "«In treno, in autobus, in macchina, in aereo, in bicicletta», dar «a piedi» (pe jos).",
-    "«Prendere il treno» = a lua trenul; «scendere» = a coborî; «salire» = a urca.",
-    "«Biglietto» = bilet; se validează la urcare."
+    {
+      "it": "«In treno, in autobus, in macchina, in aereo, in bicicletta», ma «a piedi».",
+      "ro": "«In treno, in autobus, in macchina, in aereo, in bicicletta», dar «a piedi» (pe jos)."
+    },
+    {
+      "it": "«Prendere il treno»; «scendere» = andare giù; «salire» = andare su.",
+      "ro": "«Prendere il treno» = a lua trenul; «scendere» = a coborî; «salire» = a urca."
+    },
+    {
+      "it": "Il biglietto si convalida quando si sale.",
+      "ro": "«Biglietto» = bilet; se validează la urcare."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "În română „cu trenul, cu mașina”; în italiană «in treno, in macchina» — nu «con»."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Mijloace",
+      "title": {
+        "it": "Mezzi",
+        "ro": "Mijloace"
+      },
       "wordIds": [
         "n-autobus",
         "n-treno",
@@ -25,7 +45,10 @@
       ]
     },
     {
-      "title": "Călătorie",
+      "title": {
+        "it": "Viaggio",
+        "ro": "Călătorie"
+      },
       "wordIds": [
         "n-viaggio",
         "v-viaggiare",

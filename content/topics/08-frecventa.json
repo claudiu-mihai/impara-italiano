@@ -1,17 +1,37 @@
 {
   "id": "frecventa",
-  "title": "Frecvența",
+  "title": {
+    "it": "La frequenza",
+    "ro": "Frecvența"
+  },
   "group": "timp",
   "level": "A2",
   "first": false,
   "rules": [
-    "«Non… mai» = niciodată, cu dublă negație: «non vado mai al cinema» (spre deosebire de «mai» singur = vreodată).",
-    "Adverbele stau de obicei după verb: «vado spesso», «mangio sempre». Cu «di solito» și «a volte» la început: «A volte mangio fuori».",
-    "«Ogni» + substantiv la singular: «ogni giorno», «ogni settimana»; «tutti i giorni» = în fiecare zi."
+    {
+      "it": "«Non… mai» ha la doppia negazione: «non vado mai al cinema»; «mai» da solo significa «in qualsiasi momento»: «sei mai stato a Roma?».",
+      "ro": "«Non… mai» = niciodată, cu dublă negație: «non vado mai al cinema» (spre deosebire de «mai» singur = vreodată)."
+    },
+    {
+      "it": "Gli avverbi stanno di solito dopo il verbo: «vado spesso», «mangio sempre». «Di solito» e «a volte» stanno all'inizio: «A volte mangio fuori».",
+      "ro": "Adverbele stau de obicei după verb: «vado spesso», «mangio sempre». Cu «di solito» și «a volte» la început: «A volte mangio fuori»."
+    },
+    {
+      "it": "«Ogni» + sostantivo singolare: «ogni giorno», «ogni settimana»; «tutti i giorni» = ogni giorno.",
+      "ro": "«Ogni» + substantiv la singular: «ogni giorno», «ogni settimana»; «tutti i giorni» = în fiecare zi."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "Ca în română, negația se dublează: «non vado mai» = „nu merg niciodată”."
+    ]
+  },
   "subgroups": [
     {
-      "title": "De la mereu la niciodată",
+      "title": {
+        "it": "Da sempre a mai",
+        "ro": "De la mereu la niciodată"
+      },
       "wordIds": [
         "adv-sempre",
         "adv-spesso",
@@ -24,7 +44,10 @@
       ]
     },
     {
-      "title": "Cât de des",
+      "title": {
+        "it": "Quanto spesso",
+        "ro": "Cât de des"
+      },
       "wordIds": [
         "a-ogni",
         "e-tutti_i_giorni",

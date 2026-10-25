@@ -1,17 +1,32 @@
 {
   "id": "haine",
-  "title": "Haine",
+  "title": {
+    "it": "I vestiti",
+    "ro": "Haine"
+  },
   "group": "zi-de-zi",
   "level": "A2",
   "first": false,
   "rules": [
-    "«Mettersi» = a-și pune hainele; «indossare» = a purta: «indosso una giacca».",
-    "Unele haine se spun mai ales la plural: i pantaloni, i jeans, i calzini; «un paio di scarpe» = o pereche de pantofi.",
-    "Culoarea stă după haină: «una camicia bianca»."
+    {
+      "it": "«Mettersi» = mettere un vestito addosso; «indossare» = averlo addosso: «indosso una giacca».",
+      "ro": "«Mettersi» = a-și pune hainele; «indossare» = a purta: «indosso una giacca»."
+    },
+    {
+      "it": "Alcuni vestiti si dicono soprattutto al plurale: i pantaloni, i jeans, i calzini; «un paio di scarpe» = due scarpe insieme.",
+      "ro": "Unele haine se spun mai ales la plural: i pantaloni, i jeans, i calzini; «un paio di scarpe» = o pereche de pantofi."
+    },
+    {
+      "it": "Il colore sta dopo il vestito: «una camicia bianca».",
+      "ro": "Culoarea stă după haină: «una camicia bianca»."
+    }
   ],
   "subgroups": [
     {
-      "title": "Sus",
+      "title": {
+        "it": "Parte alta",
+        "ro": "Sus"
+      },
       "wordIds": [
         "n-camicia",
         "n-maglia",
@@ -22,7 +37,10 @@
       ]
     },
     {
-      "title": "Jos",
+      "title": {
+        "it": "Parte bassa",
+        "ro": "Jos"
+      },
       "wordIds": [
         "e-i_pantaloni",
         "e-i_jeans",
@@ -32,7 +50,10 @@
       ]
     },
     {
-      "title": "Alte",
+      "title": {
+        "it": "Altro",
+        "ro": "Alte"
+      },
       "wordIds": [
         "n-cappello",
         "n-borsa",

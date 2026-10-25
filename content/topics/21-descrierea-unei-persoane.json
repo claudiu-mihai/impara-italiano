@@ -1,17 +1,37 @@
 {
   "id": "descrierea-unei-persoane",
-  "title": "Descrierea unei persoane",
+  "title": {
+    "it": "La descrizione di una persona",
+    "ro": "Descrierea unei persoane"
+  },
   "group": "oameni",
   "level": "A2",
   "first": false,
   "rules": [
-    "Despre păr și ochi: «ha i capelli biondi / lunghi», «ha gli occhi azzurri» – cu articol, la plural.",
-    "«È alto» (e înalt), dar vârsta cu «avere»: «ha trent'anni».",
-    "Adjectivul se acordă: «è magro / magra», «sono giovani»."
+    {
+      "it": "Per capelli e occhi: «ha i capelli biondi / lunghi», «ha gli occhi azzurri» – con l'articolo, al plurale.",
+      "ro": "Despre păr și ochi: «ha i capelli biondi / lunghi», «ha gli occhi azzurri» – cu articol, la plural."
+    },
+    {
+      "it": "«È alto», ma l'età con «avere»: «ha trent'anni».",
+      "ro": "«È alto» (e înalt), dar vârsta cu «avere»: «ha trent'anni»."
+    },
+    {
+      "it": "L'aggettivo si accorda: «è magro / magra», «sono giovani».",
+      "ro": "Adjectivul se acordă: «è magro / magra», «sono giovani»."
+    }
   ],
+  "contrast": {
+    "ro": [
+      "În română „are părul blond”; în italiană «ha i capelli biondi», cu articol și la plural („capelli”)."
+    ]
+  },
   "subgroups": [
     {
-      "title": "Aspect",
+      "title": {
+        "it": "Aspetto",
+        "ro": "Aspect"
+      },
       "wordIds": [
         "a-alto",
         "a-basso",
@@ -24,7 +44,10 @@
       ]
     },
     {
-      "title": "Păr",
+      "title": {
+        "it": "Capelli",
+        "ro": "Păr"
+      },
       "wordIds": [
         "a-biondo",
         "a-moro",
