@@ -4,6 +4,13 @@ Formatul urmează [Keep a Changelog](https://keepachangelog.com/ro/1.1.0/), iar 
 [versionarea semantică](https://semver.org/lang/ro/). Intrările noi sunt scrise automat de release-please din
 commit-urile `feat:` / `fix:` (vezi README, „Versionare și release-uri”).
 
+## [1.11.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.10.0...v1.11.0) (2026-10-25)
+
+
+### Funcționalități
+
+* **i18n:** limba interfeței, română sau italiană (FR8) ([#32](https://github.com/claudiu-mihai/impara-italiano/issues/32)) ([e10ce5a](https://github.com/claudiu-mihai/impara-italiano/commit/e10ce5ad11641b1eb960a4774814f4af38c9c5cb))
+
 ## [1.10.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.9.0...v1.10.0) (2026-10-25)
 
 
