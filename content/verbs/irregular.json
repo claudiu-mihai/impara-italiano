@@ -45,7 +45,8 @@
     "v-intervenire": ["intervengo","intervieni","interviene","interveniamo","intervenite","intervengono"],
     "v-cogliere": ["colgo","cogli","coglie","cogliamo","cogliete","colgono"],
     "v-convenire": ["convengo","convieni","conviene","conveniamo","convenite","convengono"],
-    "v-svenire": ["svengo","svieni","sviene","sveniamo","svenite","svengono"]
+    "v-svenire": ["svengo","svieni","sviene","sveniamo","svenite","svengono"],
+    "v-cucire": ["cucio","cuci","cuce","cuciamo","cucite","cuciono"]
   },
   "imperfetto": {
     "v-essere": ["ero","eri","era","eravamo","eravate","erano"]
@@ -130,7 +131,8 @@
     "v-intervenire": ["intervenga","intervenga","intervenga","interveniamo","interveniate","intervengano"],
     "v-cogliere": ["colga","colga","colga","cogliamo","cogliate","colgano"],
     "v-convenire": ["convenga","convenga","convenga","conveniamo","conveniate","convengano"],
-    "v-svenire": ["svenga","svenga","svenga","sveniamo","sveniate","svengano"]
+    "v-svenire": ["svenga","svenga","svenga","sveniamo","sveniate","svengano"],
+    "v-cucire": ["cucia","cucia","cucia","cuciamo","cuciate","cuciano"]
   },
   "imperativo": {
     "v-andare": [["va'","vai"],"vada","andiamo","andate","vadano"],
