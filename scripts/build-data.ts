@@ -31,7 +31,7 @@ const SOURCES = [
   },
 ];
 
-const { words, conjugations, romanian, sentences, topics, grammar, dialogues, stories, rankBasis, explicitPresenteCount, presenteIrregular, errors } = loadContent();
+const { words, conjugations, romanian, sentences, topics, grammar, dialogues, stories, videos, rankBasis, explicitPresenteCount, presenteIrregular, errors } = loadContent();
 
 if (errors.length > 0) {
   console.error(`Conținut invalid: ${errors.length} erori`);
@@ -132,9 +132,11 @@ writeFileSync(resolve(OUT_DIR, "dialogues.json"), dialoguesJson);
 writeFileSync(resolve(OUT_DIR, "stories.json"), storiesJson);
 writeFileSync(resolve(OUT_DIR, "presenteIrregular.json"), presenteIrregularJson);
 writeFileSync(resolve(OUT_DIR, "recordings.json"), recordingsJson);
+// clipurile nu intră în dataVersion: sunt fișiere separate, nu date sincronizate
+writeFileSync(resolve(OUT_DIR, "videos.json"), `${JSON.stringify(videos, null, 1)}\n`);
 writeFileSync(resolve(OUT_DIR, "meta.json"), `${JSON.stringify(meta, null, 2)}\n`);
 
 console.log(
-  `Date generate: ${words.length} cuvinte, ${Object.keys(conjugations).length} verbe conjugate (${Object.keys(romanian).length} cu conjugare activă), ${sentences.length} propoziții, ${topics.length} teme, ${grammar.length} teme de gramatică, ${dialogues.length} dialoguri (audio: ${audioVariants}/${lineVariants} replici), ${stories.length} povești (audio: ${storyLines.filter((l) => l.audio).length}/${storyLines.length} replici), ${Object.keys(recordings).length} cuvinte cu audio ` +
+  `Date generate: ${words.length} cuvinte, ${Object.keys(conjugations).length} verbe conjugate (${Object.keys(romanian).length} cu conjugare activă), ${sentences.length} propoziții, ${topics.length} teme, ${grammar.length} teme de gramatică, ${dialogues.length} dialoguri (audio: ${audioVariants}/${lineVariants} replici), ${stories.length} povești (audio: ${storyLines.filter((l) => l.audio).length}/${storyLines.length} replici), ${Object.keys(recordings).length} cuvinte cu audio, ${Object.keys(videos).length} cuvinte cu clip video ` +
     `(${explicitPresenteCount} presente din irregular.json), versiune ${dataVersion} → ${OUT_DIR}`,
 );

@@ -3,6 +3,7 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import { useConjugations } from "../../app/conjugations.ts";
 import { usePresenteIrregular } from "../../app/presenteIrregular.ts";
 import { useTopics } from "../../app/topics.ts";
+import { useVideos } from "../../app/videos.ts";
 import { topicWordIds } from "../../domain/topics/topics.ts";
 import { useWordDetails } from "../../app/wordDetails.ts";
 import { db } from "../../data/db/instance.ts";
@@ -19,6 +20,7 @@ import { CefrBadge } from "../../ui/CefrBadge.tsx";
 import { ConjugationTable } from "../../ui/ConjugationTable.tsx";
 import { useReturnToOrigin } from "../../ui/useReturnToOrigin.ts";
 import { LessonLink } from "../grammar/LessonLink.tsx";
+import { VideoPlayer } from "../../ui/VideoPlayer.tsx";
 import { LevelBadge } from "./LevelBadge.tsx";
 import { readWordOrigin } from "./wordOrigin.ts";
 
@@ -31,6 +33,7 @@ export function WordDetailPage() {
   const conjugations = useConjugations();
   const details = useWordDetails();
   const topics = useTopics();
+  const videos = useVideos();
   const word = details?.get(id);
   const cards = useLiveQuery(() => db.cards.where("wordId").equals(id).toArray(), [id]);
   const settings = useLiveQuery(() => getSettings(db), []);
@@ -60,6 +63,7 @@ export function WordDetailPage() {
   const tenses = TENSES.filter((tense) => forms?.[tense]);
   const lesson = irregular && lessonForWord(word.pos, word.id, irregular);
   const lessonLink = lesson && <LessonLink topicId={lesson} from={{ path: `/browse/${word.id}`, label: word.it }} />;
+  const video = videos?.[word.id];
 
   const known = async () => {
     const settings = await getSettings(db);
@@ -87,6 +91,15 @@ export function WordDetailPage() {
           <LevelBadge level={level} />
         </div>
       </header>
+
+      {video && (
+        <section aria-labelledby="video">
+          <h2 id="video" className={`${heading} mb-2`}>
+            {t("video.title")}
+          </h2>
+          <VideoPlayer key={word.id} video={video} label={t("video.label", { text })} />
+        </section>
+      )}
 
       {inTopics.length > 0 && (
         <p className="text-sm">

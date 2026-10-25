@@ -185,6 +185,15 @@ export const ro = {
   "word.forget": "Șterge progresul acestui cuvânt",
   "word.knownHint": "Cuvântul va reveni la repetiție peste câteva zile, ca să verificăm că îl știi.",
   "word.inProgram": "Cuvântul este în programul de repetiții.",
+  // clipul cuvântului
+  "video.title": "Video",
+  "video.play": "Redă clipul",
+  "video.label": "Clip pentru „{text}”",
+  "video.loading": "Se încarcă clipul…",
+  "video.error": "Clipul nu s-a putut încărca. Fără internet merge doar dacă l-ai mai văzut o dată.",
+  "video.retry": "Încearcă din nou",
+  "video.track.it": "Italiană",
+  "video.track.ro": "Română",
   // intervale și evaluare
   "interval.lessThanMinute_one": "< 1 min",
   "interval.lessThanMinute_other": "< 1 min",
