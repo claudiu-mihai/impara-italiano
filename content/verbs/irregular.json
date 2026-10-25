@@ -46,7 +46,8 @@
     "v-cogliere": ["colgo","cogli","coglie","cogliamo","cogliete","colgono"],
     "v-convenire": ["convengo","convieni","conviene","conveniamo","convenite","convengono"],
     "v-svenire": ["svengo","svieni","sviene","sveniamo","svenite","svengono"],
-    "v-cucire": ["cucio","cuci","cuce","cuciamo","cucite","cuciono"]
+    "v-cucire": ["cucio","cuci","cuce","cuciamo","cucite","cuciono"],
+    "v-sciare": ["scio","scii","scia","sciamo","sciate","sciano"]
   },
   "imperfetto": {
     "v-essere": ["ero","eri","era","eravamo","eravate","erano"]
@@ -84,7 +85,8 @@
     "v-provenire": "proverr",
     "v-intervenire": "interverr",
     "v-convenire": "converr",
-    "v-svenire": "sverr"
+    "v-svenire": "sverr",
+    "v-sciare": "scier"
   },
   "congiuntivo": {
     "v-essere": ["sia","sia","sia","siamo","siate","siano"],
@@ -132,7 +134,8 @@
     "v-cogliere": ["colga","colga","colga","cogliamo","cogliate","colgano"],
     "v-convenire": ["convenga","convenga","convenga","conveniamo","conveniate","convengano"],
     "v-svenire": ["svenga","svenga","svenga","sveniamo","sveniate","svengano"],
-    "v-cucire": ["cucia","cucia","cucia","cuciamo","cuciate","cuciano"]
+    "v-cucire": ["cucia","cucia","cucia","cuciamo","cuciate","cuciano"],
+    "v-sciare": ["scii","scii","scii","sciamo","sciate","sciino"]
   },
   "imperativo": {
     "v-andare": [["va'","vai"],"vada","andiamo","andate","vadano"],
