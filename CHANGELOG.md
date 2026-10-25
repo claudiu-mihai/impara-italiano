@@ -4,6 +4,13 @@ Formatul urmează [Keep a Changelog](https://keepachangelog.com/ro/1.1.0/), iar 
 [versionarea semantică](https://semver.org/lang/ro/). Intrările noi sunt scrise automat de release-please din
 commit-urile `feat:` / `fix:` (vezi README, „Versionare și release-uri”).
 
+## [1.9.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.8.0...v1.9.0) (2026-10-25)
+
+
+### Funcționalități
+
+* **topics:** „Unde e Lupino?” cu Lupino în scene, în locul pisicii ([#28](https://github.com/claudiu-mihai/impara-italiano/issues/28)) ([3fcc32c](https://github.com/claudiu-mihai/impara-italiano/commit/3fcc32c1b8a72a489e85c67dd1b062fd07db4f1a))
+
 ## [1.8.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.7.1...v1.8.0) (2026-10-24)
 
 
