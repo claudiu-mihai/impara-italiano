@@ -19,7 +19,7 @@ test("implicit interfața e în română, cu <html lang> ro", async ({ page }) =
 test("trecerea în italiană schimbă imediat navigarea, Setările și <html lang>", async ({ page }) => {
   await useItalian(page);
   await expect(page.locator("html")).toHaveAttribute("lang", "it");
-  const names = ["Home", "Impara", "Dizionario", "Statistiche", "Impostazioni"];
+  const names = ["Casa", "Impara", "Dizionario", "Statistiche", "Impostazioni"];
   for (const name of names) await expect(nav(page).getByRole("link", { name })).toBeVisible();
   await expect(nav(page).getByRole("link", { name: "Acasă" })).toHaveCount(0);
   await expect(page.getByRole("heading", { name: "Studio", level: 2 })).toBeVisible();

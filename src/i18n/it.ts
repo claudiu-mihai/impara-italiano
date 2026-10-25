@@ -7,7 +7,7 @@ export const it: Record<Key, string> = {
   "common.close": "Chiudi",
   // navigare și bannere
   "nav.label": "Navigazione principale",
-  "nav.home": "Home",
+  "nav.home": "Casa",
   "nav.learn": "Impara",
   "nav.browse": "Dizionario",
   "nav.stats": "Statistiche",
@@ -195,7 +195,7 @@ export const it: Record<Key, string> = {
   "flash.reviewed_other": "Hai completato {n} carte.",
   "flash.comeBack": "Torna più tardi per nuove ripetizioni.",
   "flash.backToTopic": "Torna al tema",
-  "flash.backHome": "Torna alla home",
+  "flash.backHome": "Torna a casa",
   "flash.cardGone": "Questa carta non esiste più nel dizionario.",
   "common.continue": "Continua",
   "dir.itRo": "Italiano → Rumeno",

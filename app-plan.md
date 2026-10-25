@@ -409,7 +409,7 @@ Conținutul este partea cea mai costisitoare a proiectului și se tratează ca f
     * testele unitare verifică: aceleași chei în ambele dicționare, fără texte goale; pluralele (1 / 2 / 20 în ambele limbi); citirea setărilor și backup-urilor vechi fără câmpul nou (→ română);
     * testul de texte rămase scrise direct trece;
     * testele E2E verifică:
-      * comutarea în italiană schimbă imediat navigarea (*Home, Impara, Dizionario, Statistiche, Impostazioni*), Acasă și Setări, iar `<html lang>` devine `it`;
+      * comutarea în italiană schimbă imediat navigarea (*Casa, Impara, Dizionario, Statistiche, Impostazioni*), Acasă și Setări, iar `<html lang>` devine `it`;
       * traducerile cuvintelor rămân în română și au `lang="ro"`;
       * revenirea la română;
       * suita existentă trece neschimbată, în română;

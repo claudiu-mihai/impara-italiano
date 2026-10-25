@@ -78,7 +78,7 @@ test("câmpul limbii interfeței arată mereu ambele limbi", () => {
 
 test("etichetele de navigare în italiană", () => {
   expect([it["nav.home"], it["nav.learn"], it["nav.browse"], it["nav.stats"], it["nav.settings"]]).toEqual([
-    "Home",
+    "Casa",
     "Impara",
     "Dizionario",
     "Statistiche",
