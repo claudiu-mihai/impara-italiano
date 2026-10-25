@@ -1,10 +1,12 @@
 {
-  "note": "Niveluri CEFR ESTIMATE, nu oficiale. Un cuvânt primește nivelul benzii în care cade rangul lemei în lista de frecvență (it-lemmas.json); `overrides` are prioritate (cuvinte de topic cu frecvență mică, ex. culori, zilele săptămânii). Cuvintele din afara listei de frecvență trebuie să aibă obligatoriu un override.",
+  "note": "Niveluri CEFR ESTIMATE, nu oficiale. Un cuvânt primește nivelul benzii în care cade rangul lemei în lista de frecvență (it-lemmas.json, primele 10.000 de leme); `overrides` are prioritate (cuvinte de topic cu frecvență mică, ex. culori, zilele săptămânii). Cuvintele din afara listei de frecvență trebuie să aibă obligatoriu un override.",
   "bands": {
     "A1": 500,
     "A2": 1200,
     "B1": 2200,
-    "B2": 3000
+    "B2": 3000,
+    "C1": 5500,
+    "C2": 10000
   },
   "overrides": {
     "a-adolescente": "B1",

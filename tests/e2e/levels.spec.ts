@@ -4,6 +4,7 @@ import { seedConjCards, seedLearnedWords, WORDS } from "./helpers.ts";
 const idsOf = (level: string) => WORDS.filter((w) => w.level === level).map((w) => w.id);
 const A1 = idsOf("A1");
 const A2 = idsOf("A2");
+const C2 = idsOf("C2");
 
 test("nivelul curent se alege în Setări, se păstrează și apare pe Acasă", async ({ page }) => {
   await page.goto("/");
@@ -19,12 +20,12 @@ test("nivelul curent se alege în Setări, se păstrează și apare pe Acasă", 
   await expect(page.getByText("Nivel curent: Elementar")).toBeVisible();
 });
 
-test("în Setări, nivelurile fără cuvinte sunt marcate „în pregătire”", async ({ page }) => {
+test("în Setări, fiecare nivel arată numărul de cuvinte", async ({ page }) => {
   await page.goto("/settings");
   const options = page.getByLabel("Nivelul curent").locator("option");
   await expect(options).toHaveCount(6);
   await expect(options.nth(0)).toContainText(`A1 · Începător (${A1.length} cuvinte)`);
-  await expect(options.nth(5)).toContainText("C2 · Competență deplină (în pregătire)");
+  await expect(options.nth(5)).toContainText(`C2 · Competență deplină (${C2.length} cuvinte)`);
 });
 
 test("la A1 nu se introduc cuvinte de A2; după ce ai început tot A1, aplicația sugerează A2", async ({ page }) => {
@@ -93,5 +94,5 @@ test("statisticile arată progresul pe niveluri CEFR", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "Niveluri" })).toBeVisible();
   await expect(page.getByText(`5 începute · 0 stăpânite din ${A1.length}`)).toBeVisible();
   await expect(page.getByText(`0 începute · 0 stăpânite din ${A2.length}`)).toBeVisible();
-  await expect(page.getByText("în pregătire")).toHaveCount(3); // B2, C1 și C2 nu au cuvinte; B1 are unul
+  await expect(page.getByText("în pregătire")).toHaveCount(0); // toate nivelurile au cuvinte
 });
