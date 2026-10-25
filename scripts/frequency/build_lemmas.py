@@ -29,7 +29,7 @@ OUT_FILE = ROOT / "content/frequency/it-lemmas.json"
 
 WEIGHT_FW = 0.7
 WEIGHT_LEIPZIG = 0.3
-KEEP = 3000
+KEEP = 10000
 
 WORD = re.compile(r"^[a-zàèéìíîòóùú]+$")
 
