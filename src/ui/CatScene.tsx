@@ -1,7 +1,33 @@
-import { useId, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { useT } from "../i18n/index.ts";
 import type { CatItem } from "../domain/topics/cat.ts";
 import { lupinoSrc, type LupinoPose } from "./mascot/Lupino.tsx";
+import masaAccanto from "./mascot/lupino-masa-accanto.jpg";
+import masaDavanti from "./mascot/lupino-masa-davanti.jpg";
+import masaDietro from "./mascot/lupino-masa-dietro.jpg";
+import masaSopra from "./mascot/lupino-masa-sopra.jpg";
+import masaSotto from "./mascot/lupino-masa-sotto.jpg";
+import scatolaAccanto from "./mascot/lupino-scatola-accanto.jpg";
+import scatolaDavanti from "./mascot/lupino-scatola-davanti.jpg";
+import scatolaDentro from "./mascot/lupino-scatola-dentro.jpg";
+import scatolaDietro from "./mascot/lupino-scatola-dietro.jpg";
+import scatolaFuori from "./mascot/lupino-scatola-fuori.jpg";
+import scatolaSopra from "./mascot/lupino-scatola-sopra.jpg";
+
+/** Ilustrațiile din design/dov-e-lupino/ (redimensionate la 1000 px); poziția „tra il tavolo e la sedia” e desenată în SVG. */
+const SCENE_IMAGES: Record<string, string> = {
+  "table-on": masaSopra,
+  "table-under": masaSotto,
+  "table-front": masaDavanti,
+  "table-behind": masaDietro,
+  "table-beside": masaAccanto,
+  "box-inside": scatolaDentro,
+  "box-on": scatolaSopra,
+  "box-front": scatolaDavanti,
+  "box-behind": scatolaDietro,
+  "box-beside": scatolaAccanto,
+  "box-outside": scatolaFuori,
+};
 
 interface CatSceneProps {
   item: CatItem;
@@ -14,8 +40,6 @@ const outline = { stroke: INK, strokeWidth: 2.5, strokeLinejoin: "round" as cons
 /** Cât din pătratul desenului ocupă Lupino în fiecare ipostază (x0, y0, x1, y1), ca să-l așezăm pe picioare. */
 const BBOX: Partial<Record<LupinoPose, [number, number, number, number]>> = {
   ciao: [0.125, 0.018, 0.882, 0.978],
-  relax: [0.203, 0.028, 0.795, 0.975],
-  bravo: [0.102, 0.02, 0.89, 0.98],
 };
 
 /** Lupino centrat orizontal pe `cx`, cu picioarele la `feet` și înălțimea vizibilă `height`. */
@@ -42,76 +66,13 @@ const Chair = ({ x }: { x: number }) => (
   </g>
 );
 
-/** Spatele cutiei: la cutia deschisă, clapele și interiorul (desenate înaintea lui Lupino). */
-const BoxBack = ({ open }: { open: boolean }) =>
-  open ? (
-    <>
-      <g {...outline} fill="#c48a45">
-        <path d="M105 118 L84 96 L122 96 L140 118 Z" />
-        <path d="M195 118 L216 96 L178 96 L160 118 Z" />
-      </g>
-      <rect x="105" y="110" width="90" height="10" fill="#7a4b22" {...outline} />
-    </>
-  ) : null;
-
-/** Fața cutiei: acoperă ce e în spatele sau înăuntrul ei; cutia închisă are capac și bandă adezivă. */
-const BoxFront = ({ open }: { open: boolean }) => (
-  <>
-    <rect x="105" y="118" width="90" height="52" fill="#d6a15c" {...outline} />
-    {!open && (
-      <>
-        <rect x="143" y="118" width="14" height="52" fill="#ecc98d" stroke={INK} strokeWidth="2" />
-        <rect x="101" y="112" width="98" height="12" rx="2" fill="#c48a45" {...outline} />
-      </>
-    )}
-  </>
-);
-
 /**
- * Scena din „Unde e Lupino?”: Lupino față de o masă, o masă cu scaun sau o cutie. Elementele se desenează în ordine,
- * ca mobila să-l acopere pe Lupino când e în spate sau înăuntru. „Dietro il tavolo” îl arată doar deasupra blatului
- * (altfel s-ar vedea întreg printre picioarele mesei, ca „sotto”). „Accanto” are cutia închisă, „fuori” deschisă și goală.
+ * Scena din „Unde e Lupino?”: ilustrații pentru toate pozițiile, mai puțin „tra il tavolo e la sedia”, desenată în SVG
+ * (masă, scaun și Lupino între ele).
  */
 export function CatScene({ item, size = 300 }: CatSceneProps) {
   const { t } = useT();
-  // useId dă id-uri cu „:”, pe care le sanitizăm ca să intre sigur în url(#…)
-  const clipId = `clip-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const scenes: Record<string, ReactNode> = {
-    "table-on": (
-      <>
-        <Table x={90} />
-        <LupinoAt pose="ciao" cx={150} feet={95} height={74} />
-      </>
-    ),
-    "table-under": (
-      <>
-        <Table x={90} />
-        <LupinoAt pose="relax" cx={150} feet={170} height={56} />
-      </>
-    ),
-    "table-front": (
-      <>
-        <Table x={90} />
-        <LupinoAt pose="ciao" cx={150} feet={206} height={104} />
-      </>
-    ),
-    "table-behind": (
-      <>
-        <clipPath id={clipId}>
-          <rect width="300" height="96" />
-        </clipPath>
-        <g clipPath={`url(#${clipId})`}>
-          <LupinoAt pose="ciao" cx={150} feet={140} height={96} />
-        </g>
-        <Table x={90} />
-      </>
-    ),
-    "table-beside": (
-      <>
-        <Table x={70} />
-        <LupinoAt pose="ciao" cx={248} feet={170} height={82} />
-      </>
-    ),
     "table-between": (
       <>
         <Table x={14} />
@@ -119,45 +80,22 @@ export function CatScene({ item, size = 300 }: CatSceneProps) {
         <LupinoAt pose="ciao" cx={186} feet={170} height={70} />
       </>
     ),
-    "box-inside": (
-      <>
-        <BoxBack open />
-        <LupinoAt pose="ciao" cx={150} feet={156} height={80} />
-        <BoxFront open />
-      </>
-    ),
-    "box-on": (
-      <>
-        <BoxFront open={false} />
-        <LupinoAt pose="ciao" cx={150} feet={113} height={76} />
-      </>
-    ),
-    "box-front": (
-      <>
-        <BoxFront open={false} />
-        <LupinoAt pose="ciao" cx={150} feet={206} height={104} />
-      </>
-    ),
-    "box-behind": (
-      <>
-        <LupinoAt pose="ciao" cx={150} feet={160} height={92} />
-        <BoxFront open={false} />
-      </>
-    ),
-    "box-beside": (
-      <>
-        <BoxFront open={false} />
-        <LupinoAt pose="relax" cx={248} feet={170} height={82} />
-      </>
-    ),
-    "box-outside": (
-      <>
-        <BoxBack open />
-        <BoxFront open />
-        <LupinoAt pose="bravo" cx={248} feet={170} height={84} />
-      </>
-    ),
   };
+
+  const photo = SCENE_IMAGES[item.id];
+  if (photo) {
+    return (
+      <img
+        src={photo}
+        width={size}
+        height={Math.round((size * 671) / 1000)}
+        alt={t("cat.scene")}
+        draggable={false}
+        decoding="async"
+        className="max-w-full rounded-2xl"
+      />
+    );
+  }
 
   return (
     <svg viewBox="0 0 300 210" width={size} role="img" aria-label={t("cat.scene")} className="max-w-full rounded-2xl">

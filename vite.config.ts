@@ -34,7 +34,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ["**/*.{js,css,html,svg,png,ico,json,webmanifest}"],
+        globPatterns: ["**/*.{js,css,html,svg,png,jpg,ico,json,webmanifest}"],
         navigateFallback: "index.html",
         // /api/ este serverul de sincronizare (PocketBase), nu o pagină a aplicației
         navigateFallbackDenylist: [/^\/api\//],
