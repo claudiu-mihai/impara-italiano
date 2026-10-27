@@ -40,7 +40,11 @@
         "n-naso",
         "n-bocca",
         "n-orecchio",
-        "n-dente"
+        "n-dente",
+        "n-corpo",
+        "n-voce",
+        "n-sangue",
+        "n-cervello"
       ]
     },
     {

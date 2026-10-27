@@ -58,7 +58,8 @@
         "n-cappello",
         "n-borsa",
         "v-indossare",
-        "v-mettersi"
+        "v-mettersi",
+        "v-vestire"
       ]
     }
   ],

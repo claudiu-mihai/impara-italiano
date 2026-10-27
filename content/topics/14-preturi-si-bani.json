@@ -59,7 +59,10 @@
         "e-in_contanti",
         "n-scontrino",
         "n-sconto",
-        "n-resto"
+        "n-resto",
+        "n-offerta",
+        "n-cambio",
+        "n-dollaro"
       ]
     },
     {

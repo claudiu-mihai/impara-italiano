@@ -41,7 +41,9 @@
         "n-bicicletta",
         "n-macchina",
         "n-nave",
-        "n-barca"
+        "n-barca",
+        "n-auto",
+        "n-motore"
       ]
     },
     {
@@ -54,7 +56,13 @@
         "v-viaggiare",
         "n-biglietto",
         "n-fermata",
-        "v-guidare"
+        "v-guidare",
+        "v-partire",
+        "v-arrivare",
+        "v-salire",
+        "v-scendere",
+        "v-volare",
+        "n-passaggio"
       ]
     }
   ],

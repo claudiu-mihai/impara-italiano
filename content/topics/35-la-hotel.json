@@ -36,7 +36,13 @@
         "n-letto",
         "n-bagno",
         "n-piano",
-        "n-chiave"
+        "n-chiave",
+        "n-sala",
+        "n-muro",
+        "v-pulire",
+        "v-lavare",
+        "v-accendere",
+        "v-spegnere"
       ]
     },
     {

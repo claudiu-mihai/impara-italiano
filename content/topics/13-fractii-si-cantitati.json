@@ -36,7 +36,8 @@
         "n-mezzo",
         "n-metà",
         "a-quarto",
-        "a-terzo"
+        "a-terzo",
+        "a-intero"
       ]
     },
     {
@@ -51,7 +52,9 @@
         "n-litro",
         "n-fetta",
         "n-dozzina",
-        "e-un_paio_di"
+        "e-un_paio_di",
+        "n-metro",
+        "n-chilometro"
       ]
     },
     {

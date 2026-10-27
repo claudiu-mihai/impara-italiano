@@ -51,7 +51,12 @@
       "wordIds": [
         "n-cornetto",
         "n-panino",
-        "n-zucchero"
+        "n-zucchero",
+        "n-cibo",
+        "n-pizza",
+        "n-gelato",
+        "n-cioccolato",
+        "a-salato"
       ]
     },
     {

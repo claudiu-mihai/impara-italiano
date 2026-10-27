@@ -44,7 +44,10 @@
         "a-caldo",
         "a-freddo",
         "n-pioggia",
-        "n-neve"
+        "n-neve",
+        "n-periodo",
+        "n-inizio",
+        "n-fine"
       ]
     }
   ],

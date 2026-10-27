@@ -61,7 +61,11 @@
       "wordIds": [
         "n-medicina",
         "n-ricetta",
-        "n-salute"
+        "n-salute",
+        "n-corpo",
+        "n-sangue",
+        "n-malattia",
+        "n-cervello"
       ]
     }
   ],

@@ -61,7 +61,13 @@
         "a-scorso",
         "a-prossimo",
         "adv-prima",
-        "adv-dopo"
+        "adv-dopo",
+        "adv-adesso",
+        "adv-ora",
+        "adv-già",
+        "adv-ancora",
+        "adv-poi",
+        "n-futuro"
       ]
     }
   ],
