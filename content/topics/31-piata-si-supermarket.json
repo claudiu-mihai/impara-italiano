@@ -50,7 +50,11 @@
         "n-formaggio",
         "n-carne",
         "n-pesce",
-        "n-uovo"
+        "n-uovo",
+        "n-cibo",
+        "n-riso",
+        "n-sale",
+        "n-insalata"
       ]
     },
     {
@@ -64,7 +68,9 @@
         "n-prezzo",
         "n-chilo",
         "n-etto",
-        "n-litro"
+        "n-litro",
+        "n-offerta",
+        "n-paio"
       ]
     }
   ],

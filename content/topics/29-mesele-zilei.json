@@ -56,7 +56,13 @@
         "n-pesce",
         "n-frutta",
         "n-verdura",
-        "a-dolce"
+        "a-dolce",
+        "n-cibo",
+        "n-riso",
+        "n-insalata",
+        "n-gelato",
+        "n-sale",
+        "a-salato"
       ]
     },
     {

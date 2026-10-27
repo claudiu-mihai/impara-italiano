@@ -51,7 +51,11 @@
         "n-impiegato",
         "n-collega",
         "n-direttore",
-        "n-capo"
+        "n-capo",
+        "v-studiare",
+        "v-insegnare",
+        "n-esame",
+        "n-maestro"
       ]
     },
     {
@@ -64,7 +68,16 @@
         "n-cameriere",
         "n-commesso",
         "n-autista",
-        "n-operaio"
+        "n-operaio",
+        "v-lavorare",
+        "n-lavoro",
+        "n-cliente",
+        "n-azienda",
+        "n-stipendio",
+        "n-contratto",
+        "n-riunione",
+        "n-turno",
+        "v-guadagnare"
       ]
     },
     {

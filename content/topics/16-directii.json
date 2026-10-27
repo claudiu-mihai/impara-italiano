@@ -50,7 +50,15 @@
       },
       "wordIds": [
         "v-girare",
-        "v-svoltare"
+        "v-svoltare",
+        "v-andare",
+        "v-venire",
+        "v-passare",
+        "v-entrare",
+        "v-arrivare",
+        "v-fermarsi",
+        "v-ritornare",
+        "v-camminare"
       ]
     },
     {

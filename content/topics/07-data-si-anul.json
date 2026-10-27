@@ -51,7 +51,10 @@
       "wordIds": [
         "adv-oggi",
         "adv-ieri",
-        "adv-domani"
+        "adv-domani",
+        "n-secolo",
+        "n-periodo",
+        "n-festa"
       ]
     }
   ],

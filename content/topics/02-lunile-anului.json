@@ -55,7 +55,8 @@
       "wordIds": [
         "n-mese",
         "n-anno",
-        "n-settimana"
+        "n-settimana",
+        "n-fine"
       ]
     }
   ],

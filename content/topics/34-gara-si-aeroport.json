@@ -31,7 +31,10 @@
         "n-stazione",
         "n-treno",
         "n-binario",
-        "n-biglietto"
+        "n-biglietto",
+        "v-partire",
+        "v-arrivare",
+        "n-passaggio"
       ]
     },
     {

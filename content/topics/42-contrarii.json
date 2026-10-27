@@ -63,7 +63,13 @@
         "a-aperto",
         "a-chiuso",
         "a-vicino",
-        "a-lontano"
+        "a-lontano",
+        "a-ricco",
+        "a-povero",
+        "a-pieno",
+        "a-vuoto",
+        "a-veloce",
+        "a-lento"
       ]
     },
     {

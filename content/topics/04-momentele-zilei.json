@@ -52,7 +52,11 @@
       },
       "wordIds": [
         "n-mezzogiorno",
-        "n-mezzanotte"
+        "n-mezzanotte",
+        "adv-presto",
+        "adv-tardi",
+        "n-momento",
+        "n-giornata"
       ]
     }
   ],

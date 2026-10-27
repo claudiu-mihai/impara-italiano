@@ -35,7 +35,13 @@
         "n-incidente",
         "n-fuoco",
         "n-ospedale",
-        "n-medico"
+        "n-medico",
+        "n-problema",
+        "n-sicurezza",
+        "n-attenzione",
+        "n-situazione",
+        "n-bisogno",
+        "v-capitare"
       ]
     },
     {

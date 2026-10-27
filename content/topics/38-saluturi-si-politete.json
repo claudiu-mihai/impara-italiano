@@ -57,7 +57,14 @@
         "int-scusa",
         "e-mi_dispiace",
         "n-permesso",
-        "int-auguri"
+        "int-auguri",
+        "v-salutare",
+        "v-scusare",
+        "e-piacere",
+        "a-benvenuto",
+        "n-favore",
+        "int-sì",
+        "int-no"
       ]
     },
     {

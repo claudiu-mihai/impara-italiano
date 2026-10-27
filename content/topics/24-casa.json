@@ -62,7 +62,12 @@
         "n-porta",
         "n-piano",
         "n-scala",
-        "n-chiave"
+        "n-chiave",
+        "n-muro",
+        "v-pulire",
+        "v-lavare",
+        "v-accendere",
+        "v-spegnere"
       ]
     }
   ],

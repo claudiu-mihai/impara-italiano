@@ -34,7 +34,11 @@
         "n-ospedale",
         "n-ufficio",
         "n-negozio",
-        "n-supermercato"
+        "n-supermercato",
+        "n-bar",
+        "n-locale",
+        "n-sindaco",
+        "n-poliziotto"
       ]
     },
     {
@@ -61,7 +65,12 @@
         "n-centro",
         "n-quartiere",
         "n-piazza",
-        "n-stazione"
+        "n-stazione",
+        "n-zona",
+        "n-luogo",
+        "n-area",
+        "n-edificio",
+        "a-centrale"
       ]
     }
   ],
