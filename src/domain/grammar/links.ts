@@ -19,14 +19,14 @@ export function linkedLessonIds(): string[] {
   return [...new Set([...Object.values(fixed), ...Object.values(tense)])];
 }
 
-const verbLesson = (verbId: string, irregularPresente: ReadonlySet<string>) =>
-  irregularPresente.has(verbId) ? GRAMMAR_LINKS.verbIrregular : GRAMMAR_LINKS.verbRegular;
-
-/** Lecția pentru fișa unui cuvânt: substantiv, adjectiv sau verb (după prezent: regulat sau neregulat). */
+/**
+ * Lecția pentru fișa unui cuvânt: substantiv, adjectiv sau verb regulat la prezent. Verbele neregulate la prezent nu au
+ * link: lecția despre ele trimite deja la lista lor din Dicționar, iar drumul înapoi ar fi un cerc.
+ */
 export function lessonForWord(pos: Pos, wordId: string, irregularPresente: ReadonlySet<string>): string | undefined {
   if (pos === "noun") return GRAMMAR_LINKS.noun;
   if (pos === "adjective") return GRAMMAR_LINKS.adjective;
-  if (pos === "verb") return verbLesson(wordId, irregularPresente);
+  if (pos === "verb") return irregularPresente.has(wordId) ? undefined : GRAMMAR_LINKS.verbRegular;
   return undefined;
 }
 

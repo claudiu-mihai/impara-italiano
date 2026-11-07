@@ -2,13 +2,21 @@ import { readFileSync } from "node:fs";
 import { expect, test } from "@playwright/test";
 import { seedLearnedWords } from "./helpers.ts";
 
-test("fișa unui verb neregulat → lecția → înapoi la cuvânt", async ({ page }) => {
-  await page.goto("/browse/v-andare");
-  await page.getByRole("link", { name: /Regula: Verbe neregulate frecvente la prezent/ }).click();
-  await expect(page).toHaveURL(/\/learn\/grammar\/presente-irregolare$/);
-  await expect(page.getByRole("heading", { name: "Verbe neregulate frecvente la prezent", level: 1 })).toBeVisible();
-  await page.getByRole("link", { name: "Înapoi la andare" }).click();
-  await expect(page).toHaveURL(/\/browse\/v-andare$/);
+test("fișa unui verb regulat → lecția → înapoi la cuvânt", async ({ page }) => {
+  await page.goto("/browse/v-parlare");
+  await page.getByRole("link", { name: /Regula: Prezentul verbelor regulate/ }).click();
+  await expect(page).toHaveURL(/\/learn\/grammar\/presente-regolare$/);
+  await expect(page.getByRole("heading", { name: "Prezentul verbelor regulate", level: 1 })).toBeVisible();
+  await page.getByRole("link", { name: "Înapoi la parlare" }).click();
+  await expect(page).toHaveURL(/\/browse\/v-parlare$/);
+});
+
+test("fișa unui verb neregulat la prezent nu are link către lecție (nici în -rre)", async ({ page }) => {
+  for (const id of ["v-andare", "v-tradurre"]) {
+    await page.goto(`/browse/${id}`);
+    await expect(page.getByRole("heading", { name: "Verb" })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Regula:/ })).toHaveCount(0);
+  }
 });
 
 test("fișa unui verb regulat, a unui substantiv și a unui adjectiv au lecția potrivită", async ({ page }) => {
@@ -18,9 +26,6 @@ test("fișa unui verb regulat, a unui substantiv și a unui adjectiv au lecția 
   await expect(page.getByRole("link", { name: /Regula: Genul și pluralul substantivelor/ })).toBeVisible();
   await page.goto("/browse/a-rosso");
   await expect(page.getByRole("link", { name: /Regula: Acordul adjectivului/ })).toBeVisible();
-  // verbele în -rre sunt neregulate la prezent (traduco), deși nu apar în irregular.json
-  await page.goto("/browse/v-tradurre");
-  await expect(page.getByRole("link", { name: /Regula: Verbe neregulate frecvente la prezent/ })).toBeVisible();
 });
 
 test("lecția deschisă direct: Înapoi duce la lista de gramatică", async ({ page }) => {
@@ -57,10 +62,10 @@ test("conjugare la prezent pentru un verb neregulat → lecția despre verbe ner
 
 test("Înapoi din lecție se întoarce în istoric: butonul Înapoi al telefonului nu mai revine în lecție", async ({ page }) => {
   await page.goto("/");
-  await page.goto("/browse/v-andare");
-  await page.getByRole("link", { name: /Regula: Verbe neregulate/ }).click();
-  await page.getByRole("link", { name: "Înapoi la andare" }).click();
-  await expect(page).toHaveURL(/\/browse\/v-andare$/);
+  await page.goto("/browse/v-parlare");
+  await page.getByRole("link", { name: /Regula: Prezentul verbelor regulate/ }).click();
+  await page.getByRole("link", { name: "Înapoi la parlare" }).click();
+  await expect(page).toHaveURL(/\/browse\/v-parlare$/);
   await page.goBack();
   await expect(page).toHaveURL(/localhost:\d+\/$/);
 });

@@ -9,7 +9,8 @@ test("lessonForWord", () => {
   expect(lessonForWord("noun", "n-libro", irregular)).toBe("genere-plurale");
   expect(lessonForWord("adjective", "a-rosso", irregular)).toBe("aggettivi");
   expect(lessonForWord("verb", "v-parlare", irregular)).toBe("presente-regolare");
-  expect(lessonForWord("verb", "v-andare", irregular)).toBe("presente-irregolare");
+  // fișa unui verb neregulat la prezent nu are link (lecția trimite deja la lista lor din Dicționar)
+  expect(lessonForWord("verb", "v-andare", irregular)).toBeUndefined();
   expect(lessonForWord("adverb", "x-bene", irregular)).toBeUndefined();
 });
 
