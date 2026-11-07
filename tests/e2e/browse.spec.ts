@@ -10,7 +10,7 @@ test("dicționarul listează toate cuvintele și caută în italiană și român
   await expect(page.getByRole("status")).toHaveText(TOTAL);
 
   const search = page.getByLabel("Caută în dicționar");
-  await search.fill("vorbi");
+  await search.fill("a vorbi"); // „vorbi” singur găsește și „tehnic vorbind”
   await expect(page.getByRole("status")).toHaveText("1 cuvânt");
   await expect(page.getByRole("link", { name: /parlare/ })).toBeVisible();
 
@@ -52,7 +52,7 @@ test("lista se încarcă pe pagini: 40 de cuvinte, apoi încă 40 la „Arată m
   await page.getByRole("button", { name: /^Arată mai multe/ }).click();
   await expect(rows).toHaveCount(80);
 
-  await page.getByLabel("Caută în dicționar").fill("vorbi");
+  await page.getByLabel("Caută în dicționar").fill("a vorbi");
   await expect(rows).toHaveCount(1);
   await expect(page.getByRole("button", { name: /^Arată mai multe/ })).toHaveCount(0);
 });
@@ -145,8 +145,12 @@ test("filtru după grupa de niveluri (A, B, C): un singur buton activ, deselecta
   await level("A").click();
   await expect(page.getByRole("status")).toHaveText(`${inGroup("A")} cuvinte`);
   await expect(page.getByRole("link", { name: /essere/ })).toBeVisible(); // A1
-  await expect(page.getByRole("link", { name: /scegliere/ })).toBeVisible(); // A2
   await expect(level("A")).toHaveAttribute("aria-pressed", "true");
+  // și A2 face parte din grupa A (primele 40 de cuvinte afișate sunt toate A1, deci se caută)
+  const search = page.getByLabel("Caută în dicționar");
+  await search.fill("scegliere");
+  await expect(page.getByRole("link", { name: /scegliere/ })).toBeVisible(); // A2
+  await search.fill("");
 
   // alegerea altui buton îl înlocuiește pe cel activ
   await level("B").click();
@@ -161,7 +165,7 @@ test("filtru după grupa de niveluri (A, B, C): un singur buton activ, deselecta
   await expect(page.getByRole("status")).toHaveText(TOTAL);
 
   await level("C").click();
-  await expect(page.getByText("Niciun cuvânt găsit.")).toBeVisible();
+  await expect(page.getByRole("status")).toHaveText(`${inGroup("C")} cuvinte`);
   await level("C").click();
   await expect(page.getByRole("link", { name: /essere/ }).getByTitle(/^A1 · Începător/)).toBeVisible();
 });
