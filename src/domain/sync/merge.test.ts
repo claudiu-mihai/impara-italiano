@@ -105,3 +105,9 @@ test("mergeGrammarProgress: cel mai mic readAt, scorul maxim, comutativ", () => 
   expect(mergeGrammarProgress({ best: {} }, { best: {} })).toEqual({ best: {} });
   expect(mergeGrammarProgress({ readAt: 7, best: {} }, { best: { match: 10 } })).toEqual({ readAt: 7, best: { match: 10 } });
 });
+
+test("mergeGrammarProgress păstrează scorurile jocurilor necunoscute (din versiuni viitoare), tot cu maximul", () => {
+  const local = { best: { type: 90 } };
+  const remote = { best: { type: 50, puzzle: 80 } };
+  expect(mergeGrammarProgress(local, remote)).toEqual({ best: { type: 90, puzzle: 80 } });
+});

@@ -74,7 +74,8 @@ export function mergeGrammarProgress(a: GrammarProgress, b: GrammarProgress): Gr
   const out: GrammarProgress = { best: {} };
   const readAt = definedMin(a.readAt, b.readAt);
   if (readAt !== undefined) out.readAt = readAt;
-  for (const game of ["match", "type"] as const) {
+  // toate jocurile, inclusiv cele necunoscute acestei versiuni
+  for (const game of new Set([...Object.keys(a.best), ...Object.keys(b.best)])) {
     const value = definedMax(a.best[game], b.best[game]);
     if (value !== undefined) out.best[game] = value;
   }

@@ -138,7 +138,8 @@ async function applySettings(db: ImparaDb, items: RemoteItem[]): Promise<Applied
 }
 
 const sameProgress = (a: GrammarProgress, b: GrammarProgress) =>
-  a.readAt === b.readAt && a.best.match === b.best.match && a.best.type === b.best.type;
+  a.readAt === b.readAt &&
+  [...new Set([...Object.keys(a.best), ...Object.keys(b.best)])].every((game) => a.best[game] === b.best[game]);
 
 /**
  * Progresul la gramatică se combină (citit oriunde, scorul maxim), deci nu există conflicte: rândul local primește

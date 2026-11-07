@@ -134,3 +134,8 @@ test("grammarProgressSchema: procente întregi 0–100", () => {
   expect(grammarProgressSchema.safeParse({ best: { match: 50.5 } }).success).toBe(false);
   expect(grammarProgressSchema.safeParse("x").success).toBe(false);
 });
+
+test("grammarProgressSchema acceptă scoruri pentru jocuri noi, dar tot ca procente", () => {
+  expect(grammarProgressSchema.parse({ best: { puzzle: 80 } })).toEqual({ best: { puzzle: 80 } });
+  expect(grammarProgressSchema.safeParse({ best: { puzzle: 180 } }).success).toBe(false);
+});

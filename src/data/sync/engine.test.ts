@@ -440,3 +440,11 @@ test("gramatică: importul cu cont înlocuiește progresul din cont", async () =
   expect([...remote.store.grammar_progress.keys()]).toEqual(["avere"]);
   expect(await a.grammarProgress.get("essere")).toBeUndefined();
 });
+
+test("gramatică: un telefon cu versiune mai veche nu șterge de pe server scorul unui joc nou", async () => {
+  const a = await device();
+  await remote.push("grammar_progress", [{ key: "articoli", updatedAt: 1, data: { best: { type: 50, puzzle: 80 } } }]);
+  await saveGameScore(a, "articoli", "type", 90, at(0));
+  await runSync(a, remote);
+  expect(remote.store.grammar_progress.get("articoli")?.data).toEqual({ best: { type: 90, puzzle: 80 } });
+});

@@ -1,10 +1,14 @@
 /** Jocurile de gramatică care dau scor (Cartonașele sunt doar pentru exersat). */
 export type GrammarGame = "match" | "type";
 
-/** Progresul la o temă de gramatică: când a fost citită lecția și cel mai bun scor (procent) la fiecare joc. */
+/**
+ * Progresul la o temă de gramatică: când a fost citită lecția și cel mai bun scor (procent) la fiecare joc.
+ * `best` poate avea și jocuri pe care această versiune nu le cunoaște (venite de la o versiune mai nouă):
+ * se păstrează și se trimit mai departe, ca să nu se piardă.
+ */
 export interface GrammarProgress {
   readAt?: number;
-  best: Partial<Record<GrammarGame, number>>;
+  best: Partial<Record<GrammarGame, number>> & Record<string, number | undefined>;
 }
 
 /** Scriere: răspunsuri corecte din total. */

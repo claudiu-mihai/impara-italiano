@@ -78,7 +78,8 @@ const percent = int.min(0).max(100);
 /** Progresul la o temă de gramatică, venit de pe server sau din backup. */
 export const grammarProgressSchema = z.object({
   readAt: z.number().optional(),
-  best: z.object({ match: percent.optional(), type: percent.optional() }),
+  // orice joc (și cele adăugate în versiuni viitoare), mereu ca procent
+  best: z.record(z.string(), percent),
 });
 
 export const reportSchema = z.object({
