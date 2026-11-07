@@ -6,6 +6,7 @@ import { newStoredCard, reviewStoredCard } from "../../domain/srs/scheduler.ts";
 import { vocabCardId } from "../../domain/srs/types.ts";
 import { createDb, type ImparaDb } from "../db/db.ts";
 import { saveReview, saveSettings } from "../db/repositories.ts";
+import { markLessonRead, saveGameScore } from "../db/grammarProgress.ts";
 import { BackupError, backupToJson, exportBackup, importBackup, parseBackup, resetProgress } from "./backup.ts";
 
 const NOW = new Date(2026, 9, 20, 10, 0, 0);
@@ -108,4 +109,22 @@ test("resetarea șterge progresul, dar păstrează setările", async () => {
   expect(await db.cards.count()).toBe(0);
   expect(await db.reviewLog.count()).toBe(0);
   expect((await db.settings.get("app"))?.newPerDay).toBe(4);
+});
+
+test("backup: progresul la gramatică dus-întors", async () => {
+  await saveGameScore(db, "articoli", "type", 90, NOW);
+  await markLessonRead(db, "articoli", NOW);
+  const backup = await exportBackup(db, "v1", NOW);
+  expect(backup.grammarProgress).toEqual([{ topicId: "articoli", readAt: NOW.getTime(), best: { type: 90 } }]);
+  const json = backupToJson(backup);
+  await resetProgress(db);
+  expect(await db.grammarProgress.count()).toBe(0);
+  await importBackup(db, parseBackup(json), NOW);
+  expect(await db.grammarProgress.get("articoli")).toMatchObject({ readAt: NOW.getTime(), best: { type: 90 }, dirty: 1 });
+});
+
+test("backup vechi, fără grammarProgress, se importă", async () => {
+  const old = JSON.parse(backupToJson(await exportBackup(db, "v1", NOW)));
+  delete old.grammarProgress;
+  expect(parseBackup(JSON.stringify(old)).grammarProgress).toEqual([]);
 });

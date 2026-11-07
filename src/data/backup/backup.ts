@@ -4,6 +4,7 @@ import type { ReviewLogEntry, StoredCard } from "../../domain/srs/types.ts";
 import type { ImparaDb, ReportRow } from "../db/db.ts";
 import { getSettings, syncUserOf } from "../db/repositories.ts";
 import { newUid } from "../../domain/sync/serialize.ts";
+import { grammarProgressSchema, type GrammarProgress } from "../../domain/grammar/progress.ts";
 import { t } from "../../i18n/standalone.ts";
 import { notifyLocalChange } from "../sync/signal.ts";
 
@@ -89,6 +90,8 @@ const backupSchema = z.object({
   // Câmpurile lipsă (adăugate în versiuni ulterioare) primesc valorile implicite.
   settings: settingsSchema.partial(),
   reports: z.array(reportSchema),
+  // adăugat după versiunea 1 a formatului: backup-urile vechi nu îl au
+  grammarProgress: z.array(grammarProgressSchema.extend({ topicId: z.string() })).default([]),
 });
 
 export interface Backup {
@@ -100,14 +103,16 @@ export interface Backup {
   reviewLog: ReviewLogEntry[];
   settings: Settings;
   reports: ReportRow[];
+  grammarProgress: (GrammarProgress & { topicId: string })[];
 }
 
 export async function exportBackup(db: ImparaDb, dataVersion: string, now: Date): Promise<Backup> {
-  const [cards, reviewLog, settings, reports] = await Promise.all([
+  const [cards, reviewLog, settings, reports, grammarProgress] = await Promise.all([
     db.cards.toArray(),
     db.reviewLog.toArray(),
     getSettings(db),
     db.reports.toArray(),
+    db.grammarProgress.toArray(),
   ]);
   await db.meta.put({ key: "lastExportAt", value: now.toISOString() });
   // metadatele de sincronizare (updatedAt, uid, dirty) nu fac parte din backup: se regenerează la import
@@ -120,6 +125,7 @@ export async function exportBackup(db: ImparaDb, dataVersion: string, now: Date)
     reviewLog: reviewLog.map(({ uid: _uid, dirty: _d, ...entry }) => entry),
     settings,
     reports: reports.map(({ uid: _uid, dirty: _d, ...report }) => report),
+    grammarProgress: grammarProgress.map(({ updatedAt: _u, dirty: _d, ...progress }) => progress),
   };
 }
 
@@ -157,21 +163,25 @@ export function parseBackup(json: string): Backup {
  * iar cu cont se cere înlocuirea completă pe server (progresul din cont devine exact cel din backup).
  */
 export async function importBackup(db: ImparaDb, backup: Backup, now: Date = new Date()): Promise<void> {
-  await db.transaction("rw", [db.cards, db.reviewLog, db.settings, db.reports, db.tombstones, db.meta], async () => {
-    await Promise.all([db.cards.clear(), db.reviewLog.clear(), db.reports.clear(), db.tombstones.clear()]);
+  const tables = [db.cards, db.reviewLog, db.settings, db.reports, db.tombstones, db.grammarProgress, db.meta];
+  await db.transaction("rw", tables, async () => {
+    await Promise.all([db.cards.clear(), db.reviewLog.clear(), db.reports.clear(), db.tombstones.clear(), db.grammarProgress.clear()]);
     await db.cards.bulkAdd(backup.cards.map((card) => ({ ...card, updatedAt: now.getTime(), dirty: 1 as const })));
     await db.reviewLog.bulkAdd(backup.reviewLog.map((entry) => ({ ...entry, uid: newUid(), dirty: 1 as const })));
     await db.reports.bulkAdd(backup.reports.map((report) => ({ ...report, uid: newUid(), dirty: 1 as const })));
+    await db.grammarProgress.bulkAdd(
+      backup.grammarProgress.map((progress) => ({ ...progress, updatedAt: now.getTime(), dirty: 1 as const })),
+    );
     await db.settings.put({ ...backup.settings, key: "app", updatedAt: now.getTime(), dirty: 1 });
     if (await syncUserOf(db)) await db.meta.put({ key: "syncReplace", value: true });
   });
   notifyLocalChange();
 }
 
-/** Șterge tot progresul (carduri, jurnal, semnalări); setările rămân. Cu cont, se șterge și din cont. */
+/** Șterge tot progresul (carduri, jurnal, semnalări, gramatică); setările rămân. Cu cont, se șterge și din cont. */
 export async function resetProgress(db: ImparaDb): Promise<void> {
-  await db.transaction("rw", [db.cards, db.reviewLog, db.reports, db.tombstones, db.meta], async () => {
-    await Promise.all([db.cards.clear(), db.reviewLog.clear(), db.reports.clear(), db.tombstones.clear()]);
+  await db.transaction("rw", [db.cards, db.reviewLog, db.reports, db.tombstones, db.grammarProgress, db.meta], async () => {
+    await Promise.all([db.cards.clear(), db.reviewLog.clear(), db.reports.clear(), db.tombstones.clear(), db.grammarProgress.clear()]);
     if (await syncUserOf(db)) await db.meta.put({ key: "syncReplace", value: true });
   });
   notifyLocalChange();

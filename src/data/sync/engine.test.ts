@@ -420,3 +420,16 @@ test("gramatică: date invalide de pe server sunt numărate și ignorate", async
   expect((await a.grammarProgress.get("essere"))?.best).toEqual({ match: 70 });
   expect(await a.grammarProgress.get("avere")).toBeUndefined();
 });
+
+test("gramatică: importul cu cont înlocuiește progresul din cont", async () => {
+  const a = await device();
+  await saveGameScore(a, "avere", "type", 40, at(0));
+  await runSync(a, remote);
+  const backup = await exportBackup(a, "v1", at(1));
+  await saveGameScore(a, "essere", "type", 90, at(2));
+  await runSync(a, remote);
+  await importBackup(a, backup, at(3));
+  await runSync(a, remote);
+  expect([...remote.store.grammar_progress.keys()]).toEqual(["avere"]);
+  expect(await a.grammarProgress.get("essere")).toBeUndefined();
+});
