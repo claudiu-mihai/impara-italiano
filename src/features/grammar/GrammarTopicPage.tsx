@@ -51,18 +51,23 @@ export function GrammarTopicPage() {
 
       <RulesBox rules={topic.rules} lang={NATIVE_LANGUAGE} defaultOpen />
 
-      <button
-        type="button"
-        aria-pressed={progress?.readAt !== undefined}
-        onClick={() => void markLessonRead(db, topic.id, new Date())}
-        className={`min-h-14 rounded-2xl px-5 text-lg font-semibold ${
-          progress?.readAt !== undefined
-            ? "bg-green-100 text-green-950 dark:bg-green-950 dark:text-green-50"
-            : "bg-brand text-white active:bg-brand-fg"
-        }`}
-      >
-        {progress?.readAt !== undefined ? `✓ ${t("grammar.read")}` : t("grammar.markRead")}
-      </button>
+      {/* citirea nu se poate anula (pe alt dispozitiv ar reveni la sincronizare), deci după apăsare rămâne doar starea */}
+      {progress?.readAt !== undefined ? (
+        <p
+          role="status"
+          className="flex min-h-14 items-center justify-center rounded-2xl bg-green-100 px-5 text-lg font-semibold text-green-950 dark:bg-green-950 dark:text-green-50"
+        >
+          ✓ {t("grammar.read")}
+        </p>
+      ) : (
+        <button
+          type="button"
+          onClick={() => void markLessonRead(db, topic.id, new Date())}
+          className="min-h-14 rounded-2xl bg-brand px-5 text-lg font-semibold text-white active:bg-brand-fg"
+        >
+          {t("grammar.markRead")}
+        </button>
+      )}
 
       <section aria-labelledby="games" className="flex flex-col gap-3">
         <h2 id="games" className="text-sm font-semibold uppercase tracking-wide text-muted">

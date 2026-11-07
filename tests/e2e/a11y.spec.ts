@@ -77,7 +77,7 @@ for (const scheme of ["light", "dark"] as const) {
       await expect(page.getByText("Capcană pentru români").first()).toBeVisible();
       await audit(page, "lecție de gramatică");
       await page.getByRole("button", { name: "Am citit" }).click();
-      await expect(page.getByRole("button", { name: /Citită/ })).toBeVisible();
+      await expect(page.getByRole("status").filter({ hasText: "Citită" })).toBeVisible();
       await audit(page, "lecție de gramatică, citită");
     });
 

@@ -143,7 +143,9 @@ test("lecția: tabel și capcană pentru români", async ({ page }) => {
 test("Am citit + scorul la Introducere text apar în listă", async ({ page }) => {
   await page.goto("/learn/grammar/articoli");
   await page.getByRole("button", { name: "Am citit" }).click();
-  await expect(page.getByRole("button", { name: /Citită/ })).toHaveAttribute("aria-pressed", "true");
+  // după citire nu mai e un buton (nu se poate debifa), ci un text de stare
+  await expect(page.getByRole("button", { name: "Am citit" })).toHaveCount(0);
+  await expect(page.getByRole("status").filter({ hasText: "Citită" })).toBeVisible();
 
   await page.getByRole("link", { name: /Introducere text/ }).click();
   const prompt = page.getByTestId("grammar-prompt");
