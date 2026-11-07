@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { db } from "../../data/db/instance.ts";
 import { getSettings, saveGameScore } from "../../data/db/repositories.ts";
@@ -10,6 +11,7 @@ import { useT } from "../../i18n/index.ts";
 import { playFeedback } from "../../services/sound.ts";
 import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
+import { nextLessonNav, readLessonNav } from "./lessonNav.ts";
 import { useGrammarTopic } from "./useGrammarTopic.ts";
 
 /** Potrivire: 5 perechi expresie italiană ↔ traducere pe rundă; se atinge câte una din fiecare coloană. */
@@ -26,6 +28,8 @@ export function MatchPage() {
 function MatchGame({ topicId, items }: { topicId: string; items: GrammarItem[] }) {
   const { t, tp } = useT();
   const exitTo = `/learn/grammar/${topicId}`;
+  // întoarcerea în lecție păstrează ecranul de plecare (ex. fișa cuvântului)
+  const exitState = nextLessonNav(readLessonNav(useLocation().state));
   const [attempt, setAttempt] = useState(0);
   const rounds = useMemo(
     () => buildGrammarMatchRounds(items),
@@ -81,7 +85,14 @@ function MatchGame({ topicId, items }: { topicId: string; items: GrammarItem[] }
 
   if (!round) {
     return (
-      <SessionDone emoji="🧩" title={t("match.nothing")} text={t("games.noExamples")} backTo={exitTo} backLabel={t("flash.backToTopic")} />
+      <SessionDone
+        emoji="🧩"
+        title={t("match.nothing")}
+        text={t("games.noExamples")}
+        backTo={exitTo}
+        backState={exitState}
+        backLabel={t("flash.backToTopic")}
+      />
     );
   }
 
@@ -94,6 +105,7 @@ function MatchGame({ topicId, items }: { topicId: string; items: GrammarItem[] }
         title={t("match.allDone")}
         text={mistakes === 0 ? t("match.noMistakes") : tp("match.mistakes", mistakes)}
         backTo={exitTo}
+        backState={exitState}
         backLabel={t("flash.backToTopic")}
       >
         <button
@@ -140,7 +152,7 @@ function MatchGame({ topicId, items }: { topicId: string; items: GrammarItem[] }
 
   return (
     <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
-      <StudyHeader index={roundIndex} total={rounds.length} label={t("games.progress")} exitTo={exitTo} />
+      <StudyHeader index={roundIndex} total={rounds.length} label={t("games.progress")} exitTo={exitTo} exitState={exitState} />
       <h1 className="text-center text-lg font-semibold">{t("match.title")}</h1>
       <div className="grid grid-cols-2 gap-3">
         <div className="flex flex-col gap-3" role="group" aria-label={t("lang.it")}>

@@ -11,12 +11,8 @@ import { CefrBadge } from "../../ui/CefrBadge.tsx";
 export function GrammarListPage() {
   const { t } = useT();
   const topics = useGrammar();
-  const progress = useLiveQuery(
-    async () =>
-      new Map((await db.grammarProgress.toArray()).map((p) => [p.topicId, p])),
-  );
-  if (!topics)
-    return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
+  const progress = useLiveQuery(async () => new Map((await db.grammarProgress.toArray()).map((p) => [p.topicId, p])));
+  if (!topics) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
 
   return (
     <div className="flex flex-col gap-5 px-4 pb-8 pt-4">
@@ -40,17 +36,10 @@ export function GrammarListPage() {
                 >
                   {topic.order}
                 </span>
-                <span
-                  lang={NATIVE_LANGUAGE}
-                  className="flex-1 text-lg font-semibold"
-                >
+                <span lang={NATIVE_LANGUAGE} className="flex-1 text-lg font-semibold">
                   {topic.title}
                 </span>
-                {best !== undefined && (
-                  <span className="text-sm font-semibold text-muted">
-                    {best}%
-                  </span>
-                )}
+                {best !== undefined && <span className="text-sm font-semibold text-muted">{best}%</span>}
                 {own?.readAt !== undefined && (
                   <span
                     role="img"

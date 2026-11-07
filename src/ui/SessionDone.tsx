@@ -13,6 +13,8 @@ interface SessionDoneProps {
   children?: ReactNode;
   /** Destinația linkului de întoarcere (implicit lista „Învață”). */
   backTo?: string;
+  /** Starea de navigare transmisă odată cu întoarcerea (react-router `state`). */
+  backState?: unknown;
   backLabel?: string;
 }
 
@@ -27,6 +29,7 @@ export function SessionDone({
   text,
   children,
   backTo = "/learn",
+  backState,
   backLabel,
 }: SessionDoneProps) {
   const { t } = useT();
@@ -43,7 +46,7 @@ export function SessionDone({
       <p className="text-muted">{text}</p>
       <div className="flex flex-col gap-3">
         {children}
-        <Link to={backTo} className="flex min-h-12 items-center justify-center text-brand-fg underline">
+        <Link to={backTo} state={backState} className="flex min-h-12 items-center justify-center text-brand-fg underline">
           {backLabel ?? t("common.backToStudy")}
         </Link>
       </div>

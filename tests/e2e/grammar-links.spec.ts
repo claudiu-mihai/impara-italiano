@@ -53,3 +53,24 @@ test("conjugare la prezent pentru un verb neregulat → lecția despre verbe ner
   await expect(page.getByTestId("person")).toBeVisible();
   await expect(page.getByRole("link", { name: /Regula: Verbe neregulate frecvente la prezent/ })).toBeVisible();
 });
+
+test("Înapoi din lecție se întoarce în istoric: butonul Înapoi al telefonului nu mai revine în lecție", async ({ page }) => {
+  await page.goto("/");
+  await page.goto("/browse/v-andare");
+  await page.getByRole("link", { name: /Regula: Verbe neregulate/ }).click();
+  await page.getByRole("link", { name: "Înapoi la andare" }).click();
+  await expect(page).toHaveURL(/\/browse\/v-andare$/);
+  await page.goBack();
+  await expect(page).toHaveURL(/localhost:\d+\/$/);
+});
+
+test("după un joc pornit din lecție, Înapoi duce tot la cuvântul de plecare", async ({ page }) => {
+  await page.goto("/browse/n-libro");
+  await page.getByRole("link", { name: /Regula: Genul și pluralul/ }).click();
+  await page.getByRole("link", { name: /Cartonașe/ }).click();
+  await expect(page.getByTestId("grammar-card")).toBeVisible();
+  await page.getByRole("link", { name: "Ieși din sesiune" }).click();
+  await expect(page).toHaveURL(/\/learn\/grammar\/genere-plurale$/);
+  await page.getByRole("link", { name: "Înapoi la libro" }).click();
+  await expect(page).toHaveURL(/\/browse\/n-libro$/);
+});
