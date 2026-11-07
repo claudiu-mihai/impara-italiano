@@ -374,9 +374,16 @@ test("offline: starea arată modificările în așteptare, iar la reconectare se
   await syncedStatus(page);
 
   // pagina cuvântului se încarcă online; apoi telefonul rămâne offline cât învață
+  // offline, ecranele se încarcă din cache: service worker-ul trebuie să fi pus aplicația în cache (activ), iar
+  // navigarea următoare este atunci controlată de el
+  await page.evaluate(() => navigator.serviceWorker.ready);
   await page.goto("/browse/v-parlare");
+  await expect.poll(() => page.evaluate(() => navigator.serviceWorker.controller !== null)).toBe(true);
+  // fișa se termină de încărcat (detaliile cuvântului vin separat) înainte de a trece offline
+  const known = page.getByRole("button", { name: "Știu deja acest cuvânt" });
+  await expect(known).toBeVisible();
   await context.setOffline(true);
-  await page.getByRole("button", { name: "Știu deja acest cuvânt" }).click();
+  await known.click();
   await expect(page.getByText("În învățare", { exact: true })).toBeVisible();
   await page.getByRole("link", { name: "Setări" }).click();
 
