@@ -19,6 +19,7 @@ import { loadFrequency } from "./frequency/ranks.ts";
 import { LEVELS, TOPIC_GROUPS, type Level } from "../src/domain/content/constants.ts";
 import { lemmaOf } from "../src/domain/content/reflexive.ts";
 import { splitAtGap } from "../src/domain/grammar/gap.ts";
+import { markupError } from "../src/domain/grammar/markup.ts";
 import { buildConjugations, type IrregularFile } from "./conjugate/build.ts";
 import { z } from "zod";
 
@@ -177,6 +178,18 @@ function loadGrammar(errors: string[]): GrammarTopic[] {
       continue;
     }
     const topic = parsed.data;
+    topic.lesson?.forEach((block, i) => {
+      const texts =
+        block.type === "text" || block.type === "trap"
+          ? [block.ro]
+          : block.type === "examples"
+            ? block.items.flatMap((e) => (e.note ? [e.note] : []))
+            : [];
+      for (const text of texts) {
+        const problem = markupError(text);
+        if (problem) errors.push(`${file}: lecția, blocul ${i + 1}: ${problem}`);
+      }
+    });
     if (topics.some((t) => t.id === topic.id)) errors.push(`${file}: id de temă duplicat (${topic.id})`);
     if (topics.some((t) => t.order === topic.order)) errors.push(`${file}: ordinea ${topic.order} este deja folosită`);
 
