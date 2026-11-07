@@ -28,7 +28,7 @@ const SOURCES = [
   },
 ];
 
-const { words, conjugations, sentences, topics, grammar, rankBasis, explicitPresenteCount, errors } = loadContent();
+const { words, conjugations, sentences, topics, grammar, rankBasis, explicitPresenteCount, presenteIrregular, errors } = loadContent();
 
 if (errors.length > 0) {
   console.error(`Conținut invalid: ${errors.length} erori`);
@@ -61,6 +61,7 @@ const sentencesJson = `[\n${sentences.map((s) => `  ${JSON.stringify(s)}`).join(
 
 const topicsJson = `${JSON.stringify(topics, null, 1)}\n`;
 const grammarJson = `${JSON.stringify(grammar, null, 1)}\n`;
+const presenteIrregularJson = lines(presenteIrregular);
 
 const dataVersion = createHash("sha256")
   .update(wordsJson)
@@ -69,6 +70,7 @@ const dataVersion = createHash("sha256")
   .update(sentencesJson)
   .update(topicsJson)
   .update(grammarJson)
+  .update(presenteIrregularJson)
   .digest("hex")
   .slice(0, 12);
 
@@ -88,6 +90,7 @@ writeFileSync(resolve(OUT_DIR, "conjugations.json"), conjugationsJson);
 writeFileSync(resolve(OUT_DIR, "sentences.json"), sentencesJson);
 writeFileSync(resolve(OUT_DIR, "topics.json"), topicsJson);
 writeFileSync(resolve(OUT_DIR, "grammar.json"), grammarJson);
+writeFileSync(resolve(OUT_DIR, "presenteIrregular.json"), presenteIrregularJson);
 writeFileSync(resolve(OUT_DIR, "meta.json"), `${JSON.stringify(meta, null, 2)}\n`);
 
 console.log(
