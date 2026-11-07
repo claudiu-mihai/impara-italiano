@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { pickSession } from "../../domain/grammar/games.ts";
 import type { GrammarItem } from "../../domain/content/schema.ts";
@@ -7,6 +8,7 @@ import { AudioButton } from "../../ui/AudioButton.tsx";
 import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
 import { GapText } from "./GapText.tsx";
+import { nextLessonNav, readLessonNav } from "./lessonNav.ts";
 import { useGrammarTopic } from "./useGrammarTopic.ts";
 
 /** Cartonașe: se vede expresia cu lacună, se întoarce cartonașul, apoi „Am știut” sau „Mai exersez”. */
@@ -15,14 +17,16 @@ export function CardsPage() {
   const { id, topic, loading } = useGrammarTopic();
   if (loading) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
   if (!topic) {
-    return <SessionDone emoji="🤔" title={t("topics.notFound")} text="" backTo="/learn/games" backLabel={t("games.backToList")} />;
+    return <SessionDone emoji="🤔" title={t("topics.notFound")} text="" backTo="/learn/grammar" backLabel={t("games.backToList")} />;
   }
   return <CardsGame key={id} topicId={topic.id} items={topic.items} />;
 }
 
 function CardsGame({ topicId, items }: { topicId: string; items: GrammarItem[] }) {
   const { t, tp } = useT();
-  const exitTo = `/learn/games/${topicId}`;
+  const exitTo = `/learn/grammar/${topicId}`;
+  // întoarcerea în lecție păstrează ecranul de plecare (ex. fișa cuvântului)
+  const exitState = nextLessonNav(readLessonNav(useLocation().state));
   const [session, setSession] = useState(() => pickSession(items));
   // coada cartonașelor rămase: „Mai exersez” îl mută la sfârșit
   const [queue, setQueue] = useState(() => session.map((item) => item.id));
@@ -33,7 +37,13 @@ function CardsGame({ topicId, items }: { topicId: string; items: GrammarItem[] }
 
   if (!current) {
     return (
-      <SessionDone title={t("cards.done")} text={tp("cards.reviewed", session.length)} backTo={exitTo} backLabel={t("flash.backToTopic")}>
+      <SessionDone
+        title={t("cards.done")}
+        text={tp("cards.reviewed", session.length)}
+        backTo={exitTo}
+        backState={exitState}
+        backLabel={t("flash.backToTopic")}
+      >
         <button
           type="button"
           className={primaryButton}
@@ -57,7 +67,7 @@ function CardsGame({ topicId, items }: { topicId: string; items: GrammarItem[] }
 
   return (
     <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
-      <StudyHeader index={known} total={session.length} label={t("cards.progress")} exitTo={exitTo} />
+      <StudyHeader index={known} total={session.length} label={t("cards.progress")} exitTo={exitTo} exitState={exitState} />
 
       <section
         className="flex flex-1 flex-col items-center justify-center gap-4 rounded-3xl bg-white p-6 text-center shadow-md dark:bg-slate-900"

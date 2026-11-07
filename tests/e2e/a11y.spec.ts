@@ -72,6 +72,15 @@ for (const scheme of ["light", "dark"] as const) {
       await audit(page, "de reținut (română, deschisă)");
     });
 
+    test("lecția de gramatică", async ({ page }) => {
+      await page.goto("/learn/grammar/articoli");
+      await expect(page.getByText("Capcană pentru români").first()).toBeVisible();
+      await audit(page, "lecție de gramatică");
+      await page.getByRole("button", { name: "Am citit" }).click();
+      await expect(page.getByRole("status").filter({ hasText: "Citită" })).toBeVisible();
+      await audit(page, "lecție de gramatică, citită");
+    });
+
     test("exercițiile din Teme", async ({ page }) => {
       await page.goto("/learn/topics/culori/match");
       await expect(page.getByRole("heading", { name: "Potrivește perechile" })).toBeVisible();

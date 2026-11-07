@@ -15,7 +15,14 @@ export interface BrowseFilters {
   progress: Mastery | "all";
   /** Grupa de niveluri CEFR aleasă: A (A1–A2), B (B1–B2) sau C (C1–C2); „all” = toate nivelurile. */
   cefr: LevelGroup | "all";
+  /**
+   * Doar verbele neregulate la prezent. La fel ca progresul, nu are selector: se setează din link (lecția despre verbele
+   * neregulate) și se arată ca un chip care se poate închide.
+   */
+  irregular: "presente" | "all";
 }
+
+const IRREGULAR_VALUES = ["presente"] as const;
 
 /** Text de căutare: minuscule și fără diacritice (ă → a, ș → s, è → e), ca „ști” să se găsească cu „sti”. */
 const searchKey = (text: string) => stripAccents(normalize(text));
@@ -23,8 +30,10 @@ const searchKey = (text: string) => stripAccents(normalize(text));
 /** Cuvintele care se potrivesc căutării și filtrelor; cele care încep cu textul căutat apar primele, apoi după rang. */
 export function filterWords(
   words: readonly CoreWord[],
-  { query, pos, progress, cefr }: BrowseFilters,
+  { query, pos, progress, cefr, irregular }: BrowseFilters,
   levels: ReadonlyMap<string, Mastery>,
+  /** Verbele neregulate la prezent; lipsește cât timp lista se încarcă (atunci filtrul nu arată nimic). */
+  irregularPresente?: ReadonlySet<string>,
 ): CoreWord[] {
   const needle = searchKey(query);
 
@@ -32,6 +41,7 @@ export function filterWords(
     if (pos !== "all" && word.pos !== pos) return [];
     if (cefr !== "all" && levelGroupOf(word.level) !== cefr) return [];
     if (progress !== "all" && (levels.get(word.id) ?? "new") !== progress) return [];
+    if (irregular === "presente" && !irregularPresente?.has(word.id)) return [];
     if (!needle) return [{ word, prefix: false }];
 
     const fields = [word.it, italianText(word), word.ro].map(searchKey);
@@ -48,23 +58,27 @@ export function filterWords(
 
 const PROGRESS_VALUES: readonly Mastery[] = ["new", "learning", "mastered"];
 
-export const NO_FILTERS: BrowseFilters = { query: "", pos: "all", progress: "all", cefr: "all" };
+export const NO_FILTERS: BrowseFilters = { query: "", pos: "all", progress: "all", cefr: "all", irregular: "all" };
 
 const pick = <T extends string>(value: string | null, allowed: readonly T[]): T | "all" =>
   allowed.find((a) => a === value) ?? "all";
 
-/** Filtrele cerute prin adresă (`/browse?pos=verb&progress=learning&cefr=A`); valorile necunoscute sunt ignorate. */
+/**
+ * Filtrele cerute prin adresă (`/browse?pos=verb&progress=learning&cefr=A&irregular=presente`); valorile necunoscute
+ * sunt ignorate.
+ */
 export function filtersFromSearch(params: URLSearchParams): BrowseFilters {
   return {
     query: "",
     pos: pick(params.get("pos"), POS),
     progress: pick(params.get("progress"), PROGRESS_VALUES),
     cefr: pick(params.get("cefr"), LEVEL_GROUPS),
+    irregular: pick(params.get("irregular"), IRREGULAR_VALUES),
   };
 }
 
 /** Adresa Dicționarului cu filtrele date aplicate (cele lipsă sau „all” nu apar în adresă). */
-export function browseHref(filters: Partial<Pick<BrowseFilters, "pos" | "progress" | "cefr">>): string {
+export function browseHref(filters: Partial<Pick<BrowseFilters, "pos" | "progress" | "cefr" | "irregular">>): string {
   const params = new URLSearchParams();
   for (const [key, value] of Object.entries(filters)) if (value && value !== "all") params.set(key, value);
   const search = params.toString();

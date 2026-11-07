@@ -1,9 +1,11 @@
-import { useMemo, useRef, useState, type FormEvent } from "react";
+import { useLocation } from "react-router-dom";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { db } from "../../data/db/instance.ts";
-import { getSettings } from "../../data/db/repositories.ts";
+import { getSettings, saveGameScore } from "../../data/db/repositories.ts";
 import type { GrammarItem } from "../../domain/content/schema.ts";
 import type { AnswerResult } from "../../domain/grading/compareAnswer.ts";
 import { gradeGap, pickSession } from "../../domain/grammar/games.ts";
+import { typeScore } from "../../domain/grammar/progress.ts";
 import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { useT } from "../../i18n/index.ts";
 import { playFeedback } from "../../services/sound.ts";
@@ -12,6 +14,7 @@ import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
 import { ACCENTS } from "../conjugation/types.ts";
 import { GapText } from "./GapText.tsx";
+import { nextLessonNav, readLessonNav } from "./lessonNav.ts";
 import { useGrammarTopic } from "./useGrammarTopic.ts";
 
 /** Introducere text: se scrie cuvântul care lipsește din expresie; traducerea română e indiciul. */
@@ -20,14 +23,16 @@ export function TypePage() {
   const { id, topic, loading } = useGrammarTopic();
   if (loading) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
   if (!topic) {
-    return <SessionDone emoji="🤔" title={t("topics.notFound")} text="" backTo="/learn/games" backLabel={t("games.backToList")} />;
+    return <SessionDone emoji="🤔" title={t("topics.notFound")} text="" backTo="/learn/grammar" backLabel={t("games.backToList")} />;
   }
   return <TypeGame key={id} topicId={topic.id} items={topic.items} />;
 }
 
 function TypeGame({ topicId, items }: { topicId: string; items: GrammarItem[] }) {
   const { t } = useT();
-  const exitTo = `/learn/games/${topicId}`;
+  const exitTo = `/learn/grammar/${topicId}`;
+  // întoarcerea în lecție păstrează ecranul de plecare (ex. fișa cuvântului)
+  const exitState = nextLessonNav(readLessonNav(useLocation().state));
   const inputRef = useRef<HTMLInputElement>(null);
   const [attempt, setAttempt] = useState(0);
   const session = useMemo(
@@ -43,18 +48,29 @@ function TypeGame({ topicId, items }: { topicId: string; items: GrammarItem[] })
 
   const item = session[step];
 
+  // scorul se salvează o singură dată pe încercare, când se termină sesiunea (doar dacă e mai bun)
+  const saved = useRef(false);
+  const finished = session.length > 0 && step >= session.length;
+  useEffect(() => {
+    if (!finished || saved.current) return;
+    saved.current = true;
+    void saveGameScore(db, topicId, "type", typeScore(score, session.length), new Date());
+  }, [finished, score, session.length, topicId]);
+
   if (!item) {
     return (
       <SessionDone
         title={t("common.outOf", { n: score, total: session.length })}
         text={score === session.length ? t("type.allCorrect") : t("type.tryAgain")}
         backTo={exitTo}
+        backState={exitState}
         backLabel={t("flash.backToTopic")}
       >
         <button
           type="button"
           className={primaryButton}
           onClick={() => {
+            saved.current = false;
             setAttempt((a) => a + 1);
             setStep(0);
             setScore(0);
@@ -99,7 +115,7 @@ function TypeGame({ topicId, items }: { topicId: string; items: GrammarItem[] })
 
   return (
     <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
-      <StudyHeader index={step} total={session.length} label={t("games.progress")} exitTo={exitTo} />
+      <StudyHeader index={step} total={session.length} label={t("games.progress")} exitTo={exitTo} exitState={exitState} />
 
       <section className="flex flex-1 flex-col items-center justify-center gap-3 rounded-3xl bg-white p-6 text-center shadow-md dark:bg-slate-900">
         <p className="text-sm text-muted">{t("type.complete")}</p>

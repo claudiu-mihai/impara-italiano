@@ -1,4 +1,4 @@
-import type { Collection, RemoteItem, SyncItem, SyncRemote } from "./types.ts";
+import { MissingCollectionError, type Collection, type RemoteItem, type SyncItem, type SyncRemote } from "./types.ts";
 
 /**
  * Un „server” în memorie pentru teste: aceleași reguli ca serverul real (upsert după cheie, ora serverului
@@ -11,6 +11,7 @@ export class FakeRemote implements SyncRemote {
     review_logs: new Map(),
     settings: new Map(),
     reports: new Map(),
+    grammar_progress: new Map(),
   };
   private clock = 0;
   pushes = 0;
@@ -19,13 +20,20 @@ export class FakeRemote implements SyncRemote {
   beforePush?: (collection: Collection, items: SyncItem[]) => Promise<void> | void;
   /** Dacă este setat, următoarele apeluri aruncă această eroare (rețea căzută, sesiune expirată). */
   failWith?: Error;
+  /** Colecții pe care „serverul” nu le are încă (server neactualizat). */
+  readonly missing = new Set<Collection>();
+
+  private check(collection: Collection): void {
+    if (this.failWith) throw this.failWith;
+    if (this.missing.has(collection)) throw new MissingCollectionError(collection);
+  }
 
   private tick(): string {
     return `2026-10-21 10:00:00.${String(++this.clock).padStart(6, "0")}Z`;
   }
 
   async pull(collection: Collection, since: string | null): Promise<RemoteItem[]> {
-    if (this.failWith) throw this.failWith;
+    this.check(collection);
     this.pulls++;
     return [...this.store[collection].values()]
       .filter((item) => since === null || item.updated >= since)
@@ -34,7 +42,7 @@ export class FakeRemote implements SyncRemote {
   }
 
   async push(collection: Collection, items: SyncItem[]): Promise<void> {
-    if (this.failWith) throw this.failWith;
+    this.check(collection);
     await this.beforePush?.(collection, items);
     this.pushes++;
     for (const item of items) {
@@ -43,7 +51,7 @@ export class FakeRemote implements SyncRemote {
   }
 
   async deleteAll(collections: Collection[]): Promise<void> {
-    if (this.failWith) throw this.failWith;
+    for (const c of collections) this.check(c);
     for (const c of collections) this.store[c].clear();
   }
 

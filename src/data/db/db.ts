@@ -1,4 +1,5 @@
 import Dexie, { type EntityTable } from "dexie";
+import type { GrammarProgress } from "../../domain/grammar/progress.ts";
 import type { Settings } from "../../domain/settings.ts";
 import type { ReviewLogEntry, StoredCard } from "../../domain/srs/types.ts";
 import { newUid } from "../../domain/sync/serialize.ts";
@@ -32,6 +33,9 @@ export interface TombstoneRow {
   deletedAt: number;
 }
 
+/** Progresul la o temă de gramatică (lecție citită, cel mai bun scor), câte un rând pe temă. */
+export type GrammarProgressRow = GrammarProgress & SyncFlags & { topicId: string; updatedAt: number };
+
 export type ImparaDb = Dexie & {
   cards: EntityTable<CardRow, "cardId">;
   reviewLog: EntityTable<LogRow, "id">;
@@ -39,6 +43,7 @@ export type ImparaDb = Dexie & {
   reports: EntityTable<ReportRow, "id">;
   meta: EntityTable<MetaRow, "key">;
   tombstones: EntityTable<TombstoneRow, "cardId">;
+  grammarProgress: EntityTable<GrammarProgressRow, "topicId">;
 };
 
 export function createDb(name = "impara-italiano"): ImparaDb {
@@ -81,5 +86,15 @@ export function createDb(name = "impara-italiano"): ImparaDb {
         row.dirty = 1;
       });
     });
+  // v3 (Gramatică): progresul lecțiilor (citită, cel mai bun scor).
+  db.version(3).stores({
+    cards: "cardId, due, wordId, kind, state, dirty",
+    reviewLog: "++id, cardId, studyDay, uid, dirty",
+    settings: "key",
+    reports: "++id, wordId, uid, dirty",
+    meta: "key",
+    tombstones: "cardId",
+    grammarProgress: "topicId, dirty",
+  });
   return db;
 }

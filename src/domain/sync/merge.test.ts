@@ -1,8 +1,8 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, test } from "vitest";
 
 import { newStoredCard } from "../srs/scheduler.ts";
 import type { StoredCard } from "../srs/types.ts";
-import { firstLoginChoice, mergeCard, mergeSettingsTimes } from "./merge.ts";
+import { firstLoginChoice, mergeCard, mergeGrammarProgress, mergeSettingsTimes } from "./merge.ts";
 import { cardToData, logToData, newUid } from "./serialize.ts";
 
 const base = newStoredCard({ cardId: "vocab:w1:it-ro", wordId: "w1", kind: "vocab", variant: "it-ro" }, new Date(2026, 9, 1), "2026-10-01");
@@ -95,4 +95,19 @@ describe("serializare", () => {
     expect(newUid()).not.toBe(newUid());
     expect(newUid()).toMatch(/^[0-9a-f-]{36}$/);
   });
+});
+
+test("mergeGrammarProgress: cel mai mic readAt, scorul maxim, comutativ", () => {
+  const a = { readAt: 200, best: { type: 60 } };
+  const b = { readAt: 100, best: { type: 90, match: 50 } };
+  expect(mergeGrammarProgress(a, b)).toEqual({ readAt: 100, best: { type: 90, match: 50 } });
+  expect(mergeGrammarProgress(b, a)).toEqual(mergeGrammarProgress(a, b));
+  expect(mergeGrammarProgress({ best: {} }, { best: {} })).toEqual({ best: {} });
+  expect(mergeGrammarProgress({ readAt: 7, best: {} }, { best: { match: 10 } })).toEqual({ readAt: 7, best: { match: 10 } });
+});
+
+test("mergeGrammarProgress păstrează scorurile jocurilor necunoscute (din versiuni viitoare), tot cu maximul", () => {
+  const local = { best: { type: 90 } };
+  const remote = { best: { type: 50, puzzle: 80 } };
+  expect(mergeGrammarProgress(local, remote)).toEqual({ best: { type: 90, puzzle: 80 } });
 });

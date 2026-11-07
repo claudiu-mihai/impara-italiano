@@ -144,6 +144,32 @@ export const grammarItemSchema = z
   })
   .strict();
 
+/**
+ * Un bloc din lecția unei teme de gramatică. Textele în română pot conține marcajele `[it]…[/it]` și `[b]…[/b]`
+ * (vezi `domain/grammar/markup.ts`), verificate la build.
+ */
+export const lessonBlockSchema = z.discriminatedUnion("type", [
+  z.object({ type: z.literal("text"), ro: text }).strict(),
+  z
+    .object({
+      type: z.literal("table"),
+      caption: text.optional(),
+      head: z.array(z.string()).min(1),
+      rows: z.array(z.array(z.string())).min(1),
+      /** Coloanele în italiană (de la 0). Implicit: toate, mai puțin prima. */
+      itColumns: z.array(z.number().int().nonnegative()).optional(),
+    })
+    .strict()
+    .refine((t) => t.rows.every((row) => row.length === t.head.length), "fiecare rând trebuie să aibă tot atâtea celule cât antetul"),
+  z
+    .object({
+      type: z.literal("examples"),
+      items: z.array(z.object({ it: text, ro: text, note: text.optional() }).strict()).min(1),
+    })
+    .strict(),
+  z.object({ type: z.literal("trap"), ro: text }).strict(),
+]);
+
 export const grammarTopicSchema = z
   .object({
     id: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, "id invalid (ex. articoli)"),
@@ -151,6 +177,12 @@ export const grammarTopicSchema = z
     order: z.number().int().positive(),
     title: text,
     level: z.enum(LEVELS),
+    /** Lecția: explicații, tabele, exemple și capcane, afișate înaintea exercițiilor. */
+    lesson: z
+      .array(lessonBlockSchema)
+      .min(3)
+      .max(20)
+      .refine((blocks) => blocks.some((b) => b.type === "examples"), "lecția trebuie să conțină cel puțin un bloc examples"),
     rules: z.array(text).min(1).max(4),
     // cel puțin o sesiune întreagă (10), ca runda să nu repete aceleași exemple
     items: z.array(grammarItemSchema).min(10),
@@ -197,5 +229,6 @@ export type Localized = z.infer<typeof localized>;
 export type Sentence = z.infer<typeof sentenceSchema>;
 export type GrammarItem = z.infer<typeof grammarItemSchema>;
 export type GrammarTopic = z.infer<typeof grammarTopicSchema>;
+export type LessonBlock = z.infer<typeof lessonBlockSchema>;
 export type Conjugations = z.infer<typeof conjugationsSchema>;
 export type ContentMeta = z.infer<typeof metaSchema>;

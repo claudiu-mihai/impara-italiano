@@ -53,6 +53,14 @@ export async function loadGrammar(): Promise<GrammarTopic[]> {
   return module.default as unknown as GrammarTopic[];
 }
 
+let irregularCache: Promise<ReadonlySet<string>> | undefined;
+
+/** Verbele neregulate la prezent (pentru linkurile către lecții), încărcate doar de ecranele care le folosesc. */
+export function loadPresenteIrregular(): Promise<ReadonlySet<string>> {
+  irregularCache ??= import("../generated/presenteIrregular.json").then((module) => new Set(module.default as string[]));
+  return irregularCache;
+}
+
 let detailsCache: Promise<Map<string, Word>> | undefined;
 
 /** Cuvintele complete (exemple, note, forme), încărcate doar de ecranele care le afișează. */

@@ -1,3 +1,4 @@
+import type { GrammarProgress } from "../grammar/progress.ts";
 import type { StoredCard } from "../srs/types.ts";
 
 /** Starea locală a unui card: cardul (dacă există) și momentul ștergerii marcate (dacă a fost șters). */
@@ -60,4 +61,23 @@ export function mergeSettingsTimes(localAt: number | undefined, remoteAt: number
  */
 export function firstLoginChoice(localHasProgress: boolean, remoteHasProgress: boolean): "merge" | "ask" {
   return localHasProgress && remoteHasProgress ? "ask" : "merge";
+}
+
+const definedMin = (a?: number, b?: number) => (a === undefined ? b : b === undefined ? a : Math.min(a, b));
+const definedMax = (a?: number, b?: number) => (a === undefined ? b : b === undefined ? a : Math.max(a, b));
+
+/**
+ * Combină progresul la gramatică de pe două dispozitive: lecția e citită dacă e citită oriunde (prima dată rămâne),
+ * iar scorul păstrat este cel mai mare. Rezultatul nu depinde de ordine, deci nu există conflicte.
+ */
+export function mergeGrammarProgress(a: GrammarProgress, b: GrammarProgress): GrammarProgress {
+  const out: GrammarProgress = { best: {} };
+  const readAt = definedMin(a.readAt, b.readAt);
+  if (readAt !== undefined) out.readAt = readAt;
+  // toate jocurile, inclusiv cele necunoscute acestei versiuni
+  for (const game of new Set([...Object.keys(a.best), ...Object.keys(b.best)])) {
+    const value = definedMax(a.best[game], b.best[game]);
+    if (value !== undefined) out.best[game] = value;
+  }
+  return out;
 }

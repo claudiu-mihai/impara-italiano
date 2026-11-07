@@ -11,26 +11,25 @@ const GRAMMAR: GrammarTopic[] = JSON.parse(readFileSync("src/data/generated/gram
 const articoli = GRAMMAR.find((t) => t.id === "articoli")!;
 const essere = GRAMMAR.find((t) => t.id === "essere")!;
 
-test("Învață → Jocuri: temele în ordinea de învățare, apoi cele 3 jocuri", async ({ page }) => {
+test("Învață → Gramatică: temele în ordinea de învățare, apoi cele 3 jocuri", async ({ page }) => {
   await page.goto("/learn");
-  await page.getByRole("link", { name: /Jocuri/ }).click();
-  await expect(page.getByRole("heading", { name: "Jocuri", level: 1 })).toBeVisible();
+  await page.getByRole("link", { name: /Gramatică/ }).click();
+  await expect(page.getByRole("heading", { name: "Gramatică", level: 1 })).toBeVisible();
 
   const titles = await page.getByRole("list", { name: "Temele de gramatică" }).getByRole("link").allInnerTexts();
   expect(titles.slice(0, 3).map((t) => t.replace(/\s+/g, " "))).toEqual([
     expect.stringContaining("Articolul hotărât și nehotărât"),
-    expect.stringContaining("Verbul „a fi”"),
-    expect.stringContaining("Verbul „a avea”"),
+    expect.stringContaining("Genul și pluralul substantivelor"),
+    expect.stringContaining("Acordul adjectivului"),
   ]);
+  await expect(page.getByRole("list", { name: "Temele de gramatică" }).getByRole("link")).toHaveCount(12);
 
   await page.getByRole("link", { name: /Articolul hotărât/ }).click();
+  await expect(page).toHaveURL(/\/learn\/grammar\/articoli$/);
   await expect(page.getByRole("heading", { name: articoli.title, level: 1 })).toBeVisible();
   await expect(page.getByRole("heading", { name: "De reținut" })).toBeVisible();
-  // implicit restrâns; se extinde la atingere
+  // pe pagina temei, rezumatul e deschis implicit; se poate restrânge
   const rules = page.getByRole("button", { name: "De reținut" });
-  await expect(rules).toHaveAttribute("aria-expanded", "false");
-  await expect(page.getByText(/Articolul hotărât arată ceva anume/)).toBeHidden();
-  await rules.click();
   await expect(rules).toHaveAttribute("aria-expanded", "true");
   await expect(page.getByText(/Articolul hotărât arată ceva anume/)).toBeVisible();
   await rules.click();
@@ -46,7 +45,7 @@ test("Învață → Jocuri: temele în ordinea de învățare, apoi cele 3 jocur
 });
 
 test("Cartonașe: răspunsul apare la întoarcere, „Mai exersez” readuce cartonașul", async ({ page }) => {
-  await page.goto("/learn/games/articoli/cards");
+  await page.goto("/learn/grammar/articoli/cards");
   const card = page.getByTestId("grammar-card");
   await expect(card).toBeVisible();
   await expect(page.getByTestId("grammar-answer")).toHaveCount(0);
@@ -66,7 +65,7 @@ test("Cartonașe: răspunsul apare la întoarcere, „Mai exersez” readuce car
 });
 
 test("Potrivire: 2 runde de câte 5 perechi, o greșeală nu blochează jocul", async ({ page }) => {
-  await page.goto("/learn/games/essere/match");
+  await page.goto("/learn/grammar/essere/match");
   await expect(page.getByRole("heading", { name: "Potrivește perechile" })).toBeVisible();
 
   for (let round = 0; round < 2; round++) {
@@ -80,6 +79,8 @@ test("Potrivire: 2 runde de câte 5 perechi, o greșeală nu blochează jocul", 
     await left.first().click();
     await page.getByRole("group", { name: "Română" }).getByRole("button", { name: wrong, exact: true }).click();
     await expect(left.first()).toBeEnabled();
+    // perechea greșită rămâne marcată 600 ms, timp în care atingerile se ignoră: se așteaptă deselectarea
+    await expect(left.first()).toHaveAttribute("aria-pressed", "false");
 
     for (const phrase of phrases) {
       const entry = essere.items.find((i) => i.it === phrase)!;
@@ -94,7 +95,7 @@ test("Potrivire: 2 runde de câte 5 perechi, o greșeală nu blochează jocul", 
 });
 
 test("Introducere text: răspunsul corect, cel greșit și „e” în loc de „è”", async ({ page }) => {
-  await page.goto("/learn/games/essere/type");
+  await page.goto("/learn/grammar/essere/type");
   const prompt = page.getByTestId("grammar-prompt");
   const input = page.getByRole("textbox", { name: "Cuvântul care lipsește" });
   await expect(prompt).toBeVisible();
@@ -123,4 +124,49 @@ test("Introducere text: răspunsul corect, cel greșit și „e” în loc de �
     await page.getByRole("button", { name: /Continuă|Vezi rezultatul/ }).click();
   }
   await expect(page.getByRole("heading", { name: new RegExp(`^${correct} din 10$`) })).toBeVisible();
+});
+
+test("rutele vechi /learn/games duc la /learn/grammar", async ({ page }) => {
+  await page.goto("/learn/games/articoli/type");
+  await expect(page).toHaveURL(/\/learn\/grammar\/articoli\/type$/);
+  await expect(page.getByRole("textbox")).toBeVisible();
+  await page.goto("/learn/games");
+  await expect(page).toHaveURL(/\/learn\/grammar$/);
+});
+
+test("lecția: tabel și capcană pentru români", async ({ page }) => {
+  await page.goto("/learn/grammar/articoli");
+  await expect(page.getByRole("table").first()).toBeVisible();
+  await expect(page.getByText("Capcană pentru români").first()).toBeVisible();
+});
+
+test("Am citit + scorul la Introducere text apar în listă", async ({ page }) => {
+  await page.goto("/learn/grammar/articoli");
+  await page.getByRole("button", { name: "Am citit" }).click();
+  // după citire nu mai e un buton (nu se poate debifa), ci un text de stare
+  await expect(page.getByRole("button", { name: "Am citit" })).toHaveCount(0);
+  await expect(page.getByRole("status").filter({ hasText: "Citită" })).toBeVisible();
+
+  await page.getByRole("link", { name: /Introducere text/ }).click();
+  const prompt = page.getByTestId("grammar-prompt");
+  const input = page.getByRole("textbox", { name: "Cuvântul care lipsește" });
+  for (let step = 0; step < 10; step++) {
+    const ro = (await prompt.locator("xpath=following-sibling::p").textContent())!;
+    await input.fill(articoli.items.find((i) => i.ro === ro)!.gap);
+    await page.getByRole("button", { name: "Verifică" }).click();
+    await page.getByRole("button", { name: /Continuă|Vezi rezultatul/ }).click();
+  }
+  await expect(page.getByRole("heading", { name: "10 din 10" })).toBeVisible();
+
+  await page.getByRole("link", { name: "Înapoi la temă" }).click();
+  await expect(page.getByRole("link", { name: /Introducere text/ })).toContainText("Cel mai bun: 100%");
+
+  await page.getByRole("link", { name: "Înapoi la Gramatică" }).click();
+  const row = page.getByRole("list", { name: "Temele de gramatică" }).getByRole("link", { name: /Articolul/ });
+  await expect(row.getByLabel("Citită")).toBeVisible();
+  await expect(row).toContainText("100%");
+
+  // după reîncărcare progresul rămâne
+  await page.reload();
+  await expect(row).toContainText("100%");
 });

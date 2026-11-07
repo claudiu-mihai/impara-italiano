@@ -1,7 +1,7 @@
 import { ClientResponseError, type default as PocketBase } from "pocketbase";
 import { t } from "../../i18n/standalone.ts";
 import { withRetry } from "./retry.ts";
-import type { Collection, RemoteItem, SyncItem, SyncRemote } from "./types.ts";
+import { MissingCollectionError, type Collection, type RemoteItem, type SyncItem, type SyncRemote } from "./types.ts";
 
 /**
  * Id-ul înregistrării este derivat din (utilizator, colecție, cheie): 15 caractere hexazecimale, forma pe care
@@ -37,6 +37,8 @@ function toItem(collection: Collection, row: Row): RemoteItem {
       return { key: row.cardId as string, data: row.data, updatedAt: row.updatedAt as number, deleted: row.deleted === true, updated: row.updated };
     case "settings":
       return { key: "app", data: row.data, updatedAt: row.updatedAt as number, updated: row.updated };
+    case "grammar_progress":
+      return { key: row.topicId as string, data: row.data, updatedAt: row.updatedAt as number, updated: row.updated };
     default:
       return { key: row.uid as string, data: row.data, updated: row.updated };
   }
@@ -48,10 +50,14 @@ function toFields(collection: Collection, item: SyncItem): Record<string, unknow
       return { cardId: item.key, data: item.data, updatedAt: item.updatedAt ?? 0, deleted: item.deleted === true };
     case "settings":
       return { data: item.data, updatedAt: item.updatedAt ?? 0 };
+    case "grammar_progress":
+      return { topicId: item.key, data: item.data, updatedAt: item.updatedAt ?? 0 };
     default:
       return { uid: item.key, data: item.data };
   }
 }
+
+const is404 = (error: unknown) => error instanceof ClientResponseError && error.status === 404;
 
 /** Serverul real: PocketBase, cu regulile de acces „fiecare vede doar înregistrările lui”. */
 export class PocketBaseRemote implements SyncRemote {
@@ -63,15 +69,33 @@ export class PocketBaseRemote implements SyncRemote {
     this.userId = userId;
   }
 
+  /**
+   * O eroare care vine dintr-o colecție lipsă devine MissingCollectionError. Citirea dă direct 404; trimiterea în lot
+   * dă doar un 400 generic, așa că atunci se verifică printr-o citire scurtă dacă lipsește colecția.
+   */
+  private async explain(collection: Collection, error: unknown): Promise<never> {
+    if (is404(error)) throw new MissingCollectionError(collection);
+    try {
+      await this.pb.collection(collection).getList(1, 1, { fields: "id" });
+    } catch (probe) {
+      if (is404(probe)) throw new MissingCollectionError(collection);
+    }
+    throw error;
+  }
+
   async pull(collection: Collection, since: string | null): Promise<RemoteItem[]> {
-    const rows = await retry(() =>
-      this.pb.collection(collection).getFullList<Row>({
-        batch: 500,
-        sort: "updated,id",
-        filter: since ? this.pb.filter("updated >= {:since}", { since }) : undefined,
-      }),
-    );
-    return rows.map((row) => toItem(collection, row));
+    try {
+      const rows = await retry(() =>
+        this.pb.collection(collection).getFullList<Row>({
+          batch: 500,
+          sort: "updated,id",
+          filter: since ? this.pb.filter("updated >= {:since}", { since }) : undefined,
+        }),
+      );
+      return rows.map((row) => toItem(collection, row));
+    } catch (error) {
+      return this.explain(collection, error);
+    }
   }
 
   async push(collection: Collection, items: SyncItem[]): Promise<void> {
@@ -84,12 +108,18 @@ export class PocketBaseRemote implements SyncRemote {
         ...toFields(collection, item),
       });
     }
-    await retry(() => batch.send());
+    try {
+      await retry(() => batch.send());
+    } catch (error) {
+      await this.explain(collection, error);
+    }
   }
 
   async deleteAll(collections: Collection[]): Promise<void> {
     for (const collection of collections) {
-      const rows = await retry(() => this.pb.collection(collection).getFullList<{ id: string }>({ batch: 500, fields: "id" }));
+      const rows = await retry(() =>
+        this.pb.collection(collection).getFullList<{ id: string }>({ batch: 500, fields: "id" }),
+      ).catch((error: unknown) => this.explain(collection, error));
       for (let i = 0; i < rows.length; i += DELETE_CHUNK) {
         const batch = this.pb.createBatch();
         for (const row of rows.slice(i, i + DELETE_CHUNK)) batch.collection(collection).delete(row.id);

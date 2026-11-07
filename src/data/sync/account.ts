@@ -195,8 +195,16 @@ export async function completeSignIn(db: ImparaDb, mode: "merge" | "account-only
 
 /** Șterge progresul, setările și marcajele de sincronizare de pe telefon (backup-ul făcut rămâne înregistrat). */
 export async function wipeLocalData(db: ImparaDb): Promise<void> {
-  await db.transaction("rw", [db.cards, db.reviewLog, db.reports, db.settings, db.tombstones, db.meta], async () => {
-    await Promise.all([db.cards.clear(), db.reviewLog.clear(), db.reports.clear(), db.settings.clear(), db.tombstones.clear()]);
+  const tables = [db.cards, db.reviewLog, db.reports, db.settings, db.tombstones, db.grammarProgress, db.meta];
+  await db.transaction("rw", tables, async () => {
+    await Promise.all([
+      db.cards.clear(),
+      db.reviewLog.clear(),
+      db.reports.clear(),
+      db.settings.clear(),
+      db.tombstones.clear(),
+      db.grammarProgress.clear(),
+    ]);
     await db.meta.where("key").notEqual("lastExportAt").delete();
   });
 }

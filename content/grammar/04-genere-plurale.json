@@ -1,0 +1,82 @@
+{
+  "id": "genere-plurale",
+  "order": 2,
+  "title": "Genul și pluralul substantivelor",
+  "level": "A1",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "Ca în română, substantivele italiene sunt [b]masculine[/b] sau [b]feminine[/b]. De obicei terminația te ajută: [it]-o[/it] e masculin ([it]il libro[/it]), [it]-a[/it] e feminin ([it]la casa[/it]). Cele în [it]-e[/it] pot fi și una, și alta: [it]il cane[/it], [it]la chiave[/it]."
+    },
+    {
+      "type": "table",
+      "caption": "Pluralul regulat",
+      "head": ["singular", "plural", "regula"],
+      "itColumns": [0, 1],
+      "rows": [
+        ["il libro", "i libri", "-o → -i"],
+        ["la casa", "le case", "-a → -e"],
+        ["il cane", "i cani", "-e → -i"],
+        ["la chiave", "le chiavi", "-e → -i"]
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "Cuvintele în [it]-ca[/it] și [it]-ga[/it] păstrează sunetul tare cu un [it]h[/it]: [it]l'amica → le amiche[/it]. La masculin depinde de cuvânt: [it]il gioco → i giochi[/it], dar [it]l'amico → gli amici[/it]."
+    },
+    {
+      "type": "table",
+      "caption": "Nu se schimbă la plural",
+      "head": ["singular", "plural", "de ce"],
+      "itColumns": [0, 1],
+      "rows": [
+        ["la città", "le città", "accent pe ultima silabă"],
+        ["il caffè", "i caffè", "accent pe ultima silabă"],
+        ["il film", "i film", "cuvânt străin"],
+        ["la foto", "le foto", "prescurtare (fotografia)"]
+      ]
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "Mi fanno male le mani.", "ro": "Mă dor mâinile.", "note": "[it]la mano[/it] e feminin, deși se termină în -o" },
+        { "it": "Gli uomini parlano.", "ro": "Bărbații vorbesc.", "note": "[it]l'uomo → gli uomini[/it], neregulat" },
+        { "it": "Ci sono molti problemi.", "ro": "Sunt multe probleme.", "note": "[it]il problema[/it] e masculin, deși se termină în -a" },
+        { "it": "Le uova sono fresche.", "ro": "Ouăle sunt proaspete.", "note": "[it]l'uovo[/it] e masculin, dar la plural devine [it]le uova[/it]" },
+        { "it": "Ho visto due film.", "ro": "Am văzut două filme.", "note": "cuvintele străine nu se schimbă" }
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "Genul nu coincide mereu cu româna: [it]il giorno[/it] (ziua) și [it]il fiore[/it] (floarea) sunt masculine, iar [it]la gente[/it] (oamenii) e feminin și [b]singular[/b]: [it]La gente è simpatica.[/it]"
+    }
+  ],
+  "rules": [
+    "Pluralul: -o → -i (libro → libri), -a → -e (casa → case), -e → -i (cane → cani, chiave → chiavi).",
+    "Cuvintele cu accent pe ultima silabă și cele străine nu se schimbă: la città / le città, il film / i film.",
+    "Excepții frecvente: la mano → le mani, l'uomo → gli uomini, l'uovo → le uova, il problema → i problemi."
+  ],
+  "items": [
+    { "id": "gen-01", "it": "Ho due libri.", "gap": "libri", "ro": "Am două cărți.", "note": "libro → libri (-o → -i)" },
+    { "id": "gen-02", "it": "Le case sono grandi.", "gap": "case", "ro": "Casele sunt mari.", "note": "casa → case (-a → -e)" },
+    { "id": "gen-03", "it": "Ho tre fratelli.", "gap": "fratelli", "ro": "Am trei frați.", "note": "fratello → fratelli" },
+    { "id": "gen-04", "it": "Le ragazze sono qui.", "gap": "ragazze", "ro": "Fetele sunt aici.", "note": "ragazza → ragazze" },
+    { "id": "gen-05", "it": "I cani dormono.", "gap": "cani", "ro": "Câinii dorm.", "note": "cane → cani (-e → -i)" },
+    { "id": "gen-06", "it": "Le chiavi sono sul tavolo.", "gap": "chiavi", "ro": "Cheile sunt pe masă.", "note": "chiave → chiavi: feminin, tot -e → -i" },
+    { "id": "gen-07", "it": "Mi fanno male le mani.", "gap": "mani", "ro": "Mă dor mâinile.", "note": "la mano → le mani (excepție)" },
+    { "id": "gen-08", "it": "Gli uomini parlano.", "gap": "uomini", "ro": "Bărbații vorbesc.", "note": "l'uomo → gli uomini (neregulat)" },
+    { "id": "gen-09", "it": "Le città italiane sono belle.", "gap": "città", "ro": "Orașele italiene sunt frumoase.", "note": "accent final: nu se schimbă" },
+    { "id": "gen-10", "it": "Prendo due caffè.", "gap": "caffè", "ro": "Iau două cafele.", "note": "accent final: nu se schimbă" },
+    { "id": "gen-11", "it": "Ci sono molti problemi.", "gap": "problemi", "ro": "Sunt multe probleme.", "note": "il problema → i problemi (masculin în -a)" },
+    { "id": "gen-12", "it": "Le foto sono belle.", "gap": "foto", "ro": "Fotografiile sunt frumoase.", "note": "prescurtare: nu se schimbă" },
+    { "id": "gen-13", "it": "Ho due amiche.", "gap": "amiche", "ro": "Am două prietene.", "note": "amica → amiche: h păstrează sunetul k" },
+    { "id": "gen-14", "it": "I miei amici sono simpatici.", "gap": "amici", "ro": "Prietenii mei sunt simpatici.", "note": "amico → amici" },
+    { "id": "gen-15", "it": "Compro tre bottiglie.", "gap": "bottiglie", "ro": "Cumpăr trei sticle.", "note": "bottiglia → bottiglie" },
+    { "id": "gen-16", "it": "Gli studenti studiano.", "gap": "studenti", "ro": "Studenții învață.", "note": "studente → studenti" },
+    { "id": "gen-17", "it": "Le notti sono fredde.", "gap": "notti", "ro": "Nopțile sunt reci.", "note": "notte → notti" },
+    { "id": "gen-18", "it": "Ho visto due film.", "gap": "film", "ro": "Am văzut două filme.", "note": "cuvânt străin: nu se schimbă" },
+    { "id": "gen-19", "it": "Ci sono tanti turisti.", "gap": "turisti", "ro": "Sunt mulți turiști.", "note": "il turista → i turisti (masculin în -a)" },
+    { "id": "gen-20", "it": "Le uova sono fresche.", "gap": "uova", "ro": "Ouăle sunt proaspete.", "note": "l'uovo → le uova (excepție)" },
+    { "id": "gen-21", "it": "I giorni passano.", "gap": "giorni", "ro": "Zilele trec.", "note": "giorno → giorni: masculin în italiană" }
+  ]
+}

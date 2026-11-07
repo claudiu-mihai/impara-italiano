@@ -1,0 +1,74 @@
+{
+  "id": "ce-ci-sono",
+  "order": 9,
+  "title": "C'è și ci sono",
+  "level": "A1",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "Când spui că ceva [b]există[/b] sau [b]se află[/b] undeva, folosești [it]c'è[/it] (cu singular) și [it]ci sono[/it] (cu plural): [it]C'è un bar qui vicino.[/it] = Este un bar aici aproape."
+    },
+    {
+      "type": "table",
+      "caption": "c'è și ci sono",
+      "head": ["", "italiană", "română"],
+      "itColumns": [1],
+      "rows": [
+        ["singular", "c'è un problema", "este o problemă"],
+        ["plural", "ci sono due problemi", "sunt două probleme"],
+        ["negativ", "non c'è tempo", "nu este timp"],
+        ["întrebare", "c'è Marco?", "e Marco aici?"]
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "Negația și întrebarea merg ca de obicei: [it]Non c'è latte.[/it] = Nu este lapte. [it]Ci sono posti liberi?[/it] = Sunt locuri libere?"
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "C'è un bar qui vicino?", "ro": "E vreun bar pe aici?" },
+        { "it": "Ci sono molti turisti.", "ro": "Sunt mulți turiști." },
+        { "it": "Che cosa c'è?", "ro": "Ce s-a întâmplat?", "note": "literal: „ce este?”, o întrebare foarte des folosită" },
+        { "it": "C'è Marco?", "ro": "E Marco acasă?", "note": "la telefon sau la ușă" },
+        { "it": "Non c'è problema.", "ro": "Nicio problemă." }
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "„Este” care arată că ceva [b]există[/b] nu se traduce cu [it]è[/it]: „Este o farmacie aici?” = [it]C'è una farmacia qui?[/it], nu „È una farmacia qui?”. [it]È[/it] descrie: [it]La farmacia è chiusa.[/it] = Farmacia este închisă."
+    },
+    {
+      "type": "trap",
+      "ro": "[it]La gente[/it] e singular, deci [it]c'è molta gente[/it] (sunt mulți oameni), nu „ci sono molta gente”."
+    }
+  ],
+  "rules": [
+    "c'è + singular: C'è un bar. ci sono + plural: Ci sono due bar.",
+    "Negativ: non c'è, non ci sono. Întrebare: C'è…? Ci sono…?",
+    "„Există / se află” = c'è; „este” care descrie = è (La farmacia è chiusa)."
+  ],
+  "items": [
+    { "id": "cec-01", "it": "C'è un bar qui vicino.", "gap": "C'è", "ro": "Este un bar aici aproape.", "note": "singular: c'è" },
+    { "id": "cec-02", "it": "Ci sono molti turisti.", "gap": "Ci", "ro": "Sunt mulți turiști.", "note": "plural: ci sono" },
+    { "id": "cec-03", "it": "Non c'è latte.", "gap": "c'è", "ro": "Nu este lapte.", "note": "non c'è" },
+    { "id": "cec-04", "it": "Non ci sono posti.", "gap": "ci", "ro": "Nu sunt locuri.", "note": "non ci sono" },
+    { "id": "cec-05", "it": "C'è Marco?", "gap": "C'è", "ro": "E Marco acasă?", "note": "c'è + persoană: e aici?" },
+    { "id": "cec-06", "it": "Che cosa c'è?", "gap": "c'è", "ro": "Ce s-a întâmplat?", "note": "expresie: che cosa c'è?" },
+    { "id": "cec-07", "it": "Ci sono domande?", "gap": "Ci", "ro": "Sunt întrebări?", "note": "plural: ci sono" },
+    { "id": "cec-08", "it": "In camera c'è un letto.", "gap": "c'è", "ro": "În cameră este un pat.", "note": "singular: c'è" },
+    { "id": "cec-09", "it": "In frigorifero ci sono due uova.", "gap": "ci", "ro": "În frigider sunt două ouă.", "note": "plural: ci sono" },
+    { "id": "cec-10", "it": "Oggi c'è il sole.", "gap": "c'è", "ro": "Azi e soare.", "note": "vremea: c'è il sole" },
+    { "id": "cec-11", "it": "C'è molta gente.", "gap": "C'è", "ro": "Sunt mulți oameni.", "note": "gente e singular: c'è" },
+    { "id": "cec-12", "it": "Qui ci sono tre farmacie.", "gap": "ci", "ro": "Aici sunt trei farmacii.", "note": "plural: ci sono" },
+    { "id": "cec-13", "it": "Non c'è problema.", "gap": "c'è", "ro": "Nicio problemă.", "note": "expresie: non c'è problema" },
+    { "id": "cec-14", "it": "La farmacia è chiusa.", "gap": "è", "ro": "Farmacia este închisă.", "note": "descrie: è, nu c'è" },
+    { "id": "cec-15", "it": "C'è una farmacia qui?", "gap": "C'è", "ro": "Este o farmacie aici?", "note": "există?: c'è" },
+    { "id": "cec-16", "it": "Il bar è qui vicino.", "gap": "è", "ro": "Barul este aici aproape.", "note": "un lucru cunoscut și unde se află: è" },
+    { "id": "cec-17", "it": "Ci sono due bagni.", "gap": "Ci", "ro": "Sunt două băi.", "note": "plural: ci sono" },
+    { "id": "cec-18", "it": "C'è un errore.", "gap": "C'è", "ro": "Este o greșeală.", "note": "singular: c'è" },
+    { "id": "cec-19", "it": "Stasera c'è una festa.", "gap": "c'è", "ro": "Diseară e o petrecere.", "note": "singular: c'è" },
+    { "id": "cec-20", "it": "Dove sono le chiavi?", "gap": "sono", "ro": "Unde sunt cheile?", "note": "lucruri cunoscute: sono, nu ci sono" },
+    { "id": "cec-21", "it": "Non c'è nessuno.", "gap": "c'è", "ro": "Nu e nimeni.", "note": "non c'è nessuno" }
+  ]
+}

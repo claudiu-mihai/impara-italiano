@@ -14,7 +14,13 @@ export default defineConfig({
       origins: [{ origin: "http://localhost:4173", localStorage: [{ name: "impara.splash", value: "off" }] }],
     },
   },
-  projects: [{ name: "mobile-chrome", use: { ...devices["Pixel 7"] } }],
+  projects: [
+    // „perf” rulează după toate celelalte (teardown rulează și dacă unele teste au picat)
+    { name: "mobile-chrome", use: { ...devices["Pixel 7"] }, testIgnore: /perf\.spec\.ts/, teardown: "perf" },
+    // măsurătorile de viteză rulează singure: în paralel, procesorul ocupat de alte teste le încetinea și pica
+    // limita de 1500 ms fără ca aplicația să fie mai lentă
+    { name: "perf", use: { ...devices["Pixel 7"] }, testMatch: /perf\.spec\.ts/, fullyParallel: false },
+  ],
   webServer: [
     // serverul de sincronizare (PocketBase), curat la fiecare rulare; /api/ al aplicației ajunge aici prin proxy-ul Vite
     {

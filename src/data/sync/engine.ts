@@ -1,16 +1,17 @@
-import { mergeCard, mergeSettingsTimes } from "../../domain/sync/merge.ts";
+import type { GrammarProgress } from "../../domain/grammar/progress.ts";
+import { mergeCard, mergeGrammarProgress, mergeSettingsTimes } from "../../domain/sync/merge.ts";
 import { cardToData, logToData, newUid } from "../../domain/sync/serialize.ts";
 import type { StoredCard } from "../../domain/srs/types.ts";
-import { cardSchema, reportSchema, reviewLogSchema, settingsSchema } from "../backup/backup.ts";
+import { cardSchema, grammarProgressSchema, reportSchema, reviewLogSchema, settingsSchema } from "../backup/backup.ts";
 import type { ImparaDb, LogRow, ReportRow } from "../db/db.ts";
 import { getSettings } from "../db/repositories.ts";
 import { getMeta } from "./pending.ts";
-import type { Collection, RemoteItem, SyncItem, SyncRemote, SyncReport } from "./types.ts";
+import { MissingCollectionError, type Collection, type RemoteItem, type SyncItem, type SyncRemote, type SyncReport } from "./types.ts";
 
 /** Câte înregistrări pleacă într-o singură cerere (serverul acceptă 100 într-un lot). */
 export const PUSH_CHUNK = 50;
 
-const PULL_ORDER: Collection[] = ["settings", "cards", "review_logs", "reports"];
+const PULL_ORDER: Collection[] = ["settings", "cards", "review_logs", "reports", "grammar_progress"];
 
 const logDataSchema = reviewLogSchema.omit({ id: true });
 const reportDataSchema = reportSchema.omit({ id: true });
@@ -31,6 +32,7 @@ export async function runSync(db: ImparaDb, remote: SyncRemote): Promise<SyncRep
   if (replace) {
     // import sau resetare cu cont: progresul din cont devine exact cel local
     await remote.deleteAll(["cards", "review_logs", "reports"]);
+    await skipIfMissing(() => remote.deleteAll(["grammar_progress"]));
     const pulled = (await getMeta<Pulled>(db, "syncPulled")) ?? {};
     await db.meta.put({ key: "syncPulled", value: { settings: pulled.settings } satisfies Pulled });
   } else {
@@ -43,21 +45,40 @@ export async function runSync(db: ImparaDb, remote: SyncRemote): Promise<SyncRep
   return report;
 }
 
+/**
+ * Colecțiile adăugate după prima versiune (ex. grammar_progress) pot lipsi pe un server încă neactualizat:
+ * atunci se sar, în loc să oprească sincronizarea pentru tot restul. Întoarce `undefined` dacă lipsește.
+ */
+async function skipIfMissing<T>(run: () => Promise<T>): Promise<{ value: T } | undefined> {
+  try {
+    return { value: await run() };
+  } catch (error) {
+    if (error instanceof MissingCollectionError) return undefined;
+    throw error;
+  }
+}
+
 // ---------------------------------------------------------------------------------------------------------------
 // Descărcare
 
 async function pullAll(db: ImparaDb, remote: SyncRemote, report: SyncReport): Promise<void> {
   const pulled: Pulled = { ...((await getMeta<Pulled>(db, "syncPulled")) ?? {}) };
   for (const collection of PULL_ORDER) {
-    const items = await remote.pull(collection, pulled[collection] ?? null);
-    if (items.length === 0) continue;
-    await db.transaction("rw", [db.cards, db.reviewLog, db.reports, db.settings, db.tombstones, db.meta], async () => {
+    const items =
+      collection === "grammar_progress"
+        ? (await skipIfMissing(() => remote.pull(collection, pulled[collection] ?? null)))?.value
+        : await remote.pull(collection, pulled[collection] ?? null);
+    if (!items || items.length === 0) continue;
+    const tables = [db.cards, db.reviewLog, db.reports, db.settings, db.tombstones, db.grammarProgress, db.meta];
+    await db.transaction("rw", tables, async () => {
       const result =
         collection === "cards"
           ? await applyCards(db, items)
           : collection === "settings"
             ? await applySettings(db, items)
-            : await applyAppendOnly(db, collection, items);
+            : collection === "grammar_progress"
+              ? await applyGrammarProgress(db, items)
+              : await applyAppendOnly(db, collection, items);
       report.pulled += result.changed;
       report.invalid += result.invalid;
       pulled[collection] = items.reduce((max, item) => (item.updated > max ? item.updated : max), items[0]!.updated);
@@ -133,6 +154,40 @@ async function applySettings(db: ImparaDb, items: RemoteItem[]): Promise<Applied
   return result;
 }
 
+const sameProgress = (a: GrammarProgress, b: GrammarProgress) =>
+  a.readAt === b.readAt &&
+  [...new Set([...Object.keys(a.best), ...Object.keys(b.best)])].every((game) => a.best[game] === b.best[game]);
+
+/**
+ * Progresul la gramatică se combină (citit oriunde, scorul maxim), deci nu există conflicte: rândul local primește
+ * ce aduce serverul în plus, iar dacă local avea ceva în plus, rândul se retrimite.
+ */
+async function applyGrammarProgress(db: ImparaDb, items: RemoteItem[]): Promise<Applied> {
+  const result: Applied = { changed: 0, invalid: 0 };
+  for (const item of items) {
+    const parsed = grammarProgressSchema.safeParse(item.data);
+    if (!parsed.success) {
+      result.invalid++;
+      continue;
+    }
+    const remoteProgress: GrammarProgress = parsed.data;
+    const local = await db.grammarProgress.get(item.key);
+    const merged = mergeGrammarProgress(local ?? { best: {} }, remoteProgress);
+    const localChanged = !local || !sameProgress(merged, local);
+    const remoteBehind = !sameProgress(merged, remoteProgress);
+    if (!localChanged && !remoteBehind) continue;
+    const updatedAt = localChanged ? Math.max(local?.updatedAt ?? 0, item.updatedAt ?? 0) : local!.updatedAt;
+    await db.grammarProgress.put({
+      topicId: item.key,
+      ...merged,
+      updatedAt,
+      ...(remoteBehind || local?.dirty ? { dirty: 1 as const } : {}),
+    });
+    if (localChanged) result.changed++;
+  }
+  return result;
+}
+
 /** Jurnalul și semnalările se doar adaugă: o intrare cu un `uid` deja cunoscut se ignoră. */
 async function applyAppendOnly(db: ImparaDb, collection: "review_logs" | "reports", items: RemoteItem[]): Promise<Applied> {
   const result: Applied = { changed: 0, invalid: 0 };
@@ -170,6 +225,33 @@ async function pushAll(db: ImparaDb, remote: SyncRemote, report: SyncReport): Pr
   await pushAppendOnly(db, remote, report, "review_logs");
   await pushAppendOnly(db, remote, report, "reports");
   await pushSettings(db, remote, report);
+  await pushGrammarProgress(db, remote, report);
+}
+
+async function pushGrammarProgress(db: ImparaDb, remote: SyncRemote, report: SyncReport): Promise<void> {
+  const rows = await db.grammarProgress.where("dirty").equals(1).toArray();
+  if (rows.length === 0) return;
+  const items: SyncItem[] = rows.map((row) => ({
+    key: row.topicId,
+    updatedAt: row.updatedAt,
+    data: row.readAt === undefined ? { best: row.best } : { readAt: row.readAt, best: row.best },
+  }));
+  // fără colecția pe server, rândurile rămân „netrimise” până la o sincronizare cu serverul actualizat
+  for (const chunk of chunks(items, PUSH_CHUNK)) {
+    if ((await skipIfMissing(() => remote.push("grammar_progress", chunk))) === undefined) return;
+  }
+  report.pushed += items.length;
+
+  // „netrimis” se șterge doar dacă rândul nu s-a mai schimbat între timp
+  await db.transaction("rw", db.grammarProgress, async () => {
+    for (const sent of rows) {
+      const current = await db.grammarProgress.get(sent.topicId);
+      if (current && current.updatedAt === sent.updatedAt) {
+        const { dirty: _dirty, ...clean } = current;
+        await db.grammarProgress.put(clean);
+      }
+    }
+  });
 }
 
 async function pushCards(db: ImparaDb, remote: SyncRemote, report: SyncReport): Promise<void> {

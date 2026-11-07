@@ -7,14 +7,16 @@ interface StudyHeaderProps {
   label?: string;
   /** Unde duce ✕ (implicit lista „Învață”). */
   exitTo?: string;
+  /** Starea de navigare transmisă odată cu ieșirea (react-router `state`). */
+  exitState?: unknown;
 }
 
 /** Antetul comun al sesiunilor de studiu: ieșire, bară de progres și contor. */
-export function StudyHeader({ index, total, label, exitTo = "/learn" }: StudyHeaderProps) {
+export function StudyHeader({ index, total, label, exitTo = "/learn", exitState }: StudyHeaderProps) {
   const { t } = useT();
   return (
     <header className="flex items-center gap-3">
-      <Link to={exitTo} aria-label={t("study.exit")} className="flex size-12 items-center justify-center text-2xl">
+      <Link to={exitTo} state={exitState} aria-label={t("study.exit")} className="flex size-12 items-center justify-center text-2xl">
         ✕
       </Link>
       <div

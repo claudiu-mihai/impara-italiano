@@ -19,6 +19,9 @@ import { loadFrequency } from "./frequency/ranks.ts";
 import { LEVELS, TOPIC_GROUPS, type Level } from "../src/domain/content/constants.ts";
 import { lemmaOf } from "../src/domain/content/reflexive.ts";
 import { splitAtGap } from "../src/domain/grammar/gap.ts";
+import { linkedLessonIds } from "../src/domain/grammar/links.ts";
+import { lessonProblems } from "../src/domain/grammar/lessonCheck.ts";
+import { irregularPresenteIds } from "./content/presenteIrregular.ts";
 import { buildConjugations, type IrregularFile } from "./conjugate/build.ts";
 import { z } from "zod";
 
@@ -45,6 +48,8 @@ export interface LoadedContent {
   topics: Topic[];
   grammar: GrammarTopic[];
   explicitPresenteCount: number;
+  /** Verbele neregulate la prezent (pentru linkurile către lecții). */
+  presenteIrregular: string[];
   errors: string[];
 }
 
@@ -106,6 +111,10 @@ export function loadContent(): LoadedContent {
   assignLevels(words, frequencyRanks, errors);
   const topics = loadTopics(words as Word[], errors);
   const grammar = loadGrammar(errors);
+  const grammarIds = new Set(grammar.map((t) => t.id));
+  for (const id of linkedLessonIds()) {
+    if (!grammarIds.has(id)) errors.push(`links.ts: lecția „${id}” nu există în content/grammar`);
+  }
 
   return {
     rankBasis,
@@ -116,6 +125,7 @@ export function loadContent(): LoadedContent {
     topics,
     grammar,
     explicitPresenteCount: built.explicitCount,
+    presenteIrregular: irregularPresenteIds(irregular.presente, verbs),
     errors,
   };
 }
@@ -177,6 +187,7 @@ function loadGrammar(errors: string[]): GrammarTopic[] {
       continue;
     }
     const topic = parsed.data;
+    for (const problem of lessonProblems(topic)) errors.push(`${file}: lecția, ${problem}`);
     if (topics.some((t) => t.id === topic.id)) errors.push(`${file}: id de temă duplicat (${topic.id})`);
     if (topics.some((t) => t.order === topic.order)) errors.push(`${file}: ordinea ${topic.order} este deja folosită`);
 

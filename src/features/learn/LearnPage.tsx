@@ -89,8 +89,8 @@ export function LearnPage() {
         {t("learn.topicsHint")}
       </Tile>
 
-      <Tile to="/learn/games" emoji="🎲" title={t("learn.games")}>
-        {t("learn.gamesHint")}
+      <Tile to="/learn/grammar" emoji="📘" title={t("learn.grammar")}>
+        {t("learn.grammarHint")}
       </Tile>
 
       <Tile to="/quiz" emoji="❓" title={t("learn.quiz")} disabled={quiz !== undefined && quiz.questions.length === 0}>

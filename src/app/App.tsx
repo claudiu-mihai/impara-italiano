@@ -6,6 +6,8 @@ import { getSettings } from "../data/db/repositories.ts";
 import { startAutoSync } from "../data/sync/autoSync.ts";
 import { setUiLanguage, useT, type Key } from "../i18n/index.ts";
 import { HomePage } from "../features/home/HomePage.tsx";
+// redirecționarea rutelor vechi e de câteva rânduri: se încarcă direct, nu la nevoie
+import { LegacyGamesRedirect } from "../features/grammar/LegacyGamesRedirect.tsx";
 import { applyPwaUpdate, usePwaNeedRefresh } from "../services/pwaUpdate.ts";
 import { applyTheme } from "../services/theme.ts";
 import { setPreferredVoice, useTtsStatus } from "../services/tts.ts";
@@ -29,11 +31,11 @@ const MatchPage = lazy(() => import("../features/topics/MatchPage.tsx").then((m)
 const OrderPage = lazy(() => import("../features/topics/OrderPage.tsx").then((m) => ({ default: m.OrderPage })));
 const SkillPage = lazy(() => import("../features/topics/SkillPage.tsx").then((m) => ({ default: m.SkillPage })));
 const CatPage = lazy(() => import("../features/topics/CatPage.tsx").then((m) => ({ default: m.CatPage })));
-const GamesPage = lazy(() => import("../features/games/GamesPage.tsx").then((m) => ({ default: m.GamesPage })));
-const GameMenuPage = lazy(() => import("../features/games/GameMenuPage.tsx").then((m) => ({ default: m.GameMenuPage })));
-const GameCardsPage = lazy(() => import("../features/games/CardsGame.tsx").then((m) => ({ default: m.CardsPage })));
-const GameMatchPage = lazy(() => import("../features/games/MatchGame.tsx").then((m) => ({ default: m.MatchPage })));
-const GameTypePage = lazy(() => import("../features/games/TypeGame.tsx").then((m) => ({ default: m.TypePage })));
+const GrammarListPage = lazy(() => import("../features/grammar/GrammarListPage.tsx").then((m) => ({ default: m.GrammarListPage })));
+const GrammarTopicPage = lazy(() => import("../features/grammar/GrammarTopicPage.tsx").then((m) => ({ default: m.GrammarTopicPage })));
+const GameCardsPage = lazy(() => import("../features/grammar/CardsGame.tsx").then((m) => ({ default: m.CardsPage })));
+const GameMatchPage = lazy(() => import("../features/grammar/MatchGame.tsx").then((m) => ({ default: m.MatchPage })));
+const GameTypePage = lazy(() => import("../features/grammar/TypeGame.tsx").then((m) => ({ default: m.TypePage })));
 const SettingsPage = lazy(() => import("../features/settings/SettingsPage.tsx").then((m) => ({ default: m.SettingsPage })));
 const StatsPage = lazy(() => import("../features/stats/StatsPage.tsx").then((m) => ({ default: m.StatsPage })));
 
@@ -109,9 +111,9 @@ const NAV: { to: string; label: Key; icon: string; end: boolean }[] = [
 // Ecranele de studiu ocupă tot ecranul: bara de jos este ascunsă acolo.
 const STUDY_ROUTES = ["/learn/vocab", "/learn/conjugation", "/learn/sentence", "/quiz"];
 // sesiunile și exercițiile unei teme (/learn/topics/<id>/flashcards, /quiz, /match…) și jocurile de gramatică
-// (/learn/games/<id>/cards, /match, /type) tot pe tot ecranul
+// (/learn/grammar/<id>/cards, /match, /type) tot pe tot ecranul
 const isStudyRoute = (pathname: string) =>
-  STUDY_ROUTES.includes(pathname) || /^\/learn\/(topics|games)\/[^/]+\/[a-z]+$/.test(pathname);
+  STUDY_ROUTES.includes(pathname) || /^\/learn\/(topics|grammar)\/[^/]+\/[a-z]+$/.test(pathname);
 
 function Layout() {
   const { t } = useT();
@@ -187,11 +189,14 @@ export function App() {
               <Route path="learn/topics/:id/numbers" element={<SkillPage />} />
               <Route path="learn/topics/:id/clock" element={<SkillPage />} />
               <Route path="learn/topics/:id/cat" element={<CatPage />} />
-              <Route path="learn/games" element={<GamesPage />} />
-              <Route path="learn/games/:id" element={<GameMenuPage />} />
-              <Route path="learn/games/:id/cards" element={<GameCardsPage />} />
-              <Route path="learn/games/:id/match" element={<GameMatchPage />} />
-              <Route path="learn/games/:id/type" element={<GameTypePage />} />
+              <Route path="learn/grammar" element={<GrammarListPage />} />
+              <Route path="learn/grammar/:id" element={<GrammarTopicPage />} />
+              <Route path="learn/grammar/:id/cards" element={<GameCardsPage />} />
+              <Route path="learn/grammar/:id/match" element={<GameMatchPage />} />
+              <Route path="learn/grammar/:id/type" element={<GameTypePage />} />
+              {/* „Jocuri” a devenit „Gramatică”: semnele de carte vechi continuă să meargă */}
+              <Route path="learn/games" element={<LegacyGamesRedirect />} />
+              <Route path="learn/games/*" element={<LegacyGamesRedirect />} />
               <Route path="quiz" element={<QuizPage />} />
               <Route path="browse" element={<BrowsePage />} />
               <Route path="browse/:id" element={<WordDetailPage />} />

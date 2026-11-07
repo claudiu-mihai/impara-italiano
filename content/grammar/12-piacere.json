@@ -1,0 +1,85 @@
+{
+  "id": "piacere",
+  "order": 12,
+  "title": "Mi piace și mi piacciono",
+  "level": "A1",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "„Îmi place” se spune [it]mi piace[/it]. Ca în română, lucrul care place e subiectul, iar persoana căreia îi place stă în față: [it]Mi piace il caffè.[/it] = Îmi place cafeaua."
+    },
+    {
+      "type": "table",
+      "caption": "Cui îi place",
+      "head": ["italiană", "română"],
+      "itColumns": [0],
+      "rows": [
+        ["mi piace", "îmi place"],
+        ["ti piace", "îți place"],
+        ["gli piace", "îi place (lui)"],
+        ["le piace", "îi place (ei)"],
+        ["ci piace", "ne place"],
+        ["vi piace", "vă place"],
+        ["gli piace", "le place (lor)"]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "piace sau piacciono",
+      "head": ["", "italiană", "română"],
+      "itColumns": [1],
+      "rows": [
+        ["un lucru", "mi piace la pizza", "îmi place pizza"],
+        ["un verb", "mi piace leggere", "îmi place să citesc"],
+        ["mai multe lucruri", "mi piacciono i gatti", "îmi plac pisicile"]
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "Cu un nume folosești [it]a[/it]: [it]A Marco piace il calcio.[/it] = Lui Marco îi place fotbalul. Întrebarea: [it]Ti piace?[/it] = Îți place?"
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "Mi piace la musica.", "ro": "Îmi place muzica." },
+        { "it": "Ti piacciono i film italiani?", "ro": "Îți plac filmele italiene?" },
+        { "it": "Le piace ballare.", "ro": "Îi place să danseze.", "note": "urmat de verb: [it]piace[/it]" },
+        { "it": "Non mi piace il pesce.", "ro": "Nu îmi place peștele." },
+        { "it": "Ci piace viaggiare.", "ro": "Ne place să călătorim." }
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "Acordul se face cu lucrul care place, ca în română: [it]mi piace il gatto[/it] (îmi place pisica), [it]mi piacciono i gatti[/it] (îmi plac pisicile). Nu spune „io piaccio i gatti”: [it]io piaccio[/it] înseamnă „eu plac (cuiva)”."
+    }
+  ],
+  "rules": [
+    "mi piace + singular sau verb: mi piace la pizza, mi piace leggere.",
+    "mi piacciono + plural: mi piacciono i gatti.",
+    "mi, ti, gli (lui), le (ei), ci, vi, gli (lor) + piace.",
+    "Cu un nume: A Marco piace il calcio."
+  ],
+  "items": [
+    { "id": "pia-01", "it": "Mi piace il caffè.", "gap": "piace", "ro": "Îmi place cafeaua.", "note": "singular: piace" },
+    { "id": "pia-02", "it": "Mi piacciono i gatti.", "gap": "piacciono", "ro": "Îmi plac pisicile.", "note": "plural: piacciono" },
+    { "id": "pia-03", "it": "Ti piace la pizza?", "gap": "piace", "ro": "Îți place pizza?", "note": "singular: piace" },
+    { "id": "pia-04", "it": "Ti piacciono i film italiani?", "gap": "piacciono", "ro": "Îți plac filmele italiene?", "note": "plural: piacciono" },
+    { "id": "pia-05", "it": "Mi piace leggere.", "gap": "piace", "ro": "Îmi place să citesc.", "note": "+ verb: piace" },
+    { "id": "pia-06", "it": "Ci piace viaggiare.", "gap": "Ci", "ro": "Ne place să călătorim.", "note": "ci = nouă" },
+    { "id": "pia-07", "it": "Gli piace il calcio.", "gap": "Gli", "ro": "Îi place fotbalul.", "note": "gli = lui" },
+    { "id": "pia-08", "it": "Le piacciono i fiori.", "gap": "Le", "ro": "Îi plac florile.", "note": "le = ei" },
+    { "id": "pia-09", "it": "Vi piace Roma?", "gap": "Vi", "ro": "Vă place Roma?", "note": "vi = vouă" },
+    { "id": "pia-10", "it": "Non mi piace il pesce.", "gap": "mi", "ro": "Nu îmi place peștele.", "note": "non înaintea lui mi" },
+    { "id": "pia-11", "it": "A Marco piace la musica.", "gap": "A", "ro": "Lui Marco îi place muzica.", "note": "cu un nume: a + nume" },
+    { "id": "pia-12", "it": "Mi piacciono le scarpe rosse.", "gap": "piacciono", "ro": "Îmi plac pantofii roșii.", "note": "plural: piacciono" },
+    { "id": "pia-13", "it": "Ti piace ballare?", "gap": "Ti", "ro": "Îți place să dansezi?", "note": "ti = ție" },
+    { "id": "pia-14", "it": "Ai bambini piacciono i dolci.", "gap": "piacciono", "ro": "Copiilor le plac dulciurile.", "note": "plural: piacciono" },
+    { "id": "pia-15", "it": "Non ci piace il freddo.", "gap": "ci", "ro": "Nu ne place frigul.", "note": "ci = nouă" },
+    { "id": "pia-16", "it": "Le piace cucinare.", "gap": "piace", "ro": "Îi place să gătească.", "note": "+ verb: piace" },
+    { "id": "pia-17", "it": "Mi piace molto.", "gap": "piace", "ro": "Îmi place mult.", "note": "singular: piace" },
+    { "id": "pia-18", "it": "Gli piacciono le macchine.", "gap": "piacciono", "ro": "Lui îi plac mașinile.", "note": "plural: piacciono" },
+    { "id": "pia-19", "it": "Ti piacciono?", "gap": "piacciono", "ro": "Îți plac?", "note": "plural: piacciono" },
+    { "id": "pia-20", "it": "Mi piace questa città.", "gap": "piace", "ro": "Îmi place orașul ăsta.", "note": "singular: piace" },
+    { "id": "pia-21", "it": "A Lucia piacciono i gatti.", "gap": "piacciono", "ro": "Luciei îi plac pisicile.", "note": "plural: piacciono" }
+  ]
+}

@@ -7,7 +7,15 @@ import { newStoredCard, reviewStoredCard } from "../../domain/srs/scheduler.ts";
 import { vocabCardId } from "../../domain/srs/types.ts";
 import { exportBackup, importBackup, parseBackup, backupToJson, resetProgress } from "../backup/backup.ts";
 import { createDb, type ImparaDb } from "../db/db.ts";
-import { forgetWord, getSettings, markWordKnown, saveReview, saveSettings } from "../db/repositories.ts";
+import {
+  forgetWord,
+  getSettings,
+  markLessonRead,
+  markWordKnown,
+  saveGameScore,
+  saveReview,
+  saveSettings,
+} from "../db/repositories.ts";
 import { PUSH_CHUNK, runSync } from "./engine.ts";
 import { hasLocalProgress, pendingCount } from "./pending.ts";
 import { FakeRemote } from "./fakeRemote.ts";
@@ -390,4 +398,68 @@ test("importul sau resetarea fără cont nu cer nicio înlocuire pe server", asy
   await review(solo, "w1", 0);
   await resetProgress(solo);
   expect(await solo.meta.get("syncReplace")).toBeUndefined();
+});
+
+test("gramatică: citit pe un telefon + 100% pe altul → ambele au tot", async () => {
+  const a = await device();
+  const b = await device();
+  await markLessonRead(a, "articoli", at(0));
+  await saveGameScore(b, "articoli", "type", 100, at(1));
+  await runSync(a, remote);
+  await runSync(b, remote);
+  await runSync(a, remote);
+  for (const db of [a, b]) {
+    expect(await db.grammarProgress.get("articoli")).toMatchObject({ readAt: at(0).getTime(), best: { type: 100 } });
+  }
+  expect(await pendingCount(a)).toBe(0);
+  expect(await pendingCount(b)).toBe(0);
+});
+
+test("gramatică: date invalide de pe server sunt numărate și ignorate", async () => {
+  const a = await device();
+  await saveGameScore(a, "essere", "match", 70, at(0));
+  await remote.push("grammar_progress", [
+    { key: "essere", updatedAt: 1, data: { best: { type: 140 } } },
+    { key: "avere", updatedAt: 1, data: "x" },
+  ]);
+  const report = await runSync(a, remote);
+  expect(report.invalid).toBe(2);
+  expect((await a.grammarProgress.get("essere"))?.best).toEqual({ match: 70 });
+  expect(await a.grammarProgress.get("avere")).toBeUndefined();
+});
+
+test("gramatică: importul cu cont înlocuiește progresul din cont", async () => {
+  const a = await device();
+  await saveGameScore(a, "avere", "type", 40, at(0));
+  await runSync(a, remote);
+  const backup = await exportBackup(a, "v1", at(1));
+  await saveGameScore(a, "essere", "type", 90, at(2));
+  await runSync(a, remote);
+  await importBackup(a, backup, at(3));
+  await runSync(a, remote);
+  expect([...remote.store.grammar_progress.keys()]).toEqual(["avere"]);
+  expect(await a.grammarProgress.get("essere")).toBeUndefined();
+});
+
+test("gramatică: un telefon cu versiune mai veche nu șterge de pe server scorul unui joc nou", async () => {
+  const a = await device();
+  await remote.push("grammar_progress", [{ key: "articoli", updatedAt: 1, data: { best: { type: 50, puzzle: 80 } } }]);
+  await saveGameScore(a, "articoli", "type", 90, at(0));
+  await runSync(a, remote);
+  expect(remote.store.grammar_progress.get("articoli")?.data).toEqual({ best: { type: 90, puzzle: 80 } });
+});
+
+test("gramatică: dacă serverul nu are încă colecția, restul se sincronizează, iar progresul așteaptă", async () => {
+  const a = await device();
+  remote.missing.add("grammar_progress");
+  await review(a, "w1", 0);
+  await saveGameScore(a, "articoli", "type", 70, at(1));
+  await runSync(a, remote);
+  expect(remote.store.cards.size).toBe(1);
+  expect((await a.grammarProgress.get("articoli"))?.dirty).toBe(1);
+
+  remote.missing.delete("grammar_progress");
+  await runSync(a, remote);
+  expect(remote.store.grammar_progress.get("articoli")?.data).toEqual({ best: { type: 70 } });
+  expect(await pendingCount(a)).toBe(0);
 });

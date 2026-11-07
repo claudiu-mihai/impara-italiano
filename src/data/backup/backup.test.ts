@@ -5,8 +5,8 @@ import { DEFAULT_SETTINGS } from "../../domain/settings.ts";
 import { newStoredCard, reviewStoredCard } from "../../domain/srs/scheduler.ts";
 import { vocabCardId } from "../../domain/srs/types.ts";
 import { createDb, type ImparaDb } from "../db/db.ts";
-import { saveReview, saveSettings } from "../db/repositories.ts";
-import { BackupError, backupToJson, exportBackup, importBackup, parseBackup, resetProgress } from "./backup.ts";
+import { markLessonRead, saveGameScore, saveReview, saveSettings } from "../db/repositories.ts";
+import { BackupError, backupToJson, exportBackup, grammarProgressSchema, importBackup, parseBackup, resetProgress } from "./backup.ts";
 
 const NOW = new Date(2026, 9, 20, 10, 0, 0);
 let db: ImparaDb;
@@ -108,4 +108,34 @@ test("resetarea șterge progresul, dar păstrează setările", async () => {
   expect(await db.cards.count()).toBe(0);
   expect(await db.reviewLog.count()).toBe(0);
   expect((await db.settings.get("app"))?.newPerDay).toBe(4);
+});
+
+test("backup: progresul la gramatică dus-întors", async () => {
+  await saveGameScore(db, "articoli", "type", 90, NOW);
+  await markLessonRead(db, "articoli", NOW);
+  const backup = await exportBackup(db, "v1", NOW);
+  expect(backup.grammarProgress).toEqual([{ topicId: "articoli", readAt: NOW.getTime(), best: { type: 90 } }]);
+  const json = backupToJson(backup);
+  await resetProgress(db);
+  expect(await db.grammarProgress.count()).toBe(0);
+  await importBackup(db, parseBackup(json), NOW);
+  expect(await db.grammarProgress.get("articoli")).toMatchObject({ readAt: NOW.getTime(), best: { type: 90 }, dirty: 1 });
+});
+
+test("backup vechi, fără grammarProgress, se importă", async () => {
+  const old = JSON.parse(backupToJson(await exportBackup(db, "v1", NOW)));
+  delete old.grammarProgress;
+  expect(parseBackup(JSON.stringify(old)).grammarProgress).toEqual([]);
+});
+
+test("grammarProgressSchema: procente întregi 0–100", () => {
+  expect(grammarProgressSchema.safeParse({ readAt: 5, best: { type: 100 } }).success).toBe(true);
+  expect(grammarProgressSchema.safeParse({ best: { type: 140 } }).success).toBe(false);
+  expect(grammarProgressSchema.safeParse({ best: { match: 50.5 } }).success).toBe(false);
+  expect(grammarProgressSchema.safeParse("x").success).toBe(false);
+});
+
+test("grammarProgressSchema acceptă scoruri pentru jocuri noi, dar tot ca procente", () => {
+  expect(grammarProgressSchema.parse({ best: { puzzle: 80 } })).toEqual({ best: { puzzle: 80 } });
+  expect(grammarProgressSchema.safeParse({ best: { puzzle: 180 } }).success).toBe(false);
 });
