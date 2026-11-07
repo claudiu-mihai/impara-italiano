@@ -13,7 +13,7 @@ const words = [
   w("n-libro", "libro", "carte", 4, "noun", { article: "il" }),
   w("n-amico", "amico", "prieten", 5, "noun", { article: "l'" }),
 ];
-const all = { query: "", pos: "all", progress: "all", cefr: "all" } as const;
+const all = { query: "", pos: "all", progress: "all", cefr: "all", irregular: "all" } as const;
 const none = new Map<string, Mastery>();
 
 test("fără filtre se întorc toate cuvintele, după rang", () => {
@@ -89,9 +89,22 @@ test("filtru după progres (cerut din Statistici), combinabil cu categoria", () 
 
 test("filtre din adresă: valorile cunoscute se citesc, cele necunoscute se ignoră", () => {
   const parse = (s: string) => filtersFromSearch(new URLSearchParams(s));
-  expect(parse("")).toEqual({ query: "", pos: "all", progress: "all", cefr: "all" });
-  expect(parse("pos=verb&progress=learning&cefr=B")).toEqual({ query: "", pos: "verb", progress: "learning", cefr: "B" });
-  expect(parse("pos=cuvant&progress=gata&cefr=A1")).toEqual({ query: "", pos: "all", progress: "all", cefr: "all" });
+  expect(parse("")).toEqual({ query: "", pos: "all", progress: "all", cefr: "all", irregular: "all" });
+  expect(parse("pos=verb&progress=learning&cefr=B")).toEqual({
+    query: "",
+    pos: "verb",
+    progress: "learning",
+    cefr: "B",
+    irregular: "all",
+  });
+  expect(parse("pos=cuvant&progress=gata&cefr=A1&irregular=da")).toEqual({
+    query: "",
+    pos: "all",
+    progress: "all",
+    cefr: "all",
+    irregular: "all",
+  });
+  expect(parse("irregular=presente&cefr=A")).toMatchObject({ irregular: "presente", cefr: "A" });
 });
 
 test("adresa Dicționarului cu filtre: fără filtre nu are parametri, iar cele alese se pot citi înapoi", () => {
@@ -101,4 +114,20 @@ test("adresa Dicționarului cu filtre: fără filtre nu are parametri, iar cele 
   expect(browseHref({ progress: "mastered" })).toBe("/browse?progress=mastered");
   const href = browseHref({ pos: "adjective", progress: "new", cefr: "A" });
   expect(filtersFromSearch(new URL(href, "http://x").searchParams)).toMatchObject({ pos: "adjective", progress: "new", cefr: "A" });
+});
+
+test("filtru „neregulate la prezent” (cerut din lecție), combinabil cu grupa de niveluri", () => {
+  const irregular = new Set(["v-sapere", "v-capire"]);
+  const list = [...words, w("v-dire", "dire", "a spune", 6, "verb", { level: "B1" })];
+  irregular.add("v-dire");
+  const ids = (cefr: "A" | "all") =>
+    filterWords(list, { ...all, irregular: "presente", cefr }, none, irregular).map((x) => x.id);
+  expect(ids("all")).toEqual(["v-sapere", "v-capire", "v-dire"]);
+  expect(ids("A")).toEqual(["v-sapere", "v-capire"]);
+  // lista încă se încarcă: nu se arată nimic, în loc de tot dicționarul
+  expect(filterWords(list, { ...all, irregular: "presente" }, none)).toEqual([]);
+});
+
+test("adresa cu filtrul de verbe neregulate", () => {
+  expect(browseHref({ irregular: "presente", cefr: "A" })).toBe("/browse?irregular=presente&cefr=A");
 });

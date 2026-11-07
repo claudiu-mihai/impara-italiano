@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { expect, test } from "@playwright/test";
 import { seedLearnedWords } from "./helpers.ts";
 
@@ -73,4 +74,26 @@ test("după un joc pornit din lecție, Înapoi duce tot la cuvântul de plecare"
   await expect(page).toHaveURL(/\/learn\/grammar\/genere-plurale$/);
   await page.getByRole("link", { name: "Înapoi la libro" }).click();
   await expect(page).toHaveURL(/\/browse\/n-libro$/);
+});
+
+test("lecția despre verbele neregulate → dicționarul cu verbele neregulate din grupa A", async ({ page }) => {
+  const irregular = new Set<string>(JSON.parse(readFileSync("src/data/generated/presenteIrregular.json", "utf8")));
+  const words: { id: string; level: string }[] = JSON.parse(readFileSync("src/data/generated/details.json", "utf8"));
+  const inA = words.filter((w) => irregular.has(w.id) && w.level.startsWith("A")).length;
+  const allA = words.filter((w) => w.level.startsWith("A")).length;
+
+  await page.goto("/learn/grammar/presente-irregolare");
+  await page.getByRole("link", { name: "Vezi și alte verbe neregulate" }).click();
+  await expect(page).toHaveURL(/\/browse\?irregular=presente&cefr=A$/);
+  await expect(page.getByRole("status")).toHaveText(`${inA} cuvinte`);
+  await expect(page.getByRole("link", { name: /andare/ })).toBeVisible();
+  await expect(page.getByRole("link", { name: /parlare/ })).toHaveCount(0);
+  await expect(page.getByRole("group", { name: "Nivel CEFR" }).getByRole("button", { name: /^Nivel A/ })).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+
+  // chip-ul se închide: rămâne doar filtrul de nivel
+  await page.getByRole("button", { name: "Scoate filtrul Neregulate la prezent" }).click();
+  await expect(page.getByRole("status")).toHaveText(`${allA} cuvinte`);
 });

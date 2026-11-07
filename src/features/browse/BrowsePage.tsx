@@ -2,6 +2,7 @@ import { useLiveQuery } from "dexie-react-hooks";
 import { memo, useEffect, useMemo, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useContent } from "../../app/content.tsx";
+import { usePresenteIrregular } from "../../app/presenteIrregular.ts";
 import { db } from "../../data/db/instance.ts";
 import { filterWords, filtersFromSearch, NO_FILTERS, presentCategories, type BrowseFilters } from "../../domain/browse/filterWords.ts";
 import type { Pos } from "../../domain/content/constants.ts";
@@ -152,7 +153,11 @@ function BrowseView() {
     const present = new Set(presentCategories(content.words));
     return POS.filter((pos) => present.has(pos));
   }, [content.words]);
-  const results = useMemo(() => filterWords(content.words, filters, levels), [content.words, filters, levels]);
+  const irregular = usePresenteIrregular(filters.irregular === "presente");
+  const results = useMemo(
+    () => filterWords(content.words, filters, levels, irregular),
+    [content.words, filters, levels, irregular],
+  );
 
   // listă incrementală: 2000+ de rânduri deodată încarcă inutil pagina; se adaugă încă o pagină când ajungi la sfârșit
   const [shown, setShown] = useState(PAGE_SIZE);
@@ -200,6 +205,20 @@ function BrowseView() {
           className="flex min-h-12 w-fit items-center gap-2 rounded-full border-2 border-brand bg-brand/10 pl-4 pr-3 text-sm font-semibold text-brand-fg"
         >
           {t("browse.progressFilter", { value: t(LEVEL_LABEL[filters.progress]) })}
+          <span aria-hidden="true" className="text-base">
+            ✕
+          </span>
+        </button>
+      )}
+
+      {filters.irregular !== "all" && (
+        <button
+          type="button"
+          onClick={() => setFilters({ ...filters, irregular: "all" })}
+          aria-label={t("browse.removeIrregularFilter")}
+          className="flex min-h-12 w-fit items-center gap-2 rounded-full border-2 border-brand bg-brand/10 pl-4 pr-3 text-sm font-semibold text-brand-fg"
+        >
+          {t("browse.irregularFilter")}
           <span aria-hidden="true" className="text-base">
             ✕
           </span>

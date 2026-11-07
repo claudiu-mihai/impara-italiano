@@ -3,7 +3,9 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { markLessonRead } from "../../data/db/repositories.ts";
 import { db } from "../../data/db/instance.ts";
 import type { GrammarGame } from "../../domain/grammar/progress.ts";
+import { browseHref } from "../../domain/browse/filterWords.ts";
 import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
+import { GRAMMAR_LINKS } from "../../domain/grammar/links.ts";
 import { useT, type Key } from "../../i18n/index.ts";
 import { BackLink } from "../../ui/BackLink.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
@@ -60,6 +62,16 @@ export function GrammarTopicPage() {
       </header>
 
       {topic.lesson && <Lesson blocks={topic.lesson} />}
+
+      {topic.id === GRAMMAR_LINKS.verbIrregular && (
+        <Link
+          to={browseHref({ irregular: "presente", cefr: "A" })}
+          className="flex min-h-14 items-center gap-3 rounded-2xl bg-sky-50 px-4 font-semibold text-brand-fg active:bg-sky-100 dark:bg-slate-800 dark:active:bg-slate-700"
+        >
+          <span aria-hidden="true">📖</span>
+          {t("grammar.moreIrregular")}
+        </Link>
+      )}
 
       <RulesBox rules={topic.rules} lang={NATIVE_LANGUAGE} defaultOpen />
 
