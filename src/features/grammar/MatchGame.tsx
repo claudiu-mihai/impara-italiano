@@ -17,14 +17,14 @@ export function MatchPage() {
   const { id, topic, loading } = useGrammarTopic();
   if (loading) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
   if (!topic) {
-    return <SessionDone emoji="🤔" title={t("topics.notFound")} text="" backTo="/learn/games" backLabel={t("games.backToList")} />;
+    return <SessionDone emoji="🤔" title={t("topics.notFound")} text="" backTo="/learn/grammar" backLabel={t("games.backToList")} />;
   }
   return <MatchGame key={id} topicId={topic.id} items={topic.items} />;
 }
 
 function MatchGame({ topicId, items }: { topicId: string; items: GrammarItem[] }) {
   const { t, tp } = useT();
-  const exitTo = `/learn/games/${topicId}`;
+  const exitTo = `/learn/grammar/${topicId}`;
   const [attempt, setAttempt] = useState(0);
   const rounds = useMemo(
     () => buildGrammarMatchRounds(items),

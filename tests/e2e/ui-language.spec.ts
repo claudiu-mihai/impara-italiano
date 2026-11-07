@@ -52,7 +52,7 @@ test("Acasă, Învață, Dicționar și Statistici apar în italiană", async ({
   await page.goto("/learn");
   await expect(page.getByRole("heading", { name: "Impara", level: 1 })).toBeVisible();
   await expect(page.getByText("Ricostruisci la frase")).toBeVisible();
-  await expect(page.getByRole("link", { name: /Giochi/ })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Grammatica/ })).toBeVisible();
 
   await page.goto("/browse");
   await expect(page.getByRole("heading", { name: "Dizionario", level: 1 })).toBeVisible();
