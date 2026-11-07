@@ -7,15 +7,16 @@ export const getMeta = async <T>(db: ImparaDb, key: string): Promise<T | undefin
 
 /** Câte modificări locale așteaptă să fie trimise (cu cont; fără cont numărul nu are sens). */
 export async function pendingCount(db: ImparaDb): Promise<number> {
-  const [cards, tombstones, logs, reports, settings, replace] = await Promise.all([
+  const [cards, tombstones, logs, reports, grammar, settings, replace] = await Promise.all([
     db.cards.where("dirty").equals(1).count(),
     db.tombstones.count(),
     db.reviewLog.where("dirty").equals(1).count(),
     db.reports.where("dirty").equals(1).count(),
+    db.grammarProgress.where("dirty").equals(1).count(),
     db.settings.get("app"),
     getMeta<boolean>(db, "syncReplace"),
   ]);
-  return cards + tombstones + logs + reports + (settings?.dirty ? 1 : 0) + (replace ? 1 : 0);
+  return cards + tombstones + logs + reports + grammar + (settings?.dirty ? 1 : 0) + (replace ? 1 : 0);
 }
 
 /** Există progres local (carduri sau repetiții)? */
