@@ -17,6 +17,7 @@ test("lessonForTense: doar prezentul are lecție deocamdată", () => {
   expect(lessonForTense("presente", "v-nascere", irregular)).toBe("presente-regolare");
   expect(lessonForTense("presente", "v-essere", irregular)).toBe("presente-irregolare");
   expect(lessonForTense("imperfetto", "v-andare", irregular)).toBeUndefined();
+  expect(GRAMMAR_LINKS.tense.presente).toBe("presente-regolare");
 });
 
 test("toate id-urile din GRAMMAR_LINKS există în content/grammar", () => {

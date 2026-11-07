@@ -9,13 +9,14 @@ export const GRAMMAR_LINKS = {
   adjective: "aggettivi",
   verbRegular: "presente-regolare",
   verbIrregular: "presente-irregolare",
-  tense: {} as Partial<Record<Tense, string>>,
+  // la prezent, verbele neregulate primesc lecția lor (vezi lessonForTense)
+  tense: { presente: "presente-regolare" } as Partial<Record<Tense, string>>,
 } as const;
 
 /** Toate id-urile de lecții folosite în legături (pentru verificarea de la build). */
 export function linkedLessonIds(): string[] {
   const { tense, ...fixed } = GRAMMAR_LINKS;
-  return [...Object.values(fixed), ...Object.values(tense)];
+  return [...new Set([...Object.values(fixed), ...Object.values(tense)])];
 }
 
 const verbLesson = (verbId: string, irregularPresente: ReadonlySet<string>) =>
@@ -29,7 +30,9 @@ export function lessonForWord(pos: Pos, wordId: string, irregularPresente: Reado
   return undefined;
 }
 
-/** Lecția pentru un timp verbal din conjugare; prezentul alege între regulat și neregulat. */
+/** Lecția pentru un timp verbal din conjugare; la prezent, verbele neregulate primesc lecția despre ele. */
 export function lessonForTense(tense: Tense, verbId: string, irregularPresente: ReadonlySet<string>): string | undefined {
-  return tense === "presente" ? verbLesson(verbId, irregularPresente) : GRAMMAR_LINKS.tense[tense];
+  const lesson = GRAMMAR_LINKS.tense[tense];
+  if (tense === "presente" && lesson && irregularPresente.has(verbId)) return GRAMMAR_LINKS.verbIrregular;
+  return lesson;
 }
