@@ -28,6 +28,7 @@ const ALLOWED: { file: string; text: string; why: string }[] = [
   { file: "src/domain/skills/numbers.ts", text: "număr în afara", why: "eroare pentru dezvoltatori" },
   { file: "src/domain/skills/time.ts", text: "oră invalidă", why: "eroare pentru dezvoltatori" },
   { file: "src/app/content.tsx", text: "trebuie folosit", why: "eroare pentru dezvoltatori" },
+  { file: "src/data/sync/types.ts", text: "lipsește de pe server", why: "eroare pentru dezvoltatori (tratată de motorul de sincronizare)" },
   { file: "src/features/settings/SettingsPage.tsx", text: ">Română<", why: "numele limbii, scris în limba ei" },
 ];
 

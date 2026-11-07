@@ -448,3 +448,18 @@ test("gramatică: un telefon cu versiune mai veche nu șterge de pe server scoru
   await runSync(a, remote);
   expect(remote.store.grammar_progress.get("articoli")?.data).toEqual({ best: { type: 90, puzzle: 80 } });
 });
+
+test("gramatică: dacă serverul nu are încă colecția, restul se sincronizează, iar progresul așteaptă", async () => {
+  const a = await device();
+  remote.missing.add("grammar_progress");
+  await review(a, "w1", 0);
+  await saveGameScore(a, "articoli", "type", 70, at(1));
+  await runSync(a, remote);
+  expect(remote.store.cards.size).toBe(1);
+  expect((await a.grammarProgress.get("articoli"))?.dirty).toBe(1);
+
+  remote.missing.delete("grammar_progress");
+  await runSync(a, remote);
+  expect(remote.store.grammar_progress.get("articoli")?.data).toEqual({ best: { type: 70 } });
+  expect(await pendingCount(a)).toBe(0);
+});

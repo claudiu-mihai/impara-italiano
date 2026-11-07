@@ -1,6 +1,18 @@
 /** Colecțiile de pe server (vezi pocketbase/pb_migrations). */
 export type Collection = "cards" | "review_logs" | "settings" | "reports" | "grammar_progress";
 
+/**
+ * Serverul nu are (încă) colecția: de exemplu aplicația nouă vorbește cu un server încă neactualizat.
+ * Motorul de sincronizare sare peste colecțiile opționale în acest caz, în loc să oprească tot.
+ */
+export class MissingCollectionError extends Error {
+  readonly collection: Collection;
+  constructor(collection: Collection) {
+    super(`colecția ${collection} lipsește de pe server`);
+    this.collection = collection;
+  }
+}
+
 /** O înregistrare de trimis: cheia ei stabilă (cardId, uid sau „app”) și conținutul JSON. */
 export interface SyncItem {
   key: string;

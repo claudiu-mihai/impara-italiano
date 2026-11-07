@@ -6,7 +6,7 @@ import { cardSchema, grammarProgressSchema, reportSchema, reviewLogSchema, setti
 import type { ImparaDb, LogRow, ReportRow } from "../db/db.ts";
 import { getSettings } from "../db/repositories.ts";
 import { getMeta } from "./pending.ts";
-import type { Collection, RemoteItem, SyncItem, SyncRemote, SyncReport } from "./types.ts";
+import { MissingCollectionError, type Collection, type RemoteItem, type SyncItem, type SyncRemote, type SyncReport } from "./types.ts";
 
 /** Câte înregistrări pleacă într-o singură cerere (serverul acceptă 100 într-un lot). */
 export const PUSH_CHUNK = 50;
@@ -31,7 +31,8 @@ export async function runSync(db: ImparaDb, remote: SyncRemote): Promise<SyncRep
 
   if (replace) {
     // import sau resetare cu cont: progresul din cont devine exact cel local
-    await remote.deleteAll(["cards", "review_logs", "reports", "grammar_progress"]);
+    await remote.deleteAll(["cards", "review_logs", "reports"]);
+    await skipIfMissing(() => remote.deleteAll(["grammar_progress"]));
     const pulled = (await getMeta<Pulled>(db, "syncPulled")) ?? {};
     await db.meta.put({ key: "syncPulled", value: { settings: pulled.settings } satisfies Pulled });
   } else {
@@ -44,14 +45,30 @@ export async function runSync(db: ImparaDb, remote: SyncRemote): Promise<SyncRep
   return report;
 }
 
+/**
+ * Colecțiile adăugate după prima versiune (ex. grammar_progress) pot lipsi pe un server încă neactualizat:
+ * atunci se sar, în loc să oprească sincronizarea pentru tot restul. Întoarce `undefined` dacă lipsește.
+ */
+async function skipIfMissing<T>(run: () => Promise<T>): Promise<{ value: T } | undefined> {
+  try {
+    return { value: await run() };
+  } catch (error) {
+    if (error instanceof MissingCollectionError) return undefined;
+    throw error;
+  }
+}
+
 // ---------------------------------------------------------------------------------------------------------------
 // Descărcare
 
 async function pullAll(db: ImparaDb, remote: SyncRemote, report: SyncReport): Promise<void> {
   const pulled: Pulled = { ...((await getMeta<Pulled>(db, "syncPulled")) ?? {}) };
   for (const collection of PULL_ORDER) {
-    const items = await remote.pull(collection, pulled[collection] ?? null);
-    if (items.length === 0) continue;
+    const items =
+      collection === "grammar_progress"
+        ? (await skipIfMissing(() => remote.pull(collection, pulled[collection] ?? null)))?.value
+        : await remote.pull(collection, pulled[collection] ?? null);
+    if (!items || items.length === 0) continue;
     const tables = [db.cards, db.reviewLog, db.reports, db.settings, db.tombstones, db.grammarProgress, db.meta];
     await db.transaction("rw", tables, async () => {
       const result =
@@ -219,7 +236,10 @@ async function pushGrammarProgress(db: ImparaDb, remote: SyncRemote, report: Syn
     updatedAt: row.updatedAt,
     data: row.readAt === undefined ? { best: row.best } : { readAt: row.readAt, best: row.best },
   }));
-  for (const chunk of chunks(items, PUSH_CHUNK)) await remote.push("grammar_progress", chunk);
+  // fără colecția pe server, rândurile rămân „netrimise” până la o sincronizare cu serverul actualizat
+  for (const chunk of chunks(items, PUSH_CHUNK)) {
+    if ((await skipIfMissing(() => remote.push("grammar_progress", chunk))) === undefined) return;
+  }
   report.pushed += items.length;
 
   // „netrimis” se șterge doar dacă rândul nu s-a mai schimbat între timp
