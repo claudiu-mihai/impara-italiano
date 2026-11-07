@@ -34,7 +34,7 @@ export const it: Record<Key, string> = {
   "learn.sentenceHint": "Metti in ordine le parole in italiano",
   "learn.learnWordsFirst": "Impara prima qualche parola",
   "learn.topicsHint": "Giorni, mesi, numeri, ora, direzioni, colori, saluti",
-  "learn.grammarHint": "Lezioni brevi ed esercizi: articoli, essere, avere",
+  "learn.grammarHint": "Lezioni brevi ed esercizi, dagli articoli ai verbi",
   "learn.quizRound_one": "Un round di {n} domanda con 4 risposte",
   "learn.quizRound_other": "Un round di {n} domande con 4 risposte",
   // pagina Despre

@@ -33,7 +33,7 @@ export const ro = {
   "learn.sentenceHint": "Ordonează cuvintele în italiană",
   "learn.learnWordsFirst": "Învață mai întâi câteva cuvinte",
   "learn.topicsHint": "Zile, luni, numere, ora, direcții, culori, saluturi",
-  "learn.grammarHint": "Lecții scurte și exerciții: articole, essere, avere",
+  "learn.grammarHint": "Lecții scurte și exerciții, de la articole la verbe",
   "learn.quizRound_one": "O rundă de {n} întrebări cu 4 variante",
   "learn.quizRound_other": "O rundă de {n} întrebări cu 4 variante",
   // pagina Despre

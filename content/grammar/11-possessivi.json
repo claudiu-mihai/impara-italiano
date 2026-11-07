@@ -1,0 +1,76 @@
+{
+  "id": "possessivi",
+  "order": 11,
+  "title": "Posesivele",
+  "level": "A1",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "Posesivul se acordă cu [b]lucrul posedat[/b], nu cu cel care îl are, și de obicei are articol în față: [it]la mia casa[/it] = casa mea, [it]il mio amico[/it] = prietenul meu."
+    },
+    {
+      "type": "table",
+      "caption": "Posesivele",
+      "head": ["", "masc. sg.", "fem. sg.", "masc. pl.", "fem. pl."],
+      "rows": [
+        ["al meu", "il mio", "la mia", "i miei", "le mie"],
+        ["al tău", "il tuo", "la tua", "i tuoi", "le tue"],
+        ["al lui / al ei", "il suo", "la sua", "i suoi", "le sue"],
+        ["al nostru", "il nostro", "la nostra", "i nostri", "le nostre"],
+        ["al vostru", "il vostro", "la vostra", "i vostri", "le vostre"],
+        ["al lor", "il loro", "la loro", "i loro", "le loro"]
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "[it]Suo[/it] înseamnă și „al lui”, și „al ei”: [it]la sua macchina[/it] poate fi mașina lui sau a ei. Contextul lămurește."
+    },
+    {
+      "type": "text",
+      "ro": "Cu rudele la [b]singular[/b], articolul dispare: [it]mia madre[/it], [it]tuo fratello[/it]. La plural revine: [it]le mie sorelle[/it], [it]i miei genitori[/it]."
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "È la mia macchina.", "ro": "Este mașina mea." },
+        { "it": "Mia madre è italiana.", "ro": "Mama mea este italiancă.", "note": "rudă la singular: fără articol" },
+        { "it": "I miei amici sono qui.", "ro": "Prietenii mei sunt aici." },
+        { "it": "Dov'è la tua borsa?", "ro": "Unde e geanta ta?" },
+        { "it": "Lucia e il suo ragazzo.", "ro": "Lucia și prietenul ei.", "note": "aici [it]suo[/it] = al ei; se acordă cu [it]ragazzo[/it]" }
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "[it]Loro[/it] nu se schimbă și păstrează mereu articolul: [it]la loro casa[/it], [it]i loro figli[/it], chiar și cu rudele: [it]il loro padre[/it]."
+    }
+  ],
+  "rules": [
+    "Posesivul se acordă cu lucrul posedat: il mio libro, la mia casa, i miei libri, le mie case.",
+    "De obicei are articol: la mia casa (casa mea).",
+    "Rudele la singular nu au articol: mia madre, tuo fratello; la plural da: i miei fratelli.",
+    "loro nu se schimbă și are mereu articol: la loro casa, il loro padre."
+  ],
+  "items": [
+    { "id": "pos-01", "it": "È il mio libro.", "gap": "mio", "ro": "Este cartea mea.", "note": "libro e masculin: il mio" },
+    { "id": "pos-02", "it": "È la mia casa.", "gap": "mia", "ro": "Este casa mea.", "note": "casa e feminin: la mia" },
+    { "id": "pos-03", "it": "I miei amici sono qui.", "gap": "miei", "ro": "Prietenii mei sunt aici.", "note": "masculin plural: i miei" },
+    { "id": "pos-04", "it": "Le mie sorelle abitano a Roma.", "gap": "mie", "ro": "Surorile mele locuiesc la Roma.", "note": "feminin plural: le mie" },
+    { "id": "pos-05", "it": "Dov'è la tua borsa?", "gap": "tua", "ro": "Unde e geanta ta?", "note": "feminin singular: la tua" },
+    { "id": "pos-06", "it": "Sono i tuoi figli?", "gap": "tuoi", "ro": "Sunt copiii tăi?", "note": "masculin plural: i tuoi" },
+    { "id": "pos-07", "it": "Mia madre è italiana.", "gap": "Mia", "ro": "Mama mea este italiancă.", "note": "rudă la singular: fără articol" },
+    { "id": "pos-08", "it": "Tuo fratello è simpatico.", "gap": "Tuo", "ro": "Fratele tău e simpatic.", "note": "rudă la singular: fără articol" },
+    { "id": "pos-09", "it": "Marco e la sua ragazza.", "gap": "sua", "ro": "Marco și prietena lui.", "note": "sua: se acordă cu ragazza" },
+    { "id": "pos-10", "it": "Lucia e il suo ragazzo.", "gap": "suo", "ro": "Lucia și prietenul ei.", "note": "suo: se acordă cu ragazzo, nu cu Lucia" },
+    { "id": "pos-11", "it": "Il nostro appartamento è piccolo.", "gap": "nostro", "ro": "Apartamentul nostru e mic.", "note": "masculin singular: il nostro" },
+    { "id": "pos-12", "it": "La nostra città è bella.", "gap": "nostra", "ro": "Orașul nostru e frumos.", "note": "città e feminin: la nostra" },
+    { "id": "pos-13", "it": "Dove sono i vostri bagagli?", "gap": "vostri", "ro": "Unde sunt bagajele voastre?", "note": "masculin plural: i vostri" },
+    { "id": "pos-14", "it": "La loro casa è grande.", "gap": "loro", "ro": "Casa lor e mare.", "note": "loro nu se schimbă" },
+    { "id": "pos-15", "it": "I loro figli sono piccoli.", "gap": "loro", "ro": "Copiii lor sunt mici.", "note": "loro nu se schimbă" },
+    { "id": "pos-16", "it": "Il loro padre è medico.", "gap": "loro", "ro": "Tatăl lor este medic.", "note": "loro păstrează articolul și la rude" },
+    { "id": "pos-17", "it": "I miei genitori sono in pensione.", "gap": "miei", "ro": "Părinții mei sunt la pensie.", "note": "rude la plural: cu articol" },
+    { "id": "pos-18", "it": "Mio padre lavora molto.", "gap": "Mio", "ro": "Tatăl meu lucrează mult.", "note": "rudă la singular: fără articol" },
+    { "id": "pos-19", "it": "Le sue chiavi sono qui.", "gap": "sue", "ro": "Cheile lui sunt aici.", "note": "feminin plural: le sue" },
+    { "id": "pos-20", "it": "Questa è la vostra camera.", "gap": "vostra", "ro": "Aceasta este camera voastră.", "note": "feminin singular: la vostra" },
+    { "id": "pos-21", "it": "Ecco il tuo caffè.", "gap": "tuo", "ro": "Iată cafeaua ta.", "note": "caffè e masculin: il tuo" }
+  ]
+}

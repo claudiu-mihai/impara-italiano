@@ -19,9 +19,10 @@ test("Învață → Gramatică: temele în ordinea de învățare, apoi cele 3 j
   const titles = await page.getByRole("list", { name: "Temele de gramatică" }).getByRole("link").allInnerTexts();
   expect(titles.slice(0, 3).map((t) => t.replace(/\s+/g, " "))).toEqual([
     expect.stringContaining("Articolul hotărât și nehotărât"),
-    expect.stringContaining("Pronumele subiect și verbul „a fi”"),
-    expect.stringContaining("Verbul „a avea”"),
+    expect.stringContaining("Genul și pluralul substantivelor"),
+    expect.stringContaining("Acordul adjectivului"),
   ]);
+  await expect(page.getByRole("list", { name: "Temele de gramatică" }).getByRole("link")).toHaveCount(12);
 
   await page.getByRole("link", { name: /Articolul hotărât/ }).click();
   await expect(page).toHaveURL(/\/learn\/grammar\/articoli$/);

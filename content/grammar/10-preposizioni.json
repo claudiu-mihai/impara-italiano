@@ -1,0 +1,84 @@
+{
+  "id": "preposizioni",
+  "order": 10,
+  "title": "Prepozițiile articulate",
+  "level": "A1",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "Prepozițiile [it]di[/it], [it]a[/it], [it]da[/it], [it]in[/it] și [it]su[/it] se [b]contopesc[/b] cu articolul hotărât care urmează: [it]in + il = nel[/it], [it]a + la = alla[/it]. În vorbire le auzi tot timpul."
+    },
+    {
+      "type": "table",
+      "caption": "Prepozițiile articulate",
+      "head": ["", "il", "lo", "la", "l'", "i", "gli", "le"],
+      "rows": [
+        ["di", "del", "dello", "della", "dell'", "dei", "degli", "delle"],
+        ["a", "al", "allo", "alla", "all'", "ai", "agli", "alle"],
+        ["da", "dal", "dallo", "dalla", "dall'", "dai", "dagli", "dalle"],
+        ["in", "nel", "nello", "nella", "nell'", "nei", "negli", "nelle"],
+        ["su", "sul", "sullo", "sulla", "sull'", "sui", "sugli", "sulle"]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "Ce înseamnă",
+      "head": ["italiană", "română"],
+      "itColumns": [0],
+      "rows": [
+        ["di", "de, al (cuiva)"],
+        ["a", "la"],
+        ["da", "de la; la cineva"],
+        ["in", "în"],
+        ["su", "pe"]
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "[it]Con[/it] (cu) și [it]per[/it] (pentru) [b]nu[/b] se contopesc: [it]con il treno[/it], [it]per la mamma[/it]."
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "Vado al mare.", "ro": "Merg la mare." },
+        { "it": "Le chiavi sono nel cassetto.", "ro": "Cheile sunt în sertar." },
+        { "it": "Vengo dalla stazione.", "ro": "Vin de la gară." },
+        { "it": "Il libro è sul tavolo.", "ro": "Cartea este pe masă." },
+        { "it": "Compro dei pomodori.", "ro": "Cumpăr niște roșii.", "note": "[it]di[/it] + articol = niște" }
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "Cu orașele folosești [it]a[/it], cu țările [it]in[/it], ambele fără articol: [it]Vado a Roma[/it], [it]Vado in Italia[/it]. „La doctor” se spune [it]dal medico[/it]: „la cineva” = [it]da[/it]."
+    }
+  ],
+  "rules": [
+    "di, a, da, in, su + il / lo / la / l' / i / gli / le se contopesc: del, al, dal, nel, sul…",
+    "con și per nu se contopesc: con il treno, per la mamma.",
+    "a + oraș (a Roma), in + țară (in Italia), da + persoană (dal medico).",
+    "di + articol = niște: dei libri, delle mele."
+  ],
+  "items": [
+    { "id": "pre-01", "it": "Vado al mare.", "gap": "al", "ro": "Merg la mare.", "note": "a + il = al" },
+    { "id": "pre-02", "it": "Il libro è sul tavolo.", "gap": "sul", "ro": "Cartea este pe masă.", "note": "su + il = sul" },
+    { "id": "pre-03", "it": "Le chiavi sono nel cassetto.", "gap": "nel", "ro": "Cheile sunt în sertar.", "note": "in + il = nel" },
+    { "id": "pre-04", "it": "Vengo dalla stazione.", "gap": "dalla", "ro": "Vin de la gară.", "note": "da + la = dalla" },
+    { "id": "pre-05", "it": "Vado dal medico.", "gap": "dal", "ro": "Merg la doctor.", "note": "la cineva: da + il = dal" },
+    { "id": "pre-06", "it": "È la macchina della mamma.", "gap": "della", "ro": "E mașina mamei.", "note": "di + la = della" },
+    { "id": "pre-07", "it": "Lavoro all'università.", "gap": "all'", "ro": "Lucrez la universitate.", "note": "a + l' = all'" },
+    { "id": "pre-08", "it": "Il gatto è sulla sedia.", "gap": "sulla", "ro": "Pisica e pe scaun.", "note": "su + la = sulla" },
+    { "id": "pre-09", "it": "Siamo nella stessa classe.", "gap": "nella", "ro": "Suntem în aceeași clasă.", "note": "in + la = nella" },
+    { "id": "pre-10", "it": "Telefono ai miei genitori.", "gap": "ai", "ro": "Îi sun pe părinții mei.", "note": "a + i = ai" },
+    { "id": "pre-11", "it": "Compro dei pomodori.", "gap": "dei", "ro": "Cumpăr niște roșii.", "note": "niște: di + i = dei" },
+    { "id": "pre-12", "it": "Vorrei delle mele.", "gap": "delle", "ro": "Aș vrea niște mere.", "note": "niște: di + le = delle" },
+    { "id": "pre-13", "it": "Torno dall'ufficio alle sei.", "gap": "dall'", "ro": "Mă întorc de la birou la șase.", "note": "da + l' = dall'" },
+    { "id": "pre-14", "it": "Il treno parte alle otto.", "gap": "alle", "ro": "Trenul pleacă la opt.", "note": "ora: a + le = alle" },
+    { "id": "pre-15", "it": "C'è un libro nello zaino.", "gap": "nello", "ro": "E o carte în rucsac.", "note": "in + lo = nello" },
+    { "id": "pre-16", "it": "Parlo degli studenti.", "gap": "degli", "ro": "Vorbesc despre studenți.", "note": "di + gli = degli" },
+    { "id": "pre-17", "it": "Sugli scaffali ci sono libri.", "gap": "Sugli", "ro": "Pe rafturi sunt cărți.", "note": "su + gli = sugli" },
+    { "id": "pre-18", "it": "Vado in Italia.", "gap": "in", "ro": "Merg în Italia.", "note": "țară: in, fără articol" },
+    { "id": "pre-19", "it": "Abito a Roma.", "gap": "a", "ro": "Locuiesc la Roma.", "note": "oraș: a, fără articol" },
+    { "id": "pre-20", "it": "Vado con il treno.", "gap": "con", "ro": "Merg cu trenul.", "note": "con nu se contopește" },
+    { "id": "pre-21", "it": "Questo regalo è per la mamma.", "gap": "per", "ro": "Cadoul ăsta e pentru mama.", "note": "per nu se contopește" }
+  ]
+}
