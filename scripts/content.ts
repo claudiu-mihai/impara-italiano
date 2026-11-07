@@ -20,7 +20,7 @@ import { LEVELS, TOPIC_GROUPS, type Level } from "../src/domain/content/constant
 import { lemmaOf } from "../src/domain/content/reflexive.ts";
 import { splitAtGap } from "../src/domain/grammar/gap.ts";
 import { linkedLessonIds } from "../src/domain/grammar/links.ts";
-import { markupError } from "../src/domain/grammar/markup.ts";
+import { lessonProblems } from "../src/domain/grammar/lessonCheck.ts";
 import { irregularPresenteIds } from "./content/presenteIrregular.ts";
 import { buildConjugations, type IrregularFile } from "./conjugate/build.ts";
 import { z } from "zod";
@@ -187,18 +187,7 @@ function loadGrammar(errors: string[]): GrammarTopic[] {
       continue;
     }
     const topic = parsed.data;
-    topic.lesson?.forEach((block, i) => {
-      const texts =
-        block.type === "text" || block.type === "trap"
-          ? [block.ro]
-          : block.type === "examples"
-            ? block.items.flatMap((e) => (e.note ? [e.note] : []))
-            : [];
-      for (const text of texts) {
-        const problem = markupError(text);
-        if (problem) errors.push(`${file}: lecția, blocul ${i + 1}: ${problem}`);
-      }
-    });
+    for (const problem of lessonProblems(topic)) errors.push(`${file}: lecția, ${problem}`);
     if (topics.some((t) => t.id === topic.id)) errors.push(`${file}: id de temă duplicat (${topic.id})`);
     if (topics.some((t) => t.order === topic.order)) errors.push(`${file}: ordinea ${topic.order} este deja folosită`);
 
