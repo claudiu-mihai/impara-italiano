@@ -1,8 +1,51 @@
 {
   "id": "avere",
-  "order": 3,
+  "order": 5,
   "title": "Verbul „a avea” (avere)",
   "level": "A1",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "[it]Avere[/it] înseamnă „a avea”: [it]Ho un fratello.[/it] = Am un frate. Litera [b]h[/b] se scrie, dar [b]nu se pronunță[/b]: [it]ho[/it] se citește „o”, iar [it]hanno[/it] se citește „anno”."
+    },
+    {
+      "type": "table",
+      "caption": "Prezentul verbului avere (a avea)",
+      "head": ["italiană", "română"],
+      "itColumns": [0],
+      "rows": [
+        ["io ho", "eu am"],
+        ["tu hai", "tu ai"],
+        ["lui / lei ha", "el / ea are"],
+        ["noi abbiamo", "noi avem"],
+        ["voi avete", "voi aveți"],
+        ["loro hanno", "ei / ele au"]
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "De ce [it]h[/it]? Ca să deosebești verbul de alte cuvinte care se pronunță la fel: [it]ho[/it] (am) și [it]o[/it] (sau), [it]ha[/it] (are) și [it]a[/it] (la), [it]hanno[/it] (au) și [it]anno[/it] (an)."
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "Ho fame.", "ro": "Mi-e foame.", "note": "literal: „am foame”" },
+        { "it": "Ho freddo.", "ro": "Mi-e frig." },
+        { "it": "Hai sonno?", "ro": "Ți-e somn?" },
+        { "it": "Lui ha vent'anni.", "ro": "El are douăzeci de ani.", "note": "vârsta: [it]avere[/it] + număr + [it]anni[/it], fără „de”" },
+        { "it": "Quanti anni hai?", "ro": "Câți ani ai?" },
+        { "it": "Avete ragione.", "ro": "Aveți dreptate." }
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "Unde româna spune „mi-e foame / sete / frig / cald / somn”, italiana spune „am”: [it]ho fame[/it], [it]ho sete[/it], [it]ho freddo[/it], [it]ho caldo[/it], [it]ho sonno[/it]. Nu „mi è fame”."
+    },
+    {
+      "type": "text",
+      "ro": "Vârsta se spune tot cu [it]avere[/it], ca în română, dar fără „de”: [it]Ho trent'anni.[/it] = Am treizeci de ani."
+    }
+  ],
   "rules": [
     "Forme: io ho, tu hai, lui/lei ha, noi abbiamo, voi avete, loro hanno (am, ai, are, avem, aveți, au).",
     "Ha cu h este verbul avere; a fără h este prepoziție: Lei ha un cane. Vado a Roma.",

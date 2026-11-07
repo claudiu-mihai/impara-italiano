@@ -1,8 +1,54 @@
 {
   "id": "essere",
-  "order": 2,
-  "title": "Verbul „a fi” (essere)",
+  "order": 4,
+  "title": "Pronumele subiect și verbul „a fi”",
   "level": "A1",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "Pronumele care arată cine face acțiunea sunt: [it]io[/it] (eu), [it]tu[/it] (tu), [it]lui[/it] (el), [it]lei[/it] (ea), [it]noi[/it] (noi), [it]voi[/it] (voi), [it]loro[/it] (ei, ele)."
+    },
+    {
+      "type": "text",
+      "ro": "Ca în română, pronumele de obicei [b]lipsește[/b], pentru că forma verbului arată persoana: [it]Sono italiano.[/it] = Sunt italian. Îl spui doar când insiști sau faci un contrast: [it]Io sono italiano, lui è romeno.[/it]"
+    },
+    {
+      "type": "table",
+      "caption": "Prezentul verbului essere (a fi)",
+      "head": ["italiană", "română"],
+      "itColumns": [0],
+      "rows": [
+        ["io sono", "eu sunt"],
+        ["tu sei", "tu ești"],
+        ["lui / lei è", "el / ea este"],
+        ["noi siamo", "noi suntem"],
+        ["voi siete", "voi sunteți"],
+        ["loro sono", "ei / ele sunt"]
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "Folosești [it]essere[/it] pentru cine ești, de unde ești și cum ești: [it]Sono medico.[/it] [it]Sono di Roma.[/it] [it]Sono stanco.[/it]"
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "Lui è medico.", "ro": "El este medic.", "note": "profesia se spune fără articol, ca în română" },
+        { "it": "Loro sono di Roma.", "ro": "Ei sunt din Roma.", "note": "originea: [it]essere di[/it] + oraș" },
+        { "it": "Siamo in ritardo.", "ro": "Suntem întârziați.", "note": "fără pronume: [it]siamo[/it] arată deja persoana" },
+        { "it": "È tardi.", "ro": "Este târziu." },
+        { "it": "Anna e Marco sono amici.", "ro": "Anna și Marco sunt prieteni.", "note": "[it]e[/it] fără accent = și; [it]è[/it] cu accent = este" }
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "[it]è[/it] (este) are accent, [it]e[/it] (și) nu are. Diferența se vede doar în scris, așa că fii atent când scrii: [it]Lei è qui e lui no.[/it] = Ea este aici, iar el nu."
+    },
+    {
+      "type": "trap",
+      "ro": "Starea se spune cu [it]essere[/it], ca în română: [it]Sono stanco[/it] = sunt obosit. Dar foamea, setea, frigul și somnul se spun cu [it]avere[/it]: [it]Ho fame[/it], nu „sono fame”."
+    }
+  ],
   "rules": [
     "Forme: io sono, tu sei, lui/lei è, noi siamo, voi siete, loro sono (sunt, ești, este, suntem, sunteți, sunt).",
     "Se folosește pentru identitate, origine și stare: Sono italiano. Sono stanco.",

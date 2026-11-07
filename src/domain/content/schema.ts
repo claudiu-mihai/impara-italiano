@@ -182,8 +182,7 @@ export const grammarTopicSchema = z
       .array(lessonBlockSchema)
       .min(3)
       .max(20)
-      .refine((blocks) => blocks.some((b) => b.type === "examples"), "lecția trebuie să conțină cel puțin un bloc examples")
-      .optional(),
+      .refine((blocks) => blocks.some((b) => b.type === "examples"), "lecția trebuie să conțină cel puțin un bloc examples"),
     rules: z.array(text).min(1).max(4),
     // cel puțin o sesiune întreagă (10), ca runda să nu repete aceleași exemple
     items: z.array(grammarItemSchema).min(10),

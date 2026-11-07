@@ -3,6 +3,56 @@
   "order": 1,
   "title": "Articolul hotărât și nehotărât",
   "level": "A1",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "În italiană articolul stă [b]înaintea[/b] substantivului: [it]il libro[/it] = cartea, [it]un libro[/it] = o carte. Forma lui depinde de gen, de număr și de [b]primul sunet[/b] al cuvântului care urmează."
+    },
+    {
+      "type": "table",
+      "caption": "Articolul hotărât (cartea, prietenul, casele)",
+      "head": ["", "singular", "plural"],
+      "rows": [
+        ["masculin, înaintea consoanei", "il libro", "i libri"],
+        ["masculin, înaintea s + consoană, z, gn, ps", "lo studente", "gli studenti"],
+        ["masculin, înaintea vocalei", "l'amico", "gli amici"],
+        ["feminin, înaintea consoanei", "la casa", "le case"],
+        ["feminin, înaintea vocalei", "l'amica", "le amiche"]
+      ]
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "il giorno", "ro": "ziua" },
+        { "it": "lo zaino", "ro": "rucsacul", "note": "[it]lo[/it], pentru că începe cu z" },
+        { "it": "l'ospedale", "ro": "spitalul", "note": "masculin, dar [it]l'[/it], pentru că începe cu vocală" },
+        { "it": "gli occhi", "ro": "ochii" },
+        { "it": "le amiche", "ro": "prietenele" }
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "În română articolul se lipește la [b]sfârșitul[/b] cuvântului: „cartea”, „prietenul”. În italiană e un cuvânt separat, pus [b]în față[/b]: [it]il libro[/it], [it]l'amico[/it]."
+    },
+    {
+      "type": "table",
+      "caption": "Articolul nehotărât (un, o)",
+      "head": ["", "masculin", "feminin"],
+      "rows": [
+        ["înaintea consoanei", "un libro", "una casa"],
+        ["înaintea s + consoană, z", "uno studente", "una scuola"],
+        ["înaintea vocalei", "un amico", "un'amica"]
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "Nehotărâtul nu are plural. Pentru „niște” italiana folosește altă construcție ([it]dei libri[/it]), pe care o vei vedea la prepozițiile articulate."
+    },
+    {
+      "type": "trap",
+      "ro": "Apostroful apare doar la [b]feminin[/b]: [it]un'amica[/it], dar [it]un amico[/it]. Iar cuvintele care încep cu s + consoană sau cu z cer [it]lo[/it] / [it]uno[/it] / [it]gli[/it]: [it]lo studente[/it], nu „il studente”."
+    }
+  ],
   "rules": [
     "Articolul hotărât arată ceva anume, cunoscut: il libro înseamnă «cartea».",
     "Articolul nehotărât arată ceva oarecare: un libro înseamnă «o carte». Nu are plural.",

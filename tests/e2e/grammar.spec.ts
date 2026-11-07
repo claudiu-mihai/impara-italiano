@@ -19,7 +19,7 @@ test("Învață → Gramatică: temele în ordinea de învățare, apoi cele 3 j
   const titles = await page.getByRole("list", { name: "Temele de gramatică" }).getByRole("link").allInnerTexts();
   expect(titles.slice(0, 3).map((t) => t.replace(/\s+/g, " "))).toEqual([
     expect.stringContaining("Articolul hotărât și nehotărât"),
-    expect.stringContaining("Verbul „a fi”"),
+    expect.stringContaining("Pronumele subiect și verbul „a fi”"),
     expect.stringContaining("Verbul „a avea”"),
   ]);
 
@@ -136,7 +136,7 @@ test("rutele vechi /learn/games duc la /learn/grammar", async ({ page }) => {
 test("lecția: tabel și capcană pentru români", async ({ page }) => {
   await page.goto("/learn/grammar/articoli");
   await expect(page.getByRole("table").first()).toBeVisible();
-  await expect(page.getByText("Capcană pentru români")).toBeVisible();
+  await expect(page.getByText("Capcană pentru români").first()).toBeVisible();
 });
 
 test("Am citit + scorul la Introducere text apar în listă", async ({ page }) => {
