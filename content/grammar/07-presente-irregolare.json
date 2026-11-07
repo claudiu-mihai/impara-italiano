@@ -52,6 +52,10 @@
       ]
     },
     {
+      "type": "text",
+      "ro": "Verbele în [it]-rre[/it] se conjugă după o formă mai veche a infinitivului: [it]porre[/it] → [it]pongo, poni, pone[/it]; [it]tradurre[/it] → [it]traduco, traduci, traduce[/it]; [it]trarre[/it] → [it]traggo, trai, trae[/it]. La fel merg [it]proporre[/it], [it]produrre[/it], [it]ridurre[/it], [it]attrarre[/it]."
+    },
+    {
       "type": "examples",
       "items": [
         { "it": "Vado a casa.", "ro": "Merg acasă." },
