@@ -1,0 +1,92 @@
+{
+  "id": "negazione-domande",
+  "order": 8,
+  "title": "Negația și întrebarea",
+  "level": "A1",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "Negația e simplă: pui [it]non[/it] [b]înaintea verbului[/b], ca pe „nu” în română: [it]Non parlo tedesco.[/it] = Nu vorbesc germana."
+    },
+    {
+      "type": "text",
+      "ro": "Ca în română, negația se dublează: [it]Non vedo niente.[/it] = Nu văd nimic. [it]Non c'è nessuno.[/it] = Nu e nimeni."
+    },
+    {
+      "type": "table",
+      "caption": "Negații duble",
+      "head": ["italiană", "română"],
+      "itColumns": [0],
+      "rows": [
+        ["non … niente / nulla", "nu … nimic"],
+        ["non … nessuno", "nu … nimeni"],
+        ["non … mai", "nu … niciodată"],
+        ["non … più", "nu … mai"],
+        ["non … ancora", "încă nu"]
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "Întrebarea se face doar din [b]intonație[/b], fără să schimbi ordinea cuvintelor: [it]Sei stanco.[/it] → [it]Sei stanco?[/it]"
+    },
+    {
+      "type": "table",
+      "caption": "Cuvinte de întrebare",
+      "head": ["italiană", "română"],
+      "itColumns": [0],
+      "rows": [
+        ["chi?", "cine?"],
+        ["che cosa? / cosa?", "ce?"],
+        ["dove?", "unde?"],
+        ["quando?", "când?"],
+        ["come?", "cum?"],
+        ["perché?", "de ce?"],
+        ["quanto? / quanti?", "cât? / câți?"],
+        ["quale?", "care?"]
+      ]
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "Non ho tempo.", "ro": "Nu am timp." },
+        { "it": "Non mangio mai carne.", "ro": "Nu mănânc niciodată carne.", "note": "[it]mai[/it] = niciodată" },
+        { "it": "Non abito più qui.", "ro": "Nu mai locuiesc aici.", "note": "„nu mai” = [it]non … più[/it]" },
+        { "it": "Dove abiti?", "ro": "Unde locuiești?" },
+        { "it": "Perché non vieni?", "ro": "De ce nu vii?", "note": "[it]perché[/it] înseamnă și „de ce”, și „pentru că”" }
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "[it]Mai[/it] înseamnă „niciodată”, nu „mai”: [it]Non vado mai al cinema[/it] = Nu merg niciodată la cinema. „Nu mai” se spune [it]non … più[/it]: [it]Non fumo più[/it] = Nu mai fumez."
+    }
+  ],
+  "rules": [
+    "non stă înaintea verbului: Non parlo tedesco.",
+    "Negația se dublează: non … niente, non … nessuno, non … mai.",
+    "mai = niciodată; „nu mai” = non … più.",
+    "Întrebarea se face din intonație: Sei stanco?"
+  ],
+  "items": [
+    { "id": "neg-01", "it": "Io non parlo tedesco.", "gap": "non", "ro": "Eu nu vorbesc germana.", "note": "non înaintea verbului" },
+    { "id": "neg-02", "it": "Lui non lavora oggi.", "gap": "non", "ro": "El nu lucrează azi.", "note": "non înaintea verbului" },
+    { "id": "neg-03", "it": "Non vedo niente.", "gap": "niente", "ro": "Nu văd nimic.", "note": "non … niente" },
+    { "id": "neg-04", "it": "Non c'è nessuno.", "gap": "nessuno", "ro": "Nu e nimeni.", "note": "non … nessuno" },
+    { "id": "neg-05", "it": "Non mangio mai carne.", "gap": "mai", "ro": "Nu mănânc niciodată carne.", "note": "mai = niciodată" },
+    { "id": "neg-06", "it": "Non abito più qui.", "gap": "più", "ro": "Nu mai locuiesc aici.", "note": "„nu mai” = non … più" },
+    { "id": "neg-07", "it": "Non sono ancora pronto.", "gap": "ancora", "ro": "Încă nu sunt gata.", "note": "non … ancora" },
+    { "id": "neg-08", "it": "Dove abiti?", "gap": "Dove", "ro": "Unde locuiești?", "note": "dove = unde" },
+    { "id": "neg-09", "it": "Quando parti?", "gap": "Quando", "ro": "Când pleci?", "note": "quando = când" },
+    { "id": "neg-10", "it": "Come ti chiami?", "gap": "Come", "ro": "Cum te numești?", "note": "come = cum" },
+    { "id": "neg-11", "it": "Perché non vieni?", "gap": "Perché", "ro": "De ce nu vii?", "note": "perché = de ce" },
+    { "id": "neg-12", "it": "Chi è quella ragazza?", "gap": "Chi", "ro": "Cine este fata aceea?", "note": "chi = cine" },
+    { "id": "neg-13", "it": "Che cosa vuoi?", "gap": "cosa", "ro": "Ce vrei?", "note": "che cosa = ce" },
+    { "id": "neg-14", "it": "Quanto costa?", "gap": "Quanto", "ro": "Cât costă?", "note": "quanto = cât" },
+    { "id": "neg-15", "it": "Quanti anni hai?", "gap": "Quanti", "ro": "Câți ani ai?", "note": "quanti = câți" },
+    { "id": "neg-16", "it": "Quale vuoi?", "gap": "Quale", "ro": "Pe care îl vrei?", "note": "quale = care" },
+    { "id": "neg-17", "it": "Non conosco nessuno qui.", "gap": "nessuno", "ro": "Nu cunosc pe nimeni aici.", "note": "non … nessuno" },
+    { "id": "neg-18", "it": "Non dico niente.", "gap": "niente", "ro": "Nu spun nimic.", "note": "non … niente" },
+    { "id": "neg-19", "it": "Non bevo mai il caffè.", "gap": "mai", "ro": "Nu beau niciodată cafea.", "note": "mai = niciodată" },
+    { "id": "neg-20", "it": "Non lavoro più lì.", "gap": "più", "ro": "Nu mai lucrez acolo.", "note": "„nu mai” = non … più" },
+    { "id": "neg-21", "it": "Tu non mangi la carne?", "gap": "non", "ro": "Tu nu mănânci carne?", "note": "întrebare negativă: doar intonația" }
+  ]
+}

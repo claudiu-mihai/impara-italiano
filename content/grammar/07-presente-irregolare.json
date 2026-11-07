@@ -1,0 +1,99 @@
+{
+  "id": "presente-irregolare",
+  "order": 7,
+  "title": "Verbe neregulate frecvente la prezent",
+  "level": "A1",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "Cele mai folosite verbe sunt neregulate. Vestea bună: sunt puține și le auzi tot timpul, așa că le înveți ca pe niște cuvinte noi."
+    },
+    {
+      "type": "table",
+      "caption": "andare, fare, venire, stare",
+      "head": ["", "andare", "fare", "venire", "stare"],
+      "rows": [
+        ["io", "vado", "faccio", "vengo", "sto"],
+        ["tu", "vai", "fai", "vieni", "stai"],
+        ["lui / lei", "va", "fa", "viene", "sta"],
+        ["noi", "andiamo", "facciamo", "veniamo", "stiamo"],
+        ["voi", "andate", "fate", "venite", "state"],
+        ["loro", "vanno", "fanno", "vengono", "stanno"]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "volere, potere, dovere, sapere",
+      "head": ["", "volere", "potere", "dovere", "sapere"],
+      "rows": [
+        ["io", "voglio", "posso", "devo", "so"],
+        ["tu", "vuoi", "puoi", "devi", "sai"],
+        ["lui / lei", "vuole", "può", "deve", "sa"],
+        ["noi", "vogliamo", "possiamo", "dobbiamo", "sappiamo"],
+        ["voi", "volete", "potete", "dovete", "sapete"],
+        ["loro", "vogliono", "possono", "devono", "sanno"]
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "[it]Volere[/it], [it]potere[/it], [it]dovere[/it] și [it]sapere[/it] sunt urmate direct de infinitiv, fără „să”: [it]Voglio mangiare.[/it] = Vreau să mănânc. [it]Posso entrare?[/it] = Pot să intru?"
+    },
+    {
+      "type": "table",
+      "caption": "dire, uscire",
+      "head": ["", "dire", "uscire"],
+      "rows": [
+        ["io", "dico", "esco"],
+        ["tu", "dici", "esci"],
+        ["lui / lei", "dice", "esce"],
+        ["noi", "diciamo", "usciamo"],
+        ["voi", "dite", "uscite"],
+        ["loro", "dicono", "escono"]
+      ]
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "Vado a casa.", "ro": "Merg acasă." },
+        { "it": "Che cosa fai stasera?", "ro": "Ce faci diseară?" },
+        { "it": "Vieni con me?", "ro": "Vii cu mine?" },
+        { "it": "Non posso venire.", "ro": "Nu pot să vin.", "note": "[it]potere[/it] + infinitiv, fără „să”" },
+        { "it": "Devo andare.", "ro": "Trebuie să plec." }
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "„Ce mai faci?” se spune cu [it]stare[/it], nu cu [it]essere[/it] sau [it]fare[/it]: [it]Come stai?[/it] – [it]Sto bene, grazie.[/it] Tot [it]stare[/it] înseamnă și „a sta” undeva: [it]Sto a casa.[/it]"
+    }
+  ],
+  "rules": [
+    "andare: vado, vai, va, andiamo, andate, vanno; fare: faccio, fai, fa, facciamo, fate, fanno.",
+    "volere: voglio, vuoi, vuole…; potere: posso, puoi, può…; dovere: devo, devi, deve…",
+    "volere, potere, dovere și sapere + infinitiv, fără „să”: Voglio mangiare = Vreau să mănânc.",
+    "Come stai? Sto bene: starea se spune cu stare."
+  ],
+  "items": [
+    { "id": "pri-01", "it": "Io vado al lavoro.", "gap": "vado", "ro": "Eu merg la serviciu.", "note": "andare → vado" },
+    { "id": "pri-02", "it": "Dove vai?", "gap": "vai", "ro": "Unde mergi?", "note": "andare → vai" },
+    { "id": "pri-03", "it": "Lei va a Roma.", "gap": "va", "ro": "Ea merge la Roma.", "note": "andare → va" },
+    { "id": "pri-04", "it": "Loro vanno al mare.", "gap": "vanno", "ro": "Ei merg la mare.", "note": "andare → vanno" },
+    { "id": "pri-05", "it": "Che cosa fai?", "gap": "fai", "ro": "Ce faci?", "note": "fare → fai" },
+    { "id": "pri-06", "it": "Io faccio colazione.", "gap": "faccio", "ro": "Eu iau micul dejun.", "note": "fare → faccio" },
+    { "id": "pri-07", "it": "Noi facciamo una pausa.", "gap": "facciamo", "ro": "Facem o pauză.", "note": "fare → facciamo" },
+    { "id": "pri-08", "it": "Tu vieni con noi?", "gap": "vieni", "ro": "Vii cu noi?", "note": "venire → vieni" },
+    { "id": "pri-09", "it": "Loro vengono domani.", "gap": "vengono", "ro": "Ei vin mâine.", "note": "venire → vengono" },
+    { "id": "pri-10", "it": "Io voglio un gelato.", "gap": "voglio", "ro": "Vreau o înghețată.", "note": "volere → voglio" },
+    { "id": "pri-11", "it": "Tu vuoi uscire?", "gap": "vuoi", "ro": "Vrei să ieși?", "note": "volere → vuoi" },
+    { "id": "pri-12", "it": "Io posso entrare?", "gap": "posso", "ro": "Pot să intru?", "note": "potere → posso" },
+    { "id": "pri-13", "it": "Lei può venire.", "gap": "può", "ro": "Ea poate să vină.", "note": "potere → può" },
+    { "id": "pri-14", "it": "Io devo lavorare.", "gap": "devo", "ro": "Trebuie să lucrez.", "note": "dovere → devo" },
+    { "id": "pri-15", "it": "Noi dobbiamo partire.", "gap": "dobbiamo", "ro": "Trebuie să plecăm.", "note": "dovere → dobbiamo" },
+    { "id": "pri-16", "it": "Io non so.", "gap": "so", "ro": "Nu știu.", "note": "sapere → so" },
+    { "id": "pri-17", "it": "Tu sai nuotare?", "gap": "sai", "ro": "Știi să înoți?", "note": "sapere → sai" },
+    { "id": "pri-18", "it": "Io sto bene.", "gap": "sto", "ro": "Mă simt bine.", "note": "stare → sto" },
+    { "id": "pri-19", "it": "Come stai?", "gap": "stai", "ro": "Ce mai faci?", "note": "starea se spune cu stare" },
+    { "id": "pri-20", "it": "Lui dice la verità.", "gap": "dice", "ro": "El spune adevărul.", "note": "dire → dice" },
+    { "id": "pri-21", "it": "Noi usciamo stasera.", "gap": "usciamo", "ro": "Ieșim diseară.", "note": "uscire → usciamo" },
+    { "id": "pri-22", "it": "Loro escono tardi.", "gap": "escono", "ro": "Ei ies târziu.", "note": "uscire → escono" }
+  ]
+}
