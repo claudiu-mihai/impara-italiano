@@ -1,0 +1,77 @@
+{
+  "id": "aggettivi",
+  "order": 3,
+  "title": "Acordul adjectivului",
+  "level": "A1",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "Adjectivul se acordă cu substantivul în [b]gen[/b] și [b]număr[/b], ca în română: [it]un ragazzo alto[/it], [it]una ragazza alta[/it]."
+    },
+    {
+      "type": "table",
+      "caption": "Adjective în -o (4 forme)",
+      "head": ["", "singular", "plural"],
+      "rows": [
+        ["masculin", "rosso", "rossi"],
+        ["feminin", "rossa", "rosse"]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "Adjective în -e (2 forme)",
+      "head": ["", "singular", "plural"],
+      "rows": [
+        ["masculin", "verde", "verdi"],
+        ["feminin", "verde", "verdi"]
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "De obicei adjectivul stă [b]după[/b] substantiv: [it]una macchina nuova[/it]. Câteva foarte folosite stau de obicei înainte: [it]bello[/it], [it]buono[/it], [it]grande[/it], [it]piccolo[/it]: [it]una bella città[/it], [it]un buon amico[/it]."
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "Le foglie sono verdi.", "ro": "Frunzele sunt verzi.", "note": "[it]verde[/it] are aceeași formă la masculin și la feminin" },
+        { "it": "Ho due sorelle simpatiche.", "ro": "Am două surori simpatice.", "note": "[it]-ca → -che[/it]" },
+        { "it": "Abbiamo amici simpatici.", "ro": "Avem prieteni simpatici.", "note": "aici [it]-co → -ci[/it]; alteori [it]-chi[/it] ([it]stanchi[/it])" },
+        { "it": "È un buon amico.", "ro": "Este un prieten bun.", "note": "[it]buono[/it] devine [it]buon[/it] înaintea substantivului masculin" },
+        { "it": "Il caffè è caldo.", "ro": "Cafeaua este caldă.", "note": "[it]caffè[/it] e masculin, deci [it]caldo[/it]" }
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "[it]Molto[/it] are două roluri. Înaintea unui substantiv înseamnă „mult” și se acordă: [it]molti amici[/it], [it]molte persone[/it]. Înaintea unui adjectiv înseamnă „foarte” și nu se schimbă: [it]molto bella[/it], [it]molto stanchi[/it]."
+    }
+  ],
+  "rules": [
+    "Adjectivele în -o au 4 forme: rosso, rossa, rossi, rosse.",
+    "Adjectivele în -e au 2 forme: verde (masculin și feminin singular), verdi (masculin și feminin plural).",
+    "Adjectivul stă de obicei după substantiv; bello, buono, grande și piccolo stau de obicei înainte.",
+    "Molto + substantiv se acordă (molti amici); molto + adjectiv nu se schimbă (molto bello)."
+  ],
+  "items": [
+    { "id": "agg-01", "it": "La casa è rossa.", "gap": "rossa", "ro": "Casa este roșie.", "note": "feminin singular" },
+    { "id": "agg-02", "it": "I fiori sono rossi.", "gap": "rossi", "ro": "Florile sunt roșii.", "note": "masculin plural: fiore e masculin" },
+    { "id": "agg-03", "it": "Le mele sono rosse.", "gap": "rosse", "ro": "Merele sunt roșii.", "note": "feminin plural" },
+    { "id": "agg-04", "it": "Il ragazzo è alto.", "gap": "alto", "ro": "Băiatul este înalt.", "note": "masculin singular" },
+    { "id": "agg-05", "it": "La ragazza è alta.", "gap": "alta", "ro": "Fata este înaltă.", "note": "feminin singular" },
+    { "id": "agg-06", "it": "I ragazzi sono alti.", "gap": "alti", "ro": "Băieții sunt înalți.", "note": "masculin plural" },
+    { "id": "agg-07", "it": "Le ragazze sono alte.", "gap": "alte", "ro": "Fetele sunt înalte.", "note": "feminin plural" },
+    { "id": "agg-08", "it": "Il prato è verde.", "gap": "verde", "ro": "Pajiștea este verde.", "note": "-e: aceeași formă la masculin și feminin" },
+    { "id": "agg-09", "it": "Le foglie sono verdi.", "gap": "verdi", "ro": "Frunzele sunt verzi.", "note": "-e → -i la plural, la ambele genuri" },
+    { "id": "agg-10", "it": "Ho una macchina nuova.", "gap": "nuova", "ro": "Am o mașină nouă.", "note": "feminin singular, după substantiv" },
+    { "id": "agg-11", "it": "Abbiamo amici simpatici.", "gap": "simpatici", "ro": "Avem prieteni simpatici.", "note": "-co → -ci" },
+    { "id": "agg-12", "it": "Ho due sorelle simpatiche.", "gap": "simpatiche", "ro": "Am două surori simpatice.", "note": "-ca → -che" },
+    { "id": "agg-13", "it": "Roma è una bella città.", "gap": "bella", "ro": "Roma este un oraș frumos.", "note": "bello stă de obicei înainte" },
+    { "id": "agg-14", "it": "È un buon amico.", "gap": "buon", "ro": "Este un prieten bun.", "note": "buono → buon înaintea substantivului" },
+    { "id": "agg-15", "it": "Ho molti amici.", "gap": "molti", "ro": "Am mulți prieteni.", "note": "molto + substantiv: se acordă" },
+    { "id": "agg-16", "it": "È molto bello.", "gap": "molto", "ro": "Este foarte frumos.", "note": "molto + adjectiv: nu se schimbă" },
+    { "id": "agg-17", "it": "Ci sono molte persone.", "gap": "molte", "ro": "Sunt multe persoane.", "note": "feminin plural" },
+    { "id": "agg-18", "it": "Il caffè è caldo.", "gap": "caldo", "ro": "Cafeaua este caldă.", "note": "caffè e masculin" },
+    { "id": "agg-19", "it": "La pizza è calda.", "gap": "calda", "ro": "Pizza este caldă.", "note": "feminin singular" },
+    { "id": "agg-20", "it": "I bambini sono stanchi.", "gap": "stanchi", "ro": "Copiii sunt obosiți.", "note": "-co → -chi aici" },
+    { "id": "agg-21", "it": "Le strade sono lunghe.", "gap": "lunghe", "ro": "Străzile sunt lungi.", "note": "-ga → -ghe" }
+  ]
+}

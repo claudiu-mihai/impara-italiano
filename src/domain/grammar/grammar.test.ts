@@ -56,7 +56,7 @@ test("conținutul din content/grammar este valid, cu ordine unică și lacune co
     .map((f) => grammarTopicSchema.parse(JSON.parse(readFileSync(resolve(dir, f), "utf8"))));
   expect(topics.length).toBeGreaterThanOrEqual(3);
   expect(new Set(topics.map((t) => t.order)).size).toBe(topics.length);
-  expect(topics.sort((a, b) => a.order - b.order).map((t) => t.id).slice(0, 3)).toEqual(["articoli", "essere", "avere"]);
+  expect(topics.sort((a, b) => a.order - b.order).map((t) => t.id).slice(0, 3)).toEqual(["articoli", "genere-plurale", "aggettivi"]);
   for (const topic of topics) {
     expect(new Set(topic.items.map((i) => i.ro)).size, `${topic.id}: traduceri duplicate`).toBe(topic.items.length);
     for (const i of topic.items) expect(splitAtGap(i.it, i.gap), `${i.id}: lacună invalidă`).toBeDefined();
