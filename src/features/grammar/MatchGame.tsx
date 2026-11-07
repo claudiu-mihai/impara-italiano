@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { db } from "../../data/db/instance.ts";
-import { saveGameScore } from "../../data/db/grammarProgress.ts";
-import { getSettings } from "../../data/db/repositories.ts";
+import { getSettings, saveGameScore } from "../../data/db/repositories.ts";
 import type { GrammarItem } from "../../domain/content/schema.ts";
 import { buildGrammarMatchRounds, type GrammarPair } from "../../domain/grammar/games.ts";
 import { matchScore } from "../../domain/grammar/progress.ts";

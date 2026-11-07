@@ -1,8 +1,8 @@
-import { grammarProgressSchema, type GrammarProgress } from "../../domain/grammar/progress.ts";
+import type { GrammarProgress } from "../../domain/grammar/progress.ts";
 import { mergeCard, mergeGrammarProgress, mergeSettingsTimes } from "../../domain/sync/merge.ts";
 import { cardToData, logToData, newUid } from "../../domain/sync/serialize.ts";
 import type { StoredCard } from "../../domain/srs/types.ts";
-import { cardSchema, reportSchema, reviewLogSchema, settingsSchema } from "../backup/backup.ts";
+import { cardSchema, grammarProgressSchema, reportSchema, reviewLogSchema, settingsSchema } from "../backup/backup.ts";
 import type { ImparaDb, LogRow, ReportRow } from "../db/db.ts";
 import { getSettings } from "../db/repositories.ts";
 import { getMeta } from "./pending.ts";

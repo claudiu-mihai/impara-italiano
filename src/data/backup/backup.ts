@@ -4,7 +4,7 @@ import type { ReviewLogEntry, StoredCard } from "../../domain/srs/types.ts";
 import type { ImparaDb, ReportRow } from "../db/db.ts";
 import { getSettings, syncUserOf } from "../db/repositories.ts";
 import { newUid } from "../../domain/sync/serialize.ts";
-import { grammarProgressSchema, type GrammarProgress } from "../../domain/grammar/progress.ts";
+import type { GrammarProgress } from "../../domain/grammar/progress.ts";
 import { t } from "../../i18n/standalone.ts";
 import { notifyLocalChange } from "../sync/signal.ts";
 
@@ -71,6 +71,14 @@ export const settingsSchema = z.object({
   soundEnabled: z.boolean(),
   nativeHelp: z.boolean(),
   uiLanguage: z.enum(["ro", "it"]),
+});
+
+const percent = int.min(0).max(100);
+
+/** Progresul la o temă de gramatică, venit de pe server sau din backup. */
+export const grammarProgressSchema = z.object({
+  readAt: z.number().optional(),
+  best: z.object({ match: percent.optional(), type: percent.optional() }),
 });
 
 export const reportSchema = z.object({

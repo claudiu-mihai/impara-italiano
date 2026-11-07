@@ -7,8 +7,15 @@ import { newStoredCard, reviewStoredCard } from "../../domain/srs/scheduler.ts";
 import { vocabCardId } from "../../domain/srs/types.ts";
 import { exportBackup, importBackup, parseBackup, backupToJson, resetProgress } from "../backup/backup.ts";
 import { createDb, type ImparaDb } from "../db/db.ts";
-import { forgetWord, getSettings, markWordKnown, saveReview, saveSettings } from "../db/repositories.ts";
-import { markLessonRead, saveGameScore } from "../db/grammarProgress.ts";
+import {
+  forgetWord,
+  getSettings,
+  markLessonRead,
+  markWordKnown,
+  saveGameScore,
+  saveReview,
+  saveSettings,
+} from "../db/repositories.ts";
 import { PUSH_CHUNK, runSync } from "./engine.ts";
 import { hasLocalProgress, pendingCount } from "./pending.ts";
 import { FakeRemote } from "./fakeRemote.ts";

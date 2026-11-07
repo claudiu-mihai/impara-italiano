@@ -1,6 +1,6 @@
 import { useLiveQuery } from "dexie-react-hooks";
 import { Link } from "react-router-dom";
-import { markLessonRead } from "../../data/db/grammarProgress.ts";
+import { markLessonRead } from "../../data/db/repositories.ts";
 import { db } from "../../data/db/instance.ts";
 import type { GrammarGame } from "../../domain/grammar/progress.ts";
 import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";

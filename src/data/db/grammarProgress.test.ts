@@ -2,7 +2,7 @@ import "fake-indexeddb/auto";
 import { afterEach, beforeEach, expect, test } from "vitest";
 import { pendingCount } from "../sync/pending.ts";
 import { createDb, type ImparaDb } from "./db.ts";
-import { markLessonRead, saveGameScore } from "./grammarProgress.ts";
+import { markLessonRead, saveGameScore } from "./repositories.ts";
 
 const T0 = new Date(2026, 10, 7, 10, 0, 0).getTime();
 const at = (minutes: number) => new Date(T0 + minutes * 60_000);

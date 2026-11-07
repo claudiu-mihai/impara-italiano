@@ -1,5 +1,3 @@
-import { z } from "zod";
-
 /** Jocurile de gramatică care dau scor (Cartonașele sunt doar pentru exersat). */
 export type GrammarGame = "match" | "type";
 
@@ -8,14 +6,6 @@ export interface GrammarProgress {
   readAt?: number;
   best: Partial<Record<GrammarGame, number>>;
 }
-
-const percent = z.number().int().min(0).max(100);
-
-/** Forma progresului venit de pe server sau din backup. */
-export const grammarProgressSchema = z.object({
-  readAt: z.number().optional(),
-  best: z.object({ match: percent.optional(), type: percent.optional() }),
-});
 
 /** Scriere: răspunsuri corecte din total. */
 export function typeScore(correct: number, total: number): number {

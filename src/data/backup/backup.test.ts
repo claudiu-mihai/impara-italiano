@@ -5,9 +5,8 @@ import { DEFAULT_SETTINGS } from "../../domain/settings.ts";
 import { newStoredCard, reviewStoredCard } from "../../domain/srs/scheduler.ts";
 import { vocabCardId } from "../../domain/srs/types.ts";
 import { createDb, type ImparaDb } from "../db/db.ts";
-import { saveReview, saveSettings } from "../db/repositories.ts";
-import { markLessonRead, saveGameScore } from "../db/grammarProgress.ts";
-import { BackupError, backupToJson, exportBackup, importBackup, parseBackup, resetProgress } from "./backup.ts";
+import { markLessonRead, saveGameScore, saveReview, saveSettings } from "../db/repositories.ts";
+import { BackupError, backupToJson, exportBackup, grammarProgressSchema, importBackup, parseBackup, resetProgress } from "./backup.ts";
 
 const NOW = new Date(2026, 9, 20, 10, 0, 0);
 let db: ImparaDb;
@@ -127,4 +126,11 @@ test("backup vechi, fără grammarProgress, se importă", async () => {
   const old = JSON.parse(backupToJson(await exportBackup(db, "v1", NOW)));
   delete old.grammarProgress;
   expect(parseBackup(JSON.stringify(old)).grammarProgress).toEqual([]);
+});
+
+test("grammarProgressSchema: procente întregi 0–100", () => {
+  expect(grammarProgressSchema.safeParse({ readAt: 5, best: { type: 100 } }).success).toBe(true);
+  expect(grammarProgressSchema.safeParse({ best: { type: 140 } }).success).toBe(false);
+  expect(grammarProgressSchema.safeParse({ best: { match: 50.5 } }).success).toBe(false);
+  expect(grammarProgressSchema.safeParse("x").success).toBe(false);
 });

@@ -6,6 +6,8 @@ import { getSettings } from "../data/db/repositories.ts";
 import { startAutoSync } from "../data/sync/autoSync.ts";
 import { setUiLanguage, useT, type Key } from "../i18n/index.ts";
 import { HomePage } from "../features/home/HomePage.tsx";
+// redirecționarea rutelor vechi e de câteva rânduri: se încarcă direct, nu la nevoie
+import { LegacyGamesRedirect } from "../features/grammar/LegacyGamesRedirect.tsx";
 import { applyPwaUpdate, usePwaNeedRefresh } from "../services/pwaUpdate.ts";
 import { applyTheme } from "../services/theme.ts";
 import { setPreferredVoice, useTtsStatus } from "../services/tts.ts";
@@ -34,9 +36,6 @@ const GrammarTopicPage = lazy(() => import("../features/grammar/GrammarTopicPage
 const GameCardsPage = lazy(() => import("../features/grammar/CardsGame.tsx").then((m) => ({ default: m.CardsPage })));
 const GameMatchPage = lazy(() => import("../features/grammar/MatchGame.tsx").then((m) => ({ default: m.MatchPage })));
 const GameTypePage = lazy(() => import("../features/grammar/TypeGame.tsx").then((m) => ({ default: m.TypePage })));
-const LegacyGamesRedirect = lazy(() =>
-  import("../features/grammar/LegacyGamesRedirect.tsx").then((m) => ({ default: m.LegacyGamesRedirect })),
-);
 const SettingsPage = lazy(() => import("../features/settings/SettingsPage.tsx").then((m) => ({ default: m.SettingsPage })));
 const StatsPage = lazy(() => import("../features/stats/StatsPage.tsx").then((m) => ({ default: m.StatsPage })));
 

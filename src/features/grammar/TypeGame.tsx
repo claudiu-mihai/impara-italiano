@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { db } from "../../data/db/instance.ts";
-import { saveGameScore } from "../../data/db/grammarProgress.ts";
-import { getSettings } from "../../data/db/repositories.ts";
+import { getSettings, saveGameScore } from "../../data/db/repositories.ts";
 import type { GrammarItem } from "../../domain/content/schema.ts";
 import type { AnswerResult } from "../../domain/grading/compareAnswer.ts";
 import { gradeGap, pickSession } from "../../domain/grammar/games.ts";
