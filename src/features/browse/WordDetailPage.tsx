@@ -1,6 +1,7 @@
 import { useLiveQuery } from "dexie-react-hooks";
 import { Link, useParams } from "react-router-dom";
 import { useConjugations } from "../../app/conjugations.ts";
+import { usePresenteIrregular } from "../../app/presenteIrregular.ts";
 import { useTopics } from "../../app/topics.ts";
 import { topicWordIds } from "../../domain/topics/topics.ts";
 import { useWordDetails } from "../../app/wordDetails.ts";
@@ -9,12 +10,14 @@ import { forgetWord, getSettings, markWordKnown } from "../../data/db/repositori
 import { italianText, POS_LABEL, TENSE_LABEL } from "../../domain/content/display.ts";
 import { NATIVE_LANGUAGE, TENSES } from "../../domain/content/constants.ts";
 import { useT } from "../../i18n/index.ts";
+import { lessonForWord } from "../../domain/grammar/links.ts";
 import { masteryOf } from "../../domain/srs/mastery.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { BackLink } from "../../ui/BackLink.tsx";
 import { BilingualLabel } from "../../ui/BilingualLabel.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
 import { ConjugationTable } from "../../ui/ConjugationTable.tsx";
+import { LessonLink } from "../grammar/LessonLink.tsx";
 import { LevelBadge } from "./LevelBadge.tsx";
 
 const card = "rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900";
@@ -29,6 +32,7 @@ export function WordDetailPage() {
   const word = details?.get(id);
   const cards = useLiveQuery(() => db.cards.where("wordId").equals(id).toArray(), [id]);
   const settings = useLiveQuery(() => getSettings(db), []);
+  const irregular = usePresenteIrregular();
 
   if (!details) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
 
@@ -49,6 +53,8 @@ export function WordDetailPage() {
   const text = italianText(word);
   const forms = conjugations?.[word.id];
   const tenses = TENSES.filter((tense) => forms?.[tense]);
+  const lesson = irregular && lessonForWord(word.pos, word.id, irregular);
+  const lessonLink = lesson && <LessonLink topicId={lesson} from={{ path: `/browse/${word.id}`, label: word.it }} />;
 
   const known = async () => {
     const settings = await getSettings(db);
@@ -110,6 +116,7 @@ export function WordDetailPage() {
               <span className="ml-2 rounded-full bg-amber-100 px-2 py-0.5 text-xs text-amber-900">{t("word.irregular")}</span>
             )}
           </p>
+          {lessonLink}
         </section>
       )}
 
@@ -132,6 +139,7 @@ export function WordDetailPage() {
               </>
             )}
           </p>
+          {lessonLink}
         </section>
       )}
 
@@ -148,6 +156,7 @@ export function WordDetailPage() {
               fp: <strong>{word.forms.fp}</strong>,
             })}
           </p>
+          {lessonLink}
         </section>
       )}
 

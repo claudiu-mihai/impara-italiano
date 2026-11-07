@@ -314,6 +314,7 @@ export const it: Record<Key, string> = {
   "grammar.markRead": "L'ho letta",
   "grammar.read": "Letta",
   "grammar.best": "Migliore: {n}%",
+  "grammar.ruleLink": "La regola",
   "cards.done": "Hai finito le carte",
   "cards.reviewed_one": "Hai completato {n} carta.",
   "cards.reviewed_other": "Hai completato {n} carte.",

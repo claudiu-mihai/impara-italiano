@@ -1,0 +1,33 @@
+import { expect, test } from "@playwright/test";
+
+test("fișa unui verb neregulat → lecția → înapoi la cuvânt", async ({ page }) => {
+  await page.goto("/browse/v-andare");
+  await page.getByRole("link", { name: /Regula: Verbe neregulate frecvente la prezent/ }).click();
+  await expect(page).toHaveURL(/\/learn\/grammar\/presente-irregolare$/);
+  await expect(page.getByRole("heading", { name: "Verbe neregulate frecvente la prezent", level: 1 })).toBeVisible();
+  await page.getByRole("link", { name: "Înapoi la andare" }).click();
+  await expect(page).toHaveURL(/\/browse\/v-andare$/);
+});
+
+test("fișa unui verb regulat, a unui substantiv și a unui adjectiv au lecția potrivită", async ({ page }) => {
+  await page.goto("/browse/v-parlare");
+  await expect(page.getByRole("link", { name: /Regula: Prezentul verbelor regulate/ })).toBeVisible();
+  await page.goto("/browse/n-libro");
+  await expect(page.getByRole("link", { name: /Regula: Genul și pluralul substantivelor/ })).toBeVisible();
+  await page.goto("/browse/a-rosso");
+  await expect(page.getByRole("link", { name: /Regula: Acordul adjectivului/ })).toBeVisible();
+});
+
+test("lecția deschisă direct: Înapoi duce la lista de gramatică", async ({ page }) => {
+  await page.goto("/learn/grammar/articoli");
+  await page.getByRole("link", { name: "Înapoi la Gramatică" }).click();
+  await expect(page).toHaveURL(/\/learn\/grammar$/);
+});
+
+test("cu interfața în italiană, linkul spune „La regola”", async ({ page }) => {
+  await page.goto("/settings");
+  await page.getByLabel("Limba interfeței / Lingua dell'interfaccia").selectOption("it");
+  await expect(page.getByRole("heading", { name: "Impostazioni", level: 1 })).toBeVisible();
+  await page.goto("/browse/n-libro");
+  await expect(page.getByRole("link", { name: /La regola: Genul și pluralul substantivelor/ })).toBeVisible();
+});

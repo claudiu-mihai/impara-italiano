@@ -313,6 +313,7 @@ export const ro = {
   "grammar.markRead": "Am citit",
   "grammar.read": "Citită",
   "grammar.best": "Cel mai bun: {n}%",
+  "grammar.ruleLink": "Regula",
   "cards.done": "Ai terminat cartonașele",
   "cards.reviewed_one": "Ai parcurs {n} cartonașe.",
   "cards.reviewed_other": "Ai parcurs {n} cartonașe.",

@@ -1,5 +1,5 @@
 import { useLiveQuery } from "dexie-react-hooks";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { markLessonRead } from "../../data/db/repositories.ts";
 import { db } from "../../data/db/instance.ts";
 import type { GrammarGame } from "../../domain/grammar/progress.ts";
@@ -9,6 +9,7 @@ import { BackLink } from "../../ui/BackLink.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
 import { RulesBox } from "../../ui/RulesBox.tsx";
 import { Lesson } from "./Lesson.tsx";
+import type { LessonOrigin } from "./LessonLink.tsx";
 import { useGrammarTopic } from "./useGrammarTopic.ts";
 
 const GAMES: { path: string; icon: string; title: Key; text: Key; scored?: GrammarGame }[] = [
@@ -21,6 +22,8 @@ export function GrammarTopicPage() {
   const { t } = useT();
   const { id, topic, loading } = useGrammarTopic();
   const progress = useLiveQuery(() => db.grammarProgress.get(id), [id]);
+  // deschisă dintr-un link (fișa cuvântului, conjugare): „Înapoi” duce acolo
+  const from = (useLocation().state as { from?: LessonOrigin } | null)?.from;
   if (loading) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
   if (!topic) {
     return (
@@ -35,7 +38,7 @@ export function GrammarTopicPage() {
 
   return (
     <div className="flex flex-col gap-5 px-4 pb-8 pt-4">
-      <BackLink to="/learn/grammar" label={t("learn.grammar")} />
+      <BackLink to={from?.path ?? "/learn/grammar"} label={from?.label ?? t("learn.grammar")} />
 
       <header className="flex items-center gap-3">
         <h1 lang={NATIVE_LANGUAGE} className="flex-1 text-3xl font-bold">
