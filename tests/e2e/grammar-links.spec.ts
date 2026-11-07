@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { seedLearnedWords } from "./helpers.ts";
 
 test("fișa unui verb neregulat → lecția → înapoi la cuvânt", async ({ page }) => {
   await page.goto("/browse/v-andare");
@@ -30,4 +31,22 @@ test("cu interfața în italiană, linkul spune „La regola”", async ({ page 
   await expect(page.getByRole("heading", { name: "Impostazioni", level: 1 })).toBeVisible();
   await page.goto("/browse/n-libro");
   await expect(page.getByRole("link", { name: /La regola: Genul și pluralul substantivelor/ })).toBeVisible();
+});
+
+test("conjugare la prezent → lecția → înapoi în sesiune", async ({ page }) => {
+  await seedLearnedWords(page, ["v-parlare"]);
+  await page.goto("/learn/conjugation");
+  await expect(page.getByTestId("person")).toBeVisible();
+  await page.getByRole("link", { name: /Regula: Prezentul verbelor regulate/ }).click();
+  await expect(page.getByRole("heading", { name: "Prezentul verbelor regulate", level: 1 })).toBeVisible();
+  await page.getByRole("link", { name: "Înapoi la Conjugare" }).click();
+  await expect(page).toHaveURL(/\/learn\/conjugation$/);
+  await expect(page.getByTestId("person")).toBeVisible();
+});
+
+test("conjugare la prezent pentru un verb neregulat → lecția despre verbe neregulate", async ({ page }) => {
+  await seedLearnedWords(page, ["v-andare"]);
+  await page.goto("/learn/conjugation");
+  await expect(page.getByTestId("person")).toBeVisible();
+  await expect(page.getByRole("link", { name: /Regula: Verbe neregulate frecvente la prezent/ })).toBeVisible();
 });

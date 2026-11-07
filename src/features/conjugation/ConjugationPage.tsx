@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import { State, type Grade } from "ts-fsrs";
 import { useConjugations } from "../../app/conjugations.ts";
 import { useContent } from "../../app/content.tsx";
+import { usePresenteIrregular } from "../../app/presenteIrregular.ts";
 import { db } from "../../data/db/instance.ts";
 import { getSettings, saveReview, saveSettings } from "../../data/db/repositories.ts";
 import { loadConjugationOverview } from "../../data/queries.ts";
 import { useT } from "../../i18n/index.ts";
 import { CONJUGATION_MODE_LABEL } from "../../domain/content/display.ts";
+import { lessonForTense } from "../../domain/grammar/links.ts";
 import { LEARN_AHEAD_MS } from "../../domain/session/buildDailySession.ts";
 import type { ConjItem } from "../../domain/session/buildConjugationSession.ts";
 import { DEFAULT_SETTINGS, type ConjugationMode, type Settings } from "../../domain/settings.ts";
@@ -15,6 +17,7 @@ import { newStoredCard, reviewStoredCard } from "../../domain/srs/scheduler.ts";
 import { studyDayOf } from "../../domain/time/studyDay.ts";
 import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
+import { LessonLink } from "../grammar/LessonLink.tsx";
 import { FlipCard } from "./FlipCard.tsx";
 import { TableCard } from "./TableCard.tsx";
 import { WriteCard } from "./WriteCard.tsx";
@@ -25,6 +28,7 @@ export function ConjugationPage() {
   const { t, tp } = useT();
   const content = useContent();
   const conjugations = useConjugations();
+  const irregular = usePresenteIrregular();
   const busy = useRef(false);
 
   const [ready, setReady] = useState(false);
@@ -111,6 +115,7 @@ export function ConjugationPage() {
   };
 
   const Card = { write: WriteCard, flip: FlipCard, table: TableCard }[settings.conjugationMode];
+  const lesson = irregular && lessonForTense(item.tense, item.verbId, irregular);
 
   return (
     <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
@@ -148,6 +153,12 @@ export function ConjugationPage() {
         settings={settings}
         onFinish={(grade) => void finishCard(grade)}
       />
+
+      {lesson && (
+        <div className="text-center">
+          <LessonLink topicId={lesson} from={{ path: "/learn/conjugation", label: t("learn.conjugation") }} />
+        </div>
+      )}
     </div>
   );
 }
