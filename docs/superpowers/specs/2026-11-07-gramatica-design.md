@@ -155,18 +155,23 @@ Toate legăturile stau într-un singur fișier, `src/domain/grammar/links.ts`:
 
 ```ts
 export const GRAMMAR_LINKS = {
-  noun: "genere-plurale",
-  adjective: "aggettivi",
   verbRegular: "presente-regolare",
   verbIrregular: "presente-irregolare",
   tense: { presente: "presente-regolare" } as Partial<Record<Tense, string>>,
 } as const;
 ```
 
-- **Fișa cuvântului** (`WordDetailPage`): în secțiunile substantiv / adjectiv / verb, un link mic
-  „📘 Regula: <titlul lecției>”. La verb se alege lecția după câmpul `irregular`.
+- **Fișa cuvântului** (`WordDetailPage`): doar la verbele **regulate la prezent**, în secțiunea verb, apare un link mic
+  „📘 Regula: Prezentul verbelor regulate”. Verbele neregulate la prezent, substantivele și adjectivele nu au link
+  (decizie a utilizatorului, după prima versiune).
+- **Lista verbelor neregulate la prezent** se generează la build (`presenteIrregular.json`): verbele din
+  `irregular.json` care diferă de regulă (nu doar printr-un „i” la scris) plus verbele contrase în -rre.
+- **Lecția „Verbe neregulate frecvente la prezent”** are linkul „📖 Vezi și alte verbe neregulate” către Dicționar,
+  filtrat pe verbele neregulate la prezent din grupa A (`/browse?irregular=presente&cefr=A`). În Dicționar, filtrul
+  apare ca un chip care se poate închide.
 - **Conjugare**: pe cartonaș, dacă timpul are lecție în `GRAMMAR_LINKS.tense`, apare link către ea. Pentru verbele
   neregulate la prezent, linkul duce la `presente-irregolare`.
+- **Înapoi** din lecție (deschisă dintr-un link) se întoarce în istoric la ecranul de plecare, inclusiv după un joc.
 - Validarea conținutului verifică faptul că fiecare id din `GRAMMAR_LINKS` există în `content/grammar/`.
 
 ## 7. Testare

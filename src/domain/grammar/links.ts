@@ -5,8 +5,6 @@ import type { Pos, Tense } from "../content/constants.ts";
  * faptul că fiecare id există în content/grammar.
  */
 export const GRAMMAR_LINKS = {
-  noun: "genere-plurale",
-  adjective: "aggettivi",
   verbRegular: "presente-regolare",
   verbIrregular: "presente-irregolare",
   // la prezent, verbele neregulate primesc lecția lor (vezi lessonForTense)
@@ -20,14 +18,11 @@ export function linkedLessonIds(): string[] {
 }
 
 /**
- * Lecția pentru fișa unui cuvânt: substantiv, adjectiv sau verb regulat la prezent. Verbele neregulate la prezent nu au
- * link: lecția despre ele trimite deja la lista lor din Dicționar, iar drumul înapoi ar fi un cerc.
+ * Lecția pentru fișa unui cuvânt: doar verbele regulate la prezent au link. Verbele neregulate la prezent nu au
+ * (lecția despre ele trimite deja la lista lor din Dicționar), iar substantivele și adjectivele nici atât.
  */
 export function lessonForWord(pos: Pos, wordId: string, irregularPresente: ReadonlySet<string>): string | undefined {
-  if (pos === "noun") return GRAMMAR_LINKS.noun;
-  if (pos === "adjective") return GRAMMAR_LINKS.adjective;
-  if (pos === "verb") return irregularPresente.has(wordId) ? undefined : GRAMMAR_LINKS.verbRegular;
-  return undefined;
+  return pos === "verb" && !irregularPresente.has(wordId) ? GRAMMAR_LINKS.verbRegular : undefined;
 }
 
 /** Lecția pentru un timp verbal din conjugare; la prezent, verbele neregulate primesc lecția despre ele. */

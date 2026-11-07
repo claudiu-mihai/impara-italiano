@@ -19,13 +19,15 @@ test("fișa unui verb neregulat la prezent nu are link către lecție (nici în 
   }
 });
 
-test("fișa unui verb regulat, a unui substantiv și a unui adjectiv au lecția potrivită", async ({ page }) => {
+test("doar fișa unui verb regulat are link către lecție, nu și substantivele sau adjectivele", async ({ page }) => {
   await page.goto("/browse/v-parlare");
   await expect(page.getByRole("link", { name: /Regula: Prezentul verbelor regulate/ })).toBeVisible();
-  await page.goto("/browse/n-libro");
-  await expect(page.getByRole("link", { name: /Regula: Genul și pluralul substantivelor/ })).toBeVisible();
-  await page.goto("/browse/a-rosso");
-  await expect(page.getByRole("link", { name: /Regula: Acordul adjectivului/ })).toBeVisible();
+  // substantivele și adjectivele nu au link către lecție
+  for (const id of ["n-libro", "a-rosso"]) {
+    await page.goto(`/browse/${id}`);
+    await expect(page.getByRole("heading", { name: id.startsWith("n-") ? "Substantiv" : "Adjectiv" })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Regula:/ })).toHaveCount(0);
+  }
 });
 
 test("lecția deschisă direct: Înapoi duce la lista de gramatică", async ({ page }) => {
@@ -38,8 +40,8 @@ test("cu interfața în italiană, linkul spune „La regola”", async ({ page 
   await page.goto("/settings");
   await page.getByLabel("Limba interfeței / Lingua dell'interfaccia").selectOption("it");
   await expect(page.getByRole("heading", { name: "Impostazioni", level: 1 })).toBeVisible();
-  await page.goto("/browse/n-libro");
-  await expect(page.getByRole("link", { name: /La regola: Genul și pluralul substantivelor/ })).toBeVisible();
+  await page.goto("/browse/v-parlare");
+  await expect(page.getByRole("link", { name: /La regola: Prezentul verbelor regulate/ })).toBeVisible();
 });
 
 test("conjugare la prezent → lecția → înapoi în sesiune", async ({ page }) => {
@@ -71,14 +73,14 @@ test("Înapoi din lecție se întoarce în istoric: butonul Înapoi al telefonul
 });
 
 test("după un joc pornit din lecție, Înapoi duce tot la cuvântul de plecare", async ({ page }) => {
-  await page.goto("/browse/n-libro");
-  await page.getByRole("link", { name: /Regula: Genul și pluralul/ }).click();
+  await page.goto("/browse/v-parlare");
+  await page.getByRole("link", { name: /Regula: Prezentul verbelor regulate/ }).click();
   await page.getByRole("link", { name: /Cartonașe/ }).click();
   await expect(page.getByTestId("grammar-card")).toBeVisible();
   await page.getByRole("link", { name: "Ieși din sesiune" }).click();
-  await expect(page).toHaveURL(/\/learn\/grammar\/genere-plurale$/);
-  await page.getByRole("link", { name: "Înapoi la libro" }).click();
-  await expect(page).toHaveURL(/\/browse\/n-libro$/);
+  await expect(page).toHaveURL(/\/learn\/grammar\/presente-regolare$/);
+  await page.getByRole("link", { name: "Înapoi la parlare" }).click();
+  await expect(page).toHaveURL(/\/browse\/v-parlare$/);
 });
 
 test("lecția despre verbele neregulate → dicționarul cu verbele neregulate din grupa A", async ({ page }) => {

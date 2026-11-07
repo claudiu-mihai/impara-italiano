@@ -139,7 +139,6 @@ export function WordDetailPage() {
               </>
             )}
           </p>
-          {lessonLink}
         </section>
       )}
 
@@ -156,7 +155,6 @@ export function WordDetailPage() {
               fp: <strong>{word.forms.fp}</strong>,
             })}
           </p>
-          {lessonLink}
         </section>
       )}
 

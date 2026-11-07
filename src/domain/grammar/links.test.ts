@@ -6,8 +6,9 @@ import { GRAMMAR_LINKS, lessonForTense, lessonForWord, linkedLessonIds } from ".
 const irregular = new Set(["v-andare", "v-essere"]);
 
 test("lessonForWord", () => {
-  expect(lessonForWord("noun", "n-libro", irregular)).toBe("genere-plurale");
-  expect(lessonForWord("adjective", "a-rosso", irregular)).toBe("aggettivi");
+  // doar verbele regulate au link din fișa cuvântului
+  expect(lessonForWord("noun", "n-libro", irregular)).toBeUndefined();
+  expect(lessonForWord("adjective", "a-rosso", irregular)).toBeUndefined();
   expect(lessonForWord("verb", "v-parlare", irregular)).toBe("presente-regolare");
   // fișa unui verb neregulat la prezent nu are link (lecția trimite deja la lista lor din Dicționar)
   expect(lessonForWord("verb", "v-andare", irregular)).toBeUndefined();
@@ -29,5 +30,5 @@ test("toate id-urile din GRAMMAR_LINKS există în content/grammar", () => {
       .map((f) => (JSON.parse(readFileSync(resolve(dir, f), "utf8")) as { id: string }).id),
   );
   expect(linkedLessonIds().filter((id) => !ids.has(id))).toEqual([]);
-  expect(linkedLessonIds()).toContain(GRAMMAR_LINKS.noun);
+  expect(linkedLessonIds()).toContain(GRAMMAR_LINKS.verbRegular);
 });
