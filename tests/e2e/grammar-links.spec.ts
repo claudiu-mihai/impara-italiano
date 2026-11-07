@@ -17,6 +17,9 @@ test("fișa unui verb regulat, a unui substantiv și a unui adjectiv au lecția 
   await expect(page.getByRole("link", { name: /Regula: Genul și pluralul substantivelor/ })).toBeVisible();
   await page.goto("/browse/a-rosso");
   await expect(page.getByRole("link", { name: /Regula: Acordul adjectivului/ })).toBeVisible();
+  // verbele în -rre sunt neregulate la prezent (traduco), deși nu apar în irregular.json
+  await page.goto("/browse/v-tradurre");
+  await expect(page.getByRole("link", { name: /Regula: Verbe neregulate frecvente la prezent/ })).toBeVisible();
 });
 
 test("lecția deschisă direct: Înapoi duce la lista de gramatică", async ({ page }) => {

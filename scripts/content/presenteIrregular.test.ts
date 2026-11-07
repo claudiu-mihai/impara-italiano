@@ -17,3 +17,11 @@ const presente = {
 test("doar verbele care diferă cu adevărat de regulă (nu prin „i” dublu sau deloc)", () => {
   expect(irregularPresenteIds(presente, verbs)).toEqual(["v-andare"]);
 });
+
+test("verbele contrase în -rre sunt mereu neregulate, deși nu apar în irregular.json", () => {
+  const contracted = [
+    { id: "v-tradurre", it: "tradurre", group: "ere" as const },
+    { id: "v-porre", it: "porre", group: "ere" as const },
+  ];
+  expect(irregularPresenteIds(presente, [...verbs, ...contracted])).toEqual(["v-andare", "v-porre", "v-tradurre"]);
+});
