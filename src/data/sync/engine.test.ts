@@ -8,6 +8,7 @@ import { vocabCardId } from "../../domain/srs/types.ts";
 import { exportBackup, importBackup, parseBackup, backupToJson, resetProgress } from "../backup/backup.ts";
 import { createDb, type ImparaDb } from "../db/db.ts";
 import { forgetWord, getSettings, markWordKnown, saveReview, saveSettings } from "../db/repositories.ts";
+import { markLessonRead, saveGameScore } from "../db/grammarProgress.ts";
 import { PUSH_CHUNK, runSync } from "./engine.ts";
 import { hasLocalProgress, pendingCount } from "./pending.ts";
 import { FakeRemote } from "./fakeRemote.ts";
@@ -390,4 +391,32 @@ test("importul sau resetarea fără cont nu cer nicio înlocuire pe server", asy
   await review(solo, "w1", 0);
   await resetProgress(solo);
   expect(await solo.meta.get("syncReplace")).toBeUndefined();
+});
+
+test("gramatică: citit pe un telefon + 100% pe altul → ambele au tot", async () => {
+  const a = await device();
+  const b = await device();
+  await markLessonRead(a, "articoli", at(0));
+  await saveGameScore(b, "articoli", "type", 100, at(1));
+  await runSync(a, remote);
+  await runSync(b, remote);
+  await runSync(a, remote);
+  for (const db of [a, b]) {
+    expect(await db.grammarProgress.get("articoli")).toMatchObject({ readAt: at(0).getTime(), best: { type: 100 } });
+  }
+  expect(await pendingCount(a)).toBe(0);
+  expect(await pendingCount(b)).toBe(0);
+});
+
+test("gramatică: date invalide de pe server sunt numărate și ignorate", async () => {
+  const a = await device();
+  await saveGameScore(a, "essere", "match", 70, at(0));
+  await remote.push("grammar_progress", [
+    { key: "essere", updatedAt: 1, data: { best: { type: 140 } } },
+    { key: "avere", updatedAt: 1, data: "x" },
+  ]);
+  const report = await runSync(a, remote);
+  expect(report.invalid).toBe(2);
+  expect((await a.grammarProgress.get("essere"))?.best).toEqual({ match: 70 });
+  expect(await a.grammarProgress.get("avere")).toBeUndefined();
 });

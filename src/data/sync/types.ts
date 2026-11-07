@@ -1,11 +1,11 @@
 /** Colecțiile de pe server (vezi pocketbase/pb_migrations). */
-export type Collection = "cards" | "review_logs" | "settings" | "reports";
+export type Collection = "cards" | "review_logs" | "settings" | "reports" | "grammar_progress";
 
 /** O înregistrare de trimis: cheia ei stabilă (cardId, uid sau „app”) și conținutul JSON. */
 export interface SyncItem {
   key: string;
   data: unknown;
-  /** Doar la carduri și setări: momentul modificării (ms), după care se rezolvă conflictele. */
+  /** La carduri, setări și progresul la gramatică: momentul modificării (ms). */
   updatedAt?: number;
   /** Doar la carduri: ștergere marcată. */
   deleted?: boolean;

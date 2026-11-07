@@ -11,6 +11,7 @@ export class FakeRemote implements SyncRemote {
     review_logs: new Map(),
     settings: new Map(),
     reports: new Map(),
+    grammar_progress: new Map(),
   };
   private clock = 0;
   pushes = 0;

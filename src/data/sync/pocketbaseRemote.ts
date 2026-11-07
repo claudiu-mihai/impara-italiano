@@ -37,6 +37,8 @@ function toItem(collection: Collection, row: Row): RemoteItem {
       return { key: row.cardId as string, data: row.data, updatedAt: row.updatedAt as number, deleted: row.deleted === true, updated: row.updated };
     case "settings":
       return { key: "app", data: row.data, updatedAt: row.updatedAt as number, updated: row.updated };
+    case "grammar_progress":
+      return { key: row.topicId as string, data: row.data, updatedAt: row.updatedAt as number, updated: row.updated };
     default:
       return { key: row.uid as string, data: row.data, updated: row.updated };
   }
@@ -48,6 +50,8 @@ function toFields(collection: Collection, item: SyncItem): Record<string, unknow
       return { cardId: item.key, data: item.data, updatedAt: item.updatedAt ?? 0, deleted: item.deleted === true };
     case "settings":
       return { data: item.data, updatedAt: item.updatedAt ?? 0 };
+    case "grammar_progress":
+      return { topicId: item.key, data: item.data, updatedAt: item.updatedAt ?? 0 };
     default:
       return { uid: item.key, data: item.data };
   }
