@@ -1,9 +1,11 @@
-import { useMemo, useRef, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { db } from "../../data/db/instance.ts";
+import { saveGameScore } from "../../data/db/grammarProgress.ts";
 import { getSettings } from "../../data/db/repositories.ts";
 import type { GrammarItem } from "../../domain/content/schema.ts";
 import type { AnswerResult } from "../../domain/grading/compareAnswer.ts";
 import { gradeGap, pickSession } from "../../domain/grammar/games.ts";
+import { typeScore } from "../../domain/grammar/progress.ts";
 import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { useT } from "../../i18n/index.ts";
 import { playFeedback } from "../../services/sound.ts";
@@ -43,6 +45,15 @@ function TypeGame({ topicId, items }: { topicId: string; items: GrammarItem[] })
 
   const item = session[step];
 
+  // scorul se salvează o singură dată pe încercare, când se termină sesiunea (doar dacă e mai bun)
+  const saved = useRef(false);
+  const finished = session.length > 0 && step >= session.length;
+  useEffect(() => {
+    if (!finished || saved.current) return;
+    saved.current = true;
+    void saveGameScore(db, topicId, "type", typeScore(score, session.length), new Date());
+  }, [finished, score, session.length, topicId]);
+
   if (!item) {
     return (
       <SessionDone
@@ -55,6 +66,7 @@ function TypeGame({ topicId, items }: { topicId: string; items: GrammarItem[] })
           type="button"
           className={primaryButton}
           onClick={() => {
+            saved.current = false;
             setAttempt((a) => a + 1);
             setStep(0);
             setScore(0);

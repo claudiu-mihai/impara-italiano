@@ -9,6 +9,7 @@ import { expect, test } from "vitest";
 const ALLOWED: { file: string; text: string; why: string }[] = [
   { file: "src/ui/RulesBox.tsx", text: "De reținut", why: "titlul casetei în limba maternă (conținut)" },
   { file: "src/ui/TopicRulesBox.tsx", text: "De reținut", why: "titlul feței în limba maternă (conținut)" },
+  { file: "src/features/grammar/Lesson.tsx", text: "Capcană pentru români", why: "titlul casetei din lecție, în limba maternă (conținut)" },
   { file: "src/features/home/HomePage.tsx", text: "Salut!", why: "traducerea frazei lui Lupino, în limba maternă" },
   { file: "src/features/home/HomePage.tsx", text: "Baftă!", why: "traducerea frazei lui Lupino, în limba maternă" },
   { file: "src/features/home/HomePage.tsx", text: "Ai terminat pentru azi", why: "traducerea frazei lui Lupino, în limba maternă" },

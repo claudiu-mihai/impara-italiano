@@ -1,8 +1,10 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { db } from "../../data/db/instance.ts";
+import { saveGameScore } from "../../data/db/grammarProgress.ts";
 import { getSettings } from "../../data/db/repositories.ts";
 import type { GrammarItem } from "../../domain/content/schema.ts";
 import { buildGrammarMatchRounds, type GrammarPair } from "../../domain/grammar/games.ts";
+import { matchScore } from "../../domain/grammar/progress.ts";
 import { shuffle } from "../../domain/random.ts";
 import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { useT } from "../../i18n/index.ts";
@@ -40,6 +42,17 @@ function MatchGame({ topicId, items }: { topicId: string; items: GrammarItem[] }
   const [mistakes, setMistakes] = useState(0);
 
   const round = rounds[roundIndex];
+
+  // scorul se salvează o singură dată pe încercare, la sfârșitul ultimei runde (doar dacă e mai bun)
+  const saved = useRef(false);
+  const finished = !!round && roundIndex + 1 >= rounds.length && round.every((p) => matched.has(p.id));
+  const totalPairs = rounds.reduce((sum, r) => sum + r.length, 0);
+  useEffect(() => {
+    if (!finished || saved.current) return;
+    saved.current = true;
+    void saveGameScore(db, topicId, "match", matchScore(totalPairs, mistakes), new Date());
+  }, [finished, totalPairs, mistakes, topicId]);
+
   const rightOrder = useMemo(() => (round ? shuffle(round) : []), [round]);
 
   const choose = async (side: "left" | "right", pairId: string) => {
@@ -88,6 +101,7 @@ function MatchGame({ topicId, items }: { topicId: string; items: GrammarItem[] }
           type="button"
           className={primaryButton}
           onClick={() => {
+            saved.current = false;
             setAttempt((a) => a + 1);
             setRoundIndex(0);
             setMatched(new Set());

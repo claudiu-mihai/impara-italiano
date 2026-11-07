@@ -1,20 +1,26 @@
+import { useLiveQuery } from "dexie-react-hooks";
 import { Link } from "react-router-dom";
+import { markLessonRead } from "../../data/db/grammarProgress.ts";
+import { db } from "../../data/db/instance.ts";
+import type { GrammarGame } from "../../domain/grammar/progress.ts";
 import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { useT, type Key } from "../../i18n/index.ts";
 import { BackLink } from "../../ui/BackLink.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
 import { RulesBox } from "../../ui/RulesBox.tsx";
+import { Lesson } from "./Lesson.tsx";
 import { useGrammarTopic } from "./useGrammarTopic.ts";
 
-const GAMES: { path: string; icon: string; title: Key; text: Key }[] = [
+const GAMES: { path: string; icon: string; title: Key; text: Key; scored?: GrammarGame }[] = [
   { path: "cards", icon: "🃏", title: "games.cards", text: "games.cardsText" },
-  { path: "match", icon: "🔗", title: "games.match", text: "games.matchText" },
-  { path: "type", icon: "⌨️", title: "games.type", text: "games.typeText" },
+  { path: "match", icon: "🔗", title: "games.match", text: "games.matchText", scored: "match" },
+  { path: "type", icon: "⌨️", title: "games.type", text: "games.typeText", scored: "type" },
 ];
 
 export function GrammarTopicPage() {
   const { t } = useT();
-  const { topic, loading } = useGrammarTopic();
+  const { id, topic, loading } = useGrammarTopic();
+  const progress = useLiveQuery(() => db.grammarProgress.get(id), [id]);
   if (loading) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
   if (!topic) {
     return (
@@ -38,7 +44,22 @@ export function GrammarTopicPage() {
         <CefrBadge level={topic.level} />
       </header>
 
-      <RulesBox rules={topic.rules} lang={NATIVE_LANGUAGE} />
+      {topic.lesson && <Lesson blocks={topic.lesson} />}
+
+      <RulesBox rules={topic.rules} lang={NATIVE_LANGUAGE} defaultOpen />
+
+      <button
+        type="button"
+        aria-pressed={progress?.readAt !== undefined}
+        onClick={() => void markLessonRead(db, topic.id, new Date())}
+        className={`min-h-14 rounded-2xl px-5 text-lg font-semibold ${
+          progress?.readAt !== undefined
+            ? "bg-green-100 text-green-950 dark:bg-green-950 dark:text-green-50"
+            : "bg-brand text-white active:bg-brand-fg"
+        }`}
+      >
+        {progress?.readAt !== undefined ? `✓ ${t("grammar.read")}` : t("grammar.markRead")}
+      </button>
 
       <section aria-labelledby="games" className="flex flex-col gap-3">
         <h2 id="games" className="text-sm font-semibold uppercase tracking-wide text-muted">
@@ -56,6 +77,11 @@ export function GrammarTopicPage() {
             <span className="flex-1">
               <span className="block text-lg font-semibold">{t(game.title)}</span>
               <span className="block text-sm text-muted">{t(game.text)}</span>
+              {game.scored && progress?.best[game.scored] !== undefined && (
+                <span className="block text-sm font-semibold text-brand-fg">
+                  {t("grammar.best", { n: progress.best[game.scored]! })}
+                </span>
+              )}
             </span>
           </Link>
         ))}

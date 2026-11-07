@@ -27,11 +27,8 @@ test("Învață → Gramatică: temele în ordinea de învățare, apoi cele 3 j
   await expect(page).toHaveURL(/\/learn\/grammar\/articoli$/);
   await expect(page.getByRole("heading", { name: articoli.title, level: 1 })).toBeVisible();
   await expect(page.getByRole("heading", { name: "De reținut" })).toBeVisible();
-  // implicit restrâns; se extinde la atingere
+  // pe pagina temei, rezumatul e deschis implicit; se poate restrânge
   const rules = page.getByRole("button", { name: "De reținut" });
-  await expect(rules).toHaveAttribute("aria-expanded", "false");
-  await expect(page.getByText(/Articolul hotărât arată ceva anume/)).toBeHidden();
-  await rules.click();
   await expect(rules).toHaveAttribute("aria-expanded", "true");
   await expect(page.getByText(/Articolul hotărât arată ceva anume/)).toBeVisible();
   await rules.click();
@@ -134,4 +131,39 @@ test("rutele vechi /learn/games duc la /learn/grammar", async ({ page }) => {
   await expect(page.getByRole("textbox")).toBeVisible();
   await page.goto("/learn/games");
   await expect(page).toHaveURL(/\/learn\/grammar$/);
+});
+
+test("lecția: tabel și capcană pentru români", async ({ page }) => {
+  await page.goto("/learn/grammar/articoli");
+  await expect(page.getByRole("table").first()).toBeVisible();
+  await expect(page.getByText("Capcană pentru români")).toBeVisible();
+});
+
+test("Am citit + scorul la Introducere text apar în listă", async ({ page }) => {
+  await page.goto("/learn/grammar/articoli");
+  await page.getByRole("button", { name: "Am citit" }).click();
+  await expect(page.getByRole("button", { name: /Citită/ })).toHaveAttribute("aria-pressed", "true");
+
+  await page.getByRole("link", { name: /Introducere text/ }).click();
+  const prompt = page.getByTestId("grammar-prompt");
+  const input = page.getByRole("textbox", { name: "Cuvântul care lipsește" });
+  for (let step = 0; step < 10; step++) {
+    const ro = (await prompt.locator("xpath=following-sibling::p").textContent())!;
+    await input.fill(articoli.items.find((i) => i.ro === ro)!.gap);
+    await page.getByRole("button", { name: "Verifică" }).click();
+    await page.getByRole("button", { name: /Continuă|Vezi rezultatul/ }).click();
+  }
+  await expect(page.getByRole("heading", { name: "10 din 10" })).toBeVisible();
+
+  await page.getByRole("link", { name: "Înapoi la temă" }).click();
+  await expect(page.getByRole("link", { name: /Introducere text/ })).toContainText("Cel mai bun: 100%");
+
+  await page.getByRole("link", { name: "Înapoi la Gramatică" }).click();
+  const row = page.getByRole("list", { name: "Temele de gramatică" }).getByRole("link", { name: /Articolul/ });
+  await expect(row.getByLabel("Citită")).toBeVisible();
+  await expect(row).toContainText("100%");
+
+  // după reîncărcare progresul rămâne
+  await page.reload();
+  await expect(row).toContainText("100%");
 });

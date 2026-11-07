@@ -8,13 +8,16 @@ export function RulesBox({
   rules,
   title = "De reținut",
   lang,
+  defaultOpen = false,
 }: {
   rules: readonly string[];
   title?: string;
   /** Limba titlului și a regulilor, dacă nu e cea a paginii (ex. `it`). */
   lang?: string;
+  /** Deschisă de la început (ex. ca rezumat după lecție). */
+  defaultOpen?: boolean;
 }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(defaultOpen);
   const id = useId();
   return (
     <section aria-labelledby={`${id}-title`} lang={lang} className="rounded-2xl bg-amber-50 text-amber-950 dark:bg-amber-950 dark:text-amber-50">
