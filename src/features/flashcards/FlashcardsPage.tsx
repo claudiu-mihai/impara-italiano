@@ -16,6 +16,7 @@ import { newStoredCard, previewDue, reviewStoredCard } from "../../domain/srs/sc
 import type { StoredCard } from "../../domain/srs/types.ts";
 import { studyDayOf } from "../../domain/time/studyDay.ts";
 import { useSessionStore } from "../../store/sessionStore.ts";
+import { useReturnToOrigin } from "../../ui/useReturnToOrigin.ts";
 import { WordCard } from "./WordCard.tsx";
 import { Lupino } from "../../ui/mascot/Lupino.tsx";
 
@@ -40,6 +41,8 @@ export function FlashcardsPage() {
   const topics = useTopics();
   const topic = topicId ? topics?.find((x) => x.id === topicId) : undefined;
   const exitTo = topicId ? `/learn/topics/${topicId}` : "/";
+  // sesiunea zilei se pornește din Acasă sau din Învață: ✕ te întoarce unde ai pornit; sesiunea unei teme se întoarce la temă
+  const onExit = useReturnToOrigin(!topicId);
   const { queue, index, flipped, shownAt, answered, start, flip, advance, reset } = useSessionStore();
   const [ready, setReady] = useState(false);
   const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS);
@@ -161,7 +164,7 @@ export function FlashcardsPage() {
   return (
     <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
       <header className="flex items-center gap-3">
-        <Link to={exitTo} aria-label={t("study.exit")} className="flex size-12 items-center justify-center text-2xl">
+        <Link to={exitTo} onClick={onExit} aria-label={t("study.exit")} className="flex size-12 items-center justify-center text-2xl">
           ✕
         </Link>
         <div

@@ -119,7 +119,7 @@ export function ConjugationPage() {
 
   return (
     <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
-      <StudyHeader index={index} total={queue.length} />
+      <StudyHeader index={index} total={queue.length} returnToOrigin />
       {item.isNew && <p className="text-center text-sm font-semibold text-brand-fg">{t("conj.newTense")}</p>}
 
       <div role="radiogroup" aria-label={t("conj.mode")} className="grid grid-cols-3 gap-2">
