@@ -1,6 +1,7 @@
 import { useLiveQuery } from "dexie-react-hooks";
+import { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { markLessonRead } from "../../data/db/repositories.ts";
+import { markLessonRead, setLastPractice } from "../../data/db/repositories.ts";
 import { db } from "../../data/db/instance.ts";
 import type { GrammarGame } from "../../domain/grammar/progress.ts";
 import { browseHref } from "../../domain/browse/filterWords.ts";
@@ -27,6 +28,11 @@ export function GrammarTopicPage() {
   // deschisă dintr-un link (fișa cuvântului, conjugare): „Înapoi” se întoarce acolo în istoric
   const nav = readLessonNav(useLocation().state);
   const navigate = useNavigate();
+  const known = topic !== undefined;
+  // „Continuă” din Învață reia ultima lecție deschisă
+  useEffect(() => {
+    if (known) void setLastPractice(db, { kind: "grammar", id });
+  }, [known, id]);
   if (loading) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
   if (!topic) {
     return (

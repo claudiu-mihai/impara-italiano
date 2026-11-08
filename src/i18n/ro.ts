@@ -16,6 +16,9 @@ export const ro = {
   "banner.noVoice": "Dispozitivul nu are o voce italiană, deci butonul de audio este ascuns. Mac: Setări de sistem → Accesibilitate → Conținut vorbit → Voce de sistem → Gestionează vocile. iPhone: Setări → Accesibilitate → Conținut vorbit → Voci. Android: Setări → Gestionare generală → Text în vorbire.",
   // pagina Învață
   "learn.title": "Învață",
+  "learn.today": "De făcut azi",
+  "learn.practice": "Exersează liber",
+  "learn.continue": "Continuă",
   "learn.flashcards": "Flashcards",
   "learn.conjugation": "Conjugare",
   "learn.sentence": "Reconstruire propoziție",

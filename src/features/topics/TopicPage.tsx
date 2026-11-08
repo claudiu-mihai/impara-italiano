@@ -1,10 +1,12 @@
 import { useLiveQuery } from "dexie-react-hooks";
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useContent } from "../../app/content.tsx";
 import { useNativeHelp } from "../../app/nativeHelp.ts";
 import { useTopics } from "../../app/topics.ts";
 import { useT } from "../../i18n/index.ts";
 import { db } from "../../data/db/instance.ts";
+import { setLastPractice } from "../../data/db/repositories.ts";
 import { EXERCISE_ICON, EXERCISE_LABEL, italianText } from "../../domain/content/display.ts";
 import { topicProgress } from "../../domain/topics/topics.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
@@ -26,6 +28,11 @@ export function TopicPage() {
   const topics = useTopics();
   const cards = useLiveQuery(() => db.cards.where("kind").equals("vocab").toArray(), []);
   const nativeHelp = useNativeHelp();
+  const known = topics?.some((x) => x.id === id) ?? false;
+  // „Continuă” din Învață reia ultima temă deschisă
+  useEffect(() => {
+    if (known) void setLastPractice(db, { kind: "topic", id });
+  }, [known, id]);
 
   if (!topics || !cards) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
 

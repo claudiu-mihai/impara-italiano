@@ -10,11 +10,13 @@ import { createDb, type ImparaDb } from "./db.ts";
 import {
   countReviewsOn,
   forgetWord,
+  getLastPractice,
   getSettings,
   KNOWN_MARKER,
   markWordKnown,
   saveReview,
   saveSettings,
+  setLastPractice,
 } from "./repositories.ts";
 
 const NOW = new Date(2026, 9, 20, 10, 0, 0);
@@ -113,4 +115,21 @@ test("ștergerea progresului unui cuvânt elimină toate cardurile lui", async (
   await markWordKnown(db, "w8", NOW, 0.9);
   await forgetWord(db, "w9");
   expect((await db.cards.toArray()).map((c) => c.wordId)).toEqual(["w8", "w8"]);
+});
+
+test("ultima temă sau lecție exersată: se păstrează local și se citește înapoi", async () => {
+  expect(await getLastPractice(db)).toBeUndefined();
+  await setLastPractice(db, { kind: "topic", id: "familia" });
+  expect(await getLastPractice(db)).toEqual({ kind: "topic", id: "familia" });
+  await setLastPractice(db, { kind: "grammar", id: "articoli" });
+  expect(await getLastPractice(db)).toEqual({ kind: "grammar", id: "articoli" });
+  // nu e progres: nu se sincronizează, deci nu se marchează „netrimis”
+  expect((await db.meta.get("lastPractice"))?.value).toEqual({ kind: "grammar", id: "articoli" });
+});
+
+test("ultima exersare cu formă greșită (backup vechi, date stricate) se ignoră", async () => {
+  for (const value of ["familia", { kind: "altceva", id: "x" }, { kind: "topic" }, { kind: "topic", id: 5 }, null]) {
+    await db.meta.put({ key: "lastPractice", value });
+    expect(await getLastPractice(db)).toBeUndefined();
+  }
 });

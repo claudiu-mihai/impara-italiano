@@ -16,6 +16,9 @@ export const it: Record<Key, string> = {
   "banner.reload": "Ricarica",
   "banner.noVoice": "Il dispositivo non ha una voce italiana, quindi il pulsante audio è nascosto. Mac: Impostazioni di Sistema → Accessibilità → Contenuto vocale → Voce di sistema → Gestisci voci. iPhone: Impostazioni → Accessibilità → Contenuto vocale → Voci. Android: Impostazioni → Gestione generale → Sintesi vocale.",
   // pagina Învață
+  "learn.today": "Da fare oggi",
+  "learn.practice": "Esercizio libero",
+  "learn.continue": "Continua",
   "learn.title": "Impara",
   "learn.flashcards": "Flashcard",
   "learn.conjugation": "Coniugazione",

@@ -152,3 +152,25 @@ export function saveGameScore(db: ImparaDb, topicId: string, game: GrammarGame, 
     return true;
   });
 }
+
+// ---------------------------------------------------------------------------------------------------------------
+// Ultima temă sau lecție exersată („Continuă” din Învață)
+
+/** Ultima temă sau lecție de gramatică deschisă. Rămâne doar pe acest dispozitiv: nu e progres, deci nu se sincronizează. */
+export interface LastPractice {
+  kind: "topic" | "grammar";
+  id: string;
+}
+
+const LAST_PRACTICE_KEY = "lastPractice";
+
+export async function setLastPractice(db: ImparaDb, value: LastPractice): Promise<void> {
+  await db.meta.put({ key: LAST_PRACTICE_KEY, value });
+}
+
+/** Valorile cu altă formă (date stricate, versiuni vechi) se ignoră. */
+export async function getLastPractice(db: ImparaDb): Promise<LastPractice | undefined> {
+  const value = (await db.meta.get(LAST_PRACTICE_KEY))?.value as Partial<LastPractice> | null | undefined;
+  if (!value || (value.kind !== "topic" && value.kind !== "grammar") || typeof value.id !== "string") return undefined;
+  return { kind: value.kind, id: value.id };
+}
