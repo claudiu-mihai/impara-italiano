@@ -1,7 +1,9 @@
 import { useLiveQuery } from "dexie-react-hooks";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { useContent } from "../../app/content.tsx";
+import { useGrammar } from "../../app/grammar.ts";
+import { useTopics } from "../../app/topics.ts";
 import { db } from "../../data/db/instance.ts";
 import { loadStats } from "../../data/queries.ts";
 import { LEVEL_NAME } from "../../domain/content/levels.ts";
@@ -11,6 +13,8 @@ import { POS_ICON, POS_LABEL, LEVEL_LABEL } from "../../domain/content/display.t
 import { browseHref } from "../../domain/browse/filterWords.ts";
 import type { Mastery } from "../../domain/srs/mastery.ts";
 import { getSettings } from "../../data/db/repositories.ts";
+import { grammarSummary } from "../../domain/grammar/progress.ts";
+import { topicProgress } from "../../domain/topics/topics.ts";
 import { MIN_REVIEWS_FOR_STREAK } from "../../domain/stats/stats.ts";
 import { ActivityCalendar } from "../../ui/ActivityCalendar.tsx";
 import { BarChart } from "../../ui/BarChart.tsx";
@@ -22,6 +26,35 @@ const fullDate = (day: string) => `${day.slice(8, 10)}.${day.slice(5, 7)}.${day.
 const PROGRESS_ORDER: Mastery[] = ["new", "learning", "mastered"];
 const card = "rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900";
 const heading = "text-sm font-semibold uppercase tracking-wide text-muted";
+
+/**
+ * O secțiune a paginii: titlul se atinge ca să se deschidă sau să se restrângă. Titlul rămâne <h2> (în <summary>), iar
+ * <details> anunță singur starea (deschis / închis) cititoarelor de ecran.
+ */
+function Panel({ id, title, open = false, children }: { id: string; title: string; open?: boolean; children: ReactNode }) {
+  return (
+    <details open={open} aria-labelledby={id} className={`${card} group`}>
+      <summary className="-m-1 flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 rounded-lg p-1 [&::-webkit-details-marker]:hidden">
+        <h2 id={id} className={heading}>
+          {title}
+        </h2>
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          className="size-5 shrink-0 text-muted transition-transform group-open:rotate-180 motion-reduce:transition-none"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </summary>
+      {children}
+    </details>
+  );
+}
 
 function ProgressLine({ label, mastered, learned, total }: { label: string; mastered: number; learned: number; total?: number }) {
   const { t, rich } = useT();
@@ -57,6 +90,10 @@ export function StatsPage() {
   const [days, setDays] = useState<7 | 30>(7);
   const stats = useLiveQuery(() => loadStats(db, content, days), [content, days]);
   const settings = useLiveQuery(() => getSettings(db), []);
+  const grammar = useGrammar();
+  const topics = useTopics();
+  const grammarRows = useLiveQuery(() => db.grammarProgress.toArray(), []);
+  const vocabCards = useLiveQuery(() => db.cards.where("kind").equals("vocab").toArray(), []);
 
   if (!stats) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
 
@@ -64,15 +101,14 @@ export function StatsPage() {
   const totalReviews = stats.daily.reduce((sum, d) => sum + d.reviews, 0);
   const newCards = stats.daily.reduce((sum, d) => sum + d.newCards, 0);
   const calendarDays = stats.calendar.flat().filter((d) => d.reviews > 0).length;
+  const lessons = grammar && grammarRows ? grammarSummary(grammar, grammarRows) : undefined;
+  const topicsStarted = topics && vocabCards ? topics.filter((topic) => topicProgress(topic, vocabCards).started > 0).length : undefined;
 
   return (
     <div className="flex flex-col gap-5 px-4 pb-8 pt-8">
       <h1 className="text-2xl font-bold">{t("nav.stats")}</h1>
 
-      <section className={card} aria-labelledby="streak">
-        <h2 id="streak" className={heading}>
-          {t("stats.streakTitle")}
-        </h2>
+      <Panel id="streak" title={t("stats.streakTitle")} open>
         <div className="mt-2 flex items-center justify-between gap-3">
           <p className="text-4xl font-bold" data-testid="streak">
             {stats.streak} <span className="text-lg font-normal text-muted">{tp("common.days", stats.streak)} 🔥</span>
@@ -107,32 +143,58 @@ export function StatsPage() {
           </div>
         </dl>
         {stats.firstDay && <p className="mt-3 text-sm text-muted">{t("stats.since", { date: fullDate(stats.firstDay) })}</p>}
-      </section>
+      </Panel>
 
-      <section className={card} aria-labelledby="calendar">
-        <h2 id="calendar" className={heading}>
-          {t("stats.calendar")}
-        </h2>
+      <Panel id="forecast" title={t("stats.forecast")} open>
+        <div className="mt-4">
+          <BarChart
+            ariaLabel={t("stats.forecastAria", { list: stats.forecast.map((f) => f.due).join(", ") })}
+            bars={stats.forecast.map((f, i) => ({
+              label: i === 0 ? t("stats.today") : dayLabel(f.day),
+              value: f.due,
+              title: i === 0 ? t("stats.todayDue", { n: f.due }) : t("stats.dayDue", { day: dayLabel(f.day), n: f.due }),
+            }))}
+          />
+        </div>
+      </Panel>
+
+      <Panel id="grammar" title={t("stats.grammarTitle")} open>
+        {lessons && topicsStarted !== undefined ? (
+          <ul className="mt-2 divide-y divide-slate-200 dark:divide-slate-700">
+            <li>
+              <Link to="/learn/grammar" className="flex min-h-14 flex-col justify-center py-2">
+                <span className="font-semibold">{t("stats.lessonsRead", { read: lessons.read, total: lessons.total })}</span>
+                {lessons.averageBest !== undefined && (
+                  <span className="text-sm text-muted">{t("stats.averageScore", { n: lessons.averageBest })}</span>
+                )}
+              </Link>
+            </li>
+            <li>
+              <Link to="/learn/topics" className="flex min-h-14 items-center py-2 font-semibold">
+                {t("stats.topicsStarted", { started: topicsStarted, total: topics!.length })}
+              </Link>
+            </li>
+          </ul>
+        ) : (
+          <p className="mt-2 text-muted">{t("common.loading")}</p>
+        )}
+      </Panel>
+
+      <Panel id="progress" title={t("home.progress")}>
+        <ProgressLine label={t("stats.words")} mastered={stats.vocab.mastered} learned={stats.vocab.learned} total={total} />
+        <ProgressLine label={t("stats.conjugations")} mastered={stats.conj.mastered} learned={stats.conj.learned} />
+      </Panel>
+
+      <Panel id="calendar" title={t("stats.calendar")}>
         <div className="mt-4">
           <ActivityCalendar
             weeks={stats.calendar}
             ariaLabel={tp("stats.calendarAria", calendarDays, { weeks: CALENDAR_WEEKS })}
           />
         </div>
-      </section>
+      </Panel>
 
-      <section className={card} aria-labelledby="progress">
-        <h2 id="progress" className={heading}>
-          {t("home.progress")}
-        </h2>
-        <ProgressLine label={t("stats.words")} mastered={stats.vocab.mastered} learned={stats.vocab.learned} total={total} />
-        <ProgressLine label={t("stats.conjugations")} mastered={stats.conj.mastered} learned={stats.conj.learned} />
-      </section>
-
-      <section className={card} aria-labelledby="levels">
-        <h2 id="levels" className={heading}>
-          {t("about.levels")}
-        </h2>
+      <Panel id="levels" title={t("about.levels")}>
         <p className="mt-1 text-xs text-muted">{t("stats.levelsNote")}</p>
         <ul className="mt-3 flex flex-col gap-4">
           {stats.levels.map((l) => (
@@ -166,12 +228,9 @@ export function StatsPage() {
             </li>
           ))}
         </ul>
-      </section>
+      </Panel>
 
-      <section className={card} aria-labelledby="words-progress">
-        <h2 id="words-progress" className={heading}>
-          {t("stats.byProgress")}
-        </h2>
+      <Panel id="words-progress" title={t("stats.byProgress")}>
         <ul className="mt-3 grid grid-cols-3 gap-2">
           {PROGRESS_ORDER.map((progress) => (
             <li key={progress}>
@@ -186,12 +245,9 @@ export function StatsPage() {
             </li>
           ))}
         </ul>
-      </section>
+      </Panel>
 
-      <section className={card} aria-labelledby="words-categories">
-        <h2 id="words-categories" className={heading}>
-          {t("stats.byCategory")}
-        </h2>
+      <Panel id="words-categories" title={t("stats.byCategory")}>
         <ul className="mt-2 divide-y divide-slate-200 dark:divide-slate-700">
           {stats.categories.map((c) => (
             <li key={c.pos}>
@@ -214,13 +270,10 @@ export function StatsPage() {
             </li>
           ))}
         </ul>
-      </section>
+      </Panel>
 
-      <section className={card} aria-labelledby="activity">
-        <div className="flex items-center justify-between">
-          <h2 id="activity" className={heading}>
-            {t("stats.activity")}
-          </h2>
+      <Panel id="activity" title={t("stats.activity")}>
+        <div className="flex items-center justify-end">
           <div role="group" aria-label={t("stats.period")} className="flex gap-1">
             {([7, 30] as const).map((n) => (
               <button
@@ -252,23 +305,7 @@ export function StatsPage() {
           {t("stats.summary", { reviews: totalReviews, fresh: newCards })}
           {stats.accuracy !== null && <> · {t("stats.accuracy", { n: stats.accuracy })}</>}
         </p>
-      </section>
-
-      <section className={card} aria-labelledby="forecast">
-        <h2 id="forecast" className={heading}>
-          {t("stats.forecast")}
-        </h2>
-        <div className="mt-4">
-          <BarChart
-            ariaLabel={t("stats.forecastAria", { list: stats.forecast.map((f) => f.due).join(", ") })}
-            bars={stats.forecast.map((f, i) => ({
-              label: i === 0 ? t("stats.today") : dayLabel(f.day),
-              value: f.due,
-              title: i === 0 ? t("stats.todayDue", { n: f.due }) : t("stats.dayDue", { day: dayLabel(f.day), n: f.due }),
-            }))}
-          />
-        </div>
-      </section>
+      </Panel>
     </div>
   );
 }

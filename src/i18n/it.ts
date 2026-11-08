@@ -338,6 +338,10 @@ export const it: Record<Key, string> = {
   // Statistici
   "common.days_one": "giorno",
   "common.days_other": "giorni",
+  "stats.grammarTitle": "Grammatica e temi",
+  "stats.lessonsRead": "{read} su {total} lezioni lette",
+  "stats.averageScore": "Punteggio medio nei giochi: {n}%",
+  "stats.topicsStarted": "{started} su {total} temi iniziati",
   "stats.streakTitle": "Serie di giorni",
   "stats.keepGoing": "Continua così!",
   "stats.todayOf": "Oggi: {n} su {total} ripetizioni necessarie per la serie.",

@@ -175,6 +175,10 @@ test("Statistici: cuvintele pe progres și pe categorii, cu link în Dicționar 
   const categories = [...new Set(WORDS.map((w) => w.pos))];
   const verbs = WORDS.filter((w) => w.pos === "verb").length;
 
+  // secțiunile „Cuvinte după progres” și „pe categorii” sunt restrânse: se deschid la atingerea titlului
+  await page.getByRole("heading", { name: "Cuvinte după progres" }).click();
+  await page.getByRole("heading", { name: "Cuvinte pe categorii" }).click();
+
   // fără carduri, toate cuvintele sunt noi
   await expect(page.getByTestId("progress-new")).toContainText(String(WORDS.length));
   await expect(page.getByTestId("progress-learning")).toContainText("0");
@@ -191,6 +195,7 @@ test("Statistici: cuvintele pe progres și pe categorii, cu link în Dicționar 
 
   // progresul: chip care se poate scoate, fără selector
   await page.goto("/stats");
+  await page.getByRole("heading", { name: "Cuvinte după progres" }).click();
   await page.getByTestId("progress-mastered").click();
   await expect(page).toHaveURL(/\/browse\?progress=mastered$/);
   const chip = page.getByRole("button", { name: /Scoate filtrul Progres: Stăpânit/ });

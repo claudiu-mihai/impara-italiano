@@ -26,3 +26,24 @@ export function bestScore(progress: GrammarProgress | undefined): number | undef
   const values = Object.values(progress?.best ?? {}).filter((v): v is number => typeof v === "number");
   return values.length > 0 ? Math.max(...values) : undefined;
 }
+
+export interface GrammarSummary {
+  /** Lecții citite din cele existente. */
+  read: number;
+  total: number;
+  /** Media celor mai bune scoruri, doar pentru temele care au vreun scor; lipsește fără scoruri. */
+  averageBest?: number;
+}
+
+/** Rezumatul progresului la gramatică; rândurile unor teme care nu mai există în conținut se ignoră. */
+export function grammarSummary(
+  topics: readonly { id: string }[],
+  rows: readonly (GrammarProgress & { topicId: string })[],
+): GrammarSummary {
+  const byTopic = new Map(rows.map((row) => [row.topicId, row]));
+  const own = topics.flatMap((topic) => byTopic.get(topic.id) ?? []);
+  const scores = own.map((row) => bestScore(row)).filter((n): n is number => n !== undefined);
+  const summary: GrammarSummary = { read: own.filter((row) => row.readAt !== undefined).length, total: topics.length };
+  if (scores.length > 0) summary.averageBest = Math.round(scores.reduce((sum, n) => sum + n, 0) / scores.length);
+  return summary;
+}
