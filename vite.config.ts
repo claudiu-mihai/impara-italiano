@@ -41,6 +41,22 @@ export default defineConfig({
       },
     }),
   ],
+  build: {
+    rolldownOptions: {
+      output: {
+        codeSplitting: {
+          // module foarte mici, folosite și la pornire, și de ecranele încărcate la cerere: stau în același fișier, pentru
+          // că fiecare fișier în plus e încă o cerere la prima încărcare (testul de viteză din perf.spec.ts)
+          groups: [
+            {
+              name: "startup-small",
+              test: /src\/domain\/(session\/buildDailySession|content\/(display|levels)|srs\/mastery|grading\/normalize|random|sync\/serialize)\.ts$/,
+            },
+          ],
+        },
+      },
+    },
+  },
   // în dezvoltare și la `vite preview`, /api/ merge la PocketBase (în producție îl trimite nginx)
   server: { proxy: { "/api": process.env.POCKETBASE_URL ?? "http://127.0.0.1:8090" } },
   preview: { proxy: { "/api": process.env.POCKETBASE_URL ?? "http://127.0.0.1:8090" } },

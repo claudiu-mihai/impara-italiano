@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Rating, State, type Grade } from "ts-fsrs";
+import { useConjugationToday } from "../../app/conjugationToday.ts";
 import { useContent } from "../../app/content.tsx";
 import { useTopics } from "../../app/topics.ts";
 import { useWordDetails } from "../../app/wordDetails.ts";
@@ -139,9 +140,7 @@ export function FlashcardsPage() {
         <p className="text-muted">
           {answered > 0 ? tp("flash.reviewed", answered) : t("flash.comeBack")}
         </p>
-        <Link to={exitTo} className="flex min-h-14 items-center rounded-xl bg-brand px-8 text-lg font-semibold text-white">
-          {topicId ? t("flash.backToTopic") : t("flash.backHome")}
-        </Link>
+        <SessionEndLinks exitTo={exitTo} topicId={topicId} />
       </div>
     );
   }
@@ -226,5 +225,41 @@ export function FlashcardsPage() {
         </button>
       )}
     </div>
+  );
+}
+
+const endPrimary = "flex min-h-14 items-center rounded-xl bg-brand px-8 text-lg font-semibold text-white";
+const endSecondary = "flex min-h-12 items-center justify-center text-brand-fg underline";
+
+/**
+ * Linkurile de la finalul sesiunii. După sesiunea zilei (nu a unei teme), dacă mai ai conjugări de făcut, ele devin
+ * butonul principal; formele conjugate se încarcă doar aici, nu în timpul sesiunii.
+ */
+function SessionEndLinks({ exitTo, topicId }: { exitTo: string; topicId: string | undefined }) {
+  const { t } = useT();
+  return topicId ? (
+    <Link to={exitTo} className={endPrimary}>
+      {t("flash.backToTopic")}
+    </Link>
+  ) : (
+    <DailyEndLinks exitTo={exitTo} />
+  );
+}
+
+function DailyEndLinks({ exitTo }: { exitTo: string }) {
+  const { t } = useT();
+  const conjugation = useConjugationToday();
+  const hasConjugation = (conjugation?.queue.length ?? 0) > 0;
+  return (
+    <>
+      {hasConjugation && (
+        <Link to="/learn/conjugation" className={endPrimary}>
+          {t("flash.continueConj")}
+        </Link>
+      )}
+      <Link to={exitTo} className={hasConjugation ? endSecondary : endPrimary}>
+        {t("flash.backHome")}
+      </Link>
+    </>
   );
 }

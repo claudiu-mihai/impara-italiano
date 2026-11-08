@@ -15,10 +15,10 @@ export interface WordData {
 export const WORDS: WordData[] = decodeWords(JSON.parse(readFileSync("src/data/generated/words.json", "utf8")) as CompactWords);
 
 /** Scrie direct în IndexedDB carduri de vocabular aflate în faza de repetare (cuvinte „învățate”). */
-export async function seedLearnedWords(page: Page, wordIds: string[]) {
+export async function seedLearnedWords(page: Page, wordIds: string[], dueInDays = 5) {
   await page.goto("/");
   await expect(page.getByRole("link", { name: "Începe sesiunea" })).toBeVisible();
-  await page.evaluate(async (ids) => {
+  await page.evaluate(async ({ ids, dueInDays }) => {
     const db = await new Promise<IDBDatabase>((resolve, reject) => {
       const request = indexedDB.open("impara-italiano");
       request.onsuccess = () => resolve(request.result);
@@ -33,7 +33,7 @@ export async function seedLearnedWords(page: Page, wordIds: string[]) {
           kind: "vocab",
           variant: "it-ro",
           introducedOn: "2026-01-01",
-          due: new Date(Date.now() + 5 * 86_400_000),
+          due: new Date(Date.now() + dueInDays * 86_400_000),
           stability: 10,
           difficulty: 5,
           elapsed_days: 0,
@@ -49,7 +49,7 @@ export async function seedLearnedWords(page: Page, wordIds: string[]) {
       tx.onerror = () => reject(tx.error);
     });
     db.close();
-  }, wordIds);
+  }, { ids: wordIds, dueInDays });
 }
 
 /** Scrie direct în IndexedDB carduri de conjugare (verb × timp) aflate în faza de repetare. */

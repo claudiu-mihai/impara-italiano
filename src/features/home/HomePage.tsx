@@ -1,5 +1,6 @@
 import { useLiveQuery } from "dexie-react-hooks";
 import { Link } from "react-router-dom";
+import { useConjugationToday } from "../../app/conjugationToday.ts";
 import { useContent } from "../../app/content.tsx";
 import { useTopics } from "../../app/topics.ts";
 import { db } from "../../data/db/instance.ts";
@@ -14,6 +15,10 @@ import { masteryByWord } from "../../domain/srs/mastery.ts";
 import { dueSkillTopics } from "../../domain/topics/topics.ts";
 
 const BACKUP_REMINDER_DAYS = 14;
+
+const buttonBase = "flex min-h-14 items-center justify-center rounded-xl text-lg font-semibold";
+const primaryButton = `${buttonBase} bg-brand text-white active:bg-brand-dark`;
+const secondaryButton = `${buttonBase} border-2 border-brand-fg text-brand-fg active:bg-slate-100 dark:active:bg-slate-800`;
 
 export function HomePage() {
   const { t, tp, rich } = useT();
@@ -33,6 +38,12 @@ export function HomePage() {
   const mastered = levels.filter((l) => l === "mastered").length;
   const learning = levels.length;
   const todo = overview?.queue.length ?? 0;
+  // conjugările de azi: apar după ce se încarcă formele; cuvintele rămân butonul principal când există
+  const conjugation = useConjugationToday();
+  const conjTodo = conjugation?.queue.length ?? 0;
+  const conjLabel = conjugation
+    ? `${t("learn.conjugation")}: ${tp("learn.due", conjugation.dueCount)} · ${tp("learn.newTenses", conjugation.newCount)}`
+    : "";
 
   // Sugestie (nu schimbare automată): când ai început toate cuvintele nivelului curent, propune următorul nivel.
   const level = overview?.settings.level;
@@ -118,7 +129,7 @@ export function HomePage() {
               <strong>{overview.dueCount}</strong> {tp("home.dueLabel", overview.dueCount)} ·{" "}
               <strong>{overview.newCount}</strong> {tp("home.newLabel", overview.newCount)}
             </p>
-            {todo > 0 ? (
+            {todo > 0 || conjTodo > 0 ? (
               <>
                 {cards?.length === 0 ? (
                   <LupinoSays
@@ -135,12 +146,20 @@ export function HomePage() {
                     className="mt-4"
                   />
                 )}
-                <Link
-                  to="/learn/vocab"
-                  className="mt-5 flex min-h-14 items-center justify-center rounded-xl bg-brand text-lg font-semibold text-white active:bg-brand-dark"
-                >
-                  {t("home.startSession")}
-                </Link>
+                {todo > 0 && (
+                  <Link to="/learn/vocab" data-variant="primary" className={`mt-5 ${primaryButton}`}>
+                    {t("home.startSession")}
+                  </Link>
+                )}
+                {conjTodo > 0 && (
+                  <Link
+                    to="/learn/conjugation"
+                    data-variant={todo > 0 ? "secondary" : "primary"}
+                    className={`${todo > 0 ? "mt-3 " + secondaryButton : "mt-5 " + primaryButton}`}
+                  >
+                    {conjLabel}
+                  </Link>
+                )}
               </>
             ) : (
               <LupinoSays pose="relax" it="Fatto! Ora relax." ro="Ai terminat pentru azi. Acum relaxează-te!" className="mt-4" />

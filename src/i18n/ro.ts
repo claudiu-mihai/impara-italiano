@@ -197,6 +197,7 @@ export const ro = {
   "flash.comeBack": "Revino mai târziu pentru noi repetiții.",
   "flash.backToTopic": "Înapoi la temă",
   "flash.backHome": "Înapoi acasă",
+  "flash.continueConj": "Continuă cu conjugarea",
   "flash.cardGone": "Acest card nu mai există în dicționar.",
   "common.continue": "Continuă",
   "dir.itRo": "Italiană → Română",

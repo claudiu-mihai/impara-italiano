@@ -197,6 +197,7 @@ export const it: Record<Key, string> = {
   "flash.reviewed_other": "Hai completato {n} carte.",
   "flash.comeBack": "Torna più tardi per nuove ripetizioni.",
   "flash.backToTopic": "Torna al tema",
+  "flash.continueConj": "Continua con la coniugazione",
   "flash.backHome": "Torna a casa",
   "flash.cardGone": "Questa carta non esiste più nel dizionario.",
   "common.continue": "Continua",
