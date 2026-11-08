@@ -372,6 +372,7 @@ export const ro = {
   "stats.dayDue": "{day}: {n} carduri",
   // Setări
   "settings.study": "Studiu",
+  "settings.advanced": "Avansat",
   "settings.level": "Nivelul curent",
   "settings.levelHint": "Cuvinte și timpuri noi apar doar până la acest nivel (CEFR, estimat). Repetițiile continuă.",
   "settings.wordCount_one": "{n} cuvinte",

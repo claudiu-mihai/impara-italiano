@@ -372,6 +372,7 @@ export const it: Record<Key, string> = {
   "stats.todayDue": "Oggi (compresi gli arretrati): {n} carte",
   "stats.dayDue": "{day}: {n} carte",
   // Setări
+  "settings.advanced": "Avanzate",
   "settings.study": "Studio",
   "settings.level": "Livello attuale",
   "settings.levelHint": "Parole e tempi nuovi compaiono solo fino a questo livello (CEFR, stimato). I ripassi continuano.",

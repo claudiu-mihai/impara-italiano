@@ -197,6 +197,8 @@ test("backup: un fișier greșit primește un mesaj clar și nu șterge nimic", 
 
 test("setări: explicațiile se deschid și se închid din butonul (i)", async ({ page }) => {
   await page.goto("/settings");
+  // retenția țintă stă în secțiunea „Avansat”, restrânsă implicit
+  await page.getByText("Avansat", { exact: true }).click();
   const row = page.locator("div.py-1", { hasText: "Retenție țintă" });
   const info = row.getByRole("button", { name: "Informații" });
   const text = page.getByText("Mai mare = mai multe repetiții.");
