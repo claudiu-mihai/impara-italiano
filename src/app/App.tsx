@@ -12,6 +12,7 @@ import { applyPwaUpdate, usePwaNeedRefresh } from "../services/pwaUpdate.ts";
 import { applyTheme } from "../services/theme.ts";
 import { setPreferredVoice, useTtsStatus } from "../services/tts.ts";
 import { ContentProvider } from "./content.tsx";
+import { COMPACT_BELOW, useVisibleViewport } from "./useVisibleViewport.ts";
 import { Splash } from "../features/splash/Splash.tsx";
 import { shouldShowSplash } from "../services/splash.ts";
 
@@ -119,51 +120,63 @@ function Layout() {
   const { t } = useT();
   const { pathname } = useLocation();
   const studying = isStudyRoute(pathname);
+  // Pe ecranele de studiu pagina are exact mărimea zonei vizibile: cu tastatura deschisă nu derulează, iar cerința
+  // rămâne în ecran; sub o anumită înălțime ecranele trec în aspectul compact (`compact:` din index.css).
+  const viewport = useVisibleViewport(studying);
+  const compact = viewport !== undefined && viewport.height < COMPACT_BELOW;
 
   return (
-    <div className="mx-auto flex min-h-dvh max-w-xl flex-col">
-      <Banners />
-      <main className="flex flex-1 flex-col">
-        <Suspense fallback={<p className="p-6 text-center text-muted">{t("common.loading")}</p>}>
-          <Outlet />
-        </Suspense>
-      </main>
-      {!studying && (
-        <nav
-          aria-label={t("nav.label")}
-          className="sticky bottom-0 grid grid-cols-5 border-t border-slate-200 bg-white pb-[env(safe-area-inset-bottom)] dark:border-slate-800 dark:bg-slate-900"
-        >
-          {NAV.map((item) => (
-            // iconiță + nume vizibil; numele accesibil vine chiar din text, iar pagina activă are fundal și etichetă verde
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.end}
-              className="flex min-h-16 flex-col items-center justify-center gap-0.5 pb-1 pt-1.5"
-            >
-              {({ isActive }) => (
-                <>
-                  <span
-                    aria-hidden="true"
-                    className={`flex h-8 w-14 items-center justify-center rounded-full text-xl transition-colors motion-reduce:transition-none ${
-                      isActive ? "bg-brand/15 dark:bg-brand/30" : "opacity-70"
-                    }`}
-                  >
-                    {item.icon}
-                  </span>
-                  <span
-                    className={`max-w-full whitespace-nowrap text-[11px] leading-tight tracking-tight ${
-                      isActive ? "font-bold text-brand-fg" : "font-medium text-muted"
-                    }`}
-                  >
-                    {t(item.label)}
-                  </span>
-                </>
-              )}
-            </NavLink>
-          ))}
-        </nav>
-      )}
+    <div
+      className={studying ? "fixed inset-x-0 overflow-y-auto" : undefined}
+      style={studying ? (viewport ? { top: viewport.top, height: viewport.height } : { top: 0, bottom: 0 }) : undefined}
+    >
+      <div
+        data-compact={compact ? "" : undefined}
+        className={`mx-auto flex max-w-xl flex-col ${studying ? "h-full" : "min-h-dvh"}`}
+      >
+        <Banners />
+        <main className="flex min-h-0 flex-1 flex-col">
+          <Suspense fallback={<p className="p-6 text-center text-muted">{t("common.loading")}</p>}>
+            <Outlet />
+          </Suspense>
+        </main>
+        {!studying && (
+          <nav
+            aria-label={t("nav.label")}
+            className="sticky bottom-0 grid grid-cols-5 border-t border-slate-200 bg-white pb-[env(safe-area-inset-bottom)] dark:border-slate-800 dark:bg-slate-900"
+          >
+            {NAV.map((item) => (
+              // iconiță + nume vizibil; numele accesibil vine chiar din text, iar pagina activă are fundal și etichetă verde
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.end}
+                className="flex min-h-16 flex-col items-center justify-center gap-0.5 pb-1 pt-1.5"
+              >
+                {({ isActive }) => (
+                  <>
+                    <span
+                      aria-hidden="true"
+                      className={`flex h-8 w-14 items-center justify-center rounded-full text-xl transition-colors motion-reduce:transition-none ${
+                        isActive ? "bg-brand/15 dark:bg-brand/30" : "opacity-70"
+                      }`}
+                    >
+                      {item.icon}
+                    </span>
+                    <span
+                      className={`max-w-full whitespace-nowrap text-[11px] leading-tight tracking-tight ${
+                        isActive ? "font-bold text-brand-fg" : "font-medium text-muted"
+                      }`}
+                    >
+                      {t(item.label)}
+                    </span>
+                  </>
+                )}
+              </NavLink>
+            ))}
+          </nav>
+        )}
+      </div>
     </div>
   );
 }

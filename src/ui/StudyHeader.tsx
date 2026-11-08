@@ -20,7 +20,7 @@ export function StudyHeader({ index, total, label, exitTo = "/learn", exitState,
   const onExit = useReturnToOrigin(returnToOrigin);
   return (
     <header className="flex items-center gap-3">
-      <Link to={exitTo} state={exitState} onClick={onExit} aria-label={t("study.exit")} className="flex size-12 items-center justify-center text-2xl">
+      <Link to={exitTo} state={exitState} onClick={onExit} aria-label={t("study.exit")} className="flex size-12 items-center justify-center text-2xl compact:size-10">
         ✕
       </Link>
       <div

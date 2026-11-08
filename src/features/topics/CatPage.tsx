@@ -91,9 +91,9 @@ function CatGame({ topicId }: { topicId: string }) {
   };
 
   return (
-    <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
+    <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto overscroll-contain px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 compact:gap-2 compact:pb-2 compact:pt-2">
       <StudyHeader index={index} total={questions.length} label={t("quiz.roundProgress")} exitTo={exitTo} />
-      <div className="text-center">
+      <div className="text-center compact:hidden">
         <h1 className="text-xl font-semibold">{t("exercise.cat")}</h1>
         {language !== "it" && (
           <p lang="it" className="text-sm text-muted">
@@ -101,7 +101,7 @@ function CatGame({ topicId }: { topicId: string }) {
           </p>
         )}
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center compact:[&_img]:w-40 compact:[&_img]:h-auto compact:[&_svg]:w-40">
         <CatScene item={question.item} />
       </div>
 
@@ -139,7 +139,7 @@ function CatGame({ topicId }: { topicId: string }) {
           )}
         </div>
       ) : (
-        <form onSubmit={submit} className="flex flex-col gap-3">
+        <form onSubmit={submit} className="flex flex-col gap-3 compact:gap-2">
           <label htmlFor="cat-answer" className="text-center text-sm text-muted">
             {t("cat.writePrompt")}
           </label>

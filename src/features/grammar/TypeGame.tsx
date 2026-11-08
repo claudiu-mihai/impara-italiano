@@ -10,6 +10,7 @@ import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { useT } from "../../i18n/index.ts";
 import { playFeedback } from "../../services/sound.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
+import { PinnedPrompt } from "../../ui/PinnedPrompt.tsx";
 import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
 import { ACCENTS } from "../conjugation/types.ts";
@@ -114,21 +115,23 @@ function TypeGame({ topicId, items }: { topicId: string; items: GrammarItem[] })
   const tone = result === undefined ? "neutral" : result === "correct" ? "correct" : "wrong";
 
   return (
-    <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
+    <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto overscroll-contain px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 compact:gap-2 compact:pb-2 compact:pt-2">
       <StudyHeader index={step} total={session.length} label={t("games.progress")} exitTo={exitTo} exitState={exitState} />
 
-      <section className="flex flex-1 flex-col items-center justify-center gap-3 rounded-3xl bg-white p-6 text-center shadow-md dark:bg-slate-900">
-        <p className="text-sm text-muted">{t("type.complete")}</p>
-        <p className="text-3xl font-bold" data-testid="grammar-prompt">
-          <GapText it={item.it} gap={item.gap} filled={result ? item.gap : undefined} tone={tone} />
-        </p>
-        <p lang={NATIVE_LANGUAGE} className="text-muted">
-          {item.ro}
-        </p>
-      </section>
+      <PinnedPrompt className="flex flex-1 flex-col">
+        <section className="flex flex-1 flex-col items-center justify-center gap-3 rounded-3xl bg-white p-6 text-center shadow-md compact:gap-1 compact:p-3 dark:bg-slate-900">
+          <p className="text-sm text-muted">{t("type.complete")}</p>
+          <p className="text-3xl font-bold" data-testid="grammar-prompt">
+            <GapText it={item.it} gap={item.gap} filled={result ? item.gap : undefined} tone={tone} />
+          </p>
+          <p lang={NATIVE_LANGUAGE} className="text-muted">
+            {item.ro}
+          </p>
+        </section>
+      </PinnedPrompt>
 
-      <form onSubmit={(e) => void onSubmit(e)} className="flex flex-col gap-3">
-        <div aria-live="polite" className="min-h-14">
+      <form onSubmit={(e) => void onSubmit(e)} className="flex flex-col gap-3 compact:gap-2">
+        <div aria-live="polite" className="min-h-14 compact:min-h-0">
           {result === "correct" && <p className="text-center font-semibold text-green-700 dark:text-green-400">{t("conj.correct")}</p>}
           {result === "almost" && (
             <p className="text-center font-semibold text-amber-700 dark:text-amber-400">
@@ -175,7 +178,7 @@ function TypeGame({ topicId, items }: { topicId: string; items: GrammarItem[] })
               disabled={result !== undefined}
               onMouseDown={(e) => e.preventDefault()}
               onClick={() => insertAccent(char)}
-              className="size-12 rounded-lg bg-slate-200 text-xl disabled:opacity-40 dark:bg-slate-800"
+              className="size-12 rounded-lg bg-slate-200 text-xl compact:size-10 disabled:opacity-40 dark:bg-slate-800"
             >
               {char}
             </button>

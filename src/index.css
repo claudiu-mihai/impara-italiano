@@ -3,6 +3,8 @@
 /* Tema întunecată se aplică prin clasa `dark` pe <html> (setată de services/theme.ts),
    ca utilizatorul să poată alege manual între Auto, Luminos și Întunecat. */
 @custom-variant dark (&:where(.dark, .dark *));
+/* Ecranele de studiu marchează cu `data-compact` zona vizibilă mică (tastatura deschisă); vezi app/useVisibleViewport.ts. */
+@custom-variant compact (&:where([data-compact] *));
 
 @theme {
   /* Verdele drapelului, întunecat ca textul alb de pe butoane să respecte contrastul WCAG AA (≥ 4,5:1). */
