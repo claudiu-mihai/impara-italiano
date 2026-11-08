@@ -11,7 +11,7 @@ import { getLastPractice } from "../../data/db/repositories.ts";
 import { useT } from "../../i18n/index.ts";
 import { loadConjugationOverview, loadQuizRound, loadSentenceRound, loadStudyOverview } from "../../data/queries.ts";
 
-const groupHeading = "text-sm font-semibold uppercase tracking-wide text-muted";
+const groupHeading = "text-base font-semibold text-slate-700 dark:text-slate-200";
 
 interface TileProps {
   to: string;

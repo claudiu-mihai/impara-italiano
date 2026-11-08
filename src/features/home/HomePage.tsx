@@ -120,7 +120,7 @@ export function HomePage() {
       )}
 
       <section aria-labelledby="today" className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
-        <h2 id="today" className="text-sm font-semibold uppercase tracking-wide text-muted">
+        <h2 id="today" className="text-base font-semibold text-slate-700 dark:text-slate-200">
           {t("home.today")}
         </h2>
         {overview ? (
@@ -172,7 +172,7 @@ export function HomePage() {
 
       {dueSkills.length > 0 && (
         <section aria-labelledby="skills" className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
-          <h2 id="skills" className="text-sm font-semibold uppercase tracking-wide text-muted">
+          <h2 id="skills" className="text-base font-semibold text-slate-700 dark:text-slate-200">
             {t("home.skillsDue")}
           </h2>
           <ul className="mt-3 flex flex-col gap-2">
@@ -193,7 +193,7 @@ export function HomePage() {
       )}
 
       <section aria-labelledby="progress" className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
-        <h2 id="progress" className="text-sm font-semibold uppercase tracking-wide text-muted">
+        <h2 id="progress" className="text-base font-semibold text-slate-700 dark:text-slate-200">
           {t("home.progress")}
         </h2>
         <p className="mt-3">

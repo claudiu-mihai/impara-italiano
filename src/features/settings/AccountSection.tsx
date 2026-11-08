@@ -12,7 +12,7 @@ import { downloadBackup } from "./backupDownload.ts";
 const loadAccount = () => import("../../data/sync/account.ts");
 
 const card = "rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900";
-const heading = "text-sm font-semibold uppercase tracking-wide text-muted";
+const heading = "text-base font-semibold text-slate-700 dark:text-slate-200";
 const input = "min-h-12 w-full rounded-lg border border-slate-300 bg-white px-3 dark:border-slate-700 dark:bg-slate-800";
 const primary = "min-h-12 rounded-xl bg-brand px-4 font-semibold text-white disabled:opacity-50";
 const outline = "min-h-12 rounded-xl border-2 border-brand-fg px-4 font-semibold text-brand-fg disabled:opacity-50";

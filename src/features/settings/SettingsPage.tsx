@@ -18,7 +18,7 @@ import { InfoBox, InfoButton, InfoHeading, useInfo } from "../../ui/Info.tsx";
 import { NativeHelpNotice } from "../../ui/NativeHelpNotice.tsx";
 
 const card = "rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900";
-const heading = "text-sm font-semibold uppercase tracking-wide text-muted";
+const heading = "text-base font-semibold text-slate-700 dark:text-slate-200";
 const control = "min-h-12 rounded-lg border border-slate-300 bg-white px-3 dark:border-slate-700 dark:bg-slate-800";
 const action = "min-h-12 rounded-xl border-2 border-brand-fg px-4 font-semibold text-brand-fg";
 

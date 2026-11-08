@@ -21,7 +21,7 @@ import { LessonLink } from "../grammar/LessonLink.tsx";
 import { LevelBadge } from "./LevelBadge.tsx";
 
 const card = "rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900";
-const heading = "text-sm font-semibold uppercase tracking-wide text-muted";
+const heading = "text-base font-semibold text-slate-700 dark:text-slate-200";
 
 export function WordDetailPage() {
   const { t, rich } = useT();

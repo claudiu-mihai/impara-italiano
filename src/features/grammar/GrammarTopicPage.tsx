@@ -100,7 +100,7 @@ export function GrammarTopicPage() {
       )}
 
       <section aria-labelledby="games" className="flex flex-col gap-3">
-        <h2 id="games" className="text-sm font-semibold uppercase tracking-wide text-muted">
+        <h2 id="games" className="text-base font-semibold text-slate-700 dark:text-slate-200">
           {t("games.choose")}
         </h2>
         {GAMES.map((game) => (

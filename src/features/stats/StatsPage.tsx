@@ -25,7 +25,7 @@ const dayLabel = (day: string) => `${day.slice(8, 10)}.${day.slice(5, 7)}`;
 const fullDate = (day: string) => `${day.slice(8, 10)}.${day.slice(5, 7)}.${day.slice(0, 4)}`;
 const PROGRESS_ORDER: Mastery[] = ["new", "learning", "mastered"];
 const card = "rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900";
-const heading = "text-sm font-semibold uppercase tracking-wide text-muted";
+const heading = "text-base font-semibold text-slate-700 dark:text-slate-200";
 
 /**
  * O secțiune a paginii: titlul se atinge ca să se deschidă sau să se restrângă. Titlul rămâne <h2> (în <summary>), iar
