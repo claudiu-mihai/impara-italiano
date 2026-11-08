@@ -1,7 +1,7 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Locator, type Page } from "@playwright/test";
 import { seedLearnedWords } from "./helpers.ts";
 
-const CONJ_LINK = /^Conjugare: \d+ repetiții · \d+ timpuri noi$/;
+const CONJ_LINK = /^Conjugare:? ?\d+ repetiții · \d+ timpuri noi$/;
 
 async function setNewPerDay(page: Page, n: number) {
   await page.goto("/settings");
@@ -60,4 +60,64 @@ test("după Flashcards, fără conjugări de făcut, rămâne doar „Înapoi ac
   await expect(page.getByRole("heading", { name: "Sesiune încheiată" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Înapoi acasă" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Continuă cu conjugarea" })).toHaveCount(0);
+});
+
+/** Un rând de text în interiorul butonului: nu se rupe pe două rânduri și nu atinge marginea. */
+async function expectFitsInside(button: Locator) {
+  const box = (await button.boundingBox())!;
+  const parts = button.locator("span.block");
+  await expect(parts).toHaveCount(2);
+  for (const part of await parts.all()) {
+    const fits = await part.evaluate((el) => ({
+      lines: el.getBoundingClientRect().height / parseFloat(getComputedStyle(el).lineHeight),
+      left: el.getBoundingClientRect().left,
+      right: el.getBoundingClientRect().right,
+    }));
+    expect(fits.lines, "textul se rupe pe două rânduri").toBeLessThan(1.5);
+    expect(fits.left, "textul atinge marginea din stânga").toBeGreaterThanOrEqual(box.x + 12);
+    expect(fits.right, "textul atinge marginea din dreapta").toBeLessThanOrEqual(box.x + box.width - 12);
+  }
+}
+
+test("Acasă pe 360 px: butonul de conjugare are titlu și rezumat pe rânduri separate, centrate și cu margine, în română", async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 740 });
+  await seedLearnedWords(page, ["v-parlare"]);
+  await page.goto("/");
+  const conj = page.getByRole("link", { name: CONJ_LINK });
+  await expect(conj).toBeVisible();
+  await expectFitsInside(conj);
+});
+
+test("Acasă pe 360 px: butonul de conjugare încape și în italiană", async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 740 });
+  await seedLearnedWords(page, ["v-parlare"]);
+  await page.goto("/settings");
+  await page.getByLabel("Limba interfeței / Lingua dell'interfaccia").selectOption("it");
+  await page.goto("/");
+  const conj = page.getByRole("link", { name: /^Coniugazione/ });
+  await expect(conj).toBeVisible();
+  await expectFitsInside(conj);
+});
+
+test.describe("conjugările se încarcă încet", () => {
+  // fără service worker, ca cererea fișierului să treacă prin page.route
+  test.use({ serviceWorkers: "block" });
+
+  test("Acasă nu spune „Fatto!” cât timp conjugările încă se încarcă", async ({ page }) => {
+    await seedLearnedWords(page, ["v-parlare"]);
+    await setNewPerDay(page, 0);
+    await page.route(/conjugations-.*\.js/, async (route) => {
+      await new Promise((resolve) => setTimeout(resolve, 2500));
+      await route.continue();
+    });
+    await page.goto("/");
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    await page.waitForTimeout(600); // chunk-ul întârzie 2,5 s: suntem în starea de încărcare
+    expect(await page.getByText("Fatto! Ora relax.").count(), "„Fatto!” apare înainte să se știe ce conjugări mai sunt").toBe(0);
+    // după încărcare, butonul de conjugare apare ca buton principal
+    const conj = page.getByRole("link", { name: CONJ_LINK });
+    await expect(conj).toBeVisible({ timeout: 10_000 });
+    await expect(conj).toHaveAttribute("data-variant", "primary");
+    await expect(page.getByText("Fatto! Ora relax.")).toHaveCount(0);
+  });
 });

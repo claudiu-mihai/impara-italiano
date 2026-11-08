@@ -16,7 +16,7 @@ import { dueSkillTopics } from "../../domain/topics/topics.ts";
 
 const BACKUP_REMINDER_DAYS = 14;
 
-const buttonBase = "flex min-h-14 items-center justify-center rounded-xl text-lg font-semibold";
+const buttonBase = "flex min-h-14 flex-col items-center justify-center rounded-xl px-4 py-2 text-center text-lg font-semibold";
 const primaryButton = `${buttonBase} bg-brand text-white active:bg-brand-dark`;
 const secondaryButton = `${buttonBase} border-2 border-brand-fg text-brand-fg active:bg-slate-100 dark:active:bg-slate-800`;
 
@@ -41,9 +41,8 @@ export function HomePage() {
   // conjugările de azi: apar după ce se încarcă formele; cuvintele rămân butonul principal când există
   const conjugation = useConjugationToday();
   const conjTodo = conjugation?.queue.length ?? 0;
-  const conjLabel = conjugation
-    ? `${t("learn.conjugation")}: ${tp("learn.due", conjugation.dueCount)} · ${tp("learn.newTenses", conjugation.newCount)}`
-    : "";
+  // cât timp formele conjugate se încarcă nu se știe dacă mai ai conjugări: nu spunem „Fatto!” înainte
+  const conjugationKnown = conjugation !== undefined;
 
   // Sugestie (nu schimbare automată): când ai început toate cuvintele nivelului curent, propune următorul nivel.
   const level = overview?.settings.level;
@@ -129,7 +128,7 @@ export function HomePage() {
               <strong>{overview.dueCount}</strong> {tp("home.dueLabel", overview.dueCount)} ·{" "}
               <strong>{overview.newCount}</strong> {tp("home.newLabel", overview.newCount)}
             </p>
-            {todo > 0 || conjTodo > 0 ? (
+            {todo === 0 && !conjugationKnown ? null : todo > 0 || conjTodo > 0 ? (
               <>
                 {cards?.length === 0 ? (
                   <LupinoSays
@@ -157,7 +156,10 @@ export function HomePage() {
                     data-variant={todo > 0 ? "secondary" : "primary"}
                     className={`${todo > 0 ? "mt-3 " + secondaryButton : "mt-5 " + primaryButton}`}
                   >
-                    {conjLabel}
+                    <span className="block">{t("learn.conjugation")}</span>
+                    <span className="block text-sm font-normal">
+                      {tp("learn.due", conjugation!.dueCount)} · {tp("learn.newTenses", conjugation!.newCount)}
+                    </span>
                   </Link>
                 )}
               </>
