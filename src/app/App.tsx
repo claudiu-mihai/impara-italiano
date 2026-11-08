@@ -102,8 +102,8 @@ function Banners() {
 
 const NAV: { to: string; label: Key; icon: string; end: boolean }[] = [
   { to: "/", label: "nav.home", icon: "🏠", end: true },
-  { to: "/learn", label: "nav.learn", icon: "🃏", end: false },
-  { to: "/browse", label: "nav.browse", icon: "📖", end: false },
+  { to: "/learn", label: "nav.learn", icon: "🎓", end: false },
+  { to: "/browse", label: "nav.browse", icon: "🔎", end: false },
   { to: "/stats", label: "nav.stats", icon: "📈", end: false },
   { to: "/settings", label: "nav.settings", icon: "⚙️", end: false },
 ];
@@ -134,24 +134,31 @@ function Layout() {
           className="sticky bottom-0 grid grid-cols-5 border-t border-slate-200 bg-white pb-[env(safe-area-inset-bottom)] dark:border-slate-800 dark:bg-slate-900"
         >
           {NAV.map((item) => (
-            // doar iconițe: numele rămâne ca etichetă de accesibilitate și ca tooltip; pagina activă are un fundal
+            // iconiță + nume vizibil; numele accesibil vine chiar din text, iar pagina activă are fundal și etichetă verde
             <NavLink
               key={item.to}
               to={item.to}
               end={item.end}
-              aria-label={t(item.label)}
-              title={t(item.label)}
-              className="flex min-h-16 items-center justify-center"
+              className="flex min-h-16 flex-col items-center justify-center gap-0.5 pb-1 pt-1.5"
             >
               {({ isActive }) => (
-                <span
-                  aria-hidden="true"
-                  className={`flex size-12 items-center justify-center rounded-2xl text-2xl transition-colors motion-reduce:transition-none ${
-                    isActive ? "bg-brand/15 dark:bg-brand/30" : "opacity-70"
-                  }`}
-                >
-                  {item.icon}
-                </span>
+                <>
+                  <span
+                    aria-hidden="true"
+                    className={`flex h-8 w-14 items-center justify-center rounded-full text-xl transition-colors motion-reduce:transition-none ${
+                      isActive ? "bg-brand/15 dark:bg-brand/30" : "opacity-70"
+                    }`}
+                  >
+                    {item.icon}
+                  </span>
+                  <span
+                    className={`max-w-full whitespace-nowrap text-[11px] leading-tight tracking-tight ${
+                      isActive ? "font-bold text-brand-fg" : "font-medium text-muted"
+                    }`}
+                  >
+                    {t(item.label)}
+                  </span>
+                </>
               )}
             </NavLink>
           ))}
