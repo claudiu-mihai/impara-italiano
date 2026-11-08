@@ -66,6 +66,25 @@ export function TopicPage() {
         </p>
       </header>
 
+      <div className="grid grid-cols-2 gap-3" data-testid="topic-actions">
+        <Link to={`/learn/topics/${topic.id}/flashcards`} className={`${filled} whitespace-nowrap`}>
+          <span aria-hidden="true">📖</span>
+          {t("topics.study")}
+        </Link>
+        <Link to={`/learn/topics/${topic.id}/quiz`} className={`${outlined} whitespace-nowrap text-lg`}>
+          <span aria-hidden="true">❓</span>
+          {t("learn.quiz")}
+        </Link>
+        {topic.exercises.map((exercise) => (
+          <Link key={exercise} to={`/learn/topics/${topic.id}/${exercise}`} className={`${outlined} col-span-2 text-lg`}>
+            <span aria-hidden="true">{EXERCISE_ICON[exercise]}</span>
+            {t(EXERCISE_LABEL[exercise])}
+          </Link>
+        ))}
+      </div>
+
+      <TopicRulesBox rules={topic.rules} contrast={topic.contrast?.ro} />
+
       {topic.subgroups.map((sub) => (
         <section key={sub.title.it} aria-label={plainLabel(sub.title, nativeHelp)} className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
           <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">
@@ -89,25 +108,6 @@ export function TopicPage() {
           </ul>
         </section>
       ))}
-
-      <TopicRulesBox rules={topic.rules} contrast={topic.contrast?.ro} />
-
-      <div className="grid grid-cols-2 gap-3" data-testid="topic-actions">
-        <Link to={`/learn/topics/${topic.id}/flashcards`} className={`${filled} whitespace-nowrap`}>
-          <span aria-hidden="true">📖</span>
-          {t("topics.study")}
-        </Link>
-        <Link to={`/learn/topics/${topic.id}/quiz`} className={`${outlined} whitespace-nowrap text-lg`}>
-          <span aria-hidden="true">❓</span>
-          {t("learn.quiz")}
-        </Link>
-        {topic.exercises.map((exercise) => (
-          <Link key={exercise} to={`/learn/topics/${topic.id}/${exercise}`} className={`${outlined} col-span-2 text-lg`}>
-            <span aria-hidden="true">{EXERCISE_ICON[exercise]}</span>
-            {t(EXERCISE_LABEL[exercise])}
-          </Link>
-        ))}
-      </div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Locator, type Page } from "@playwright/test";
 import { numberToItalian } from "../../src/domain/skills/numbers.ts";
 import { formatDigital, timePhrase } from "../../src/domain/skills/time.ts";
 import { WORDS, type WordData } from "./helpers.ts";
@@ -55,7 +55,7 @@ test("Învață → Teme: lista pe grupuri și fișa temei", async ({ page }) =>
   await page.getByRole("link", { name: /Zilele săptămânii/ }).click();
   await expect(page.getByRole("heading", { name: "Zilele săptămânii", level: 1 })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Da ricordare" })).toBeVisible();
-  await expect(page.getByText(/il lunedì/).first()).toBeVisible();
+  await expect(page.getByRole("link", { name: /il lunedì/ }).first()).toBeVisible();
   await expect(page.getByTestId("topic-progress")).toContainText(`0 din ${wordIdsOf(topic("zilele-saptamanii")).length} cuvinte începute`);
   // bara de jos rămâne vizibilă pe fișă
   await expect(page.getByRole("navigation", { name: "Navigare principală" })).toBeVisible();
@@ -342,4 +342,19 @@ test("Acasă: abilitățile scadente apar la „Abilități de repetat”", asyn
   await expect(page.getByRole("heading", { name: "Abilități de repetat" })).toBeVisible();
   await page.getByRole("link", { name: /L'ora/ }).click();
   await expect(page.getByText("Repetiție", { exact: true })).toBeVisible();
+});
+
+test("pagina temei: butoanele și „Da ricordare” apar înaintea listei de cuvinte", async ({ page }) => {
+  await page.goto("/learn/topics/familia");
+  const actions = page.getByTestId("topic-actions");
+  const rules = page.getByRole("button", { name: /Da ricordare/ });
+  const firstWord = page.locator('main a[href^="/browse/"]').first();
+  await expect(firstWord).toBeVisible();
+
+  const top = async (locator: Locator) => (await locator.boundingBox())!.y;
+  const wordTop = await top(firstWord);
+  expect(await top(actions)).toBeLessThan(wordTop);
+  expect(await top(rules)).toBeLessThan(wordTop);
+  // butoanele sunt la vedere fără derulare, pe un telefon obișnuit
+  await expect(actions.getByRole("link", { name: /Studiază/ })).toBeInViewport();
 });
