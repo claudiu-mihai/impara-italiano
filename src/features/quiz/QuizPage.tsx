@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Rating } from "ts-fsrs";
 import { useContent } from "../../app/content.tsx";
 import { useTopics } from "../../app/topics.ts";
 import { useWordDetails } from "../../app/wordDetails.ts";
@@ -10,10 +9,9 @@ import { loadQuizRound, loadTopicQuiz } from "../../data/queries.ts";
 import { useT } from "../../i18n/index.ts";
 import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { promptText } from "../../domain/content/display.ts";
-import type { QuizQuestion } from "../../domain/quiz/buildQuizRound.ts";
+import { quizGrade, type QuizQuestion } from "../../domain/quiz/buildQuizRound.ts";
 import { DEFAULT_SETTINGS, type Settings } from "../../domain/settings.ts";
-import { newStoredCard, reviewStoredCard } from "../../domain/srs/scheduler.ts";
-import { studyDayOf } from "../../domain/time/studyDay.ts";
+import { reviewStoredCard } from "../../domain/srs/scheduler.ts";
 import { playFeedback } from "../../services/sound.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
@@ -66,16 +64,12 @@ export function QuizPage() {
     playFeedback(correct, settings.soundEnabled);
     if (correct) setScore((s) => s + 1);
 
+    // doar cardurile scadente IT → RO schimbă programul de repetare; restul e exersare liberă
+    if (!question.graded) return;
     const now = new Date();
-    // la tema nouă primul răspuns creează cardul
-    const card =
-      (await db.cards.get(question.cardId)) ??
-      newStoredCard(
-        { cardId: question.cardId, wordId: question.wordId, kind: "vocab", variant: question.direction },
-        now,
-        studyDayOf(now),
-      );
-    const { card: next, log } = reviewStoredCard(card, correct ? Rating.Good : Rating.Again, now, settings.retention);
+    const card = await db.cards.get(question.cardId);
+    if (!card) return;
+    const { card: next, log } = reviewStoredCard(card, quizGrade(correct), now, settings.retention);
     await saveReview(db, next, log, { source: "quiz", now, durationMs: now.getTime() - shownAt });
   };
 
