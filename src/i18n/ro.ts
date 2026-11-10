@@ -105,7 +105,7 @@ export const ro = {
   "home.startSession": "Începe sesiunea",
   "home.skillsDue": "Abilități de repetat",
   "home.progress": "Progres",
-  "home.progressLine": "Stăpânite: {mastered} din {total} · în învățare: {learning}",
+  "home.progressLine": "Stăpânite: {mastered} din {total} cuvinte până la {level} · în învățare: {learning}",
   "home.masteredWords": "Cuvinte stăpânite",
   // categorii, timpuri, stăpânire
   "pos.verb": "verb",

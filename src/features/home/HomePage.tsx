@@ -11,7 +11,7 @@ import { useT } from "../../i18n/index.ts";
 import { BilingualLabel } from "../../ui/BilingualLabel.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
 import { Lupino, LupinoSays } from "../../ui/mascot/Lupino.tsx";
-import { masteryByWord } from "../../domain/srs/mastery.ts";
+import { progressUpTo } from "../../domain/stats/stats.ts";
 import { dueSkillTopics } from "../../domain/topics/topics.ts";
 
 const BACKUP_REMINDER_DAYS = 14;
@@ -33,10 +33,6 @@ export function HomePage() {
   const topics = useTopics();
   const dueSkills = topics && cards ? dueSkillTopics(topics, cards, new Date()) : [];
 
-  const total = content.words.length;
-  const levels = cards ? [...masteryByWord(cards).values()] : [];
-  const mastered = levels.filter((l) => l === "mastered").length;
-  const learning = levels.length;
   const todo = overview?.queue.length ?? 0;
   // conjugările de azi: apar după ce se încarcă formele; cuvintele rămân butonul principal când există
   const conjugation = useConjugationToday();
@@ -46,6 +42,11 @@ export function HomePage() {
 
   // Sugestie (nu schimbare automată): când ai început toate cuvintele nivelului curent, propune următorul nivel.
   const level = overview?.settings.level;
+  // progresul se raportează la nivelul curent (A1, apoi A1 + A2…), nu la tot dicționarul
+  const target = stats && level ? progressUpTo(stats.levels, level) : undefined;
+  const total = target?.total ?? 0;
+  const mastered = target?.mastered ?? 0;
+  const learning = (target?.started ?? 0) - mastered;
   const next = level ? nextLevel(level) : undefined;
   const current = stats?.levels.find((l) => l.level === level);
   const upcoming = stats?.levels.find((l) => l.level === next);
@@ -202,7 +203,8 @@ export function HomePage() {
           {rich("home.progressLine", {
             mastered: <strong>{mastered}</strong>,
             total,
-            learning: <strong>{learning - mastered}</strong>,
+            learning: <strong>{learning}</strong>,
+            level: level ?? "",
           })}
         </p>
         <div

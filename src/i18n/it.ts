@@ -106,7 +106,7 @@ export const it: Record<Key, string> = {
   "home.startSession": "Inizia la sessione",
   "home.skillsDue": "Abilità da ripassare",
   "home.progress": "Progressi",
-  "home.progressLine": "Padroneggiate: {mastered} su {total} · in apprendimento: {learning}",
+  "home.progressLine": "Padroneggiate: {mastered} su {total} parole fino a {level} · in apprendimento: {learning}",
   "home.masteredWords": "Parole padroneggiate",
   // categorii, timpuri, stăpânire
   "pos.verb": "verbo",
