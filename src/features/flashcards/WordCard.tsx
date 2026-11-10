@@ -1,9 +1,11 @@
+import { useEffect } from "react";
 import { motion, useMotionValue, useReducedMotion, useTransform } from "motion/react";
 import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { italianText, POS_LABEL } from "../../domain/content/display.ts";
 import { useT } from "../../i18n/index.ts";
 import type { Word } from "../../domain/content/schema.ts";
 import type { Direction } from "../../domain/srs/types.ts";
+import { speak } from "../../services/tts.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 
 const SWIPE_THRESHOLD = 100;
@@ -111,13 +113,24 @@ function BackFace({ word, direction, rate }: FaceProps) {
 
 interface WordCardProps extends FaceProps {
   flipped: boolean;
+  /** Redă singur cuvântul italian: la apariția cardului (IT → RO) sau când îl întorci (RO → IT). */
+  autoPlay: boolean;
   onFlip: () => void;
   /** 1 = Din nou (swipe stânga), 3 = Bine (swipe dreapta). */
   onSwipe: (grade: 1 | 3) => void;
 }
 
-export function WordCard({ word, direction, rate, flipped, onFlip, onSwipe }: WordCardProps) {
+export function WordCard({ word, direction, rate, flipped, autoPlay, onFlip, onSwipe }: WordCardProps) {
   const reduceMotion = useReducedMotion();
+
+  // `speak` nu face nimic fără voce italiană; un card nou (altă cheie) pornește cu `flipped` false
+  const italianNow = direction === "it-ro" ? !flipped : flipped;
+  useEffect(() => {
+    if (autoPlay && italianNow) speak(italianText(word), rate);
+    // la schimbarea vitezei din Setări nu se repetă cuvântul
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoPlay, italianNow, word.id]);
+
   const x = useMotionValue(0);
   const tilt = useTransform(x, [-200, 200], [-8, 8]);
 
