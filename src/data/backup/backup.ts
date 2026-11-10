@@ -71,6 +71,8 @@ export const settingsSchema = z.object({
   soundEnabled: z.boolean(),
   nativeHelp: z.boolean(),
   uiLanguage: z.enum(["ro", "it"]),
+  autoPlayAudio: z.boolean(),
+  spellingTolerance: z.boolean(),
 });
 
 const percent = int.min(0).max(100);

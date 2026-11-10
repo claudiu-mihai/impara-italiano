@@ -3,7 +3,7 @@ import { expect, test } from "vitest";
 import { newStoredCard } from "../srs/scheduler.ts";
 import type { StoredCard } from "../srs/types.ts";
 import { addDays } from "../time/dayMath.ts";
-import { activityCalendar, activityLevel, CALENDAR_WEEKS, computeStats, currentStreak, longestStreak, MIN_REVIEWS_FOR_STREAK } from "./stats.ts";
+import { activityCalendar, activityLevel, CALENDAR_WEEKS, computeStats, currentStreak, longestStreak, MIN_REVIEWS_FOR_STREAK, progressUpTo } from "./stats.ts";
 
 const NOW = new Date(2026, 9, 20, 10, 0, 0); // ziua de studiu 2026-10-20
 const TODAY = "2026-10-20";
@@ -204,4 +204,15 @@ test("statistici: calendarul are CALENDAR_WEEKS săptămâni și acoperă și zi
   const stats = computeStats({ now: NOW, days: 7, log: [{ studyDay: "2026-08-10", rating: 3 }], cards: [], words: [] });
   expect(stats.calendar).toHaveLength(CALENDAR_WEEKS);
   expect(stats.calendar.flat().find((d) => d.day === "2026-08-10")?.reviews).toBe(1);
+});
+
+test("progresul până la nivelul curent adună nivelurile de la A1 încoace, nu tot dicționarul", () => {
+  const levels = [
+    { level: "A1", total: 600, started: 100, mastered: 40 },
+    { level: "A2", total: 570, started: 20, mastered: 5 },
+    { level: "B1", total: 730, started: 0, mastered: 0 },
+  ] as const;
+  expect(progressUpTo(levels, "A1")).toEqual({ total: 600, started: 100, mastered: 40 });
+  expect(progressUpTo(levels, "A2")).toEqual({ total: 1170, started: 120, mastered: 45 });
+  expect(progressUpTo(levels, "C2")).toEqual({ total: 1900, started: 120, mastered: 45 });
 });

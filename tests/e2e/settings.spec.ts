@@ -42,12 +42,27 @@ test("Setări: parametrii avansați stau într-o secțiune „Avansat”, restr�
   await expect(page.getByLabel("Retenție țintă")).toHaveValue("95");
 });
 
-test("Setări: cartonașele inverse apar în „Avansat” doar cu direcția „Ambele”", async ({ page }) => {
+test("Setări: direcția începe pe „Ambele”, iar cartonașele inverse apar în „Avansat” doar cu ea", async ({ page }) => {
   await page.goto("/settings");
   await page.getByText("Avansat", { exact: true }).click();
-  await expect(page.getByLabel("Carduri inverse noi pe zi")).toHaveCount(0);
-  await page.getByLabel("Direcția cardurilor").selectOption("both");
+  await expect(page.getByLabel("Direcția cardurilor")).toHaveValue("both");
   await expect(page.getByLabel("Carduri inverse noi pe zi")).toBeVisible();
+  await page.getByLabel("Direcția cardurilor").selectOption("it-ro");
+  await expect(page.getByLabel("Carduri inverse noi pe zi")).toHaveCount(0);
+});
+
+test("Setări: audio automat și toleranța la scriere sunt pornite implicit și se pot opri", async ({ page }) => {
+  await page.goto("/settings");
+  await expect(page.getByLabel("Audio automat")).toBeChecked();
+  await expect(page.getByLabel("Iartă greșelile mici de scriere")).toBeChecked();
+  // fiecare schimbare se salvează înainte de următoarea (setările se scriu întregi)
+  await page.getByLabel("Audio automat").click();
+  await expect(page.getByLabel("Audio automat")).not.toBeChecked();
+  await page.getByLabel("Iartă greșelile mici de scriere").click();
+  await expect(page.getByLabel("Iartă greșelile mici de scriere")).not.toBeChecked();
+  await page.reload();
+  await expect(page.getByLabel("Audio automat")).not.toBeChecked();
+  await expect(page.getByLabel("Iartă greșelile mici de scriere")).not.toBeChecked();
 });
 
 test("Setări în italiană: „Avanzate” și etichetele deasupra, fără text tăiat pe 360 px", async ({ page }) => {

@@ -75,6 +75,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 
 2. **Quiz / Grilă:**
    * 1 cuvânt și 4 opțiuni de răspuns, în ambele direcții.
+   * **Doar exersare liberă, cu o excepție:** răspunsul schimbă programul de repetare numai la un card IT → RO deja început și scadent (corect → Greu, greșit → Din nou: recunoașterea cu 4 variante e mai ușoară decât amintirea). Cardurile nescadente, cuvintele noi dintr-o temă și întrebările RO → IT nu se notează și nu creează carduri.
    * Distractorii sunt aleși din **aceeași categorie gramaticală**, excluzând sinonimele și traducerile identice cu răspunsul corect.
    * Feedback vizual și sonor (sunetul poate fi dezactivat din Setări).
 
@@ -98,6 +99,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
      * Varianta se alege pe ecranul de conjugare (Scrie / Flip / Tabel) sau în Setări și se păstrează; cardurile și programul de repetare sunt aceleași în toate variantele.
    * **Unitate SRS = verb × timp** (nu verb × timp × persoană, care ar genera 2100 de carduri doar pentru 50 de verbe). La fiecare repetiție se cer 3 persoane aleatorii; nota se calculează automat: 3/3 → Bine, 2/3 → Greu, ≤1/3 → Din nou.
    * **Reguli de corectare:**
+     * **Greșeala mică de scriere** (setarea „Iartă greșelile mici de scriere”, pornită implicit): o literă greșită, lipsă, în plus sau inversată, la forme de cel puțin 4 litere, se numără „aproape corect” și limitează nota la Greu, cu forma corectă arătată. Nu se iartă o altă formă validă a aceluiași verb (*parli* în loc de *parla*). Nu se aplică la numere, la lacunele de gramatică și la „Unde e Lupino?”.
      * Accentele contează (*parlerò*, *è*); o greșeală doar de accent apare ca „aproape corect” și primește nota Greu.
      * La passato prossimo cu *essere* se acceptă ambele forme de acord (*sono andato/andata*, *siamo andati/andate*).
      * Verbele reflexive includ pronumele (*mi alzo*).
@@ -160,7 +162,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 * Fiecare evaluare se salvează într-un **jurnal de repetiții** (`reviewLog`), pentru statistici și pentru optimizarea ulterioară a parametrilor FSRS pe baza datelor proprii (după ~1000 de repetiții).
 * **Ce actualizează SRS:**
   * Flashcards Vocabular și Flashcards Conjugare — da.
-  * Quiz — da: răspuns corect → Bine, greșit → Din nou.
+  * Quiz — doar pentru cardurile IT → RO începute și scadente: corect → Greu, greșit → Din nou (vezi FR2.2).
   * Reconstruire Propoziție — nu (exercițiu de consolidare).
   * Teme: Studiază tema — da (aceleași carduri ca Flashcards și Quiz); Ascultă și scrie cifrele și Ceasul — da, pe unitatea „abilitate” (FR2.5); Potrivește perechi, Ordonează și Unde e pisica? — nu (consolidare).
 * **Sesiunea zilnică:**
@@ -176,7 +178,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 * **Alegerea vocii:** automat se ia vocea locală italiană de calitatea cea mai bună (cele „Enhanced”/„Premium” de pe macOS primele); utilizatorul poate alege altă voce în Setări, cu buton de test. Pe Mac se pot instala voci mai bune din Setări de sistem → Accesibilitate → Conținut vorbit → Voce de sistem → Gestionează vocile.
 * **Detecția vocilor:** lista se obține prin `getVoices()` + evenimentul `voiceschanged`; se alege prima voce `it-IT` disponibilă.
 * **Redare în serie:** mai multe fraze se pot citi una după alta (ex. un tabel de conjugare), cu posibilitatea de oprire; o redare nouă o oprește pe cea în curs.
-* **Fără redare automată:** audio pornește doar când utilizatorul apasă un buton (excepție: exercițiul „Ascultă și scrie cifrele”, unde audio este chiar întrebarea).
+* **Audio automat (setare, pornită implicit):** în Flashcards cuvântul italian se aude singur când apare cardul IT → RO sau când întorci cardul RO → IT, o singură dată pe card; 🔊 repetă. Oprit din Setări, audio pornește doar la apăsarea unui buton. În rest (conjugare, tabele, exemple) redarea rămâne la cerere; excepție: „Ascultă și scrie cifrele”, unde audio este chiar întrebarea. Fără voce italiană sau fără internet, redarea automată nu face nimic.
 * **Fără conexiune și fără voce italiană locală:** butonul 🔊 devine inactiv, cu indicația „Audio necesită internet”.
 * **Fără voce italiană** pe dispozitiv: butonul 🔊 se ascunde și apare o singură dată un mesaj cu instrucțiuni de instalare a vocii (Android: setări TTS; iOS: Setări → Accesibilitate → Conținut vorbit).
 
@@ -190,7 +192,9 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 #### **FR6. Setări și Date**
 
 * Cuvinte noi pe zi, procentul de substantive printre cuvintele noi (după frecvență, 1 din 3, 1 din 2 sau 2 din 3), limită zilnică de repetiții, retenție țintă FSRS.
-* Direcția implicită a cardurilor (IT → RO, RO → IT, mixt).
+* Direcția cardurilor: implicit **Ambele** (IT → RO, apoi RO → IT, ca să și produci cuvântul); poate fi limitată la o singură direcție.
+* **Audio automat** (pornit implicit) și **Iartă greșelile mici de scriere** (pornit implicit).
+* **Bara de progres de pe Acasă** arată cuvintele stăpânite din cele de până la nivelul curent, nu din tot dicționarul.
 * Viteza TTS, sunete activate / dezactivate.
 * Temă: automat (sistem) / luminos / întunecat.
 * **Limba interfeței:** Română / Italiano (FR8).

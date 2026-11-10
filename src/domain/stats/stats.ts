@@ -31,6 +31,13 @@ export interface LevelProgress {
   mastered: number;
 }
 
+/** Progresul cumulat de la A1 până la nivelul curent inclusiv: ținta de acum, nu tot dicționarul (C1–C2 nu sunt un obiectiv la A1). */
+export function progressUpTo(levels: readonly LevelProgress[], current: Level): Omit<LevelProgress, "level"> {
+  const upTo = levels.filter((l) => LEVELS.indexOf(l.level) <= LEVELS.indexOf(current));
+  const sum = (pick: (l: LevelProgress) => number) => upTo.reduce((n, l) => n + pick(l), 0);
+  return { total: sum((l) => l.total), started: sum((l) => l.started), mastered: sum((l) => l.mastered) };
+}
+
 /** Câte săptămâni are calendarul de activitate. */
 export const CALENDAR_WEEKS = 16;
 

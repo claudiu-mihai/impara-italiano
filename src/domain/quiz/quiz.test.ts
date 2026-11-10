@@ -3,7 +3,8 @@ import { expect, test } from "vitest";
 import type { Word } from "../content/schema.ts";
 import { newStoredCard } from "../srs/scheduler.ts";
 import { vocabCardId, type StoredCard } from "../srs/types.ts";
-import { buildQuizRound } from "./buildQuizRound.ts";
+import { Rating } from "ts-fsrs";
+import { buildQuizRound, buildTopicQuizRound, quizGrade } from "./buildQuizRound.ts";
 import { pickDistractors } from "./distractors.ts";
 
 const NOW = new Date(2026, 9, 20, 10, 0, 0);
@@ -99,4 +100,26 @@ test("ambele direcții: fiecare întrebare e în direcția cardului ei", () => {
   expect(byWord["v-dire"]!.direction).toBe("ro-it");
   expect(byWord["v-dire"]!.cardId).toBe(vocabCardId("v-dire", "ro-it"));
   expect(byWord["v-dire"]!.options[byWord["v-dire"]!.correctIndex]).toBe("dire");
+});
+
+test("grila nu dă „Bine”: corect → Greu, greșit → Din nou", () => {
+  expect(quizGrade(true)).toBe(Rating.Hard);
+  expect(quizGrade(false)).toBe(Rating.Again);
+});
+
+test("doar cardurile IT → RO scadente schimbă programul; restul rundei e exersare liberă", () => {
+  const dueCard = card("v-parlare", { due: new Date(NOW.getTime() - DAY) });
+  const notDue = card("v-dire");
+  const roIt = { ...card("v-andare", { due: new Date(NOW.getTime() - DAY) }), cardId: vocabCardId("v-andare", "ro-it"), variant: "ro-it" };
+  const round = buildQuizRound({ now: NOW, direction: "both", cards: [dueCard, notDue, roIt], words });
+  const graded = Object.fromEntries(round.map((q) => [q.wordId, q.graded]));
+  expect(graded).toEqual({ "v-parlare": true, "v-dire": false, "v-andare": false });
+});
+
+test("în quizul unei teme, cuvintele fără card nu creează carduri, iar cele scadente IT → RO se notează", () => {
+  const topicWords = [words[0]!, words[1]!, words[2]!];
+  const dueCard = card("v-parlare", { due: new Date(NOW.getTime() - DAY) });
+  const round = buildTopicQuizRound({ now: NOW, direction: "it-ro", cards: [dueCard, card("v-dire")], topicWords, words });
+  const graded = Object.fromEntries(round.map((q) => [q.wordId, q.graded]));
+  expect(graded).toEqual({ "v-parlare": true, "v-dire": false, "v-andare": false });
 });

@@ -87,7 +87,7 @@ test("Studiază tema: doar cuvintele temei, progres comun cu restul aplicației"
   await expect(page.getByTestId("topic-progress")).toContainText("1 din");
 });
 
-test("Quiz pe temă: întrebări din cuvintele temei; primul răspuns creează cardul", async ({ page }) => {
+test("Quiz pe temă: întrebări din cuvintele temei; o grilă nu creează carduri", async ({ page }) => {
   const t = topic("culori");
   const allowedRo = new Set(wordIdsOf(t).map((id) => byId(id).it));
   await page.goto(`/learn/topics/${t.id}/quiz`);
@@ -96,7 +96,9 @@ test("Quiz pe temă: întrebări din cuvintele temei; primul răspuns creează c
   expect(allowedRo.has(prompt!.replace(/^(il|lo|la|l'|i|gli|le) ?/, "")), `„${prompt}” nu e din temă`).toBe(true);
   await page.getByRole("group", { name: "Variante de răspuns" }).getByRole("button").first().click();
   await expect(page.getByRole("button", { name: /^(Continuă|Vezi rezultatul)$/ })).toBeVisible();
-  await expect.poll(() => cardCount(page, "vocab:")).toBe(1);
+  // exersare liberă: ghicirea dintr-o grilă nu începe cuvântul (cardul vine din „Studiază tema”)
+  await page.waitForTimeout(300);
+  expect(await cardCount(page, "vocab:")).toBe(0);
 });
 
 test("Potrivește perechi: o rundă completă", async ({ page }) => {

@@ -1,3 +1,4 @@
+import { Rating, type Grade } from "ts-fsrs";
 import { answerText } from "../content/display.ts";
 import type { CoreWord } from "../content/types.ts";
 import { shuffle, type Random } from "../random.ts";
@@ -16,7 +17,18 @@ export interface QuizQuestion {
   direction: Direction;
   options: string[];
   correctIndex: number;
+  /**
+   * Răspunsul schimbă programul de repetare doar la un card IT → RO deja început și scadent. Restul rundei (carduri
+   * nescadente, cuvinte noi dintr-o temă, producție RO → IT) este exersare liberă: o grilă nu dovedește că poți produce cuvântul.
+   */
+  graded: boolean;
 }
+
+/** Nota FSRS dintr-un răspuns la grilă: recunoașterea cu 4 variante e mai ușoară decât amintirea, deci corect → Greu, nu Bine. */
+export const quizGrade = (correct: boolean): Grade => (correct ? Rating.Hard : Rating.Again);
+
+const isGraded = (card: StoredCard | undefined, direction: Direction, now: Date, endOfDay: Date) =>
+  card !== undefined && direction === "it-ro" && isDue(card, now, endOfDay);
 
 export interface QuizRoundArgs {
   now: Date;
@@ -65,6 +77,7 @@ export function buildQuizRound({
       direction: asked,
       options,
       correctIndex: options.indexOf(correct),
+      graded: isGraded(card, asked, now, endOfDay),
     };
   });
 }
@@ -136,6 +149,7 @@ export function buildTopicQuizRound({
       direction: asked,
       options,
       correctIndex: options.indexOf(correct),
+      graded: isGraded(chosen.get(word.id), asked, now, endOfDay),
     };
   });
 }

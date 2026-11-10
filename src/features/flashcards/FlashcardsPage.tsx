@@ -198,6 +198,7 @@ export function FlashcardsPage() {
         word={word}
         direction={item.variant}
         rate={settings.ttsRate}
+        autoPlay={settings.autoPlayAudio}
         flipped={flipped}
         onFlip={flip}
         onSwipe={(grade) => void rate(grade)}

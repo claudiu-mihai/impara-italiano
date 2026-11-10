@@ -39,7 +39,8 @@ export function TableCard({ item, verb, forms, settings, onFinish }: ConjCardPro
       onFinish(gradeConjugationTable(results));
       return;
     }
-    const graded = forms.map((accepted, i) => compareAnswer(values[i] ?? "", accepted));
+    const options = { typoTolerance: settings.spellingTolerance, exclude: forms.flat() };
+    const graded = forms.map((accepted, i) => compareAnswer(values[i] ?? "", accepted, options));
     setResults(graded);
     playFeedback(graded.every((r) => r !== "wrong"), settings.soundEnabled);
   };
@@ -78,7 +79,7 @@ export function TableCard({ item, verb, forms, settings, onFinish }: ConjCardPro
                 ? "border-slate-300 dark:border-slate-700"
                 : result === "wrong"
                   ? "border-red-600 bg-red-50 dark:bg-red-950"
-                  : result === "almost"
+                  : result === "almost" || result === "typo"
                     ? "border-amber-600 bg-amber-50 dark:bg-amber-950"
                     : "border-green-600 bg-green-50 dark:bg-green-950";
             return (
@@ -109,7 +110,7 @@ export function TableCard({ item, verb, forms, settings, onFinish }: ConjCardPro
                 </div>
                 {result && result !== "correct" && (
                   <p className="ml-[5.75rem] text-sm font-semibold text-red-700 dark:text-red-400" data-testid="expected">
-                    {t(result === "almost" ? "conj.almostShort" : "conj.correctShort", { form: (forms[i] ?? []).join(" / ") })}
+                    {t(result === "almost" ? "conj.almostShort" : result === "typo" ? "conj.typoShort" : "conj.correctShort", { form: (forms[i] ?? []).join(" / ") })}
                   </p>
                 )}
               </li>

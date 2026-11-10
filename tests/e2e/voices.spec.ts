@@ -53,7 +53,9 @@ test("vocea din sistem este folosită și fără internet, cu cea de calitate su
   await expect(audio).toBeEnabled();
   await audio.click();
 
-  expect(await spoken(page)).toEqual([expect.objectContaining({ text: "essere", voice: "mac:luca", lang: "it-IT" })]);
+  // o dată singur, la apariția cardului (audio automat), o dată la apăsare; aceeași voce, cea de calitate superioară
+  const luca = expect.objectContaining({ text: "essere", voice: "mac:luca", lang: "it-IT" });
+  expect(await spoken(page)).toEqual([luca, luca]);
 });
 
 test("online, vocea locală este preferată celei de rețea", async ({ page }) => {

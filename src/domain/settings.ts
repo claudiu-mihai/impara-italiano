@@ -41,6 +41,10 @@ export interface Settings {
   nativeHelp: boolean;
   /** Limba interfeței (FR8); independentă de limba maternă și de nivel. */
   uiLanguage: UiLanguage;
+  /** Redă singur cuvântul italian când apare cardul (IT → RO) sau când îl întorci (RO → IT). */
+  autoPlayAudio: boolean;
+  /** O literă greșită, lipsă, în plus sau inversată în răspunsul scris se numără „aproape corect” (nota Greu), nu greșit. */
+  spellingTolerance: boolean;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -50,7 +54,7 @@ export const DEFAULT_SETTINGS: Settings = {
   newConjPerDay: 3,
   maxReviewsPerDay: 100,
   retention: 0.9,
-  direction: "it-ro",
+  direction: "both",
   newReversePerDay: 10,
   conjugationMode: "write",
   ttsRate: 0.9,
@@ -59,6 +63,8 @@ export const DEFAULT_SETTINGS: Settings = {
   soundEnabled: true,
   nativeHelp: true,
   uiLanguage: "ro",
+  autoPlayAudio: true,
+  spellingTolerance: true,
 };
 
 /**
