@@ -8,6 +8,7 @@ import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { useT } from "../../i18n/index.ts";
 import { playFeedback } from "../../services/sound.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
+import { PinnedPrompt } from "../../ui/PinnedPrompt.tsx";
 import { primaryButton } from "../../ui/SessionDone.tsx";
 import { ACCENTS, type ConjCardProps } from "./types.ts";
 
@@ -65,46 +66,48 @@ export function WriteCard({ item, verb, forms, settings, onFinish }: ConjCardPro
 
   return (
     <>
-      <section className="flex flex-col items-center gap-2 rounded-3xl bg-white p-6 text-center shadow-md dark:bg-slate-900">
-        <p className="text-sm text-muted">{t(TENSE_LABEL[item.tense])}</p>
-        <div className="flex items-center gap-2">
-          <p className="text-3xl font-bold">{verb.it}</p>
-          <AudioButton text={verb.it} rate={settings.ttsRate} size="sm" />
-        </div>
-        <p lang={NATIVE_LANGUAGE} className="text-muted">
-          {verb.ro}
-        </p>
-        <p className="mt-3 text-4xl font-bold text-brand-fg" data-testid="person">
-          {personLabel.it}
-        </p>
-        {personLabel.ro !== personLabel.it && (
-          <p lang={NATIVE_LANGUAGE} className="text-sm text-muted">
-            ({personLabel.ro})
+      <PinnedPrompt>
+        <section className="flex flex-col items-center gap-2 rounded-3xl bg-white p-6 text-center shadow-md compact:gap-0.5 compact:p-2 dark:bg-slate-900">
+          <p className="text-sm text-muted">{t(TENSE_LABEL[item.tense])}</p>
+          <div className="flex items-center gap-2">
+            <p className="text-3xl font-bold compact:text-2xl">{verb.it}</p>
+            <AudioButton text={verb.it} rate={settings.ttsRate} size="sm" />
+          </div>
+          <p lang={NATIVE_LANGUAGE} className="text-muted">
+            {verb.ro}
           </p>
-        )}
-        <ol className="mt-2 flex gap-2" aria-label={t("conj.personOf", { n: step + 1, total: persons.length })}>
-          {persons.map((p, i) => (
-            <li
-              key={p}
-              aria-hidden="true"
-              className={`size-2.5 rounded-full ${
-                i < results.length
-                  ? results[i] === "wrong"
-                    ? "bg-red-500"
-                    : results[i] === "almost"
-                      ? "bg-amber-500"
-                      : "bg-green-600"
-                  : i === step
-                    ? "bg-slate-500"
-                    : "bg-slate-300 dark:bg-slate-700"
-              }`}
-            />
-          ))}
-        </ol>
-      </section>
+          <p className="mt-3 text-4xl font-bold text-brand-fg compact:mt-1 compact:text-3xl" data-testid="person">
+            {personLabel.it}
+          </p>
+          {personLabel.ro !== personLabel.it && (
+            <p lang={NATIVE_LANGUAGE} className="text-sm text-muted">
+              ({personLabel.ro})
+            </p>
+          )}
+          <ol className="mt-2 flex gap-2 compact:mt-1" aria-label={t("conj.personOf", { n: step + 1, total: persons.length })}>
+            {persons.map((p, i) => (
+              <li
+                key={p}
+                aria-hidden="true"
+                className={`size-2.5 rounded-full ${
+                  i < results.length
+                    ? results[i] === "wrong"
+                      ? "bg-red-500"
+                      : results[i] === "almost"
+                        ? "bg-amber-500"
+                        : "bg-green-600"
+                    : i === step
+                      ? "bg-slate-500"
+                      : "bg-slate-300 dark:bg-slate-700"
+                }`}
+              />
+            ))}
+          </ol>
+        </section>
+      </PinnedPrompt>
 
-      <form onSubmit={onSubmit} className="mt-auto flex flex-col gap-3">
-        <div aria-live="polite" className="min-h-14">
+      <form onSubmit={onSubmit} className="mt-auto flex flex-col gap-3 compact:gap-2">
+        <div aria-live="polite" className="min-h-14 compact:min-h-0">
           {feedback?.result === "correct" && <p className="text-center font-semibold text-green-700 dark:text-green-400">{t("conj.correct")}</p>}
           {feedback?.result === "almost" && (
             <p className="text-center font-semibold text-amber-700 dark:text-amber-400">
@@ -149,7 +152,7 @@ export function WriteCard({ item, verb, forms, settings, onFinish }: ConjCardPro
               disabled={feedback !== null}
               onMouseDown={(e) => e.preventDefault()}
               onClick={() => insertAccent(char)}
-              className="size-12 rounded-lg bg-slate-200 text-xl disabled:opacity-40 dark:bg-slate-800"
+              className="size-12 rounded-lg bg-slate-200 text-xl compact:size-10 disabled:opacity-40 dark:bg-slate-800"
             >
               {char}
             </button>

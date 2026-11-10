@@ -57,10 +57,10 @@ export function TableCard({ item, verb, forms, settings, onFinish }: ConjCardPro
 
   return (
     <>
-      <section className="flex flex-col items-center gap-1 rounded-3xl bg-white p-5 text-center shadow-md dark:bg-slate-900">
+      <section className="flex shrink-0 flex-col items-center gap-1 rounded-3xl bg-white p-5 text-center shadow-md compact:p-2 dark:bg-slate-900">
         <p className="text-sm text-muted">{t(TENSE_LABEL[item.tense])}</p>
         <div className="flex items-center gap-2">
-          <p className="text-3xl font-bold">{verb.it}</p>
+          <p className="text-3xl font-bold compact:text-2xl">{verb.it}</p>
           <AudioButton text={verb.it} rate={settings.ttsRate} size="sm" />
         </div>
         <p lang={NATIVE_LANGUAGE} className="text-muted">
@@ -68,8 +68,9 @@ export function TableCard({ item, verb, forms, settings, onFinish }: ConjCardPro
         </p>
       </section>
 
-      <form onSubmit={onSubmit} className="flex flex-1 flex-col gap-3">
-        <ul className="flex flex-col gap-2" data-testid="conj-table">
+      <form onSubmit={onSubmit} className="flex min-h-0 flex-1 flex-col gap-3 compact:gap-2">
+        {/* lista derulează singură: cardul de sus, accentele și butonul rămân în ecran cu tastatura deschisă */}
+        <ul className="flex min-h-0 flex-col gap-2 overflow-y-auto overscroll-contain px-1 py-1 -mx-1 -my-1" data-testid="conj-table">
           {persons.map((person, i) => {
             const result = results?.[i];
             const tone =
@@ -136,7 +137,7 @@ export function TableCard({ item, verb, forms, settings, onFinish }: ConjCardPro
                 type="button"
                 onMouseDown={(e) => e.preventDefault()}
                 onClick={() => insertAccent(char)}
-                className="size-12 rounded-lg bg-slate-200 text-xl dark:bg-slate-800"
+                className="size-12 rounded-lg bg-slate-200 text-xl compact:size-10 dark:bg-slate-800"
               >
                 {char}
               </button>
@@ -144,7 +145,7 @@ export function TableCard({ item, verb, forms, settings, onFinish }: ConjCardPro
           </div>
         )}
 
-        <button type="submit" className={`${primaryButton} mt-auto w-full`}>
+        <button type="submit" className={`${primaryButton} mt-auto w-full shrink-0`}>
           {checked ? t("conj.finishCard") : t("conj.checkTable")}
         </button>
       </form>

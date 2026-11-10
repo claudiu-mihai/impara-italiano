@@ -118,11 +118,11 @@ export function ConjugationPage() {
   const lesson = irregular && lessonForTense(item.tense, item.verbId, irregular);
 
   return (
-    <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
-      <StudyHeader index={index} total={queue.length} />
-      {item.isNew && <p className="text-center text-sm font-semibold text-brand-fg">{t("conj.newTense")}</p>}
+    <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto overscroll-contain px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 compact:gap-2 compact:pb-2 compact:pt-2">
+      <StudyHeader index={index} total={queue.length} returnToOrigin />
+      {item.isNew && <p className="text-center text-sm font-semibold text-brand-fg compact:hidden">{t("conj.newTense")}</p>}
 
-      <div role="radiogroup" aria-label={t("conj.mode")} className="grid grid-cols-3 gap-2">
+      <div role="radiogroup" aria-label={t("conj.mode")} className="grid grid-cols-3 gap-2 compact:hidden">
         {MODES.map((mode) => {
           const active = settings.conjugationMode === mode;
           return (
@@ -155,7 +155,7 @@ export function ConjugationPage() {
       />
 
       {lesson && (
-        <div className="text-center">
+        <div className="text-center compact:hidden">
           <LessonLink topicId={lesson} from={{ path: "/learn/conjugation", label: t("learn.conjugation") }} />
         </div>
       )}

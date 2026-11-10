@@ -143,8 +143,10 @@ test("statistici: repetițiile de azi apar în serie și în progres", async ({ 
   // 2 repetiții azi: o zi de studiu (sub pragul seriei), fără serie record
   await expect(page.getByTestId("active-days")).toContainText("1");
   await expect(page.getByTestId("longest-streak")).toContainText("0");
-  await expect(page.getByRole("heading", { name: "Calendar de activitate" })).toBeVisible();
+  // calendarul și progresul sunt secțiuni restrânse: se deschid la atingerea titlului
+  await page.getByRole("heading", { name: "Calendar de activitate" }).click();
   await expect(page.getByRole("img", { name: /Activitate în ultimele 16 săptămâni: 1 zi cu repetiții/ })).toBeVisible();
+  await page.getByRole("heading", { name: "Progres", exact: true }).click();
   await expect(page.getByText(/2 în învățare|0 stăpânite din 50/).first()).toBeVisible();
 });
 
@@ -197,6 +199,8 @@ test("backup: un fișier greșit primește un mesaj clar și nu șterge nimic", 
 
 test("setări: explicațiile se deschid și se închid din butonul (i)", async ({ page }) => {
   await page.goto("/settings");
+  // retenția țintă stă în secțiunea „Avansat”, restrânsă implicit
+  await page.getByText("Avansat", { exact: true }).click();
   const row = page.locator("div.py-1", { hasText: "Retenție țintă" });
   const info = row.getByRole("button", { name: "Informații" });
   const text = page.getByText("Mai mare = mai multe repetiții.");

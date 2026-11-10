@@ -1,4 +1,4 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Locator, type Page } from "@playwright/test";
 
 const language = (page: Page) => page.getByLabel("Limba interfeței / Lingua dell'interfaccia");
 const nav = (page: Page) => page.getByRole("navigation");
@@ -115,4 +115,37 @@ test("textul rămâne în română când nu se alege italiana (suita existentă)
   await page.goto("/learn");
   await expect(page.getByRole("heading", { name: "Învață", level: 1 })).toBeVisible();
   await expect(page.getByText("Reconstruire propoziție")).toBeVisible();
+});
+
+/** Un singur rând, netăiat: textul încape în lățimea lui și are înălțimea unui rând. */
+async function expectOneLine(label: Locator) {
+  const fits = await label.evaluate((el) => ({
+    clipped: el.scrollWidth > el.clientWidth,
+    lines: el.getBoundingClientRect().height / parseFloat(getComputedStyle(el).lineHeight),
+  }));
+  expect(fits.clipped).toBe(false);
+  expect(fits.lines).toBeLessThan(1.5);
+}
+
+test("bara de jos arată numele paginilor sub iconițe, în română", async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 740 });
+  await page.goto("/");
+  for (const name of ["Acasă", "Învață", "Dicționar", "Statistici", "Setări"]) {
+    const link = nav(page).getByRole("link", { name });
+    await expect(link).toBeVisible();
+    // numele vine din textul vizibil, fără etichetă accesibilă separată
+    await expect(link).not.toHaveAttribute("aria-label");
+    await expect(link.getByText(name, { exact: true })).toBeVisible();
+    await expectOneLine(link.getByText(name, { exact: true }));
+  }
+});
+
+test("bara de jos arată numele paginilor și în italiană, fără text tăiat pe 360 px", async ({ page }) => {
+  await useItalian(page);
+  await page.setViewportSize({ width: 360, height: 740 });
+  for (const name of ["Casa", "Impara", "Dizionario", "Statistiche", "Impostazioni"]) {
+    const label = nav(page).getByRole("link", { name }).getByText(name, { exact: true });
+    await expect(label).toBeVisible();
+    await expectOneLine(label);
+  }
 });

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useT } from "../i18n/index.ts";
+import { useReturnToOrigin } from "./useReturnToOrigin.ts";
 
 interface StudyHeaderProps {
   index: number;
@@ -9,14 +10,17 @@ interface StudyHeaderProps {
   exitTo?: string;
   /** Starea de navigare transmisă odată cu ieșirea (react-router `state`). */
   exitState?: unknown;
+  /** ✕ te întoarce la pagina de unde ai pornit (vezi `useReturnToOrigin`); `exitTo` rămâne pentru sesiunile deschise direct. */
+  returnToOrigin?: boolean;
 }
 
 /** Antetul comun al sesiunilor de studiu: ieșire, bară de progres și contor. */
-export function StudyHeader({ index, total, label, exitTo = "/learn", exitState }: StudyHeaderProps) {
+export function StudyHeader({ index, total, label, exitTo = "/learn", exitState, returnToOrigin = false }: StudyHeaderProps) {
   const { t } = useT();
+  const onExit = useReturnToOrigin(returnToOrigin);
   return (
     <header className="flex items-center gap-3">
-      <Link to={exitTo} state={exitState} aria-label={t("study.exit")} className="flex size-12 items-center justify-center text-2xl">
+      <Link to={exitTo} state={exitState} onClick={onExit} aria-label={t("study.exit")} className="flex size-12 items-center justify-center text-2xl compact:size-10">
         ✕
       </Link>
       <div

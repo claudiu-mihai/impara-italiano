@@ -30,7 +30,7 @@ export function TopicsPage() {
         if (inGroup.length === 0) return null;
         return (
           <section key={group} aria-labelledby={`group-${group}`} className="flex flex-col gap-2">
-            <h2 id={`group-${group}`} className="text-sm font-semibold uppercase tracking-wide text-muted">
+            <h2 id={`group-${group}`} className="text-base font-semibold text-slate-700 dark:text-slate-200">
               <BilingualLabel text={TOPIC_GROUP_LABEL[group]} />
             </h2>
             {inGroup.map((topic) => {

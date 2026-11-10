@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Rating, State, type Grade } from "ts-fsrs";
+import { useConjugationToday } from "../../app/conjugationToday.ts";
 import { useContent } from "../../app/content.tsx";
 import { useTopics } from "../../app/topics.ts";
 import { useWordDetails } from "../../app/wordDetails.ts";
@@ -15,6 +16,7 @@ import { newStoredCard, previewDue, reviewStoredCard } from "../../domain/srs/sc
 import type { StoredCard } from "../../domain/srs/types.ts";
 import { studyDayOf } from "../../domain/time/studyDay.ts";
 import { useSessionStore } from "../../store/sessionStore.ts";
+import { useReturnToOrigin } from "../../ui/useReturnToOrigin.ts";
 import { WordCard } from "./WordCard.tsx";
 import { Lupino } from "../../ui/mascot/Lupino.tsx";
 
@@ -39,6 +41,8 @@ export function FlashcardsPage() {
   const topics = useTopics();
   const topic = topicId ? topics?.find((x) => x.id === topicId) : undefined;
   const exitTo = topicId ? `/learn/topics/${topicId}` : "/";
+  // sesiunea zilei se pornește din Acasă sau din Învață: ✕ te întoarce unde ai pornit; sesiunea unei teme se întoarce la temă
+  const onExit = useReturnToOrigin(!topicId);
   const { queue, index, flipped, shownAt, answered, start, flip, advance, reset } = useSessionStore();
   const [ready, setReady] = useState(false);
   const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS);
@@ -139,9 +143,7 @@ export function FlashcardsPage() {
         <p className="text-muted">
           {answered > 0 ? tp("flash.reviewed", answered) : t("flash.comeBack")}
         </p>
-        <Link to={exitTo} className="flex min-h-14 items-center rounded-xl bg-brand px-8 text-lg font-semibold text-white">
-          {topicId ? t("flash.backToTopic") : t("flash.backHome")}
-        </Link>
+        <SessionEndLinks exitTo={exitTo} topicId={topicId} />
       </div>
     );
   }
@@ -162,7 +164,7 @@ export function FlashcardsPage() {
   return (
     <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
       <header className="flex items-center gap-3">
-        <Link to={exitTo} aria-label={t("study.exit")} className="flex size-12 items-center justify-center text-2xl">
+        <Link to={exitTo} onClick={onExit} aria-label={t("study.exit")} className="flex size-12 items-center justify-center text-2xl">
           ✕
         </Link>
         <div
@@ -226,5 +228,41 @@ export function FlashcardsPage() {
         </button>
       )}
     </div>
+  );
+}
+
+const endPrimary = "flex min-h-14 items-center rounded-xl bg-brand px-8 text-lg font-semibold text-white";
+const endSecondary = "flex min-h-12 items-center justify-center text-brand-fg underline";
+
+/**
+ * Linkurile de la finalul sesiunii. După sesiunea zilei (nu a unei teme), dacă mai ai conjugări de făcut, ele devin
+ * butonul principal; formele conjugate se încarcă doar aici, nu în timpul sesiunii.
+ */
+function SessionEndLinks({ exitTo, topicId }: { exitTo: string; topicId: string | undefined }) {
+  const { t } = useT();
+  return topicId ? (
+    <Link to={exitTo} className={endPrimary}>
+      {t("flash.backToTopic")}
+    </Link>
+  ) : (
+    <DailyEndLinks exitTo={exitTo} />
+  );
+}
+
+function DailyEndLinks({ exitTo }: { exitTo: string }) {
+  const { t } = useT();
+  const conjugation = useConjugationToday();
+  const hasConjugation = (conjugation?.queue.length ?? 0) > 0;
+  return (
+    <>
+      {hasConjugation && (
+        <Link to="/learn/conjugation" className={endPrimary}>
+          {t("flash.continueConj")}
+        </Link>
+      )}
+      <Link to={exitTo} className={hasConjugation ? endSecondary : endPrimary}>
+        {t("flash.backHome")}
+      </Link>
+    </>
   );
 }

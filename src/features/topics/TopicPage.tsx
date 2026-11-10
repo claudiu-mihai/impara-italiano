@@ -1,10 +1,12 @@
 import { useLiveQuery } from "dexie-react-hooks";
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useContent } from "../../app/content.tsx";
 import { useNativeHelp } from "../../app/nativeHelp.ts";
 import { useTopics } from "../../app/topics.ts";
 import { useT } from "../../i18n/index.ts";
 import { db } from "../../data/db/instance.ts";
+import { setLastPractice } from "../../data/db/repositories.ts";
 import { EXERCISE_ICON, EXERCISE_LABEL, italianText } from "../../domain/content/display.ts";
 import { topicProgress } from "../../domain/topics/topics.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
@@ -26,6 +28,11 @@ export function TopicPage() {
   const topics = useTopics();
   const cards = useLiveQuery(() => db.cards.where("kind").equals("vocab").toArray(), []);
   const nativeHelp = useNativeHelp();
+  const known = topics?.some((x) => x.id === id) ?? false;
+  // „Continuă” din Învață reia ultima temă deschisă
+  useEffect(() => {
+    if (known) void setLastPractice(db, { kind: "topic", id });
+  }, [known, id]);
 
   if (!topics || !cards) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
 
@@ -59,9 +66,28 @@ export function TopicPage() {
         </p>
       </header>
 
+      <div className="grid grid-cols-2 gap-3" data-testid="topic-actions">
+        <Link to={`/learn/topics/${topic.id}/flashcards`} className={`${filled} whitespace-nowrap`}>
+          <span aria-hidden="true">📖</span>
+          {t("topics.study")}
+        </Link>
+        <Link to={`/learn/topics/${topic.id}/quiz`} className={`${outlined} whitespace-nowrap text-lg`}>
+          <span aria-hidden="true">❓</span>
+          {t("learn.quiz")}
+        </Link>
+        {topic.exercises.map((exercise) => (
+          <Link key={exercise} to={`/learn/topics/${topic.id}/${exercise}`} className={`${outlined} col-span-2 text-lg`}>
+            <span aria-hidden="true">{EXERCISE_ICON[exercise]}</span>
+            {t(EXERCISE_LABEL[exercise])}
+          </Link>
+        ))}
+      </div>
+
+      <TopicRulesBox rules={topic.rules} contrast={topic.contrast?.ro} />
+
       {topic.subgroups.map((sub) => (
         <section key={sub.title.it} aria-label={plainLabel(sub.title, nativeHelp)} className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">
+          <h2 className="text-base font-semibold text-slate-700 dark:text-slate-200">
             <BilingualLabel text={sub.title} />
           </h2>
           <ul className="mt-2 divide-y divide-slate-200 dark:divide-slate-700">
@@ -82,25 +108,6 @@ export function TopicPage() {
           </ul>
         </section>
       ))}
-
-      <TopicRulesBox rules={topic.rules} contrast={topic.contrast?.ro} />
-
-      <div className="grid grid-cols-2 gap-3" data-testid="topic-actions">
-        <Link to={`/learn/topics/${topic.id}/flashcards`} className={`${filled} whitespace-nowrap`}>
-          <span aria-hidden="true">📖</span>
-          {t("topics.study")}
-        </Link>
-        <Link to={`/learn/topics/${topic.id}/quiz`} className={`${outlined} whitespace-nowrap text-lg`}>
-          <span aria-hidden="true">❓</span>
-          {t("learn.quiz")}
-        </Link>
-        {topic.exercises.map((exercise) => (
-          <Link key={exercise} to={`/learn/topics/${topic.id}/${exercise}`} className={`${outlined} col-span-2 text-lg`}>
-            <span aria-hidden="true">{EXERCISE_ICON[exercise]}</span>
-            {t(EXERCISE_LABEL[exercise])}
-          </Link>
-        ))}
-      </div>
     </div>
   );
 }

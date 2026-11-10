@@ -16,6 +16,9 @@ export const it: Record<Key, string> = {
   "banner.reload": "Ricarica",
   "banner.noVoice": "Il dispositivo non ha una voce italiana, quindi il pulsante audio è nascosto. Mac: Impostazioni di Sistema → Accessibilità → Contenuto vocale → Voce di sistema → Gestisci voci. iPhone: Impostazioni → Accessibilità → Contenuto vocale → Voci. Android: Impostazioni → Gestione generale → Sintesi vocale.",
   // pagina Învață
+  "learn.today": "Da fare oggi",
+  "learn.practice": "Esercizio libero",
+  "learn.continue": "Continua",
   "learn.title": "Impara",
   "learn.flashcards": "Flashcard",
   "learn.conjugation": "Coniugazione",
@@ -197,6 +200,7 @@ export const it: Record<Key, string> = {
   "flash.reviewed_other": "Hai completato {n} carte.",
   "flash.comeBack": "Torna più tardi per nuove ripetizioni.",
   "flash.backToTopic": "Torna al tema",
+  "flash.continueConj": "Continua con la coniugazione",
   "flash.backHome": "Torna a casa",
   "flash.cardGone": "Questa carta non esiste più nel dizionario.",
   "common.continue": "Continua",
@@ -334,6 +338,10 @@ export const it: Record<Key, string> = {
   // Statistici
   "common.days_one": "giorno",
   "common.days_other": "giorni",
+  "stats.grammarTitle": "Grammatica e temi",
+  "stats.lessonsRead": "{read} su {total} lezioni lette",
+  "stats.averageScore": "Punteggio medio nei giochi: {n}%",
+  "stats.topicsStarted": "{started} su {total} temi iniziati",
   "stats.streakTitle": "Serie di giorni",
   "stats.keepGoing": "Continua così!",
   "stats.todayOf": "Oggi: {n} su {total} ripetizioni necessarie per la serie.",
@@ -368,6 +376,7 @@ export const it: Record<Key, string> = {
   "stats.todayDue": "Oggi (compresi gli arretrati): {n} carte",
   "stats.dayDue": "{day}: {n} carte",
   // Setări
+  "settings.advanced": "Avanzate",
   "settings.study": "Studio",
   "settings.level": "Livello attuale",
   "settings.levelHint": "Parole e tempi nuovi compaiono solo fino a questo livello (CEFR, stimato). I ripassi continuano.",

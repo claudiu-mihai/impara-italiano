@@ -91,7 +91,7 @@ test("timpurile verbale se deblochează după nivel: imperfetto apare abia la A2
 test("statisticile arată progresul pe niveluri CEFR", async ({ page }) => {
   await seedLearnedWords(page, A1.slice(0, 5));
   await page.goto("/stats");
-  await expect(page.getByRole("heading", { name: "Niveluri" })).toBeVisible();
+  await page.getByRole("heading", { name: "Niveluri" }).click(); // secțiune restrânsă implicit
   await expect(page.getByText(`5 începute · 0 stăpânite din ${A1.length}`)).toBeVisible();
   await expect(page.getByText(`0 începute · 0 stăpânite din ${A2.length}`)).toBeVisible();
   await expect(page.getByText("în pregătire")).toHaveCount(0); // toate nivelurile au cuvinte

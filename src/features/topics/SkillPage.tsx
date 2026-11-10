@@ -14,6 +14,7 @@ import { useT } from "../../i18n/index.ts";
 import { playFeedback } from "../../services/sound.ts";
 import { speak, useTtsStatus } from "../../services/tts.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
+import { PinnedPrompt } from "../../ui/PinnedPrompt.tsx";
 import { ClockFace } from "../../ui/ClockFace.tsx";
 import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
@@ -156,47 +157,49 @@ function SkillGame({ topicId, skill }: { topicId: string; skill: Skill }) {
   const insertAccent = (char: string) => setInput((value) => value + char);
 
   return (
-    <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
+    <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto overscroll-contain px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 compact:gap-2 compact:pb-2 compact:pt-2">
       <StudyHeader index={index} total={items.length} label={t("quiz.roundProgress")} exitTo={exitTo} />
       {countsForSrs && round === 0 && <p className="text-center text-sm font-semibold text-brand-fg">{t("skill.review")}</p>}
 
-      <section className="flex flex-col items-center gap-3 rounded-3xl bg-white p-6 text-center shadow-md dark:bg-slate-900">
-        {item.type === "listen-number" && (
-          <>
-            <p className="text-sm text-muted">{t("skill.listen")}</p>
-            {tts === "ready" ? (
-              <AudioButton text={item.spoken} rate={settings.ttsRate} />
-            ) : (
-              // fără voce italiană: numărul se citește în loc să se asculte
-              <p className="text-3xl font-bold" data-testid="spoken-text">
-                {item.spoken}
+      <PinnedPrompt>
+        <section className="flex flex-col items-center gap-3 rounded-3xl bg-white p-6 text-center shadow-md compact:gap-1 compact:p-3 compact:[&_svg]:size-28 dark:bg-slate-900">
+          {item.type === "listen-number" && (
+            <>
+              <p className="text-sm text-muted">{t("skill.listen")}</p>
+              {tts === "ready" ? (
+                <AudioButton text={item.spoken} rate={settings.ttsRate} />
+              ) : (
+                // fără voce italiană: numărul se citește în loc să se asculte
+                <p className="text-3xl font-bold" data-testid="spoken-text">
+                  {item.spoken}
+                </p>
+              )}
+            </>
+          )}
+          {item.type === "write-number" && (
+            <>
+              <p className="text-sm text-muted">{t("skill.writeNumber")}</p>
+              <p className="text-5xl font-bold compact:text-4xl" data-testid="digits">
+                {formatNumber(item.n)}
               </p>
-            )}
-          </>
-        )}
-        {item.type === "write-number" && (
-          <>
-            <p className="text-sm text-muted">{t("skill.writeNumber")}</p>
-            <p className="text-5xl font-bold" data-testid="digits">
-              {formatNumber(item.n)}
-            </p>
-          </>
-        )}
-        {item.type === "clock-write" && (
-          <>
-            <p className="text-sm text-muted">{t("skill.clockWrite")}</p>
-            <ClockFace time={item.time} />
-          </>
-        )}
-        {item.type === "clock-pick" && (
-          <>
-            <p className="text-sm text-muted">{t("skill.clockPick")}</p>
-            <p className="text-2xl font-bold" data-testid="phrase">
-              {item.phrase}
-            </p>
-          </>
-        )}
-      </section>
+            </>
+          )}
+          {item.type === "clock-write" && (
+            <>
+              <p className="text-sm text-muted">{t("skill.clockWrite")}</p>
+              <ClockFace time={item.time} />
+            </>
+          )}
+          {item.type === "clock-pick" && (
+            <>
+              <p className="text-sm text-muted">{t("skill.clockPick")}</p>
+              <p className="text-2xl font-bold" data-testid="phrase">
+                {item.phrase}
+              </p>
+            </>
+          )}
+        </section>
+      </PinnedPrompt>
 
       {item.type === "clock-pick" ? (
         <div className="grid grid-cols-2 gap-3" role="group" aria-label={t("skill.clocks")}>
@@ -222,7 +225,7 @@ function SkillGame({ topicId, skill }: { topicId: string; skill: Skill }) {
           })}
         </div>
       ) : (
-        <form onSubmit={submit} className="flex flex-col gap-3">
+        <form onSubmit={submit} className="flex flex-col gap-3 compact:gap-2">
           <label className="sr-only" htmlFor="answer">
             {t("sentence.yourAnswer")}
           </label>
@@ -246,7 +249,7 @@ function SkillGame({ topicId, skill }: { topicId: string; skill: Skill }) {
                   key={char}
                   type="button"
                   onClick={() => insertAccent(char)}
-                  className="size-12 rounded-lg bg-slate-100 text-xl dark:bg-slate-800"
+                  className="size-12 rounded-lg bg-slate-100 text-xl compact:size-10 dark:bg-slate-800"
                 >
                   {char}
                 </button>

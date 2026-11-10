@@ -18,17 +18,33 @@ import { InfoBox, InfoButton, InfoHeading, useInfo } from "../../ui/Info.tsx";
 import { NativeHelpNotice } from "../../ui/NativeHelpNotice.tsx";
 
 const card = "rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900";
-const heading = "text-sm font-semibold uppercase tracking-wide text-muted";
+const heading = "text-base font-semibold text-slate-700 dark:text-slate-200";
 const control = "min-h-12 rounded-lg border border-slate-300 bg-white px-3 dark:border-slate-700 dark:bg-slate-800";
 const action = "min-h-12 rounded-xl border-2 border-brand-fg px-4 font-semibold text-brand-fg";
 
 /** Un rând din Setări: eticheta, controlul și, dacă există explicație, un buton (i) care deschide sub rând o casetă. */
-function Field({ label, hint, children }: { label: string; hint?: string; children: ReactNode }) {
+function Field({
+  label,
+  hint,
+  inline = false,
+  children,
+}: {
+  label: string;
+  hint?: string;
+  /** Controlul mic (bifă) stă mereu lângă etichetă; listele trec sub etichetă pe ecrane înguste. */
+  inline?: boolean;
+  children: ReactNode;
+}) {
   const info = useInfo();
+  // de la 480 px în sus: eticheta și lista pe același rând (lista are max. 55% din lățime); mai jos: eticheta deasupra,
+  // iar lista pe toată lățimea, ca textul opțiunii să nu se taie
+  const layout = inline
+    ? "flex items-center justify-between gap-4"
+    : "flex flex-col gap-1.5 min-[480px]:flex-row min-[480px]:items-center min-[480px]:justify-between min-[480px]:gap-4 " +
+      "[&>select]:w-full [&>select]:max-w-none min-[480px]:[&>select]:w-auto min-[480px]:[&>select]:max-w-[55%] min-[480px]:[&>select]:shrink-0";
   return (
     <div className="py-1">
-      {/* selectorul își păstrează lățimea (max. 55%), iar eticheta se strânge în locul rămas; mai ales în italiană */}
-      <div className="flex items-center justify-between gap-4 [&>select]:max-w-[55%] [&>select]:shrink-0">
+      <div className={layout}>
         <span className="flex min-w-0 flex-1 items-center">
           <span id={info.labelId}>{label}</span>
           {hint && <InfoButton open={info.open} onToggle={info.toggle} boxId={info.boxId} labelId={info.labelId} />}
@@ -221,6 +237,7 @@ export function SettingsPage() {
           </select>
         </Field>
         <Field
+          inline
           label={t("settings.nativeHelp")}
           hint={t("settings.nativeHelpHint")}
         >
@@ -252,16 +269,6 @@ export function SettingsPage() {
             <option value="both">{t("settings.both")}</option>
           </select>
         </Field>
-        {settings.direction === "both" && (
-          <Field label={t("settings.reverse")} hint={t("settings.reverseHint")}>
-            <NumberSelect
-              label={t("settings.reverse")}
-              value={settings.newReversePerDay}
-              presets={[0, 5, 10, 15, 20, 30]}
-              onChange={(n) => update("newReversePerDay", n)}
-            />
-          </Field>
-        )}
         <Field label={t("conj.mode")} hint={t("settings.modeHint")}>
           <select
             aria-label={t("conj.mode")}
@@ -277,34 +284,47 @@ export function SettingsPage() {
         <Field label={t("settings.newPerDay")}>
           <NumberSelect label={t("settings.newPerDay")} value={settings.newPerDay} presets={[0, 5, 10, 15, 20, 30, 50]} onChange={(n) => update("newPerDay", n)} />
         </Field>
-        <Field label={t("settings.nounShare")} hint={t("settings.nounShareHint")}>
-          <select
-            aria-label={t("settings.nounShare")}
-            value={settings.nounShare}
-            onChange={(e) => update("nounShare", Number(e.target.value))}
-            className={control}
-          >
-            <option value={0}>{t("settings.byFrequency")}</option>
-            <option value={33}>{t("settings.oneOfThree")}</option>
-            <option value={50}>{t("settings.oneOfTwo")}</option>
-            <option value={67}>{t("settings.twoOfThree")}</option>
-          </select>
-        </Field>
-        <Field label={t("settings.newConj")}>
-          <NumberSelect label={t("settings.newConj")} value={settings.newConjPerDay} presets={[0, 1, 2, 3, 5, 10]} onChange={(n) => update("newConjPerDay", n)} />
-        </Field>
-        <Field label={t("settings.maxReviews")}>
-          <NumberSelect label={t("settings.maxReviews")} value={settings.maxReviewsPerDay} presets={[25, 50, 100, 200, 500]} onChange={(n) => update("maxReviewsPerDay", n)} />
-        </Field>
-        <Field label={t("settings.retention")} hint={t("settings.retentionHint")}>
-          <NumberSelect
-            label={t("settings.retention")}
-            value={Math.round(settings.retention * 100)}
-            presets={[80, 85, 90, 92, 95]}
-            format={(n) => `${n}%`}
-            onChange={(n) => update("retention", n / 100)}
-          />
-        </Field>
+        <details className="mt-2 border-t border-slate-200 dark:border-slate-700">
+          <summary className="min-h-12 cursor-pointer py-3 font-semibold text-brand-fg">{t("settings.advanced")}</summary>
+          {settings.direction === "both" && (
+            <Field label={t("settings.reverse")} hint={t("settings.reverseHint")}>
+              <NumberSelect
+                label={t("settings.reverse")}
+                value={settings.newReversePerDay}
+                presets={[0, 5, 10, 15, 20, 30]}
+                onChange={(n) => update("newReversePerDay", n)}
+              />
+            </Field>
+          )}
+          <Field label={t("settings.nounShare")} hint={t("settings.nounShareHint")}>
+            <select
+              aria-label={t("settings.nounShare")}
+              value={settings.nounShare}
+              onChange={(e) => update("nounShare", Number(e.target.value))}
+              className={control}
+            >
+              <option value={0}>{t("settings.byFrequency")}</option>
+              <option value={33}>{t("settings.oneOfThree")}</option>
+              <option value={50}>{t("settings.oneOfTwo")}</option>
+              <option value={67}>{t("settings.twoOfThree")}</option>
+            </select>
+          </Field>
+          <Field label={t("settings.newConj")}>
+            <NumberSelect label={t("settings.newConj")} value={settings.newConjPerDay} presets={[0, 1, 2, 3, 5, 10]} onChange={(n) => update("newConjPerDay", n)} />
+          </Field>
+          <Field label={t("settings.maxReviews")}>
+            <NumberSelect label={t("settings.maxReviews")} value={settings.maxReviewsPerDay} presets={[25, 50, 100, 200, 500]} onChange={(n) => update("maxReviewsPerDay", n)} />
+          </Field>
+          <Field label={t("settings.retention")} hint={t("settings.retentionHint")}>
+            <NumberSelect
+              label={t("settings.retention")}
+              value={Math.round(settings.retention * 100)}
+              presets={[80, 85, 90, 92, 95]}
+              format={(n) => `${n}%`}
+              onChange={(n) => update("retention", n / 100)}
+            />
+          </Field>
+        </details>
       </section>
 
       <section className={card} aria-labelledby="look">
@@ -370,7 +390,7 @@ export function SettingsPage() {
           <summary className="min-h-12 cursor-pointer py-3 text-muted">{t("settings.diagnostics")}</summary>
           <VoiceDiagnosticsPanel />
         </details>
-        <Field label={t("settings.soundEffects")} hint={t("settings.soundEffectsHint")}>
+        <Field inline label={t("settings.soundEffects")} hint={t("settings.soundEffectsHint")}>
           <span className="flex size-12 items-center justify-center">
             <input
               type="checkbox"
