@@ -47,3 +47,15 @@ test("limba interfeței este româna implicit și nu depinde de nivel", () => {
   expect(withSettingDefaults({ uiLanguage: "it" }).uiLanguage).toBe("it");
   expect(settingsForLevel({ ...at("A2", true), uiLanguage: "it" }, "B1").uiLanguage).toBe("it");
 });
+
+test("instalările noi încep cu ambele direcții, audio automat și toleranță la scriere", () => {
+  expect(DEFAULT_SETTINGS).toMatchObject({ direction: "both", autoPlayAudio: true, spellingTolerance: true });
+});
+
+test("setările vechi își păstrează direcția salvată și primesc restul valorilor noi", () => {
+  expect(withSettingDefaults({ direction: "it-ro" })).toMatchObject({
+    direction: "it-ro",
+    autoPlayAudio: true,
+    spellingTolerance: true,
+  });
+});

@@ -281,6 +281,17 @@ export function SettingsPage() {
             <option value="table">{t("settings.modeTable")}</option>
           </select>
         </Field>
+        <Field inline label={t("settings.spelling")} hint={t("settings.spellingHint")}>
+          <span className="flex size-12 items-center justify-center">
+            <input
+              type="checkbox"
+              aria-label={t("settings.spelling")}
+              checked={settings.spellingTolerance}
+              onChange={(e) => update("spellingTolerance", e.target.checked)}
+              className="size-6 accent-brand"
+            />
+          </span>
+        </Field>
         <Field label={t("settings.newPerDay")}>
           <NumberSelect label={t("settings.newPerDay")} value={settings.newPerDay} presets={[0, 5, 10, 15, 20, 30, 50]} onChange={(n) => update("newPerDay", n)} />
         </Field>
@@ -397,6 +408,17 @@ export function SettingsPage() {
               aria-label={t("settings.soundEffects")}
               checked={settings.soundEnabled}
               onChange={(e) => update("soundEnabled", e.target.checked)}
+              className="size-6 accent-brand"
+            />
+          </span>
+        </Field>
+        <Field inline label={t("settings.autoPlay")} hint={t("settings.autoPlayHint")}>
+          <span className="flex size-12 items-center justify-center">
+            <input
+              type="checkbox"
+              aria-label={t("settings.autoPlay")}
+              checked={settings.autoPlayAudio}
+              onChange={(e) => update("autoPlayAudio", e.target.checked)}
               className="size-6 accent-brand"
             />
           </span>

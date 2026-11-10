@@ -48,7 +48,10 @@ export function WriteCard({ item, verb, forms, settings, onFinish }: ConjCardPro
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
     if (!feedback) {
-      const result = compareAnswer(input, accepted);
+      const result = compareAnswer(input, accepted, {
+        typoTolerance: settings.spellingTolerance,
+        exclude: forms.flat(),
+      });
       setFeedback({ result, expected: accepted });
       setResults((r) => [...r, result]);
       playFeedback(result !== "wrong", settings.soundEnabled);
@@ -93,7 +96,7 @@ export function WriteCard({ item, verb, forms, settings, onFinish }: ConjCardPro
                   i < results.length
                     ? results[i] === "wrong"
                       ? "bg-red-500"
-                      : results[i] === "almost"
+                      : results[i] === "almost" || results[i] === "typo"
                         ? "bg-amber-500"
                         : "bg-green-600"
                     : i === step
@@ -117,6 +120,11 @@ export function WriteCard({ item, verb, forms, settings, onFinish }: ConjCardPro
           {feedback?.result === "wrong" && (
             <p className="text-center font-semibold text-red-700 dark:text-red-400">
               {t("conj.correctAnswer", { form: feedback.expected.join(" / ") })}
+            </p>
+          )}
+          {feedback?.result === "typo" && (
+            <p className="text-center font-semibold text-amber-700 dark:text-amber-400">
+              {t("conj.typo", { form: feedback.expected[0] ?? "" })}
             </p>
           )}
           {feedback && (

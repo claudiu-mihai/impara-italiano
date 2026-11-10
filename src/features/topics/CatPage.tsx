@@ -1,7 +1,7 @@
 import { useMemo, useRef, useState, type FormEvent } from "react";
 import { db } from "../../data/db/instance.ts";
 import { getSettings } from "../../data/db/repositories.ts";
-import { compareAnswer } from "../../domain/grading/compareAnswer.ts";
+import { compareAnswer, type AnswerResult } from "../../domain/grading/compareAnswer.ts";
 import { buildCatRound } from "../../domain/topics/cat.ts";
 import { useT } from "../../i18n/index.ts";
 import { playFeedback } from "../../services/sound.ts";
@@ -34,14 +34,14 @@ function CatGame({ topicId }: { topicId: string }) {
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<string>();
   const [input, setInput] = useState("");
-  const [result, setResult] = useState<"correct" | "almost" | "wrong">();
+  const [result, setResult] = useState<AnswerResult>();
   const [score, setScore] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const question = questions[index];
   const answered = result !== undefined;
 
-  const grade = async (value: "correct" | "almost" | "wrong") => {
+  const grade = async (value: AnswerResult) => {
     setResult(value);
     if (value !== "wrong") setScore((s) => s + 1);
     playFeedback(value !== "wrong", (await getSettings(db)).soundEnabled);

@@ -58,3 +58,39 @@ test("nota variantei Tabel: toate corecte → Bine, cel puțin 2/3 → Greu, mai
   expect(gradeConjugationTable(six(3))).toBe(Rating.Again);
   expect(gradeConjugationTable(["correct", "wrong", "wrong", "wrong", "correct"])).toBe(Rating.Again);
 });
+
+const TOLERANT = { typoTolerance: true };
+
+test("cu toleranță, o literă greșită, lipsă, în plus sau inversată = greșeală mică", () => {
+  expect(compareAnswer("parlaro", ["parlerò"], TOLERANT)).toBe("typo");
+  expect(compareAnswer("abbiamo parlto", ["abbiamo parlato"], TOLERANT)).toBe("typo");
+  expect(compareAnswer("parllare", ["parlare"], TOLERANT)).toBe("typo");
+  expect(compareAnswer("parlaer", ["parlare"], TOLERANT)).toBe("typo");
+});
+
+test("fără toleranță (implicit), aceeași greșeală rămâne greșit", () => {
+  expect(compareAnswer("parlto", ["parlato"])).toBe("wrong");
+  expect(compareAnswer("parlto", ["parlato"], { typoTolerance: false })).toBe("wrong");
+});
+
+test("forma exactă și greșeala de accent au prioritate față de greșeala mică", () => {
+  expect(compareAnswer("parlo", ["parlo"], TOLERANT)).toBe("correct");
+  expect(compareAnswer("parlero", ["parlerò"], TOLERANT)).toBe("almost");
+});
+
+test("o altă formă validă a verbului nu se iartă (parli ≠ parla)", () => {
+  expect(compareAnswer("parli", ["parla"], { ...TOLERANT, exclude: ["parlo", "parli", "parla"] })).toBe("wrong");
+  expect(compareAnswer("parlla", ["parla"], { ...TOLERANT, exclude: ["parlo", "parli", "parla"] })).toBe("typo");
+});
+
+test("formele scurte (sub 4 litere) nu se iartă: ho ≠ hi", () => {
+  expect(compareAnswer("hi", ["ho"], TOLERANT)).toBe("wrong");
+  expect(compareAnswer("sei", ["sia"], TOLERANT)).toBe("wrong");
+});
+
+test("o greșeală mică limitează nota la Greu și se numără ca răspuns corect", () => {
+  expect(gradeConjugation(["correct", "correct", "typo"])).toBe(Rating.Hard);
+  expect(gradeConjugation(["typo", "correct", "wrong"])).toBe(Rating.Hard);
+  expect(gradeConjugation(["typo", "wrong", "wrong"])).toBe(Rating.Again);
+  expect(gradeConjugationTable(["correct", "correct", "typo", "correct", "correct", "correct"])).toBe(Rating.Hard);
+});
