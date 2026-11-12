@@ -10,14 +10,16 @@ import {
   isCorrectArrangement,
   scrambleOrder,
   sentenceText,
-  type SentenceItem,
+  type SentenceQuestion,
 } from "../../domain/sentence/sentenceRound.ts";
 import { DEFAULT_SETTINGS, type Settings } from "../../domain/settings.ts";
 import { playFeedback } from "../../services/sound.ts";
+import { speak } from "../../services/tts.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
 import { LupinoFill } from "../../ui/mascot/Lupino.tsx";
+import { useListening } from "../../ui/useListening.ts";
 
 const block =
   "min-h-12 rounded-lg border-2 border-slate-300 bg-white px-4 text-lg font-medium active:bg-slate-100 disabled:opacity-60 dark:border-slate-600 dark:bg-slate-800";
@@ -28,7 +30,7 @@ export function SentencePage() {
   const [round, setRound] = useState(0);
   const [ready, setReady] = useState(false);
   const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS);
-  const [questions, setQuestions] = useState<SentenceItem[]>([]);
+  const [questions, setQuestions] = useState<SentenceQuestion[]>([]);
   const [index, setIndex] = useState(0);
   const [score, setScore] = useState(0);
 
@@ -55,12 +57,21 @@ export function SentencePage() {
   }, [sentences, round]);
 
   const question = questions[index];
+  const listening = useListening(settings.listenFirst);
+  const fromAudio = listening && question?.listen === true;
 
   useEffect(() => {
     setOrder(question ? scrambleOrder(question) : []);
     setPlaced([]);
     setResult(null);
   }, [question?.id, index]);
+
+  // din auz: propoziția se aude singură la apariție
+  useEffect(() => {
+    if (fromAudio && question) speak(sentenceText(question), settings.ttsRate);
+    // doar la schimbarea întrebării, nu a vitezei
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fromAudio, question?.id, index]);
 
   if (!ready) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
 
@@ -91,6 +102,8 @@ export function SentencePage() {
     );
   }
 
+  // indicii de după `tokens` sunt capcanele: cuvinte din alte propoziții
+  const blockText = (i: number) => question.tokens[i] ?? question.decoys[i - question.tokens.length] ?? "";
   const bank = order.filter((i) => !placed.includes(i));
   const complete = placed.length === question.tokens.length;
 
@@ -107,11 +120,16 @@ export function SentencePage() {
     <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
       <StudyHeader index={index} total={questions.length} label={t("quiz.roundProgress")} />
 
-      <section className="rounded-3xl bg-white p-6 text-center shadow-md dark:bg-slate-900">
-        <p className="text-sm text-muted">{t("sentence.writeItalian")}</p>
-        <p lang={NATIVE_LANGUAGE} className="mt-2 text-2xl font-bold">
-          {question.ro}
-        </p>
+      <section className="flex flex-col items-center gap-2 rounded-3xl bg-white p-6 text-center shadow-md dark:bg-slate-900">
+        <p className="text-sm text-muted">{t(fromAudio ? "sentence.listenItalian" : "sentence.writeItalian")}</p>
+        {fromAudio && <AudioButton text={sentenceText(question)} rate={settings.ttsRate} size="lg" />}
+        {/* din auz, traducerea apare abia după răspuns */}
+        {(!fromAudio || result !== null) && (
+          <p lang={NATIVE_LANGUAGE} className="mt-2 text-2xl font-bold">
+            {question.ro}
+          </p>
+        )}
+        {question.decoys.length > 0 && result === null && <p className="text-sm text-muted">{t("sentence.decoyHint")}</p>}
       </section>
 
       <div
@@ -131,10 +149,10 @@ export function SentencePage() {
             type="button"
             disabled={result !== null}
             onClick={() => setPlaced((p) => p.filter((x) => x !== i))}
-            aria-label={t("sentence.removeWord", { word: question.tokens[i] ?? "" })}
+            aria-label={t("sentence.removeWord", { word: blockText(i) })}
             className={block}
           >
-            {question.tokens[i]}
+            {blockText(i)}
           </button>
         ))}
         {placed.length > 0 && <span className="text-lg font-medium">{question.punctuation}</span>}
@@ -145,11 +163,11 @@ export function SentencePage() {
           <button
             key={i}
             type="button"
-            disabled={result !== null}
+            disabled={result !== null || complete}
             onClick={() => setPlaced((p) => [...p, i])}
             className={block}
           >
-            {question.tokens[i]}
+            {blockText(i)}
           </button>
         ))}
       </div>

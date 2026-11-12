@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion, useMotionValue, useReducedMotion, useTransform } from "motion/react";
 import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { italianText, POS_LABEL } from "../../domain/content/display.ts";
@@ -16,10 +16,36 @@ interface FaceProps {
   rate: number;
 }
 
-function FrontFace({ word, direction, rate }: FaceProps) {
+function FrontFace({ word, direction, rate, listen }: FaceProps & { listen: boolean }) {
   const { t } = useT();
+  const [revealed, setRevealed] = useState(false);
   const fromItalian = direction === "it-ro";
   const text = fromItalian ? italianText(word) : word.ro;
+
+  // „Ascultă întâi”: doar audio, iar textul apare la cerere (sau după întoarcerea cardului)
+  if (listen && fromItalian) {
+    return (
+      <div className="flex h-full flex-col items-center justify-center gap-5 p-6 text-center">
+        <span className="text-sm uppercase tracking-wide text-muted">{t("flash.listenPrompt")}</span>
+        <AudioButton text={text} rate={rate} size="lg" />
+        {revealed ? (
+          <span lang="it" className="text-4xl font-bold">
+            {text}
+          </span>
+        ) : (
+          <button
+            type="button"
+            data-no-flip
+            onClick={() => setRevealed(true)}
+            className="min-h-12 rounded-xl border-2 border-slate-300 px-5 font-semibold dark:border-slate-600"
+          >
+            {t("flash.showText")}
+          </button>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div className="flex h-full flex-col items-center justify-center gap-4 p-6 text-center">
       <span className="text-sm uppercase tracking-wide text-muted">{t(POS_LABEL[word.pos])}</span>
@@ -115,21 +141,25 @@ interface WordCardProps extends FaceProps {
   flipped: boolean;
   /** Redă singur cuvântul italian: la apariția cardului (IT → RO) sau când îl întorci (RO → IT). */
   autoPlay: boolean;
+  /** „Ascultă întâi” (doar IT → RO): fața din față arată butonul de audio, nu textul. Cuvântul se redă singur. */
+  listen: boolean;
   onFlip: () => void;
   /** 1 = Din nou (swipe stânga), 3 = Bine (swipe dreapta). */
   onSwipe: (grade: 1 | 3) => void;
 }
 
-export function WordCard({ word, direction, rate, flipped, autoPlay, onFlip, onSwipe }: WordCardProps) {
+export function WordCard({ word, direction, rate, flipped, autoPlay, listen, onFlip, onSwipe }: WordCardProps) {
   const reduceMotion = useReducedMotion();
 
   // `speak` nu face nimic fără voce italiană; un card nou (altă cheie) pornește cu `flipped` false
   const italianNow = direction === "it-ro" ? !flipped : flipped;
+  // fără text pe față, redarea automată e singurul indiciu: în „ascultă întâi” se face mereu, indiferent de „Audio automat”
+  const listening = listen && direction === "it-ro";
   useEffect(() => {
-    if (autoPlay && italianNow) speak(italianText(word), rate);
+    if ((autoPlay || listening) && italianNow) speak(italianText(word), rate);
     // la schimbarea vitezei din Setări nu se repetă cuvântul
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [autoPlay, italianNow, word.id]);
+  }, [autoPlay, listening, italianNow, word.id]);
 
   const x = useMotionValue(0);
   const tilt = useTransform(x, [-200, 200], [-8, 8]);
@@ -138,7 +168,7 @@ export function WordCard({ word, direction, rate, flipped, autoPlay, onFlip, onS
   // ecran tactil browserul ia gestul pentru elementul derulabil, anulează evenimentele și cardul nu mai poate fi tras.
   const face =
     "absolute inset-0 touch-pan-y overflow-y-auto rounded-3xl bg-white shadow-md dark:bg-slate-900";
-  const front = <FrontFace word={word} direction={direction} rate={rate} />;
+  const front = <FrontFace word={word} direction={direction} rate={rate} listen={listening} />;
   const back = <BackFace word={word} direction={direction} rate={rate} />;
 
   return (

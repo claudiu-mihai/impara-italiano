@@ -13,9 +13,11 @@ import { quizGrade, type QuizQuestion } from "../../domain/quiz/buildQuizRound.t
 import { DEFAULT_SETTINGS, type Settings } from "../../domain/settings.ts";
 import { reviewStoredCard } from "../../domain/srs/scheduler.ts";
 import { playFeedback } from "../../services/sound.ts";
+import { speak } from "../../services/tts.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
+import { useListening } from "../../ui/useListening.ts";
 import { LupinoFill } from "../../ui/mascot/Lupino.tsx";
 
 export function QuizPage() {
@@ -56,6 +58,16 @@ export function QuizPage() {
   }, [content, topic, topicId, round]);
 
   const question = questions[index];
+  const listening = useListening(settings.listenFirst);
+  const fromAudio = listening && question?.listen === true;
+
+  // din auz: cuvântul se aude singur la apariția întrebării
+  const questionWord = question ? content.byId(question.wordId) : undefined;
+  useEffect(() => {
+    if (fromAudio && questionWord) speak(promptText(questionWord, "it-ro"), settings.ttsRate);
+    // doar la schimbarea întrebării, nu a vitezei
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fromAudio, question?.cardId, index]);
 
   const choose = async (choice: number) => {
     if (!question || selected !== null) return;
@@ -124,14 +136,17 @@ export function QuizPage() {
 
       <section className="flex flex-col items-center gap-3 rounded-3xl bg-white p-6 text-center shadow-md dark:bg-slate-900">
         <p className="text-sm text-muted">
-          {t(question.direction === "it-ro" ? "quiz.askItRo" : "quiz.askRoIt")}
+          {t(fromAudio ? "quiz.askListen" : question.direction === "it-ro" ? "quiz.askItRo" : "quiz.askRoIt")}
         </p>
         <div className="flex items-center gap-3">
-          <p lang={question.direction === "it-ro" ? "it" : NATIVE_LANGUAGE} className="text-4xl font-bold">
-            {promptText(word, question.direction)}
-          </p>
+          {/* din auz, textul italian rămâne ascuns până la răspuns */}
+          {(!fromAudio || answered) && (
+            <p lang={question.direction === "it-ro" ? "it" : NATIVE_LANGUAGE} className="text-4xl font-bold">
+              {promptText(word, question.direction)}
+            </p>
+          )}
           {question.direction === "it-ro" && (
-            <AudioButton text={promptText(word, question.direction)} rate={settings.ttsRate} />
+            <AudioButton text={promptText(word, question.direction)} rate={settings.ttsRate} size={fromAudio && !answered ? "lg" : "md"} />
           )}
         </div>
       </section>
