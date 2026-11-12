@@ -2,6 +2,7 @@ import { expect, test } from "vitest";
 import {
   buildSentenceRound,
   isCorrectArrangement,
+  pickDecoys,
   scrambleOrder,
   sentenceText,
   type SentenceItem,
@@ -80,4 +81,36 @@ test("runda conține doar propoziții cu cuvinte deja învățate, amestecate ș
   expect(round.every((s) => s.wordIds.some((id) => id === "v-a" || id === "v-c"))).toBe(true);
   expect(buildSentenceRound({ sentences, knownWordIds: new Set() })).toEqual([]);
   expect(buildSentenceRound({ sentences, knownWordIds: new Set(["v-a", "v-b", "v-c"]) })).toHaveLength(4);
+});
+
+test("capcanele: cuvinte din alte propoziții, fără cele din propoziție, fără dubluri", () => {
+  const s = sentence("Domani vado al mare.");
+  const pool = [s, sentence("Oggi non lavoro."), sentence("Vado al lago domani.")];
+  const decoys = pickDecoys(s, pool, 2, () => 0);
+  expect(decoys).toHaveLength(2);
+  expect(new Set(decoys).size).toBe(2);
+  for (const d of decoys) expect(s.tokens.map((t) => t.toLowerCase())).not.toContain(d.toLowerCase());
+  for (const d of decoys) expect(["oggi", "non", "lavoro", "lago"]).toContain(d);
+});
+
+test("capcanele: propozițiile scurte primesc una, cele lungi două, iar fără material nu se inventează", () => {
+  const short = sentence("Io vado qui.");
+  const long = sentence("Domani vado al mare.");
+  const pool = [short, long, sentence("Oggi non lavoro, ma studio molto.")];
+  expect(buildSentenceRound({ sentences: pool, knownWordIds: new Set(["v-x"]), size: 3, random: () => 0 }).map((q) => q.decoys.length).sort()).toEqual([1, 2, 2]);
+  expect(pickDecoys(short, [short], 1)).toEqual([]);
+});
+
+test("verificarea respinge orice aranjament care folosește o capcană", () => {
+  const s = sentence("Domani vado al mare.");
+  expect(isCorrectArrangement(s, [0, 1, 2, 4])).toBe(false);
+  expect(isCorrectArrangement(s, [0, 1, 2, 3, 4])).toBe(false);
+});
+
+test("din auz: runda marchează propozițiile cu semnalul `listen`", () => {
+  const pool = [sentence("Domani vado al mare."), sentence("Oggi non lavoro.")];
+  const all = buildSentenceRound({ sentences: pool, knownWordIds: new Set(["v-x"]), random: () => 0 });
+  expect(all.every((q) => q.listen)).toBe(true);
+  const none = buildSentenceRound({ sentences: pool, knownWordIds: new Set(["v-x"]), random: () => 0.99 });
+  expect(none.every((q) => !q.listen)).toBe(true);
 });

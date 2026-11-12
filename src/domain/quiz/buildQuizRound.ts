@@ -22,7 +22,14 @@ export interface QuizQuestion {
    * nescadente, cuvinte noi dintr-o temă, producție RO → IT) este exersare liberă: o grilă nu dovedește că poți produce cuvântul.
    */
   graded: boolean;
+  /** „Din auz”: textul italian rămâne ascuns până la răspuns, iar cuvântul se aude. Doar la IT → RO. */
+  listen: boolean;
 }
+
+/** Ponderea întrebărilor IT → RO care se dau din auz; restul păstrează textul, ca să nu dispară recunoașterea scrisă. */
+export const LISTEN_SHARE = 0.5;
+
+const isListen = (direction: Direction, random: Random) => direction === "it-ro" && random() < LISTEN_SHARE;
 
 /** Nota FSRS dintr-un răspuns la grilă: recunoașterea cu 4 variante e mai ușoară decât amintirea, deci corect → Greu, nu Bine. */
 export const quizGrade = (correct: boolean): Grade => (correct ? Rating.Hard : Rating.Again);
@@ -78,6 +85,7 @@ export function buildQuizRound({
       options,
       correctIndex: options.indexOf(correct),
       graded: isGraded(card, asked, now, endOfDay),
+      listen: isListen(asked, random),
     };
   });
 }
@@ -150,6 +158,7 @@ export function buildTopicQuizRound({
       options,
       correctIndex: options.indexOf(correct),
       graded: isGraded(chosen.get(word.id), asked, now, endOfDay),
+      listen: isListen(asked, random),
     };
   });
 }

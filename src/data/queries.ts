@@ -6,7 +6,7 @@ import {
   type ConjItem,
   type ConjVerb,
 } from "../domain/session/buildConjugationSession.ts";
-import { buildSentenceRound, type SentenceItem } from "../domain/sentence/sentenceRound.ts";
+import { buildSentenceRound, type SentenceItem, type SentenceQuestion } from "../domain/sentence/sentenceRound.ts";
 import { buildDailySession, type SessionItem } from "../domain/session/buildDailySession.ts";
 import { buildTopicSession, topicWordIds } from "../domain/topics/topics.ts";
 import { computeStats, type Stats } from "../domain/stats/stats.ts";
@@ -149,6 +149,6 @@ async function knownWordIds(db: ImparaDb): Promise<Set<string>> {
 }
 
 /** O rundă de propoziții de reconstruit, din cuvintele deja învățate. */
-export async function loadSentenceRound(db: ImparaDb, sentences: readonly SentenceItem[]): Promise<SentenceItem[]> {
+export async function loadSentenceRound(db: ImparaDb, sentences: readonly SentenceItem[]): Promise<SentenceQuestion[]> {
   return buildSentenceRound({ sentences, knownWordIds: await knownWordIds(db) });
 }

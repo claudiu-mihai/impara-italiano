@@ -45,6 +45,11 @@ export interface Settings {
   autoPlayAudio: boolean;
   /** O literă greșită, lipsă, în plus sau inversată în răspunsul scris se numără „aproape corect” (nota Greu), nu greșit. */
   spellingTolerance: boolean;
+  /**
+   * „Ascultă întâi”: la cardurile începute (IT → RO), în quiz, la propoziții și la potrivire cuvântul italian se aude înainte
+   * să se vadă; textul apare la cerere sau după răspuns. Fără voce italiană, exercițiile rămân cu text.
+   */
+  listenFirst: boolean;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -65,6 +70,7 @@ export const DEFAULT_SETTINGS: Settings = {
   uiLanguage: "ro",
   autoPlayAudio: true,
   spellingTolerance: true,
+  listenFirst: true,
 };
 
 /**
