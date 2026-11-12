@@ -72,17 +72,21 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
    * La tap, cardul se rotește și arată traducerea, exemplul și eventualul avertisment de prieten fals.
    * După rotire, 4 butoane de evaluare (FSRS): **Din nou** / **Greu** / **Bine** / **Ușor**.
    * Gesturi: *swipe left* = Din nou, *swipe right* = Bine. Butoanele rămân mereu disponibile ca alternativă.
+   * **Ascultă întâi** (vezi FR4): la un card IT → RO deja început, fața arată doar 🔊 mare și „Arată textul”; cuvântul se aude singur la apariție, chiar dacă „Audio automat” e oprit. Cuvintele noi se introduc cu text și audio.
 
 2. **Quiz / Grilă:**
    * 1 cuvânt și 4 opțiuni de răspuns, în ambele direcții.
    * **Doar exersare liberă, cu o excepție:** răspunsul schimbă programul de repetare numai la un card IT → RO deja început și scadent (corect → Greu, greșit → Din nou: recunoașterea cu 4 variante e mai ușoară decât amintirea). Cardurile nescadente, cuvintele noi dintr-o temă și întrebările RO → IT nu se notează și nu creează carduri.
    * Distractorii sunt aleși din **aceeași categorie gramaticală**, excluzând sinonimele și traducerile identice cu răspunsul corect.
+   * **Din auz** (vezi FR4): jumătate din întrebările IT → RO ascund textul italian; cuvântul se aude singur, iar textul apare după răspuns. Notarea e aceeași.
    * Feedback vizual și sonor (sunetul poate fi dezactivat din Setări).
 
 3. **Reconstruire Propoziție:**
    * Ordonarea cuvintelor dintr-o propoziție de exemplu (tap pe blocuri; drag-and-drop opțional).
    * Fiecare propoziție poate avea **mai multe ordini corecte** (`acceptedOrders`), deoarece ordinea cuvintelor în italiană este flexibilă și subiectul poate lipsi.
    * Punctuația este fixă (nu face parte din blocuri); comparația ignoră majusculele.
+   * **Cuvinte-capcană:** printre blocuri apar 1 (propoziții de 3 blocuri) sau 2 cuvinte din alte propoziții. Răspunsul complet are exact atâtea blocuri are propoziția, iar o capcană în răspuns îl face greșit.
+   * **Din auz** (vezi FR4): jumătate din propoziții se aud în loc să arate traducerea; traducerea apare după răspuns.
 
 4. **Flashcards Conjugare Verbe:**
    * **Timpuri**, în ordinea utilității: presente → passato prossimo → imperativo → imperfetto → futuro semplice → condizionale presente → congiuntivo presente. Un timp se deblochează după ce cel anterior e stăpânit pentru verbul respectiv.
@@ -146,7 +150,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 
      | Exercițiu | Pentru | Descriere |
      | --- | --- | --- |
-     | **Potrivește perechi** | orice temă | 5 perechi IT ↔ RO o dată, tap pe un cuvânt din fiecare coloană |
+     | **Potrivește perechi** | orice temă | 5 perechi IT ↔ RO o dată, tap pe un cuvânt din fiecare coloană; „🔊 Din auz” înlocuiește coloana italiană cu butoane de audio (cuvântul se vede după potrivire) |
      | **Ordonează** | zile, luni, anotimpuri, ordinale | aranjarea elementelor în ordine + întrebări „Ce urmează după *martedì*?” |
      | **Ascultă și scrie cifrele** | numere, prețuri | TTS spune *trecentoquarantadue* → se scrie 342; invers: 342 → se scrie numărul în litere |
      | **Ceasul** | ora | cadran SVG → se scrie ora (*sono le sette meno un quarto*); invers: ora în litere → se alege cadranul corect |
@@ -179,6 +183,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 * **Detecția vocilor:** lista se obține prin `getVoices()` + evenimentul `voiceschanged`; se alege prima voce `it-IT` disponibilă.
 * **Redare în serie:** mai multe fraze se pot citi una după alta (ex. un tabel de conjugare), cu posibilitatea de oprire; o redare nouă o oprește pe cea în curs.
 * **Audio automat (setare, pornită implicit):** în Flashcards cuvântul italian se aude singur când apare cardul IT → RO sau când întorci cardul RO → IT, o singură dată pe card; 🔊 repetă. Oprit din Setări, audio pornește doar la apăsarea unui buton. În rest (conjugare, tabele, exemple) redarea rămâne la cerere; excepție: „Ascultă și scrie cifrele”, unde audio este chiar întrebarea. Fără voce italiană sau fără internet, redarea automată nu face nimic.
+* **Ascultă întâi (setare, pornită implicit):** cuvântul italian se aude înainte să se vadă, în patru locuri: cardurile IT → RO începute (fața arată 🔊 mare și „Arată textul”), jumătate din întrebările de quiz IT → RO, jumătate din propoziții și „Potrivește perechi” (coloana italiană, cu comutatorul „🔊 Din auz”). Textul apare la cerere sau după răspuns. Activ doar când dispozitivul poate reda italiană (voce italiană și, fără voce locală, internet); altfel exercițiile rămân cu text.
 * **Fără conexiune și fără voce italiană locală:** butonul 🔊 devine inactiv, cu indicația „Audio necesită internet”.
 * **Fără voce italiană** pe dispozitiv: butonul 🔊 se ascunde și apare o singură dată un mesaj cu instrucțiuni de instalare a vocii (Android: setări TTS; iOS: Setări → Accesibilitate → Conținut vorbit).
 
@@ -193,7 +198,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 
 * Cuvinte noi pe zi, procentul de substantive printre cuvintele noi (după frecvență, 1 din 3, 1 din 2 sau 2 din 3), limită zilnică de repetiții, retenție țintă FSRS.
 * Direcția cardurilor: implicit **Ambele** (IT → RO, apoi RO → IT, ca să și produci cuvântul); poate fi limitată la o singură direcție.
-* **Audio automat** (pornit implicit) și **Iartă greșelile mici de scriere** (pornit implicit).
+* **Audio automat**, **Ascultă întâi** și **Iartă greșelile mici de scriere** (toate pornite implicit).
 * **Bara de progres de pe Acasă** arată cuvintele stăpânite din cele de până la nivelul curent, nu din tot dicționarul.
 * Viteza TTS, sunete activate / dezactivate.
 * Temă: automat (sistem) / luminos / întunecat.
