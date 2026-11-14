@@ -14,6 +14,7 @@ import { BackLink } from "../../ui/BackLink.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
 import { BilingualLabel, plainLabel } from "../../ui/BilingualLabel.tsx";
 import { TopicRulesBox } from "../../ui/TopicRulesBox.tsx";
+import { wordOriginState } from "../browse/wordOrigin.ts";
 
 // Toate acțiunile (Studiază, Quiz, exerciții) stau într-o grilă cu două coloane: padding mic, ca să încapă pe ecrane înguste.
 // Studiază și Quiz stau pe un rând; exercițiile, cu etichete mai lungi, ocupă fiecare toată lățimea.
@@ -97,7 +98,12 @@ export function TopicPage() {
               const text = italianText(word);
               return (
                 <li key={wordId} className="flex items-center gap-2">
-                  <Link to={`/browse/${wordId}`} className="flex min-h-14 flex-1 flex-col justify-center">
+                  <Link
+                    to={`/browse/${wordId}`}
+                    // „Înapoi” de pe pagina cuvântului se întoarce aici, nu în Dicționar
+                    state={wordOriginState({ path: `/learn/topics/${topic.id}`, label: plainLabel(topic.title, false) })}
+                    className="flex min-h-14 flex-1 flex-col justify-center"
+                  >
                     <span className="text-lg font-semibold">{text}</span>
                     <span className="text-sm text-muted">{word.ro}</span>
                   </Link>

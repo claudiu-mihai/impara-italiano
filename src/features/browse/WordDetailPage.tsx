@@ -1,5 +1,5 @@
 import { useLiveQuery } from "dexie-react-hooks";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { useConjugations } from "../../app/conjugations.ts";
 import { usePresenteIrregular } from "../../app/presenteIrregular.ts";
 import { useTopics } from "../../app/topics.ts";
@@ -17,8 +17,10 @@ import { BackLink } from "../../ui/BackLink.tsx";
 import { BilingualLabel } from "../../ui/BilingualLabel.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
 import { ConjugationTable } from "../../ui/ConjugationTable.tsx";
+import { useReturnToOrigin } from "../../ui/useReturnToOrigin.ts";
 import { LessonLink } from "../grammar/LessonLink.tsx";
 import { LevelBadge } from "./LevelBadge.tsx";
+import { readWordOrigin } from "./wordOrigin.ts";
 
 const card = "rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900";
 const heading = "text-base font-semibold text-slate-700 dark:text-slate-200";
@@ -33,6 +35,9 @@ export function WordDetailPage() {
   const cards = useLiveQuery(() => db.cards.where("wordId").equals(id).toArray(), [id]);
   const settings = useLiveQuery(() => getSettings(db), []);
   const irregular = usePresenteIrregular();
+  // venit dintr-o temă: „Înapoi” se întoarce acolo (în istoric, fără intrare nouă), nu în Dicționar
+  const origin = readWordOrigin(useLocation().state);
+  const backToOrigin = useReturnToOrigin(origin !== undefined);
 
   if (!details) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
 
@@ -66,7 +71,7 @@ export function WordDetailPage() {
 
   return (
     <div className="flex flex-col gap-5 px-4 pb-8 pt-4">
-      <BackLink to="/browse" label={t("nav.browse")} />
+      <BackLink to={origin?.path ?? "/browse"} label={origin?.label ?? t("nav.browse")} onClick={backToOrigin} />
 
       <header className="flex flex-col gap-2">
         <p className="text-sm uppercase tracking-wide text-muted">{t(POS_LABEL[word.pos])}</p>
