@@ -67,6 +67,32 @@ test("pagina cuvântului trimite la temă", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "Zilele săptămânii", level: 1 })).toBeVisible();
 });
 
+test("din temă, „Înapoi” de pe pagina cuvântului se întoarce la tema respectivă, fără intrare nouă în istoric", async ({ page }) => {
+  const t = topic("culori");
+  await page.goto("/learn/topics");
+  await page.getByRole("link", { name: new RegExp(t.title.it) }).first().click();
+  await expect(page.getByRole("heading", { name: t.title.it, level: 1 })).toBeVisible();
+
+  await page.locator('a[href^="/browse/"]').first().click();
+  await expect(page).toHaveURL(/\/browse\//);
+  // nu mai scrie „Dicționar”: butonul duce la tema din care am venit
+  await expect(page.getByRole("link", { name: "Înapoi la Dicționar" })).toHaveCount(0);
+  await page.getByRole("link", { name: `Înapoi la ${t.title.it}` }).click();
+  await expect(page).toHaveURL(new RegExp(`/learn/topics/${t.id}$`));
+  await expect(page.getByRole("heading", { name: t.title.it, level: 1 })).toBeVisible();
+
+  // întoarcerea a fost un pas în istoric: Înapoi din browser duce la lista de teme, nu din nou la cuvânt
+  await page.goBack();
+  await expect(page).toHaveURL(/\/learn\/topics$/);
+});
+
+test("pagina cuvântului deschisă din Dicționar sau direct păstrează butonul spre Dicționar", async ({ page }) => {
+  await page.goto("/browse/n-lunedì");
+  await expect(page.getByRole("link", { name: "Înapoi la Dicționar" })).toBeVisible();
+  await page.getByRole("link", { name: "Înapoi la Dicționar" }).click();
+  await expect(page).toHaveURL(/\/browse$/);
+});
+
 test("Studiază tema: doar cuvintele temei, progres comun cu restul aplicației", async ({ page }) => {
   const t = topic("zilele-saptamanii");
   const allowed = new Set(wordIdsOf(t).map((id) => italian(byId(id))));
