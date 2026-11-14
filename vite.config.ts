@@ -50,7 +50,7 @@ export default defineConfig({
           groups: [
             {
               name: "startup-small",
-              test: /src\/domain\/(session\/buildDailySession|content\/(display|levels)|srs\/mastery|grading\/normalize|random|sync\/serialize)\.ts$/,
+              test: /src\/domain\/(session\/(buildDailySession|guidedOrder)|content\/(display|levels)|srs\/mastery|grading\/normalize|random|sync\/serialize)\.ts$/,
             },
           ],
         },

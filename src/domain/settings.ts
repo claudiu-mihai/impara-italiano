@@ -7,6 +7,9 @@ export type Theme = "auto" | "light" | "dark";
 /** Direcția cardurilor de vocabular: una singură sau ambele (a doua direcție se deblochează după prima). */
 export type StudyDirection = Direction | "both";
 
+/** Ordinea cuvintelor noi: „guided” = întâi temele începute și calea de supraviețuire, amestecate cu frecvența; „frequency” = doar frecvența. */
+export type WordOrder = "guided" | "frequency";
+
 /** Varianta cardurilor de conjugare: scrii pe rând, autoevaluare (Flip) sau tot tabelul deodată. */
 export type ConjugationMode = "write" | "flip" | "table";
 
@@ -17,6 +20,7 @@ export interface Settings {
   newPerDay: number;
   /** Procentul de substantive printre cuvintele noi de conținut (0 = ordinea frecvenței, fără preferință). */
   nounShare: number;
+  wordOrder: WordOrder;
   /** Timpuri verbale (carduri de conjugare) noi pe zi. */
   newConjPerDay: number;
   /** Limita zilnică de repetiții. */
@@ -58,6 +62,7 @@ export const DEFAULT_SETTINGS: Settings = {
   level: "A1",
   newPerDay: 10,
   nounShare: 0,
+  wordOrder: "guided",
   newConjPerDay: 3,
   maxReviewsPerDay: 100,
   retention: 0.9,

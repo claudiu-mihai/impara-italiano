@@ -6,6 +6,7 @@ import type { StudyDirection } from "../settings.ts";
 import type { Direction, StoredCard } from "../srs/types.ts";
 import { vocabCardId } from "../srs/types.ts";
 import { interleave } from "./interleave.ts";
+import { guidedWordIds, mergeGuided, type GuideTopic } from "./guidedOrder.ts";
 import { orderNewWords } from "./orderNewWords.ts";
 
 /**
@@ -27,6 +28,8 @@ export interface SessionSettings {
   newReversePerDay?: number;
   /** Procentul de substantive printre cuvintele de conținut noi; lipsă sau 0 = doar după frecvență. */
   nounShare?: number;
+  /** „guided”: cuvintele temelor începute și ale căii de supraviețuire vin amestecate cu cele după frecvență; lipsă = „frequency”. */
+  wordOrder?: "guided" | "frequency";
 }
 
 export interface SessionItem {
@@ -90,6 +93,12 @@ function alternate<T>(a: readonly T[], b: readonly T[]): T[] {
   return out;
 }
 
+/** Cuvintele ghidate care pot fi introduse acum (nu sunt cunoscute și respectă nivelul ales), în ordinea ghidată. */
+function guidedWords<T extends { id: string }>(candidates: readonly T[], guide: readonly GuideTopic[], known: ReadonlySet<string>): T[] {
+  const byId = new Map(candidates.map((w) => [w.id, w]));
+  return guidedWordIds(guide, known).flatMap((id) => byId.get(id) ?? []);
+}
+
 export interface BuildSessionArgs {
   now: Date;
   settings: SessionSettings;
@@ -98,6 +107,8 @@ export interface BuildSessionArgs {
   words: { id: string; rank: number; level: Level; pos: Pos }[];
   /** Repetiții deja făcute în ziua de studiu curentă. */
   reviewsDoneToday: number;
+  /** Temele cu cuvintele lor, pentru ordinea ghidată; fără ele (sau cu „frequency”) ordinea e doar după frecvență. */
+  guide?: readonly GuideTopic[];
 }
 
 export function isDue(card: StoredCard, now: Date, endOfDay: Date): boolean {
@@ -117,6 +128,7 @@ export function buildDailySession({
   cards,
   words,
   reviewsDoneToday,
+  guide,
 }: BuildSessionArgs): SessionItem[] {
   const { active, forNewWords } = directionsOf(settings.direction);
   const today = studyDayOf(now);
@@ -136,13 +148,13 @@ export function buildDailySession({
   const reversedToday = introducedToday.filter((c) => olderWord.has(c.wordId)).length;
   const newBudget = Math.max(0, settings.newPerDay - newWordsToday);
   const known = new Set(vocab.map((c) => c.wordId));
-  const fresh = orderNewWords(
-    words.filter((w) => !known.has(w.id) && isUpTo(w.level, settings.level)),
-    settings.nounShare,
-  ).slice(
-    0,
-    newBudget,
-  );
+  const candidates = words.filter((w) => !known.has(w.id) && isUpTo(w.level, settings.level));
+  const byFrequency = orderNewWords(candidates, settings.nounShare);
+  const fresh = (
+    settings.wordOrder === "guided" && guide?.length
+      ? mergeGuided(guidedWords(candidates, guide, known), byFrequency)
+      : byFrequency
+  ).slice(0, newBudget);
 
   const reverseBudget = settings.direction === "both" ? Math.max(0, (settings.newReversePerDay ?? 0) - reversedToday) : 0;
   const reversed = reverseCandidates(vocab, today).slice(0, reverseBudget);

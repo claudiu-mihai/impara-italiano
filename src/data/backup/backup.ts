@@ -75,6 +75,7 @@ export const settingsSchema = z.object({
   spellingTolerance: z.boolean(),
   listenFirst: z.boolean(),
   tapAudio: z.boolean(),
+  wordOrder: z.enum(["guided", "frequency"]),
 });
 
 const percent = int.min(0).max(100);
