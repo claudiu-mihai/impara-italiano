@@ -24,8 +24,8 @@ export function OrderPage() {
   return <OrderGame key={id} topicId={topic.id} sequence={topic.sequence} cyclic={topic.cyclic ?? false} />;
 }
 
-/** După răspuns la „Ce urmează după…?”, trece singur la următoarea întrebare după atâta timp (butonul „Continuă” rămâne). */
-export const AUTO_NEXT_MS = 3000;
+/** După răspuns la „Ce urmează după…?”, trece singur la următoarea întrebare după atâta timp; nu există buton „Continuă”. */
+export const AUTO_NEXT_MS = 2000;
 
 function OrderGame({ topicId, sequence, cyclic }: { topicId: string; sequence: string[]; cyclic: boolean }) {
   const { t, tp } = useT();
@@ -83,7 +83,7 @@ function OrderGame({ topicId, sequence, cyclic }: { topicId: string; sequence: s
     setSelected(undefined);
     setQIndex((i) => i + 1);
   };
-  // cronometrul pornește la fiecare răspuns și se anulează dacă apeși „Continuă” mai repede sau ieși din joc
+  // cronometrul pornește la fiecare răspuns și se anulează dacă ieși din joc
   useEffect(() => {
     if (selected === undefined) return;
     const timer = setTimeout(nextQuestion, AUTO_NEXT_MS);
@@ -196,13 +196,6 @@ function OrderGame({ topicId, sequence, cyclic }: { topicId: string; sequence: s
       {answered && (
         <div className="mt-auto flex flex-col gap-3" aria-live="polite">
           <p className="text-center font-semibold">{selected === question!.correctId ? t("conj.correct") : t("quiz.notQuite")}</p>
-          <button
-            type="button"
-            className={`${primaryButton} w-full`}
-            onClick={nextQuestion}
-          >
-            {qIndex + 1 < questions.length ? t("common.continue") : t("common.seeResult")}
-          </button>
         </div>
       )}
     </div>
