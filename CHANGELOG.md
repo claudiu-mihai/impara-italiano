@@ -4,6 +4,13 @@ Formatul urmează [Keep a Changelog](https://keepachangelog.com/ro/1.1.0/), iar 
 [versionarea semantică](https://semver.org/lang/ro/). Intrările noi sunt scrise automat de release-please din
 commit-urile `feat:` / `fix:` (vezi README, „Versionare și release-uri”).
 
+## [1.15.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.14.0...v1.15.0) (2026-11-14)
+
+
+### Funcționalități
+
+* **pedagogie:** Faza 3 – start de supraviețuire (cale ghidată, teme uzuale la A1) ([#44](https://github.com/claudiu-mihai/impara-italiano/issues/44)) ([3b8e988](https://github.com/claudiu-mihai/impara-italiano/commit/3b8e988772ad5be34963ea9fcdd78bc004a380e0))
+
 ## [1.14.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.13.0...v1.14.0) (2026-11-14)
 
 
