@@ -1,0 +1,71 @@
+{
+  "id": "verbi-riflessivi",
+  "order": 14,
+  "title": "Verbele reflexive",
+  "level": "A2",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "Verbele reflexive au un pronume care trimite la subiect, ca în română: [it]mi lavo[/it] = mă spăl. La infinitiv, pronumele se lipește la sfârșit: [it]lavarsi[/it], [it]alzarsi[/it], [it]chiamarsi[/it]."
+    },
+    {
+      "type": "table",
+      "caption": "Prezentul lui alzarsi (a se trezi, a se ridica)",
+      "head": ["italiană", "română"],
+      "itColumns": [0],
+      "rows": [
+        ["io mi alzo", "eu mă trezesc"],
+        ["tu ti alzi", "tu te trezești"],
+        ["lui / lei si alza", "el / ea se trezește"],
+        ["noi ci alziamo", "noi ne trezim"],
+        ["voi vi alzate", "voi vă treziți"],
+        ["loro si alzano", "ei / ele se trezesc"]
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "Pronumele stă [b]înaintea verbului[/b]: [it]Mi chiamo Ana.[/it] = Mă numesc Ana. La trecut, reflexivele folosesc mereu [it]essere[/it], iar participiul se acordă: [it]Mi sono alzata alle sette.[/it] = M-am trezit la șapte."
+    },
+    {
+      "type": "examples",
+      "items": [
+        {"it": "Come ti chiami?", "ro": "Cum te cheamă?"},
+        {"it": "Mi sveglio alle sette.", "ro": "Mă trezesc la șapte."},
+        {"it": "Ci vediamo domani!", "ro": "Ne vedem mâine!", "note": "[it]ci vediamo[/it]: reflexiv reciproc, ca „ne vedem”"},
+        {"it": "Si sono sposati l'anno scorso.", "ro": "S-au căsătorit anul trecut."},
+        {"it": "Mi sono divertito molto.", "ro": "M-am distrat foarte bine."}
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "La trecut, reflexivele nu folosesc [it]avere[/it]: [it]mi sono alzato[/it], nu „mi ho alzato”. Și nu orice verb reflexiv în română e reflexiv în italiană: „a se plimba” = [it]passeggiare[/it], „a se întâmpla” = [it]succedere[/it], fără pronume."
+    }
+  ],
+  "rules": [
+    "Pronumele reflexive: mi, ti, si, ci, vi, si (mă, te, se, ne, vă, se), puse înaintea verbului: mi lavo, ti alzi.",
+    "La infinitiv pronumele se lipește la sfârșit: lavarsi, alzarsi, devo prepararmi.",
+    "La passato prossimo reflexivele folosesc essere și acordă participiul: mi sono alzato / alzata."
+  ],
+  "items": [
+    {"id": "rf-01", "it": "Io mi alzo alle sette.", "gap": "mi", "ro": "Mă trezesc la șapte."},
+    {"id": "rf-02", "it": "Come ti chiami?", "gap": "ti", "ro": "Cum te cheamă?"},
+    {"id": "rf-03", "it": "Lei si chiama Giulia.", "gap": "si", "ro": "Ea se numește Giulia."},
+    {"id": "rf-04", "it": "Noi ci vediamo domani.", "gap": "ci", "ro": "Ne vedem mâine."},
+    {"id": "rf-05", "it": "Voi vi svegliate presto?", "gap": "vi", "ro": "Vă treziți devreme?"},
+    {"id": "rf-06", "it": "Loro si lavano le mani.", "gap": "si", "ro": "Ei se spală pe mâini."},
+    {"id": "rf-07", "it": "Tu ti vesti in fretta.", "gap": "ti", "ro": "Te îmbraci repede."},
+    {"id": "rf-08", "it": "Mi sono alzata tardi.", "gap": "sono", "ro": "M-am trezit târziu.", "note": "reflexivele: essere la trecut"},
+    {"id": "rf-09", "it": "Ci siamo divertiti molto.", "gap": "siamo", "ro": "Ne-am distrat foarte bine.", "note": "reflexivele: essere la trecut"},
+    {"id": "rf-10", "it": "Lui si è fatto la barba.", "gap": "è", "ro": "El s-a bărbierit."},
+    {"id": "rf-11", "it": "Ti ricordi di me?", "gap": "Ti", "ro": "Îți amintești de mine?"},
+    {"id": "rf-12", "it": "Mi sento bene oggi.", "gap": "Mi", "ro": "Mă simt bine azi."},
+    {"id": "rf-13", "it": "Si sono sposati a giugno.", "gap": "sposati", "ro": "S-au căsătorit în iunie.", "note": "participiul se acordă: sposati"},
+    {"id": "rf-14", "it": "Devo prepararmi per la festa.", "gap": "prepararmi", "ro": "Trebuie să mă pregătesc pentru petrecere.", "note": "la infinitiv pronumele se lipește: prepararmi"},
+    {"id": "rf-15", "it": "Vi siete persi?", "gap": "Vi", "ro": "V-ați rătăcit?"},
+    {"id": "rf-16", "it": "Ci sediamo qui?", "gap": "Ci", "ro": "Ne așezăm aici?"},
+    {"id": "rf-17", "it": "Mi lavo i denti dopo cena.", "gap": "Mi", "ro": "Mă spăl pe dinți după cină."},
+    {"id": "rf-18", "it": "Giulia si è svegliata alle sei.", "gap": "svegliata", "ro": "Giulia s-a trezit la șase.", "note": "cu essere, participiul se acordă: svegliata"},
+    {"id": "rf-19", "it": "Ti sei lavato le mani?", "gap": "sei", "ro": "Te-ai spălat pe mâini?"},
+    {"id": "rf-20", "it": "Noi ci chiamiamo Rossi.", "gap": "ci", "ro": "Noi ne numim Rossi."}
+  ]
+}

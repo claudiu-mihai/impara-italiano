@@ -1,0 +1,85 @@
+{
+  "id": "imperfetto",
+  "order": 16,
+  "title": "Imperfectul (imperfetto)",
+  "level": "A2",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "[it]Imperfetto[/it] descrie trecutul ca pe un fundal: cum era, ce se întâmpla des, cum arătau lucrurile. Seamănă cu imperfectul din română: [it]Da bambino giocavo a calcio.[/it] = Când eram copil, jucam fotbal."
+    },
+    {
+      "type": "table",
+      "caption": "Terminațiile imperfetto",
+      "head": ["persoana", "-are (parlare)", "-ere (vedere)", "-ire (dormire)"],
+      "itColumns": [0, 1, 2, 3],
+      "rows": [
+        ["io", "parlavo", "vedevo", "dormivo"],
+        ["tu", "parlavi", "vedevi", "dormivi"],
+        ["lui / lei", "parlava", "vedeva", "dormiva"],
+        ["noi", "parlavamo", "vedevamo", "dormivamo"],
+        ["voi", "parlavate", "vedevate", "dormivate"],
+        ["loro", "parlavano", "vedevano", "dormivano"]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "Essere la imperfetto (neregulat)",
+      "head": ["italiană", "română"],
+      "itColumns": [0],
+      "rows": [
+        ["io ero", "eu eram"],
+        ["tu eri", "tu erai"],
+        ["lui / lei era", "el / ea era"],
+        ["noi eravamo", "noi eram"],
+        ["voi eravate", "voi erați"],
+        ["loro erano", "ei / ele erau"]
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "[b]Imperfetto sau passato prossimo?[/b] Passato prossimo spune ce s-a întâmplat (o acțiune încheiată), iar imperfetto spune cum era sau ce se întâmpla de obicei: [it]Mentre leggevo, è suonato il telefono.[/it] = Pe când citeam, a sunat telefonul. Neregulate frecvente: [it]fare → facevo[/it], [it]dire → dicevo[/it], [it]bere → bevevo[/it]."
+    },
+    {
+      "type": "examples",
+      "items": [
+        {"it": "Quando ero piccolo, abitavo a Cluj.", "ro": "Când eram mic, locuiam la Cluj."},
+        {"it": "Ogni estate andavamo al mare.", "ro": "În fiecare vară mergeam la mare.", "note": "obicei din trecut: imperfetto"},
+        {"it": "Faceva freddo e pioveva.", "ro": "Era frig și ploua."},
+        {"it": "Che cosa facevi ieri alle otto?", "ro": "Ce făceai ieri la opt?"},
+        {"it": "Mentre cucinavo, ascoltavo la radio.", "ro": "În timp ce găteam, ascultam radioul."}
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "În vorbire, româna folosește des perfectul compus și pentru obiceiuri („în fiecare vară am mers la mare”). În italiană, obiceiurile și descrierile din trecut cer [it]imperfetto[/it]: [it]ogni estate andavamo al mare[/it], nu „siamo andati”, când e vorba de un obicei."
+    }
+  ],
+  "rules": [
+    "Imperfetto: rădăcina + -avo, -evo, -ivo (parlavo, vedevo, dormivo); essere: ero, eri, era, eravamo, eravate, erano.",
+    "Se folosește pentru descrieri, stări și obiceiuri din trecut: era bello, da bambino giocavo.",
+    "Passato prossimo pentru ce s-a întâmplat o dată, imperfetto pentru fundal: mentre dormivo, è arrivato Luca."
+  ],
+  "items": [
+    {"id": "im-01", "it": "Da bambino giocavo a calcio.", "gap": "giocavo", "ro": "Când eram copil, jucam fotbal."},
+    {"id": "im-02", "it": "Quando ero piccola, abitavo a Iași.", "gap": "ero", "ro": "Când eram mică, locuiam la Iași.", "note": "essere → ero (neregulat)"},
+    {"id": "im-03", "it": "Ogni estate andavamo al mare.", "gap": "andavamo", "ro": "În fiecare vară mergeam la mare.", "note": "obicei din trecut: imperfetto"},
+    {"id": "im-04", "it": "Faceva molto caldo.", "gap": "Faceva", "ro": "Era foarte cald.", "note": "fare → facevo; vremea: fa caldo"},
+    {"id": "im-05", "it": "Mentre leggevo, è suonato il telefono.", "gap": "leggevo", "ro": "Pe când citeam, a sunat telefonul.", "note": "fundalul: imperfetto; ce s-a întâmplat: passato prossimo"},
+    {"id": "im-06", "it": "Mia nonna cucinava benissimo.", "gap": "cucinava", "ro": "Bunica mea gătea foarte bine."},
+    {"id": "im-07", "it": "Eravamo stanchi ma felici.", "gap": "Eravamo", "ro": "Eram obosiți, dar fericiți."},
+    {"id": "im-08", "it": "Che cosa facevi ieri sera?", "gap": "facevi", "ro": "Ce făceai aseară?", "note": "fare → facevo (neregulat)"},
+    {"id": "im-09", "it": "Loro vivevano in campagna.", "gap": "vivevano", "ro": "Ei trăiau la țară."},
+    {"id": "im-10", "it": "Pioveva e non avevo l'ombrello.", "gap": "avevo", "ro": "Ploua și nu aveam umbrelă."},
+    {"id": "im-11", "it": "Voi eravate a casa?", "gap": "eravate", "ro": "Voi erați acasă?"},
+    {"id": "im-12", "it": "Di solito prendevo l'autobus.", "gap": "prendevo", "ro": "De obicei luam autobuzul.", "note": "„di solito”: obicei, deci imperfetto"},
+    {"id": "im-13", "it": "Il cielo era azzurro.", "gap": "era", "ro": "Cerul era albastru."},
+    {"id": "im-14", "it": "Mentre dormivo, è arrivato Luca.", "gap": "dormivo", "ro": "Pe când dormeam, a sosit Luca."},
+    {"id": "im-15", "it": "Da giovane mio padre beveva molto caffè.", "gap": "beveva", "ro": "În tinerețe, tatăl meu bea multă cafea.", "note": "bere → bevevo (neregulat)"},
+    {"id": "im-16", "it": "Che cosa dicevi?", "gap": "dicevi", "ro": "Ce spuneai?", "note": "dire → dicevo (neregulat)"},
+    {"id": "im-17", "it": "La casa aveva un grande giardino.", "gap": "aveva", "ro": "Casa avea o grădină mare."},
+    {"id": "im-18", "it": "Tu suonavi la chitarra?", "gap": "suonavi", "ro": "Tu cântai la chitară?"},
+    {"id": "im-19", "it": "Ieri sera c'era molta gente.", "gap": "c'era", "ro": "Aseară era multă lume.", "note": "c'era: imperfetto de la c'è"},
+    {"id": "im-20", "it": "Quando eravate in vacanza, faceva bel tempo?", "gap": "faceva", "ro": "Când erați în vacanță, era vreme frumoasă?"}
+  ]
+}

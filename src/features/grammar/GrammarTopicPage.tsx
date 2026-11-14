@@ -14,6 +14,8 @@ import { RulesBox } from "../../ui/RulesBox.tsx";
 import { Lesson } from "./Lesson.tsx";
 import { nextLessonNav, readLessonNav } from "./lessonNav.ts";
 import { useGrammarTopic } from "./useGrammarTopic.ts";
+import { grammarCardId } from "../../domain/grammar/due.ts";
+import { ReviewStatus } from "./ReviewStatus.tsx";
 
 const GAMES: { path: string; icon: string; title: Key; text: Key; scored?: GrammarGame }[] = [
   { path: "cards", icon: "🃏", title: "games.cards", text: "games.cardsText" },
@@ -25,6 +27,7 @@ export function GrammarTopicPage() {
   const { t } = useT();
   const { id, topic, loading } = useGrammarTopic();
   const progress = useLiveQuery(() => db.grammarProgress.get(id), [id]);
+  const reviewCard = useLiveQuery(() => db.cards.get(grammarCardId(id)), [id]);
   // deschisă dintr-un link (fișa cuvântului, conjugare): „Înapoi” se întoarce acolo în istoric
   const nav = readLessonNav(useLocation().state);
   const navigate = useNavigate();
@@ -103,6 +106,7 @@ export function GrammarTopicPage() {
         <h2 id="games" className="text-base font-semibold text-slate-700 dark:text-slate-200">
           {t("games.choose")}
         </h2>
+        <ReviewStatus card={reviewCard} />
         {GAMES.map((game) => (
           <Link
             key={game.path}

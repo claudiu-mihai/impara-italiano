@@ -2,17 +2,20 @@ import { useLiveQuery } from "dexie-react-hooks";
 import { Link } from "react-router-dom";
 import { useConjugationToday } from "../../app/conjugationToday.ts";
 import { useContent } from "../../app/content.tsx";
+import { useGrammar } from "../../app/grammar.ts";
 import { useTopics } from "../../app/topics.ts";
 import { db } from "../../data/db/instance.ts";
 import { changeLevel } from "../../data/db/repositories.ts";
 import { loadStats, loadStudyOverview } from "../../data/queries.ts";
 import { nextLevel } from "../../domain/content/levels.ts";
+import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { useT } from "../../i18n/index.ts";
 import { BilingualLabel } from "../../ui/BilingualLabel.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
 import { Lupino, LupinoSays } from "../../ui/mascot/Lupino.tsx";
 import { progressUpTo } from "../../domain/stats/stats.ts";
 import { dueSkillTopics } from "../../domain/topics/topics.ts";
+import { dueGrammarIds, dueGrammarTopics } from "../../domain/grammar/due.ts";
 
 const BACKUP_REMINDER_DAYS = 14;
 
@@ -32,6 +35,10 @@ export function HomePage() {
 
   const topics = useTopics();
   const dueSkills = topics && cards ? dueSkillTopics(topics, cards, new Date()) : [];
+  // lecțiile de gramatică se încarcă doar dacă vreuna e de repetat (scadența se vede din carduri)
+  const grammarDue = cards ? dueGrammarIds(cards, new Date()).length > 0 : false;
+  const grammar = useGrammar(grammarDue);
+  const dueGrammar = grammar && cards && grammarDue ? dueGrammarTopics(grammar, cards, new Date()) : [];
 
   const todo = overview?.queue.length ?? 0;
   // conjugările de azi: apar după ce se încarcă formele; cuvintele rămân butonul principal când există
@@ -188,6 +195,26 @@ export function HomePage() {
                   <span>
                     <BilingualLabel text={topic.title} />
                   </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {dueGrammar.length > 0 && (
+        <section aria-labelledby="grammar-due" className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
+          <h2 id="grammar-due" className="text-base font-semibold text-slate-700 dark:text-slate-200">
+            {t("home.grammarDue")}
+          </h2>
+          <ul className="mt-3 flex flex-col gap-2">
+            {dueGrammar.map((topic) => (
+              <li key={topic.id}>
+                <Link
+                  to={`/learn/grammar/${topic.id}/type`}
+                  className="flex min-h-12 items-center rounded-xl bg-slate-100 px-4 font-semibold dark:bg-slate-800"
+                >
+                  <span lang={NATIVE_LANGUAGE}>{topic.title}</span>
                 </Link>
               </li>
             ))}

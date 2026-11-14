@@ -7,11 +7,14 @@ import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { useT } from "../../i18n/index.ts";
 import { BackLink } from "../../ui/BackLink.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
+import { grammarCardId } from "../../domain/grammar/due.ts";
+import { ReviewStatus } from "./ReviewStatus.tsx";
 
 export function GrammarListPage() {
   const { t } = useT();
   const topics = useGrammar();
   const progress = useLiveQuery(async () => new Map((await db.grammarProgress.toArray()).map((p) => [p.topicId, p])));
+  const cards = useLiveQuery(async () => new Map((await db.cards.where("kind").equals("skill").toArray()).map((c) => [c.cardId, c])));
   if (!topics) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
 
   return (
@@ -36,8 +39,11 @@ export function GrammarListPage() {
                 >
                   {topic.order}
                 </span>
-                <span lang={NATIVE_LANGUAGE} className="flex-1 text-lg font-semibold">
-                  {topic.title}
+                <span className="flex flex-1 flex-col gap-1">
+                  <span lang={NATIVE_LANGUAGE} className="text-lg font-semibold">
+                    {topic.title}
+                  </span>
+                  <ReviewStatus card={cards?.get(grammarCardId(topic.id))} compact />
                 </span>
                 {best !== undefined && <span className="text-sm font-semibold text-muted">{best}%</span>}
                 {own?.readAt !== undefined && (
