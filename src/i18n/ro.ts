@@ -269,6 +269,8 @@ export const ro = {
   "lang.ro": "Română",
   "topics.intro": "Cuvinte uzuale grupate pe subiecte, într-o ordine firească (luni → duminică), cu reguli scurte și exerciții.",
   "topics.progress": "{started} din {total} începute · {mastered} stăpânite",
+  "topics.count_one": "{n} temă",
+  "topics.count_other": "{n} teme",
   "topics.progressWords": "{started} din {total} cuvinte începute · {mastered} stăpânite",
   "topics.notFound": "Tema nu există",
   "topics.backToList": "Înapoi la teme",

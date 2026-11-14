@@ -6,6 +6,7 @@ import { mockSpeech, seedLearnedWords, setListenFirst, spoken, WORDS, type WordD
 
 interface TopicData {
   id: string;
+  group: string;
   title: { it: string; ro: string };
   rules: { it: string; ro: string }[];
   subgroups: { title: { it: string; ro: string }; wordIds: string[] }[];
@@ -43,6 +44,37 @@ test("există 42 de teme (14 ★ și 28 din etapa a doua) și fiecare cuvânt al
   for (const t of TOPICS) for (const id of wordIdsOf(t)) expect(byId(id), `${t.id}: ${id}`).toBeDefined();
 });
 
+test("Teme: categoriile se pliază, arată câte teme au și își țin starea la următoarea vizită", async ({ page }) => {
+  await page.goto("/learn/topics");
+  const headings = page.getByRole("heading", { level: 2 });
+  await expect(headings).toHaveCount(7);
+  // la început: toate închise, fără nicio temă la vedere
+  await expect(page.locator("details[open]")).toHaveCount(0);
+  await expect(page.locator('a[href^="/learn/topics/"]:visible')).toHaveCount(0);
+  const inTimp = TOPICS.filter((t) => t.group === "timp").length;
+  await expect(page.locator("summary").filter({ has: page.getByRole("heading", { name: "Timp" }) })).toContainText(`${inTimp} teme`);
+
+  // se deschide „Timp”, nu și celelalte
+  await page.getByRole("heading", { name: "Timp", level: 2 }).click();
+  await expect(page.locator("details[open]")).toHaveCount(1);
+  await expect(page.locator('a[href^="/learn/topics/"]:visible')).toHaveCount(inTimp);
+
+  // starea se păstrează după o vizită la o temă și la reîncărcare
+  await page.getByRole("link", { name: /Zilele săptămânii/ }).click();
+  await expect(page.getByRole("heading", { name: "Zilele săptămânii", level: 1 })).toBeVisible();
+  await page.goBack();
+  await expect(page.locator("details[open]")).toHaveCount(1);
+  await page.reload();
+  await expect(page.locator("details[open]")).toHaveCount(1);
+  await expect(page.locator('a[href^="/learn/topics/"]:visible')).toHaveCount(inTimp);
+
+  // se poate închide la loc
+  await page.getByRole("heading", { name: "Timp", level: 2 }).click();
+  await expect(page.locator("details[open]")).toHaveCount(0);
+  await page.reload();
+  await expect(page.locator("details[open]")).toHaveCount(0);
+});
+
 test("Învață → Teme: lista pe grupuri și fișa temei", async ({ page }) => {
   await page.goto("/learn");
   await page.getByRole("link", { name: /Teme/ }).click();
@@ -50,6 +82,9 @@ test("Învață → Teme: lista pe grupuri și fișa temei", async ({ page }) =>
   for (const group of ["Timp", "Numere", "Spațiu", "Oameni", "Zi de zi", "Oraș și călătorii", "Conversație"]) {
     await expect(page.getByRole("heading", { name: group, level: 2 })).toBeVisible();
   }
+  // categoriile sunt închise la început; „Timp” se deschide cu un tap
+  await expect(page.getByRole("link", { name: /Zilele săptămânii/ })).toHaveCount(0);
+  await page.getByRole("heading", { name: "Timp", level: 2 }).click();
   await expect(page.getByRole("link", { name: /Zilele săptămânii/ })).toBeVisible();
 
   await page.getByRole("link", { name: /Zilele săptămânii/ }).click();
