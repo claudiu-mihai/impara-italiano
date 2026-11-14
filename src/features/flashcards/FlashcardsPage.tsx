@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Rating, State, type Grade } from "ts-fsrs";
+import type { Grade } from "ts-fsrs";
+import { Rating, State } from "../../domain/srs/fsrsConstants.ts";
 import { useConjugationToday } from "../../app/conjugationToday.ts";
 import { useContent } from "../../app/content.tsx";
 import { useTopics } from "../../app/topics.ts";

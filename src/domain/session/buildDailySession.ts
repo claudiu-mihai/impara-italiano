@@ -1,4 +1,4 @@
-import { State } from "ts-fsrs";
+import { State } from "../srs/fsrsConstants.ts";
 import type { Level, Pos } from "../content/constants.ts";
 import { isUpTo } from "../content/levels.ts";
 import { endOfStudyDay, studyDayOf } from "../time/studyDay.ts";

@@ -1,4 +1,5 @@
-import { Rating, type Grade } from "ts-fsrs";
+import type { Grade } from "ts-fsrs";
+import { Rating } from "../srs/fsrsConstants.ts";
 import { answerText } from "../content/display.ts";
 import type { CoreWord } from "../content/types.ts";
 import { shuffle, type Random } from "../random.ts";

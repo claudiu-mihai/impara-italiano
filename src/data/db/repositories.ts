@@ -1,8 +1,7 @@
 import type { ReviewLog } from "ts-fsrs";
 import type { Level } from "../../domain/content/constants.ts";
 import { DEFAULT_SETTINGS, settingsForLevel, withSettingDefaults, type Settings } from "../../domain/settings.ts";
-import { Rating } from "ts-fsrs";
-import { newStoredCard, reviewStoredCard } from "../../domain/srs/scheduler.ts";
+import { Rating } from "../../domain/srs/fsrsConstants.ts";
 import { vocabCardId, type Direction, type ReviewSource, type StoredCard } from "../../domain/srs/types.ts";
 import { newUid } from "../../domain/sync/serialize.ts";
 import { studyDayOf } from "../../domain/time/studyDay.ts";
@@ -80,6 +79,9 @@ export const KNOWN_MARKER = "known";
  */
 export async function markWordKnown(db: ImparaDb, wordId: string, now: Date, retention: number): Promise<void> {
   const directions: Direction[] = ["it-ro", "ro-it"];
+  // planificatorul (ts-fsrs) se încarcă la cerere, nu la pornire; înainte de tranzacție, pentru că un import
+  // așteptat în interiorul ei ar închide tranzacția Dexie
+  const { newStoredCard, reviewStoredCard } = await import("../../domain/srs/scheduler.ts");
   await db.transaction("rw", db.cards, db.tombstones, async () => {
     for (const direction of directions) {
       const cardId = vocabCardId(wordId, direction);

@@ -1,4 +1,5 @@
-import { Rating, type Grade } from "ts-fsrs";
+import type { Grade } from "ts-fsrs";
+import { Rating } from "../srs/fsrsConstants.ts";
 import type { AnswerResult } from "./compareAnswer.ts";
 
 /** Răspuns aproape corect: doar accent sau o greșeală mică de scriere; se numără ca bun, dar limitează nota la Greu. */

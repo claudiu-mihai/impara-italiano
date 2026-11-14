@@ -5,7 +5,7 @@ import { useTopics } from "../../app/topics.ts";
 import { useWordDetails } from "../../app/wordDetails.ts";
 import { db } from "../../data/db/instance.ts";
 import { saveReview } from "../../data/db/repositories.ts";
-import { loadQuizRound, loadTopicQuiz } from "../../data/queries.ts";
+import { loadQuizRound, loadTopicQuiz } from "../../data/roundQueries.ts";
 import { useT } from "../../i18n/index.ts";
 import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { promptText } from "../../domain/content/display.ts";

@@ -4,7 +4,7 @@ import { useSentences } from "../../app/sentences.ts";
 import { useTopics } from "../../app/topics.ts";
 import { db } from "../../data/db/instance.ts";
 import { getSettings } from "../../data/db/repositories.ts";
-import { loadSentenceRound, loadTopicSentenceRound } from "../../data/queries.ts";
+import { loadSentenceRound, loadTopicSentenceRound } from "../../data/roundQueries.ts";
 import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { useT } from "../../i18n/index.ts";
 import {

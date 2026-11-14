@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Rating, type Grade } from "ts-fsrs";
+import type { Grade } from "ts-fsrs";
+import { Rating } from "../../domain/srs/fsrsConstants.ts";
 import { db } from "../../data/db/instance.ts";
 import { useT, type Key } from "../../i18n/index.ts";
 import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";

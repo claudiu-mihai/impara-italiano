@@ -1,4 +1,5 @@
-import { Rating, type Grade } from "ts-fsrs";
+import type { Grade } from "ts-fsrs";
+import { Rating } from "../srs/fsrsConstants.ts";
 import { newStoredCard, reviewStoredCard } from "../srs/scheduler.ts";
 import type { StoredCard } from "../srs/types.ts";
 import { studyDayOf } from "../time/studyDay.ts";
