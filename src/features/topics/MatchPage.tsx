@@ -156,8 +156,8 @@ function MatchGame({ topicId, wordIds }: { topicId: string; wordIds: string[] })
         aria-pressed={selected}
         aria-label={hidden ? t("match.listenWord", { n: round.indexOf(pair) + 1 }) : undefined}
         onClick={() => {
-          // din auz, redarea e indiciul; cu text, cuvântul italian ales se aude dacă „Audio automat” e pornit
-          if (side === "left" && (hidden || settings.autoPlayAudio)) speak(pair.it, settings.ttsRate);
+          // din auz, redarea e indiciul; cu text, cuvântul italian ales se aude dacă „Audio la atingere în jocuri” e pornit
+          if (side === "left" && (hidden || settings.tapAudio)) speak(pair.it, settings.ttsRate);
           void choose(side, pair.wordId);
         }}
         className={`min-h-16 rounded-xl border-2 px-3 text-lg font-medium ${style}`}

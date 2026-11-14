@@ -65,3 +65,9 @@ test("„Ascultă întâi” e pornită implicit, inclusiv pentru setările salv
   expect(withSettingDefaults({ direction: "it-ro" }).listenFirst).toBe(true);
   expect(withSettingDefaults({ listenFirst: false }).listenFirst).toBe(false);
 });
+
+test("„Audio la atingere în jocuri” e pornită implicit, inclusiv pentru setările salvate înainte de ea", () => {
+  expect(DEFAULT_SETTINGS.tapAudio).toBe(true);
+  expect(withSettingDefaults({ direction: "it-ro" }).tapAudio).toBe(true);
+  expect(withSettingDefaults({ tapAudio: false }).tapAudio).toBe(false);
+});

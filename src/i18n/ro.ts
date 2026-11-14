@@ -441,6 +441,8 @@ export const ro = {
   "settings.soundEffectsHint": "Quiz și conjugare.",
   "settings.autoPlay": "Audio automat",
   "settings.autoPlayHint": "Cuvântul italian se aude singur când apare cardul (sau când îl întorci, la Română → Italiană). Poți repeta cu 🔊.",
+  "settings.tapAudio": "Audio la atingere în jocuri",
+  "settings.tapAudioHint": "În „Potrivește perechi” și „Ordonează”, cuvântul italian pe care îl atingi se aude.",
   "settings.listenFirst": "Ascultă întâi",
   "settings.listenFirstHint": "La cardurile începute (Italiană → Română), în quiz, la propoziții cuvântul se aude înainte să-l vezi. Textul apare cu „Arată textul” sau după răspuns. Fără voce italiană pe dispozitiv, rămân exercițiile cu text.",
   "settings.spelling": "Iartă greșelile mici de scriere",

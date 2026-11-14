@@ -50,6 +50,8 @@ export interface Settings {
    * să se vadă; textul apare la cerere sau după răspuns. Fără voce italiană, exercițiile rămân cu text.
    */
   listenFirst: boolean;
+  /** În „Potrivește perechi” și „Ordonează”, cuvântul italian pe care îl atingi se aude. */
+  tapAudio: boolean;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -71,6 +73,7 @@ export const DEFAULT_SETTINGS: Settings = {
   autoPlayAudio: true,
   spellingTolerance: true,
   listenFirst: true,
+  tapAudio: true,
 };
 
 /**

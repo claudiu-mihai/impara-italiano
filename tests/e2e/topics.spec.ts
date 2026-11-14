@@ -408,7 +408,7 @@ test("Potrivește din auz: coloana italiană are doar butoane de audio, textul a
   await expect(left.getByRole("button", { name: label, exact: true })).toBeEnabled();
 });
 
-test("Potrivește cu text: cuvântul italian ales se aude, iar cu „Audio automat” oprit nu", async ({ page }) => {
+test("Potrivește cu text: cuvântul italian ales se aude, iar cu „Audio la atingere în jocuri” oprit nu", async ({ page }) => {
   await mockSpeech(page);
   const t = topic("culori");
   await page.goto(`/learn/topics/${t.id}/match`);
@@ -424,14 +424,38 @@ test("Potrivește cu text: cuvântul italian ales se aude, iar cu „Audio autom
   await right.getByRole("button").first().click();
   expect(await spoken(page)).toEqual([label]);
 
-  // cu „Audio automat” oprit, tap-ul pe un cuvânt italian nu mai redă
+  // cu „Audio la atingere în jocuri” oprit, tap-ul pe un cuvânt italian nu mai redă
   await page.goto("/settings");
-  await page.getByLabel("Audio automat").click();
-  await expect(page.getByLabel("Audio automat")).not.toBeChecked();
+  await page.getByLabel("Audio la atingere în jocuri").click();
+  await expect(page.getByLabel("Audio la atingere în jocuri")).not.toBeChecked();
   await page.goto(`/learn/topics/${t.id}/match`);
   await expect(left.getByRole("button")).toHaveCount(5);
   const before = (await spoken(page)).length;
   await left.getByRole("button").nth(1).click();
+  await page.waitForTimeout(300);
+  expect((await spoken(page)).length).toBe(before);
+});
+
+test("Ordonează: elementul atins se aude, iar cu „Audio la atingere în jocuri” oprit nu", async ({ page }) => {
+  await mockSpeech(page);
+  const t = topic("zilele-saptamanii");
+  await page.goto(`/learn/topics/${t.id}/order`);
+  await expect(page.getByRole("heading", { name: "Pune elementele în ordine" })).toBeVisible();
+  const items = page.getByRole("group", { name: "Elemente" }).getByRole("button");
+  await expect(items.first()).toBeVisible();
+
+  // și o atingere greșită se aude: e cuvântul atins
+  const first = (await items.first().textContent())!;
+  await items.first().click();
+  await expect.poll(() => spoken(page)).toEqual([first]);
+
+  await page.goto("/settings");
+  await page.getByLabel("Audio la atingere în jocuri").click();
+  await expect(page.getByLabel("Audio la atingere în jocuri")).not.toBeChecked();
+  await page.goto(`/learn/topics/${t.id}/order`);
+  await expect(items.first()).toBeVisible();
+  const before = (await spoken(page)).length;
+  await items.first().click();
   await page.waitForTimeout(300);
   expect((await spoken(page)).length).toBe(before);
 });

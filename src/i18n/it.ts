@@ -442,6 +442,8 @@ export const it: Record<Key, string> = {
   "settings.soundEffectsHint": "Quiz e coniugazione.",
   "settings.autoPlay": "Audio automatico",
   "settings.autoPlayHint": "La parola italiana si sente da sola quando compare la carta (o quando la giri, nel senso Rumeno → Italiano). Puoi ripetere con 🔊.",
+  "settings.tapAudio": "Audio al tocco nei giochi",
+  "settings.tapAudioHint": "In «Abbina le coppie» e «Metti in ordine», la parola italiana che tocchi si sente.",
   "settings.listenFirst": "Ascolta prima",
   "settings.listenFirstHint": "Nelle carte già iniziate (Italiano → Rumeno), nel quiz, nelle frasi la parola si sente prima di vederla. Il testo compare con «Mostra il testo» o dopo la risposta. Senza una voce italiana sul dispositivo restano gli esercizi con il testo.",
   "settings.spelling": "Perdona i piccoli errori di scrittura",

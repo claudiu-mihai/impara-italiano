@@ -1,3 +1,4 @@
+import { useLiveQuery } from "dexie-react-hooks";
 import { useMemo, useState } from "react";
 import { useContent } from "../../app/content.tsx";
 import { db } from "../../data/db/instance.ts";
@@ -7,6 +8,7 @@ import { shuffle } from "../../domain/random.ts";
 import { buildFollowQuestions, isNextInSequence } from "../../domain/topics/exercises.ts";
 import { useT } from "../../i18n/index.ts";
 import { playFeedback } from "../../services/sound.ts";
+import { speak } from "../../services/tts.ts";
 import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
 import { useTopic } from "./useTopic.ts";
@@ -50,10 +52,17 @@ function OrderGame({ topicId, sequence, cyclic }: { topicId: string; sequence: s
     return word ? italianText(word) : wordId;
   };
   const sound = async (correct: boolean) => playFeedback(correct, (await getSettings(db)).soundEnabled);
+  // „Audio la atingere în jocuri”: cuvântul italian atins se aude (până se încarcă setările, nu se aude)
+  const settings = useLiveQuery(() => getSettings(db), []);
+  const hear = (wordId: string) => {
+    const word = content.byId(wordId);
+    if (settings?.tapAudio && word) speak(italianText(word), settings.ttsRate);
+  };
 
   const arranging = placed.length < sequence.length;
 
   const place = (wordId: string) => {
+    hear(wordId);
     if (isNextInSequence(sequence, placed, wordId)) {
       void sound(true);
       setPlaced([...placed, wordId]);
@@ -130,6 +139,7 @@ function OrderGame({ topicId, sequence, cyclic }: { topicId: string; sequence: s
   const answered = selected !== undefined;
   const choose = (wordId: string) => {
     if (answered) return;
+    hear(wordId);
     setSelected(wordId);
     const correct = wordId === question!.correctId;
     void sound(correct);

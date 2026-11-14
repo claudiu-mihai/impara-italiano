@@ -59,7 +59,7 @@ O singură setare nouă, `listenFirst` (pornită implicit, inclusiv pentru setă
 1. **Card „ascultă întâi”.** La un card IT → RO deja început, fața arată 🔊 mare și „Arată textul”. Cuvântul se redă singur, indiferent de „Audio automat”. Cuvintele noi se introduc cu text și audio.
 2. **Quiz din auz.** Jumătate din întrebările IT → RO (`QuizQuestion.listen`) ascund textul până la răspuns. Notarea rămâne cea din Faza 1.
 3. **Propoziții din auz și cu capcane.** `SentenceQuestion` adaugă `decoys` (1 la propozițiile de 3 blocuri, 2 la restul, cuvinte din alte propoziții) și `listen` (jumătate). Răspunsul complet are exact blocurile propoziției; orice capcană îl face greșit.
-4. **Potrivire din auz.** Implicit rămâne cu text (și cuvântul italian ales se aude). Comutatorul „🔊 Din auz”, doar pentru runda curentă, înlocuiește coloana italiană cu butoane de audio; cuvântul se vede după potrivire.
+4. **Potrivire din auz.** Implicit rămâne cu text; cuvântul italian ales se aude, la fel ca la „Ordonează”, dacă „Audio la atingere în jocuri” (`tapAudio`, pornită implicit) e activă. Comutatorul „🔊 Din auz”, doar pentru runda curentă, înlocuiește coloana italiană cu butoane de audio; cuvântul se vede după potrivire.
 
 Fără schimbări de conținut: propozițiile (2928) și temele rămân cum sunt. Variantele cu text au rămas în aplicație (testele lor opresc „Ascultă întâi”).
 

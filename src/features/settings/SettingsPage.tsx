@@ -423,6 +423,17 @@ export function SettingsPage() {
             />
           </span>
         </Field>
+        <Field inline label={t("settings.tapAudio")} hint={t("settings.tapAudioHint")}>
+          <span className="flex size-12 items-center justify-center">
+            <input
+              type="checkbox"
+              aria-label={t("settings.tapAudio")}
+              checked={settings.tapAudio}
+              onChange={(e) => update("tapAudio", e.target.checked)}
+              className="size-6 accent-brand"
+            />
+          </span>
+        </Field>
         <Field inline label={t("settings.listenFirst")} hint={t("settings.listenFirstHint")}>
           <span className="flex size-12 items-center justify-center">
             <input
