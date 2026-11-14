@@ -1,11 +1,12 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { db } from "../../data/db/instance.ts";
-import { getSettings, saveGameScore } from "../../data/db/repositories.ts";
+import { getSettings, saveGameScore, saveReview } from "../../data/db/repositories.ts";
 import type { GrammarItem } from "../../domain/content/schema.ts";
 import type { AnswerResult } from "../../domain/grading/compareAnswer.ts";
 import { gradeGap, pickSession } from "../../domain/grammar/games.ts";
 import { typeScore } from "../../domain/grammar/progress.ts";
+import { grammarCardId, grammarCountsForSrs, gradeGrammar, reviewGrammarCard } from "../../domain/grammar/review.ts";
 import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { useT } from "../../i18n/index.ts";
 import { playFeedback } from "../../services/sound.ts";
@@ -49,20 +50,41 @@ function TypeGame({ topicId, items }: { topicId: string; items: GrammarItem[] })
 
   const item = session[step];
 
+  // Repetiția lecției (FSRS): prima rundă la o lecție nouă sau scadentă se notează; rundele următoare sunt exersare liberă
+  const [countsForSrs, setCountsForSrs] = useState(false);
+  const startedAt = useRef(Date.now());
+  useEffect(() => {
+    let alive = true;
+    void db.cards.get(grammarCardId(topicId)).then((card) => {
+      if (alive) setCountsForSrs(grammarCountsForSrs(card, new Date()));
+    });
+    return () => {
+      alive = false;
+    };
+  }, [topicId]);
+  const graded = countsForSrs && attempt === 0;
+
   // scorul se salvează o singură dată pe încercare, când se termină sesiunea (doar dacă e mai bun)
   const saved = useRef(false);
   const finished = session.length > 0 && step >= session.length;
   useEffect(() => {
     if (!finished || saved.current) return;
     saved.current = true;
-    void saveGameScore(db, topicId, "type", typeScore(score, session.length), new Date());
-  }, [finished, score, session.length, topicId]);
+    const now = new Date();
+    void saveGameScore(db, topicId, "type", typeScore(score, session.length), now);
+    if (!graded) return;
+    void (async () => {
+      const [card, settings] = await Promise.all([db.cards.get(grammarCardId(topicId)), getSettings(db)]);
+      const { card: next, log } = reviewGrammarCard(card, topicId, gradeGrammar(score, session.length), now, settings.retention);
+      await saveReview(db, next, log, { source: "skill", now, durationMs: now.getTime() - startedAt.current });
+    })();
+  }, [finished, score, session.length, topicId, graded]);
 
   if (!item) {
     return (
       <SessionDone
         title={t("common.outOf", { n: score, total: session.length })}
-        text={score === session.length ? t("type.allCorrect") : t("type.tryAgain")}
+        text={`${score === session.length ? t("type.allCorrect") : t("type.tryAgain")} ${graded ? t("grammar.reviewNoted") : t("skill.freePractice")}`}
         backTo={exitTo}
         backState={exitState}
         backLabel={t("flash.backToTopic")}
@@ -72,6 +94,7 @@ function TypeGame({ topicId, items }: { topicId: string; items: GrammarItem[] })
           className={primaryButton}
           onClick={() => {
             saved.current = false;
+            startedAt.current = Date.now();
             setAttempt((a) => a + 1);
             setStep(0);
             setScore(0);
@@ -117,6 +140,7 @@ function TypeGame({ topicId, items }: { topicId: string; items: GrammarItem[] })
   return (
     <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto overscroll-contain px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 compact:gap-2 compact:pb-2 compact:pt-2">
       <StudyHeader index={step} total={session.length} label={t("games.progress")} exitTo={exitTo} exitState={exitState} />
+      {graded && <p className="text-center text-sm font-semibold text-brand-fg">{t("skill.review")}</p>}
 
       <PinnedPrompt className="flex flex-1 flex-col">
         <section className="flex flex-1 flex-col items-center justify-center gap-3 rounded-3xl bg-white p-6 text-center shadow-md compact:gap-1 compact:p-3 dark:bg-slate-900">
