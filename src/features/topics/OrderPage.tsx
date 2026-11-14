@@ -1,5 +1,5 @@
 import { useLiveQuery } from "dexie-react-hooks";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useContent } from "../../app/content.tsx";
 import { db } from "../../data/db/instance.ts";
 import { getSettings } from "../../data/db/repositories.ts";
@@ -23,6 +23,9 @@ export function OrderPage() {
   }
   return <OrderGame key={id} topicId={topic.id} sequence={topic.sequence} cyclic={topic.cyclic ?? false} />;
 }
+
+/** După răspuns la „Ce urmează după…?”, trece singur la următoarea întrebare după atâta timp (butonul „Continuă” rămâne). */
+export const AUTO_NEXT_MS = 3000;
 
 function OrderGame({ topicId, sequence, cyclic }: { topicId: string; sequence: string[]; cyclic: boolean }) {
   const { t, tp } = useT();
@@ -75,6 +78,17 @@ function OrderGame({ topicId, sequence, cyclic }: { topicId: string; sequence: s
   };
 
   const question = questions[qIndex];
+
+  const nextQuestion = () => {
+    setSelected(undefined);
+    setQIndex((i) => i + 1);
+  };
+  // cronometrul pornește la fiecare răspuns și se anulează dacă apeși „Continuă” mai repede sau ieși din joc
+  useEffect(() => {
+    if (selected === undefined) return;
+    const timer = setTimeout(nextQuestion, AUTO_NEXT_MS);
+    return () => clearTimeout(timer);
+  }, [selected, qIndex]);
 
   if (!arranging && !question) {
     return (
@@ -185,10 +199,7 @@ function OrderGame({ topicId, sequence, cyclic }: { topicId: string; sequence: s
           <button
             type="button"
             className={`${primaryButton} w-full`}
-            onClick={() => {
-              setSelected(undefined);
-              setQIndex((i) => i + 1);
-            }}
+            onClick={nextQuestion}
           >
             {qIndex + 1 < questions.length ? t("common.continue") : t("common.seeResult")}
           </button>

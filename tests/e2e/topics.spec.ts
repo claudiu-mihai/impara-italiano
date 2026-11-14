@@ -459,3 +459,32 @@ test("Ordonează: elementul atins se aude, iar cu „Audio la atingere în jocur
   await page.waitForTimeout(300);
   expect((await spoken(page)).length).toBe(before);
 });
+
+test("Ordonează: după răspuns trece singur la următoarea întrebare în 3 secunde", async ({ page }) => {
+  const t = topic("zilele-saptamanii");
+  await page.goto(`/learn/topics/${t.id}/order`);
+  const group = page.getByRole("group", { name: "Elemente de ordonat" });
+  for (const id of t.sequence!) await group.getByRole("button", { name: italian(byId(id)), exact: true }).click();
+  await expect(page.getByTestId("follow-prompt")).toBeVisible();
+  await expect(page.getByText(/^1 \/ \d+$/)).toBeVisible();
+
+  // orice răspuns, corect sau greșit, arată rezultatul și apoi merge mai departe fără apăsare
+  await page.getByRole("group", { name: "Variante de răspuns" }).getByRole("button").first().click();
+  await expect(page.getByRole("button", { name: /^(Continuă|Vezi rezultatul)$/ })).toBeVisible();
+  await expect(page.getByText(/^1 \/ \d+$/)).toBeVisible();
+  await expect(page.getByText(/^2 \/ \d+$/)).toBeVisible({ timeout: 5000 });
+  await expect(page.getByRole("button", { name: /^(Continuă|Vezi rezultatul)$/ })).toHaveCount(0);
+});
+
+test("Ordonează: „Continuă” merge mai departe imediat, fără să sară și întrebarea următoare", async ({ page }) => {
+  const t = topic("zilele-saptamanii");
+  await page.goto(`/learn/topics/${t.id}/order`);
+  const group = page.getByRole("group", { name: "Elemente de ordonat" });
+  for (const id of t.sequence!) await group.getByRole("button", { name: italian(byId(id)), exact: true }).click();
+  await page.getByRole("group", { name: "Variante de răspuns" }).getByRole("button").first().click();
+  await page.getByRole("button", { name: /^(Continuă|Vezi rezultatul)$/ }).click();
+  await expect(page.getByText(/^2 \/ \d+$/)).toBeVisible();
+  // cronometrul răspunsului anterior nu mai sare peste întrebarea 2
+  await page.waitForTimeout(3500);
+  await expect(page.getByText(/^2 \/ \d+$/)).toBeVisible();
+});
