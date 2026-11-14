@@ -133,6 +133,7 @@ export const ro = {
   "exercise.numbers": "Ascultă și scrie cifrele",
   "exercise.clock": "Ceasul",
   "exercise.cat": "Unde e Lupino?",
+  "exercise.sentence": "Reconstruiește propoziția",
   "mastery.new": "Nou",
   "mastery.learning": "În învățare",
   "mastery.mastered": "Stăpânit",

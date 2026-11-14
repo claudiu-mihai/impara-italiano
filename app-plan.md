@@ -151,6 +151,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
      | Exercițiu | Pentru | Descriere |
      | --- | --- | --- |
      | **Potrivește perechi** | orice temă | 5 perechi IT ↔ RO o dată, tap pe un cuvânt din fiecare coloană; cuvântul italian ales se aude (setarea „Audio la atingere în jocuri”, pornită implicit); implicit cu text, iar comutatorul „🔊 Din auz” (doar pentru runda curentă) înlocuiește coloana italiană cu butoane de audio, care redau mereu (cuvântul se vede după potrivire) |
+     | **Reconstruiește propoziția** | orice temă (minim 3 propoziții, verificat la build) | Reconstruire propoziție doar cu propozițiile care conțin cuvinte ale temei: întâi cele cu cuvinte deja începute; capcanele vin din propozițiile aceleiași teme; din auz și fără notare SRS, ca exercițiul general |
      | **Ordonează** | zile, luni, anotimpuri, ordinale | aranjarea elementelor în ordine + întrebări „Ce urmează după *martedì*?”; elementul atins se aude (setarea „Audio la atingere în jocuri”); după răspunsul la o întrebare, jocul trece singur la următoarea după 2 secunde (fără buton „Continuă”) |
      | **Ascultă și scrie cifrele** | numere, prețuri | TTS spune *trecentoquarantadue* → se scrie 342; invers: 342 → se scrie numărul în litere |
      | **Ceasul** | ora | cadran SVG → se scrie ora (*sono le sette meno un quarto*); invers: ora în litere → se alege cadranul corect |

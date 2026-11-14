@@ -206,6 +206,7 @@ export function App() {
               <Route path="learn/topics/:id/quiz" element={<QuizPage />} />
               <Route path="learn/topics/:id/match" element={<MatchPage />} />
               <Route path="learn/topics/:id/order" element={<OrderPage />} />
+              <Route path="learn/topics/:id/sentence" element={<SentencePage />} />
               <Route path="learn/topics/:id/numbers" element={<SkillPage />} />
               <Route path="learn/topics/:id/clock" element={<SkillPage />} />
               <Route path="learn/topics/:id/cat" element={<CatPage />} />

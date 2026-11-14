@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useSentences } from "../../app/sentences.ts";
+import { useTopics } from "../../app/topics.ts";
 import { db } from "../../data/db/instance.ts";
 import { getSettings } from "../../data/db/repositories.ts";
-import { loadSentenceRound } from "../../data/queries.ts";
+import { loadSentenceRound, loadTopicSentenceRound } from "../../data/queries.ts";
 import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { useT } from "../../i18n/index.ts";
 import {
@@ -27,6 +28,12 @@ const block =
 export function SentencePage() {
   const { t } = useT();
   const sentences = useSentences();
+  // din pagina unei teme: doar propozițiile cu cuvinte din temă, iar ✕ și finalul te întorc la temă
+  const { id: topicId } = useParams();
+  const topics = useTopics();
+  const topic = topicId ? topics?.find((x) => x.id === topicId) : undefined;
+  const exitTo = topicId ? `/learn/topics/${topicId}` : "/learn";
+  const backLabel = topicId ? t("flash.backToTopic") : undefined;
   const [round, setRound] = useState(0);
   const [ready, setReady] = useState(false);
   const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS);
@@ -41,9 +48,11 @@ export function SentencePage() {
 
   useEffect(() => {
     if (!sentences) return;
+    if (topicId && !topic) return; // temele nu s-au încărcat încă
     let alive = true;
     setReady(false);
-    void Promise.all([getSettings(db), loadSentenceRound(db, sentences)]).then(([loadedSettings, loaded]) => {
+    const round = topic ? loadTopicSentenceRound(db, sentences, topic) : loadSentenceRound(db, sentences);
+    void Promise.all([getSettings(db), round]).then(([loadedSettings, loaded]) => {
       if (!alive) return;
       setSettings(loadedSettings);
       setQuestions(loaded);
@@ -54,7 +63,7 @@ export function SentencePage() {
     return () => {
       alive = false;
     };
-  }, [sentences, round]);
+  }, [sentences, round, topic, topicId]);
 
   const question = questions[index];
   const listening = useListening(settings.listenFirst);
@@ -81,6 +90,8 @@ export function SentencePage() {
         emoji="🧩"
         title={t("sentence.none")}
         text={t("sentence.noneText")}
+        backTo={exitTo}
+        backLabel={backLabel}
       >
         <Link to="/learn/vocab" className={primaryButton}>
           {t("conj.goFlashcards")}
@@ -94,6 +105,8 @@ export function SentencePage() {
       <SessionDone
         title={t("common.outOf", { n: score, total: questions.length })}
         text={score === questions.length ? t("common.perfect") : t("sentence.tryAgain")}
+        backTo={exitTo}
+        backLabel={backLabel}
       >
         <button type="button" onClick={() => setRound((r) => r + 1)} className={primaryButton}>
           {t("common.anotherRound")}
@@ -118,7 +131,7 @@ export function SentencePage() {
 
   return (
     <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
-      <StudyHeader index={index} total={questions.length} label={t("quiz.roundProgress")} />
+      <StudyHeader index={index} total={questions.length} label={t("quiz.roundProgress")} exitTo={exitTo} />
 
       <section className="flex flex-col items-center gap-2 rounded-3xl bg-white p-6 text-center shadow-md dark:bg-slate-900">
         <p className="text-sm text-muted">{t(fromAudio ? "sentence.listenItalian" : "sentence.writeItalian")}</p>
