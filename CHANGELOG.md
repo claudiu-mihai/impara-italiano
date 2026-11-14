@@ -4,6 +4,18 @@ Formatul urmează [Keep a Changelog](https://keepachangelog.com/ro/1.1.0/), iar 
 [versionarea semantică](https://semver.org/lang/ro/). Intrările noi sunt scrise automat de release-please din
 commit-urile `feat:` / `fix:` (vezi README, „Versionare și release-uri”).
 
+## [1.16.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.15.0...v1.16.0) (2026-11-14)
+
+
+### Funcționalități
+
+* **teme:** categoriile din lista de teme se pot plia ([#47](https://github.com/claudiu-mihai/impara-italiano/issues/47)) ([adfdc47](https://github.com/claudiu-mihai/impara-italiano/commit/adfdc47eef69942b9e3af5b93ac9b5155496facd))
+
+
+### Corecturi
+
+* **teme:** „Înapoi” de pe pagina unui cuvânt deschis dintr-o temă se întoarce la temă ([#46](https://github.com/claudiu-mihai/impara-italiano/issues/46)) ([e87c2ed](https://github.com/claudiu-mihai/impara-italiano/commit/e87c2ed72562d62aa4646e0514876a2531493bf9))
+
 ## [1.15.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.14.0...v1.15.0) (2026-11-14)
 
 
