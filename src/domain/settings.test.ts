@@ -71,3 +71,9 @@ test("„Audio la atingere în jocuri” e pornită implicit, inclusiv pentru se
   expect(withSettingDefaults({ direction: "it-ro" }).tapAudio).toBe(true);
   expect(withSettingDefaults({ tapAudio: false }).tapAudio).toBe(false);
 });
+
+test("ordinea cuvintelor noi e „ghidată” implicit, inclusiv pentru setările salvate înainte de ea", () => {
+  expect(DEFAULT_SETTINGS.wordOrder).toBe("guided");
+  expect(withSettingDefaults({ direction: "it-ro" }).wordOrder).toBe("guided");
+  expect(withSettingDefaults({ wordOrder: "frequency" }).wordOrder).toBe("frequency");
+});

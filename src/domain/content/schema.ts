@@ -115,6 +115,8 @@ export const topicSchema = z
     level: z.enum(LEVELS),
     /** ★ = prima etapă (Faza 4). */
     first: z.boolean(),
+    /** Locul în calea de supraviețuire (1, 2, …): temele cu `path` se învață primele, în această ordine (vezi `guidedOrder.ts`). Doar teme A1. */
+    path: z.number().int().positive().optional(),
     intro: text.optional(),
     /** 1–4 reguli ale limbii italiane: `it` pe fața italiană a casetei „De reținut”, traducerea pe cea în limba maternă. */
     rules: z.array(localized).min(1).max(4),

@@ -3,7 +3,7 @@ import { expect, test } from "vitest";
 import { newStoredCard } from "../srs/scheduler.ts";
 import { vocabCardId, type StoredCard } from "../srs/types.ts";
 import { studyDayOf } from "../time/studyDay.ts";
-import { buildDailySession, spreadSameWord, type SessionSettings } from "./buildDailySession.ts";
+import { buildDailySession, spreadSameWord, type BuildSessionArgs, type SessionSettings } from "./buildDailySession.ts";
 
 const NOW = new Date(2026, 9, 20, 10, 0, 0);
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -192,4 +192,29 @@ test("cele două direcții ale aceluiași cuvânt nu stau una după alta în coa
   const ids = both(cards, { newPerDay: 0 }).map((i) => i.wordId);
   expect(ids).toEqual(["w1", "w2", "w1"]);
   expect(spreadSameWord([{ wordId: "a" }, { wordId: "a" }]).map((x) => x.wordId)).toEqual(["a", "a"]);
+});
+
+const guide = [
+  { id: "t1", level: "A1" as const, path: 1, wordIds: ["w20", "w21", "w22"] },
+  { id: "t2", level: "A2" as const, path: 2, wordIds: ["w23"] },
+];
+const buildGuided = (over: Partial<SessionSettings> = {}, g = guide, ws: BuildSessionArgs["words"] = words) =>
+  buildDailySession({ now: NOW, settings: { ...settings, wordOrder: "guided", ...over }, cards: [], words: ws, reviewsDoneToday: 0, guide: g });
+
+test("ordine ghidată: cuvintele căii vin amestecate 2:1 cu cele după frecvență", () => {
+  expect(buildGuided({ newPerDay: 6 }).map((i) => i.wordId)).toEqual(["w20", "w21", "w1", "w22", "w23", "w2"]);
+});
+
+test("ordine ghidată: un cuvânt al căii peste nivelul ales nu se introduce", () => {
+  const higher = words.map((w) => (w.id === "w23" ? { ...w, level: "A2" as const } : w));
+  const ids = buildGuided({ newPerDay: 10 }, guide, higher).map((i) => i.wordId);
+  expect(ids).not.toContain("w23");
+  expect(ids.slice(0, 4)).toEqual(["w20", "w21", "w1", "w22"]);
+});
+
+test("ordine după frecvență sau fără ghid: ca înainte", () => {
+  const expected = words.slice(0, 5).map((w) => w.id);
+  expect(buildGuided({ newPerDay: 5, wordOrder: "frequency" }).map((i) => i.wordId)).toEqual(expected);
+  expect(buildGuided({ newPerDay: 5 }, []).map((i) => i.wordId)).toEqual(expected);
+  expect(build([], { newPerDay: 5 }).map((i) => i.wordId)).toEqual(expected);
 });

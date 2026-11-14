@@ -7,6 +7,7 @@
   "group": "timp",
   "level": "A1",
   "first": true,
+  "path": 9,
   "rules": [
     {
       "it": "«Lunedì» senza articolo indica questo lunedì o il prossimo; «il lunedì» vuol dire ogni lunedì. Anche: «di lunedì», «ogni lunedì».",

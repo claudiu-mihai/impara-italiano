@@ -3,6 +3,7 @@ import wordsData from "../generated/words.json";
 import type { ContentMeta, Conjugations, GrammarTopic, Sentence, Topic, Word } from "../../domain/content/schema.ts";
 import type { CoreWord } from "../../domain/content/types.ts";
 import { decodeWords, type CompactWords } from "../../domain/content/wordsCodec.ts";
+import type { GuideTopic } from "../../domain/session/guidedOrder.ts";
 
 export interface ContentStore {
   /** Datele de bază ale tuturor cuvintelor, în ordinea rangului. */
@@ -45,6 +46,12 @@ export async function loadSentences(): Promise<Sentence[]> {
 export async function loadTopics(): Promise<Topic[]> {
   const module = await import("../generated/topics.json");
   return module.default as unknown as Topic[];
+}
+
+/** Temele cu cuvintele lor, pentru ordinea ghidată a cuvintelor noi (mic: fără fișe, reguli sau exerciții). */
+export async function loadGuide(): Promise<GuideTopic[]> {
+  const module = await import("../generated/guide.json");
+  return module.default as unknown as GuideTopic[];
 }
 
 /** Temele de gramatică pentru jocuri, încărcate doar de ecranele care le folosesc. */

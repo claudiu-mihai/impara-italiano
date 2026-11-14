@@ -60,6 +60,15 @@ const conjugationsJson = `{\n${Object.entries(conjugations)
 const sentencesJson = `[\n${sentences.map((s) => `  ${JSON.stringify(s)}`).join(",\n")}\n]\n`;
 
 const topicsJson = `${JSON.stringify(topics, null, 1)}\n`;
+// ghid.json: doar ce trebuie ordinii cuvintelor noi (temele cu cuvintele lor, în ordinea fișei); mic, ca să nu încarce fișele întregi
+const guideJson = lines(
+  topics.map((t) => ({
+    id: t.id,
+    level: t.level,
+    ...(t.path !== undefined ? { path: t.path } : {}),
+    wordIds: [...new Set(t.subgroups.flatMap((s) => s.wordIds))],
+  })),
+);
 const grammarJson = `${JSON.stringify(grammar, null, 1)}\n`;
 const presenteIrregularJson = lines(presenteIrregular);
 
@@ -69,6 +78,7 @@ const dataVersion = createHash("sha256")
   .update(conjugationsJson)
   .update(sentencesJson)
   .update(topicsJson)
+  .update(guideJson)
   .update(grammarJson)
   .update(presenteIrregularJson)
   .digest("hex")
@@ -89,6 +99,7 @@ writeFileSync(resolve(OUT_DIR, "details.json"), detailsJson);
 writeFileSync(resolve(OUT_DIR, "conjugations.json"), conjugationsJson);
 writeFileSync(resolve(OUT_DIR, "sentences.json"), sentencesJson);
 writeFileSync(resolve(OUT_DIR, "topics.json"), topicsJson);
+writeFileSync(resolve(OUT_DIR, "guide.json"), guideJson);
 writeFileSync(resolve(OUT_DIR, "grammar.json"), grammarJson);
 writeFileSync(resolve(OUT_DIR, "presenteIrregular.json"), presenteIrregularJson);
 writeFileSync(resolve(OUT_DIR, "meta.json"), `${JSON.stringify(meta, null, 2)}\n`);

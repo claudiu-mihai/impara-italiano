@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { setWordOrder } from "./helpers.ts";
 
 interface MockVoice {
   name: string;
@@ -44,6 +45,7 @@ const spoken = (page: Page) =>
   page.evaluate(() => (window as unknown as { __spoken: { text: string; voice?: string; lang: string }[] }).__spoken);
 
 test("vocea din sistem este folosită și fără internet, cu cea de calitate superioară preferată", async ({ page, context }) => {
+  await setWordOrder(page, "frequency");
   await mockSpeech(page, [GOOGLE, ALICE, LUCA, SAMANTHA]);
   await page.goto("/learn/vocab");
   await expect(page.getByTestId("card-front")).toBeVisible();
@@ -59,6 +61,7 @@ test("vocea din sistem este folosită și fără internet, cu cea de calitate su
 });
 
 test("online, vocea locală este preferată celei de rețea", async ({ page }) => {
+  await setWordOrder(page, "frequency");
   await mockSpeech(page, [GOOGLE, ALICE]);
   await page.goto("/learn/vocab");
   await page.getByRole("button", { name: "Ascultă pronunția: essere" }).click();
@@ -66,6 +69,7 @@ test("online, vocea locală este preferată celei de rețea", async ({ page }) =
 });
 
 test("fără voce locală și fără internet, butonul de audio este inactiv", async ({ page, context }) => {
+  await setWordOrder(page, "frequency");
   await mockSpeech(page, [GOOGLE, SAMANTHA]);
   await page.goto("/learn/vocab");
   await expect(page.getByRole("button", { name: "Ascultă pronunția: essere" })).toBeEnabled();
@@ -75,6 +79,7 @@ test("fără voce locală și fără internet, butonul de audio este inactiv", a
 });
 
 test("vocea aleasă în Setări se folosește la pronunție", async ({ page }) => {
+  await setWordOrder(page, "frequency");
   await mockSpeech(page, [ALICE, LUCA]);
   await page.goto("/settings");
   await page.getByLabel("Vocea italiană").selectOption("mac:alice");
@@ -101,6 +106,7 @@ const MS_ONLINE = {
 };
 
 test("Edge pe Mac: vocea macOS este aleasă în loc de vocea Microsoft Online care apare prima", async ({ page }) => {
+  await setWordOrder(page, "frequency");
   await mockSpeech(page, [MS_ONLINE, ALICE, SAMANTHA]);
   await page.goto("/learn/vocab");
   await page.getByRole("button", { name: "Ascultă pronunția: essere" }).click();
@@ -108,6 +114,7 @@ test("Edge pe Mac: vocea macOS este aleasă în loc de vocea Microsoft Online ca
 });
 
 test("Edge: doar vocea Microsoft Online și fără internet → audio inactiv", async ({ page, context }) => {
+  await setWordOrder(page, "frequency");
   await mockSpeech(page, [MS_ONLINE]);
   await page.goto("/learn/vocab");
   await expect(page.getByRole("button", { name: "Ascultă pronunția: essere" })).toBeEnabled();

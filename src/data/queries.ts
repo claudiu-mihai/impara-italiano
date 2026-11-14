@@ -12,7 +12,7 @@ import { buildTopicSession, topicWordIds } from "../domain/topics/topics.ts";
 import { computeStats, type Stats } from "../domain/stats/stats.ts";
 import type { Settings } from "../domain/settings.ts";
 import { studyDayOf } from "../domain/time/studyDay.ts";
-import type { ContentStore } from "./content/contentStore.ts";
+import { loadGuide, type ContentStore } from "./content/contentStore.ts";
 import type { ImparaDb } from "./db/db.ts";
 import { countReviewsOn, getSettings } from "./db/repositories.ts";
 
@@ -29,10 +29,11 @@ export async function loadStudyOverview(
   content: ContentStore,
   now: Date = new Date(),
 ): Promise<StudyOverview> {
-  const [settings, cards, reviewsDoneToday] = await Promise.all([
+  const [settings, cards, reviewsDoneToday, guide] = await Promise.all([
     getSettings(db),
     db.cards.toArray(),
     countReviewsOn(db, studyDayOf(now)),
+    loadGuide(),
   ]);
 
   const queue = buildDailySession({
@@ -41,6 +42,7 @@ export async function loadStudyOverview(
     cards,
     words: content.words,
     reviewsDoneToday,
+    guide,
   });
   const newCount = queue.filter((i) => i.isNew).length;
   return { settings, queue, dueCount: queue.length - newCount, newCount };

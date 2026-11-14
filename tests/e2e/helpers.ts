@@ -130,3 +130,12 @@ export async function setListenFirst(page: Page, on: boolean) {
   if (on) await expect(box).toBeChecked();
   else await expect(box).not.toBeChecked();
 }
+
+/** Alege ordinea cuvintelor noi din Setări (testele de mecanică a cardului pornesc de la „După frecvență”: primul cuvânt e *essere*). */
+export async function setWordOrder(page: Page, order: "guided" | "frequency") {
+  await page.goto("/settings");
+  const select = page.getByLabel("Ordinea cuvintelor noi");
+  await expect(select).toBeVisible();
+  await select.selectOption(order);
+  await expect(select).toHaveValue(order);
+}

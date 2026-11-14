@@ -163,6 +163,11 @@ function loadTopics(words: Word[], errors: string[]): Topic[] {
     for (const id of topic.sequence ?? []) {
       if (!topicWordIds.has(id)) errors.push(`${topic.id}: ${id} din „sequence” nu face parte din subgrupele temei`);
     }
+    if (topic.path !== undefined) {
+      if (topic.level !== "A1") errors.push(`${topic.id}: tema din cale („path”) trebuie să fie A1, nu ${topic.level}`);
+      const other = topics.find((t) => t.path === topic.path);
+      if (other) errors.push(`${topic.id}: „path” ${topic.path} e folosit și de ${other.id}`);
+    }
     if (topic.exercises.includes("order") && !topic.sequence) errors.push(`${topic.id}: exercițiul „order” cere „sequence”`);
     if ((topic.exercises.includes("numbers") || topic.exercises.includes("clock")) && !topic.skill) {
       errors.push(`${topic.id}: exercițiile „numbers” și „clock” cer „skill”`);

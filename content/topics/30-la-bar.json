@@ -5,8 +5,9 @@
     "ro": "La bar"
   },
   "group": "zi-de-zi",
-  "level": "A2",
+  "level": "A1",
   "first": false,
+  "path": 4,
   "rules": [
     {
       "it": "Richiesta gentile: «vorrei un caffè, per favore» oppure «prendo un caffè».",

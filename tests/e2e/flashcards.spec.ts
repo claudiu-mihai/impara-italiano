@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { setWordOrder } from "./helpers.ts";
 
 const front = (page: Page) => page.getByTestId("card-front");
 const back = (page: Page) => page.getByTestId("card-back");
@@ -16,6 +17,7 @@ test("pagina de start arată cuvintele noi ale zilei", async ({ page }) => {
 });
 
 test("o sesiune: răstoarnă cardul, notează și treci la următorul", async ({ page }) => {
+  await setWordOrder(page, "frequency");
   await startSession(page);
 
   // Primul cuvânt este „essere” (rangul 1), în direcția IT → RO.
@@ -32,6 +34,7 @@ test("o sesiune: răstoarnă cardul, notează și treci la următorul", async ({
 });
 
 test("swipe dreapta pe un card răsturnat îl notează cu Bine", async ({ page }) => {
+  await setWordOrder(page, "frequency");
   await startSession(page);
   await page.getByRole("button", { name: "Arată răspunsul" }).click();
   await expect(back(page).getByText("a fi", { exact: true })).toBeVisible();
@@ -62,6 +65,7 @@ test("progresul persistă după reîncărcarea paginii", async ({ page }) => {
 });
 
 test("aplicația pornește și funcționează fără internet", async ({ page, context }) => {
+  await setWordOrder(page, "frequency");
   await page.goto("/");
   await expect(page.getByRole("heading", { name: "Impara l'italiano con Lupino" })).toBeVisible();
 

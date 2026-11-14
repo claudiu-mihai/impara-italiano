@@ -61,7 +61,19 @@ O singură setare nouă, `listenFirst` (pornită implicit, inclusiv pentru setă
 3. **Propoziții din auz și cu capcane.** `SentenceQuestion` adaugă `decoys` (1 la propozițiile de 3 blocuri, 2 la restul, cuvinte din alte propoziții) și `listen` (jumătate). Răspunsul complet are exact blocurile propoziției; orice capcană îl face greșit.
 4. **Potrivire din auz.** Implicit rămâne cu text; cuvântul italian ales se aude, la fel ca la „Ordonează”, dacă „Audio la atingere în jocuri” (`tapAudio`, pornită implicit) e activă. Comutatorul „🔊 Din auz”, doar pentru runda curentă, înlocuiește coloana italiană cu butoane de audio; cuvântul se vede după potrivire.
 
-Fără schimbări de conținut: propozițiile (2928) și temele rămân cum sunt. Variantele cu text au rămas în aplicație (testele lor opresc „Ascultă întâi”).
+Fără schimbări de conținut: propozițiile și temele rămân cum sunt. Variantele cu text au rămas în aplicație (testele lor opresc „Ascultă întâi”).
+
+## Faza 3 — Start de supraviețuire
+
+**Gata când:** testele unitare și E2E trec, `npx tsc --noEmit` și `npm run validate` trec, iar o instalare nouă începe cu *ciao*, nu cu *essere*.
+
+1. **Cale de supraviețuire.** Câmp nou `path` în fișa temei (număr de ordine, validat la build: unic, doar teme A1). Ordinea: Saluturi și politețe, Cuvinte de întrebare, Numere 0–20, La bar, Mesele zilei, Piața și supermarket (~125 de cuvinte, două săptămâni la 10 pe zi), apoi Direcții, Familia, Zilele săptămânii, Ora, Momentele zilei.
+2. **Temă începută = prioritate.** Ce a rămas dintr-o temă cu cel puțin 2 cuvinte și un sfert învățat vine înaintea căii (`guidedOrder.ts`).
+3. **Amestec 2:1** cu coada după frecvență, ca verbele de bază să nu lipsească (conjugările se deblochează după verb). Nivelul ales rămâne limita.
+4. **Nivelul temelor.** 12 teme uzuale (La bar, Mesele zilei, Piața, Familia, Descrierea unei persoane, Haine, Contrarii, Aici și acolo, Cum ne referim la zile, Poziția obiectelor, Frecvența, Data și anul) trec la A1. Regula de build cere ca nivelul temei să fie cel puțin cel al cuvintelor ei, deci cele 32 de cuvinte A2 ale lor trec la A1 prin `overrides` din `content/levels.json` (A1: 616 → 648 de cuvinte).
+5. **Setare nouă** „Ordinea cuvintelor noi”: *Ghidată* (implicit, și pentru setările deja salvate) sau *După frecvență*. Intră în backup și sincronizare.
+
+Ghidul (`guide.json`: teme cu id-urile cuvintelor) e un fișier generat separat și mic, încărcat la cerere de sesiunea zilnică; fișele întregi ale temelor nu se încarcă la pornire.
 
 ## Reguli de lucru
 
