@@ -406,3 +406,32 @@ test("Potrivește din auz: coloana italiană are doar butoane de audio, textul a
   await expect(page.getByRole("heading", { name: "Potrivește perechile" })).toBeVisible();
   await expect(left.getByRole("button", { name: label, exact: true })).toBeEnabled();
 });
+
+test("Potrivește cu text: cuvântul italian ales se aude, iar cu „Audio automat” oprit nu", async ({ page }) => {
+  await mockSpeech(page);
+  await setListenFirst(page, false);
+  const t = topic("culori");
+  await page.goto(`/learn/topics/${t.id}/match`);
+  const left = page.getByRole("group", { name: "Italiană" });
+  const right = page.getByRole("group", { name: "Română" });
+  await expect(left.getByRole("button")).toHaveCount(5);
+
+  const first = left.getByRole("button").first();
+  const label = (await first.textContent())!;
+  await first.click();
+  await expect.poll(() => spoken(page)).toEqual([label]);
+  // coloana română nu redă nimic
+  await right.getByRole("button").first().click();
+  expect(await spoken(page)).toEqual([label]);
+
+  // cu „Audio automat” oprit, tap-ul pe un cuvânt italian nu mai redă
+  await page.goto("/settings");
+  await page.getByLabel("Audio automat").click();
+  await expect(page.getByLabel("Audio automat")).not.toBeChecked();
+  await page.goto(`/learn/topics/${t.id}/match`);
+  await expect(left.getByRole("button")).toHaveCount(5);
+  const before = (await spoken(page)).length;
+  await left.getByRole("button").nth(1).click();
+  await page.waitForTimeout(300);
+  expect((await spoken(page)).length).toBe(before);
+});

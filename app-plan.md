@@ -150,7 +150,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 
      | Exercițiu | Pentru | Descriere |
      | --- | --- | --- |
-     | **Potrivește perechi** | orice temă | 5 perechi IT ↔ RO o dată, tap pe un cuvânt din fiecare coloană; „🔊 Din auz” înlocuiește coloana italiană cu butoane de audio (cuvântul se vede după potrivire) |
+     | **Potrivește perechi** | orice temă | 5 perechi IT ↔ RO o dată, tap pe un cuvânt din fiecare coloană; cuvântul italian ales se aude (cu „Audio automat” pornit); „🔊 Din auz” înlocuiește coloana italiană cu butoane de audio, care redau mereu (cuvântul se vede după potrivire) |
      | **Ordonează** | zile, luni, anotimpuri, ordinale | aranjarea elementelor în ordine + întrebări „Ce urmează după *martedì*?” |
      | **Ascultă și scrie cifrele** | numere, prețuri | TTS spune *trecentoquarantadue* → se scrie 342; invers: 342 → se scrie numărul în litere |
      | **Ceasul** | ora | cadran SVG → se scrie ora (*sono le sette meno un quarto*); invers: ora în litere → se alege cadranul corect |
