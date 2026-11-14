@@ -4,6 +4,13 @@ Formatul urmează [Keep a Changelog](https://keepachangelog.com/ro/1.1.0/), iar 
 [versionarea semantică](https://semver.org/lang/ro/). Intrările noi sunt scrise automat de release-please din
 commit-urile `feat:` / `fix:` (vezi README, „Versionare și release-uri”).
 
+## [1.18.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.17.0...v1.18.0) (2026-11-14)
+
+
+### Funcționalități
+
+* **pedagogie:** Faza 4 – gramatica în repetiție (lecția ca abilitate FSRS, 6 lecții A2) ([#51](https://github.com/claudiu-mihai/impara-italiano/issues/51)) ([c0e97b0](https://github.com/claudiu-mihai/impara-italiano/commit/c0e97b02f86aa572d731d6c908b3879c9f38bb8d))
+
 ## [1.17.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.16.0...v1.17.0) (2026-11-14)
 
 
