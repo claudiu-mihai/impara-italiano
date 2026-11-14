@@ -57,7 +57,9 @@ test.describe("LCP pe telefon de gamă medie (procesor 4× mai lent)", () => {
     const lcp = await measureLcp(page);
     console.log(`LCP prima încărcare (Slow 4G, Lighthouse): ${Math.round(lcp)} ms`);
     // pe Slow 4G ecranul de start apare după descărcarea întregului cod de pornire (inclusiv dicționarul), deci
-    // stă aproape de 1500 ms; limita de 1550 ms lasă o marjă mică, dar încă prinde o creștere reală a pachetului
+    // stă aproape de 1500 ms; limita de 1550 ms lasă o marjă mică, dar încă prinde o creștere reală a pachetului.
+    // Fiecare ~5 KB gzip în plus la pornire înseamnă ~25 ms aici: codul folosit doar de alte ecrane se încarcă la
+    // cerere (ex. planificatorul ts-fsrs, vezi domain/srs/fsrsConstants.ts, și rundele din data/roundQueries.ts)
     expect(lcp).toBeLessThan(1550);
   });
 });

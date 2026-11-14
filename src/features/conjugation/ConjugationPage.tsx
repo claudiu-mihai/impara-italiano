@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { State, type Grade } from "ts-fsrs";
+import type { Grade } from "ts-fsrs";
+import { State } from "../../domain/srs/fsrsConstants.ts";
 import { useConjugations } from "../../app/conjugations.ts";
 import { useContent } from "../../app/content.tsx";
 import { usePresenteIrregular } from "../../app/presenteIrregular.ts";

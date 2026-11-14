@@ -1,4 +1,4 @@
-import { State } from "ts-fsrs";
+import { State } from "./fsrsConstants.ts";
 import { TENSES, type Level, type Tense } from "../content/constants.ts";
 import { isUpTo, maxLevel, TENSE_LEVEL } from "../content/levels.ts";
 import type { StoredCard } from "./types.ts";

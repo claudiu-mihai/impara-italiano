@@ -9,7 +9,8 @@ import { useContent } from "../../app/content.tsx";
 import { db } from "../../data/db/instance.ts";
 import { getLastPractice } from "../../data/db/repositories.ts";
 import { useT } from "../../i18n/index.ts";
-import { loadConjugationOverview, loadQuizRound, loadSentenceRound, loadStudyOverview } from "../../data/queries.ts";
+import { loadConjugationOverview, loadStudyOverview } from "../../data/queries.ts";
+import { loadQuizRound, loadSentenceRound } from "../../data/roundQueries.ts";
 
 const groupHeading = "text-base font-semibold text-slate-700 dark:text-slate-200";
 

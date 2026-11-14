@@ -1,4 +1,4 @@
-import { State } from "ts-fsrs";
+import { State } from "../srs/fsrsConstants.ts";
 import { LEVELS, POS, type Level, type Pos } from "../content/constants.ts";
 import { masteryByWord, MASTERED_STABILITY_DAYS, type Mastery } from "../srs/mastery.ts";
 import type { StoredCard } from "../srs/types.ts";

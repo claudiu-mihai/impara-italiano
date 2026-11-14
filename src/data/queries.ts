@@ -1,12 +1,10 @@
 import type { Conjugations, Topic } from "../domain/content/schema.ts";
 import type { Tense } from "../domain/content/constants.ts";
-import { buildQuizRound, buildTopicQuizRound, type QuizQuestion } from "../domain/quiz/buildQuizRound.ts";
 import {
   buildConjugationSession,
   type ConjItem,
   type ConjVerb,
 } from "../domain/session/buildConjugationSession.ts";
-import { buildSentenceRound, buildTopicSentenceRound, type SentenceItem, type SentenceQuestion } from "../domain/sentence/sentenceRound.ts";
 import { buildDailySession, type SessionItem } from "../domain/session/buildDailySession.ts";
 import { buildTopicSession, topicWordIds } from "../domain/topics/topics.ts";
 import { computeStats, type Stats } from "../domain/stats/stats.ts";
@@ -89,21 +87,6 @@ export async function loadConjugationOverview(
   return { settings, queue, dueCount: queue.length - newCount, newCount };
 }
 
-export async function loadQuizRound(
-  db: ImparaDb,
-  content: ContentStore,
-  now: Date = new Date(),
-): Promise<{ settings: Settings; questions: QuizQuestion[] }> {
-  const [settings, cards] = await Promise.all([getSettings(db), db.cards.toArray()]);
-  const questions = buildQuizRound({
-    now,
-    direction: settings.direction,
-    cards,
-    words: content.words,
-  });
-  return { settings, questions };
-}
-
 /** Sesiunea „Studiază tema”: scadentele și cuvintele noi ale temei. */
 export async function loadTopicStudy(
   db: ImparaDb,
@@ -115,25 +98,6 @@ export async function loadTopicStudy(
   return { settings, queue };
 }
 
-/** Runda de quiz doar cu cuvintele temei. */
-export async function loadTopicQuiz(
-  db: ImparaDb,
-  content: ContentStore,
-  topic: Topic,
-  now: Date = new Date(),
-): Promise<{ settings: Settings; questions: QuizQuestion[] }> {
-  const [settings, cards] = await Promise.all([getSettings(db), db.cards.toArray()]);
-  const topicWords = topicWordIds(topic).flatMap((id) => content.byId(id) ?? []);
-  const questions = buildTopicQuizRound({
-    now,
-    direction: settings.direction,
-    cards,
-    topicWords,
-    words: content.words,
-  });
-  return { settings, questions };
-}
-
 export async function loadStats(
   db: ImparaDb,
   content: ContentStore,
@@ -142,24 +106,4 @@ export async function loadStats(
 ): Promise<Stats> {
   const [log, cards] = await Promise.all([db.reviewLog.toArray(), db.cards.toArray()]);
   return computeStats({ now, days, log, cards, words: content.words });
-}
-
-/** Cuvintele introduse (cu cel puțin un card de vocabular), în oricare direcție. */
-async function knownWordIds(db: ImparaDb): Promise<Set<string>> {
-  const cards = await db.cards.where("kind").equals("vocab").toArray();
-  return new Set(cards.map((c) => c.wordId));
-}
-
-/** O rundă de propoziții de reconstruit, din cuvintele deja învățate. */
-export async function loadSentenceRound(db: ImparaDb, sentences: readonly SentenceItem[]): Promise<SentenceQuestion[]> {
-  return buildSentenceRound({ sentences, knownWordIds: await knownWordIds(db) });
-}
-
-/** O rundă de propoziții dintr-o temă: întâi cele cu cuvinte din temă deja începute. */
-export async function loadTopicSentenceRound(
-  db: ImparaDb,
-  sentences: readonly SentenceItem[],
-  topic: Topic,
-): Promise<SentenceQuestion[]> {
-  return buildTopicSentenceRound({ sentences, topicWordIds: topicWordIds(topic), knownWordIds: await knownWordIds(db) });
 }
