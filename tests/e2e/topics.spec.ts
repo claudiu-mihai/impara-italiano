@@ -105,6 +105,8 @@ test("pagina cuvântului trimite la temă", async ({ page }) => {
 test("din temă, „Înapoi” de pe pagina cuvântului se întoarce la tema respectivă, fără intrare nouă în istoric", async ({ page }) => {
   const t = topic("culori");
   await page.goto("/learn/topics");
+  // categoriile sunt închise la început: „Zi de zi” conține tema „Culori”
+  await page.getByRole("heading", { name: "Zi de zi", level: 2 }).click();
   await page.getByRole("link", { name: new RegExp(t.title.it) }).first().click();
   await expect(page.getByRole("heading", { name: t.title.it, level: 1 })).toBeVisible();
 
