@@ -103,7 +103,6 @@ test("Quiz pe temă: întrebări din cuvintele temei; o grilă nu creează cardu
 });
 
 test("Potrivește perechi: o rundă completă", async ({ page }) => {
-  await setListenFirst(page, false);
   const t = topic("culori");
   const roOf = new Map(wordIdsOf(t).map((id) => [italian(byId(id)), byId(id).ro]));
   await page.goto(`/learn/topics/${t.id}/match`);
@@ -120,7 +119,6 @@ test("Potrivește perechi: o rundă completă", async ({ page }) => {
 });
 
 test("Potrivește perechi: o pereche greșită nu se păstrează", async ({ page }) => {
-  await setListenFirst(page, false);
   const t = topic("culori");
   await page.goto(`/learn/topics/${t.id}/match`);
   const left = page.getByRole("group", { name: "Italiană" });
@@ -387,6 +385,9 @@ test("Potrivește din auz: coloana italiană are doar butoane de audio, textul a
   const t = topic("culori");
   const roOf = new Map(wordIdsOf(t).map((id) => [italian(byId(id)), byId(id).ro]));
   await page.goto(`/learn/topics/${t.id}/match`);
+  // implicit exercițiul e cu text; „Din auz” se pornește din comutator
+  await expect(page.getByRole("heading", { name: "Potrivește perechile" })).toBeVisible();
+  await page.getByRole("button", { name: "🔊 Din auz" }).click();
   await expect(page.getByRole("heading", { name: "Ascultă și potrivește cu traducerea" })).toBeVisible();
   const left = page.getByRole("group", { name: "Italiană" });
   const right = page.getByRole("group", { name: "Română" });
@@ -401,7 +402,7 @@ test("Potrivește din auz: coloana italiană are doar butoane de audio, textul a
   // după potrivire cuvântul se vede
   await expect(left.getByRole("button", { name: label, exact: true })).toBeDisabled();
 
-  // comutatorul trece în varianta cu text, de la început
+  // același comutator revine la varianta cu text, de la început
   await page.getByRole("button", { name: "🔊 Din auz" }).click();
   await expect(page.getByRole("heading", { name: "Potrivește perechile" })).toBeVisible();
   await expect(left.getByRole("button", { name: label, exact: true })).toBeEnabled();
@@ -409,7 +410,6 @@ test("Potrivește din auz: coloana italiană are doar butoane de audio, textul a
 
 test("Potrivește cu text: cuvântul italian ales se aude, iar cu „Audio automat” oprit nu", async ({ page }) => {
   await mockSpeech(page);
-  await setListenFirst(page, false);
   const t = topic("culori");
   await page.goto(`/learn/topics/${t.id}/match`);
   const left = page.getByRole("group", { name: "Italiană" });

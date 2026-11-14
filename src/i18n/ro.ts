@@ -442,7 +442,7 @@ export const ro = {
   "settings.autoPlay": "Audio automat",
   "settings.autoPlayHint": "Cuvântul italian se aude singur când apare cardul (sau când îl întorci, la Română → Italiană). Poți repeta cu 🔊.",
   "settings.listenFirst": "Ascultă întâi",
-  "settings.listenFirstHint": "La cardurile începute (Italiană → Română), în quiz, la propoziții și la potrivire cuvântul se aude înainte să-l vezi. Textul apare cu „Arată textul” sau după răspuns. Fără voce italiană pe dispozitiv, rămân exercițiile cu text.",
+  "settings.listenFirstHint": "La cardurile începute (Italiană → Română), în quiz, la propoziții cuvântul se aude înainte să-l vezi. Textul apare cu „Arată textul” sau după răspuns. Fără voce italiană pe dispozitiv, rămân exercițiile cu text.",
   "settings.spelling": "Iartă greșelile mici de scriere",
   "settings.spellingHint": "O literă greșită sau lipsă se numără „aproape corect” și te costă doar o notă mai mică, nu un răspuns greșit. Nu se aplică la lacunele de gramatică.",
   "settings.resetDefaults": "Revino la setările implicite",

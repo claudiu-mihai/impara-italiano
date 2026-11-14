@@ -443,7 +443,7 @@ export const it: Record<Key, string> = {
   "settings.autoPlay": "Audio automatico",
   "settings.autoPlayHint": "La parola italiana si sente da sola quando compare la carta (o quando la giri, nel senso Rumeno → Italiano). Puoi ripetere con 🔊.",
   "settings.listenFirst": "Ascolta prima",
-  "settings.listenFirstHint": "Nelle carte già iniziate (Italiano → Rumeno), nel quiz, nelle frasi e negli abbinamenti la parola si sente prima di vederla. Il testo compare con «Mostra il testo» o dopo la risposta. Senza una voce italiana sul dispositivo restano gli esercizi con il testo.",
+  "settings.listenFirstHint": "Nelle carte già iniziate (Italiano → Rumeno), nel quiz, nelle frasi la parola si sente prima di vederla. Il testo compare con «Mostra il testo» o dopo la risposta. Senza una voce italiana sul dispositivo restano gli esercizi con il testo.",
   "settings.spelling": "Perdona i piccoli errori di scrittura",
   "settings.spellingHint": "Una lettera sbagliata o mancante conta come «quasi giusto» e abbassa solo un po' il voto, invece di essere un errore. Non vale per gli spazi di grammatica.",
   "settings.resetDefaults": "Ripristina le impostazioni predefinite",

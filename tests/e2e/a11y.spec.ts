@@ -83,11 +83,11 @@ for (const scheme of ["light", "dark"] as const) {
 
     test("exercițiile din Teme", async ({ page }) => {
       await page.goto("/learn/topics/culori/match");
-      await expect(page.getByRole("heading", { name: "Ascultă și potrivește cu traducerea" })).toBeVisible();
-      await audit(page, "potrivește perechi, din auz");
-      await page.getByRole("button", { name: "🔊 Din auz" }).click();
       await expect(page.getByRole("heading", { name: "Potrivește perechile" })).toBeVisible();
       await audit(page, "potrivește perechi");
+      await page.getByRole("button", { name: "🔊 Din auz" }).click();
+      await expect(page.getByRole("heading", { name: "Ascultă și potrivește cu traducerea" })).toBeVisible();
+      await audit(page, "potrivește perechi, din auz");
 
       await page.goto("/learn/topics/zilele-saptamanii/order");
       await expect(page.getByRole("heading", { name: "Pune elementele în ordine" })).toBeVisible();

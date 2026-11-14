@@ -45,7 +45,7 @@ function MatchGame({ topicId, wordIds }: { topicId: string; wordIds: string[] })
   const [wrong, setWrong] = useState<{ left: string; right: string }>();
   const [mistakes, setMistakes] = useState(0);
 
-  // „Din auz”: coloana italiană devine butoane de audio. Pornește după „Ascultă întâi”; comutatorul îl schimbă pentru această rundă.
+  // „Din auz”: coloana italiană devine butoane de audio. Implicit exercițiul e cu text; comutatorul „Din auz” e doar pentru runda curentă.
   const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS);
   useEffect(() => {
     let alive = true;
@@ -55,8 +55,8 @@ function MatchGame({ topicId, wordIds }: { topicId: string; wordIds: string[] })
     };
   }, []);
   const canListen = useListening(true);
-  const [audioChoice, setAudioChoice] = useState<boolean>();
-  const fromAudio = canListen && (audioChoice ?? settings.listenFirst);
+  const [audioChoice, setAudioChoice] = useState(false);
+  const fromAudio = canListen && audioChoice;
   const toggleAudio = () => {
     setAudioChoice(!fromAudio);
     // altă formă a exercițiului: se reia de la prima rundă

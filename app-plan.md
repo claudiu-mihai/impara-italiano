@@ -150,7 +150,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 
      | Exercițiu | Pentru | Descriere |
      | --- | --- | --- |
-     | **Potrivește perechi** | orice temă | 5 perechi IT ↔ RO o dată, tap pe un cuvânt din fiecare coloană; cuvântul italian ales se aude (cu „Audio automat” pornit); „🔊 Din auz” înlocuiește coloana italiană cu butoane de audio, care redau mereu (cuvântul se vede după potrivire) |
+     | **Potrivește perechi** | orice temă | 5 perechi IT ↔ RO o dată, tap pe un cuvânt din fiecare coloană; cuvântul italian ales se aude (cu „Audio automat” pornit); implicit cu text, iar comutatorul „🔊 Din auz” (doar pentru runda curentă) înlocuiește coloana italiană cu butoane de audio, care redau mereu (cuvântul se vede după potrivire) |
      | **Ordonează** | zile, luni, anotimpuri, ordinale | aranjarea elementelor în ordine + întrebări „Ce urmează după *martedì*?” |
      | **Ascultă și scrie cifrele** | numere, prețuri | TTS spune *trecentoquarantadue* → se scrie 342; invers: 342 → se scrie numărul în litere |
      | **Ceasul** | ora | cadran SVG → se scrie ora (*sono le sette meno un quarto*); invers: ora în litere → se alege cadranul corect |
@@ -183,7 +183,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 * **Detecția vocilor:** lista se obține prin `getVoices()` + evenimentul `voiceschanged`; se alege prima voce `it-IT` disponibilă.
 * **Redare în serie:** mai multe fraze se pot citi una după alta (ex. un tabel de conjugare), cu posibilitatea de oprire; o redare nouă o oprește pe cea în curs.
 * **Audio automat (setare, pornită implicit):** în Flashcards cuvântul italian se aude singur când apare cardul IT → RO sau când întorci cardul RO → IT, o singură dată pe card; 🔊 repetă. Oprit din Setări, audio pornește doar la apăsarea unui buton. În rest (conjugare, tabele, exemple) redarea rămâne la cerere; excepție: „Ascultă și scrie cifrele”, unde audio este chiar întrebarea. Fără voce italiană sau fără internet, redarea automată nu face nimic.
-* **Ascultă întâi (setare, pornită implicit):** cuvântul italian se aude înainte să se vadă, în patru locuri: cardurile IT → RO începute (fața arată 🔊 mare și „Arată textul”), jumătate din întrebările de quiz IT → RO, jumătate din propoziții și „Potrivește perechi” (coloana italiană, cu comutatorul „🔊 Din auz”). Textul apare la cerere sau după răspuns. Activ doar când dispozitivul poate reda italiană (voce italiană și, fără voce locală, internet); altfel exercițiile rămân cu text.
+* **Ascultă întâi (setare, pornită implicit):** cuvântul italian se aude înainte să se vadă, în patru locuri: cardurile IT → RO începute (fața arată 🔊 mare și „Arată textul”), jumătate din întrebările de quiz IT → RO, jumătate din propoziții. „Potrivește perechi” rămâne implicit cu text; „🔊 Din auz” se pornește din comutatorul exercițiului. Textul apare la cerere sau după răspuns. Activ doar când dispozitivul poate reda italiană (voce italiană și, fără voce locală, internet); altfel exercițiile rămân cu text.
 * **Fără conexiune și fără voce italiană locală:** butonul 🔊 devine inactiv, cu indicația „Audio necesită internet”.
 * **Fără voce italiană** pe dispozitiv: butonul 🔊 se ascunde și apare o singură dată un mesaj cu instrucțiuni de instalare a vocii (Android: setări TTS; iOS: Setări → Accesibilitate → Conținut vorbit).
 
