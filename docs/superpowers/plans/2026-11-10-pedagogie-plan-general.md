@@ -75,6 +75,16 @@ Fără schimbări de conținut: propozițiile și temele rămân cum sunt. Varia
 
 Ghidul (`guide.json`: teme cu id-urile cuvintelor) e un fișier generat separat și mic, încărcat la cerere de sesiunea zilnică; fișele întregi ale temelor nu se încarcă la pornire.
 
+## Faza 4 — Gramatică în repetiție
+
+**Gata când:** testele unitare și E2E trec, `npx tsc --noEmit` și `npm run validate` trec, iar o lecție terminată la „Introducere text” revine pe Acasă când e scadentă.
+
+1. **Lecția ca abilitate FSRS.** Un card pe lecție, de tipul `skill` existent (`skill:grammar:<id>`), deci backup-ul și sincronizarea nu se schimbă. Se creează la prima rundă terminată „Introducere text”; nota din scor (10/10 → Bine, ≥ 80% → Greu, altfel Din nou). Doar prima rundă la o lecție nouă sau scadentă se notează. Fără pașii scurți FSRS, ca lecția să nu revină după 10 minute.
+2. **Unde se vede.** Acasă: „Gramatică de repetat” (lecțiile se încarcă doar dacă vreuna e scadentă). Lista și pagina lecției: „De repetat” sau „Următoarea repetiție: peste N zile”.
+3. **6 lecții A2:** passato prossimo, verbele reflexive, pronumele directe, imperfetto, futuro semplice, verbele modale; fiecare cu tabele, exemple, „Capcană pentru români”, 3–4 reguli și 20 de exemple pentru jocuri. Textele trebuie revizuite de un vorbitor; nivelurile rămân estimate.
+
+Identificatorii și scadența sunt în `domain/grammar/due.ts` (fără `ts-fsrs`, ca să nu crească pachetul de pornire), notarea în `review.ts`.
+
 ## Reguli de lucru
 
 - Fiecare fază: un branch din `main` actualizat, un singur PR la final, fără push sau PR fără acordul meu.
