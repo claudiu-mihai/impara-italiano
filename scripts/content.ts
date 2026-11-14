@@ -24,6 +24,7 @@ import { lessonProblems } from "../src/domain/grammar/lessonCheck.ts";
 import { irregularPresenteIds } from "./content/presenteIrregular.ts";
 import { buildConjugations, type IrregularFile } from "./conjugate/build.ts";
 import { z } from "zod";
+import { TOPIC_SENTENCE_MIN, topicSentences } from "../src/domain/sentence/sentenceRound.ts";
 
 export const ROOT = resolve(import.meta.dirname, "..");
 const WORDS_DIR = resolve(ROOT, "content/words");
@@ -110,6 +111,11 @@ export function loadContent(): LoadedContent {
   const { rankBasis, frequencySources, frequencyRanks } = assignRanks(words);
   assignLevels(words, frequencyRanks, errors);
   const topics = loadTopics(words as Word[], errors);
+  // „Reconstruiește propoziția” apare pe fiecare temă: fiecare are nevoie de câteva propoziții cu cuvintele ei
+  for (const topic of topics) {
+    const count = topicSentences(sentences, [...new Set(topic.subgroups.flatMap((s) => s.wordIds))]).length;
+    if (count < TOPIC_SENTENCE_MIN) errors.push(`${topic.id}: doar ${count} propoziții cu cuvintele temei (minim ${TOPIC_SENTENCE_MIN})`);
+  }
   const grammar = loadGrammar(errors);
   const grammarIds = new Set(grammar.map((t) => t.id));
   for (const id of linkedLessonIds()) {

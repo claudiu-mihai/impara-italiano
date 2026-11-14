@@ -1,6 +1,8 @@
 import { expect, test } from "vitest";
 import {
   buildSentenceRound,
+  buildTopicSentenceRound,
+  topicSentences,
   isCorrectArrangement,
   pickDecoys,
   scrambleOrder,
@@ -113,4 +115,43 @@ test("din auz: runda marchează propozițiile cu semnalul `listen`", () => {
   expect(all.every((q) => q.listen)).toBe(true);
   const none = buildSentenceRound({ sentences: pool, knownWordIds: new Set(["v-x"]), random: () => 0.99 });
   expect(none.every((q) => !q.listen)).toBe(true);
+});
+
+test("tema: doar propozițiile cu cel puțin un cuvânt al temei", () => {
+  const pool = [
+    sentence("Lunedì vado al mare.", [], ["n-lunedì", "v-andare"]),
+    sentence("Oggi non lavoro.", [], ["v-lavorare"]),
+    sentence("Martedì studio molto.", [], ["n-martedì"]),
+  ];
+  expect(topicSentences(pool, ["n-lunedì", "n-martedì"]).map((s) => s.it)).toEqual(["Lunedì vado al mare.", "Martedì studio molto."]);
+});
+
+test("tema: întâi propozițiile cu cuvinte din temă deja începute, apoi restul; cel mult `size`", () => {
+  const known = sentence("Lunedì vado al mare.", [], ["n-lunedì"]);
+  const others = ["Martedì studio.", "Mercoledì lavoro.", "Giovedì esco."].map((it, i) => sentence(it, [], [`n-z${i}`]));
+  const round = buildTopicSentenceRound({
+    sentences: [...others, known],
+    topicWordIds: ["n-lunedì", "n-z0", "n-z1", "n-z2"],
+    knownWordIds: new Set(["n-lunedì"]),
+    size: 3,
+    random: () => 0.99,
+  });
+  expect(round).toHaveLength(3);
+  expect(round[0]!.it).toBe("Lunedì vado al mare.");
+});
+
+test("tema: capcanele vin din propozițiile aceleiași teme", () => {
+  const inTopic = [
+    sentence("Lunedì vado al mare.", [], ["n-lunedì"]),
+    sentence("Martedì studio molto.", [], ["n-martedì"]),
+  ];
+  const outside = sentence("Il gatto dorme sempre.", [], ["n-gatto"]);
+  const round = buildTopicSentenceRound({
+    sentences: [...inTopic, outside],
+    topicWordIds: ["n-lunedì", "n-martedì"],
+    knownWordIds: new Set(),
+    random: () => 0,
+  });
+  const lunedi = round.find((q) => q.it.startsWith("Lunedì"))!;
+  for (const d of lunedi.decoys) expect(["martedì", "studio", "molto"]).toContain(d);
 });

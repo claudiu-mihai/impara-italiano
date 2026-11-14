@@ -76,6 +76,11 @@ export function TopicPage() {
           <span aria-hidden="true">❓</span>
           {t("learn.quiz")}
         </Link>
+        {/* toate temele au propoziții (verificat la build), deci exercițiul apare peste tot */}
+        <Link to={`/learn/topics/${topic.id}/sentence`} className={`${outlined} col-span-2 text-lg`}>
+          <span aria-hidden="true">🧱</span>
+          {t("exercise.sentence")}
+        </Link>
         {topic.exercises.map((exercise) => (
           <Link key={exercise} to={`/learn/topics/${topic.id}/${exercise}`} className={`${outlined} col-span-2 text-lg`}>
             <span aria-hidden="true">{EXERCISE_ICON[exercise]}</span>

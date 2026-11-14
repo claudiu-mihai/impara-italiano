@@ -134,6 +134,7 @@ export const it: Record<Key, string> = {
   "exercise.numbers": "Ascolta e scrivi i numeri",
   "exercise.clock": "L'orologio",
   "exercise.cat": "Dov'è Lupino?",
+  "exercise.sentence": "Ricostruisci la frase",
   "mastery.new": "Nuovo",
   "mastery.learning": "In apprendimento",
   "mastery.mastered": "Padroneggiato",

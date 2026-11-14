@@ -554,3 +554,30 @@ test("Ordonează: după ultima întrebare apare rezultatul singur", async ({ pag
   }
   await expect(page.getByRole("link", { name: "Înapoi la temă" }).first()).toBeVisible({ timeout: 4000 });
 });
+
+test("Reconstruiește propoziția în temă: propoziții cu cuvintele temei, iar ✕ te întoarce la temă", async ({ page }) => {
+  interface SentenceData { ro: string; tokens: string[]; acceptedOrders: number[][]; wordIds: string[] }
+  const SENTENCES: SentenceData[] = JSON.parse(readFileSync("src/data/generated/sentences.json", "utf8"));
+  await setListenFirst(page, false); // varianta cu traducerea pe ecran, ca să știm propoziția
+  const t = topic("zilele-saptamanii");
+  const ids = new Set(wordIdsOf(t));
+
+  await page.goto(`/learn/topics/${t.id}`);
+  await page.getByRole("link", { name: "Reconstruiește propoziția" }).click();
+  await expect(page).toHaveURL(new RegExp(`/learn/topics/${t.id}/sentence$`));
+  await expect(page.getByText("Scrie în italiană:")).toBeVisible();
+
+  const ro = (await page.locator("p[lang=ro]").first().textContent())!;
+  const sentence = SENTENCES.find((s) => s.ro === ro && s.wordIds.some((id) => ids.has(id)));
+  expect(sentence, `„${ro}” e o propoziție cu un cuvânt din temă`).toBeTruthy();
+
+  const bank = page.getByRole("group", { name: "Cuvinte disponibile" }).getByRole("button");
+  for (const word of sentence!.acceptedOrders[0]!.map((i) => sentence!.tokens[i]!)) {
+    await bank.filter({ hasText: new RegExp(`^${word}$`) }).first().click();
+  }
+  await page.getByRole("button", { name: "Verifică" }).click();
+  await expect(page.getByText("Corect!")).toBeVisible();
+
+  await page.getByRole("link", { name: "Ieși din sesiune" }).click();
+  await expect(page.getByRole("heading", { name: t.title.ro, level: 1 })).toBeVisible();
+});

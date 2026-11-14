@@ -64,11 +64,51 @@ export function buildSentenceRound({
   const eligible = sentences.filter((s) => s.wordIds.some((id) => knownWordIds.has(id)));
   return shuffle(eligible, random)
     .slice(0, size)
-    .map((s) => ({
-      ...s,
-      decoys: pickDecoys(s, sentences, decoyCount(s), random),
-      listen: random() < LISTEN_SHARE,
-    }));
+    .map((s) => toQuestion(s, sentences, random));
+}
+
+/** Întrebarea dintr-o propoziție: capcanele se aleg din `decoyPool`, iar jumătate din întrebări se dau din auz. */
+function toQuestion(sentence: SentenceItem, decoyPool: readonly SentenceItem[], random: Random): SentenceQuestion {
+  return {
+    ...sentence,
+    decoys: pickDecoys(sentence, decoyPool, decoyCount(sentence), random),
+    listen: random() < LISTEN_SHARE,
+  };
+}
+
+/** O temă are exercițiul „Reconstruiește propoziția” când are cel puțin atâtea propoziții. */
+export const TOPIC_SENTENCE_MIN = 3;
+
+/** Propozițiile care conțin cel puțin un cuvânt al temei. */
+export function topicSentences<T extends SentenceItem>(sentences: readonly T[], topicWordIds: readonly string[]): T[] {
+  const inTopic = new Set(topicWordIds);
+  return sentences.filter((s) => s.wordIds.some((id) => inTopic.has(id)));
+}
+
+/**
+ * Runda „Reconstruiește propoziția” dintr-o temă: întâi propozițiile cu cuvinte din temă deja începute, apoi restul
+ * (fiecare grup amestecat); cel mult `size`. Capcanele vin din propozițiile aceleiași teme (ex. *martedì* printre
+ * blocurile unei propoziții cu *lunedì*), care seamănă mai mult între ele decât niște cuvinte luate la întâmplare.
+ */
+export function buildTopicSentenceRound({
+  sentences,
+  topicWordIds,
+  knownWordIds,
+  size = SENTENCE_ROUND_SIZE,
+  random = Math.random,
+}: {
+  sentences: readonly SentenceItem[];
+  topicWordIds: readonly string[];
+  knownWordIds: ReadonlySet<string>;
+  size?: number;
+  random?: Random;
+}): SentenceQuestion[] {
+  const inTopic = new Set(topicWordIds);
+  const pool = topicSentences(sentences, topicWordIds);
+  const started = (s: SentenceItem) => s.wordIds.some((id) => inTopic.has(id) && knownWordIds.has(id));
+  return [...shuffle(pool.filter(started), random), ...shuffle(pool.filter((s) => !started(s)), random)]
+    .slice(0, size)
+    .map((s) => toQuestion(s, pool, random));
 }
 
 const keyOf = (sentence: SentenceItem, order: readonly number[]) =>
