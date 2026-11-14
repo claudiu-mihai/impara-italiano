@@ -1,7 +1,8 @@
 import { expect, test } from "@playwright/test";
-import { mockSpeech, spoken } from "./helpers.ts";
+import { mockSpeech, spoken, setWordOrder } from "./helpers.ts";
 
 test("Flashcards IT → RO: cuvântul italian se aude singur când apare cardul, o singură dată", async ({ page }) => {
+  await setWordOrder(page, "frequency");
   await mockSpeech(page);
   await page.goto("/settings");
   await page.getByLabel("Direcția cardurilor").selectOption("it-ro");
@@ -16,6 +17,7 @@ test("Flashcards IT → RO: cuvântul italian se aude singur când apare cardul,
 });
 
 test("Flashcards RO → IT: cuvântul italian se aude când întorci cardul", async ({ page }) => {
+  await setWordOrder(page, "frequency");
   await mockSpeech(page);
   await page.goto("/settings");
   await page.getByLabel("Direcția cardurilor").selectOption("ro-it");
@@ -28,6 +30,7 @@ test("Flashcards RO → IT: cuvântul italian se aude când întorci cardul", as
 });
 
 test("cu „Audio automat” oprit nu se aude nimic până la apăsarea pe 🔊", async ({ page }) => {
+  await setWordOrder(page, "frequency");
   await mockSpeech(page);
   await page.goto("/settings");
   await page.getByLabel("Direcția cardurilor").selectOption("it-ro");

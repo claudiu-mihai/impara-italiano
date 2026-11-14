@@ -5,8 +5,9 @@
     "ro": "Familia"
   },
   "group": "oameni",
-  "level": "A2",
+  "level": "A1",
   "first": false,
+  "path": 8,
   "rules": [
     {
       "it": "Con i parenti al singolare il possessivo va senza articolo: «mia madre», «mio fratello»; al plurale con l'articolo: «i miei fratelli». Con i diminutivi l'articolo resta: «la mia mamma».",
