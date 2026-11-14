@@ -1,0 +1,71 @@
+{
+  "id": "verbi-modali",
+  "order": 18,
+  "title": "Verbele modale (dovere, potere, volere)",
+  "level": "A2",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "[it]Dovere[/it] (a trebui), [it]potere[/it] (a putea) și [it]volere[/it] (a vrea) sunt urmate direct de [b]infinitiv[/b]: [it]Devo andare.[/it] = Trebuie să plec. Unde româna spune „să + verb”, italiana pune infinitivul, fără nimic între ele."
+    },
+    {
+      "type": "table",
+      "caption": "Prezentul verbelor modale",
+      "head": ["persoana", "dovere", "potere", "volere"],
+      "itColumns": [0, 1, 2, 3],
+      "rows": [
+        ["io", "devo", "posso", "voglio"],
+        ["tu", "devi", "puoi", "vuoi"],
+        ["lui / lei", "deve", "può", "vuole"],
+        ["noi", "dobbiamo", "possiamo", "vogliamo"],
+        ["voi", "dovete", "potete", "volete"],
+        ["loro", "devono", "possono", "vogliono"]
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "Toate trei sunt neregulate, deci merită învățate pe de rost. Pentru o cerere politicoasă se folosește condiționalul: [it]Vorrei un caffè.[/it] = Aș vrea o cafea. [it]Potrebbe ripetere?[/it] = Ați putea repeta?"
+    },
+    {
+      "type": "examples",
+      "items": [
+        {"it": "Devo lavorare domani.", "ro": "Trebuie să lucrez mâine."},
+        {"it": "Posso entrare?", "ro": "Pot să intru?"},
+        {"it": "Vuoi un gelato?", "ro": "Vrei o înghețată?", "note": "[it]volere[/it] + substantiv, fără infinitiv"},
+        {"it": "Non possiamo venire stasera.", "ro": "Nu putem veni diseară."},
+        {"it": "Vorrei prenotare un tavolo.", "ro": "Aș vrea să rezerv o masă.", "note": "cerere politicoasă: [it]vorrei[/it]"}
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "Nu traduce „să”: „trebuie să plec” = [it]devo partire[/it], fără niciun cuvânt între verbe. Și „a trebui” se conjugă la persoana potrivită: [it]Dobbiamo andare.[/it] = Trebuie să mergem, nu „deve andiamo”."
+    }
+  ],
+  "rules": [
+    "Modal + infinitiv, fără „să”: devo andare (trebuie să merg), posso entrare (pot să intru), voglio dormire (vreau să dorm).",
+    "Forme: devo, devi, deve, dobbiamo, dovete, devono; posso, puoi, può, possiamo, potete, possono; voglio, vuoi, vuole, vogliamo, volete, vogliono.",
+    "Cerere politicoasă: vorrei (aș vrea), potrebbe (ați putea, formal)."
+  ],
+  "items": [
+    {"id": "mo-01", "it": "Devo partire domani.", "gap": "Devo", "ro": "Trebuie să plec mâine."},
+    {"id": "mo-02", "it": "Posso entrare?", "gap": "Posso", "ro": "Pot să intru?"},
+    {"id": "mo-03", "it": "Vuoi un caffè?", "gap": "Vuoi", "ro": "Vrei o cafea?"},
+    {"id": "mo-04", "it": "Non possiamo venire stasera.", "gap": "possiamo", "ro": "Nu putem veni diseară."},
+    {"id": "mo-05", "it": "Dobbiamo studiare di più.", "gap": "Dobbiamo", "ro": "Trebuie să învățăm mai mult."},
+    {"id": "mo-06", "it": "Lei vuole imparare l'italiano.", "gap": "vuole", "ro": "Ea vrea să învețe italiana."},
+    {"id": "mo-07", "it": "Potete aiutarmi?", "gap": "Potete", "ro": "Mă puteți ajuta?"},
+    {"id": "mo-08", "it": "I bambini devono dormire.", "gap": "devono", "ro": "Copiii trebuie să doarmă."},
+    {"id": "mo-09", "it": "Voglio vedere quel film.", "gap": "Voglio", "ro": "Vreau să văd filmul acela."},
+    {"id": "mo-10", "it": "Tu puoi parlare più piano?", "gap": "puoi", "ro": "Poți vorbi mai rar?", "note": "più piano = mai rar, mai încet"},
+    {"id": "mo-11", "it": "Vorrei un bicchiere d'acqua.", "gap": "Vorrei", "ro": "Aș vrea un pahar cu apă.", "note": "cerere politicoasă"},
+    {"id": "mo-12", "it": "Lui deve lavorare sabato.", "gap": "deve", "ro": "El trebuie să lucreze sâmbătă."},
+    {"id": "mo-13", "it": "Volete venire con noi?", "gap": "Volete", "ro": "Vreți să veniți cu noi?"},
+    {"id": "mo-14", "it": "Non può uscire stasera.", "gap": "può", "ro": "Nu poate ieși diseară."},
+    {"id": "mo-15", "it": "Dovete prendere il treno delle otto.", "gap": "Dovete", "ro": "Trebuie să luați trenul de la opt."},
+    {"id": "mo-16", "it": "Loro vogliono restare a casa.", "gap": "vogliono", "ro": "Ei vor să rămână acasă."},
+    {"id": "mo-17", "it": "Potrebbe ripetere, per favore?", "gap": "Potrebbe", "ro": "Ați putea repeta, vă rog?", "note": "formal, politicos (Lei)"},
+    {"id": "mo-18", "it": "Possono pagare con la carta.", "gap": "Possono", "ro": "Ei pot plăti cu cardul."},
+    {"id": "mo-19", "it": "Devi bere più acqua.", "gap": "Devi", "ro": "Trebuie să bei mai multă apă."},
+    {"id": "mo-20", "it": "Vogliamo prenotare un tavolo.", "gap": "Vogliamo", "ro": "Vrem să rezervăm o masă."}
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "id": "futuro-semplice",
+  "order": 17,
+  "title": "Viitorul (futuro semplice)",
+  "level": "A2",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "[it]Futuro semplice[/it] spune ce se va întâmpla: [it]Domani partirò.[/it] = Mâine voi pleca. E [b]un singur cuvânt[/b], cu terminația accentuată ([it]parlerò[/it]), nu două ca în română („voi vorbi”, „o să vorbesc”)."
+    },
+    {
+      "type": "table",
+      "caption": "Terminațiile viitorului",
+      "head": ["persoana", "-are (parlare)", "-ere (prendere)", "-ire (partire)"],
+      "itColumns": [0, 1, 2, 3],
+      "rows": [
+        ["io", "parlerò", "prenderò", "partirò"],
+        ["tu", "parlerai", "prenderai", "partirai"],
+        ["lui / lei", "parlerà", "prenderà", "partirà"],
+        ["noi", "parleremo", "prenderemo", "partiremo"],
+        ["voi", "parlerete", "prenderete", "partirete"],
+        ["loro", "parleranno", "prenderanno", "partiranno"]
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "La verbele în -are, [it]a[/it] devine [it]e[/it]: [it]parlare → parlerò[/it], [it]mangiare → mangerò[/it]. Neregulate frecvente: [it]essere → sarò[/it], [it]avere → avrò[/it], [it]fare → farò[/it], [it]andare → andrò[/it], [it]venire → verrò[/it], [it]potere → potrò[/it], [it]vedere → vedrò[/it]."
+    },
+    {
+      "type": "examples",
+      "items": [
+        {"it": "Domani ti chiamerò.", "ro": "Mâine te voi suna."},
+        {"it": "L'anno prossimo andremo in Italia.", "ro": "Anul viitor vom merge în Italia."},
+        {"it": "Sarà una bella giornata.", "ro": "Va fi o zi frumoasă."},
+        {"it": "Quando avrò tempo, leggerò quel libro.", "ro": "Când voi avea timp, voi citi cartea aceea.", "note": "după [it]quando[/it], tot viitor"},
+        {"it": "Che ore sono? Saranno le dieci.", "ro": "Cât e ceasul? Probabil e zece.", "note": "viitorul exprimă și o presupunere"}
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "În vorbire, italiana folosește des [b]prezentul[/b] pentru un plan apropiat: [it]Domani vado a Roma.[/it] = Mâine merg la Roma. Dar după [it]quando[/it] și [it]se[/it], când e vorba de viitor, pune viitorul acolo unde româna pune prezent: „când [b]ajung[/b]” = [it]quando arriverò[/it]."
+    }
+  ],
+  "rules": [
+    "Viitorul: -ò, -ai, -à, -emo, -ete, -anno (parlerò, prenderai, partirà); la -are, a devine e.",
+    "Neregulate frecvente: sarò, avrò, farò, andrò, verrò, potrò, vedrò.",
+    "Pentru un plan apropiat merge și prezentul (domani parto); după quando, viitor: quando arriverò."
+  ],
+  "items": [
+    {"id": "fu-01", "it": "Domani partirò presto.", "gap": "partirò", "ro": "Mâine voi pleca devreme."},
+    {"id": "fu-02", "it": "L'anno prossimo andremo in Italia.", "gap": "andremo", "ro": "Anul viitor vom merge în Italia.", "note": "andare → andrò (neregulat)"},
+    {"id": "fu-03", "it": "Sarà una bella giornata.", "gap": "Sarà", "ro": "Va fi o zi frumoasă.", "note": "essere → sarò (neregulat)"},
+    {"id": "fu-04", "it": "Ti chiamerò stasera.", "gap": "chiamerò", "ro": "Te voi suna diseară."},
+    {"id": "fu-05", "it": "Quando avrò tempo, leggerò quel libro.", "gap": "avrò", "ro": "Când voi avea timp, voi citi cartea aceea.", "note": "după quando, viitor"},
+    {"id": "fu-06", "it": "Voi verrete alla festa?", "gap": "verrete", "ro": "Veți veni la petrecere?", "note": "venire → verrò (neregulat)"},
+    {"id": "fu-07", "it": "Loro arriveranno alle nove.", "gap": "arriveranno", "ro": "Ei vor sosi la nouă."},
+    {"id": "fu-08", "it": "Farò del mio meglio.", "gap": "Farò", "ro": "Voi face tot ce pot.", "note": "fare → farò (neregulat)"},
+    {"id": "fu-09", "it": "Noi parleremo con il direttore.", "gap": "parleremo", "ro": "Vom vorbi cu directorul.", "note": "la -are, a devine e: parleremo"},
+    {"id": "fu-10", "it": "Potrai venire domani?", "gap": "Potrai", "ro": "Vei putea veni mâine?", "note": "potere → potrò (neregulat)"},
+    {"id": "fu-11", "it": "Che tempo farà domani?", "gap": "farà", "ro": "Ce vreme va fi mâine?"},
+    {"id": "fu-12", "it": "Quando arriverai a Roma, chiamami.", "gap": "arriverai", "ro": "Când ajungi la Roma, sună-mă.", "note": "româna: prezent; italiana: viitor"},
+    {"id": "fu-13", "it": "Saranno le dieci.", "gap": "Saranno", "ro": "Probabil e ora zece.", "note": "viitorul pentru o presupunere"},
+    {"id": "fu-14", "it": "Comprerò il pane domani.", "gap": "Comprerò", "ro": "Voi cumpăra pâine mâine."},
+    {"id": "fu-15", "it": "Vedrai che andrà tutto bene.", "gap": "andrà", "ro": "O să vezi că totul va fi bine."},
+    {"id": "fu-16", "it": "Mangeremo insieme sabato.", "gap": "Mangeremo", "ro": "Vom mânca împreună sâmbătă.", "note": "mangiare → mangerò, fără i"},
+    {"id": "fu-17", "it": "Tu cosa farai dopo la scuola?", "gap": "farai", "ro": "Tu ce vei face după școală?"},
+    {"id": "fu-18", "it": "Avremo bisogno di aiuto.", "gap": "Avremo", "ro": "Vom avea nevoie de ajutor.", "note": "avere → avrò (neregulat)"},
+    {"id": "fu-19", "it": "Lei finirà il lavoro entro venerdì.", "gap": "finirà", "ro": "Ea va termina lucrul până vineri."},
+    {"id": "fu-20", "it": "Il treno partirà in ritardo.", "gap": "partirà", "ro": "Trenul va pleca cu întârziere."}
+  ]
+}

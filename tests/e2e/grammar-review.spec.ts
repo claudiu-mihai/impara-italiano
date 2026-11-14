@@ -101,3 +101,24 @@ test("fără lecții scadente, Acasă nu are secțiunea de gramatică", async ({
   await expect(page.getByRole("link", { name: "Începe sesiunea" })).toBeVisible();
   await expect(page.getByRole("region", { name: "Gramatică de repetat" })).toHaveCount(0);
 });
+
+test("lecțiile A2 noi: în listă după cele A1, cu lecție și joc „Introducere text” care merge", async ({ page }) => {
+  const a2 = GRAMMAR.filter((t) => ["passato-prossimo", "verbi-riflessivi", "pronomi-diretti", "imperfetto", "futuro-semplice", "verbi-modali"].includes(t.id));
+  expect(a2).toHaveLength(6);
+  await page.goto("/learn/grammar");
+  const links = page.getByRole("list", { name: "Temele de gramatică" }).getByRole("link");
+  await expect(links).toHaveCount(18);
+  await expect(links.nth(12)).toContainText("Trecutul compus (passato prossimo)");
+  await expect(links.nth(12)).toContainText("A2");
+
+  // fiecare lecție nouă se deschide, cu „Capcană pentru români”
+  for (const topic of a2) {
+    await page.goto(`/learn/grammar/${topic.id}`);
+    await expect(page.getByRole("heading", { name: topic.title, level: 1 })).toBeVisible();
+    await expect(page.getByText("Capcană pentru români").first()).toBeVisible();
+  }
+
+  // o rundă completă la passato prossimo
+  await page.goto("/learn/grammar/passato-prossimo/type");
+  await playTypeRound(page, GRAMMAR.find((t) => t.id === "passato-prossimo")!);
+});
