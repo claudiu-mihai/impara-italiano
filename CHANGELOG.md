@@ -4,6 +4,21 @@ Formatul urmează [Keep a Changelog](https://keepachangelog.com/ro/1.1.0/), iar 
 [versionarea semantică](https://semver.org/lang/ro/). Intrările noi sunt scrise automat de release-please din
 commit-urile `feat:` / `fix:` (vezi README, „Versionare și release-uri”).
 
+## [1.14.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.13.0...v1.14.0) (2026-11-14)
+
+
+### Funcționalități
+
+* **grammar:** secțiunea Gramatică, cu lecții A1, progres și linkuri ([#40](https://github.com/claudiu-mihai/impara-italiano/issues/40)) ([4182bb2](https://github.com/claudiu-mihai/impara-italiano/commit/4182bb2c080d3fd9368b5dd19b78405ebf16a331))
+* **pedagogie:** Faza 1 – audio automat, quiz corectat, toleranță la scriere, progres pe nivel ([#42](https://github.com/claudiu-mihai/impara-italiano/issues/42)) ([b3d5b1c](https://github.com/claudiu-mihai/impara-italiano/commit/b3d5b1c650ba6c326af1bb1a8c20df29d83cfbff))
+* **pedagogie:** Faza 2 – ascultare (card, quiz, propoziții, potrivire din auz) ([#43](https://github.com/claudiu-mihai/impara-italiano/issues/43)) ([5063ab9](https://github.com/claudiu-mihai/impara-italiano/commit/5063ab9f6cbc8f0f5ff70ec8106ed29d5f173df7))
+* **topics:** cuvinte noi în 39 de teme, din lexiconul existent ([#38](https://github.com/claudiu-mihai/impara-italiano/issues/38)) ([42732ed](https://github.com/claudiu-mihai/impara-italiano/commit/42732ed9f007de904062f8d7ae02d1be42683ebb))
+
+
+### Documentație
+
+* **ux:** planul de îmbunătățiri după review-ul UX ([#41](https://github.com/claudiu-mihai/impara-italiano/issues/41)) ([77acfa5](https://github.com/claudiu-mihai/impara-italiano/commit/77acfa5028c2311f680be0bef155dd381dffea9c))
+
 ## [1.13.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.12.0...v1.13.0) (2026-10-26)
 
 
