@@ -128,7 +128,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 
 5. **Teme (vocabular grupat):**
    * Liste de cuvinte uzuale **alcătuite și ordonate manual** (luni → duminică, nu după frecvență), spre deosebire de tag-urile din Dicționar, care sunt doar etichete.
-   * **Acces:** card „Teme” în pagina Învață (`/learn/topics`) și link „Vezi tema” pe pagina cuvântului. Un cuvânt atins în lista unei teme deschide pagina lui din Dicționar, iar butonul „Înapoi” de sus se întoarce la tema respectivă (un pas în istoric, nu o intrare nouă); deschisă din Dicționar sau direct, pagina cuvântului are „Înapoi la Dicționar”.
+   * **Acces:** card „Teme” în pagina Învață (`/learn/topics`) și link „Vezi tema” pe pagina cuvântului. Lista de teme e grupată pe cele 7 categorii, **pliabile**: toate închise la prima vizită, fiecare cu numărul de teme; ce deschizi rămâne deschis la următoarea vizită (`localStorage`, doar pe acel dispozitiv). Un cuvânt atins în lista unei teme deschide pagina lui din Dicționar, iar butonul „Înapoi” de sus se întoarce la tema respectivă (un pas în istoric, nu o intrare nouă); deschisă din Dicționar sau direct, pagina cuvântului are „Înapoi la Dicționar”.
    * **O temă are:**
      * **Fișa temei** — cuvintele pe subgrupe, cu 🔊, și 2–4 reguli scurte pentru vorbitori de română (ex. *lunedì* = luni, dar *il lunedì* = lunea; *il primo maggio*, dar *il due maggio*; *sono le tre*, dar *è l'una*; *fa caldo*, nu *è caldo*; *sul tavolo*, *davanti **a***).
      * **Studiază tema** — Flashcards și Quiz doar cu cuvintele temei (scadente + noi), pe aceleași carduri FSRS ca restul aplicației: progresul este comun.

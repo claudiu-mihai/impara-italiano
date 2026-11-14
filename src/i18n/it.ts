@@ -270,6 +270,8 @@ export const it: Record<Key, string> = {
   "lang.ro": "Rumeno",
   "topics.intro": "Parole di uso comune raggruppate per argomento, in un ordine naturale (lunedì → domenica), con regole brevi ed esercizi.",
   "topics.progress": "{started} su {total} iniziate · {mastered} padroneggiate",
+  "topics.count_one": "{n} tema",
+  "topics.count_other": "{n} temi",
   "topics.progressWords": "{started} su {total} parole iniziate · {mastered} padroneggiate",
   "topics.notFound": "Il tema non esiste",
   "topics.backToList": "Torna ai temi",

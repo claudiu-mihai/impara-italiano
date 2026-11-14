@@ -9,6 +9,8 @@ test("la A1 Temele arată italiana mare, cu limba maternă dedesubt", async ({ p
   await expect(page.getByRole("heading", { name: /Tempo/, level: 2 })).toContainText("Timp");
   await expect(page.getByRole("heading", { name: /Vita quotidiana/, level: 2 })).toContainText("Zi de zi");
 
+  // categoriile sunt închise la început
+  await page.getByRole("heading", { name: /Tempo/, level: 2 }).click();
   const link = page.getByRole("link", { name: /I giorni della settimana/ });
   await expect(link).toContainText("Zilele săptămânii");
   // textul italian e marcat ca italiană, pentru cititoarele de ecran
@@ -76,6 +78,7 @@ test("oprită din Setări, Temele și „De reținut” arată doar italiana", a
   await page.goto("/learn/topics");
   await expect(page.getByRole("heading", { name: "Tempo", level: 2, exact: true })).toBeVisible();
   await expect(page.getByText("Timp", { exact: true })).toHaveCount(0);
+  await page.getByRole("heading", { name: "Tempo", level: 2, exact: true }).click();
   const link = page.getByRole("link", { name: /I giorni della settimana/ });
   await expect(link).toBeVisible();
   await expect(link).not.toContainText("Zilele săptămânii");
