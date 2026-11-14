@@ -16,6 +16,7 @@ import { newStoredCard, previewDue, reviewStoredCard } from "../../domain/srs/sc
 import type { StoredCard } from "../../domain/srs/types.ts";
 import { studyDayOf } from "../../domain/time/studyDay.ts";
 import { useSessionStore } from "../../store/sessionStore.ts";
+import { useListening } from "../../ui/useListening.ts";
 import { useReturnToOrigin } from "../../ui/useReturnToOrigin.ts";
 import { WordCard } from "./WordCard.tsx";
 import { Lupino } from "../../ui/mascot/Lupino.tsx";
@@ -48,6 +49,7 @@ export function FlashcardsPage() {
   const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS);
   const [current, setCurrent] = useState<CurrentCard>();
   const busy = useRef(false);
+  const listening = useListening(settings.listenFirst);
 
   useEffect(() => {
     if (topicId && !topic) return; // temele nu s-au încărcat încă
@@ -199,6 +201,8 @@ export function FlashcardsPage() {
         direction={item.variant}
         rate={settings.ttsRate}
         autoPlay={settings.autoPlayAudio}
+        // cuvintele noi se prezintă cu text și audio; „ascultă întâi” e pentru cele începute
+        listen={listening && !item.isNew}
         flipped={flipped}
         onFlip={flip}
         onSwipe={(grade) => void rate(grade)}

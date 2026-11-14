@@ -1,4 +1,5 @@
-import { useMemo, useState } from "react";
+import { useLiveQuery } from "dexie-react-hooks";
+import { useEffect, useMemo, useState } from "react";
 import { useContent } from "../../app/content.tsx";
 import { db } from "../../data/db/instance.ts";
 import { getSettings } from "../../data/db/repositories.ts";
@@ -7,6 +8,7 @@ import { shuffle } from "../../domain/random.ts";
 import { buildFollowQuestions, isNextInSequence } from "../../domain/topics/exercises.ts";
 import { useT } from "../../i18n/index.ts";
 import { playFeedback } from "../../services/sound.ts";
+import { speak } from "../../services/tts.ts";
 import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
 import { useTopic } from "./useTopic.ts";
@@ -21,6 +23,9 @@ export function OrderPage() {
   }
   return <OrderGame key={id} topicId={topic.id} sequence={topic.sequence} cyclic={topic.cyclic ?? false} />;
 }
+
+/** După răspuns la „Ce urmează după…?”, trece singur la următoarea întrebare după atâta timp; nu există buton „Continuă”. */
+export const AUTO_NEXT_MS = 2000;
 
 function OrderGame({ topicId, sequence, cyclic }: { topicId: string; sequence: string[]; cyclic: boolean }) {
   const { t, tp } = useT();
@@ -50,10 +55,17 @@ function OrderGame({ topicId, sequence, cyclic }: { topicId: string; sequence: s
     return word ? italianText(word) : wordId;
   };
   const sound = async (correct: boolean) => playFeedback(correct, (await getSettings(db)).soundEnabled);
+  // „Audio la atingere în jocuri”: cuvântul italian atins se aude (până se încarcă setările, nu se aude)
+  const settings = useLiveQuery(() => getSettings(db), []);
+  const hear = (wordId: string) => {
+    const word = content.byId(wordId);
+    if (settings?.tapAudio && word) speak(italianText(word), settings.ttsRate);
+  };
 
   const arranging = placed.length < sequence.length;
 
   const place = (wordId: string) => {
+    hear(wordId);
     if (isNextInSequence(sequence, placed, wordId)) {
       void sound(true);
       setPlaced([...placed, wordId]);
@@ -66,6 +78,17 @@ function OrderGame({ topicId, sequence, cyclic }: { topicId: string; sequence: s
   };
 
   const question = questions[qIndex];
+
+  const nextQuestion = () => {
+    setSelected(undefined);
+    setQIndex((i) => i + 1);
+  };
+  // cronometrul pornește la fiecare răspuns și se anulează dacă ieși din joc
+  useEffect(() => {
+    if (selected === undefined) return;
+    const timer = setTimeout(nextQuestion, AUTO_NEXT_MS);
+    return () => clearTimeout(timer);
+  }, [selected, qIndex]);
 
   if (!arranging && !question) {
     return (
@@ -130,6 +153,7 @@ function OrderGame({ topicId, sequence, cyclic }: { topicId: string; sequence: s
   const answered = selected !== undefined;
   const choose = (wordId: string) => {
     if (answered) return;
+    hear(wordId);
     setSelected(wordId);
     const correct = wordId === question!.correctId;
     void sound(correct);
@@ -172,16 +196,6 @@ function OrderGame({ topicId, sequence, cyclic }: { topicId: string; sequence: s
       {answered && (
         <div className="mt-auto flex flex-col gap-3" aria-live="polite">
           <p className="text-center font-semibold">{selected === question!.correctId ? t("conj.correct") : t("quiz.notQuite")}</p>
-          <button
-            type="button"
-            className={`${primaryButton} w-full`}
-            onClick={() => {
-              setSelected(undefined);
-              setQIndex((i) => i + 1);
-            }}
-          >
-            {qIndex + 1 < questions.length ? t("common.continue") : t("common.seeResult")}
-          </button>
         </div>
       )}
     </div>

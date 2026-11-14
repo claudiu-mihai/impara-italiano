@@ -123,3 +123,28 @@ test("în quizul unei teme, cuvintele fără card nu creează carduri, iar cele 
   const graded = Object.fromEntries(round.map((q) => [q.wordId, q.graded]));
   expect(graded).toEqual({ "v-parlare": true, "v-dire": false, "v-andare": false });
 });
+
+test("din auz: jumătate din întrebările IT → RO ascund textul, cele RO → IT niciodată", () => {
+  const cards = [card("v-parlare"), card("v-dire"), card("v-andare")];
+  const always = buildQuizRound({ now: NOW, direction: "it-ro", cards, words, random: () => 0 });
+  expect(always.every((q) => q.listen)).toBe(true);
+  const never = buildQuizRound({ now: NOW, direction: "it-ro", cards, words, random: () => 0.99 });
+  expect(never.every((q) => !q.listen)).toBe(true);
+
+  const reverse = cards.map((c) => ({ ...c, cardId: vocabCardId(c.wordId, "ro-it"), variant: "ro-it" as const }));
+  const ro = buildQuizRound({ now: NOW, direction: "ro-it", cards: reverse, words, random: () => 0 });
+  expect(ro.every((q) => !q.listen)).toBe(true);
+});
+
+test("din auz: și quiz-ul unei teme marchează întrebările IT → RO", () => {
+  const cards = [card("v-parlare")];
+  const round = buildTopicQuizRound({
+    now: NOW,
+    direction: "it-ro",
+    cards,
+    topicWords: words.slice(0, 3),
+    words,
+    random: () => 0,
+  });
+  expect(round.every((q) => q.listen)).toBe(true);
+});

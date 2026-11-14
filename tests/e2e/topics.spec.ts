@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { expect, test, type Locator, type Page } from "@playwright/test";
 import { numberToItalian } from "../../src/domain/skills/numbers.ts";
 import { formatDigital, timePhrase } from "../../src/domain/skills/time.ts";
-import { WORDS, type WordData } from "./helpers.ts";
+import { mockSpeech, seedLearnedWords, setListenFirst, spoken, WORDS, type WordData } from "./helpers.ts";
 
 interface TopicData {
   id: string;
@@ -88,6 +88,7 @@ test("Studiază tema: doar cuvintele temei, progres comun cu restul aplicației"
 });
 
 test("Quiz pe temă: întrebări din cuvintele temei; o grilă nu creează carduri", async ({ page }) => {
+  await setListenFirst(page, false);
   const t = topic("culori");
   const allowedRo = new Set(wordIdsOf(t).map((id) => byId(id).it));
   await page.goto(`/learn/topics/${t.id}/quiz`);
@@ -359,4 +360,134 @@ test("pagina temei: butoanele și „Da ricordare” apar înaintea listei de cu
   expect(await top(rules)).toBeLessThan(wordTop);
   // butoanele sunt la vedere fără derulare, pe un telefon obișnuit
   await expect(actions.getByRole("link", { name: /Studiază/ })).toBeInViewport();
+});
+
+test("Quiz din auz: cuvântul se aude, textul italian apare abia după răspuns", async ({ page }) => {
+  await mockSpeech(page);
+  await page.addInitScript(() => {
+    Math.random = () => 0; // toate întrebările IT → RO se dau din auz
+  });
+  const t = topic("culori");
+  const ids = wordIdsOf(t);
+  await seedLearnedWords(page, ids, -1);
+  await page.goto(`/learn/topics/${t.id}/quiz`);
+  await expect(page.getByRole("group", { name: "Variante de răspuns" })).toBeVisible();
+  await expect(page.getByText("Ascultă. Ce înseamnă?")).toBeVisible();
+  await expect(page.locator("p.text-4xl")).toHaveCount(0);
+  await expect.poll(async () => (await spoken(page)).length).toBe(1);
+
+  await page.getByRole("group", { name: "Variante de răspuns" }).getByRole("button").first().click();
+  await expect(page.locator("p.text-4xl")).toHaveText(new RegExp(`^${(await spoken(page))[0]}$`));
+});
+
+test("Potrivește din auz: coloana italiană are doar butoane de audio, textul apare după potrivire", async ({ page }) => {
+  await mockSpeech(page);
+  const t = topic("culori");
+  const roOf = new Map(wordIdsOf(t).map((id) => [italian(byId(id)), byId(id).ro]));
+  await page.goto(`/learn/topics/${t.id}/match`);
+  // implicit exercițiul e cu text; „Din auz” se pornește din comutator
+  await expect(page.getByRole("heading", { name: "Potrivește perechile" })).toBeVisible();
+  await page.getByRole("button", { name: "🔊 Din auz" }).click();
+  await expect(page.getByRole("heading", { name: "Ascultă și potrivește cu traducerea" })).toBeVisible();
+  const left = page.getByRole("group", { name: "Italiană" });
+  const right = page.getByRole("group", { name: "Română" });
+  await expect(left.getByRole("button")).toHaveCount(5);
+  await expect(left.getByRole("button", { name: /^Cuvântul \d: apasă ca să asculți$/ })).toHaveCount(5);
+
+  const first = left.getByRole("button", { name: "Cuvântul 1: apasă ca să asculți" });
+  await first.click();
+  await expect.poll(async () => (await spoken(page)).length).toBe(1);
+  const label = (await spoken(page))[0]!;
+  await right.getByRole("button", { name: roOf.get(label)!, exact: true }).click();
+  // după potrivire cuvântul se vede
+  await expect(left.getByRole("button", { name: label, exact: true })).toBeDisabled();
+
+  // același comutator revine la varianta cu text, de la început
+  await page.getByRole("button", { name: "🔊 Din auz" }).click();
+  await expect(page.getByRole("heading", { name: "Potrivește perechile" })).toBeVisible();
+  await expect(left.getByRole("button", { name: label, exact: true })).toBeEnabled();
+});
+
+test("Potrivește cu text: cuvântul italian ales se aude, iar cu „Audio la atingere în jocuri” oprit nu", async ({ page }) => {
+  await mockSpeech(page);
+  const t = topic("culori");
+  await page.goto(`/learn/topics/${t.id}/match`);
+  const left = page.getByRole("group", { name: "Italiană" });
+  const right = page.getByRole("group", { name: "Română" });
+  await expect(left.getByRole("button")).toHaveCount(5);
+
+  const first = left.getByRole("button").first();
+  const label = (await first.textContent())!;
+  await first.click();
+  await expect.poll(() => spoken(page)).toEqual([label]);
+  // coloana română nu redă nimic
+  await right.getByRole("button").first().click();
+  expect(await spoken(page)).toEqual([label]);
+
+  // cu „Audio la atingere în jocuri” oprit, tap-ul pe un cuvânt italian nu mai redă
+  await page.goto("/settings");
+  await page.getByLabel("Audio la atingere în jocuri").click();
+  await expect(page.getByLabel("Audio la atingere în jocuri")).not.toBeChecked();
+  await page.goto(`/learn/topics/${t.id}/match`);
+  await expect(left.getByRole("button")).toHaveCount(5);
+  const before = (await spoken(page)).length;
+  await left.getByRole("button").nth(1).click();
+  await page.waitForTimeout(300);
+  expect((await spoken(page)).length).toBe(before);
+});
+
+test("Ordonează: elementul atins se aude, iar cu „Audio la atingere în jocuri” oprit nu", async ({ page }) => {
+  await mockSpeech(page);
+  const t = topic("zilele-saptamanii");
+  await page.goto(`/learn/topics/${t.id}/order`);
+  await expect(page.getByRole("heading", { name: "Pune elementele în ordine" })).toBeVisible();
+  const items = page.getByRole("group", { name: "Elemente" }).getByRole("button");
+  await expect(items.first()).toBeVisible();
+
+  // și o atingere greșită se aude: e cuvântul atins
+  const first = (await items.first().textContent())!;
+  await items.first().click();
+  await expect.poll(() => spoken(page)).toEqual([first]);
+
+  await page.goto("/settings");
+  await page.getByLabel("Audio la atingere în jocuri").click();
+  await expect(page.getByLabel("Audio la atingere în jocuri")).not.toBeChecked();
+  await page.goto(`/learn/topics/${t.id}/order`);
+  await expect(items.first()).toBeVisible();
+  const before = (await spoken(page)).length;
+  await items.first().click();
+  await page.waitForTimeout(300);
+  expect((await spoken(page)).length).toBe(before);
+});
+
+test("Ordonează: după răspuns trece singur la următoarea întrebare în 2 secunde, fără buton „Continuă”", async ({ page }) => {
+  const t = topic("zilele-saptamanii");
+  await page.goto(`/learn/topics/${t.id}/order`);
+  const group = page.getByRole("group", { name: "Elemente de ordonat" });
+  for (const id of t.sequence!) await group.getByRole("button", { name: italian(byId(id)), exact: true }).click();
+  await expect(page.getByTestId("follow-prompt")).toBeVisible();
+  await expect(page.getByText(/^1 \/ \d+$/)).toBeVisible();
+
+  // orice răspuns, corect sau greșit, arată rezultatul și apoi merge mai departe fără apăsare
+  await page.getByRole("group", { name: "Variante de răspuns" }).getByRole("button").first().click();
+  await expect(page.getByText(/^(Corect!|Nu chiar\.?.*)$/)).toBeVisible();
+  await expect(page.getByRole("button", { name: /^(Continuă|Vezi rezultatul)$/ })).toHaveCount(0);
+  await expect(page.getByText(/^1 \/ \d+$/)).toBeVisible();
+  await expect(page.getByText(/^2 \/ \d+$/)).toBeVisible({ timeout: 4000 });
+});
+
+test("Ordonează: după ultima întrebare apare rezultatul singur", async ({ page }) => {
+  const t = topic("zilele-saptamanii");
+  await page.goto(`/learn/topics/${t.id}/order`);
+  const group = page.getByRole("group", { name: "Elemente de ordonat" });
+  for (const id of t.sequence!) await group.getByRole("button", { name: italian(byId(id)), exact: true }).click();
+  await expect(page.getByTestId("follow-prompt")).toBeVisible();
+  const total = Number((await page.getByText(/^1 \/ \d+$/).textContent())!.split("/")[1]);
+  expect(total).toBeGreaterThan(1);
+
+  for (let n = 1; n <= total; n++) {
+    await page.getByRole("group", { name: "Variante de răspuns" }).getByRole("button").first().click();
+    if (n < total) await expect(page.getByText(new RegExp(`^${n + 1} / ${total}$`))).toBeVisible({ timeout: 4000 });
+  }
+  await expect(page.getByRole("link", { name: "Înapoi la temă" }).first()).toBeVisible({ timeout: 4000 });
 });

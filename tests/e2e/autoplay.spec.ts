@@ -1,33 +1,5 @@
-import { expect, test, type Page } from "@playwright/test";
-
-const LUCA = { name: "Luca (Enhanced)", lang: "it-IT", localService: true, voiceURI: "mac:luca" };
-
-/** Înlocuiește Web Speech API cu o variantă care înregistrează ce s-ar fi redat. */
-async function mockSpeech(page: Page) {
-  await page.addInitScript((voices) => {
-    const spoken: string[] = [];
-    (window as unknown as { __spoken: string[] }).__spoken = spoken;
-    class Utterance {
-      text: string;
-      constructor(text: string) {
-        this.text = text;
-      }
-    }
-    Object.defineProperty(window, "SpeechSynthesisUtterance", { value: Utterance, configurable: true });
-    Object.defineProperty(window, "speechSynthesis", {
-      configurable: true,
-      value: {
-        getVoices: () => voices,
-        speak: (u: Utterance) => spoken.push(u.text),
-        cancel: () => {},
-        addEventListener: () => {},
-        removeEventListener: () => {},
-      },
-    });
-  }, [LUCA]);
-}
-
-const spoken = (page: Page) => page.evaluate(() => (window as unknown as { __spoken: string[] }).__spoken);
+import { expect, test } from "@playwright/test";
+import { mockSpeech, spoken } from "./helpers.ts";
 
 test("Flashcards IT → RO: cuvântul italian se aude singur când apare cardul, o singură dată", async ({ page }) => {
   await mockSpeech(page);

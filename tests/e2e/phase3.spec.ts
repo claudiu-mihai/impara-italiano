@@ -1,7 +1,9 @@
 import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
+import { mockSpeech, setListenFirst, spoken } from "./helpers.ts";
 
 interface SentenceData {
+  it: string;
   ro: string;
   tokens: string[];
   acceptedOrders: number[][];
@@ -21,7 +23,7 @@ async function learnWords(page: Page, count: number) {
 }
 
 const bankButtons = (page: Page) => page.getByRole("group", { name: "Cuvinte disponibile" }).getByRole("button");
-const promptText = (page: Page) => page.getByText("Scrie în italiană:").locator("xpath=following-sibling::p");
+const promptText = (page: Page) => page.locator("p[lang=ro]");
 
 /** Pune în răspuns, pe rând, blocurile unei ordini date. */
 async function place(page: Page, words: string[]) {
@@ -34,6 +36,7 @@ test("fără cuvinte învățate nu există exerciții de reconstruire", async (
 });
 
 test("ordinea corectă primește „Corect!”, iar răspunsul greșit arată varianta corectă", async ({ page }) => {
+  await setListenFirst(page, false); // varianta cu text; cea din auz are testul ei
   await learnWords(page, 3);
   await page.goto("/learn/sentence");
   await expect(page.getByText(/^1 \/ \d+$/)).toBeVisible();
@@ -62,6 +65,7 @@ test("ordinea corectă primește „Corect!”, iar răspunsul greșit arată va
 });
 
 test("o variantă acceptată de ordine este recunoscută ca „Corect!”", async ({ page }) => {
+  await setListenFirst(page, false); // varianta cu text; cea din auz are testul ei
   await learnWords(page, 10); // limita zilnică; destule cuvinte ca să existe propoziții cu variante
   const withVariants = SENTENCES.filter((s) => s.acceptedOrders.length > 1);
   expect(withVariants.length).toBeGreaterThan(5);
@@ -86,6 +90,7 @@ test("o variantă acceptată de ordine este recunoscută ca „Corect!”", asyn
 });
 
 test("un cuvânt pus în răspuns poate fi scos, iar „Reia” golește răspunsul", async ({ page }) => {
+  await setListenFirst(page, false); // varianta cu text; cea din auz are testul ei
   await learnWords(page, 3);
   await page.goto("/learn/sentence");
   await expect(page.getByText("Scrie în italiană:")).toBeVisible(); // ecranul s-a încărcat
@@ -101,4 +106,50 @@ test("un cuvânt pus în răspuns poate fi scos, iar „Reia” golește răspun
   await bankButtons(page).first().click();
   await page.getByRole("button", { name: "Reia" }).click();
   await expect(bankButtons(page)).toHaveCount(total);
+});
+
+test("din auz: se aude propoziția, traducerea apare după răspuns, iar capcanele strică răspunsul", async ({ page }) => {
+  await mockSpeech(page);
+  await page.addInitScript(() => {
+    Math.random = () => 0; // toate propozițiile se dau din auz
+  });
+  await learnWords(page, 3);
+  await page.goto("/learn/sentence");
+  await expect(page.getByText("Ascultă și scrie în italiană:")).toBeVisible();
+  await expect(page.getByText("Atenție: unele cuvinte nu fac parte din propoziție.")).toBeVisible();
+  // traducerea nu se vede înainte de răspuns
+  await expect(page.locator("p[lang=ro]")).toHaveCount(0);
+
+  await expect.poll(async () => (await spoken(page)).length).toBeGreaterThan(0);
+  const heard = (await spoken(page)).at(-1)!;
+  const sentence = SENTENCES.find((s) => s.it === heard)!;
+  expect(sentence, `propoziția auzită „${heard}” există în date`).toBeTruthy();
+  // blocurile propoziției plus cel puțin o capcană
+  expect(await bankButtons(page).count()).toBeGreaterThan(sentence.tokens.length);
+
+  // o capcană în loc de ultimul cuvânt: greșit
+  const own = sentence.acceptedOrders[0]!.map((i) => sentence.tokens[i]!);
+  const decoy = (await bankButtons(page).allTextContents()).find((t) => !own.includes(t))!;
+  await place(page, own.slice(0, -1));
+  await bankButtons(page).filter({ hasText: new RegExp(`^${decoy}$`) }).first().click();
+  await page.getByRole("button", { name: "Verifică" }).click();
+  await expect(page.getByText("Nu chiar. Varianta corectă:")).toBeVisible();
+  await expect(page.locator("p[lang=ro]").first()).toHaveText(sentence.ro);
+});
+
+test("din auz: răspunsul corect, fără capcane, primește „Corect!”", async ({ page }) => {
+  await mockSpeech(page);
+  await page.addInitScript(() => {
+    Math.random = () => 0;
+  });
+  await learnWords(page, 3);
+  await page.goto("/learn/sentence");
+  await expect.poll(async () => (await spoken(page)).length).toBeGreaterThan(0);
+  const heard = (await spoken(page)).at(-1);
+  const sentence = SENTENCES.find((s) => s.it === heard)!;
+  await place(page, sentence.acceptedOrders[0]!.map((i) => sentence.tokens[i]!));
+  // răspunsul e complet: capcanele rămase nu se mai pot adăuga
+  await expect(bankButtons(page).first()).toBeDisabled();
+  await page.getByRole("button", { name: "Verifică" }).click();
+  await expect(page.getByText("Corect!")).toBeVisible();
 });

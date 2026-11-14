@@ -50,6 +50,19 @@ Fazele 1–3 schimbă fiecare sesiune zilnică fără conținut nou. Fazele 4 ș
 
 Nu intră în Faza 1: tipuri noi de card (Faza 2), conținut nou (Fazele 3, 4, 6), setările pentru dislexie (Faza 7).
 
+## Faza 2 — Ascultare
+
+**Gata când:** testele unitare și E2E trec, `npx tsc --noEmit` trece, iar cele patru exerciții de mai jos se pot face din auz.
+
+O singură setare nouă, `listenFirst` (pornită implicit, inclusiv pentru setările deja salvate), care ține cardul, quiz-ul și propozițiile. Funcționează doar când dispozitivul poate reda italiană (`useListening`); altfel rămân cu text.
+
+1. **Card „ascultă întâi”.** La un card IT → RO deja început, fața arată 🔊 mare și „Arată textul”. Cuvântul se redă singur, indiferent de „Audio automat”. Cuvintele noi se introduc cu text și audio.
+2. **Quiz din auz.** Jumătate din întrebările IT → RO (`QuizQuestion.listen`) ascund textul până la răspuns. Notarea rămâne cea din Faza 1.
+3. **Propoziții din auz și cu capcane.** `SentenceQuestion` adaugă `decoys` (1 la propozițiile de 3 blocuri, 2 la restul, cuvinte din alte propoziții) și `listen` (jumătate). Răspunsul complet are exact blocurile propoziției; orice capcană îl face greșit.
+4. **Potrivire din auz.** Implicit rămâne cu text; cuvântul italian ales se aude, la fel ca la „Ordonează”, dacă „Audio la atingere în jocuri” (`tapAudio`, pornită implicit) e activă. Comutatorul „🔊 Din auz”, doar pentru runda curentă, înlocuiește coloana italiană cu butoane de audio; cuvântul se vede după potrivire.
+
+Fără schimbări de conținut: propozițiile (2928) și temele rămân cum sunt. Variantele cu text au rămas în aplicație (testele lor opresc „Ascultă întâi”).
+
 ## Reguli de lucru
 
 - Fiecare fază: un branch din `main` actualizat, un singur PR la final, fără push sau PR fără acordul meu.

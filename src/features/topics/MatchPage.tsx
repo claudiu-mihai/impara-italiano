@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useContent } from "../../app/content.tsx";
 import { db } from "../../data/db/instance.ts";
@@ -9,8 +9,11 @@ import { shuffle } from "../../domain/random.ts";
 import { useT } from "../../i18n/index.ts";
 import { playFeedback } from "../../services/sound.ts";
 import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
+import { DEFAULT_SETTINGS, type Settings } from "../../domain/settings.ts";
+import { speak } from "../../services/tts.ts";
 import { primaryButton, SessionDone } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
+import { useListening } from "../../ui/useListening.ts";
 import { useTopic } from "./useTopic.ts";
 
 /** Potrivește perechi: 5 perechi IT ↔ RO o dată; tap pe un cuvânt din fiecare coloană. */
@@ -41,6 +44,28 @@ function MatchGame({ topicId, wordIds }: { topicId: string; wordIds: string[] })
   const [right, setRight] = useState<string>();
   const [wrong, setWrong] = useState<{ left: string; right: string }>();
   const [mistakes, setMistakes] = useState(0);
+
+  // „Din auz”: coloana italiană devine butoane de audio. Implicit exercițiul e cu text; comutatorul „Din auz” e doar pentru runda curentă.
+  const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS);
+  useEffect(() => {
+    let alive = true;
+    void getSettings(db).then((s) => alive && setSettings(s));
+    return () => {
+      alive = false;
+    };
+  }, []);
+  const canListen = useListening(true);
+  const [audioChoice, setAudioChoice] = useState(false);
+  const fromAudio = canListen && audioChoice;
+  const toggleAudio = () => {
+    setAudioChoice(!fromAudio);
+    // altă formă a exercițiului: se reia de la prima rundă
+    setRoundIndex(0);
+    setMatched(new Set());
+    setLeft(undefined);
+    setRight(undefined);
+    setMistakes(0);
+  };
 
   const round = rounds[roundIndex];
   const rightOrder = useMemo(() => (round ? shuffle(round) : []), [round]);
@@ -112,6 +137,8 @@ function MatchGame({ topicId, wordIds }: { topicId: string; wordIds: string[] })
 
   const cell = (pair: MatchPair, side: "left" | "right") => {
     const done = matched.has(pair.wordId);
+    // din auz: cuvântul italian se vede doar după ce a fost potrivit
+    const hidden = fromAudio && side === "left" && !done;
     const selected = (side === "left" ? left : right) === pair.wordId;
     const isWrong = wrong && (side === "left" ? wrong.left : wrong.right) === pair.wordId;
     const style = done
@@ -127,10 +154,21 @@ function MatchGame({ topicId, wordIds }: { topicId: string; wordIds: string[] })
         type="button"
         disabled={done}
         aria-pressed={selected}
-        onClick={() => void choose(side, pair.wordId)}
+        aria-label={hidden ? t("match.listenWord", { n: round.indexOf(pair) + 1 }) : undefined}
+        onClick={() => {
+          // din auz, redarea e indiciul; cu text, cuvântul italian ales se aude dacă „Audio la atingere în jocuri” e pornit
+          if (side === "left" && (hidden || settings.tapAudio)) speak(pair.it, settings.ttsRate);
+          void choose(side, pair.wordId);
+        }}
         className={`min-h-16 rounded-xl border-2 px-3 text-lg font-medium ${style}`}
       >
-        <span lang={side === "left" ? "it" : NATIVE_LANGUAGE}>{side === "left" ? pair.it : pair.ro}</span>
+        {hidden ? (
+          <span aria-hidden="true" className="text-2xl">
+            🔊
+          </span>
+        ) : (
+          <span lang={side === "left" ? "it" : NATIVE_LANGUAGE}>{side === "left" ? pair.it : pair.ro}</span>
+        )}
       </button>
     );
   };
@@ -138,7 +176,19 @@ function MatchGame({ topicId, wordIds }: { topicId: string; wordIds: string[] })
   return (
     <div className="flex flex-1 flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
       <StudyHeader index={roundIndex} total={rounds.length} label={t("exercise.progress")} exitTo={exitTo} />
-      <h1 className="text-center text-lg font-semibold">{t("match.title")}</h1>
+      <h1 className="text-center text-lg font-semibold">{t(fromAudio ? "match.listenTitle" : "match.title")}</h1>
+      {canListen && (
+        <button
+          type="button"
+          aria-pressed={fromAudio}
+          onClick={toggleAudio}
+          className={`mx-auto min-h-12 rounded-full border-2 px-5 font-semibold ${
+            fromAudio ? "border-brand bg-sky-50 dark:bg-slate-800" : "border-slate-300 dark:border-slate-600"
+          }`}
+        >
+          {t("match.fromAudio")}
+        </button>
+      )}
       <div className="grid grid-cols-2 gap-3">
         <div className="flex flex-col gap-3" role="group" aria-label={t("lang.it")}>
           {round.map((p) => cell(p, "left"))}
