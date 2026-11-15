@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "pocketbase": "node scripts/pocketbase/dev.ts",
     "build:data": "node scripts/build-data.ts",
+    "audio:dialogues": "node scripts/audio/generate-dialogues.ts",
     "validate": "node scripts/validate-content.ts",
     "predev": "npm run build:data",
     "test": "vitest run",
