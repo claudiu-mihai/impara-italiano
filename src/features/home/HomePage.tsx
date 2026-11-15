@@ -2,6 +2,7 @@ import { useLiveQuery } from "dexie-react-hooks";
 import { Link } from "react-router-dom";
 import { useConjugationToday } from "../../app/conjugationToday.ts";
 import { useContent } from "../../app/content.tsx";
+import { useDialogues } from "../../app/dialogues.ts";
 import { useGrammar } from "../../app/grammar.ts";
 import { useTopics } from "../../app/topics.ts";
 import { db } from "../../data/db/instance.ts";
@@ -16,6 +17,8 @@ import { Lupino, LupinoSays } from "../../ui/mascot/Lupino.tsx";
 import { progressUpTo } from "../../domain/stats/stats.ts";
 import { dueSkillTopics } from "../../domain/topics/topics.ts";
 import { dueGrammarIds, dueGrammarTopics } from "../../domain/grammar/due.ts";
+import { dueDialogues, hasDialogueCards } from "../../domain/dialogue/due.ts";
+import { canDoList } from "../../domain/dialogue/canDo.ts";
 
 const BACKUP_REMINDER_DAYS = 14;
 
@@ -24,7 +27,7 @@ const primaryButton = `${buttonBase} bg-brand text-white active:bg-brand-dark`;
 const secondaryButton = `${buttonBase} border-2 border-brand-fg text-brand-fg active:bg-slate-100 dark:active:bg-slate-800`;
 
 export function HomePage() {
-  const { t, tp, rich } = useT();
+  const { t, tp, rich, language } = useT();
   const content = useContent();
   const overview = useLiveQuery(() => loadStudyOverview(db, content), [content]);
   const cards = useLiveQuery(() => db.cards.toArray(), []);
@@ -39,6 +42,9 @@ export function HomePage() {
   const grammarDue = cards ? dueGrammarIds(cards, new Date()).length > 0 : false;
   const grammar = useGrammar(grammarDue);
   const dueGrammar = grammar && cards && grammarDue ? dueGrammarTopics(grammar, cards, new Date()) : [];
+  // dialogurile se încarcă doar după primul joc de rol notat (o instalare nouă nu le încarcă)
+  const dialogues = useDialogues(cards ? hasDialogueCards(cards) : false);
+  const dueDialogueList = dialogues && cards ? dueDialogues(dialogues, cards, new Date()) : [];
 
   const todo = overview?.queue.length ?? 0;
   // conjugările de azi: apar după ce se încarcă formele; cuvintele rămân butonul principal când există
@@ -49,6 +55,7 @@ export function HomePage() {
 
   // Sugestie (nu schimbare automată): când ai început toate cuvintele nivelului curent, propune următorul nivel.
   const level = overview?.settings.level;
+  const canDo = dialogues && cards && level ? canDoList(dialogues, cards, level) : undefined;
   // progresul se raportează la nivelul curent (A1, apoi A1 + A2…), nu la tot dicționarul
   const target = stats && level ? progressUpTo(stats.levels, level) : undefined;
   const total = target?.total ?? 0;
@@ -222,6 +229,27 @@ export function HomePage() {
         </section>
       )}
 
+      {dueDialogueList.length > 0 && (
+        <section aria-labelledby="dialogues-due" className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
+          <h2 id="dialogues-due" className="text-base font-semibold text-slate-700 dark:text-slate-200">
+            {t("home.dialoguesDue")}
+          </h2>
+          <ul className="mt-3 flex flex-col gap-2">
+            {dueDialogueList.map((d) => (
+              <li key={d.id}>
+                <Link
+                  to={`/learn/topics/${d.topicId}/dialogue/${d.id}?mode=roleplay`}
+                  className="flex min-h-12 items-center gap-2 rounded-xl bg-slate-100 px-4 font-semibold dark:bg-slate-800"
+                >
+                  <span aria-hidden="true">💬</span>
+                  <span lang="it">{d.title.it}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       <section aria-labelledby="progress" className="rounded-2xl bg-white p-5 shadow-sm dark:bg-slate-900">
         <h2 id="progress" className="text-base font-semibold text-slate-700 dark:text-slate-200">
           {t("home.progress")}
@@ -244,6 +272,25 @@ export function HomePage() {
         >
           <div className="h-full bg-brand" style={{ width: `${total ? (mastered / total) * 100 : 0}%` }} />
         </div>
+        {canDo && canDo.length > 0 && (
+          <div className="mt-4">
+            <h3 className="flex items-baseline justify-between gap-2 font-semibold">
+              {t("home.canDo")}
+              <span className="text-sm font-normal text-muted">
+                {t("common.outOf", { n: canDo.filter((x) => x.learned).length, total: canDo.length })}
+              </span>
+            </h3>
+            <ul className="mt-2 flex flex-col gap-1">
+              {canDo.map(({ dialogue, learned }) => (
+                <li key={dialogue.id} data-testid="can-do" data-learned={learned} className={learned ? "" : "text-muted"}>
+                  <span aria-hidden="true">{learned ? "✅" : "⚪"}</span>{" "}
+                  <span className="sr-only">{t(learned ? "home.canDoLearned" : "home.canDoNotYet")}: </span>
+                  {language === "it" ? dialogue.canDo.it : dialogue.canDo.ro}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </section>
     </div>
   );
