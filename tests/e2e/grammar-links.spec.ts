@@ -95,7 +95,7 @@ test("lecția despre verbele neregulate → dicționarul cu verbele neregulate d
   await expect(page.getByRole("status")).toHaveText(`${inA} cuvinte`);
   await expect(page.getByRole("link", { name: /andare/ })).toBeVisible();
   await expect(page.getByRole("link", { name: /parlare/ })).toHaveCount(0);
-  await expect(page.getByRole("group", { name: "Nivel CEFR" }).getByRole("button", { name: /^Nivel A/ })).toHaveAttribute(
+  await expect(page.getByRole("group", { name: "Nivel CEFR" }).getByRole("button", { name: /^A / })).toHaveAttribute(
     "aria-pressed",
     "true",
   );

@@ -26,7 +26,14 @@ test("o sesiune: răstoarnă cardul, notează și treci la următorul", async ({
 
   await page.getByRole("button", { name: "Arată răspunsul" }).click();
   await expect(back(page).getByText("a fi", { exact: true })).toBeVisible();
-  await expect(page.getByRole("group", { name: "Cât de bine ai știut cuvântul?" }).getByRole("button")).toHaveCount(4);
+  const rating = page.getByRole("group", { name: "Cât de bine ai știut cuvântul?" });
+  await expect(rating.getByRole("button")).toHaveCount(4);
+  // butoanele spun ce înseamnă fiecare notă și când revine cardul
+  await expect(rating.getByRole("button", { name: /^Din nou/ })).toContainText("Nu mi-am amintit");
+  await expect(rating.getByRole("button", { name: /^Greu/ })).toContainText("Mi-am amintit greu");
+  await expect(rating.getByRole("button", { name: /^Bine/ })).toContainText(/Mi-am amintit\s*revine peste/);
+  await expect(rating.getByRole("button", { name: /^Ușor/ })).toContainText("Imediat, fără efort");
+  await expect(page.getByText("Alege sincer: cu cât îți amintești mai ușor, cu atât cardul revine mai târziu.")).toBeVisible();
 
   await page.getByRole("button", { name: /^Bine/ }).click();
   await expect(page.getByText(/^2 \/ \d+$/)).toBeVisible();
