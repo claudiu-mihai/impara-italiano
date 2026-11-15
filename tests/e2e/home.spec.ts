@@ -44,7 +44,7 @@ test("după Flashcards, cu conjugări de făcut, butonul principal duce la conju
   await setNewPerDay(page, 0);
   await page.goto("/learn/vocab");
   await page.getByRole("button", { name: "Arată răspunsul" }).click();
-  await page.getByRole("button", { name: /^Bine/ }).click();
+  await page.getByRole("button", { name: /^Da/ }).click();
   await expect(page.getByRole("heading", { name: "Sesiune încheiată" })).toBeVisible();
   const next = page.getByRole("link", { name: "Continuă cu conjugarea" });
   await expect(next).toHaveAttribute("href", "/learn/conjugation");
@@ -56,7 +56,7 @@ test("după Flashcards, fără conjugări de făcut, rămâne doar „Înapoi ac
   await setNewPerDay(page, 0);
   await page.goto("/learn/vocab");
   await page.getByRole("button", { name: "Arată răspunsul" }).click();
-  await page.getByRole("button", { name: /^Bine/ }).click();
+  await page.getByRole("button", { name: /^Da/ }).click();
   await expect(page.getByRole("heading", { name: "Sesiune încheiată" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Înapoi acasă" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Continuă cu conjugarea" })).toHaveCount(0);

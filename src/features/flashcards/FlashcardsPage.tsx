@@ -19,7 +19,7 @@ import { studyDayOf } from "../../domain/time/studyDay.ts";
 import { useSessionStore } from "../../store/sessionStore.ts";
 import { useListening } from "../../ui/useListening.ts";
 import { useReturnToOrigin } from "../../ui/useReturnToOrigin.ts";
-import { RatingButtons } from "../../ui/RatingButtons.tsx";
+import { RatingButtons, ratingGrades, useRatingHint } from "../../ui/RatingButtons.tsx";
 import { WordCard } from "./WordCard.tsx";
 import { Lupino } from "../../ui/mascot/Lupino.tsx";
 
@@ -110,7 +110,10 @@ export function FlashcardsPage() {
     }
   };
 
-  // Comenzi de la tastatură: Space/Enter răstoarnă cardul, 1–4 notează.
+  const ratingHint = useRatingHint();
+
+  // Comenzi de la tastatură: Space/Enter răstoarnă cardul; 1, 2… notează (1 = Nu, 2 = Da în modul simplu, 1–4 în cel complet).
+  const grades = ratingGrades(settings.ratingMode);
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement | null;
@@ -118,8 +121,9 @@ export function FlashcardsPage() {
       if (!flipped && (event.key === " " || event.key === "Enter")) {
         event.preventDefault();
         flip();
-      } else if (flipped && ["1", "2", "3", "4"].includes(event.key)) {
-        void rate(Number(event.key) as Grade);
+      } else if (flipped) {
+        const grade = grades[Number(event.key) - 1];
+        if (grade !== undefined) void rate(grade);
       }
     };
     window.addEventListener("keydown", onKey);
@@ -204,7 +208,14 @@ export function FlashcardsPage() {
       />
 
       {flipped ? (
-        <RatingButtons question={t("flash.howWell")} intervals={current?.labels} onRate={(grade) => void rate(grade)} disabled={!current} />
+        <RatingButtons
+          mode={settings.ratingMode}
+          question={t("flash.howWell")}
+          intervals={current?.labels}
+          onRate={(grade) => void rate(grade)}
+          disabled={!current}
+          showHint={ratingHint}
+        />
       ) : (
         <button
           type="button"

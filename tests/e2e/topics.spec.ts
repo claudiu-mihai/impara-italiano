@@ -144,7 +144,7 @@ test("Studiază tema: doar cuvintele temei, progres comun cu restul aplicației"
 
   // notez un cuvânt și verific progresul pe fișa temei
   await page.getByRole("button", { name: "Arată răspunsul" }).click();
-  await page.getByRole("button", { name: /^Bine/ }).click();
+  await page.getByRole("button", { name: /^Da/ }).click();
   await page.getByRole("link", { name: "Ieși din sesiune" }).click();
   await expect(page.getByRole("heading", { name: "Zilele săptămânii", level: 1 })).toBeVisible();
   await expect(page.getByTestId("topic-progress")).toContainText("1 din");

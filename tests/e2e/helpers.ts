@@ -173,6 +173,15 @@ export async function setListenFirst(page: Page, on: boolean) {
   else await expect(box).not.toBeChecked();
 }
 
+/** Alege butoanele de evaluare din Setări: „simple” (Nu / Da, implicit la instalări noi) sau „full” (cu Greu și Ușor). */
+export async function setRatingMode(page: Page, mode: "simple" | "full") {
+  await page.goto("/settings");
+  const select = page.getByLabel("Butoane de evaluare");
+  await expect(select).toBeVisible();
+  await select.selectOption(mode);
+  await expect(select).toHaveValue(mode);
+}
+
 /** Alege ordinea cuvintelor noi din Setări (testele de mecanică a cardului pornesc de la „După frecvență”: primul cuvânt e *essere*). */
 export async function setWordOrder(page: Page, order: "guided" | "frequency") {
   await page.goto("/settings");

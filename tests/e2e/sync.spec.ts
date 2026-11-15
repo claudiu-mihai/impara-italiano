@@ -288,7 +288,7 @@ test("repetițiile din jurnal ajung în cont și pe al doilea telefon", async ({
   await a.page.goto("/");
   await a.page.getByRole("link", { name: "Începe sesiunea" }).click();
   await a.page.getByRole("button", { name: "Arată răspunsul" }).click();
-  await a.page.getByRole("button", { name: /^Bine/ }).click();
+  await a.page.getByRole("button", { name: /^Da/ }).click();
   await expect(a.page.getByText(/^2 \/ \d+$/)).toBeVisible();
   await openAccount(a.page);
   await signIn(a.page, user.email);

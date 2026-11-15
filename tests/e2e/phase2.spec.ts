@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { setRatingMode } from "./helpers.ts";
 
 const PARLARE_PRESENTE: Record<string, string> = {
   io: "parlo",
@@ -11,6 +12,7 @@ const PARLARE_PRESENTE: Record<string, string> = {
 
 /** Învață `count` cuvinte noi din Flashcards, notându-le cu „Ușor”. */
 async function learnWords(page: Page, count: number) {
+  await setRatingMode(page, "full"); // „Ușor” e doar în modul complet
   await page.goto("/learn/vocab");
   for (let i = 0; i < count; i++) {
     await page.getByRole("button", { name: "Arată răspunsul" }).click();

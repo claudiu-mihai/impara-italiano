@@ -9,7 +9,7 @@ import { db } from "../../data/db/instance.ts";
 import { changeLevel, getSettings, NATIVE_HELP_STOPPED, saveSettings } from "../../data/db/repositories.ts";
 import { AccountSection } from "./AccountSection.tsx";
 import { downloadBackup } from "./backupDownload.ts";
-import { DEFAULT_SETTINGS, type ConjugationMode, type LearnerGender, type Settings, type StudyDirection, type WordOrder } from "../../domain/settings.ts";
+import { DEFAULT_SETTINGS, type ConjugationMode, type LearnerGender, type RatingMode, type Settings, type StudyDirection, type WordOrder } from "../../domain/settings.ts";
 import { studyDayOf } from "../../domain/time/studyDay.ts";
 import { getVoiceDiagnostics, speak, useItalianVoices, useTtsStatus } from "../../services/tts.ts";
 import { isCloudVoice } from "../../services/voices.ts";
@@ -295,6 +295,18 @@ export function SettingsPage() {
         <Field label={t("settings.newPerDay")}>
           <NumberSelect label={t("settings.newPerDay")} value={settings.newPerDay} presets={[0, 5, 10, 15, 20, 30, 50]} onChange={(n) => update("newPerDay", n)} />
         </Field>
+        <Field label={t("settings.ratingMode")} hint={t("settings.ratingModeHint")}>
+          <select
+            aria-label={t("settings.ratingMode")}
+            value={settings.ratingMode}
+            onChange={(e) => update("ratingMode", e.target.value as RatingMode)}
+            className={control}
+          >
+            <option value="simple">{t("settings.ratingSimple")}</option>
+            <option value="full">{t("settings.ratingFull")}</option>
+          </select>
+        </Field>
+
         <Field label={t("settings.learnerGender")} hint={t("settings.learnerGenderHint")}>
           <select
             aria-label={t("settings.learnerGender")}

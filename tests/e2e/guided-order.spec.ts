@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
-import { seedLearnedWords, setWordOrder, WORDS, type WordData } from "./helpers.ts";
+import { seedLearnedWords, setWordOrder, WORDS, type WordData, setRatingMode } from "./helpers.ts";
 
 interface GuideTopic {
   id: string;
@@ -18,6 +18,7 @@ const front = (page: Page) => page.getByTestId("card-front");
 
 /** Textul italian al cardurilor noi, pe rând, notându-le „Ușor” ca să avansăm. */
 async function firstNewCards(page: Page, count: number): Promise<string[]> {
+  await setRatingMode(page, "full"); // „Ușor” e doar în modul complet
   await page.goto("/learn/vocab");
   const texts: string[] = [];
   for (let i = 0; i < count; i++) {

@@ -10,7 +10,7 @@ import { studyDayOf } from "../../domain/time/studyDay.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { primaryButton } from "../../ui/SessionDone.tsx";
 import { speak } from "../../services/tts.ts";
-import { RatingButtons } from "../../ui/RatingButtons.tsx";
+import { RatingButtons, ratingGrades, useRatingHint } from "../../ui/RatingButtons.tsx";
 import { ConjPrompt } from "./ConjPrompt.tsx";
 import type { ConjCardProps } from "./types.ts";
 
@@ -23,6 +23,7 @@ export function FlipCard({ item, verb, forms, ro, settings, onFinish }: ConjCard
   // o singură persoană pe card, ca în exemplul „parlare · passato prossimo · noi”
   const [person] = useState(() => Math.floor(Math.random() * forms.length));
   const [flipped, setFlipped] = useState(false);
+  const ratingHint = useRatingHint();
   const [labels, setLabels] = useState<Record<Grade, string>>();
 
   useEffect(() => {
@@ -54,8 +55,9 @@ export function FlipCard({ item, verb, forms, ro, settings, onFinish }: ConjCard
       if (!flipped && (event.key === " " || event.key === "Enter")) {
         event.preventDefault();
         setFlipped(true);
-      } else if (flipped && ["1", "2", "3", "4"].includes(event.key)) {
-        onFinish(Number(event.key) as Grade);
+      } else if (flipped) {
+        const grade = ratingGrades(settings.ratingMode)[Number(event.key) - 1];
+        if (grade !== undefined) onFinish(grade);
       }
     };
     window.addEventListener("keydown", onKey);
@@ -101,7 +103,7 @@ export function FlipCard({ item, verb, forms, ro, settings, onFinish }: ConjCard
 
       <div className="mt-auto">
         {flipped ? (
-          <RatingButtons question={t("conj.howWell")} intervals={labels} onRate={onFinish} />
+          <RatingButtons mode={settings.ratingMode} question={t("conj.howWell")} intervals={labels} onRate={onFinish} showHint={ratingHint} />
         ) : (
           <button type="button" onClick={() => setFlipped(true)} className={`${primaryButton} w-full`}>
             {t("flash.showAnswer")}

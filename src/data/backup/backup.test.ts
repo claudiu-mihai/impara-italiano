@@ -78,7 +78,8 @@ test("setările lipsă din backup primesc valorile implicite", async () => {
   const backup = JSON.parse(backupToJson(await exportBackup(db, "x", NOW)));
   backup.settings = { newPerDay: 7 };
   const parsed = parseBackup(JSON.stringify(backup));
-  expect(parsed.settings).toEqual({ ...DEFAULT_SETTINGS, newPerDay: 7 });
+  // un backup fără modul butoanelor vine de la cineva care folosea deja cele 4 butoane
+  expect(parsed.settings).toEqual({ ...DEFAULT_SETTINGS, newPerDay: 7, ratingMode: "full" });
 });
 
 test("un backup vechi, fără „Traducere în limba maternă”, primește valoarea după nivelul din backup", async () => {
@@ -143,4 +144,9 @@ test("grammarProgressSchema acceptă scoruri pentru jocuri noi, dar tot ca proce
 test("backup: genul personajului din dialoguri e „m” sau „f”", () => {
   expect(settingsSchema.partial().safeParse({ learnerGender: "f" }).success).toBe(true);
   expect(settingsSchema.partial().safeParse({ learnerGender: "x" }).success).toBe(false);
+});
+
+test("backup: modul butoanelor de evaluare e „simple” sau „full”", () => {
+  expect(settingsSchema.partial().safeParse({ ratingMode: "simple" }).success).toBe(true);
+  expect(settingsSchema.partial().safeParse({ ratingMode: "two" }).success).toBe(false);
 });
