@@ -4,6 +4,18 @@ Formatul urmează [Keep a Changelog](https://keepachangelog.com/ro/1.1.0/), iar 
 [versionarea semantică](https://semver.org/lang/ro/). Intrările noi sunt scrise automat de release-please din
 commit-urile `feat:` / `fix:` (vezi README, „Versionare și release-uri”).
 
+## [1.19.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.18.0...v1.19.0) (2026-11-15)
+
+
+### Funcționalități
+
+* **pedagogie:** Faza 5 – conjugare cu sens (cerință în română, verbe frecvente, „Cu voce tare”) ([#55](https://github.com/claudiu-mihai/impara-italiano/issues/55)) ([6307b08](https://github.com/claudiu-mihai/impara-italiano/commit/6307b08cf4fedcb4549fd17cefa1f78759ca607a))
+
+
+### Performanță
+
+* **pornire:** scoate ts-fsrs și rundele de exerciții din pachetul ecranului de start ([#53](https://github.com/claudiu-mihai/impara-italiano/issues/53)) ([0b87b32](https://github.com/claudiu-mihai/impara-italiano/commit/0b87b32a1a9233fcd184b55751c00758ff7ccf97))
+
 ## [1.18.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.17.0...v1.18.0) (2026-11-14)
 
 
