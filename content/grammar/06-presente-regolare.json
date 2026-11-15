@@ -1,16 +1,18 @@
 {
   "id": "presente-regolare",
   "order": 6,
-  "title": "Prezentul verbelor regulate",
+  "title": { "it": "Il presente dei verbi regolari", "ro": "Prezentul verbelor regulate" },
   "level": "A1",
   "lesson": [
     {
       "type": "text",
-      "ro": "Verbele italiene au trei grupe, după terminația infinitivului: [it]-are[/it] ([it]parlare[/it]), [it]-ere[/it] ([it]credere[/it]) și [it]-ire[/it] ([it]dormire[/it]). Scoți terminația și adaugi terminațiile prezentului."
+      "ro": "Verbele italiene au trei grupe, după terminația infinitivului: [it]-are[/it] ([it]parlare[/it]), [it]-ere[/it] ([it]credere[/it]) și [it]-ire[/it] ([it]dormire[/it]). Scoți terminația și adaugi terminațiile prezentului.",
+      "it": "I verbi italiani hanno tre coniugazioni, secondo la desinenza dell'infinito: [it]-are[/it] ([it]parlare[/it]), [it]-ere[/it] ([it]credere[/it]) e [it]-ire[/it] ([it]dormire[/it]). Togli la desinenza e aggiungi le desinenze del presente."
     },
     {
       "type": "table",
       "caption": "Prezentul verbelor regulate",
+      "captionIt": "Il presente dei verbi regolari",
       "head": ["", "parlare", "credere", "dormire"],
       "rows": [
         ["io", "parlo", "credo", "dormo"],
@@ -23,11 +25,13 @@
     },
     {
       "type": "text",
-      "ro": "Observă: [it]-o[/it], [it]-i[/it] și [it]-iamo[/it] sunt la fel în toate grupele. Diferă doar persoana a III-a și [it]voi[/it]."
+      "ro": "Observă: [it]-o[/it], [it]-i[/it] și [it]-iamo[/it] sunt la fel în toate grupele. Diferă doar persoana a III-a și [it]voi[/it].",
+      "it": "Nota: [it]-o[/it], [it]-i[/it] e [it]-iamo[/it] sono uguali in tutte le coniugazioni. Cambiano solo la terza persona e [it]voi[/it]."
     },
     {
       "type": "table",
       "caption": "Verbe în -ire cu -isc-",
+      "captionIt": "Verbi in -ire con -isc-",
       "head": ["", "capire"],
       "rows": [
         ["io", "capisco"],
@@ -40,13 +44,14 @@
     },
     {
       "type": "text",
-      "ro": "Multe verbe în [it]-ire[/it] primesc [it]-isc-[/it] la [it]io[/it], [it]tu[/it], [it]lui/lei[/it] și [it]loro[/it]: [it]capire[/it], [it]finire[/it], [it]preferire[/it], [it]pulire[/it]. Dicționarul îți arată care sunt."
+      "ro": "Multe verbe în [it]-ire[/it] primesc [it]-isc-[/it] la [it]io[/it], [it]tu[/it], [it]lui/lei[/it] și [it]loro[/it]: [it]capire[/it], [it]finire[/it], [it]preferire[/it], [it]pulire[/it]. Dicționarul îți arată care sunt.",
+      "it": "Molti verbi in [it]-ire[/it] prendono [it]-isc-[/it] con [it]io[/it], [it]tu[/it], [it]lui/lei[/it] e [it]loro[/it]: [it]capire[/it], [it]finire[/it], [it]preferire[/it], [it]pulire[/it]. Il dizionario ti indica quali sono."
     },
     {
       "type": "examples",
       "items": [
-        { "it": "Mangiamo alle otto.", "ro": "Mâncăm la ora opt.", "note": "[it]mangiare[/it]: un singur i ([it]mangi[/it], [it]mangiamo[/it])" },
-        { "it": "Cerchi lavoro?", "ro": "Cauți de lucru?", "note": "[it]cercare[/it]: se adaugă h ca să rămână sunetul k" },
+        { "it": "Mangiamo alle otto.", "ro": "Mâncăm la ora opt.", "note": "[it]mangiare[/it]: un singur i ([it]mangi[/it], [it]mangiamo[/it])", "noteIt": "[it]mangiare[/it]: una sola i ([it]mangi[/it], [it]mangiamo[/it])" },
+        { "it": "Cerchi lavoro?", "ro": "Cauți de lucru?", "note": "[it]cercare[/it]: se adaugă h ca să rămână sunetul k", "noteIt": "[it]cercare[/it]: si aggiunge la h per mantenere il suono k" },
         { "it": "Capisco tutto.", "ro": "Înțeleg tot." },
         { "it": "Loro parlano troppo.", "ro": "Ei vorbesc prea mult." },
         { "it": "Preferisce il tè.", "ro": "Preferă ceaiul." }
@@ -54,22 +59,23 @@
     },
     {
       "type": "trap",
-      "ro": "La [it]loro[/it] accentul [b]nu[/b] cade pe terminație: [it]PAR-la-no[/it], [it]CRE-do-no[/it], [it]DOR-mo-no[/it]. Românii tind să spună „parlàno”: ascultă exemplele."
+      "ro": "La [it]loro[/it] accentul [b]nu[/b] cade pe terminație: [it]PAR-la-no[/it], [it]CRE-do-no[/it], [it]DOR-mo-no[/it]. Românii tind să spună „parlàno”: ascultă exemplele.",
+      "it": "Con [it]loro[/it] l'accento [b]non[/b] cade sulla desinenza: [it]PAR-la-no[/it], [it]CRE-do-no[/it], [it]DOR-mo-no[/it]. I rumeni tendono a dire „parlàno”: ascolta gli esempi."
     }
   ],
   "rules": [
-    "-are: -o, -i, -a, -iamo, -ate, -ano (parlo, parli, parla, parliamo, parlate, parlano).",
-    "-ere: -o, -i, -e, -iamo, -ete, -ono; -ire: -o, -i, -e, -iamo, -ite, -ono.",
-    "Unele verbe în -ire primesc -isc- (capisco, capisci, capisce, capiscono), dar nu la noi și voi.",
-    "La loro accentul rămâne pe rădăcină: parlano, credono, dormono."
+    { "it": "-are: -o, -i, -a, -iamo, -ate, -ano (parlo, parli, parla, parliamo, parlate, parlano).", "ro": "-are: -o, -i, -a, -iamo, -ate, -ano (parlo, parli, parla, parliamo, parlate, parlano)." },
+    { "it": "-ere: -o, -i, -e, -iamo, -ete, -ono; -ire: -o, -i, -e, -iamo, -ite, -ono.", "ro": "-ere: -o, -i, -e, -iamo, -ete, -ono; -ire: -o, -i, -e, -iamo, -ite, -ono." },
+    { "it": "Alcuni verbi in -ire prendono -isc- (capisco, capisci, capisce, capiscono), ma non con noi e voi.", "ro": "Unele verbe în -ire primesc -isc- (capisco, capisci, capisce, capiscono), dar nu la noi și voi." },
+    { "it": "Con loro l'accento resta sulla radice: parlano, credono, dormono.", "ro": "La loro accentul rămâne pe rădăcină: parlano, credono, dormono." }
   ],
   "items": [
     { "id": "prr-01", "it": "Io parlo italiano.", "gap": "parlo", "ro": "Eu vorbesc italiana." },
     { "id": "prr-02", "it": "Tu parli inglese?", "gap": "parli", "ro": "Vorbești engleza?" },
     { "id": "prr-03", "it": "Lei lavora a Milano.", "gap": "lavora", "ro": "Ea lucrează la Milano." },
-    { "id": "prr-04", "it": "Noi mangiamo alle otto.", "gap": "mangiamo", "ro": "Mâncăm la ora opt.", "note": "mangiare: un singur i" },
+    { "id": "prr-04", "it": "Noi mangiamo alle otto.", "gap": "mangiamo", "ro": "Mâncăm la ora opt.", "note": "mangiare: un singur i", "noteIt": "mangiare: una sola i" },
     { "id": "prr-05", "it": "Voi abitate qui?", "gap": "abitate", "ro": "Locuiți aici?" },
-    { "id": "prr-06", "it": "Loro parlano troppo.", "gap": "parlano", "ro": "Ei vorbesc prea mult.", "note": "accentul pe prima silabă: PAR-la-no" },
+    { "id": "prr-06", "it": "Loro parlano troppo.", "gap": "parlano", "ro": "Ei vorbesc prea mult.", "note": "accentul pe prima silabă: PAR-la-no", "noteIt": "accento sulla prima sillaba: PAR-la-no" },
     { "id": "prr-07", "it": "Io prendo un caffè.", "gap": "prendo", "ro": "Iau o cafea." },
     { "id": "prr-08", "it": "Tu scrivi bene.", "gap": "scrivi", "ro": "Scrii bine." },
     { "id": "prr-09", "it": "Lui legge il giornale.", "gap": "legge", "ro": "El citește ziarul." },
@@ -80,11 +86,11 @@
     { "id": "prr-14", "it": "Tu apri la finestra?", "gap": "apri", "ro": "Deschizi fereastra?" },
     { "id": "prr-15", "it": "Lei parte domani.", "gap": "parte", "ro": "Ea pleacă mâine." },
     { "id": "prr-16", "it": "Noi sentiamo la musica.", "gap": "sentiamo", "ro": "Auzim muzica." },
-    { "id": "prr-17", "it": "Io capisco tutto.", "gap": "capisco", "ro": "Înțeleg tot.", "note": "-isc-: capire → capisco" },
-    { "id": "prr-18", "it": "Tu finisci alle cinque?", "gap": "finisci", "ro": "Termini la cinci?", "note": "-isc-: finire → finisci" },
-    { "id": "prr-19", "it": "Lui preferisce il tè.", "gap": "preferisce", "ro": "El preferă ceaiul.", "note": "-isc-: preferire → preferisce" },
-    { "id": "prr-20", "it": "Noi capiamo bene.", "gap": "capiamo", "ro": "Înțelegem bine.", "note": "la noi nu apare -isc-" },
-    { "id": "prr-21", "it": "Loro finiscono tardi.", "gap": "finiscono", "ro": "Ei termină târziu.", "note": "-isc- și la loro" },
-    { "id": "prr-22", "it": "Tu cerchi lavoro?", "gap": "cerchi", "ro": "Cauți de lucru?", "note": "cercare: se adaugă h (cerchi)" }
+    { "id": "prr-17", "it": "Io capisco tutto.", "gap": "capisco", "ro": "Înțeleg tot.", "note": "-isc-: capire → capisco", "noteIt": "-isc-: capire → capisco" },
+    { "id": "prr-18", "it": "Tu finisci alle cinque?", "gap": "finisci", "ro": "Termini la cinci?", "note": "-isc-: finire → finisci", "noteIt": "-isc-: finire → finisci" },
+    { "id": "prr-19", "it": "Lui preferisce il tè.", "gap": "preferisce", "ro": "El preferă ceaiul.", "note": "-isc-: preferire → preferisce", "noteIt": "-isc-: preferire → preferisce" },
+    { "id": "prr-20", "it": "Noi capiamo bene.", "gap": "capiamo", "ro": "Înțelegem bine.", "note": "la noi nu apare -isc-", "noteIt": "con noi non c'è -isc-" },
+    { "id": "prr-21", "it": "Loro finiscono tardi.", "gap": "finiscono", "ro": "Ei termină târziu.", "note": "-isc- și la loro", "noteIt": "-isc- anche con loro" },
+    { "id": "prr-22", "it": "Tu cerchi lavoro?", "gap": "cerchi", "ro": "Cauți de lucru?", "note": "cercare: se adaugă h (cerchi)", "noteIt": "cercare: si aggiunge la h (cerchi)" }
   ]
 }

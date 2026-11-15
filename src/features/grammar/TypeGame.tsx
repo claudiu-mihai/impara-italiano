@@ -31,7 +31,7 @@ export function TypePage() {
 }
 
 function TypeGame({ topicId, items }: { topicId: string; items: GrammarItem[] }) {
-  const { t } = useT();
+  const { t, language } = useT();
   const exitTo = `/learn/grammar/${topicId}`;
   // întoarcerea în lecție păstrează ecranul de plecare (ex. fișa cuvântului)
   const exitState = nextLessonNav(readLessonNav(useLocation().state));
@@ -168,8 +168,8 @@ function TypeGame({ topicId, items }: { topicId: string; items: GrammarItem[] })
           {result && (
             <div className="mt-1 flex items-center justify-center gap-2">
               {item.note && (
-                <p lang={NATIVE_LANGUAGE} className="text-sm text-muted">
-                  {item.note}
+                <p lang={language === "it" ? "it" : NATIVE_LANGUAGE} className="text-sm text-muted">
+                  {language === "it" && item.noteIt ? item.noteIt : item.note}
                 </p>
               )}
               <AudioButton text={item.it} size="sm" />

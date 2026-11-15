@@ -9,7 +9,6 @@ import { db } from "../../data/db/instance.ts";
 import { changeLevel } from "../../data/db/repositories.ts";
 import { loadStats, loadStudyOverview } from "../../data/queries.ts";
 import { nextLevel } from "../../domain/content/levels.ts";
-import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { useT } from "../../i18n/index.ts";
 import { BilingualLabel } from "../../ui/BilingualLabel.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
@@ -221,7 +220,9 @@ export function HomePage() {
                   to={`/learn/grammar/${topic.id}/type`}
                   className="flex min-h-12 items-center rounded-xl bg-slate-100 px-4 font-semibold dark:bg-slate-800"
                 >
-                  <span lang={NATIVE_LANGUAGE}>{topic.title}</span>
+                  <span>
+                    <BilingualLabel text={topic.title} />
+                  </span>
                 </Link>
               </li>
             ))}

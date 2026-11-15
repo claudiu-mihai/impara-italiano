@@ -375,6 +375,7 @@ export const ro = {
   "learn.dialoguesHint": "Ascultă conversații scurte și joacă-ți rolul cu voce tare",
   "dialogue.listTitle": "Dialoguri",
   "dialogue.topic": "Tema: {title}",
+  "grammar.trap": "Capcană pentru români",
   "grammar.markRead": "Am citit",
   "grammar.read": "Citită",
   "grammar.reviewNoted": "Repetiția a fost notată; lecția revine la timpul potrivit.",

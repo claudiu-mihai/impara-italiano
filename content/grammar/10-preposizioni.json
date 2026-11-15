@@ -1,16 +1,18 @@
 {
   "id": "preposizioni",
   "order": 10,
-  "title": "Prepozițiile articulate",
+  "title": { "it": "Le preposizioni articolate", "ro": "Prepozițiile articulate" },
   "level": "A1",
   "lesson": [
     {
       "type": "text",
-      "ro": "Prepozițiile [it]di[/it], [it]a[/it], [it]da[/it], [it]in[/it] și [it]su[/it] se [b]contopesc[/b] cu articolul hotărât care urmează: [it]in + il = nel[/it], [it]a + la = alla[/it]. În vorbire le auzi tot timpul."
+      "ro": "Prepozițiile [it]di[/it], [it]a[/it], [it]da[/it], [it]in[/it] și [it]su[/it] se [b]contopesc[/b] cu articolul hotărât care urmează: [it]in + il = nel[/it], [it]a + la = alla[/it]. În vorbire le auzi tot timpul.",
+      "it": "Le preposizioni [it]di[/it], [it]a[/it], [it]da[/it], [it]in[/it] e [it]su[/it] si [b]uniscono[/b] all'articolo determinativo che segue: [it]in + il = nel[/it], [it]a + la = alla[/it]. Nel parlato le senti continuamente."
     },
     {
       "type": "table",
       "caption": "Prepozițiile articulate",
+      "captionIt": "Le preposizioni articolate",
       "head": ["", "il", "lo", "la", "l'", "i", "gli", "le"],
       "rows": [
         ["di", "del", "dello", "della", "dell'", "dei", "degli", "delle"],
@@ -23,7 +25,9 @@
     {
       "type": "table",
       "caption": "Ce înseamnă",
+      "captionIt": "Che cosa significano",
       "head": ["italiană", "română"],
+      "headIt": ["italiano", "rumeno"],
       "itColumns": [0],
       "rows": [
         ["di", "de, al (cuiva)"],
@@ -35,7 +39,8 @@
     },
     {
       "type": "text",
-      "ro": "[it]Con[/it] (cu) și [it]per[/it] (pentru) [b]nu[/b] se contopesc: [it]con il treno[/it], [it]per la mamma[/it]."
+      "ro": "[it]Con[/it] (cu) și [it]per[/it] (pentru) [b]nu[/b] se contopesc: [it]con il treno[/it], [it]per la mamma[/it].",
+      "it": "[it]Con[/it] e [it]per[/it] [b]non[/b] si uniscono: [it]con il treno[/it], [it]per la mamma[/it]."
     },
     {
       "type": "examples",
@@ -44,41 +49,42 @@
         { "it": "Le chiavi sono nel cassetto.", "ro": "Cheile sunt în sertar." },
         { "it": "Vengo dalla stazione.", "ro": "Vin de la gară." },
         { "it": "Il libro è sul tavolo.", "ro": "Cartea este pe masă." },
-        { "it": "Compro dei pomodori.", "ro": "Cumpăr niște roșii.", "note": "[it]di[/it] + articol = niște" }
+        { "it": "Compro dei pomodori.", "ro": "Cumpăr niște roșii.", "note": "[it]di[/it] + articol = niște", "noteIt": "[it]di[/it] + articolo = „niște”" }
       ]
     },
     {
       "type": "trap",
-      "ro": "Cu orașele folosești [it]a[/it], cu țările [it]in[/it], ambele fără articol: [it]Vado a Roma[/it], [it]Vado in Italia[/it]. „La doctor” se spune [it]dal medico[/it]: „la cineva” = [it]da[/it]."
+      "ro": "Cu orașele folosești [it]a[/it], cu țările [it]in[/it], ambele fără articol: [it]Vado a Roma[/it], [it]Vado in Italia[/it]. „La doctor” se spune [it]dal medico[/it]: „la cineva” = [it]da[/it].",
+      "it": "Con le città usi [it]a[/it], con i paesi [it]in[/it], entrambi senza articolo: [it]Vado a Roma[/it], [it]Vado in Italia[/it]. „La doctor” si dice [it]dal medico[/it]: „la cineva” = [it]da[/it]."
     }
   ],
   "rules": [
-    "di, a, da, in, su + il / lo / la / l' / i / gli / le se contopesc: del, al, dal, nel, sul…",
-    "con și per nu se contopesc: con il treno, per la mamma.",
-    "a + oraș (a Roma), in + țară (in Italia), da + persoană (dal medico).",
-    "di + articol = niște: dei libri, delle mele."
+    { "it": "di, a, da, in, su + il / lo / la / l' / i / gli / le si uniscono: del, al, dal, nel, sul…", "ro": "di, a, da, in, su + il / lo / la / l' / i / gli / le se contopesc: del, al, dal, nel, sul…" },
+    { "it": "con e per non si uniscono: con il treno, per la mamma.", "ro": "con și per nu se contopesc: con il treno, per la mamma." },
+    { "it": "a + città (a Roma), in + paese (in Italia), da + persona (dal medico).", "ro": "a + oraș (a Roma), in + țară (in Italia), da + persoană (dal medico)." },
+    { "it": "di + articolo = „niște”: dei libri, delle mele.", "ro": "di + articol = niște: dei libri, delle mele." }
   ],
   "items": [
-    { "id": "pre-01", "it": "Vado al mare.", "gap": "al", "ro": "Merg la mare.", "note": "a + il = al" },
-    { "id": "pre-02", "it": "Il libro è sul tavolo.", "gap": "sul", "ro": "Cartea este pe masă.", "note": "su + il = sul" },
-    { "id": "pre-03", "it": "Le chiavi sono nel cassetto.", "gap": "nel", "ro": "Cheile sunt în sertar.", "note": "in + il = nel" },
-    { "id": "pre-04", "it": "Vengo dalla stazione.", "gap": "dalla", "ro": "Vin de la gară.", "note": "da + la = dalla" },
-    { "id": "pre-05", "it": "Vado dal medico.", "gap": "dal", "ro": "Merg la doctor.", "note": "la cineva: da + il = dal" },
-    { "id": "pre-06", "it": "È la macchina della mamma.", "gap": "della", "ro": "E mașina mamei.", "note": "di + la = della" },
-    { "id": "pre-07", "it": "Lavoro all'università.", "gap": "all'", "ro": "Lucrez la universitate.", "note": "a + l' = all'" },
-    { "id": "pre-08", "it": "Il gatto è sulla sedia.", "gap": "sulla", "ro": "Pisica e pe scaun.", "note": "su + la = sulla" },
-    { "id": "pre-09", "it": "Siamo nella stessa classe.", "gap": "nella", "ro": "Suntem în aceeași clasă.", "note": "in + la = nella" },
-    { "id": "pre-10", "it": "Telefono ai miei genitori.", "gap": "ai", "ro": "Îi sun pe părinții mei.", "note": "a + i = ai" },
-    { "id": "pre-11", "it": "Compro dei pomodori.", "gap": "dei", "ro": "Cumpăr niște roșii.", "note": "niște: di + i = dei" },
-    { "id": "pre-12", "it": "Vorrei delle mele.", "gap": "delle", "ro": "Aș vrea niște mere.", "note": "niște: di + le = delle" },
-    { "id": "pre-13", "it": "Torno dall'ufficio alle sei.", "gap": "dall'", "ro": "Mă întorc de la birou la șase.", "note": "da + l' = dall'" },
-    { "id": "pre-14", "it": "Il treno parte alle otto.", "gap": "alle", "ro": "Trenul pleacă la opt.", "note": "ora: a + le = alle" },
-    { "id": "pre-15", "it": "C'è un libro nello zaino.", "gap": "nello", "ro": "E o carte în rucsac.", "note": "in + lo = nello" },
-    { "id": "pre-16", "it": "Parlo degli studenti.", "gap": "degli", "ro": "Vorbesc despre studenți.", "note": "di + gli = degli" },
-    { "id": "pre-17", "it": "Sugli scaffali ci sono libri.", "gap": "Sugli", "ro": "Pe rafturi sunt cărți.", "note": "su + gli = sugli" },
-    { "id": "pre-18", "it": "Vado in Italia.", "gap": "in", "ro": "Merg în Italia.", "note": "țară: in, fără articol" },
-    { "id": "pre-19", "it": "Abito a Roma.", "gap": "a", "ro": "Locuiesc la Roma.", "note": "oraș: a, fără articol" },
-    { "id": "pre-20", "it": "Vado con il treno.", "gap": "con", "ro": "Merg cu trenul.", "note": "con nu se contopește" },
-    { "id": "pre-21", "it": "Questo regalo è per la mamma.", "gap": "per", "ro": "Cadoul ăsta e pentru mama.", "note": "per nu se contopește" }
+    { "id": "pre-01", "it": "Vado al mare.", "gap": "al", "ro": "Merg la mare.", "note": "a + il = al", "noteIt": "a + il = al" },
+    { "id": "pre-02", "it": "Il libro è sul tavolo.", "gap": "sul", "ro": "Cartea este pe masă.", "note": "su + il = sul", "noteIt": "su + il = sul" },
+    { "id": "pre-03", "it": "Le chiavi sono nel cassetto.", "gap": "nel", "ro": "Cheile sunt în sertar.", "note": "in + il = nel", "noteIt": "in + il = nel" },
+    { "id": "pre-04", "it": "Vengo dalla stazione.", "gap": "dalla", "ro": "Vin de la gară.", "note": "da + la = dalla", "noteIt": "da + la = dalla" },
+    { "id": "pre-05", "it": "Vado dal medico.", "gap": "dal", "ro": "Merg la doctor.", "note": "la cineva: da + il = dal", "noteIt": "da qualcuno: da + il = dal" },
+    { "id": "pre-06", "it": "È la macchina della mamma.", "gap": "della", "ro": "E mașina mamei.", "note": "di + la = della", "noteIt": "di + la = della" },
+    { "id": "pre-07", "it": "Lavoro all'università.", "gap": "all'", "ro": "Lucrez la universitate.", "note": "a + l' = all'", "noteIt": "a + l' = all'" },
+    { "id": "pre-08", "it": "Il gatto è sulla sedia.", "gap": "sulla", "ro": "Pisica e pe scaun.", "note": "su + la = sulla", "noteIt": "su + la = sulla" },
+    { "id": "pre-09", "it": "Siamo nella stessa classe.", "gap": "nella", "ro": "Suntem în aceeași clasă.", "note": "in + la = nella", "noteIt": "in + la = nella" },
+    { "id": "pre-10", "it": "Telefono ai miei genitori.", "gap": "ai", "ro": "Îi sun pe părinții mei.", "note": "a + i = ai", "noteIt": "a + i = ai" },
+    { "id": "pre-11", "it": "Compro dei pomodori.", "gap": "dei", "ro": "Cumpăr niște roșii.", "note": "niște: di + i = dei", "noteIt": "„niște”: di + i = dei" },
+    { "id": "pre-12", "it": "Vorrei delle mele.", "gap": "delle", "ro": "Aș vrea niște mere.", "note": "niște: di + le = delle", "noteIt": "„niște”: di + le = delle" },
+    { "id": "pre-13", "it": "Torno dall'ufficio alle sei.", "gap": "dall'", "ro": "Mă întorc de la birou la șase.", "note": "da + l' = dall'", "noteIt": "da + l' = dall'" },
+    { "id": "pre-14", "it": "Il treno parte alle otto.", "gap": "alle", "ro": "Trenul pleacă la opt.", "note": "ora: a + le = alle", "noteIt": "l'ora: a + le = alle" },
+    { "id": "pre-15", "it": "C'è un libro nello zaino.", "gap": "nello", "ro": "E o carte în rucsac.", "note": "in + lo = nello", "noteIt": "in + lo = nello" },
+    { "id": "pre-16", "it": "Parlo degli studenti.", "gap": "degli", "ro": "Vorbesc despre studenți.", "note": "di + gli = degli", "noteIt": "di + gli = degli" },
+    { "id": "pre-17", "it": "Sugli scaffali ci sono libri.", "gap": "Sugli", "ro": "Pe rafturi sunt cărți.", "note": "su + gli = sugli", "noteIt": "su + gli = sugli" },
+    { "id": "pre-18", "it": "Vado in Italia.", "gap": "in", "ro": "Merg în Italia.", "note": "țară: in, fără articol", "noteIt": "paese: in, senza articolo" },
+    { "id": "pre-19", "it": "Abito a Roma.", "gap": "a", "ro": "Locuiesc la Roma.", "note": "oraș: a, fără articol", "noteIt": "città: a, senza articolo" },
+    { "id": "pre-20", "it": "Vado con il treno.", "gap": "con", "ro": "Merg cu trenul.", "note": "con nu se contopește", "noteIt": "con non si unisce" },
+    { "id": "pre-21", "it": "Questo regalo è per la mamma.", "gap": "per", "ro": "Cadoul ăsta e pentru mama.", "note": "per nu se contopește", "noteIt": "per non si unisce" }
   ]
 }

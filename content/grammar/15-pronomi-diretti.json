@@ -1,16 +1,18 @@
 {
   "id": "pronomi-diretti",
   "order": 15,
-  "title": "Pronumele complement direct (lo, la, li, le)",
+  "title": { "it": "I pronomi diretti (lo, la, li, le)", "ro": "Pronumele complement direct (lo, la, li, le)" },
   "level": "A2",
   "lesson": [
     {
       "type": "text",
-      "ro": "Pronumele complement direct înlocuiesc un substantiv deja pomenit: [it]Vedi Marco? Sì, lo vedo.[/it] = Îl vezi pe Marco? Da, îl văd. Ca în română, stau [b]înaintea verbului[/b]."
+      "ro": "Pronumele complement direct înlocuiesc un substantiv deja pomenit: [it]Vedi Marco? Sì, lo vedo.[/it] = Îl vezi pe Marco? Da, îl văd. Ca în română, stau [b]înaintea verbului[/b].",
+      "it": "I pronomi diretti sostituiscono un nome già nominato: [it]Vedi Marco? Sì, lo vedo.[/it] = Îl vezi pe Marco? Da, îl văd. Come in rumeno, stanno [b]prima del verbo[/b]."
     },
     {
       "type": "table",
       "head": ["italiană", "română"],
+      "headIt": ["italiano", "rumeno"],
       "itColumns": [0],
       "rows": [
         ["mi", "mă (pe mine)"],
@@ -25,49 +27,51 @@
     },
     {
       "type": "text",
-      "ro": "[it]Lo[/it] și [it]la[/it] devin [it]l'[/it] înaintea unei vocale sau a lui h: [it]L'ho visto ieri.[/it] = L-am văzut ieri. La passato prossimo, participiul se acordă cu [it]lo, la, li, le[/it]: [it]Le ho comprate.[/it] = Le-am cumpărat."
+      "ro": "[it]Lo[/it] și [it]la[/it] devin [it]l'[/it] înaintea unei vocale sau a lui h: [it]L'ho visto ieri.[/it] = L-am văzut ieri. La passato prossimo, participiul se acordă cu [it]lo, la, li, le[/it]: [it]Le ho comprate.[/it] = Le-am cumpărat.",
+      "it": "[it]Lo[/it] e [it]la[/it] diventano [it]l'[/it] davanti a una vocale o alla h: [it]L'ho visto ieri.[/it] = L-am văzut ieri. Al passato prossimo il participio si accorda con [it]lo, la, li, le[/it]: [it]Le ho comprate.[/it] = Le-am cumpărat."
     },
     {
       "type": "examples",
       "items": [
-        {"it": "Il caffè? Lo prendo amaro.", "ro": "Cafeaua? O beau fără zahăr.", "note": "[it]il caffè[/it] e masculin în italiană, deci [it]lo[/it]"},
-        {"it": "Conosci Giulia? Sì, la conosco.", "ro": "O cunoști pe Giulia? Da, o cunosc."},
-        {"it": "Conosci i miei amici? Sì, li conosco.", "ro": "Îi cunoști pe prietenii mei? Da, îi cunosc."},
-        {"it": "Ti chiamo stasera.", "ro": "Te sun diseară."},
-        {"it": "Le chiavi? Le ho dimenticate a casa.", "ro": "Cheile? Le-am uitat acasă.", "note": "participiul se acordă cu [it]le[/it]: [it]dimenticate[/it]"}
+        { "it": "Il caffè? Lo prendo amaro.", "ro": "Cafeaua? O beau fără zahăr.", "note": "[it]il caffè[/it] e masculin în italiană, deci [it]lo[/it]", "noteIt": "[it]il caffè[/it] è maschile in italiano, quindi [it]lo[/it]" },
+        { "it": "Conosci Giulia? Sì, la conosco.", "ro": "O cunoști pe Giulia? Da, o cunosc." },
+        { "it": "Conosci i miei amici? Sì, li conosco.", "ro": "Îi cunoști pe prietenii mei? Da, îi cunosc." },
+        { "it": "Ti chiamo stasera.", "ro": "Te sun diseară." },
+        { "it": "Le chiavi? Le ho dimenticate a casa.", "ro": "Cheile? Le-am uitat acasă.", "note": "participiul se acordă cu [it]le[/it]: [it]dimenticate[/it]", "noteIt": "il participio si accorda con [it]le[/it]: [it]dimenticate[/it]" }
       ]
     },
     {
       "type": "trap",
-      "ro": "În română spui „îl văd pe Marco”, cu „pe” și cu pronumele dublat. În italiană [b]nu se dublează[/b]: [it]Vedo Marco[/it] sau [it]Lo vedo[/it], niciodată „lo vedo Marco”. Atenție și la gen: contează genul italian ([it]il caffè → lo[/it]), chiar dacă în română cuvântul e feminin (cafeaua → o)."
+      "ro": "În română spui „îl văd pe Marco”, cu „pe” și cu pronumele dublat. În italiană [b]nu se dublează[/b]: [it]Vedo Marco[/it] sau [it]Lo vedo[/it], niciodată „lo vedo Marco”. Atenție și la gen: contează genul italian ([it]il caffè → lo[/it]), chiar dacă în română cuvântul e feminin (cafeaua → o).",
+      "it": "In rumeno dici „îl văd pe Marco”, con „pe” e con il pronome raddoppiato. In italiano [b]non si raddoppia[/b]: [it]Vedo Marco[/it] oppure [it]Lo vedo[/it], mai „lo vedo Marco”. Attenzione anche al genere: conta il genere italiano ([it]il caffè → lo[/it]), anche se in rumeno la parola è femminile (cafeaua → o)."
     }
   ],
   "rules": [
-    "Pronumele directe: mi, ti, lo, la, ci, vi, li, le (mă, te, îl, o, ne, vă, îi, le), puse înaintea verbului.",
-    "Lo și la devin l' înaintea vocalei: l'ho visto, l'ascolto.",
-    "Fără dublare: Vedo Marco sau Lo vedo, nu „lo vedo Marco”.",
-    "La passato prossimo participiul se acordă cu lo, la, li, le: l'ho vista, li ho visti, le ho comprate."
+    { "it": "I pronomi diretti: mi, ti, lo, la, ci, vi, li, le (mă, te, îl, o, ne, vă, îi, le), messi prima del verbo.", "ro": "Pronumele directe: mi, ti, lo, la, ci, vi, li, le (mă, te, îl, o, ne, vă, îi, le), puse înaintea verbului." },
+    { "it": "Lo e la diventano l' davanti a vocale: l'ho visto, l'ascolto.", "ro": "Lo și la devin l' înaintea vocalei: l'ho visto, l'ascolto." },
+    { "it": "Niente raddoppio: Vedo Marco oppure Lo vedo, non „lo vedo Marco”.", "ro": "Fără dublare: Vedo Marco sau Lo vedo, nu „lo vedo Marco”." },
+    { "it": "Al passato prossimo il participio si accorda con lo, la, li, le: l'ho vista, li ho visti, le ho comprate.", "ro": "La passato prossimo participiul se acordă cu lo, la, li, le: l'ho vista, li ho visti, le ho comprate." }
   ],
   "items": [
-    {"id": "pd-01", "it": "Vedi Marco? Sì, lo vedo.", "gap": "lo", "ro": "Îl vezi pe Marco? Da, îl văd."},
-    {"id": "pd-02", "it": "Conosci Giulia? Sì, la conosco.", "gap": "la", "ro": "O cunoști pe Giulia? Da, o cunosc."},
-    {"id": "pd-03", "it": "Dove sono i biglietti? Li ho io.", "gap": "Li", "ro": "Unde sunt biletele? Le am eu.", "note": "i biglietti e masculin plural: li"},
-    {"id": "pd-04", "it": "Dove sono le chiavi? Le cerco da un'ora.", "gap": "Le", "ro": "Unde sunt cheile? Le caut de o oră."},
-    {"id": "pd-05", "it": "Ti chiamo stasera.", "gap": "Ti", "ro": "Te sun diseară."},
-    {"id": "pd-06", "it": "Mi aspetti qui?", "gap": "Mi", "ro": "Mă aștepți aici?"},
-    {"id": "pd-07", "it": "Il libro? L'ho già letto.", "gap": "L'", "ro": "Cartea? Am citit-o deja.", "note": "lo devine l' înaintea vocalei"},
-    {"id": "pd-08", "it": "Ci invitano alla festa.", "gap": "Ci", "ro": "Ne invită la petrecere."},
-    {"id": "pd-09", "it": "Vi vedo stanchi.", "gap": "Vi", "ro": "Vă văd obosiți."},
-    {"id": "pd-10", "it": "Prendi il caffè? Sì, lo prendo amaro.", "gap": "lo", "ro": "Bei cafea? Da, o beau fără zahăr.", "note": "il caffè e masculin: lo"},
-    {"id": "pd-11", "it": "Ho visto Anna e l'ho salutata.", "gap": "salutata", "ro": "Am văzut-o pe Anna și am salutat-o.", "note": "participiul se acordă cu l' (Anna): salutata"},
-    {"id": "pd-12", "it": "Hai le foto? Sì, le ho stampate ieri.", "gap": "stampate", "ro": "Ai fotografiile? Da, le-am printat ieri.", "note": "participiul se acordă cu le: stampate"},
-    {"id": "pd-13", "it": "Conosci i miei genitori? No, non li conosco.", "gap": "li", "ro": "Îi cunoști pe părinții mei? Nu, nu îi cunosc."},
-    {"id": "pd-14", "it": "Ascolti la radio? Sì, l'ascolto ogni mattina.", "gap": "l'", "ro": "Asculți radioul? Da, îl ascult în fiecare dimineață.", "note": "la radio e feminin; la devine l' înaintea vocalei"},
-    {"id": "pd-15", "it": "Aspetti l'autobus? Sì, lo aspetto.", "gap": "lo", "ro": "Aștepți autobuzul? Da, îl aștept."},
-    {"id": "pd-16", "it": "Mi senti?", "gap": "Mi", "ro": "Mă auzi?"},
-    {"id": "pd-17", "it": "Hai visto le ragazze? Sì, le ho viste al bar.", "gap": "viste", "ro": "Le-ai văzut pe fete? Da, le-am văzut la bar.", "note": "participiul se acordă cu le: viste"},
-    {"id": "pd-18", "it": "Ti aiuto io.", "gap": "Ti", "ro": "Te ajut eu."},
-    {"id": "pd-19", "it": "Non la trovo più.", "gap": "la", "ro": "Nu o mai găsesc."},
-    {"id": "pd-20", "it": "Vi chiamo dopo.", "gap": "Vi", "ro": "Vă sun mai târziu."}
+    { "id": "pd-01", "it": "Vedi Marco? Sì, lo vedo.", "gap": "lo", "ro": "Îl vezi pe Marco? Da, îl văd." },
+    { "id": "pd-02", "it": "Conosci Giulia? Sì, la conosco.", "gap": "la", "ro": "O cunoști pe Giulia? Da, o cunosc." },
+    { "id": "pd-03", "it": "Dove sono i biglietti? Li ho io.", "gap": "Li", "ro": "Unde sunt biletele? Le am eu.", "note": "i biglietti e masculin plural: li", "noteIt": "i biglietti è maschile plurale: li" },
+    { "id": "pd-04", "it": "Dove sono le chiavi? Le cerco da un'ora.", "gap": "Le", "ro": "Unde sunt cheile? Le caut de o oră." },
+    { "id": "pd-05", "it": "Ti chiamo stasera.", "gap": "Ti", "ro": "Te sun diseară." },
+    { "id": "pd-06", "it": "Mi aspetti qui?", "gap": "Mi", "ro": "Mă aștepți aici?" },
+    { "id": "pd-07", "it": "Il libro? L'ho già letto.", "gap": "L'", "ro": "Cartea? Am citit-o deja.", "note": "lo devine l' înaintea vocalei", "noteIt": "lo diventa l' davanti a vocale" },
+    { "id": "pd-08", "it": "Ci invitano alla festa.", "gap": "Ci", "ro": "Ne invită la petrecere." },
+    { "id": "pd-09", "it": "Vi vedo stanchi.", "gap": "Vi", "ro": "Vă văd obosiți." },
+    { "id": "pd-10", "it": "Prendi il caffè? Sì, lo prendo amaro.", "gap": "lo", "ro": "Bei cafea? Da, o beau fără zahăr.", "note": "il caffè e masculin: lo", "noteIt": "il caffè è maschile: lo" },
+    { "id": "pd-11", "it": "Ho visto Anna e l'ho salutata.", "gap": "salutata", "ro": "Am văzut-o pe Anna și am salutat-o.", "note": "participiul se acordă cu l' (Anna): salutata", "noteIt": "il participio si accorda con l' (Anna): salutata" },
+    { "id": "pd-12", "it": "Hai le foto? Sì, le ho stampate ieri.", "gap": "stampate", "ro": "Ai fotografiile? Da, le-am printat ieri.", "note": "participiul se acordă cu le: stampate", "noteIt": "il participio si accorda con le: stampate" },
+    { "id": "pd-13", "it": "Conosci i miei genitori? No, non li conosco.", "gap": "li", "ro": "Îi cunoști pe părinții mei? Nu, nu îi cunosc." },
+    { "id": "pd-14", "it": "Ascolti la radio? Sì, l'ascolto ogni mattina.", "gap": "l'", "ro": "Asculți radioul? Da, îl ascult în fiecare dimineață.", "note": "la radio e feminin; la devine l' înaintea vocalei", "noteIt": "la radio è femminile; la diventa l' davanti a vocale" },
+    { "id": "pd-15", "it": "Aspetti l'autobus? Sì, lo aspetto.", "gap": "lo", "ro": "Aștepți autobuzul? Da, îl aștept." },
+    { "id": "pd-16", "it": "Mi senti?", "gap": "Mi", "ro": "Mă auzi?" },
+    { "id": "pd-17", "it": "Hai visto le ragazze? Sì, le ho viste al bar.", "gap": "viste", "ro": "Le-ai văzut pe fete? Da, le-am văzut la bar.", "note": "participiul se acordă cu le: viste", "noteIt": "il participio si accorda con le: viste" },
+    { "id": "pd-18", "it": "Ti aiuto io.", "gap": "Ti", "ro": "Te ajut eu." },
+    { "id": "pd-19", "it": "Non la trovo più.", "gap": "la", "ro": "Nu o mai găsesc." },
+    { "id": "pd-20", "it": "Vi chiamo dopo.", "gap": "Vi", "ro": "Vă sun mai târziu." }
   ]
 }

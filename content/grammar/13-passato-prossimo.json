@@ -1,17 +1,20 @@
 {
   "id": "passato-prossimo",
   "order": 13,
-  "title": "Trecutul compus (passato prossimo)",
+  "title": { "it": "Il passato prossimo", "ro": "Trecutul compus (passato prossimo)" },
   "level": "A2",
   "lesson": [
     {
       "type": "text",
-      "ro": "[it]Passato prossimo[/it] e timpul pentru acțiunile încheiate: ieri, săptămâna trecută, anul trecut. Se formează ca perfectul compus din română: [b]auxiliar + participiu[/b]. [it]Ho mangiato.[/it] = Am mâncat."
+      "ro": "[it]Passato prossimo[/it] e timpul pentru acțiunile încheiate: ieri, săptămâna trecută, anul trecut. Se formează ca perfectul compus din română: [b]auxiliar + participiu[/b]. [it]Ho mangiato.[/it] = Am mâncat.",
+      "it": "Il [it]passato prossimo[/it] è il tempo per le azioni concluse: ieri, la settimana scorsa, l'anno scorso. Si forma come il perfect compus rumeno: [b]ausiliare + participio[/b]. [it]Ho mangiato.[/it] = Am mâncat."
     },
     {
       "type": "table",
       "caption": "Participiul: regulat și câteva neregulate frecvente",
+      "captionIt": "Il participio: regolare e alcuni irregolari frequenti",
       "head": ["infinitiv", "participiu", "română"],
+      "headIt": ["infinito", "participio", "rumeno"],
       "itColumns": [0, 1],
       "rows": [
         ["parlare", "parlato", "vorbit"],
@@ -30,12 +33,15 @@
     },
     {
       "type": "text",
-      "ro": "Diferența față de română: italiana are [b]două auxiliare[/b]. Majoritatea verbelor folosesc [it]avere[/it]: [it]ho parlato[/it]. Verbele de mișcare și de schimbare de stare ([it]andare, venire, partire, arrivare, uscire, entrare, tornare, restare, nascere, morire[/it]) și [it]essere[/it] însuși folosesc [it]essere[/it]: [it]sono andato[/it]."
+      "ro": "Diferența față de română: italiana are [b]două auxiliare[/b]. Majoritatea verbelor folosesc [it]avere[/it]: [it]ho parlato[/it]. Verbele de mișcare și de schimbare de stare ([it]andare, venire, partire, arrivare, uscire, entrare, tornare, restare, nascere, morire[/it]) și [it]essere[/it] însuși folosesc [it]essere[/it]: [it]sono andato[/it].",
+      "it": "La differenza con il rumeno: l'italiano ha [b]due ausiliari[/b]. La maggior parte dei verbi usa [it]avere[/it]: [it]ho parlato[/it]. I verbi di movimento e di cambiamento di stato ([it]andare, venire, partire, arrivare, uscire, entrare, tornare, restare, nascere, morire[/it]) ed [it]essere[/it] stesso usano [it]essere[/it]: [it]sono andato[/it]."
     },
     {
       "type": "table",
       "caption": "Andare la passato prossimo: cu essere, participiul se acordă",
+      "captionIt": "Andare al passato prossimo: con essere, il participio si accorda",
       "head": ["italiană", "română"],
+      "headIt": ["italiano", "rumeno"],
       "itColumns": [0],
       "rows": [
         ["io sono andato / andata", "eu am mers"],
@@ -49,44 +55,45 @@
     {
       "type": "examples",
       "items": [
-        {"it": "Ieri ho lavorato molto.", "ro": "Ieri am lucrat mult."},
-        {"it": "Abbiamo visto un film.", "ro": "Am văzut un film."},
-        {"it": "Maria è arrivata alle otto.", "ro": "Maria a sosit la opt.", "note": "cu [it]essere[/it], participiul se acordă: [it]arrivata[/it]"},
-        {"it": "Siete andati al mare?", "ro": "Ați fost la mare?"},
-        {"it": "Non ho capito.", "ro": "Nu am înțeles."}
+        { "it": "Ieri ho lavorato molto.", "ro": "Ieri am lucrat mult." },
+        { "it": "Abbiamo visto un film.", "ro": "Am văzut un film." },
+        { "it": "Maria è arrivata alle otto.", "ro": "Maria a sosit la opt.", "note": "cu [it]essere[/it], participiul se acordă: [it]arrivata[/it]", "noteIt": "con [it]essere[/it], il participio si accorda: [it]arrivata[/it]" },
+        { "it": "Siete andati al mare?", "ro": "Ați fost la mare?" },
+        { "it": "Non ho capito.", "ro": "Nu am înțeles." }
       ]
     },
     {
       "type": "trap",
-      "ro": "Româna folosește mereu „a avea” (am mers, am venit). În italiană, verbele de mișcare cer [it]essere[/it]: [it]sono andato[/it], nu „ho andato”. Cu [it]essere[/it], participiul se acordă cu subiectul: [it]Lei è venuta[/it], [it]Loro sono partiti[/it]."
+      "ro": "Româna folosește mereu „a avea” (am mers, am venit). În italiană, verbele de mișcare cer [it]essere[/it]: [it]sono andato[/it], nu „ho andato”. Cu [it]essere[/it], participiul se acordă cu subiectul: [it]Lei è venuta[/it], [it]Loro sono partiti[/it].",
+      "it": "Il rumeno usa sempre „a avea” (am mers, am venit). In italiano i verbi di movimento vogliono [it]essere[/it]: [it]sono andato[/it], non „ho andato”. Con [it]essere[/it] il participio si accorda con il soggetto: [it]Lei è venuta[/it], [it]Loro sono partiti[/it]."
     }
   ],
   "rules": [
-    "Passato prossimo = avere sau essere la prezent + participiu: ho mangiato (am mâncat), sono andato (am mers).",
-    "Participiul regulat: -are → -ato, -ere → -uto, -ire → -ito (parlato, venduto, dormito).",
-    "Mișcarea și schimbarea de stare cer essere: andare, venire, partire, arrivare, uscire, tornare, restare, nascere.",
-    "Cu essere participiul se acordă: lei è andata, noi siamo partiti."
+    { "it": "Passato prossimo = avere o essere al presente + participio: ho mangiato (am mâncat), sono andato (am mers).", "ro": "Passato prossimo = avere sau essere la prezent + participiu: ho mangiato (am mâncat), sono andato (am mers)." },
+    { "it": "Il participio regolare: -are → -ato, -ere → -uto, -ire → -ito (parlato, venduto, dormito).", "ro": "Participiul regulat: -are → -ato, -ere → -uto, -ire → -ito (parlato, venduto, dormito)." },
+    { "it": "Il movimento e il cambiamento di stato vogliono essere: andare, venire, partire, arrivare, uscire, tornare, restare, nascere.", "ro": "Mișcarea și schimbarea de stare cer essere: andare, venire, partire, arrivare, uscire, tornare, restare, nascere." },
+    { "it": "Con essere il participio si accorda: lei è andata, noi siamo partiti.", "ro": "Cu essere participiul se acordă: lei è andata, noi siamo partiti." }
   ],
   "items": [
-    {"id": "pp-01", "it": "Ieri ho mangiato la pizza.", "gap": "ho", "ro": "Ieri am mâncat pizza."},
-    {"id": "pp-02", "it": "Abbiamo visto un bel film.", "gap": "visto", "ro": "Am văzut un film frumos.", "note": "vedere → visto (neregulat)"},
-    {"id": "pp-03", "it": "Maria è arrivata alle otto.", "gap": "è", "ro": "Maria a sosit la opt.", "note": "verb de mișcare: essere"},
-    {"id": "pp-04", "it": "Sono andato al mercato.", "gap": "Sono", "ro": "Am mers la piață.", "note": "andare cere essere"},
-    {"id": "pp-05", "it": "Hai finito i compiti?", "gap": "Hai", "ro": "Ți-ai terminat temele?"},
-    {"id": "pp-06", "it": "Non ho capito la domanda.", "gap": "capito", "ro": "Nu am înțeles întrebarea."},
-    {"id": "pp-07", "it": "Loro sono partiti stamattina.", "gap": "partiti", "ro": "Ei au plecat azi-dimineață.", "note": "cu essere, participiul se acordă: partiti"},
-    {"id": "pp-08", "it": "Lei è nata a Bucarest.", "gap": "nata", "ro": "Ea s-a născut la București.", "note": "nascere: essere și participiu neregulat"},
-    {"id": "pp-09", "it": "Ho fatto una passeggiata.", "gap": "fatto", "ro": "Am făcut o plimbare.", "note": "fare → fatto (neregulat)"},
-    {"id": "pp-10", "it": "Che cosa hai detto?", "gap": "detto", "ro": "Ce ai spus?", "note": "dire → detto (neregulat)"},
-    {"id": "pp-11", "it": "Abbiamo preso il treno.", "gap": "preso", "ro": "Am luat trenul.", "note": "prendere → preso (neregulat)"},
-    {"id": "pp-12", "it": "Siete tornati tardi.", "gap": "Siete", "ro": "V-ați întors târziu.", "note": "tornare cere essere"},
-    {"id": "pp-13", "it": "Ho letto un libro interessante.", "gap": "letto", "ro": "Am citit o carte interesantă.", "note": "leggere → letto (neregulat)"},
-    {"id": "pp-14", "it": "Mia madre ha scritto una lettera.", "gap": "scritto", "ro": "Mama mea a scris o scrisoare.", "note": "scrivere → scritto (neregulat)"},
-    {"id": "pp-15", "it": "Siamo rimasti a casa.", "gap": "rimasti", "ro": "Am rămas acasă.", "note": "rimanere → rimasto; cu essere se acordă"},
-    {"id": "pp-16", "it": "Ho dormito otto ore.", "gap": "dormito", "ro": "Am dormit opt ore."},
-    {"id": "pp-17", "it": "Paolo è uscito con gli amici.", "gap": "uscito", "ro": "Paolo a ieșit cu prietenii.", "note": "uscire cere essere"},
-    {"id": "pp-18", "it": "Avete parlato con il medico?", "gap": "Avete", "ro": "Ați vorbit cu medicul?"},
-    {"id": "pp-19", "it": "Sono stata in Italia due volte.", "gap": "stata", "ro": "Am fost în Italia de două ori.", "note": "essere → stato; o femeie spune stata"},
-    {"id": "pp-20", "it": "Ho messo le chiavi sul tavolo.", "gap": "messo", "ro": "Am pus cheile pe masă.", "note": "mettere → messo (neregulat)"}
+    { "id": "pp-01", "it": "Ieri ho mangiato la pizza.", "gap": "ho", "ro": "Ieri am mâncat pizza." },
+    { "id": "pp-02", "it": "Abbiamo visto un bel film.", "gap": "visto", "ro": "Am văzut un film frumos.", "note": "vedere → visto (neregulat)", "noteIt": "vedere → visto (irregolare)" },
+    { "id": "pp-03", "it": "Maria è arrivata alle otto.", "gap": "è", "ro": "Maria a sosit la opt.", "note": "verb de mișcare: essere", "noteIt": "verbo di movimento: essere" },
+    { "id": "pp-04", "it": "Sono andato al mercato.", "gap": "Sono", "ro": "Am mers la piață.", "note": "andare cere essere", "noteIt": "andare vuole essere" },
+    { "id": "pp-05", "it": "Hai finito i compiti?", "gap": "Hai", "ro": "Ți-ai terminat temele?" },
+    { "id": "pp-06", "it": "Non ho capito la domanda.", "gap": "capito", "ro": "Nu am înțeles întrebarea." },
+    { "id": "pp-07", "it": "Loro sono partiti stamattina.", "gap": "partiti", "ro": "Ei au plecat azi-dimineață.", "note": "cu essere, participiul se acordă: partiti", "noteIt": "con essere il participio si accorda: partiti" },
+    { "id": "pp-08", "it": "Lei è nata a Bucarest.", "gap": "nata", "ro": "Ea s-a născut la București.", "note": "nascere: essere și participiu neregulat", "noteIt": "nascere: essere e participio irregolare" },
+    { "id": "pp-09", "it": "Ho fatto una passeggiata.", "gap": "fatto", "ro": "Am făcut o plimbare.", "note": "fare → fatto (neregulat)", "noteIt": "fare → fatto (irregolare)" },
+    { "id": "pp-10", "it": "Che cosa hai detto?", "gap": "detto", "ro": "Ce ai spus?", "note": "dire → detto (neregulat)", "noteIt": "dire → detto (irregolare)" },
+    { "id": "pp-11", "it": "Abbiamo preso il treno.", "gap": "preso", "ro": "Am luat trenul.", "note": "prendere → preso (neregulat)", "noteIt": "prendere → preso (irregolare)" },
+    { "id": "pp-12", "it": "Siete tornati tardi.", "gap": "Siete", "ro": "V-ați întors târziu.", "note": "tornare cere essere", "noteIt": "tornare vuole essere" },
+    { "id": "pp-13", "it": "Ho letto un libro interessante.", "gap": "letto", "ro": "Am citit o carte interesantă.", "note": "leggere → letto (neregulat)", "noteIt": "leggere → letto (irregolare)" },
+    { "id": "pp-14", "it": "Mia madre ha scritto una lettera.", "gap": "scritto", "ro": "Mama mea a scris o scrisoare.", "note": "scrivere → scritto (neregulat)", "noteIt": "scrivere → scritto (irregolare)" },
+    { "id": "pp-15", "it": "Siamo rimasti a casa.", "gap": "rimasti", "ro": "Am rămas acasă.", "note": "rimanere → rimasto; cu essere se acordă", "noteIt": "rimanere → rimasto; con essere si accorda" },
+    { "id": "pp-16", "it": "Ho dormito otto ore.", "gap": "dormito", "ro": "Am dormit opt ore." },
+    { "id": "pp-17", "it": "Paolo è uscito con gli amici.", "gap": "uscito", "ro": "Paolo a ieșit cu prietenii.", "note": "uscire cere essere", "noteIt": "uscire vuole essere" },
+    { "id": "pp-18", "it": "Avete parlato con il medico?", "gap": "Avete", "ro": "Ați vorbit cu medicul?" },
+    { "id": "pp-19", "it": "Sono stata in Italia due volte.", "gap": "stata", "ro": "Am fost în Italia de două ori.", "note": "essere → stato; o femeie spune stata", "noteIt": "essere → stato; una donna dice stata" },
+    { "id": "pp-20", "it": "Ho messo le chiavi sul tavolo.", "gap": "messo", "ro": "Am pus cheile pe masă.", "note": "mettere → messo (neregulat)", "noteIt": "mettere → messo (irregolare)" }
   ]
 }

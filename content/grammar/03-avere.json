@@ -1,17 +1,20 @@
 {
   "id": "avere",
   "order": 5,
-  "title": "Verbul „a avea” (avere)",
+  "title": { "it": "Il verbo avere", "ro": "Verbul „a avea” (avere)" },
   "level": "A1",
   "lesson": [
     {
       "type": "text",
-      "ro": "[it]Avere[/it] înseamnă „a avea”: [it]Ho un fratello.[/it] = Am un frate. Litera [b]h[/b] se scrie, dar [b]nu se pronunță[/b]: [it]ho[/it] se citește „o”, iar [it]hanno[/it] se citește „anno”."
+      "ro": "[it]Avere[/it] înseamnă „a avea”: [it]Ho un fratello.[/it] = Am un frate. Litera [b]h[/b] se scrie, dar [b]nu se pronunță[/b]: [it]ho[/it] se citește „o”, iar [it]hanno[/it] se citește „anno”.",
+      "it": "[it]Avere[/it] significa „a avea”: [it]Ho un fratello.[/it] = Am un frate. La lettera [b]h[/b] si scrive, ma [b]non si pronuncia[/b]: [it]ho[/it] si legge „o”, e [it]hanno[/it] si legge „anno”."
     },
     {
       "type": "table",
       "caption": "Prezentul verbului avere (a avea)",
+      "captionIt": "Il presente del verbo avere (a avea)",
       "head": ["italiană", "română"],
+      "headIt": ["italiano", "rumeno"],
       "itColumns": [0],
       "rows": [
         ["io ho", "eu am"],
@@ -24,32 +27,35 @@
     },
     {
       "type": "text",
-      "ro": "De ce [it]h[/it]? Ca să deosebești verbul de alte cuvinte care se pronunță la fel: [it]ho[/it] (am) și [it]o[/it] (sau), [it]ha[/it] (are) și [it]a[/it] (la), [it]hanno[/it] (au) și [it]anno[/it] (an)."
+      "ro": "De ce [it]h[/it]? Ca să deosebești verbul de alte cuvinte care se pronunță la fel: [it]ho[/it] (am) și [it]o[/it] (sau), [it]ha[/it] (are) și [it]a[/it] (la), [it]hanno[/it] (au) și [it]anno[/it] (an).",
+      "it": "Perché la [it]h[/it]? Per distinguere il verbo da altre parole che si pronunciano allo stesso modo: [it]ho[/it] (verbo) e [it]o[/it] (oppure), [it]ha[/it] (verbo) e [it]a[/it] (preposizione), [it]hanno[/it] (verbo) e [it]anno[/it] (dodici mesi)."
     },
     {
       "type": "examples",
       "items": [
-        { "it": "Ho fame.", "ro": "Mi-e foame.", "note": "literal: „am foame”" },
+        { "it": "Ho fame.", "ro": "Mi-e foame.", "note": "literal: „am foame”", "noteIt": "in rumeno: „mi-e foame”" },
         { "it": "Ho freddo.", "ro": "Mi-e frig." },
         { "it": "Hai sonno?", "ro": "Ți-e somn?" },
-        { "it": "Lui ha vent'anni.", "ro": "El are douăzeci de ani.", "note": "vârsta: [it]avere[/it] + număr + [it]anni[/it], fără „de”" },
+        { "it": "Lui ha vent'anni.", "ro": "El are douăzeci de ani.", "note": "vârsta: [it]avere[/it] + număr + [it]anni[/it], fără „de”", "noteIt": "l'età: [it]avere[/it] + numero + [it]anni[/it], senza „de”" },
         { "it": "Quanti anni hai?", "ro": "Câți ani ai?" },
         { "it": "Avete ragione.", "ro": "Aveți dreptate." }
       ]
     },
     {
       "type": "trap",
-      "ro": "Unde româna spune „mi-e foame / sete / frig / cald / somn”, italiana spune „am”: [it]ho fame[/it], [it]ho sete[/it], [it]ho freddo[/it], [it]ho caldo[/it], [it]ho sonno[/it]. Nu „mi è fame”."
+      "ro": "Unde româna spune „mi-e foame / sete / frig / cald / somn”, italiana spune „am”: [it]ho fame[/it], [it]ho sete[/it], [it]ho freddo[/it], [it]ho caldo[/it], [it]ho sonno[/it]. Nu „mi è fame”.",
+      "it": "Dove il rumeno dice „mi-e foame / sete / frig / cald / somn”, l'italiano usa avere: [it]ho fame[/it], [it]ho sete[/it], [it]ho freddo[/it], [it]ho caldo[/it], [it]ho sonno[/it]. Non „mi è fame”."
     },
     {
       "type": "text",
-      "ro": "Vârsta se spune tot cu [it]avere[/it], ca în română, dar fără „de”: [it]Ho trent'anni.[/it] = Am treizeci de ani."
+      "ro": "Vârsta se spune tot cu [it]avere[/it], ca în română, dar fără „de”: [it]Ho trent'anni.[/it] = Am treizeci de ani.",
+      "it": "Anche l'età si dice con [it]avere[/it], come in rumeno, ma senza „de”: [it]Ho trent'anni.[/it] = Am treizeci de ani."
     }
   ],
   "rules": [
-    "Forme: io ho, tu hai, lui/lei ha, noi abbiamo, voi avete, loro hanno (am, ai, are, avem, aveți, au).",
-    "Ha cu h este verbul avere; a fără h este prepoziție: Lei ha un cane. Vado a Roma.",
-    "Foamea, setea, frigul, somnul și vârsta se spun cu avere: ho fame (mi-e foame), ho freddo (mi-e frig), ho 20 anni (am 20 de ani)."
+    { "it": "Forme: io ho, tu hai, lui/lei ha, noi abbiamo, voi avete, loro hanno (am, ai, are, avem, aveți, au).", "ro": "Forme: io ho, tu hai, lui/lei ha, noi abbiamo, voi avete, loro hanno (am, ai, are, avem, aveți, au)." },
+    { "it": "Ha con la h è il verbo avere; a senza h è una preposizione: Lei ha un cane. Vado a Roma.", "ro": "Ha cu h este verbul avere; a fără h este prepoziție: Lei ha un cane. Vado a Roma." },
+    { "it": "Fame, sete, freddo, sonno ed età si dicono con avere: ho fame (mi-e foame), ho freddo (mi-e frig), ho 20 anni (am 20 de ani).", "ro": "Foamea, setea, frigul, somnul și vârsta se spun cu avere: ho fame (mi-e foame), ho freddo (mi-e frig), ho 20 anni (am 20 de ani)." }
   ],
   "items": [
     { "id": "avr-01", "it": "Io ho un fratello.", "gap": "ho", "ro": "Am un frate." },
@@ -58,10 +64,10 @@
     { "id": "avr-04", "it": "Noi abbiamo fame.", "gap": "abbiamo", "ro": "Avem foame." },
     { "id": "avr-05", "it": "Voi avete ragione.", "gap": "avete", "ro": "Aveți dreptate." },
     { "id": "avr-06", "it": "Loro hanno due figli.", "gap": "hanno", "ro": "Ei au doi copii." },
-    { "id": "avr-07", "it": "Io ho sete.", "gap": "ho", "ro": "Mi-e sete.", "note": "în italiană: avere, nu essere" },
-    { "id": "avr-08", "it": "Io ho freddo.", "gap": "ho", "ro": "Mi-e frig.", "note": "în italiană: avere, nu essere" },
-    { "id": "avr-09", "it": "Tu hai sonno?", "gap": "hai", "ro": "Ți-e somn?", "note": "în italiană: avere, nu essere" },
-    { "id": "avr-10", "it": "Lui ha vent'anni.", "gap": "ha", "ro": "El are douăzeci de ani.", "note": "vârsta se spune cu avere" },
+    { "id": "avr-07", "it": "Io ho sete.", "gap": "ho", "ro": "Mi-e sete.", "note": "în italiană: avere, nu essere", "noteIt": "in italiano: avere, non essere" },
+    { "id": "avr-08", "it": "Io ho freddo.", "gap": "ho", "ro": "Mi-e frig.", "note": "în italiană: avere, nu essere", "noteIt": "in italiano: avere, non essere" },
+    { "id": "avr-09", "it": "Tu hai sonno?", "gap": "hai", "ro": "Ți-e somn?", "note": "în italiană: avere, nu essere", "noteIt": "in italiano: avere, non essere" },
+    { "id": "avr-10", "it": "Lui ha vent'anni.", "gap": "ha", "ro": "El are douăzeci de ani.", "note": "vârsta se spune cu avere", "noteIt": "l'età si dice con avere" },
     { "id": "avr-11", "it": "Noi abbiamo una casa a Roma.", "gap": "abbiamo", "ro": "Avem o casă la Roma." },
     { "id": "avr-12", "it": "Loro hanno una bella casa.", "gap": "hanno", "ro": "Ei au o casă frumoasă." },
     { "id": "avr-13", "it": "Io ho un'idea.", "gap": "ho", "ro": "Am o idee." },
@@ -71,6 +77,6 @@
     { "id": "avr-17", "it": "Mia sorella ha i capelli lunghi.", "gap": "ha", "ro": "Sora mea are părul lung." },
     { "id": "avr-18", "it": "Ho la febbre.", "gap": "Ho", "ro": "Am febră." },
     { "id": "avr-19", "it": "Abbiamo ragione.", "gap": "Abbiamo", "ro": "Avem dreptate." },
-    { "id": "avr-20", "it": "Io ho fame.", "gap": "ho", "ro": "Mi-e foame.", "note": "în italiană: avere, nu essere" }
+    { "id": "avr-20", "it": "Io ho fame.", "gap": "ho", "ro": "Mi-e foame.", "note": "în italiană: avere, nu essere", "noteIt": "in italiano: avere, non essere" }
   ]
 }

@@ -4,7 +4,7 @@ import { expect, test } from "@playwright/test";
 interface GrammarTopic {
   id: string;
   order: number;
-  title: string;
+  title: { it: string; ro: string };
   items: { id: string; it: string; gap: string; ro: string }[];
 }
 const GRAMMAR: GrammarTopic[] = JSON.parse(readFileSync("src/data/generated/grammar.json", "utf8"));
@@ -26,14 +26,13 @@ test("Învață → Gramatică: temele în ordinea de învățare, apoi cele 3 j
 
   await page.getByRole("link", { name: /Articolul hotărât/ }).click();
   await expect(page).toHaveURL(/\/learn\/grammar\/articoli$/);
-  await expect(page.getByRole("heading", { name: articoli.title, level: 1 })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "De reținut" })).toBeVisible();
-  // pe pagina temei, rezumatul e deschis implicit; se poate restrânge
-  const rules = page.getByRole("button", { name: "De reținut" });
+  await expect(page.getByRole("heading", { name: new RegExp(`^${articoli.title.it}`), level: 1 })).toBeVisible();
+  // pe pagina temei, rezumatul e deschis implicit, cu regulile în italiană (fața „Da ricordare”); se poate restrânge
+  const rules = page.getByRole("button", { name: "Da ricordare" });
   await expect(rules).toHaveAttribute("aria-expanded", "true");
-  await expect(page.getByText(/Articolul hotărât arată ceva anume/)).toBeVisible();
+  await expect(page.getByText(/L'articolo determinativo indica una cosa precisa/)).toBeVisible();
   await rules.click();
-  await expect(page.getByText(/Articolul hotărât arată ceva anume/)).toBeHidden();
+  await expect(page.getByText(/L'articolo determinativo indica una cosa precisa/)).toBeHidden();
   for (const game of ["Cartonașe", "Potrivire", "Introducere text"]) {
     await expect(page.getByRole("link", { name: new RegExp(game) })).toBeVisible();
   }
@@ -169,4 +168,30 @@ test("Am citit + scorul la Introducere text apar în listă", async ({ page }) =
   // după reîncărcare progresul rămâne
   await page.reload();
   await expect(row).toContainText("100%");
+});
+
+test("lecția urmează limba interfeței: în italiană explicațiile, capcana și explicațiile din joc sunt în italiană", async ({ page }) => {
+  // în română
+  await page.goto("/learn/grammar/articoli");
+  await expect(page.getByText(/În italiană articolul stă/)).toBeVisible();
+  await expect(page.getByText("Capcană pentru români").first()).toBeVisible();
+  await expect(page.getByRole("cell", { name: "masculin, înaintea consoanei" })).toBeVisible();
+
+  // în italiană
+  await page.goto("/settings");
+  await page.getByLabel("Limba interfeței / Lingua dell'interfaccia").selectOption("it");
+  await expect(page.getByRole("heading", { name: "Impostazioni", level: 1 })).toBeVisible();
+  await page.goto("/learn/grammar/articoli");
+  await expect(page.getByRole("heading", { name: /^Articolo determinativo e indeterminativo/, level: 1 })).toBeVisible();
+  await expect(page.getByText(/In italiano l'articolo sta/)).toBeVisible();
+  await expect(page.getByText(/În italiană articolul stă/)).toHaveCount(0);
+  await expect(page.getByText("Trappola per chi parla rumeno").first()).toBeVisible();
+  await expect(page.getByRole("cell", { name: "maschile, davanti a consonante" })).toBeVisible();
+  // traducerile exemplelor rămân în română
+  await expect(page.getByText("ziua", { exact: true })).toBeVisible();
+
+  // explicația de pe spatele cartonașului, în italiană
+  await page.goto("/learn/grammar/articoli/cards");
+  await page.getByRole("button", { name: "Mostra la risposta" }).click();
+  await expect(page.getByTestId("grammar-answer")).toContainText(/(maschile|femminile) (singolare|plurale)/);
 });

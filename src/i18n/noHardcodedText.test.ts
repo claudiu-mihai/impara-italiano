@@ -9,7 +9,6 @@ import { expect, test } from "vitest";
 const ALLOWED: { file: string; text: string; why: string }[] = [
   { file: "src/ui/RulesBox.tsx", text: "De reținut", why: "titlul casetei în limba maternă (conținut)" },
   { file: "src/ui/TopicRulesBox.tsx", text: "De reținut", why: "titlul feței în limba maternă (conținut)" },
-  { file: "src/features/grammar/Lesson.tsx", text: "Capcană pentru români", why: "titlul casetei din lecție, în limba maternă (conținut)" },
   { file: "src/features/home/HomePage.tsx", text: "Salut!", why: "traducerea frazei lui Lupino, în limba maternă" },
   { file: "src/features/home/HomePage.tsx", text: "Baftă!", why: "traducerea frazei lui Lupino, în limba maternă" },
   { file: "src/features/home/HomePage.tsx", text: "Ai terminat pentru azi", why: "traducerea frazei lui Lupino, în limba maternă" },
@@ -31,6 +30,9 @@ const ALLOWED: { file: string; text: string; why: string }[] = [
   { file: "src/data/sync/types.ts", text: "lipsește de pe server", why: "eroare pentru dezvoltatori (tratată de motorul de sincronizare)" },
   { file: "src/features/settings/SettingsPage.tsx", text: ">Română<", why: "numele limbii, scris în limba ei" },
   { file: "src/domain/content/schema.ts", text: "id-ul unui verb", why: "mesaj de validare la build" },
+  { file: "src/domain/content/schema.ts", text: "merg împreună", why: "mesaj de validare la build" },
+  { file: "src/domain/content/schema.ts", text: "tot atâtea celule cât „head”", why: "mesaj de validare la build" },
+  { file: "src/domain/content/schema.ts", text: "aceeași formă ca „rows”", why: "mesaj de validare la build" },
   { file: "src/domain/dialogue/check.ts", text: "problems.push(", why: "mesaje de validare la build" },
   { file: "src/domain/dialogue/gender.ts", text: "problems.push(", why: "mesaje de validare la build" },
 ];

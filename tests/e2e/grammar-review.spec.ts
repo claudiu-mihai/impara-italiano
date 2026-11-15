@@ -3,7 +3,7 @@ import { expect, test, type Page } from "@playwright/test";
 
 interface GrammarTopic {
   id: string;
-  title: string;
+  title: { it: string; ro: string };
   items: { id: string; it: string; gap: string; ro: string }[];
 }
 // Aceleași lecții ca în aplicație (generate de `npm run build:data`)
@@ -87,7 +87,7 @@ test("o lecție scadentă apare pe Acasă la „Gramatică de repetat” și se 
   await page.reload();
   const section = page.getByRole("region", { name: "Gramatică de repetat" });
   await expect(section).toBeVisible();
-  await section.getByRole("link", { name: articoli.title }).click();
+  await section.getByRole("link", { name: new RegExp(`^${articoli.title.it}`) }).click();
   await expect(page).toHaveURL(/\/learn\/grammar\/articoli\/type$/);
   await expect(page.getByText("Repetiție", { exact: true })).toBeVisible();
 
@@ -114,7 +114,7 @@ test("lecțiile A2 noi: în listă după cele A1, cu lecție și joc „Introduc
   // fiecare lecție nouă se deschide, cu „Capcană pentru români”
   for (const topic of a2) {
     await page.goto(`/learn/grammar/${topic.id}`);
-    await expect(page.getByRole("heading", { name: topic.title, level: 1 })).toBeVisible();
+    await expect(page.getByRole("heading", { name: new RegExp(`^${topic.title.it.replace(/[()]/g, "\\$&")}`), level: 1 })).toBeVisible();
     await expect(page.getByText("Capcană pentru români").first()).toBeVisible();
   }
 

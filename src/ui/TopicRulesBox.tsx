@@ -87,9 +87,9 @@ function Face({ title, rules, open, onToggle, onFlip, flipLabel, flipLang, back,
 }
 
 /** Caseta „De reținut” cu două fețe: regulile limbii italiane și, pe spate, cele în limba maternă (cu cele comparate). */
-function TwoFacedRules({ italian, native }: { italian: readonly string[]; native: readonly string[] }) {
+function TwoFacedRules({ italian, native, defaultOpen = false }: { italian: readonly string[]; native: readonly string[]; defaultOpen?: boolean }) {
   const { t, language } = useT();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(defaultOpen);
   const [showNative, setShowNative] = useState(false);
   const frontFlip = useRef<HTMLButtonElement>(null);
   const backFlip = useRef<HTMLButtonElement>(null);
@@ -150,9 +150,18 @@ function TwoFacedRules({ italian, native }: { italian: readonly string[]; native
  * „De reținut” pentru o temă: cu „Traducere în limba maternă” pornită, două fețe (italiană / limba maternă, cu regulile
  * comparate) care se întorc toate deodată, cu titlu cu tot; oprită, o singură casetă, doar în italiană, fără întoarcere.
  */
-export function TopicRulesBox({ rules, contrast = [] }: { rules: readonly Localized[]; contrast?: readonly string[] }) {
+export function TopicRulesBox({
+  rules,
+  contrast = [],
+  defaultOpen = false,
+}: {
+  rules: readonly Localized[];
+  contrast?: readonly string[];
+  /** Deschisă de la început (ex. pe pagina unei lecții de gramatică). */
+  defaultOpen?: boolean;
+}) {
   const nativeHelp = useNativeHelp();
   const italian = rules.map((r) => r.it);
-  if (!nativeHelp) return <RulesBox title="Da ricordare" lang="it" rules={italian} />;
-  return <TwoFacedRules italian={italian} native={[...rules.map(nativeText), ...contrast]} />;
+  if (!nativeHelp) return <RulesBox title="Da ricordare" lang="it" rules={italian} defaultOpen={defaultOpen} />;
+  return <TwoFacedRules italian={italian} native={[...rules.map(nativeText), ...contrast]} defaultOpen={defaultOpen} />;
 }

@@ -5,12 +5,12 @@ import { markLessonRead, setLastPractice } from "../../data/db/repositories.ts";
 import { db } from "../../data/db/instance.ts";
 import type { GrammarGame } from "../../domain/grammar/progress.ts";
 import { browseHref } from "../../domain/browse/filterWords.ts";
-import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { GRAMMAR_LINKS } from "../../domain/grammar/links.ts";
 import { useT, type Key } from "../../i18n/index.ts";
 import { BackLink } from "../../ui/BackLink.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
-import { RulesBox } from "../../ui/RulesBox.tsx";
+import { BilingualLabel } from "../../ui/BilingualLabel.tsx";
+import { TopicRulesBox } from "../../ui/TopicRulesBox.tsx";
 import { Lesson } from "./Lesson.tsx";
 import { nextLessonNav, readLessonNav } from "./lessonNav.ts";
 import { useGrammarTopic } from "./useGrammarTopic.ts";
@@ -64,8 +64,8 @@ export function GrammarTopicPage() {
       />
 
       <header className="flex items-center gap-3">
-        <h1 lang={NATIVE_LANGUAGE} className="flex-1 text-3xl font-bold">
-          {topic.title}
+        <h1 className="flex-1 text-3xl font-bold">
+          <BilingualLabel text={topic.title} />
         </h1>
         <CefrBadge level={topic.level} />
       </header>
@@ -82,7 +82,7 @@ export function GrammarTopicPage() {
         </Link>
       )}
 
-      <RulesBox rules={topic.rules} lang={NATIVE_LANGUAGE} defaultOpen />
+      <TopicRulesBox rules={topic.rules} defaultOpen />
 
       {/* citirea nu se poate anula (pe alt dispozitiv ar reveni la sincronizare), deci după apăsare rămâne doar starea */}
       {progress?.readAt !== undefined ? (
