@@ -1,4 +1,5 @@
 import type { Dialogue } from "../content/schema.ts";
+import { genderMarkupProblems } from "./gender.ts";
 
 export const MIN_LINES = 4;
 export const MAX_LINES = 8;
@@ -19,7 +20,14 @@ export function dialogueProblems(dialogue: Dialogue, topicIds: ReadonlySet<strin
   if (!speakerIds.includes(you)) problems.push(`${id}: „you” (${you}) nu e un personaj`);
   lines.forEach((line, i) => {
     if (!speakerIds.includes(line.speaker)) problems.push(`${id}: replica ${i + 1} e a unui personaj necunoscut (${line.speaker})`);
+    for (const text of [line.it, line.ro]) {
+      for (const problem of genderMarkupProblems(text)) problems.push(`${id}: replica ${i + 1}: ${problem}`);
+    }
   });
+  const { title, canDo } = dialogue;
+  if ([title.it, title.ro, canDo.it, canDo.ro].some((text) => /[{}|]/.test(text))) {
+    problems.push(`${id}: titlul și reperul nu pot avea marcaj de gen`);
+  }
   for (const speaker of new Set(speakerIds)) {
     const count = lines.filter((l) => l.speaker === speaker).length;
     if (count < MIN_LINES_PER_SPEAKER) problems.push(`${id}: ${speaker} are doar ${count} replici (minim ${MIN_LINES_PER_SPEAKER})`);

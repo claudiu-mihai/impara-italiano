@@ -9,7 +9,7 @@
   ],
   "you": "tu",
   "lines": [
-    {"speaker": "venditore", "it": "Buongiorno! Cosa Le do?", "ro": "Bună ziua! Ce să vă dau?"},
+    {"speaker": "venditore", "it": "Buongiorno, {signore|signora}! Cosa Le do?", "ro": "Bună ziua, {domnule|doamnă}! Ce să vă dau?"},
     {"speaker": "tu", "it": "Buongiorno. Quanto costano le mele?", "ro": "Bună ziua. Cât costă merele?"},
     {"speaker": "venditore", "it": "Due euro al chilo.", "ro": "Doi euro kilogramul."},
     {"speaker": "tu", "it": "Allora un chilo di mele e mezzo chilo di pomodori.", "ro": "Atunci un kilogram de mere și jumătate de kilogram de roșii."},

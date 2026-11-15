@@ -12,7 +12,7 @@
     {"speaker": "farmacista", "it": "Buongiorno, mi dica.", "ro": "Bună ziua, cu ce vă pot ajuta?"},
     {"speaker": "tu", "it": "Buongiorno. Ho mal di gola e un po' di febbre.", "ro": "Bună ziua. Mă doare gâtul și am puțină febră."},
     {"speaker": "farmacista", "it": "Da quanto tempo?", "ro": "De cât timp?"},
-    {"speaker": "tu", "it": "Da ieri sera. Ha qualcosa per il mal di gola?", "ro": "De aseară. Aveți ceva pentru durerea de gât?"},
+    {"speaker": "tu", "it": "Da ieri sera, e sono molto stanc{o|a}. Ha qualcosa per il mal di gola?", "ro": "De aseară, și sunt foarte obosit{|ă}. Aveți ceva pentru durerea de gât?"},
     {"speaker": "farmacista", "it": "Ecco delle pastiglie. Ne prenda una ogni quattro ore.", "ro": "Iată niște pastile. Luați una la fiecare patru ore."},
     {"speaker": "tu", "it": "Grazie. E se la febbre non passa?", "ro": "Mulțumesc. Și dacă febra nu trece?"},
     {"speaker": "farmacista", "it": "Allora deve andare dal medico.", "ro": "Atunci trebuie să mergeți la medic."}

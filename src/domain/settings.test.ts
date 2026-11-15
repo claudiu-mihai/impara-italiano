@@ -77,3 +77,9 @@ test("ordinea cuvintelor noi e „ghidată” implicit, inclusiv pentru setăril
   expect(withSettingDefaults({ direction: "it-ro" }).wordOrder).toBe("guided");
   expect(withSettingDefaults({ wordOrder: "frequency" }).wordOrder).toBe("frequency");
 });
+
+test("genul personajului din dialoguri: implicit „bărbat”, și pentru setările salvate fără el", () => {
+  expect(DEFAULT_SETTINGS.learnerGender).toBe("m");
+  expect(withSettingDefaults({ direction: "it-ro" }).learnerGender).toBe("m");
+  expect(withSettingDefaults({ learnerGender: "f" }).learnerGender).toBe("f");
+});

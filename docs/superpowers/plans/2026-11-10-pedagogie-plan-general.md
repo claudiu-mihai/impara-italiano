@@ -108,6 +108,7 @@ Design: `docs/superpowers/specs/2026-11-15-dialoguri-design.md`; plan: `docs/sup
 4. **Repetare:** dialogul ca abilitate FSRS (`skill:dialogue:<id>`), autoevaluare Din nou / Greu / Bine, doar primul joc de rol pe un dialog nou sau scadent; „Dialoguri de repetat” pe Acasă.
 5. **Repere „pot să…”** pe Acasă, bifate la dialogurile învățate (stabilitate ≥ 7 zile), pentru nivelul curent.
 6. **Voci:** o a doua voce italiană pentru al doilea personaj, sau aceeași voce cu altă înălțime.
+7. **Genul personajului** (`docs/superpowers/specs/2026-11-15-dialoguri-gen-design.md`): marcaj `{m|f}` în replici, setarea `learnerGender` și comutatorul „Joci ca”; formele care se schimbă sunt subliniate.
 
 ## Reguli de lucru
 

@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
+import { resolveGender } from "../../src/domain/dialogue/gender.ts";
 import { mockSpeech, seedSkillCard, setListenFirst, spoken } from "./helpers.ts";
 
 interface Line {
@@ -16,7 +17,11 @@ interface DialogueData {
   canDo: { ro: string };
 }
 
-const DIALOGUES: DialogueData[] = JSON.parse(readFileSync("src/data/generated/dialogues.json", "utf8"));
+// textele replicilor așa cum le vede un cursant cu setarea implicită (bărbat)
+const DIALOGUES: DialogueData[] = (JSON.parse(readFileSync("src/data/generated/dialogues.json", "utf8")) as DialogueData[]).map((d) => ({
+  ...d,
+  lines: d.lines.map((l) => ({ ...l, it: resolveGender(l.it, "m"), ro: resolveGender(l.ro, "m") })),
+}));
 const BAR = DIALOGUES.find((d) => d.id === "la-bar-01")!;
 const BAR_URL = "/learn/topics/la-bar/dialogue/la-bar-01";
 const BAR_CARD = ["skill:dialogue:la-bar-01", "dialogue:la-bar-01"] as const;
@@ -162,4 +167,37 @@ test("Învață → Dialoguri: lista pe niveluri duce la dialog", async ({ page 
   await expect(page.getByRole("link", { name: /Un caffè, per favore/ })).toBeVisible();
   await page.getByRole("link", { name: /In albergo/ }).click();
   await expect(page.getByTestId("canDo")).toContainText("Pot să fac check-in la hotel");
+});
+
+test("genul personajului: ca femeie, Marco întreabă „sposata”, evidențiat și rostit; setarea rămâne neschimbată", async ({ page }) => {
+  await mockSpeech(page);
+  await setListenFirst(page, false);
+  await page.goto("/learn/topics/familia/dialogue/familia-01");
+  const playAs = page.getByRole("radiogroup", { name: "Joci ca" });
+  await expect(playAs.getByRole("radio", { name: /Bărbat/ })).toHaveAttribute("aria-checked", "true");
+  await playAs.getByRole("radio", { name: /Femeie/ }).click();
+  await page.getByRole("button", { name: "Ascultă" }).click();
+  for (let i = 0; i < 4; i++) await page.getByRole("button", { name: "Următoarea replică" }).click();
+  await expect(page.getByText("E tu sei sposata?")).toBeVisible();
+  await expect(page.locator("[data-gendered]", { hasText: "sposata" })).toBeVisible();
+  await expect(page.getByText("Și tu ești căsătorită?")).toBeVisible();
+  await expect.poll(() => spoken(page)).toContain("E tu sei sposata?");
+
+  await page.goto("/settings");
+  await expect(page.getByLabel("În dialoguri joc ca")).toHaveValue("m");
+});
+
+test("genul personajului: cu setarea „Femeie”, jocul de rol cere forma de feminin", async ({ page }) => {
+  await page.goto("/settings");
+  await page.getByLabel("În dialoguri joc ca").selectOption("f");
+  await page.goto("/learn/topics/directii/dialogue/directii-01?mode=roleplay");
+  await expect(page.getByTestId("say-line")).toContainText("Scuzați-mă, m-am rătăcit.");
+  await page.getByRole("button", { name: "Arată replica" }).click();
+  await expect(page.getByText("Scusi, mi sono persa. Dov'è la stazione?")).toBeVisible();
+});
+
+test("dialogul e pe tot ecranul: bara de navigare nu acoperă butoanele", async ({ page }) => {
+  await page.goto(`${BAR_URL}?mode=roleplay`);
+  await expect(page.getByRole("button", { name: "Continuă" })).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Navigare principală" })).toHaveCount(0);
 });

@@ -13,6 +13,9 @@ export type WordOrder = "guided" | "frequency";
 /** Varianta cardurilor de conjugare: scrii pe rând, autoevaluare cu voce tare (`flip`) sau tot tabelul deodată. */
 export type ConjugationMode = "write" | "flip" | "table";
 
+/** Genul personajului jucat de cursant în dialoguri (formele: sono stanco / stanca). */
+export type LearnerGender = "m" | "f";
+
 export interface Settings {
   /** Nivelul curent: se învață cuvinte și timpuri noi doar până la acest nivel. */
   level: Level;
@@ -54,6 +57,8 @@ export interface Settings {
    * să se vadă; textul apare la cerere sau după răspuns. Fără voce italiană, exercițiile rămân cu text.
    */
   listenFirst: boolean;
+  /** Genul personajului din dialoguri; pe pagina dialogului se poate schimba pentru o vizită. */
+  learnerGender: LearnerGender;
   /** În „Potrivește perechi” și „Ordonează”, cuvântul italian pe care îl atingi se aude. */
   tapAudio: boolean;
 }
@@ -78,6 +83,7 @@ export const DEFAULT_SETTINGS: Settings = {
   autoPlayAudio: true,
   spellingTolerance: true,
   listenFirst: true,
+  learnerGender: "m",
   tapAudio: true,
 };
 

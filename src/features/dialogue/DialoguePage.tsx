@@ -5,6 +5,7 @@ import { useDialogues } from "../../app/dialogues.ts";
 import { db } from "../../data/db/instance.ts";
 import { getSettings } from "../../data/db/repositories.ts";
 import { dialogueCardId } from "../../domain/dialogue/due.ts";
+import type { Gender } from "../../domain/dialogue/gender.ts";
 import { useT } from "../../i18n/index.ts";
 import { stopSpeaking } from "../../services/tts.ts";
 import { BackLink } from "../../ui/BackLink.tsx";
@@ -25,6 +26,8 @@ export function DialoguePage() {
   const { id: topicId = "", dialogueId = "" } = useParams();
   const [params] = useSearchParams();
   const [mode, setMode] = useState<Mode>(params.get("mode") === "roleplay" ? "roleplay" : "menu");
+  // genul ales pe pagină e doar pentru vizita curentă; implicit cel din Setări
+  const [chosenGender, setChosenGender] = useState<Gender>();
   const dialogues = useDialogues();
   const settings = useLiveQuery(() => getSettings(db), []);
   const card = useLiveQuery(() => db.cards.get(dialogueCardId(dialogueId)), [dialogueId]);
@@ -47,11 +50,13 @@ export function DialoguePage() {
     );
   }
 
+  const gender = chosenGender ?? settings.learnerGender;
+
   if (mode === "listen") {
-    return <ListenMode key="listen" dialogue={dialogue} settings={settings} exitTo={exitTo} onRolePlay={() => setMode("roleplay")} />;
+    return <ListenMode key="listen" dialogue={dialogue} settings={settings} gender={gender} exitTo={exitTo} onRolePlay={() => setMode("roleplay")} />;
   }
   if (mode === "roleplay") {
-    return <RolePlayMode key="roleplay" dialogue={dialogue} settings={settings} exitTo={exitTo} backLabel={t("flash.backToTopic")} />;
+    return <RolePlayMode key="roleplay" dialogue={dialogue} settings={settings} gender={gender} exitTo={exitTo} backLabel={t("flash.backToTopic")} />;
   }
 
   return (
@@ -70,6 +75,26 @@ export function DialoguePage() {
         </p>
         <ReviewStatus card={card} start={t("dialogue.reviewStart")} testId="dialogue-review" />
       </header>
+      <div role="radiogroup" aria-label={t("dialogue.playAs")} className="flex flex-wrap items-center gap-2">
+        <span aria-hidden="true" className="font-semibold">
+          {t("dialogue.playAs")}:
+        </span>
+        {(["m", "f"] as const).map((g) => (
+          <button
+            key={g}
+            type="button"
+            role="radio"
+            aria-checked={gender === g}
+            onClick={() => setChosenGender(g)}
+            className={`min-h-12 rounded-xl border-2 px-4 font-semibold ${
+              gender === g ? "border-brand bg-brand text-white" : "border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-900"
+            }`}
+          >
+            <span aria-hidden="true">{g === "m" ? "♂ " : "♀ "}</span>
+            {t(g === "m" ? "gender.m" : "gender.f")}
+          </button>
+        ))}
+      </div>
       <div className="grid gap-3">
         <button type="button" onClick={() => setMode("listen")} className={`${modeButton} border-2 border-brand text-brand-fg active:bg-slate-100 dark:active:bg-slate-800`}>
           <span aria-hidden="true">🎧</span>

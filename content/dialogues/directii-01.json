@@ -9,7 +9,7 @@
   ],
   "you": "tu",
   "lines": [
-    {"speaker": "tu", "it": "Scusi, dov'è la stazione?", "ro": "Scuzați-mă, unde e gara?"},
+    {"speaker": "tu", "it": "Scusi, mi sono pers{o|a}. Dov'è la stazione?", "ro": "Scuzați-mă, m-am rătăcit. Unde e gara?"},
     {"speaker": "passante", "it": "Vada sempre dritto fino al semaforo, poi giri a destra.", "ro": "Mergeți tot înainte până la semafor, apoi o luați la dreapta."},
     {"speaker": "tu", "it": "A destra al semaforo. È lontano?", "ro": "La dreapta la semafor. E departe?"},
     {"speaker": "passante", "it": "No, sono cinque minuti a piedi. La stazione è a sinistra.", "ro": "Nu, sunt cinci minute pe jos. Gara e pe stânga."},

@@ -6,7 +6,7 @@ import { newStoredCard, reviewStoredCard } from "../../domain/srs/scheduler.ts";
 import { vocabCardId } from "../../domain/srs/types.ts";
 import { createDb, type ImparaDb } from "../db/db.ts";
 import { markLessonRead, saveGameScore, saveReview, saveSettings } from "../db/repositories.ts";
-import { BackupError, backupToJson, exportBackup, grammarProgressSchema, importBackup, parseBackup, resetProgress } from "./backup.ts";
+import { BackupError, backupToJson, exportBackup, grammarProgressSchema, importBackup, parseBackup, resetProgress, settingsSchema } from "./backup.ts";
 
 const NOW = new Date(2026, 9, 20, 10, 0, 0);
 let db: ImparaDb;
@@ -138,4 +138,9 @@ test("grammarProgressSchema: procente întregi 0–100", () => {
 test("grammarProgressSchema acceptă scoruri pentru jocuri noi, dar tot ca procente", () => {
   expect(grammarProgressSchema.parse({ best: { puzzle: 80 } })).toEqual({ best: { puzzle: 80 } });
   expect(grammarProgressSchema.safeParse({ best: { puzzle: 180 } }).success).toBe(false);
+});
+
+test("backup: genul personajului din dialoguri e „m” sau „f”", () => {
+  expect(settingsSchema.partial().safeParse({ learnerGender: "f" }).success).toBe(true);
+  expect(settingsSchema.partial().safeParse({ learnerGender: "x" }).success).toBe(false);
 });

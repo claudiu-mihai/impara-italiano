@@ -14,7 +14,7 @@
     {"speaker": "cameriere", "it": "Benissimo. E da bere?", "ro": "Foarte bine. Și de băut?"},
     {"speaker": "tu", "it": "Una bottiglia d'acqua naturale, per favore.", "ro": "O sticlă de apă plată, vă rog."},
     {"speaker": "cameriere", "it": "Desidera anche un dolce?", "ro": "Doriți și un desert?"},
-    {"speaker": "tu", "it": "No, grazie. Il conto, per favore.", "ro": "Nu, mulțumesc. Nota, vă rog."},
+    {"speaker": "tu", "it": "No, grazie, sono pien{o|a}. Il conto, per favore.", "ro": "Nu, mulțumesc, sunt sătul{|ă}. Nota, vă rog."},
     {"speaker": "cameriere", "it": "Subito. Sono quindici euro.", "ro": "Imediat. Sunt cincisprezece euro."}
   ]
 }

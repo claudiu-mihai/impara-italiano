@@ -114,9 +114,11 @@ const NAV: { to: string; label: Key; icon: string; end: boolean }[] = [
 // Ecranele de studiu ocupă tot ecranul: bara de jos este ascunsă acolo.
 const STUDY_ROUTES = ["/learn/vocab", "/learn/conjugation", "/learn/sentence", "/quiz"];
 // sesiunile și exercițiile unei teme (/learn/topics/<id>/flashcards, /quiz, /match…) și jocurile de gramatică
-// (/learn/grammar/<id>/cards, /match, /type) tot pe tot ecranul
+// (/learn/grammar/<id>/cards, /match, /type) tot pe tot ecranul, ca și dialogurile (/learn/topics/<id>/dialogue/<dialog>)
 const isStudyRoute = (pathname: string) =>
-  STUDY_ROUTES.includes(pathname) || /^\/learn\/(topics|grammar)\/[^/]+\/[a-z]+$/.test(pathname);
+  STUDY_ROUTES.includes(pathname) ||
+  /^\/learn\/(topics|grammar)\/[^/]+\/[a-z]+$/.test(pathname) ||
+  /^\/learn\/topics\/[^/]+\/dialogue\/[^/]+$/.test(pathname);
 
 function Layout() {
   const { t } = useT();

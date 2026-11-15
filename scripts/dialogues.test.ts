@@ -34,3 +34,9 @@ test("7 dialoguri A1 și 3 A2, fiecare cu 4–8 replici", () => {
     expect(d.lines.length, d.id).toBeLessThanOrEqual(8);
   }
 });
+
+test("fiecare dialog are cel puțin o replică în care genul personajului schimbă forma", () => {
+  for (const d of dialogues) {
+    expect(d.lines.some((l) => /\{[^{}|]*\|[^{}|]*\}/.test(l.it)), d.id).toBe(true);
+  }
+});

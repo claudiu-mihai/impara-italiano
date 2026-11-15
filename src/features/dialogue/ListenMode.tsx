@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { GeneratedDialogue } from "../../domain/content/schema.ts";
+import { resolveGender, type Gender } from "../../domain/dialogue/gender.ts";
 import type { Settings } from "../../domain/settings.ts";
 import { useT } from "../../i18n/index.ts";
 import { speak } from "../../services/tts.ts";
@@ -13,6 +14,7 @@ import { speakerOf } from "./speakers.ts";
 interface ListenModeProps {
   dialogue: GeneratedDialogue;
   settings: Settings;
+  gender: Gender;
   exitTo: string;
   onRolePlay: () => void;
 }
@@ -21,7 +23,7 @@ interface ListenModeProps {
  * „Ascultă”: replicile apar una câte una și se aud singure. Cu „Ascultă întâi” (și voce disponibilă) textul replicii noi
  * e ascuns până la „Arată textul”; replicile deja ascultate rămân deasupra, ca într-un chat.
  */
-export function ListenMode({ dialogue, settings, exitTo, onRolePlay }: ListenModeProps) {
+export function ListenMode({ dialogue, settings, gender, exitTo, onRolePlay }: ListenModeProps) {
   const { t } = useT();
   const listening = useListening(settings.listenFirst);
   const [index, setIndex] = useState(0);
@@ -31,7 +33,7 @@ export function ListenMode({ dialogue, settings, exitTo, onRolePlay }: ListenMod
   const finished = index >= dialogue.lines.length - 1;
 
   useEffect(() => {
-    speak(line.it, settings.ttsRate, { speaker: speakerOf(dialogue, line.speaker) });
+    speak(resolveGender(line.it, gender), settings.ttsRate, { speaker: speakerOf(dialogue, line.speaker) });
     last.current?.scrollIntoView({ block: "nearest" });
     // doar la replica nouă
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -55,13 +57,14 @@ export function ListenMode({ dialogue, settings, exitTo, onRolePlay }: ListenMod
               name={dialogue.speakers[speaker].name}
               it={l.it}
               ro={l.ro}
+              gender={gender}
               mine={l.speaker === dialogue.you}
               speaker={speaker}
               rate={settings.ttsRate}
               hidden={
                 hide ? (
                   <div className="flex items-center gap-2">
-                    <AudioButton text={l.it} rate={settings.ttsRate} size="md" speaker={speaker} />
+                    <AudioButton text={resolveGender(l.it, gender)} rate={settings.ttsRate} size="md" speaker={speaker} />
                     <button type="button" onClick={() => setRevealed(true)} className="min-h-12 rounded-xl border-2 border-brand px-4 font-semibold text-brand-fg">
                       {t("flash.showText")}
                     </button>

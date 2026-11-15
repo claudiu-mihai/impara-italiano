@@ -13,7 +13,7 @@
     {"speaker": "signora", "it": "Sono le dieci e un quarto.", "ro": "E zece și un sfert."},
     {"speaker": "tu", "it": "Grazie. Sa a che ora apre il museo?", "ro": "Mulțumesc. Știți la ce oră se deschide muzeul?"},
     {"speaker": "signora", "it": "Apre alle dieci e mezza e chiude alle sei.", "ro": "Se deschide la zece și jumătate și se închide la șase."},
-    {"speaker": "tu", "it": "Allora ho ancora un quarto d'ora. Grazie!", "ro": "Atunci mai am un sfert de oră. Mulțumesc!"},
+    {"speaker": "tu", "it": "Allora sono arrivat{o|a} presto: ho ancora un quarto d'ora. Grazie!", "ro": "Atunci am ajuns devreme: mai am un sfert de oră. Mulțumesc!"},
     {"speaker": "signora", "it": "Di niente!", "ro": "Pentru nimic!"}
   ]
 }

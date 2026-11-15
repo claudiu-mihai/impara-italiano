@@ -169,6 +169,8 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
    * **Repetare:** fiecare dialog e o abilitate FSRS (`skill:dialogue:<id>`, fără pașii scurți). La finalul primului joc de rol pe un dialog nou sau scadent te notezi: Din nou („am uitat multe”), Greu („cu ezitări”), Bine („fără să mă uit”); altfel (și la „Încă o dată”) e antrenament liber. Dialogurile scadente apar pe Acasă la „Dialoguri de repetat”, cu link direct la jocul de rol.
    * **Repere „pot să…”:** pe Acasă, sub progres, „Ce pot face în italiană — 3 din 7”: reperele dialogurilor de la nivelul curent și de dedesubt, ✅ când dialogul e învățat (stabilitate ≥ 7 zile). Apar după primul joc de rol notat; o instalare nouă nu încarcă dialogurile pe Acasă.
    * **Voci:** cu două voci italiene utilizabile, fiecare personaj are vocea lui; cu una singură, al doilea personaj vorbește cu altă înălțime (`pitch`), viteza din Setări rămânând aceeași.
+   * **Genul personajului:** replicile au marcajul `{masculin|feminin}` (`Sei sposat{o|a}?`, `Ești căsătorit{|ă}?`), validat la build; fiecare dialog are cel puțin o replică cu gen. Setarea „În dialoguri joc ca: Bărbat / Femeie” (`learnerGender`, implicit bărbat, în backup și sincronizare) și comutatorul „Joci ca” de pe pagina dialogului (doar pentru vizita curentă) aleg formele; cuvintele care se schimbă sunt subliniate, iar vocea citește forma aleasă.
+   * **Pe tot ecranul:** pagina dialogului ascunde bara de navigare, ca la celelalte exerciții.
 
 #### **FR3. Repetiție Spațiată (SRS) — FSRS**
 

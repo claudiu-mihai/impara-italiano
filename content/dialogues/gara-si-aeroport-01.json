@@ -9,8 +9,8 @@
   ],
   "you": "tu",
   "lines": [
-    {"speaker": "tu", "it": "Buongiorno, un biglietto per Firenze, per favore.", "ro": "Bună ziua, un bilet pentru Florența, vă rog."},
-    {"speaker": "bigliettaio", "it": "Solo andata o andata e ritorno?", "ro": "Doar dus sau dus-întors?"},
+    {"speaker": "tu", "it": "Buongiorno, un biglietto per Firenze, per favore. Sono student{e|essa}: c'è uno sconto?", "ro": "Bună ziua, un bilet pentru Florența, vă rog. Sunt student{|ă}: există reducere?"},
+    {"speaker": "bigliettaio", "it": "Sì, con la tessera. Solo andata o andata e ritorno?", "ro": "Da, cu legitimația. Doar dus sau dus-întors?"},
     {"speaker": "tu", "it": "Andata e ritorno. A che ora parte il prossimo treno?", "ro": "Dus-întors. La ce oră pleacă următorul tren?"},
     {"speaker": "bigliettaio", "it": "Alle undici e venti, dal binario tre.", "ro": "La unsprezece și douăzeci, de la linia trei."},
     {"speaker": "tu", "it": "Va bene. Quanto costa?", "ro": "Bine. Cât costă?"},
