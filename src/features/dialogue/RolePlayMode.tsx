@@ -5,6 +5,7 @@ import { db } from "../../data/db/instance.ts";
 import { saveReview } from "../../data/db/repositories.ts";
 import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import type { GeneratedDialogue } from "../../domain/content/schema.ts";
+import { resolveGender, type Gender } from "../../domain/dialogue/gender.ts";
 import { dialogueCardId, dialogueCountsForSrs } from "../../domain/dialogue/due.ts";
 import { reviewDialogueCard } from "../../domain/dialogue/review.ts";
 import { Rating } from "../../domain/srs/fsrsConstants.ts";
@@ -13,12 +14,13 @@ import { useT, type Key } from "../../i18n/index.ts";
 import { speak } from "../../services/tts.ts";
 import { primaryButton } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
-import { Bubble } from "./Bubble.tsx";
+import { Bubble, GenderedText } from "./Bubble.tsx";
 import { speakerOf } from "./speakers.ts";
 
 interface RolePlayModeProps {
   dialogue: GeneratedDialogue;
   settings: Settings;
+  gender: Gender;
   exitTo: string;
   backLabel: string;
 }
@@ -34,7 +36,7 @@ const GRADES: { grade: Grade; label: Key; hint: Key; color: string }[] = [
  * o spui cu voce tare, apoi o dezvălui și o auzi. La final te notezi singur; doar primul joc de rol pe un dialog nou sau
  * scadent schimbă programul de repetare.
  */
-export function RolePlayMode({ dialogue, settings, exitTo, backLabel }: RolePlayModeProps) {
+export function RolePlayMode({ dialogue, settings, gender, exitTo, backLabel }: RolePlayModeProps) {
   const { t } = useT();
   const [attempt, setAttempt] = useState(0);
   const [index, setIndex] = useState(0);
@@ -69,7 +71,7 @@ export function RolePlayMode({ dialogue, settings, exitTo, backLabel }: RolePlay
     // butoanele de jos (inclusiv notarea de la final) rămân în ecran pe măsură ce conversația crește
     last.current?.scrollIntoView({ block: "nearest" });
     if (finished) return;
-    if (!mine || revealed) speak(line.it, settings.ttsRate, { speaker });
+    if (!mine || revealed) speak(resolveGender(line.it, gender), settings.ttsRate, { speaker });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index, revealed, attempt, finished]);
 
@@ -127,6 +129,7 @@ export function RolePlayMode({ dialogue, settings, exitTo, backLabel }: RolePlay
               name={dialogue.speakers[s].name}
               it={l.it}
               ro={l.ro}
+              gender={gender}
               mine={isMine}
               speaker={s}
               rate={settings.ttsRate}
@@ -135,7 +138,7 @@ export function RolePlayMode({ dialogue, settings, exitTo, backLabel }: RolePlay
                   <div data-testid="say-line" className="flex flex-col gap-1">
                     <p className="text-sm text-muted">🗣️ {t("dialogue.sayIt")}</p>
                     <p lang={NATIVE_LANGUAGE} className="text-lg font-medium">
-                      {l.ro}
+                      <GenderedText text={l.ro} gender={gender} />
                     </p>
                   </div>
                 ) : undefined
