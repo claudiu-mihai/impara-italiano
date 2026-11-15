@@ -53,3 +53,13 @@ export function pickVoice<T extends VoiceInfo>(
   if (preferred) return preferred;
   return [...usable].sort((a, b) => score(b) - score(a))[0];
 }
+
+/**
+ * Vocile pentru cele două personaje ale unui dialog: prima e vocea obișnuită (`pickVoice`), a doua cea mai bună voce
+ * utilizabilă diferită de ea (aceleași reguli: italiană, locală fără internet); `undefined` dacă nu există.
+ */
+export function pickVoices<T extends VoiceInfo>(voices: readonly T[], options: PickVoiceOptions): [T | undefined, T | undefined] {
+  const first = pickVoice(voices, options);
+  const rest = voices.filter((v) => v !== first);
+  return [first, pickVoice(rest, { online: options.online })];
+}
