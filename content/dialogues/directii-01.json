@@ -4,7 +4,7 @@
   "title": {"it": "Dov'è la stazione?", "ro": "Unde e gara?"},
   "canDo": {"it": "So chiedere la strada e capire la risposta", "ro": "Pot să întreb drumul și să înțeleg răspunsul"},
   "speakers": [
-    {"id": "passante", "name": {"it": "Passante", "ro": "Trecătorul"}},
+    {"id": "passante", "name": {"it": "Passante", "ro": "Trecătorul"}, "gender": "m"},
     {"id": "tu", "name": {"it": "Tu", "ro": "Tu"}}
   ],
   "you": "tu",

@@ -4,7 +4,7 @@
   "title": {"it": "Che ore sono?", "ro": "Cât e ceasul?"},
   "canDo": {"it": "So chiedere l'ora e a che ora è qualcosa", "ro": "Pot să întreb cât e ceasul și la ce oră e ceva"},
   "speakers": [
-    {"id": "signora", "name": {"it": "Signora", "ro": "Doamna"}},
+    {"id": "signora", "name": {"it": "Signora", "ro": "Doamna"}, "gender": "f"},
     {"id": "tu", "name": {"it": "Tu", "ro": "Tu"}}
   ],
   "you": "tu",

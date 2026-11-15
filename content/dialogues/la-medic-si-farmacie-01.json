@@ -4,7 +4,7 @@
   "title": {"it": "In farmacia", "ro": "La farmacie"},
   "canDo": {"it": "So spiegare in farmacia cosa mi fa male", "ro": "Pot să explic la farmacie ce mă doare"},
   "speakers": [
-    {"id": "farmacista", "name": {"it": "Farmacista", "ro": "Farmacista"}},
+    {"id": "farmacista", "name": {"it": "Farmacista", "ro": "Farmacista"}, "gender": "f"},
     {"id": "tu", "name": {"it": "Tu", "ro": "Tu"}}
   ],
   "you": "tu",

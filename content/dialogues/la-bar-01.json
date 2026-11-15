@@ -4,7 +4,7 @@
   "title": { "it": "Un caffè, per favore", "ro": "O cafea, vă rog" },
   "canDo": { "it": "So ordinare al bar", "ro": "Pot să comand la bar" },
   "speakers": [
-    { "id": "barista", "name": { "it": "Barista", "ro": "Barmanul" } },
+    { "id": "barista", "name": { "it": "Barista", "ro": "Barmanul" }, "gender": "m" },
     { "id": "cliente", "name": { "it": "Tu", "ro": "Tu" } }
   ],
   "you": "cliente",
