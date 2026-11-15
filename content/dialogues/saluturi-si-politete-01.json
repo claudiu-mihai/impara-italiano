@@ -1,0 +1,20 @@
+{
+  "id": "saluturi-si-politete-01",
+  "topicId": "saluturi-si-politete",
+  "title": {"it": "Piacere!", "ro": "Încântat!"},
+  "canDo": {"it": "So presentarmi e salutare", "ro": "Pot să mă prezint și să salut"},
+  "speakers": [
+    {"id": "giulia", "name": {"it": "Giulia", "ro": "Giulia"}},
+    {"id": "tu", "name": {"it": "Tu", "ro": "Tu"}}
+  ],
+  "you": "tu",
+  "lines": [
+    {"speaker": "giulia", "it": "Ciao! Io sono Giulia. E tu come ti chiami?", "ro": "Salut! Eu sunt Giulia. Și tu cum te numești?"},
+    {"speaker": "tu", "it": "Ciao, mi chiamo Andrei. Piacere!", "ro": "Salut, mă numesc Andrei. Încântat!"},
+    {"speaker": "giulia", "it": "Piacere mio! Di dove sei?", "ro": "Încântată! De unde ești?"},
+    {"speaker": "tu", "it": "Sono romeno, di Bucarest. E tu?", "ro": "Sunt român, din București. Și tu?"},
+    {"speaker": "giulia", "it": "Io sono di Roma. Come stai?", "ro": "Eu sunt din Roma. Ce mai faci?"},
+    {"speaker": "tu", "it": "Bene, grazie. Scusa, adesso devo andare. Ciao, a presto!", "ro": "Bine, mulțumesc. Scuze, acum trebuie să plec. Pa, pe curând!"},
+    {"speaker": "giulia", "it": "Ciao, a presto!", "ro": "Pa, pe curând!"}
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "familia-01",
+  "topicId": "familia",
+  "title": {"it": "La mia famiglia", "ro": "Familia mea"},
+  "canDo": {"it": "So parlare della mia famiglia", "ro": "Pot să vorbesc despre familia mea"},
+  "speakers": [
+    {"id": "marco", "name": {"it": "Marco", "ro": "Marco"}},
+    {"id": "tu", "name": {"it": "Tu", "ro": "Tu"}}
+  ],
+  "you": "tu",
+  "lines": [
+    {"speaker": "marco", "it": "Hai fratelli o sorelle?", "ro": "Ai frați sau surori?"},
+    {"speaker": "tu", "it": "Sì, ho un fratello e una sorella.", "ro": "Da, am un frate și o soră."},
+    {"speaker": "marco", "it": "Sono più grandi o più piccoli di te?", "ro": "Sunt mai mari sau mai mici decât tine?"},
+    {"speaker": "tu", "it": "Mio fratello è più grande, mia sorella è più piccola.", "ro": "Fratele meu e mai mare, sora mea e mai mică."},
+    {"speaker": "marco", "it": "E sei sposato?", "ro": "Și ești căsătorit?"},
+    {"speaker": "tu", "it": "Sì, e ho un figlio di cinque anni.", "ro": "Da, și am un fiu de cinci ani."},
+    {"speaker": "marco", "it": "Che bello! Anch'io ho una figlia piccola.", "ro": "Ce frumos! Și eu am o fiică mică."}
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "la-medic-si-farmacie-01",
+  "topicId": "la-medic-si-farmacie",
+  "title": {"it": "In farmacia", "ro": "La farmacie"},
+  "canDo": {"it": "So spiegare in farmacia cosa mi fa male", "ro": "Pot să explic la farmacie ce mă doare"},
+  "speakers": [
+    {"id": "farmacista", "name": {"it": "Farmacista", "ro": "Farmacista"}},
+    {"id": "tu", "name": {"it": "Tu", "ro": "Tu"}}
+  ],
+  "you": "tu",
+  "lines": [
+    {"speaker": "farmacista", "it": "Buongiorno, mi dica.", "ro": "Bună ziua, spuneți."},
+    {"speaker": "tu", "it": "Buongiorno. Ho mal di gola e un po' di febbre.", "ro": "Bună ziua. Mă doare gâtul și am puțină febră."},
+    {"speaker": "farmacista", "it": "Da quanto tempo?", "ro": "De cât timp?"},
+    {"speaker": "tu", "it": "Da ieri sera. Ha qualcosa per il mal di gola?", "ro": "De aseară. Aveți ceva pentru durerea de gât?"},
+    {"speaker": "farmacista", "it": "Ecco delle pastiglie. Ne prenda una ogni quattro ore.", "ro": "Iată niște pastile. Luați una la fiecare patru ore."},
+    {"speaker": "tu", "it": "Grazie. E se la febbre non passa?", "ro": "Mulțumesc. Și dacă febra nu trece?"},
+    {"speaker": "farmacista", "it": "Allora deve andare dal medico.", "ro": "Atunci trebuie să mergeți la medic."}
+  ]
+}

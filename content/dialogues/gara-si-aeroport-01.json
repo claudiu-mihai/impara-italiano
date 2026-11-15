@@ -1,0 +1,20 @@
+{
+  "id": "gara-si-aeroport-01",
+  "topicId": "gara-si-aeroport",
+  "title": {"it": "Un biglietto per Firenze", "ro": "Un bilet pentru Florența"},
+  "canDo": {"it": "So comprare un biglietto del treno", "ro": "Pot să cumpăr un bilet de tren"},
+  "speakers": [
+    {"id": "bigliettaio", "name": {"it": "Bigliettaio", "ro": "Casierul"}},
+    {"id": "tu", "name": {"it": "Tu", "ro": "Tu"}}
+  ],
+  "you": "tu",
+  "lines": [
+    {"speaker": "tu", "it": "Buongiorno, un biglietto per Firenze, per favore.", "ro": "Bună ziua, un bilet pentru Florența, vă rog."},
+    {"speaker": "bigliettaio", "it": "Solo andata o andata e ritorno?", "ro": "Doar dus sau dus-întors?"},
+    {"speaker": "tu", "it": "Andata e ritorno. A che ora parte il prossimo treno?", "ro": "Dus-întors. La ce oră pleacă următorul tren?"},
+    {"speaker": "bigliettaio", "it": "Alle undici e venti, dal binario tre.", "ro": "La unsprezece și douăzeci, de la linia trei."},
+    {"speaker": "tu", "it": "Va bene. Quanto costa?", "ro": "Bine. Cât costă?"},
+    {"speaker": "bigliettaio", "it": "Trentotto euro. Si ricordi di convalidare il biglietto.", "ro": "Treizeci și opt de euro. Nu uitați să validați biletul."},
+    {"speaker": "tu", "it": "Certo, grazie!", "ro": "Sigur, mulțumesc!"}
+  ]
+}

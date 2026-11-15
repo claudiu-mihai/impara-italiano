@@ -1,0 +1,20 @@
+{
+  "id": "mesele-zilei-01",
+  "topicId": "mesele-zilei",
+  "title": {"it": "Al ristorante", "ro": "La restaurant"},
+  "canDo": {"it": "So ordinare al ristorante e chiedere il conto", "ro": "Pot să comand la restaurant și să cer nota"},
+  "speakers": [
+    {"id": "cameriere", "name": {"it": "Cameriere", "ro": "Ospătarul"}},
+    {"id": "tu", "name": {"it": "Tu", "ro": "Tu"}}
+  ],
+  "you": "tu",
+  "lines": [
+    {"speaker": "cameriere", "it": "Buonasera! Siete pronti per ordinare?", "ro": "Bună seara! Sunteți gata să comandați?"},
+    {"speaker": "tu", "it": "Sì. Per primo vorrei gli spaghetti al pomodoro.", "ro": "Da. Ca fel întâi aș vrea spaghete cu roșii."},
+    {"speaker": "cameriere", "it": "Benissimo. E da bere?", "ro": "Foarte bine. Și de băut?"},
+    {"speaker": "tu", "it": "Una bottiglia d'acqua naturale, per favore.", "ro": "O sticlă de apă plată, vă rog."},
+    {"speaker": "cameriere", "it": "Desidera anche un dolce?", "ro": "Doriți și un desert?"},
+    {"speaker": "tu", "it": "No, grazie. Il conto, per favore.", "ro": "Nu, mulțumesc. Nota, vă rog."},
+    {"speaker": "cameriere", "it": "Subito. Sono quindici euro.", "ro": "Imediat. Sunt cincisprezece euro."}
+  ]
+}
