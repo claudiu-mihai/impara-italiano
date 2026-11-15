@@ -75,3 +75,10 @@
 
 - [ ] `runtimeCaching`: `/\/audio\//`, `CacheFirst`, `cacheName: "audio"`, `rangeRequests: true`, `cacheableResponse: { statuses: [0, 200] }`, `expiration: { maxEntries: 2000 }`.
 - [ ] Documentează generarea (`npm run audio:dialogues`) și redarea; build complet, suita completă (unit + E2E); commit.
+
+### Task 6: Cuvintele A1 (extindere)
+
+**Files:** `scripts/audio/run.ts` (nou, extras din generarea dialogurilor), `scripts/audio/wordAudio.ts` + test, `scripts/audio/generate-words.ts`, `scripts/build-data.ts` (`recordings.json`), `src/services/tts.ts` (`preloadRecordings`, `recordingFor`, `useRecording`), `src/ui/AudioButton.tsx`, `src/app/App.tsx`, `tests/e2e/audio-words.spec.ts`, `public/audio/words/*.mp3`
+
+- [ ] Teste: joburile doar pentru A1, cu articol la substantive, fără dubluri (omografe); indexul doar cu fișierele existente; `speak()` folosește indexul după încărcare. E2E: 🔊 la *essere* redă înregistrarea, și fără voce italiană.
+- [ ] Generare (`npm run audio:words`), build, suita completă; commit.

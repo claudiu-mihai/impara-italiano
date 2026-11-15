@@ -149,9 +149,43 @@ function playRecording(url: string, text: string, rate: number, speaker?: Speake
   audio.play().catch(fallback);
 }
 
-/** Rostește fraza; cu `audio` (URL-ul unei înregistrări pregenerate) redă înregistrarea, cu vocea de sistem ca rezervă. */
+// indexul înregistrărilor (textul rostit → fișier relativ la /audio/, ex. cuvintele A1), încărcat după pornire
+let recordings: Record<string, string> | null = null;
+let recordingsLoad: Promise<void> | null = null;
+
+/** Încarcă indexul înregistrărilor (o singură dată); până atunci frazele se rostesc cu vocea de sistem. */
+export function preloadRecordings(): Promise<void> {
+  recordingsLoad ??= import("../data/generated/recordings.json")
+    .then((module) => {
+      recordings = module.default as Record<string, string>;
+      for (const l of listeners) l();
+    })
+    .catch(() => {
+      // de exemplu fără rețea la prima pornire: se reîncearcă la următoarea frază
+      recordingsLoad = null;
+    });
+  return recordingsLoad;
+}
+
+/** URL-ul înregistrării unei fraze din index, dacă există (și indexul e încărcat). */
+export function recordingFor(text: string): string | undefined {
+  const file = recordings?.[text];
+  return file ? `${import.meta.env.BASE_URL}audio/${file}` : undefined;
+}
+
+/** Înregistrarea unei fraze, reactivă: apare când se încarcă indexul. */
+export function useRecording(text: string): string | undefined {
+  return useSyncExternalStore(subscribe, () => recordingFor(text), () => undefined);
+}
+
+/**
+ * Rostește fraza: din înregistrarea dată (`audio`) sau din indexul înregistrărilor, cu vocea de sistem ca rezervă; fără
+ * înregistrare, cu vocea de sistem.
+ */
 export function speak(text: string, rate = 0.9, options?: { speaker?: Speaker; audio?: string }): void {
-  if (options?.audio) playRecording(options.audio, text, rate, options.speaker);
+  if (!recordings) void preloadRecordings();
+  const audio = options?.audio ?? recordingFor(text);
+  if (audio) playRecording(audio, text, rate, options?.speaker);
   else speakWithVoice(text, rate, options?.speaker);
 }
 

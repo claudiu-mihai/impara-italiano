@@ -4,6 +4,7 @@ import { resolve } from "node:path";
 import { encodeWords } from "../src/domain/content/wordsCodec.ts";
 import { metaSchema, type ContentMeta } from "../src/domain/content/schema.ts";
 import { DIALOGUE_AUDIO_DIR, withDialogueAudio } from "./audio/dialogueAudio.ts";
+import { recordingsIndex, WORD_AUDIO_DIR } from "./audio/wordAudio.ts";
 import { loadContent, ROOT } from "./content.ts";
 
 const OUT_DIR = resolve(ROOT, "src/data/generated");
@@ -83,6 +84,10 @@ const dialoguesJson = lines(dialoguesWithAudio);
 const lineVariants = dialoguesWithAudio.flatMap((d) => d.lines).length * 2;
 const audioVariants = dialoguesWithAudio.flatMap((d) => d.lines).reduce((n, l) => n + Object.keys(l.audio ?? {}).length, 0);
 const presenteIrregularJson = lines(presenteIrregular);
+// recordings.json: textul rostit → înregistrarea (cuvintele A1), încărcat de `speak()` după pornire
+const wordAudioDir = resolve(ROOT, WORD_AUDIO_DIR);
+const recordings = recordingsIndex(words, (file) => existsSync(resolve(wordAudioDir, file)));
+const recordingsJson = `${JSON.stringify(recordings)}\n`;
 
 const dataVersion = createHash("sha256")
   .update(wordsJson)
@@ -95,6 +100,7 @@ const dataVersion = createHash("sha256")
   .update(grammarJson)
   .update(dialoguesJson)
   .update(presenteIrregularJson)
+  .update(recordingsJson)
   .digest("hex")
   .slice(0, 12);
 
@@ -118,9 +124,10 @@ writeFileSync(resolve(OUT_DIR, "guide.json"), guideJson);
 writeFileSync(resolve(OUT_DIR, "grammar.json"), grammarJson);
 writeFileSync(resolve(OUT_DIR, "dialogues.json"), dialoguesJson);
 writeFileSync(resolve(OUT_DIR, "presenteIrregular.json"), presenteIrregularJson);
+writeFileSync(resolve(OUT_DIR, "recordings.json"), recordingsJson);
 writeFileSync(resolve(OUT_DIR, "meta.json"), `${JSON.stringify(meta, null, 2)}\n`);
 
 console.log(
-  `Date generate: ${words.length} cuvinte, ${Object.keys(conjugations).length} verbe conjugate (${Object.keys(romanian).length} cu conjugare activă), ${sentences.length} propoziții, ${topics.length} teme, ${grammar.length} teme de gramatică, ${dialogues.length} dialoguri (audio: ${audioVariants}/${lineVariants} replici) ` +
+  `Date generate: ${words.length} cuvinte, ${Object.keys(conjugations).length} verbe conjugate (${Object.keys(romanian).length} cu conjugare activă), ${sentences.length} propoziții, ${topics.length} teme, ${grammar.length} teme de gramatică, ${dialogues.length} dialoguri (audio: ${audioVariants}/${lineVariants} replici), ${Object.keys(recordings).length} cuvinte cu audio ` +
     `(${explicitPresenteCount} presente din irregular.json), versiune ${dataVersion} → ${OUT_DIR}`,
 );

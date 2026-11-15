@@ -10,6 +10,7 @@
     "pocketbase": "node scripts/pocketbase/dev.ts",
     "build:data": "node scripts/build-data.ts",
     "audio:dialogues": "node scripts/audio/generate-dialogues.ts",
+    "audio:words": "node scripts/audio/generate-words.ts",
     "validate": "node scripts/validate-content.ts",
     "predev": "npm run build:data",
     "test": "vitest run",

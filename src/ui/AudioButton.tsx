@@ -1,5 +1,5 @@
 import { useT } from "../i18n/index.ts";
-import { speak, useTtsStatus, type Speaker } from "../services/tts.ts";
+import { speak, useRecording, useTtsStatus, type Speaker } from "../services/tts.ts";
 
 /** Viteza butonului 🐢: aceeași frază, rostită mai rar. */
 export const SLOW_RATE = 0.6;
@@ -12,7 +12,7 @@ interface AudioButtonProps {
   slow?: boolean;
   /** Personajul unui dialog (altă voce sau altă înălțime pentru al doilea). */
   speaker?: Speaker;
-  /** URL-ul înregistrării pregenerate: butonul merge și fără voce italiană în sistem. */
+  /** URL-ul înregistrării pregenerate (altfel se caută în indexul înregistrărilor): butonul merge și fără voce italiană. */
   audio?: string;
 }
 
@@ -20,9 +20,12 @@ interface AudioButtonProps {
  * Buton de redare a pronunției. Fără înregistrare, se ascunde fără voce italiană și se dezactivează fără internet; cu
  * înregistrare rămâne activ (fișierul poate fi deja salvat pentru offline).
  */
-export function AudioButton({ text, rate, size = "md", slow = false, speaker, audio }: AudioButtonProps) {
+export function AudioButton({ text, rate, size = "md", slow = false, speaker, audio: given }: AudioButtonProps) {
   const { t } = useT();
   const status = useTtsStatus();
+  // înregistrarea dată (dialoguri) sau cea din index (cuvinte)
+  const indexed = useRecording(text);
+  const audio = given ?? indexed;
   if (!audio && (status === "unsupported" || status === "no-voice")) return null;
 
   const offline = !audio && status === "offline";

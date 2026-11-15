@@ -10,7 +10,9 @@ Vocile de sistem de pe Android sună slab, iar dialogurile sunt exercițiul în 
 - Personajul celălalt are o voce după genul lui; cursantul, după genul ales („Joci ca”).
 - Fără fișier (text schimbat, negenerat, eroare de rețea): vocea de sistem, ca azi.
 
-Nu intră acum: audio pentru cuvinte, exemple, gramatică; verificare automată cu Whisper; precache la instalare.
+Extins în același PR, la cererea utilizatorului: **cuvintele A1**, cu vocea lui Francesco (vezi mai jos).
+
+Nu intră acum: cuvintele A2+, exemplele, gramatica; verificare automată cu Whisper; precache la instalare.
 
 ## Approaches
 
@@ -30,3 +32,10 @@ Nu intră acum: audio pentru cuvinte, exemple, gramatică; verificare automată 
 ## Ce rămâne la latitudinea implementării
 
 Organizarea exactă a scripturilor, mesajele din consolă, pragurile pentru „durată suspectă”.
+
+## Cuvintele A1
+
+- **Ce se înregistrează:** textul rostit în aplicație pentru fiecare cuvânt A1 (`italianText`: substantivele cu articol, „il caffè”, „l'acqua”), o singură dată pe text, cu Francesco. `npm run audio:words` → `public/audio/words/`.
+- **Indexul:** `build-data` scrie `recordings.json` (text → fișier, doar cele existente). `speak()` îl consultă pentru orice frază fără înregistrare dată, deci toate ecranele care rostesc cuvinte (carduri, quiz, potrivire, ordonează, dicționar, teme) folosesc înregistrarea fără schimbări.
+- **Încărcarea:** indexul (~40 KB) se încarcă la 1,5 s după pornire sau la primul `speak()`, ca să nu întârzie primul ecran; până atunci, vocea de sistem.
+- **„Ascultă întâi”** la carduri și quiz rămâne condiționat de vocea de sistem (neschimbat).

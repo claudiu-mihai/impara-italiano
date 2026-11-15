@@ -53,6 +53,7 @@ beforeEach(async () => {
     },
   );
   vi.resetModules();
+  vi.doMock("../data/generated/recordings.json", () => ({ default: { "il caffè": "words/caffe.mp3" } }));
   tts = await import("./tts.ts");
 });
 
@@ -100,4 +101,17 @@ test("fără înregistrare, vocea de sistem ca înainte", () => {
   tts.speak("Ciao!");
   expect(spoken).toEqual(["Ciao!"]);
   expect(FakeAudio.all).toEqual([]);
+});
+
+test("o frază din indexul înregistrărilor (cuvintele) se redă din fișier, după ce indexul s-a încărcat", async () => {
+  tts.speak("il caffè");
+  // indexul încă nu e încărcat: vocea de sistem
+  expect(spoken).toEqual(["il caffè"]);
+  await tts.preloadRecordings();
+  expect(tts.recordingFor("il caffè")).toBe("/audio/words/caffe.mp3");
+  expect(tts.recordingFor("il tè")).toBeUndefined();
+  tts.speak("il caffè");
+  expect(FakeAudio.all.map((a) => a.src)).toEqual(["/audio/words/caffe.mp3"]);
+  tts.speak("il tè");
+  expect(spoken).toEqual(["il caffè", "il tè"]);
 });
