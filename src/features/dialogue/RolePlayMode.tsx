@@ -15,7 +15,7 @@ import { speak } from "../../services/tts.ts";
 import { primaryButton } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
 import { Bubble, GenderedText } from "./Bubble.tsx";
-import { speakerOf } from "./speakers.ts";
+import { lineAudio, speakerOf } from "./speakers.ts";
 
 interface RolePlayModeProps {
   dialogue: GeneratedDialogue;
@@ -71,7 +71,7 @@ export function RolePlayMode({ dialogue, settings, gender, exitTo, backLabel }: 
     // butoanele de jos (inclusiv notarea de la final) rămân în ecran pe măsură ce conversația crește
     last.current?.scrollIntoView({ block: "nearest" });
     if (finished) return;
-    if (!mine || revealed) speak(resolveGender(line.it, gender), settings.ttsRate, { speaker });
+    if (!mine || revealed) speak(resolveGender(line.it, gender), settings.ttsRate, { speaker, audio: lineAudio(line, gender) });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index, revealed, attempt, finished]);
 
@@ -133,6 +133,7 @@ export function RolePlayMode({ dialogue, settings, gender, exitTo, backLabel }: 
               mine={isMine}
               speaker={s}
               rate={settings.ttsRate}
+              audio={lineAudio(l, gender)}
               hidden={
                 hide ? (
                   <div data-testid="say-line" className="flex flex-col gap-1">

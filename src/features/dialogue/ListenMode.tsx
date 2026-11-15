@@ -3,13 +3,12 @@ import type { GeneratedDialogue } from "../../domain/content/schema.ts";
 import { resolveGender, type Gender } from "../../domain/dialogue/gender.ts";
 import type { Settings } from "../../domain/settings.ts";
 import { useT } from "../../i18n/index.ts";
-import { speak } from "../../services/tts.ts";
+import { speak, useTtsStatus } from "../../services/tts.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { primaryButton } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
-import { useListening } from "../../ui/useListening.ts";
 import { Bubble } from "./Bubble.tsx";
-import { speakerOf } from "./speakers.ts";
+import { lineAudio, speakerOf } from "./speakers.ts";
 
 interface ListenModeProps {
   dialogue: GeneratedDialogue;
@@ -20,12 +19,13 @@ interface ListenModeProps {
 }
 
 /**
- * „Ascultă”: replicile apar una câte una și se aud singure. Cu „Ascultă întâi” (și voce disponibilă) textul replicii noi
- * e ascuns până la „Arată textul”; replicile deja ascultate rămân deasupra, ca într-un chat.
+ * „Ascultă”: replicile apar una câte una și se aud singure. Cu „Ascultă întâi” textul replicii noi e ascuns până la
+ * „Arată textul”, dacă replica se poate auzi (înregistrare sau voce de sistem); replicile deja ascultate rămân deasupra,
+ * ca într-un chat.
  */
 export function ListenMode({ dialogue, settings, gender, exitTo, onRolePlay }: ListenModeProps) {
   const { t } = useT();
-  const listening = useListening(settings.listenFirst);
+  const ttsReady = useTtsStatus() === "ready";
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const last = useRef<HTMLDivElement>(null);
@@ -33,7 +33,7 @@ export function ListenMode({ dialogue, settings, gender, exitTo, onRolePlay }: L
   const finished = index >= dialogue.lines.length - 1;
 
   useEffect(() => {
-    speak(resolveGender(line.it, gender), settings.ttsRate, { speaker: speakerOf(dialogue, line.speaker) });
+    speak(resolveGender(line.it, gender), settings.ttsRate, { speaker: speakerOf(dialogue, line.speaker), audio: lineAudio(line, gender) });
     last.current?.scrollIntoView({ block: "nearest" });
     // doar la replica nouă
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -50,7 +50,9 @@ export function ListenMode({ dialogue, settings, gender, exitTo, onRolePlay }: L
       <ol className="flex flex-col gap-3" aria-live="polite">
         {dialogue.lines.slice(0, index + 1).map((l, i) => {
           const speaker = speakerOf(dialogue, l.speaker);
-          const hide = i === index && listening && !revealed;
+          const audio = lineAudio(l, gender);
+          // fără nimic de ascultat (nici înregistrare, nici voce italiană) replica rămâne cu text
+          const hide = i === index && settings.listenFirst && (ttsReady || audio !== undefined) && !revealed;
           return (
             <Bubble
               key={i}
@@ -61,10 +63,11 @@ export function ListenMode({ dialogue, settings, gender, exitTo, onRolePlay }: L
               mine={l.speaker === dialogue.you}
               speaker={speaker}
               rate={settings.ttsRate}
+              audio={audio}
               hidden={
                 hide ? (
                   <div className="flex items-center gap-2">
-                    <AudioButton text={resolveGender(l.it, gender)} rate={settings.ttsRate} size="md" speaker={speaker} />
+                    <AudioButton text={resolveGender(l.it, gender)} rate={settings.ttsRate} size="md" speaker={speaker} audio={audio} />
                     <button type="button" onClick={() => setRevealed(true)} className="min-h-12 rounded-xl border-2 border-brand px-4 font-semibold text-brand-fg">
                       {t("flash.showText")}
                     </button>

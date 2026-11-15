@@ -18,12 +18,14 @@ interface BubbleProps {
   mine: boolean;
   speaker: Speaker;
   rate: number;
+  /** URL-ul înregistrării replicii, dacă există. */
+  audio?: string;
   /** În locul textului (ex. „Arată textul” sau cerința jocului de rol); `undefined` = textul se vede. */
   hidden?: ReactNode;
 }
 
 /** O replică a dialogului, ca un balon de chat: celălalt în stânga, cursantul în dreapta, cu 🔊 pentru reluare. */
-export function Bubble({ name, it, ro, gender, mine, speaker, rate, hidden }: BubbleProps) {
+export function Bubble({ name, it, ro, gender, mine, speaker, rate, audio, hidden }: BubbleProps) {
   const { language } = useT();
   return (
     <li
@@ -36,7 +38,7 @@ export function Bubble({ name, it, ro, gender, mine, speaker, rate, hidden }: Bu
     >
       <div className="flex items-center justify-between gap-2">
         <span className="text-sm font-semibold text-brand-fg">{language === "it" ? name.it : name.ro}</span>
-        {hidden === undefined && <AudioButton text={resolveGender(it, gender)} rate={rate} size="md" speaker={speaker} />}
+        {hidden === undefined && <AudioButton text={resolveGender(it, gender)} rate={rate} size="md" speaker={speaker} audio={audio} />}
       </div>
       {hidden ?? (
         <>

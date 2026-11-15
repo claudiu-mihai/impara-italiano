@@ -156,8 +156,25 @@ export async function mockSpeech(page: Page) {
         removeEventListener: () => {},
       },
     });
+    // fișierele audio pregenerate nu se pot reda: replicile cad pe vocea de sistem (rezerva); `mockAudio` le înregistrează
+    HTMLMediaElement.prototype.play = () => Promise.reject(new DOMException("blocat în test", "NotAllowedError"));
   }, [LUCA]);
 }
+
+/** Fișierele audio redate (căile, ex. /audio/dialogues/….mp3) se înregistrează în loc să se audă; se cheamă după `mockSpeech`. */
+export async function mockAudio(page: Page) {
+  await page.addInitScript(() => {
+    const played: string[] = [];
+    (window as unknown as { __played: string[] }).__played = played;
+    HTMLMediaElement.prototype.play = function (this: HTMLMediaElement) {
+      played.push(new URL(this.src).pathname);
+      return Promise.resolve();
+    };
+  });
+}
+
+/** Fișierele audio redate până acum, în ordine (cere `mockAudio`). */
+export const played = (page: Page) => page.evaluate(() => (window as unknown as { __played: string[] }).__played);
 
 /** Frazele redate până acum, în ordine (cere `mockSpeech`). */
 export const spoken = (page: Page) => page.evaluate(() => (window as unknown as { __spoken: string[] }).__spoken);
