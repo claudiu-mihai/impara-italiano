@@ -4,6 +4,13 @@ Formatul urmează [Keep a Changelog](https://keepachangelog.com/ro/1.1.0/), iar 
 [versionarea semantică](https://semver.org/lang/ro/). Intrările noi sunt scrise automat de release-please din
 commit-urile `feat:` / `fix:` (vezi README, „Versionare și release-uri”).
 
+## [1.21.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.20.0...v1.21.0) (2026-11-15)
+
+
+### Funcționalități
+
+* **dialoguri:** genul personajului (formele de masculin și feminin în replici) ([#58](https://github.com/claudiu-mihai/impara-italiano/issues/58)) ([54fa4e5](https://github.com/claudiu-mihai/impara-italiano/commit/54fa4e59f66ed759da870aeea8bbb137daeaaeb6))
+
 ## [1.20.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.19.0...v1.20.0) (2026-11-15)
 
 
