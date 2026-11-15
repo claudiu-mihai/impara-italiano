@@ -4,6 +4,13 @@ Formatul urmează [Keep a Changelog](https://keepachangelog.com/ro/1.1.0/), iar 
 [versionarea semantică](https://semver.org/lang/ro/). Intrările noi sunt scrise automat de release-please din
 commit-urile `feat:` / `fix:` (vezi README, „Versionare și release-uri”).
 
+## [1.20.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.19.0...v1.20.0) (2026-11-15)
+
+
+### Funcționalități
+
+* **pedagogie:** Faza 6 – dialoguri (ascultare, joc de rol, repetare, repere „pot să…”) ([#56](https://github.com/claudiu-mihai/impara-italiano/issues/56)) ([649405e](https://github.com/claudiu-mihai/impara-italiano/commit/649405e43aab37305f93a53f2ad6d91bc111c793))
+
 ## [1.19.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.18.0...v1.19.0) (2026-11-15)
 
 
