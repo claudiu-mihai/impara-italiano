@@ -53,3 +53,19 @@ export function pickVoice<T extends VoiceInfo>(
   if (preferred) return preferred;
   return [...usable].sort((a, b) => score(b) - score(a))[0];
 }
+
+/**
+ * Vocile pentru cele două personaje ale unui dialog: prima e vocea obișnuită (`pickVoice`), a doua cea mai bună voce
+ * utilizabilă diferită de ea (aceleași reguli: italiană, locală fără internet); `undefined` dacă nu există.
+ */
+export function pickVoices<T extends VoiceInfo>(voices: readonly T[], options: PickVoiceOptions): [T | undefined, T | undefined] {
+  const first = pickVoice(voices, options);
+  // „Alice” și „Alice (Enhanced)” sună la fel: a doua voce trebuie să fie altă persoană, altfel se schimbă înălțimea
+  const rest = first ? voices.filter((v) => baseName(v) !== baseName(first)) : [];
+  return [first, pickVoice(rest, { online: options.online })];
+}
+
+/** Numele vocii fără marcajul de calitate („Alice (Enhanced)” → „alice”). */
+function baseName(voice: VoiceInfo): string {
+  return voice.name.replace(/\s*\((premium|enhanced|migliorat\w*|potenziat\w*|avanzat\w*)\)/i, "").trim().toLowerCase();
+}

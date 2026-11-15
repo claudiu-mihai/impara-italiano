@@ -2,6 +2,7 @@ import { useLiveQuery } from "dexie-react-hooks";
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useContent } from "../../app/content.tsx";
+import { useDialogues } from "../../app/dialogues.ts";
 import { useNativeHelp } from "../../app/nativeHelp.ts";
 import { useTopics } from "../../app/topics.ts";
 import { useT } from "../../i18n/index.ts";
@@ -29,6 +30,7 @@ export function TopicPage() {
   const topics = useTopics();
   const cards = useLiveQuery(() => db.cards.where("kind").equals("vocab").toArray(), []);
   const nativeHelp = useNativeHelp();
+  const dialogues = useDialogues();
   const known = topics?.some((x) => x.id === id) ?? false;
   // „Continuă” din Învață reia ultima temă deschisă
   useEffect(() => {
@@ -87,6 +89,16 @@ export function TopicPage() {
             {t(EXERCISE_LABEL[exercise])}
           </Link>
         ))}
+        {dialogues
+          ?.filter((d) => d.topicId === topic.id)
+          .map((d) => (
+            <Link key={d.id} to={`/learn/topics/${topic.id}/dialogue/${d.id}`} className={`${outlined} col-span-2 text-lg`}>
+              <span aria-hidden="true">💬</span>
+              <span>
+                {t("dialogue.open")}: <span lang="it">{d.title.it}</span>
+              </span>
+            </Link>
+          ))}
       </div>
 
       <TopicRulesBox rules={topic.rules} contrast={topic.contrast?.ro} />

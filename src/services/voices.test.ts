@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { hasLocalItalianVoice, isCloudVoice, isSystemVoice, pickVoice, type VoiceInfo } from "./voices.ts";
+import { hasLocalItalianVoice, isCloudVoice, isSystemVoice, pickVoice, pickVoices, type VoiceInfo } from "./voices.ts";
 
 const voice = (name: string, lang: string, localService = true): VoiceInfo => ({
   name,
@@ -70,4 +70,32 @@ test("vocile Microsoft desktop (Windows) rămân voci de sistem", () => {
   const desktop = voice("Microsoft Elsa - Italian (Italy)", "it-IT", true);
   expect(isSystemVoice(desktop)).toBe(true);
   expect(pickVoice([msOnline, desktop], { online: true })).toBe(desktop);
+});
+
+test("două personaje: cu două voci italiene locale, fiecare primește alta", () => {
+  const [first, second] = pickVoices([alice, luca, samantha], { online: false });
+  expect(first).toBe(luca);
+  expect(second).toBe(alice);
+});
+
+test("două personaje: cu o singură voce italiană, al doilea nu are voce proprie", () => {
+  expect(pickVoices([alice, samantha], { online: true })).toEqual([alice, undefined]);
+});
+
+test("două personaje: fără internet, vocea de rețea nu devine a doua voce", () => {
+  expect(pickVoices([alice, google], { online: false })).toEqual([alice, undefined]);
+  expect(pickVoices([alice, google], { online: true })).toEqual([alice, google]);
+});
+
+test("două personaje: vocea aleasă în Setări rămâne prima", () => {
+  const [first, second] = pickVoices([alice, luca], { online: true, preferredURI: "uri:Alice" });
+  expect(first).toBe(alice);
+  expect(second).toBe(luca);
+});
+
+test("două personaje: varianta Enhanced a aceleiași voci nu contează ca a doua voce", () => {
+  const aliceEnhanced = voice("Alice (Enhanced)", "it-IT");
+  expect(pickVoices([alice, aliceEnhanced], { online: false })).toEqual([aliceEnhanced, undefined]);
+  const [, second] = pickVoices([alice, aliceEnhanced, luca], { online: false });
+  expect(second).toBe(luca);
 });

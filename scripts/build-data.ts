@@ -28,7 +28,7 @@ const SOURCES = [
   },
 ];
 
-const { words, conjugations, romanian, sentences, topics, grammar, rankBasis, explicitPresenteCount, presenteIrregular, errors } = loadContent();
+const { words, conjugations, romanian, sentences, topics, grammar, dialogues, rankBasis, explicitPresenteCount, presenteIrregular, errors } = loadContent();
 
 if (errors.length > 0) {
   console.error(`Conținut invalid: ${errors.length} erori`);
@@ -75,6 +75,8 @@ const guideJson = lines(
   })),
 );
 const grammarJson = `${JSON.stringify(grammar, null, 1)}\n`;
+// dialogues.json: un dialog pe linie, încărcat doar de ecranele cu dialoguri
+const dialoguesJson = lines(dialogues);
 const presenteIrregularJson = lines(presenteIrregular);
 
 const dataVersion = createHash("sha256")
@@ -86,6 +88,7 @@ const dataVersion = createHash("sha256")
   .update(topicsJson)
   .update(guideJson)
   .update(grammarJson)
+  .update(dialoguesJson)
   .update(presenteIrregularJson)
   .digest("hex")
   .slice(0, 12);
@@ -108,10 +111,11 @@ writeFileSync(resolve(OUT_DIR, "sentences.json"), sentencesJson);
 writeFileSync(resolve(OUT_DIR, "topics.json"), topicsJson);
 writeFileSync(resolve(OUT_DIR, "guide.json"), guideJson);
 writeFileSync(resolve(OUT_DIR, "grammar.json"), grammarJson);
+writeFileSync(resolve(OUT_DIR, "dialogues.json"), dialoguesJson);
 writeFileSync(resolve(OUT_DIR, "presenteIrregular.json"), presenteIrregularJson);
 writeFileSync(resolve(OUT_DIR, "meta.json"), `${JSON.stringify(meta, null, 2)}\n`);
 
 console.log(
-  `Date generate: ${words.length} cuvinte, ${Object.keys(conjugations).length} verbe conjugate (${Object.keys(romanian).length} cu conjugare activă), ${sentences.length} propoziții, ${topics.length} teme, ${grammar.length} teme de gramatică ` +
+  `Date generate: ${words.length} cuvinte, ${Object.keys(conjugations).length} verbe conjugate (${Object.keys(romanian).length} cu conjugare activă), ${sentences.length} propoziții, ${topics.length} teme, ${grammar.length} teme de gramatică, ${dialogues.length} dialoguri ` +
     `(${explicitPresenteCount} presente din irregular.json), versiune ${dataVersion} → ${OUT_DIR}`,
 );

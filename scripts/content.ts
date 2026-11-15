@@ -3,6 +3,8 @@ import { resolve } from "node:path";
 import type { ZodError } from "zod";
 import {
   conjugationsSchema,
+  dialogueSchema,
+  type GeneratedDialogue,
   grammarTopicSchema,
   romanianVerbSchema,
   sentencesSchema,
@@ -27,6 +29,7 @@ import { buildConjugations, type IrregularFile } from "./conjugate/build.ts";
 import { z } from "zod";
 import { TOPIC_SENTENCE_MIN, topicSentences } from "../src/domain/sentence/sentenceRound.ts";
 import { romanianForms, type RoConjugations } from "../src/domain/conjugation/romanian.ts";
+import { dialogueProblems } from "../src/domain/dialogue/check.ts";
 
 export const ROOT = resolve(import.meta.dirname, "..");
 const WORDS_DIR = resolve(ROOT, "content/words");
@@ -35,6 +38,7 @@ const ROMANIAN_FILE = resolve(ROOT, "content/verbs/romanian.json");
 const SENTENCES_DIR = resolve(ROOT, "content/sentences");
 const TOPICS_DIR = resolve(ROOT, "content/topics");
 const GRAMMAR_DIR = resolve(ROOT, "content/grammar");
+const DIALOGUES_DIR = resolve(ROOT, "content/dialogues");
 
 /** Propozițiile mai scurte de atât nu fac un exercițiu de ordonare. */
 const MIN_TOKENS = 3;
@@ -53,6 +57,8 @@ export interface LoadedContent {
   sentences: Sentence[];
   topics: Topic[];
   grammar: GrammarTopic[];
+  /** Dialogurile, cu nivelul temei, în ordinea temelor. */
+  dialogues: GeneratedDialogue[];
   explicitPresenteCount: number;
   /** Verbele neregulate la prezent (pentru linkurile către lecții). */
   presenteIrregular: string[];
@@ -123,6 +129,7 @@ export function loadContent(): LoadedContent {
     if (count < TOPIC_SENTENCE_MIN) errors.push(`${topic.id}: doar ${count} propoziții cu cuvintele temei (minim ${TOPIC_SENTENCE_MIN})`);
   }
   const grammar = loadGrammar(errors);
+  const dialogues = loadDialogues(topics, errors);
   const grammarIds = new Set(grammar.map((t) => t.id));
   for (const id of linkedLessonIds()) {
     if (!grammarIds.has(id)) errors.push(`links.ts: lecția „${id}” nu există în content/grammar`);
@@ -137,6 +144,7 @@ export function loadContent(): LoadedContent {
     sentences,
     topics,
     grammar,
+    dialogues,
     explicitPresenteCount: built.explicitCount,
     presenteIrregular: irregularPresenteIds(irregular.presente, verbs),
     errors,
@@ -224,6 +232,32 @@ function loadRomanian(words: Word[], conjugations: Conjugations, errors: string[
     result[verb.id] = verb;
   });
   return result;
+}
+
+/** Dialogurile din content/dialogues/*.json, validate și cu nivelul temei, în ordinea temelor (apoi a id-ului). */
+function loadDialogues(topics: Topic[], errors: string[]): GeneratedDialogue[] {
+  const topicIndex = new Map(topics.map((t, i) => [t.id, i]));
+  const topicIds = new Set(topicIndex.keys());
+  const dialogues: GeneratedDialogue[] = [];
+  const canDo = new Set<string>();
+
+  for (const file of readdirSync(DIALOGUES_DIR).filter((f) => f.endsWith(".json")).sort()) {
+    const parsed = dialogueSchema.safeParse(JSON.parse(readFileSync(resolve(DIALOGUES_DIR, file), "utf8")));
+    if (!parsed.success) {
+      errors.push(...formatZodError(file, parsed.error));
+      continue;
+    }
+    const dialogue = parsed.data;
+    if (`${dialogue.id}.json` !== file) errors.push(`${file}: id-ul „${dialogue.id}” nu corespunde numelui fișierului`);
+    for (const text of [dialogue.canDo.it, dialogue.canDo.ro]) {
+      if (canDo.has(text)) errors.push(`${dialogue.id}: reperul „${text}” apare de două ori`);
+      canDo.add(text);
+    }
+    errors.push(...dialogueProblems(dialogue, topicIds));
+    const topic = topics.find((t) => t.id === dialogue.topicId);
+    if (topic) dialogues.push({ ...dialogue, level: topic.level });
+  }
+  return dialogues.sort((a, b) => topicIndex.get(a.topicId)! - topicIndex.get(b.topicId)! || a.id.localeCompare(b.id));
 }
 
 /** Temele de gramatică din content/grammar/*.json, în ordinea de învățare (câmpul „order”). */

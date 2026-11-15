@@ -1,0 +1,19 @@
+{
+  "id": "ora-01",
+  "topicId": "ora",
+  "title": {"it": "Che ore sono?", "ro": "Cât e ceasul?"},
+  "canDo": {"it": "So chiedere l'ora e a che ora è qualcosa", "ro": "Pot să întreb cât e ceasul și la ce oră e ceva"},
+  "speakers": [
+    {"id": "signora", "name": {"it": "Signora", "ro": "Doamna"}},
+    {"id": "tu", "name": {"it": "Tu", "ro": "Tu"}}
+  ],
+  "you": "tu",
+  "lines": [
+    {"speaker": "tu", "it": "Scusi, che ore sono?", "ro": "Scuzați-mă, cât e ceasul?"},
+    {"speaker": "signora", "it": "Sono le dieci e un quarto.", "ro": "E zece și un sfert."},
+    {"speaker": "tu", "it": "Grazie. Sa a che ora apre il museo?", "ro": "Mulțumesc. Știți la ce oră se deschide muzeul?"},
+    {"speaker": "signora", "it": "Apre alle dieci e mezza e chiude alle sei.", "ro": "Se deschide la zece și jumătate și se închide la șase."},
+    {"speaker": "tu", "it": "Allora ho ancora un quarto d'ora. Grazie!", "ro": "Atunci mai am un sfert de oră. Mulțumesc!"},
+    {"speaker": "signora", "it": "Di niente!", "ro": "Pentru nimic!"}
+  ]
+}

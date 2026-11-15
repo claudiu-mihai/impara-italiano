@@ -113,6 +113,10 @@ export function LearnPage() {
           {t("learn.grammarHint")}
         </Tile>
 
+        <Tile to="/learn/dialogues" emoji="💬" title={t("learn.dialogues")}>
+          {t("learn.dialoguesHint")}
+        </Tile>
+
         <Tile
           to="/learn/sentence"
           emoji="🧩"

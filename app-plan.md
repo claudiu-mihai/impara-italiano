@@ -161,6 +161,14 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 
    * **Itemi generați (numere, ora):** nu se scriu de mână, ci se generează din reguli (inclusiv *ventuno, ventotto, trentatré, duemila, è l'una, mezzogiorno*). **Unitatea SRS este abilitatea** (ex. „numere 0–20”, „numere 21–100”, „ora”), nu fiecare număr, după același model ca verb × timp: la fiecare repetiție 3–5 itemi aleatorii, notă automată (toți corecți → Bine, unul greșit → Greu, mai mulți → Din nou).
    * **Expresii:** expresiile din mai multe cuvinte (*che ore sono, fa caldo, due giorni fa*) se adaugă în dicționar cu categoria nouă **Expresie**.
+6. **Dialoguri:**
+   * **Conținut:** un fișier pe dialog în `content/dialogues/` (`tema-NN.json`): tema, titlul `{ it, ro }`, reperul „pot să…” (`canDo`), două personaje (unul jucat de cursant, `you`) și 4–8 replici, fiecare cu traducere. Validat la build (temă existentă, fiecare personaj cu cel puțin 2 replici, reper unic); nivelul e al temei. Generat în `dialogues.json`, încărcat la cerere. 10 dialoguri: saluturi, bar, restaurant, piață, direcții, ora, familie (A1), hotel, gară, farmacie (A2); textele trebuie revizuite de un vorbitor.
+   * **Unde:** pe pagina temei („💬 Dialog: *Un caffè, per favore*”), în Învață → Dialoguri (lista pe niveluri) și pe Acasă.
+   * **Ascultă:** replicile apar una câte una, ca un chat (celălalt în stânga, tu în dreapta), și se aud singure; cu „Ascultă întâi” textul replicii noi apare la „Arată textul”; traducerea sub text; la final „Treci la jocul de rol”.
+   * **Joc de rol:** replicile celuilalt se aud și se văd; la a ta vezi „Spune în italiană: *Aș vrea o cafea, vă rog.*”, o spui cu voce tare, apoi „Arată replica” o dezvăluie și o redă.
+   * **Repetare:** fiecare dialog e o abilitate FSRS (`skill:dialogue:<id>`, fără pașii scurți). La finalul primului joc de rol pe un dialog nou sau scadent te notezi: Din nou („am uitat multe”), Greu („cu ezitări”), Bine („fără să mă uit”); altfel (și la „Încă o dată”) e antrenament liber. Dialogurile scadente apar pe Acasă la „Dialoguri de repetat”, cu link direct la jocul de rol.
+   * **Repere „pot să…”:** pe Acasă, sub progres, „Ce pot face în italiană — 3 din 7”: reperele dialogurilor de la nivelul curent și de dedesubt, ✅ când dialogul e învățat (stabilitate ≥ 7 zile). Apar după primul joc de rol notat; o instalare nouă nu încarcă dialogurile pe Acasă.
+   * **Voci:** cu două voci italiene utilizabile, fiecare personaj are vocea lui; cu una singură, al doilea personaj vorbește cu altă înălțime (`pitch`), viteza din Setări rămânând aceeași.
 
 #### **FR3. Repetiție Spațiată (SRS) — FSRS**
 

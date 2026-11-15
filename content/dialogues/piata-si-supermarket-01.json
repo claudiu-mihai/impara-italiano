@@ -1,0 +1,20 @@
+{
+  "id": "piata-si-supermarket-01",
+  "topicId": "piata-si-supermarket",
+  "title": {"it": "Al mercato", "ro": "La piață"},
+  "canDo": {"it": "So fare la spesa al mercato e chiedere il prezzo", "ro": "Pot să cumpăr la piață și să întreb prețul"},
+  "speakers": [
+    {"id": "venditore", "name": {"it": "Venditore", "ro": "Vânzătorul"}},
+    {"id": "tu", "name": {"it": "Tu", "ro": "Tu"}}
+  ],
+  "you": "tu",
+  "lines": [
+    {"speaker": "venditore", "it": "Buongiorno! Cosa Le do?", "ro": "Bună ziua! Ce să vă dau?"},
+    {"speaker": "tu", "it": "Buongiorno. Quanto costano le mele?", "ro": "Bună ziua. Cât costă merele?"},
+    {"speaker": "venditore", "it": "Due euro al chilo.", "ro": "Doi euro kilogramul."},
+    {"speaker": "tu", "it": "Allora un chilo di mele e mezzo chilo di pomodori.", "ro": "Atunci un kilogram de mere și jumătate de kilogram de roșii."},
+    {"speaker": "venditore", "it": "Ecco a Lei. Altro?", "ro": "Poftiți. Altceva?"},
+    {"speaker": "tu", "it": "No, basta così. Quant'è in tutto?", "ro": "Nu, ajunge. Cât face în total?"},
+    {"speaker": "venditore", "it": "Tre euro in tutto. Grazie e arrivederci!", "ro": "Trei euro în total. Mulțumesc și la revedere!"}
+  ]
+}

@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from "react";
 
-import { hasLocalItalianVoice, isCloudVoice, isItalian, pickVoice, type VoiceInfo } from "./voices.ts";
+import { hasLocalItalianVoice, isCloudVoice, isItalian, pickVoice, pickVoices, type VoiceInfo } from "./voices.ts";
 
 /**
  * - ready: se poate reda audio
@@ -80,12 +80,28 @@ function setSpeaking(next: Speaking | null) {
   for (const l of listeners) l();
 }
 
-function utteranceFor(text: string, rate: number): SpeechSynthesisUtterance {
+/** Înălțimea vocii când ambele personaje ale unui dialog vorbesc cu aceeași voce (o singură voce italiană). */
+export const FIRST_SPEAKER_PITCH = 1.1;
+export const SECOND_SPEAKER_PITCH = 0.85;
+
+/** Personajul unui dialog: 0 = primul, 1 = al doilea (altă voce, dacă există, altfel altă înălțime). */
+export type Speaker = 0 | 1;
+
+function utteranceFor(text: string, rate: number, speaker?: Speaker): SpeechSynthesisUtterance {
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = "it-IT";
   utterance.rate = rate;
-  const voice = pickVoice(window.speechSynthesis.getVoices(), { online: navigator.onLine, preferredURI: preferredVoiceURI });
+  const options = { online: navigator.onLine, preferredURI: preferredVoiceURI };
+  if (speaker === undefined) {
+    const voice = pickVoice(window.speechSynthesis.getVoices(), options);
+    if (voice) utterance.voice = voice;
+    return utterance;
+  }
+  const [first, second] = pickVoices(window.speechSynthesis.getVoices(), options);
+  const voice = speaker === 1 ? (second ?? first) : first;
   if (voice) utterance.voice = voice;
+  // o singură voce pentru amândoi: personajele se deosebesc prin înălțime, viteza aleasă rămâne aceeași
+  if (!second) utterance.pitch = speaker === 1 ? SECOND_SPEAKER_PITCH : FIRST_SPEAKER_PITCH;
   return utterance;
 }
 
@@ -96,10 +112,10 @@ export function stopSpeaking(): void {
   if (supported()) window.speechSynthesis.cancel();
 }
 
-export function speak(text: string, rate = 0.9): void {
+export function speak(text: string, rate = 0.9, options?: { speaker?: Speaker }): void {
   if (computeStatus() !== "ready") return;
   stopSpeaking();
-  window.speechSynthesis.speak(utteranceFor(text, rate));
+  window.speechSynthesis.speak(utteranceFor(text, rate, options?.speaker));
 }
 
 /**
