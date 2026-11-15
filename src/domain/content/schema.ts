@@ -308,4 +308,9 @@ export type Conjugations = z.infer<typeof conjugationsSchema>;
 export type ContentMeta = z.infer<typeof metaSchema>;
 export type Dialogue = z.infer<typeof dialogueSchema>;
 /** Un dialog după build: primește nivelul temei. */
-export type GeneratedDialogue = Dialogue & { level: Level };
+/** Fișierele audio pregenerate ale unei replici, după genul cursantului (`public/audio/dialogues/<fișier>`). */
+export type DialogueLineAudio = Partial<Record<"m" | "f", string>>;
+
+export type GeneratedDialogueLine = Dialogue["lines"][number] & { audio?: DialogueLineAudio };
+
+export type GeneratedDialogue = Omit<Dialogue, "lines"> & { level: Level; lines: GeneratedDialogueLine[] };
