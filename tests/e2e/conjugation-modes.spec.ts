@@ -8,13 +8,13 @@ const CONJUGATIONS: Record<string, Record<string, string[][]>> = JSON.parse(
 const PRESENTE = CONJUGATIONS["v-parlare"]!["presente"]!;
 const WORDS_LEARNED = ["v-parlare"];
 
-test("Flip: răstoarnă cardul, arată forma și notează cu cele 4 butoane", async ({ page }) => {
+test("Cu voce tare: răstoarnă cardul, arată forma și notează cu cele 4 butoane", async ({ page }) => {
   await seedLearnedWords(page, WORDS_LEARNED);
   await page.goto("/learn/conjugation");
   await expect(page.getByTestId("person")).toBeVisible();
 
-  await page.getByRole("radio", { name: "Flip" }).click();
-  await expect(page.getByRole("radio", { name: "Flip" })).toHaveAttribute("aria-checked", "true");
+  await page.getByRole("radio", { name: "Cu voce tare" }).click();
+  await expect(page.getByRole("radio", { name: "Cu voce tare" })).toHaveAttribute("aria-checked", "true");
   await expect(page.getByTestId("flip-card")).toBeVisible();
   await expect(page.getByTestId("flip-answer")).toHaveCount(0);
 
@@ -29,11 +29,11 @@ test("Flip: răstoarnă cardul, arată forma și notează cu cele 4 butoane", as
   await expect(page.getByText("Sesiune încheiată")).toBeVisible();
 });
 
-test("Flip: tastele 1–4 notează după răsturnare", async ({ page }) => {
+test("Cu voce tare: tastele 1–4 notează după răsturnare", async ({ page }) => {
   await seedLearnedWords(page, WORDS_LEARNED);
   await page.goto("/learn/conjugation");
-  await page.getByRole("radio", { name: "Flip" }).click();
-  await page.getByTestId("flip-card").click(); // scoate focusul de pe butonul variantei
+  await page.getByRole("radio", { name: "Cu voce tare" }).click();
+  await page.getByTestId("ro-prompt").click(); // scoate focusul de pe butonul variantei (textul cerinței, nu 🔊)
   await page.keyboard.press("Space");
   await expect(page.getByTestId("flip-answer")).toBeVisible();
   await page.keyboard.press("4");
@@ -86,7 +86,7 @@ test("Tabel: Enter trece la câmpul următor", async ({ page }) => {
 test("varianta aleasă se păstrează și se poate seta din Setări", async ({ page }) => {
   await seedLearnedWords(page, WORDS_LEARNED);
   await page.goto("/learn/conjugation");
-  await page.getByRole("radio", { name: "Flip" }).click();
+  await page.getByRole("radio", { name: "Cu voce tare" }).click();
   // alegerea se salvează asincron în IndexedDB; așteptăm să ajungă acolo înainte de reîncărcare
   await expect
     .poll(() =>
@@ -107,7 +107,7 @@ test("varianta aleasă se păstrează și se poate seta din Setări", async ({ p
     )
     .toBe("flip");
   await page.reload();
-  await expect(page.getByRole("radio", { name: "Flip" })).toHaveAttribute("aria-checked", "true");
+  await expect(page.getByRole("radio", { name: "Cu voce tare" })).toHaveAttribute("aria-checked", "true");
 
   await page.goto("/settings");
   await page.getByLabel("Varianta de conjugare").selectOption("table");

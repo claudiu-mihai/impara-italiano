@@ -10,7 +10,7 @@ export type StudyDirection = Direction | "both";
 /** Ordinea cuvintelor noi: „guided” = întâi temele începute și calea de supraviețuire, amestecate cu frecvența; „frequency” = doar frecvența. */
 export type WordOrder = "guided" | "frequency";
 
-/** Varianta cardurilor de conjugare: scrii pe rând, autoevaluare (Flip) sau tot tabelul deodată. */
+/** Varianta cardurilor de conjugare: scrii pe rând, autoevaluare cu voce tare (`flip`) sau tot tabelul deodată. */
 export type ConjugationMode = "write" | "flip" | "table";
 
 export interface Settings {

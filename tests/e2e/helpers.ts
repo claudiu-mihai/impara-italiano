@@ -53,7 +53,10 @@ export async function seedLearnedWords(page: Page, wordIds: string[], dueInDays 
 }
 
 /** Scrie direct în IndexedDB carduri de conjugare (verb × timp) aflate în faza de repetare. */
-export async function seedConjCards(page: Page, cards: { verbId: string; tense: string; stability: number }[]) {
+export async function seedConjCards(
+  page: Page,
+  cards: { verbId: string; tense: string; stability: number; dueInDays?: number }[],
+) {
   await page.goto("/");
   await expect(page.getByRole("link", { name: "Începe sesiunea" }).or(page.getByText(/Ai terminat pentru azi/))).toBeVisible();
   await page.evaluate(async (list) => {
@@ -71,7 +74,7 @@ export async function seedConjCards(page: Page, cards: { verbId: string; tense: 
           kind: "conj",
           variant: c.tense,
           introducedOn: "2026-01-01",
-          due: new Date(Date.now() + 5 * 86_400_000),
+          due: new Date(Date.now() + (c.dueInDays ?? 5) * 86_400_000),
           stability: c.stability,
           difficulty: 5,
           elapsed_days: 0,

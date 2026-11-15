@@ -4,6 +4,7 @@ import type { ZodError } from "zod";
 import {
   conjugationsSchema,
   grammarTopicSchema,
+  romanianVerbSchema,
   sentencesSchema,
   topicSchema,
   type GrammarTopic,
@@ -16,7 +17,7 @@ import {
 } from "../src/domain/content/schema.ts";
 import { acceptedOrders, tokenizeSentence } from "../src/domain/sentence/tokenize.ts";
 import { loadFrequency } from "./frequency/ranks.ts";
-import { LEVELS, TOPIC_GROUPS, type Level } from "../src/domain/content/constants.ts";
+import { LEVELS, TENSES, TOPIC_GROUPS, type Level } from "../src/domain/content/constants.ts";
 import { lemmaOf } from "../src/domain/content/reflexive.ts";
 import { splitAtGap } from "../src/domain/grammar/gap.ts";
 import { linkedLessonIds } from "../src/domain/grammar/links.ts";
@@ -25,10 +26,12 @@ import { irregularPresenteIds } from "./content/presenteIrregular.ts";
 import { buildConjugations, type IrregularFile } from "./conjugate/build.ts";
 import { z } from "zod";
 import { TOPIC_SENTENCE_MIN, topicSentences } from "../src/domain/sentence/sentenceRound.ts";
+import { romanianForms, type RoConjugations } from "../src/domain/conjugation/romanian.ts";
 
 export const ROOT = resolve(import.meta.dirname, "..");
 const WORDS_DIR = resolve(ROOT, "content/words");
 const IRREGULAR_FILE = resolve(ROOT, "content/verbs/irregular.json");
+const ROMANIAN_FILE = resolve(ROOT, "content/verbs/romanian.json");
 const SENTENCES_DIR = resolve(ROOT, "content/sentences");
 const TOPICS_DIR = resolve(ROOT, "content/topics");
 const GRAMMAR_DIR = resolve(ROOT, "content/grammar");
@@ -45,6 +48,8 @@ export interface LoadedContent {
   frequencySources: string[];
   words: Word[];
   conjugations: Conjugations;
+  /** Verbele cu conjugare activă și formele lor românești (cerința cu traducere). */
+  romanian: RoConjugations;
   sentences: Sentence[];
   topics: Topic[];
   grammar: GrammarTopic[];
@@ -107,6 +112,7 @@ export function loadContent(): LoadedContent {
   const checked = conjugationsSchema.safeParse(built.conjugations);
   if (!checked.success) errors.push(...formatZodError("conjugations", checked.error));
 
+  const romanian = loadRomanian(words as Word[], built.conjugations, errors);
   const sentences = loadSentences(words, errors);
   const { rankBasis, frequencySources, frequencyRanks } = assignRanks(words);
   assignLevels(words, frequencyRanks, errors);
@@ -127,6 +133,7 @@ export function loadContent(): LoadedContent {
     frequencySources,
     words: words as Word[],
     conjugations: built.conjugations,
+    romanian,
     sentences,
     topics,
     grammar,
@@ -185,6 +192,38 @@ function loadTopics(words: Word[], errors: string[]): Topic[] {
     .map((t, i) => ({ t, i }))
     .sort((a, b) => TOPIC_GROUPS.indexOf(a.t.group) - TOPIC_GROUPS.indexOf(b.t.group) || a.i - b.i)
     .map(({ t }) => t);
+}
+
+/**
+ * Lista verbelor cu conjugare activă (content/verbs/romanian.json), cu formele lor românești. Fiecare verb trebuie să existe
+ * și să aibă forme italiene; fiecare timp italian trebuie să aibă și forme românești, cu excepția imperativului, unde
+ * cardul rămâne cu cerința veche (unele verbe nu au imperativ firesc în română: a putea, a ști).
+ */
+function loadRomanian(words: Word[], conjugations: Conjugations, errors: string[]): RoConjugations {
+  const raw: unknown = JSON.parse(readFileSync(ROMANIAN_FILE, "utf8"));
+  const entries = Array.isArray(raw) ? raw : [];
+  if (!Array.isArray(raw)) errors.push("romanian.json: fișierul trebuie să conțină o listă");
+  const verbIds = new Set(words.filter((w) => w.pos === "verb").map((w) => w.id));
+  const result: RoConjugations = {};
+
+  entries.forEach((entry, i) => {
+    const parsed = romanianVerbSchema.safeParse(entry);
+    if (!parsed.success) {
+      errors.push(...formatZodError(`romanian.json[${i}]`, parsed.error));
+      return;
+    }
+    const verb = parsed.data;
+    if (result[verb.id]) errors.push(`romanian.json: ${verb.id} apare de două ori`);
+    if (!verbIds.has(verb.id)) errors.push(`romanian.json: ${verb.id} nu este un verb din dicționar`);
+    const italian = conjugations[verb.id];
+    if (!italian) errors.push(`romanian.json: ${verb.id} nu are forme conjugate`);
+    for (const tense of TENSES) {
+      if (!italian?.[tense] || tense === "imperativo") continue;
+      if (!romanianForms(verb, tense)) errors.push(`romanian.json: ${verb.id} nu are forme românești la ${tense}`);
+    }
+    result[verb.id] = verb;
+  });
+  return result;
 }
 
 /** Temele de gramatică din content/grammar/*.json, în ordinea de învățare (câmpul „order”). */

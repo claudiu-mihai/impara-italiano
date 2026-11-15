@@ -91,16 +91,18 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 4. **Flashcards Conjugare Verbe:**
    * **Timpuri**, în ordinea utilității: presente → passato prossimo → imperativo → imperfetto → futuro semplice → condizionale presente → congiuntivo presente. Un timp se deblochează după ce cel anterior e stăpânit pentru verbul respectiv.
    * **Persoane:** io, tu, lui/lei, noi, voi, loro (cu echivalentul românesc: eu, tu, el/ea, noi, voi, ei/ele).
-   * **Card:**
+   * **Card:** cerința e sensul în română, cu verbul și persoana italiană dedesubt:
      ```
-     Față:   parlare (a vorbi) · Passato prossimo · noi
+     Față:   Passato prossimo · noi am vorbit · parlare 🔊 · noi
      Spate:  abbiamo parlato      [🔊]
      ```
+     Formele românești vin din `content/verbs/romanian.json`: pentru fiecare verb se scriu prezentul, participiul, imperfectul și conjunctivul la persoana a 3-a, imperativul (și pronumele reflexiv, *mă trezesc* / *îmi amintesc*); perfectul compus, viitorul și condiționalul se compun cu auxiliarele (`domain/conjugation/romanian.ts`). Persoanele de politețe ale imperativului (Lei, Loro) se spun cu plurala (*dvs. vorbiți!*). Unde lipsesc formele (de ex. imperativul la *a putea*, *a ști*) sau la cardurile vechi ale verbelor din afara listei, cardul arată ca înainte: verbul, traducerea și persoana.
+   * **Verbele de conjugat:** doar cele ~86 din `content/verbs/romanian.json` (verbele frecvente A1–A2, fără dubluri ca *ritornare* și fără cazuri ciudate ca *mancare*), validate la build. Restul verbelor rămân ca vocabular; cardurile de conjugare existente la alte verbe revin în continuare, dar nu primesc timpuri noi.
    * **Variante:**
-     * *Flip* — autoevaluare cu cele 4 butoane FSRS; pe față: verbul, timpul și o persoană, pe spate forma (cu 🔊 normal și rar); tastele Space/Enter răstoarnă, 1–4 notează.
+     * *Cu voce tare* (fostul Flip) — pe față cerința și îndemnul „Spune forma cu voce tare, apoi întoarce cardul”; pe spate forma (cu 🔊 normal și rar), redată singură la întoarcere dacă „Audio automat” e pornit, ca s-o compari; autoevaluare cu cele 4 butoane FSRS; tastele Space/Enter răstoarnă, 1–4 notează. Alternativă egală la scris, mai ales pentru dislexie.
      * *Scrie răspunsul* (recomandat) — evaluare automată.
      * *Tabel* — completarea tuturor persoanelor deodată (6; 5 la imperativ); Enter trece la câmpul următor; după verificare fiecare rând e marcat și se arată forma corectă. Nota: toate corecte → Bine, cel puțin 2/3 → Greu, mai puțin → Din nou (o greșeală doar de accent limitează nota la Greu).
-     * Varianta se alege pe ecranul de conjugare (Scrie / Flip / Tabel) sau în Setări și se păstrează; cardurile și programul de repetare sunt aceleași în toate variantele.
+     * Varianta se alege pe ecranul de conjugare (Scrie / Cu voce tare / Tabel) sau în Setări și se păstrează; cardurile și programul de repetare sunt aceleași în toate variantele.
    * **Unitate SRS = verb × timp** (nu verb × timp × persoană, care ar genera 2100 de carduri doar pentru 50 de verbe). La fiecare repetiție se cer 3 persoane aleatorii; nota se calculează automat: 3/3 → Bine, 2/3 → Greu, ≤1/3 → Din nou.
    * **Reguli de corectare:**
      * **Greșeala mică de scriere** (setarea „Iartă greșelile mici de scriere”, pornită implicit): o literă greșită, lipsă, în plus sau inversată, la forme de cel puțin 4 litere, se numără „aproape corect” și limitează nota la Greu, cu forma corectă arătată. Nu se iartă o altă formă validă a aceluiași verb (*parli* în loc de *parla*). Nu se aplică la numere, la lacunele de gramatică și la „Unde e Lupino?”.
@@ -123,7 +125,7 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 
      * **Sesiunea de conjugare:** 🔊 lângă infinitiv pe fața cardului; după „Verifică”, 🔊 pentru forma corectă (indiferent de răspuns) și 🐢 pentru aceeași formă rostită mai încet (viteză 0,6).
      * **Tabelele din pagina verbului:** tap pe un rând redă forma lui (tot rândul e zona de atingere, minim 48px); **▶ Ascultă tot** pe fiecare timp citește toate persoanele în ordine, cu rândul curent evidențiat; în timpul redării butonul devine **■ Oprește**.
-     * **Variantele Flip și Tabel:** 🔊 pe spatele cardului la Flip; ▶ Ascultă tot după verificare la Tabel.
+     * **Variantele Cu voce tare și Tabel:** 🔊 pe spatele cardului la Cu voce tare (și redare automată la întoarcere); ▶ Ascultă tot după verificare la Tabel.
      * Fără voce italiană sau fără internet, butoanele se comportă ca în FR4.
 
 5. **Teme (vocabular grupat):**

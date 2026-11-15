@@ -13,6 +13,7 @@ import { CONJUGATION_MODE_LABEL } from "../../domain/content/display.ts";
 import { lessonForTense } from "../../domain/grammar/links.ts";
 import { LEARN_AHEAD_MS } from "../../domain/session/buildDailySession.ts";
 import type { ConjItem } from "../../domain/session/buildConjugationSession.ts";
+import type { RoConjugations } from "../../domain/conjugation/romanian.ts";
 import { DEFAULT_SETTINGS, type ConjugationMode, type Settings } from "../../domain/settings.ts";
 import { newStoredCard, reviewStoredCard } from "../../domain/srs/scheduler.ts";
 import { studyDayOf } from "../../domain/time/studyDay.ts";
@@ -35,6 +36,7 @@ export function ConjugationPage() {
   const [ready, setReady] = useState(false);
   const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS);
   const [queue, setQueue] = useState<ConjItem[]>([]);
+  const [romanian, setRomanian] = useState<RoConjugations>({});
   const [index, setIndex] = useState(0);
   const [answered, setAnswered] = useState(0);
   const [shownAt, setShownAt] = useState(0);
@@ -46,6 +48,7 @@ export function ConjugationPage() {
       if (!alive) return;
       setSettings(overview.settings);
       setQueue(overview.queue);
+      setRomanian(overview.romanian);
       setIndex(0);
       setAnswered(0);
       setShownAt(Date.now());
@@ -151,6 +154,7 @@ export function ConjugationPage() {
         item={item}
         verb={verb}
         forms={forms}
+        ro={romanian[item.verbId]}
         settings={settings}
         onFinish={(grade) => void finishCard(grade)}
       />
