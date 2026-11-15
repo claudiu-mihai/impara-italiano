@@ -92,6 +92,8 @@ export function RolePlayMode({ dialogue, settings, exitTo, backLabel }: RolePlay
     setIndex(0);
     setRevealed(false);
     setFinished(false);
+    // a doua încercare e exersare liberă: mesajul de final nu mai spune că s-a notat
+    setGraded(false);
     startedAt.current = Date.now();
   };
 

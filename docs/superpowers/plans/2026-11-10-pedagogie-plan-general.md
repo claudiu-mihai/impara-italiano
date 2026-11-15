@@ -96,6 +96,19 @@ Identificatorii și scadența sunt în `domain/grammar/due.ts` (fără `ts-fsrs`
 
 Lista și formele (`conjugationsRo.json`, ~18 KB) se încarcă odată cu sesiunea de conjugare, nu la pornire.
 
+## Faza 6 — Dialoguri
+
+**Gata când:** testele unitare și E2E trec, `npx tsc --noEmit` și `npm run validate` trec, iar un dialog terminat la jocul de rol revine pe Acasă când e scadent și bifează reperul „pot să…” când e învățat.
+
+Design: `docs/superpowers/specs/2026-11-15-dialoguri-design.md`; plan: `docs/superpowers/plans/2026-11-15-dialoguri.md`.
+
+1. **Conținut:** 10 dialoguri în `content/dialogues/` (7 A1, 3 A2), câte unul pe temele uzuale, validate la build și încărcate la cerere. Textele trebuie revizuite de un vorbitor.
+2. **Ascultă:** replică cu replică, ca un chat, cu „Ascultă întâi” respectat.
+3. **Joc de rol:** replica ta ascunsă (vezi doar traducerea), o spui cu voce tare, o dezvălui și o auzi.
+4. **Repetare:** dialogul ca abilitate FSRS (`skill:dialogue:<id>`), autoevaluare Din nou / Greu / Bine, doar primul joc de rol pe un dialog nou sau scadent; „Dialoguri de repetat” pe Acasă.
+5. **Repere „pot să…”** pe Acasă, bifate la dialogurile învățate (stabilitate ≥ 7 zile), pentru nivelul curent.
+6. **Voci:** o a doua voce italiană pentru al doilea personaj, sau aceeași voce cu altă înălțime.
+
 ## Reguli de lucru
 
 - Fiecare fază: un branch din `main` actualizat, un singur PR la final, fără push sau PR fără acordul meu.

@@ -1,6 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
-import { seedLearnedWords } from "./helpers.ts";
+import { mockSpeech, seedLearnedWords } from "./helpers.ts";
 
 const LEARNED = ["v-essere", "v-avere", "v-fare", "v-dire", "v-andare", "v-parlare"];
 
@@ -146,6 +146,33 @@ for (const scheme of ["light", "dark"] as const) {
       await page.getByRole("button", { name: "Verifică tabelul" }).click();
       await expect(page.getByTestId("table-score")).toBeVisible();
       await audit(page, "conjugare (Tabel, verificat)");
+    });
+
+    test("dialogurile: lista, ascultarea și jocul de rol", async ({ page }) => {
+      await mockSpeech(page);
+      await page.goto("/learn/dialogues");
+      await expect(page.getByRole("heading", { name: "Dialoguri", level: 1 })).toBeVisible();
+      await audit(page, "lista de dialoguri");
+
+      await page.goto("/learn/topics/la-bar/dialogue/la-bar-01");
+      await expect(page.getByTestId("canDo")).toBeVisible();
+      await audit(page, "dialog");
+
+      await page.getByRole("button", { name: "Ascultă" }).click();
+      await expect(page.getByRole("button", { name: "Arată textul" })).toBeVisible();
+      await audit(page, "dialog (ascultă)");
+
+      await page.goto("/learn/topics/la-bar/dialogue/la-bar-01?mode=roleplay");
+      await page.getByRole("button", { name: "Continuă" }).click();
+      await expect(page.getByTestId("say-line")).toBeVisible();
+      await audit(page, "dialog (joc de rol)");
+      for (let i = 0; i < 3; i++) {
+        await page.getByRole("button", { name: "Arată replica" }).click();
+        await page.getByRole("button", { name: "Continuă" }).click();
+        if (i < 2) await page.getByRole("button", { name: "Continuă" }).click();
+      }
+      await expect(page.getByRole("group", { name: "Cum ți-a ieșit?" })).toBeVisible();
+      await audit(page, "dialog (notare)");
     });
   });
 }

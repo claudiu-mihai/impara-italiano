@@ -93,6 +93,45 @@ export async function seedConjCards(
   }, cards);
 }
 
+/** Scrie direct în IndexedDB un card de abilitate (ex. `skill:dialogue:la-bar-01`), în faza de repetare. */
+export async function seedSkillCard(page: Page, cardId: string, wordId: string, { dueInDays = 5, stability = 5 } = {}) {
+  await page.goto("/");
+  await expect(page.getByRole("link", { name: "Începe sesiunea" }).or(page.getByText(/Ai terminat pentru azi/))).toBeVisible();
+  await page.evaluate(
+    async ({ cardId, wordId, dueInDays, stability }) => {
+      const db = await new Promise<IDBDatabase>((resolve, reject) => {
+        const request = indexedDB.open("impara-italiano");
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+      });
+      await new Promise<void>((resolve, reject) => {
+        const tx = db.transaction("cards", "readwrite");
+        tx.objectStore("cards").put({
+          cardId,
+          wordId,
+          kind: "skill",
+          variant: "auto",
+          introducedOn: "2026-01-01",
+          due: new Date(Date.now() + dueInDays * 86_400_000),
+          stability,
+          difficulty: 5,
+          elapsed_days: 0,
+          scheduled_days: 5,
+          learning_steps: 0,
+          reps: 3,
+          lapses: 0,
+          state: 2,
+          last_review: new Date(),
+        });
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error);
+      });
+      db.close();
+    },
+    { cardId, wordId, dueInDays, stability },
+  );
+}
+
 const LUCA = { name: "Luca (Enhanced)", lang: "it-IT", localService: true, voiceURI: "mac:luca" };
 
 /** Înlocuiește Web Speech API cu o variantă care înregistrează ce s-ar fi redat (cu o voce italiană locală). */
