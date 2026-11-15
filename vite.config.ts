@@ -38,6 +38,20 @@ export default defineConfig({
         navigateFallback: "index.html",
         // /api/ este serverul de sincronizare (PocketBase), nu o pagină a aplicației
         navigateFallbackDenylist: [/^\/api\//],
+        // înregistrările (audio pregenerat) nu intră la instalare: se salvează la prima ascultare și merg apoi offline;
+        // Safari cere bucăți din fișier (Range), de aici rangeRequests
+        runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.pathname.startsWith("/audio/"),
+            handler: "CacheFirst",
+            options: {
+              cacheName: "audio",
+              rangeRequests: true,
+              cacheableResponse: { statuses: [0, 200] },
+              expiration: { maxEntries: 2000 },
+            },
+          },
+        ],
       },
     }),
   ],
