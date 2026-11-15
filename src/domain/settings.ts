@@ -16,6 +16,9 @@ export type ConjugationMode = "write" | "flip" | "table";
 /** Genul personajului jucat de cursant în dialoguri (formele: sono stanco / stanca). */
 export type LearnerGender = "m" | "f";
 
+/** Butoanele de evaluare la carduri: două (Nu / Da) sau toate cele patru note FSRS. */
+export type RatingMode = "simple" | "full";
+
 export interface Settings {
   /** Nivelul curent: se învață cuvinte și timpuri noi doar până la acest nivel. */
   level: Level;
@@ -59,6 +62,8 @@ export interface Settings {
   listenFirst: boolean;
   /** Genul personajului din dialoguri; pe pagina dialogului se poate schimba pentru o vizită. */
   learnerGender: LearnerGender;
+  /** „simple”: Nu / Da (Din nou / Bine); „full”: Nu / Greu / Da / Ușor. */
+  ratingMode: RatingMode;
   /** În „Potrivește perechi” și „Ordonează”, cuvântul italian pe care îl atingi se aude. */
   tapAudio: boolean;
 }
@@ -84,6 +89,7 @@ export const DEFAULT_SETTINGS: Settings = {
   spellingTolerance: true,
   listenFirst: true,
   learnerGender: "m",
+  ratingMode: "simple",
   tapAudio: true,
 };
 
@@ -93,7 +99,8 @@ export const DEFAULT_SETTINGS: Settings = {
  */
 export function withSettingDefaults(saved: Partial<Settings>): Settings {
   const level = saved.level ?? DEFAULT_SETTINGS.level;
-  return { ...DEFAULT_SETTINGS, nativeHelp: levelGroupOf(level) === "A", ...saved };
+  // cine folosea deja aplicația (setări salvate fără câmp) păstrează cele 4 butoane; instalările noi pornesc cu 2
+  return { ...DEFAULT_SETTINGS, nativeHelp: levelGroupOf(level) === "A", ratingMode: "full", ...saved };
 }
 
 /**

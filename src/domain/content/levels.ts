@@ -23,6 +23,20 @@ export const LEVEL_GROUP_LABEL: Record<LevelGroup, Key> = {
   C: "levelGroup.C",
 };
 
+/** Cheile numelor scurte ale grupelor, scrise sub butoanele de nivel din Dicționar. */
+export const LEVEL_GROUP_SHORT: Record<LevelGroup, Key> = {
+  A: "levelGroupShort.A",
+  B: "levelGroupShort.B",
+  C: "levelGroupShort.C",
+};
+
+/** Nivelurile CEFR ale fiecărei grupe, pentru numele accesibil al butoanelor de nivel („(A1–A2)”). */
+export const LEVEL_GROUP_RANGE: Record<LevelGroup, Key> = {
+  A: "levelGroupRange.A",
+  B: "levelGroupRange.B",
+  C: "levelGroupRange.C",
+};
+
 /** Cheile numelor nivelurilor (Începător, Elementar…): `t(LEVEL_NAME[level])`. */
 export const LEVEL_NAME: Record<Level, Key> = {
   A1: "level.A1",

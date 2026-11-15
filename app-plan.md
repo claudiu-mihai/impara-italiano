@@ -70,7 +70,8 @@ Aplicație pentru **învățarea limbii italiene de către vorbitori nativi de l
 1. **Flashcards Vocabular:**
    * Două direcții, configurabile: **IT → RO** (recunoaștere) și **RO → IT** (producție), sau **Ambele**: cardul RO → IT al unui cuvânt se deblochează după ce cardul IT → RO ajunge la o stabilitate de 7 zile, cu o limită zilnică separată („Carduri inverse noi pe zi”, implicit 10).
    * La tap, cardul se rotește și arată traducerea, exemplul și eventualul avertisment de prieten fals.
-   * După rotire, 4 butoane de evaluare (FSRS): **Din nou** / **Greu** / **Bine** / **Ușor**.
+   * După rotire, butoanele de evaluare (`ui/RatingButtons.tsx`), după setarea „Butoane de evaluare”: **Simplu** (implicit la instalări noi) — „Ți-ai amintit?” cu **✗ Nu** (Din nou) și **✓ Da** (Bine), tastele 1 / 2; **Complet** (implicit pentru setările salvate înainte) — **Nu** / **Greu** / **Da** / **Ușor** pe un rând, cu sens scurt (am uitat, cu efort, mi-am amintit, imediat), tastele 1–4. Fiecare buton arată când revine cardul; îndemnul „Fii sincer…” apare doar la primele 10 repetiții. Aceleași butoane la conjugare, în „Cu voce tare”.
+   * În Dicționar, sub iconițele categoriilor apare numele categoriei, scris mic, iar sub butoanele de nivel A · B · C numele grupei (Începător, Intermediar, Avansat).
    * Gesturi: *swipe left* = Din nou, *swipe right* = Bine. Butoanele rămân mereu disponibile ca alternativă.
    * **Ascultă întâi** (vezi FR4): la un card IT → RO deja început, fața arată doar 🔊 mare și „Arată textul”; cuvântul se aude singur la apariție, chiar dacă „Audio automat” e oprit. Cuvintele noi se introduc cu text și audio.
 

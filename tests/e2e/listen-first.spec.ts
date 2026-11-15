@@ -1,7 +1,10 @@
 import { expect, test, type Page } from "@playwright/test";
-import { mockSpeech, seedLearnedWords, setListenFirst, spoken, WORDS } from "./helpers.ts";
+import { mockSpeech, seedLearnedWords, setListenFirst, setRatingMode, spoken, WORDS } from "./helpers.ts";
 
 const SEEDED = WORDS.slice(0, 3);
+
+// cuvintele noi se trec cu „Ușor”, care există doar în modul complet al butoanelor
+test.beforeEach(async ({ page }) => setRatingMode(page, "full"));
 
 /**
  * Parcurge sesiunea până la primul card început (IT → RO, scadent). Cuvintele noi se introduc cu text și audio, deci

@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { expect, test } from "@playwright/test";
-import { seedConjCards, seedLearnedWords } from "./helpers.ts";
+import { seedConjCards, seedLearnedWords, setRatingMode } from "./helpers.ts";
 
 const CONJUGATIONS: Record<string, Record<string, string[][]>> = JSON.parse(
   readFileSync("src/data/generated/conjugations.json", "utf8"),
@@ -8,7 +8,8 @@ const CONJUGATIONS: Record<string, Record<string, string[][]>> = JSON.parse(
 const PRESENTE = CONJUGATIONS["v-parlare"]!["presente"]!;
 const WORDS_LEARNED = ["v-parlare"];
 
-test("Cu voce tare: răstoarnă cardul, arată forma și notează cu cele 4 butoane", async ({ page }) => {
+test("Cu voce tare: răstoarnă cardul, arată forma și notează cu cele 4 butoane (modul complet)", async ({ page }) => {
+  await setRatingMode(page, "full");
   await seedLearnedWords(page, WORDS_LEARNED);
   await page.goto("/learn/conjugation");
   await expect(page.getByTestId("person")).toBeVisible();
@@ -29,7 +30,8 @@ test("Cu voce tare: răstoarnă cardul, arată forma și notează cu cele 4 buto
   await expect(page.getByText("Sesiune încheiată")).toBeVisible();
 });
 
-test("Cu voce tare: tastele 1–4 notează după răsturnare", async ({ page }) => {
+test("Cu voce tare: tastele 1–4 notează după răsturnare (modul complet)", async ({ page }) => {
+  await setRatingMode(page, "full");
   await seedLearnedWords(page, WORDS_LEARNED);
   await page.goto("/learn/conjugation");
   await page.getByRole("radio", { name: "Cu voce tare" }).click();

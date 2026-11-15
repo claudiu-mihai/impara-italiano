@@ -9,7 +9,7 @@ import { useWordDetails } from "../../app/wordDetails.ts";
 import { db } from "../../data/db/instance.ts";
 import { saveReview } from "../../data/db/repositories.ts";
 import { loadStudyOverview, loadTopicStudy } from "../../data/queries.ts";
-import { useT, type Key } from "../../i18n/index.ts";
+import { useT } from "../../i18n/index.ts";
 import { LEARN_AHEAD_MS } from "../../domain/session/buildDailySession.ts";
 import { DEFAULT_SETTINGS, type Settings } from "../../domain/settings.ts";
 import { formatInterval } from "../../domain/srs/format.ts";
@@ -19,15 +19,9 @@ import { studyDayOf } from "../../domain/time/studyDay.ts";
 import { useSessionStore } from "../../store/sessionStore.ts";
 import { useListening } from "../../ui/useListening.ts";
 import { useReturnToOrigin } from "../../ui/useReturnToOrigin.ts";
+import { RatingButtons, ratingGrades, useRatingHint } from "../../ui/RatingButtons.tsx";
 import { WordCard } from "./WordCard.tsx";
 import { Lupino } from "../../ui/mascot/Lupino.tsx";
-
-const BUTTONS: { grade: Grade; label: Key; color: string }[] = [
-  { grade: Rating.Again, label: "rate.again", color: "bg-red-700" },
-  { grade: Rating.Hard, label: "rate.hard", color: "bg-amber-700" },
-  { grade: Rating.Good, label: "rate.good", color: "bg-brand" },
-  { grade: Rating.Easy, label: "rate.easy", color: "bg-sky-700" },
-];
 
 interface CurrentCard {
   card: StoredCard;
@@ -116,7 +110,10 @@ export function FlashcardsPage() {
     }
   };
 
-  // Comenzi de la tastatură: Space/Enter răstoarnă cardul, 1–4 notează.
+  const ratingHint = useRatingHint();
+
+  // Comenzi de la tastatură: Space/Enter răstoarnă cardul; 1, 2… notează (1 = Nu, 2 = Da în modul simplu, 1–4 în cel complet).
+  const grades = ratingGrades(settings.ratingMode);
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement | null;
@@ -124,8 +121,9 @@ export function FlashcardsPage() {
       if (!flipped && (event.key === " " || event.key === "Enter")) {
         event.preventDefault();
         flip();
-      } else if (flipped && ["1", "2", "3", "4"].includes(event.key)) {
-        void rate(Number(event.key) as Grade);
+      } else if (flipped) {
+        const grade = grades[Number(event.key) - 1];
+        if (grade !== undefined) void rate(grade);
       }
     };
     window.addEventListener("keydown", onKey);
@@ -210,20 +208,14 @@ export function FlashcardsPage() {
       />
 
       {flipped ? (
-        <div className="grid grid-cols-4 gap-2" role="group" aria-label={t("flash.howWell")}>
-          {BUTTONS.map(({ grade, label, color }) => (
-            <button
-              key={grade}
-              type="button"
-              disabled={!current}
-              onClick={() => void rate(grade)}
-              className={`flex min-h-16 flex-col items-center justify-center rounded-xl text-white disabled:opacity-50 ${color}`}
-            >
-              <span className="font-semibold">{t(label)}</span>
-              <span className="text-xs">{current?.labels[grade] ?? "…"}</span>
-            </button>
-          ))}
-        </div>
+        <RatingButtons
+          mode={settings.ratingMode}
+          question={t("flash.howWell")}
+          intervals={current?.labels}
+          onRate={(grade) => void rate(grade)}
+          disabled={!current}
+          showHint={ratingHint}
+        />
       ) : (
         <button
           type="button"

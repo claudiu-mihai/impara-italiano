@@ -31,6 +31,12 @@ test("filtru după categorie, ca iconițe", async ({ page }) => {
   const icons = page.getByRole("group", { name: "Categorie" }).getByRole("button");
   await expect(icons).toHaveCount(categories.length + 1);
   await expect(page.getByRole("button", { name: "Toate categoriile" })).toHaveAttribute("aria-pressed", "true");
+  // sub fiecare iconiță, numele categoriei scris mic; la fel sub nivelurile A · B · C
+  await expect(page.getByRole("button", { name: "substantiv", exact: true })).toContainText("substantiv");
+  await expect(page.getByRole("button", { name: "Toate categoriile" })).toContainText("toate");
+  const levels = page.getByRole("group", { name: "Nivel CEFR" });
+  await expect(levels.getByRole("button", { name: "A Începător (A1–A2)" })).toBeVisible();
+  await expect(levels.getByRole("button", { name: "C Avansat (C1–C2)" })).toBeVisible();
 
   const verbs = WORDS.filter((w) => w.pos === "verb").length;
   await page.getByRole("button", { name: "verb", exact: true }).click();
@@ -137,7 +143,7 @@ test("tema „automată” urmează setarea sistemului", async ({ page }) => {
 test("filtru după grupa de niveluri (A, B, C): un singur buton activ, deselectat prin apăsarea lui", async ({ page }) => {
   await page.goto("/browse");
   const group = page.getByRole("group", { name: "Nivel CEFR" });
-  const level = (letter: string) => group.getByRole("button", { name: new RegExp(`^Nivel ${letter}`) });
+  const level = (letter: string) => group.getByRole("button", { name: new RegExp(`^${letter} `) });
   await expect(group.getByRole("button")).toHaveCount(3);
   await expect(page.getByRole("status")).toHaveText(TOTAL);
   for (const l of ["A", "B", "C"]) await expect(level(l)).toHaveAttribute("aria-pressed", "false");

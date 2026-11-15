@@ -83,3 +83,9 @@ test("genul personajului din dialoguri: implicit „bărbat”, și pentru setă
   expect(withSettingDefaults({ direction: "it-ro" }).learnerGender).toBe("m");
   expect(withSettingDefaults({ learnerGender: "f" }).learnerGender).toBe("f");
 });
+
+test("butoanele de evaluare: simple la instalări noi, complete pentru setările deja salvate", () => {
+  expect(DEFAULT_SETTINGS.ratingMode).toBe("simple");
+  expect(withSettingDefaults({ direction: "it-ro" }).ratingMode).toBe("full");
+  expect(withSettingDefaults({ ratingMode: "simple" }).ratingMode).toBe("simple");
+});

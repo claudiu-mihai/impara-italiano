@@ -94,10 +94,11 @@ test("sesiunea de Flashcards și Quiz în italiană", async ({ page }) => {
   await page.goto("/learn/vocab");
   await expect(page.getByRole("button", { name: "Mostra la risposta" })).toBeVisible();
   await page.getByRole("button", { name: "Mostra la risposta" }).click();
-  for (const name of [/^Ancora/, /^Difficile/, /^Bene/, /^Facile/]) await expect(page.getByRole("button", { name })).toBeVisible();
+  await expect(page.getByText("Te lo ricordavi?")).toBeVisible();
+  for (const name of [/^No/, /^Sì/]) await expect(page.getByRole("button", { name })).toBeVisible();
   await expect(page.getByRole("group", { name: "Quanto bene conoscevi la parola?" })).toBeVisible();
   // intervalele se scriu în italiană (giorni, min…)
-  await expect(page.getByRole("button", { name: /^Bene/ })).toContainText(/min|giorn|h$/);
+  await expect(page.getByRole("button", { name: /^Sì/ })).toContainText(/min|giorn|h$/);
 });
 
 test("secțiunea Cont și mesajele de validare în italiană", async ({ page }) => {

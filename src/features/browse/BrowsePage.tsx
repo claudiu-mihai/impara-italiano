@@ -9,7 +9,7 @@ import type { Pos } from "../../domain/content/constants.ts";
 import { POS } from "../../domain/content/constants.ts";
 import { italianText, LEVEL_LABEL, POS_ICON, POS_LABEL } from "../../domain/content/display.ts";
 import type { CoreWord } from "../../domain/content/types.ts";
-import { LEVEL_GROUP_LABEL, LEVEL_GROUPS } from "../../domain/content/levels.ts";
+import { LEVEL_GROUP_LABEL, LEVEL_GROUP_RANGE, LEVEL_GROUP_SHORT, LEVEL_GROUPS } from "../../domain/content/levels.ts";
 import { useT } from "../../i18n/index.ts";
 import { masteryByWord, type Mastery } from "../../domain/srs/mastery.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
@@ -56,17 +56,19 @@ function LevelButtons({ value, onChange }: { value: BrowseFilters["cefr"]; onCha
           <button
             key={group}
             type="button"
-            aria-label={t(LEVEL_GROUP_LABEL[group])}
             title={t(LEVEL_GROUP_LABEL[group])}
             aria-pressed={active}
             onClick={() => onChange(active ? "all" : group)}
-            className={`min-h-12 rounded-xl border-2 text-base font-semibold ${
+            className={`flex min-h-14 flex-col items-center justify-center rounded-xl border-2 text-base font-semibold ${
               active
                 ? "border-brand bg-brand/10 text-brand-fg"
                 : "border-transparent bg-white active:bg-slate-100 dark:bg-slate-900 dark:active:bg-slate-800"
             }`}
           >
             {group}
+            {/* numele accesibil începe cu textul vizibil („A Începător”), urmat de nivelurile CEFR */}
+            <span className="text-[11px] font-normal leading-tight text-muted">{t(LEVEL_GROUP_SHORT[group])}</span>
+            <span className="sr-only">{t(LEVEL_GROUP_RANGE[group])}</span>
           </button>
         );
       })}
@@ -74,7 +76,7 @@ function LevelButtons({ value, onChange }: { value: BrowseFilters["cefr"]; onCha
   );
 }
 
-/** Filtrul de categorie: o iconiță pe categorie, cu numele ca etichetă accesibilă și ca tooltip. */
+/** Filtrul de categorie: o iconiță pe categorie, cu numele scris mic dedesubt (și ca etichetă accesibilă și tooltip). */
 function CategoryIcons({
   categories,
   value,
@@ -84,12 +86,11 @@ function CategoryIcons({
   value: BrowseFilters["pos"];
   onChange: (pos: BrowseFilters["pos"]) => void;
 }) {
-  const { t } = useT();
-  const options: { value: BrowseFilters["pos"]; icon: string; label: string }[] = [
-    { value: "all", icon: "🗂️", label: t("browse.allCategories") },
-    ...categories.map((pos) => ({ value: pos, icon: POS_ICON[pos], label: t(POS_LABEL[pos]) })),
+  const { t, language } = useT();
+  const options: { value: BrowseFilters["pos"]; icon: string; label: string; short: string }[] = [
+    { value: "all", icon: "🗂️", label: t("browse.allCategories"), short: t("browse.allShort") },
+    ...categories.map((pos) => ({ value: pos, icon: POS_ICON[pos], label: t(POS_LABEL[pos]), short: t(POS_LABEL[pos]) })),
   ];
-  const current = options.find((o) => o.value === value);
   return (
     <div>
       <div role="group" aria-label={t("browse.category")} className="grid grid-cols-6 gap-1">
@@ -103,20 +104,22 @@ function CategoryIcons({
               title={o.label}
               aria-pressed={active}
               onClick={() => onChange(o.value)}
-              className={`flex min-h-12 items-center justify-center rounded-xl border-2 text-2xl ${
+              className={`flex min-h-16 min-w-0 flex-col items-center justify-center gap-0.5 rounded-xl border-2 px-0.5 ${
                 active
                   ? "border-brand bg-brand/10"
                   : "border-transparent bg-white active:bg-slate-100 dark:bg-slate-900 dark:active:bg-slate-800"
               }`}
             >
-              <span aria-hidden="true">{o.icon}</span>
+              <span aria-hidden="true" className="text-2xl">
+                {o.icon}
+              </span>
+              <span aria-hidden="true" className="w-full break-words text-center text-[10px] leading-tight text-muted" lang={language}>
+                {o.short}
+              </span>
             </button>
           );
         })}
       </div>
-      <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-muted" aria-hidden="true">
-        {current?.label}
-      </p>
     </div>
   );
 }

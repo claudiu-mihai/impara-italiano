@@ -77,6 +77,7 @@ export const settingsSchema = z.object({
   tapAudio: z.boolean(),
   wordOrder: z.enum(["guided", "frequency"]),
   learnerGender: z.enum(["m", "f"]),
+  ratingMode: z.enum(["simple", "full"]),
 });
 
 const percent = int.min(0).max(100);

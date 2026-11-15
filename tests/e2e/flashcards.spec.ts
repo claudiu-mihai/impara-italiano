@@ -1,5 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
-import { setWordOrder } from "./helpers.ts";
+import { setRatingMode, setWordOrder } from "./helpers.ts";
 
 const front = (page: Page) => page.getByTestId("card-front");
 const back = (page: Page) => page.getByTestId("card-back");
@@ -26,9 +26,16 @@ test("o sesiune: răstoarnă cardul, notează și treci la următorul", async ({
 
   await page.getByRole("button", { name: "Arată răspunsul" }).click();
   await expect(back(page).getByText("a fi", { exact: true })).toBeVisible();
-  await expect(page.getByRole("group", { name: "Cât de bine ai știut cuvântul?" }).getByRole("button")).toHaveCount(4);
+  // modul simplu (implicit la instalări noi): „Ți-ai amintit?” cu Nu / Da și când revine cardul
+  const rating = page.getByRole("group", { name: "Cât de bine ai știut cuvântul?" });
+  await expect(page.getByText("Ți-ai amintit?")).toBeVisible();
+  await expect(rating.getByRole("button")).toHaveCount(2);
+  await expect(rating.getByRole("button", { name: /^Nu/ })).toContainText("revine peste");
+  await expect(rating.getByRole("button", { name: /^Da/ })).toContainText("revine peste");
+  // la început, îndemnul la sinceritate
+  await expect(page.getByText(/^Fii sincer:/)).toBeVisible();
 
-  await page.getByRole("button", { name: /^Bine/ }).click();
+  await page.getByRole("button", { name: /^Da/ }).click();
   await expect(page.getByText(/^2 \/ \d+$/)).toBeVisible();
   await expect(front(page).getByText("avere", { exact: true })).toBeVisible();
 });
@@ -53,7 +60,7 @@ test("swipe dreapta pe un card răsturnat îl notează cu Bine", async ({ page }
 test("progresul persistă după reîncărcarea paginii", async ({ page }) => {
   await startSession(page);
   await page.getByRole("button", { name: "Arată răspunsul" }).click();
-  await page.getByRole("button", { name: /^Bine/ }).click();
+  await page.getByRole("button", { name: /^Da/ }).click();
   await expect(page.getByText(/^2 \/ \d+$/)).toBeVisible();
 
   await page.reload();
@@ -81,7 +88,7 @@ test("aplicația pornește și funcționează fără internet", async ({ page, c
   await page.getByRole("link", { name: "Începe sesiunea" }).click();
   await expect(front(page).getByText("essere", { exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Arată răspunsul" }).click();
-  await page.getByRole("button", { name: /^Bine/ }).click();
+  await page.getByRole("button", { name: /^Da/ }).click();
   await expect(page.getByText(/^2 \/ \d+$/)).toBeVisible();
 });
 
@@ -95,4 +102,30 @@ test("manifestul PWA este valid și instalabil", async ({ page, request }) => {
   const sizes = manifest.icons.map((i: { sizes: string }) => i.sizes);
   expect(sizes).toContain("192x192");
   expect(sizes).toContain("512x512");
+});
+
+test("modul complet: Nu / Greu / Da / Ușor pe un rând, cu sensul fiecăreia; tasta 4 notează „Ușor”", async ({ page }) => {
+  await setRatingMode(page, "full");
+  await setWordOrder(page, "frequency");
+  await startSession(page);
+  await page.getByRole("button", { name: "Arată răspunsul" }).click();
+  const rating = page.getByRole("group", { name: "Cât de bine ai știut cuvântul?" });
+  await expect(rating.getByRole("button")).toHaveCount(4);
+  await expect(rating.getByRole("button", { name: /^Nu/ })).toContainText("am uitat");
+  await expect(rating.getByRole("button", { name: /^Greu/ })).toContainText("cu efort");
+  await expect(rating.getByRole("button", { name: /^Da/ })).toContainText("mi-am amintit");
+  await expect(rating.getByRole("button", { name: /^Ușor/ })).toContainText("imediat");
+  await expect(page.getByText("Ți-ai amintit?")).toHaveCount(0);
+  await page.keyboard.press("4");
+  await expect(page.getByText(/^2 \/ \d+$/)).toBeVisible();
+});
+
+test("modul simplu: tasta 2 notează „Da”, tasta 3 nu face nimic", async ({ page }) => {
+  await setWordOrder(page, "frequency");
+  await startSession(page);
+  await page.getByRole("button", { name: "Arată răspunsul" }).click();
+  await page.keyboard.press("3");
+  await expect(page.getByText(/^1 \/ \d+$/)).toBeVisible();
+  await page.keyboard.press("2");
+  await expect(page.getByText(/^2 \/ \d+$/)).toBeVisible();
 });

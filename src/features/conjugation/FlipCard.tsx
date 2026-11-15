@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { Grade } from "ts-fsrs";
 import { Rating } from "../../domain/srs/fsrsConstants.ts";
 import { db } from "../../data/db/instance.ts";
-import { useT, type Key } from "../../i18n/index.ts";
+import { useT } from "../../i18n/index.ts";
 import { spokenConjugation } from "../../domain/content/spokenConjugation.ts";
 import { formatInterval } from "../../domain/srs/format.ts";
 import { newStoredCard, previewDue } from "../../domain/srs/scheduler.ts";
@@ -10,15 +10,9 @@ import { studyDayOf } from "../../domain/time/studyDay.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { primaryButton } from "../../ui/SessionDone.tsx";
 import { speak } from "../../services/tts.ts";
+import { RatingButtons, ratingGrades, useRatingHint } from "../../ui/RatingButtons.tsx";
 import { ConjPrompt } from "./ConjPrompt.tsx";
 import type { ConjCardProps } from "./types.ts";
-
-const BUTTONS: { grade: Grade; label: Key; color: string }[] = [
-  { grade: Rating.Again, label: "rate.again", color: "bg-red-700" },
-  { grade: Rating.Hard, label: "rate.hard", color: "bg-amber-700" },
-  { grade: Rating.Good, label: "rate.good", color: "bg-brand" },
-  { grade: Rating.Easy, label: "rate.easy", color: "bg-sky-700" },
-];
 
 /**
  * Varianta „Cu voce tare”: cerința pe față, spui forma cu voce tare, apoi o vezi și o auzi pe spate; autoevaluare cu cele
@@ -29,6 +23,7 @@ export function FlipCard({ item, verb, forms, ro, settings, onFinish }: ConjCard
   // o singură persoană pe card, ca în exemplul „parlare · passato prossimo · noi”
   const [person] = useState(() => Math.floor(Math.random() * forms.length));
   const [flipped, setFlipped] = useState(false);
+  const ratingHint = useRatingHint();
   const [labels, setLabels] = useState<Record<Grade, string>>();
 
   useEffect(() => {
@@ -60,8 +55,9 @@ export function FlipCard({ item, verb, forms, ro, settings, onFinish }: ConjCard
       if (!flipped && (event.key === " " || event.key === "Enter")) {
         event.preventDefault();
         setFlipped(true);
-      } else if (flipped && ["1", "2", "3", "4"].includes(event.key)) {
-        onFinish(Number(event.key) as Grade);
+      } else if (flipped) {
+        const grade = ratingGrades(settings.ratingMode)[Number(event.key) - 1];
+        if (grade !== undefined) onFinish(grade);
       }
     };
     window.addEventListener("keydown", onKey);
@@ -107,19 +103,7 @@ export function FlipCard({ item, verb, forms, ro, settings, onFinish }: ConjCard
 
       <div className="mt-auto">
         {flipped ? (
-          <div className="grid grid-cols-4 gap-2" role="group" aria-label={t("conj.howWell")}>
-            {BUTTONS.map(({ grade, label, color }) => (
-              <button
-                key={grade}
-                type="button"
-                onClick={() => onFinish(grade)}
-                className={`flex min-h-16 flex-col items-center justify-center rounded-xl text-white ${color}`}
-              >
-                <span className="font-semibold">{t(label)}</span>
-                <span className="text-xs">{labels?.[grade] ?? "…"}</span>
-              </button>
-            ))}
-          </div>
+          <RatingButtons mode={settings.ratingMode} question={t("conj.howWell")} intervals={labels} onRate={onFinish} showHint={ratingHint} />
         ) : (
           <button type="button" onClick={() => setFlipped(true)} className={`${primaryButton} w-full`}>
             {t("flash.showAnswer")}

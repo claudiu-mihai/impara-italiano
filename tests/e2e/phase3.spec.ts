@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
-import { mockSpeech, setListenFirst, spoken } from "./helpers.ts";
+import { mockSpeech, setListenFirst, spoken, setRatingMode } from "./helpers.ts";
 
 interface SentenceData {
   it: string;
@@ -13,6 +13,7 @@ interface SentenceData {
 const SENTENCES: SentenceData[] = JSON.parse(readFileSync("src/data/generated/sentences.json", "utf8"));
 
 async function learnWords(page: Page, count: number) {
+  await setRatingMode(page, "full"); // „Ușor” e doar în modul complet
   await page.goto("/learn/vocab");
   for (let i = 0; i < count; i++) {
     await page.getByRole("button", { name: "Arată răspunsul" }).click();
