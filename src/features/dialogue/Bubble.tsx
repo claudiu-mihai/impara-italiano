@@ -33,7 +33,7 @@ export function Bubble({ name, it, ro, mine, speaker, rate, hidden }: BubbleProp
     >
       <div className="flex items-center justify-between gap-2">
         <span className="text-sm font-semibold text-brand-fg">{language === "it" ? name.it : name.ro}</span>
-        {hidden === undefined && <AudioButton text={it} rate={rate} size="sm" speaker={speaker} />}
+        {hidden === undefined && <AudioButton text={it} rate={rate} size="md" speaker={speaker} />}
       </div>
       {hidden ?? (
         <>

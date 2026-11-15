@@ -249,8 +249,10 @@ function loadDialogues(topics: Topic[], errors: string[]): GeneratedDialogue[] {
     }
     const dialogue = parsed.data;
     if (`${dialogue.id}.json` !== file) errors.push(`${file}: id-ul „${dialogue.id}” nu corespunde numelui fișierului`);
-    if (canDo.has(dialogue.canDo.ro)) errors.push(`${dialogue.id}: reperul „${dialogue.canDo.ro}” apare de două ori`);
-    canDo.add(dialogue.canDo.ro);
+    for (const text of [dialogue.canDo.it, dialogue.canDo.ro]) {
+      if (canDo.has(text)) errors.push(`${dialogue.id}: reperul „${text}” apare de două ori`);
+      canDo.add(text);
+    }
     errors.push(...dialogueProblems(dialogue, topicIds));
     const topic = topics.find((t) => t.id === dialogue.topicId);
     if (topic) dialogues.push({ ...dialogue, level: topic.level });

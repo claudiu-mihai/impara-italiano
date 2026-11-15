@@ -13,7 +13,7 @@ import { ReviewStatus } from "../grammar/ReviewStatus.tsx";
 
 /** Toate dialogurile, grupate pe nivel, cu tema și starea repetiției. */
 export function DialogueListPage() {
-  const { t } = useT();
+  const { t, rich } = useT();
   const dialogues = useDialogues();
   const topics = useTopics();
   const cards = useLiveQuery(() => db.cards.where("kind").equals("skill").toArray(), []);
@@ -45,7 +45,7 @@ export function DialogueListPage() {
                         <span aria-hidden="true">💬 </span>
                         <BilingualLabel text={d.title} />
                       </span>
-                      {topic && <span className="text-sm text-muted">{t("dialogue.topic", { title: topic.title.it })}</span>}
+                      {topic && <span className="text-sm text-muted">{rich("dialogue.topic", { title: <span lang="it">{topic.title.it}</span> })}</span>}
                       <ReviewStatus card={byId.get(dialogueCardId(d.id))} compact testId="dialogue-review" />
                     </Link>
                   </li>

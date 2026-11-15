@@ -9,7 +9,7 @@
   ],
   "you": "tu",
   "lines": [
-    {"speaker": "farmacista", "it": "Buongiorno, mi dica.", "ro": "Bună ziua, spuneți."},
+    {"speaker": "farmacista", "it": "Buongiorno, mi dica.", "ro": "Bună ziua, cu ce vă pot ajuta?"},
     {"speaker": "tu", "it": "Buongiorno. Ho mal di gola e un po' di febbre.", "ro": "Bună ziua. Mă doare gâtul și am puțină febră."},
     {"speaker": "farmacista", "it": "Da quanto tempo?", "ro": "De cât timp?"},
     {"speaker": "tu", "it": "Da ieri sera. Ha qualcosa per il mal di gola?", "ro": "De aseară. Aveți ceva pentru durerea de gât?"},

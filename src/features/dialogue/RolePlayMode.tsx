@@ -42,8 +42,11 @@ export function RolePlayMode({ dialogue, settings, exitTo, backLabel }: RolePlay
   const [finished, setFinished] = useState(false);
   const [graded, setGraded] = useState(false);
   const [countsForSrs, setCountsForSrs] = useState<boolean>();
+  const [saveFailed, setSaveFailed] = useState(false);
   const startedAt = useRef(Date.now());
   const last = useRef<HTMLDivElement>(null);
+  // la final focusul trece pe notare (sau pe rezultat), ca tastatura și cititorul de ecran să nu-l piardă
+  const endFocus = useRef<HTMLDivElement>(null);
   const cardId = dialogueCardId(dialogue.id);
 
   // se stabilește o singură dată, la intrare: un dialog notat acum nu devine „de notat” la „Încă o dată”
@@ -81,11 +84,22 @@ export function RolePlayMode({ dialogue, settings, exitTo, backLabel }: RolePlay
 
   const grade = async (value: Grade) => {
     setGraded(true);
-    const now = new Date();
-    const card = await db.cards.get(cardId);
-    const { card: reviewed, log } = reviewDialogueCard(card, dialogue.id, value, now, settings.retention);
-    await saveReview(db, reviewed, log, { source: "skill", now, durationMs: now.getTime() - startedAt.current });
+    setSaveFailed(false);
+    try {
+      const now = new Date();
+      const card = await db.cards.get(cardId);
+      const { card: reviewed, log } = reviewDialogueCard(card, dialogue.id, value, now, settings.retention);
+      await saveReview(db, reviewed, log, { source: "skill", now, durationMs: now.getTime() - startedAt.current });
+    } catch {
+      // notarea nu s-a salvat (ex. spațiu plin): butoanele revin, cu un mesaj
+      setGraded(false);
+      setSaveFailed(true);
+    }
   };
+
+  useEffect(() => {
+    if (finished) endFocus.current?.focus();
+  }, [finished, graded]);
 
   const restart = () => {
     setAttempt((a) => a + 1);
@@ -131,7 +145,7 @@ export function RolePlayMode({ dialogue, settings, exitTo, backLabel }: RolePlay
         })}
       </ol>
 
-      <div ref={last} className="mt-auto flex flex-col gap-3" aria-live="polite">
+      <div ref={last} className="mt-auto flex flex-col gap-3">
         {!finished ? (
           mine && !revealed ? (
             <button type="button" onClick={() => setRevealed(true)} className={`${primaryButton} w-full`}>
@@ -145,7 +159,12 @@ export function RolePlayMode({ dialogue, settings, exitTo, backLabel }: RolePlay
         ) : canGrade && !graded ? (
           <>
             <p className="text-center font-semibold">{t("dialogue.howWell")}</p>
-            <div className="grid grid-cols-3 gap-2" role="group" aria-label={t("dialogue.howWell")}>
+            {saveFailed && (
+              <p role="alert" className="text-center font-semibold text-red-700 dark:text-red-400">
+                {t("dialogue.saveFailed")}
+              </p>
+            )}
+            <div ref={endFocus} tabIndex={-1} className="grid grid-cols-3 gap-2 outline-none" role="group" aria-label={t("dialogue.howWell")}>
               {GRADES.map(({ grade: value, label, hint, color }) => (
                 <button
                   key={value}
@@ -161,10 +180,12 @@ export function RolePlayMode({ dialogue, settings, exitTo, backLabel }: RolePlay
           </>
         ) : (
           <>
-            <p className="text-center font-semibold">{t("dialogue.done")}</p>
-            <p className="text-center text-muted" data-testid="dialogue-result">
-              {graded ? t("dialogue.reviewNoted") : t("skill.freePractice")}
-            </p>
+            <div ref={endFocus} tabIndex={-1} aria-live="polite" className="outline-none">
+              <p className="text-center font-semibold">{t("dialogue.done")}</p>
+              <p className="text-center text-muted" data-testid="dialogue-result">
+                {graded ? t("dialogue.reviewNoted") : t("skill.freePractice")}
+              </p>
+            </div>
             <button type="button" onClick={restart} className={`${primaryButton} w-full`}>
               {t("dialogue.oneMore")}
             </button>

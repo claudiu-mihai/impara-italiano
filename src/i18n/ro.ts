@@ -345,6 +345,7 @@ export const ro = {
   "dialogue.gradeHard": "Cu ezitări",
   "dialogue.gradeGood": "Fără să mă uit",
   "dialogue.reviewNoted": "Repetiția a fost notată; dialogul revine la timpul potrivit.",
+  "dialogue.saveFailed": "Notarea nu s-a putut salva. Încearcă din nou.",
   "dialogue.oneMore": "Încă o dată",
   "dialogue.reviewStart": "Termină jocul de rol ca dialogul să intre în repetiție.",
   "dialogue.notFound": "Dialogul nu există",

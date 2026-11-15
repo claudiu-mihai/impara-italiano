@@ -132,10 +132,20 @@ test("reperele „pot să…”: bifat la un dialog învățat, nebifat altfel; 
   await expect(items.filter({ hasText: DIALOGUES.find((d) => d.id === "ora-01")!.canDo.ro })).toHaveAttribute("data-learned", "false");
 });
 
-test("o instalare nouă nu arată reperele pe Acasă", async ({ page }) => {
+test("o instalare nouă nu arată reperele pe Acasă și nici nu încarcă dialogurile", async ({ page }) => {
+  const requested: string[] = [];
+  page.on("request", (request) => requested.push(request.url()));
   await page.goto("/");
   await expect(page.getByRole("link", { name: "Începe sesiunea" })).toBeVisible();
   await expect(page.getByTestId("can-do")).toHaveCount(0);
+  await page.waitForLoadState("networkidle");
+  expect(requested.filter((url) => /\/assets\/dialogues-/.test(url))).toEqual([]);
+});
+
+test("la finalul jocului de rol, focusul trece pe notare (tastatură și cititor de ecran)", async ({ page }) => {
+  await page.goto(`${BAR_URL}?mode=roleplay`);
+  await playRole(page);
+  await expect(page.getByRole("group", { name: "Cum ți-a ieșit?" })).toBeFocused();
 });
 
 test("un dialog care nu există: mesaj și drum înapoi la temă", async ({ page }) => {

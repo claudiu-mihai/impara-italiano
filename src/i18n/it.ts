@@ -346,6 +346,7 @@ export const it: Record<Key, string> = {
   "dialogue.gradeHard": "Con esitazioni",
   "dialogue.gradeGood": "Senza guardare",
   "dialogue.reviewNoted": "Il ripasso è stato registrato; il dialogo tornerà al momento giusto.",
+  "dialogue.saveFailed": "Non è stato possibile salvare il voto. Riprova.",
   "dialogue.oneMore": "Ancora una volta",
   "dialogue.reviewStart": "Finisci il gioco di ruolo perché il dialogo entri nel ripasso.",
   "dialogue.notFound": "Il dialogo non esiste",
