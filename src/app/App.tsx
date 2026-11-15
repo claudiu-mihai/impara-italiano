@@ -21,6 +21,7 @@ import { shouldShowSplash } from "../services/splash.ts";
 const AboutPage = lazy(() => import("../features/about/AboutPage.tsx").then((m) => ({ default: m.AboutPage })));
 const BrowsePage = lazy(() => import("../features/browse/BrowsePage.tsx").then((m) => ({ default: m.BrowsePage })));
 const WordDetailPage = lazy(() => import("../features/browse/WordDetailPage.tsx").then((m) => ({ default: m.WordDetailPage })));
+const DialoguePage = lazy(() => import("../features/dialogue/DialoguePage.tsx").then((m) => ({ default: m.DialoguePage })));
 const ConjugationPage = lazy(() => import("../features/conjugation/ConjugationPage.tsx").then((m) => ({ default: m.ConjugationPage })));
 const FlashcardsPage = lazy(() => import("../features/flashcards/FlashcardsPage.tsx").then((m) => ({ default: m.FlashcardsPage })));
 const LearnPage = lazy(() => import("../features/learn/LearnPage.tsx").then((m) => ({ default: m.LearnPage })));
@@ -210,6 +211,7 @@ export function App() {
               <Route path="learn/topics/:id/numbers" element={<SkillPage />} />
               <Route path="learn/topics/:id/clock" element={<SkillPage />} />
               <Route path="learn/topics/:id/cat" element={<CatPage />} />
+              <Route path="learn/topics/:id/dialogue/:dialogueId" element={<DialoguePage />} />
               <Route path="learn/grammar" element={<GrammarListPage />} />
               <Route path="learn/grammar/:id" element={<GrammarTopicPage />} />
               <Route path="learn/grammar/:id/cards" element={<GameCardsPage />} />
