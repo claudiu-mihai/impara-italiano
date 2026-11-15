@@ -4,6 +4,13 @@ Formatul urmează [Keep a Changelog](https://keepachangelog.com/ro/1.1.0/), iar 
 [versionarea semantică](https://semver.org/lang/ro/). Intrările noi sunt scrise automat de release-please din
 commit-urile `feat:` / `fix:` (vezi README, „Versionare și release-uri”).
 
+## [1.22.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.21.1...v1.22.0) (2026-11-15)
+
+
+### Funcționalități
+
+* **gramatica:** lecțiile de gramatică și în italiană (titluri, reguli, explicații) ([#62](https://github.com/claudiu-mihai/impara-italiano/issues/62)) ([f141637](https://github.com/claudiu-mihai/impara-italiano/commit/f1416372eed7b9ff412ea58bad89cf460cd6487d))
+
 ## [1.21.1](https://github.com/claudiu-mihai/impara-italiano/compare/v1.21.0...v1.21.1) (2026-11-15)
 
 
