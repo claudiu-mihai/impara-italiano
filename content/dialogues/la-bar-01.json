@@ -1,0 +1,19 @@
+{
+  "id": "la-bar-01",
+  "topicId": "la-bar",
+  "title": { "it": "Un caffè, per favore", "ro": "O cafea, vă rog" },
+  "canDo": { "it": "So ordinare al bar", "ro": "Pot să comand la bar" },
+  "speakers": [
+    { "id": "barista", "name": { "it": "Barista", "ro": "Barmanul" } },
+    { "id": "cliente", "name": { "it": "Tu", "ro": "Tu" } }
+  ],
+  "you": "cliente",
+  "lines": [
+    { "speaker": "barista", "it": "Buongiorno! Cosa prende?", "ro": "Bună ziua! Ce doriți?" },
+    { "speaker": "cliente", "it": "Buongiorno. Vorrei un caffè e un cornetto, per favore.", "ro": "Bună ziua. Aș vrea o cafea și un croissant, vă rog." },
+    { "speaker": "barista", "it": "Il cornetto vuoto o alla crema?", "ro": "Croissantul simplu sau cu cremă?" },
+    { "speaker": "cliente", "it": "Alla crema, grazie. Quant'è?", "ro": "Cu cremă, mulțumesc. Cât costă?" },
+    { "speaker": "barista", "it": "Due euro e cinquanta. Ecco lo scontrino.", "ro": "Doi euro și cincizeci. Poftiți bonul." },
+    { "speaker": "cliente", "it": "Grazie, buona giornata!", "ro": "Mulțumesc, o zi bună!" }
+  ]
+}

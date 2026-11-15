@@ -161,6 +161,27 @@ export const topicSchema = z
   })
   .strict();
 
+/**
+ * Un dialog scurt pe o temă (content/dialogues/<id>.json): două personaje, unul jucat de cursant (`you`), 4–8 replici.
+ * Regulile care leagă câmpurile între ele sunt în `domain/dialogue/check.ts`.
+ */
+export const dialogueSchema = z
+  .object({
+    id: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*-\d{2}$/, "id invalid (ex. la-bar-01)"),
+    topicId: z.string(),
+    title: localized,
+    /** Reperul „pot să…”, bifat pe Acasă când dialogul e învățat. */
+    canDo: localized,
+    speakers: z.tuple([
+      z.object({ id: z.string().min(1), name: localized }).strict(),
+      z.object({ id: z.string().min(1), name: localized }).strict(),
+    ]),
+    /** Personajul jucat de cursant în jocul de rol. */
+    you: z.string(),
+    lines: z.array(z.object({ speaker: z.string(), it: text, ro: text }).strict()),
+  })
+  .strict();
+
 export const grammarItemSchema = z
   .object({
     id: z.string().regex(/^[a-z]+(-[a-z0-9]+)*$/, "id invalid (ex. art-01)"),
@@ -262,3 +283,6 @@ export type GrammarTopic = z.infer<typeof grammarTopicSchema>;
 export type LessonBlock = z.infer<typeof lessonBlockSchema>;
 export type Conjugations = z.infer<typeof conjugationsSchema>;
 export type ContentMeta = z.infer<typeof metaSchema>;
+export type Dialogue = z.infer<typeof dialogueSchema>;
+/** Un dialog după build: primește nivelul temei. */
+export type GeneratedDialogue = Dialogue & { level: Level };
