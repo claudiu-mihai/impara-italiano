@@ -13,8 +13,8 @@
     {"speaker": "tu", "it": "Sì, ho un fratello e una sorella.", "ro": "Da, am un frate și o soră."},
     {"speaker": "marco", "it": "Sono più grandi o più piccoli di te?", "ro": "Sunt mai mari sau mai mici decât tine?"},
     {"speaker": "tu", "it": "Mio fratello è più grande, mia sorella è più piccola.", "ro": "Fratele meu e mai mare, sora mea e mai mică."},
-    {"speaker": "marco", "it": "E sei sposato?", "ro": "Și ești căsătorit?"},
-    {"speaker": "tu", "it": "Sì, e ho un figlio di cinque anni.", "ro": "Da, și am un fiu de cinci ani."},
+    {"speaker": "marco", "it": "E tu hai figli?", "ro": "Și tu ai copii?"},
+    {"speaker": "tu", "it": "Sì, ho un figlio di cinque anni.", "ro": "Da, am un fiu de cinci ani."},
     {"speaker": "marco", "it": "Che bello! Anch'io ho una figlia piccola.", "ro": "Ce frumos! Și eu am o fiică mică."}
   ]
 }

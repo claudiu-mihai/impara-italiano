@@ -9,7 +9,7 @@
   ],
   "you": "tu",
   "lines": [
-    {"speaker": "receptionist", "it": "Buonasera, benvenuto! Ha una prenotazione?", "ro": "Bună seara, bine ați venit! Aveți o rezervare?"},
+    {"speaker": "receptionist", "it": "Buonasera e benvenuti! Ha una prenotazione?", "ro": "Bună seara, bine ați venit! Aveți o rezervare?"},
     {"speaker": "tu", "it": "Sì, a nome Popescu. Una camera doppia per tre notti.", "ro": "Da, pe numele Popescu. O cameră dublă pentru trei nopți."},
     {"speaker": "receptionist", "it": "Perfetto. Mi dà un documento, per favore?", "ro": "Perfect. Îmi dați un act de identitate, vă rog?"},
     {"speaker": "tu", "it": "Ecco il passaporto. La colazione è inclusa?", "ro": "Poftiți pașaportul. Micul dejun e inclus?"},

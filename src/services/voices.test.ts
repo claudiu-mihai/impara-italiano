@@ -92,3 +92,10 @@ test("două personaje: vocea aleasă în Setări rămâne prima", () => {
   expect(first).toBe(alice);
   expect(second).toBe(luca);
 });
+
+test("două personaje: varianta Enhanced a aceleiași voci nu contează ca a doua voce", () => {
+  const aliceEnhanced = voice("Alice (Enhanced)", "it-IT");
+  expect(pickVoices([alice, aliceEnhanced], { online: false })).toEqual([aliceEnhanced, undefined]);
+  const [, second] = pickVoices([alice, aliceEnhanced, luca], { online: false });
+  expect(second).toBe(luca);
+});

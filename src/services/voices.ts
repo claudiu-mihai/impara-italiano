@@ -60,6 +60,12 @@ export function pickVoice<T extends VoiceInfo>(
  */
 export function pickVoices<T extends VoiceInfo>(voices: readonly T[], options: PickVoiceOptions): [T | undefined, T | undefined] {
   const first = pickVoice(voices, options);
-  const rest = voices.filter((v) => v !== first);
+  // „Alice” și „Alice (Enhanced)” sună la fel: a doua voce trebuie să fie altă persoană, altfel se schimbă înălțimea
+  const rest = first ? voices.filter((v) => baseName(v) !== baseName(first)) : [];
   return [first, pickVoice(rest, { online: options.online })];
+}
+
+/** Numele vocii fără marcajul de calitate („Alice (Enhanced)” → „alice”). */
+function baseName(voice: VoiceInfo): string {
+  return voice.name.replace(/\s*\((premium|enhanced|migliorat\w*|potenziat\w*|avanzat\w*)\)/i, "").trim().toLowerCase();
 }

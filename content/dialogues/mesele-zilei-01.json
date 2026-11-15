@@ -9,7 +9,7 @@
   ],
   "you": "tu",
   "lines": [
-    {"speaker": "cameriere", "it": "Buonasera! Siete pronti per ordinare?", "ro": "Bună seara! Sunteți gata să comandați?"},
+    {"speaker": "cameriere", "it": "Buonasera! Ha deciso cosa ordinare?", "ro": "Bună seara! Ați hotărât ce comandați?"},
     {"speaker": "tu", "it": "Sì. Per primo vorrei gli spaghetti al pomodoro.", "ro": "Da. Ca fel întâi aș vrea spaghete cu roșii."},
     {"speaker": "cameriere", "it": "Benissimo. E da bere?", "ro": "Foarte bine. Și de băut?"},
     {"speaker": "tu", "it": "Una bottiglia d'acqua naturale, per favore.", "ro": "O sticlă de apă plată, vă rog."},
