@@ -190,35 +190,56 @@ export const grammarItemSchema = z
     /** Cuvântul din `it` care se ascunde în jocuri (un cuvânt întreg sau un articol cu apostrof, ca „l'”). */
     gap: text,
     ro: text,
-    /** Explicația alegerii, afișată pe spatele cartonașului. */
+    /** Explicația alegerii, afișată pe spatele cartonașului, în limba interfeței. */
     note: text.optional(),
+    noteIt: text.optional(),
   })
-  .strict();
+  .strict()
+  .refine((item) => (item.note === undefined) === (item.noteIt === undefined), "„note” și „noteIt” merg împreună");
 
 /**
  * Un bloc din lecția unei teme de gramatică. Textele în română pot conține marcajele `[it]…[/it]` și `[b]…[/b]`
  * (vezi `domain/grammar/markup.ts`), verificate la build.
  */
 export const lessonBlockSchema = z.discriminatedUnion("type", [
-  z.object({ type: z.literal("text"), ro: text }).strict(),
+  // explicațiile au ambele limbi; se afișează în limba interfeței
+  z.object({ type: z.literal("text"), ro: text, it: text }).strict(),
   z
     .object({
       type: z.literal("table"),
       caption: text.optional(),
+      captionIt: text.optional(),
       head: z.array(z.string()).min(1),
+      /** Antetul în italiană, dacă diferă (ex. „italiano / rumeno”). */
+      headIt: z.array(z.string()).optional(),
       rows: z.array(z.array(z.string())).min(1),
+      /** Rândurile cu celulele descriptive traduse în italiană; traducerile în română rămân ca în `rows`. */
+      rowsIt: z.array(z.array(z.string())).optional(),
       /** Coloanele în italiană (de la 0). Implicit: toate, mai puțin prima. */
       itColumns: z.array(z.number().int().nonnegative()).optional(),
     })
     .strict()
-    .refine((t) => t.rows.every((row) => row.length === t.head.length), "fiecare rând trebuie să aibă tot atâtea celule cât antetul"),
+    .refine((t) => t.rows.every((row) => row.length === t.head.length), "fiecare rând trebuie să aibă tot atâtea celule cât antetul")
+    .refine((t) => (t.caption === undefined) === (t.captionIt === undefined), "„caption” și „captionIt” merg împreună")
+    .refine((t) => !t.headIt || t.headIt.length === t.head.length, "„headIt” trebuie să aibă tot atâtea celule cât „head”")
+    .refine(
+      (t) => !t.rowsIt || (t.rowsIt.length === t.rows.length && t.rowsIt.every((row) => row.length === t.head.length)),
+      "„rowsIt” trebuie să aibă aceeași formă ca „rows”",
+    ),
   z
     .object({
       type: z.literal("examples"),
-      items: z.array(z.object({ it: text, ro: text, note: text.optional() }).strict()).min(1),
+      items: z
+        .array(
+          z
+            .object({ it: text, ro: text, note: text.optional(), noteIt: text.optional() })
+            .strict()
+            .refine((e) => (e.note === undefined) === (e.noteIt === undefined), "„note” și „noteIt” merg împreună"),
+        )
+        .min(1),
     })
     .strict(),
-  z.object({ type: z.literal("trap"), ro: text }).strict(),
+  z.object({ type: z.literal("trap"), ro: text, it: text }).strict(),
 ]);
 
 export const grammarTopicSchema = z
@@ -226,7 +247,8 @@ export const grammarTopicSchema = z
     id: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, "id invalid (ex. articoli)"),
     /** Poziția în ordinea de învățare a gramaticii (1, 2, 3…). */
     order: z.number().int().positive(),
-    title: text,
+    /** Titlul în italiană și în limba maternă, afișat ca la Teme. */
+    title: localized,
     level: z.enum(LEVELS),
     /** Lecția: explicații, tabele, exemple și capcane, afișate înaintea exercițiilor. */
     lesson: z
@@ -234,7 +256,8 @@ export const grammarTopicSchema = z
       .min(3)
       .max(20)
       .refine((blocks) => blocks.some((b) => b.type === "examples"), "lecția trebuie să conțină cel puțin un bloc examples"),
-    rules: z.array(text).min(1).max(4),
+    /** „De reținut”: fața italiană și cea în limba maternă, ca la Teme. */
+    rules: z.array(localized).min(1).max(4),
     // cel puțin o sesiune întreagă (10), ca runda să nu repete aceleași exemple
     items: z.array(grammarItemSchema).min(10),
   })

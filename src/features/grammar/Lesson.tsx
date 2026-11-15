@@ -6,10 +6,14 @@ import { speak } from "../../services/tts.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { InlineText } from "./InlineText.tsx";
 
-/** Lecția unei teme de gramatică: paragrafe, tabele, exemple cu audio și capcane. Textul e în limba maternă. */
+/**
+ * Lecția unei teme de gramatică: paragrafe, tabele, exemple cu audio și capcane. Explicațiile sunt în limba interfeței
+ * (italiană sau limba maternă); traducerile exemplelor rămân în limba maternă.
+ */
 export function Lesson({ blocks }: { blocks: readonly LessonBlock[] }) {
+  const { language } = useT();
   return (
-    <article lang={NATIVE_LANGUAGE} className="flex flex-col gap-4 text-lg leading-relaxed">
+    <article lang={language === "it" ? "it" : NATIVE_LANGUAGE} className="flex flex-col gap-4 text-lg leading-relaxed">
       {blocks.map((block, i) => (
         <Block key={i} block={block} />
       ))}
@@ -18,20 +22,21 @@ export function Lesson({ blocks }: { blocks: readonly LessonBlock[] }) {
 }
 
 function Block({ block }: { block: LessonBlock }) {
-  const { t } = useT();
+  const { t, language } = useT();
+  const it = language === "it";
   switch (block.type) {
     case "text":
       return (
         <p>
-          <InlineText text={block.ro} />
+          <InlineText text={it ? block.it : block.ro} />
         </p>
       );
     case "trap":
       return (
         <aside className="rounded-2xl border-l-4 border-red-500 bg-red-50 p-4 text-red-950 dark:bg-red-950 dark:text-red-50">
-          <p className="mb-1 text-sm font-semibold uppercase tracking-wide">⚠️ Capcană pentru români</p>
+          <p className="mb-1 text-sm font-semibold uppercase tracking-wide">⚠️ {t("grammar.trap")}</p>
           <p>
-            <InlineText text={block.ro} />
+            <InlineText text={it ? block.it : block.ro} />
           </p>
         </aside>
       );
@@ -45,10 +50,12 @@ function Block({ block }: { block: LessonBlock }) {
                 <span lang="it" className="block font-semibold">
                   {example.it}
                 </span>
-                <span className="block text-muted">{example.ro}</span>
+                <span lang={NATIVE_LANGUAGE} className="block text-muted">
+                  {example.ro}
+                </span>
                 {example.note && (
                   <span className="block text-sm text-muted">
-                    <InlineText text={example.note} />
+                    <InlineText text={it && example.noteIt ? example.noteIt : example.note} />
                   </span>
                 )}
               </span>
@@ -58,13 +65,18 @@ function Block({ block }: { block: LessonBlock }) {
       );
     case "table": {
       const italian = (col: number) => (block.itColumns ? block.itColumns.includes(col) : col > 0);
+      const caption = it ? block.captionIt : block.caption;
+      const head = it && block.headIt ? block.headIt : block.head;
+      const rows = it && block.rowsIt ? block.rowsIt : block.rows;
+      // celulele care nu sunt în italiană sunt descrieri (în limba interfeței) sau traduceri (în limba maternă)
+      const nativeCell = (r: number, col: number) => block.rows[r]![col] === rows[r]![col];
       return (
         <div className="overflow-x-auto">
           <table className="w-full border-collapse overflow-hidden rounded-2xl bg-white text-left text-base shadow-sm dark:bg-slate-900">
-            {block.caption && <caption className="pb-2 text-left text-sm font-semibold text-muted">{block.caption}</caption>}
+            {caption && <caption className="pb-2 text-left text-sm font-semibold text-muted">{caption}</caption>}
             <thead>
               <tr className="bg-slate-100 dark:bg-slate-800">
-                {block.head.map((cell, col) => (
+                {head.map((cell, col) => (
                   <th key={col} scope="col" className="px-3 py-2 font-semibold">
                     {cell}
                   </th>
@@ -72,7 +84,7 @@ function Block({ block }: { block: LessonBlock }) {
               </tr>
             </thead>
             <tbody>
-              {block.rows.map((row, r) => (
+              {rows.map((row, r) => (
                 <tr key={r} className="border-t border-slate-100 dark:border-slate-800">
                   {row.map((cell, col) =>
                     italian(col) && cell ? (
@@ -87,7 +99,7 @@ function Block({ block }: { block: LessonBlock }) {
                         </button>
                       </td>
                     ) : (
-                      <td key={col} className="px-3 py-2">
+                      <td key={col} lang={it && nativeCell(r, col) && cell ? NATIVE_LANGUAGE : undefined} className="px-3 py-2">
                         {cell}
                       </td>
                     ),

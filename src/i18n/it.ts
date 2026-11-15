@@ -376,6 +376,7 @@ export const it: Record<Key, string> = {
   "learn.dialoguesHint": "Ascolta brevi conversazioni e recita la tua parte ad alta voce",
   "dialogue.listTitle": "Dialoghi",
   "dialogue.topic": "Tema: {title}",
+  "grammar.trap": "Trappola per chi parla rumeno",
   "grammar.markRead": "L'ho letta",
   "grammar.read": "Letta",
   "grammar.reviewNoted": "Ripasso registrato: la lezione torna al momento giusto.",

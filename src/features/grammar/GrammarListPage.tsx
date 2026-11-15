@@ -5,6 +5,7 @@ import { bestScore } from "../../domain/grammar/progress.ts";
 import { useGrammar } from "../../app/grammar.ts";
 import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { useT } from "../../i18n/index.ts";
+import { BilingualLabel } from "../../ui/BilingualLabel.tsx";
 import { BackLink } from "../../ui/BackLink.tsx";
 import { CefrBadge } from "../../ui/CefrBadge.tsx";
 import { grammarCardId } from "../../domain/grammar/due.ts";
@@ -41,7 +42,7 @@ export function GrammarListPage() {
                 </span>
                 <span className="flex flex-1 flex-col gap-1">
                   <span lang={NATIVE_LANGUAGE} className="text-lg font-semibold">
-                    {topic.title}
+                    <BilingualLabel text={topic.title} />
                   </span>
                   <ReviewStatus card={cards?.get(grammarCardId(topic.id))} compact />
                 </span>

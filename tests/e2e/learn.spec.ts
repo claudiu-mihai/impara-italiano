@@ -30,7 +30,7 @@ test("Învață: „Continuă” duce la ultima temă deschisă, apoi la ultima 
   await page.goto("/learn/grammar/articoli");
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   await page.goto("/learn");
-  await expect(practice(page).getByRole("link", { name: /^Continuă: Articolul hotărât/ })).toHaveAttribute(
+  await expect(practice(page).getByRole("link", { name: /^Continuă: Articolo determinativo/ })).toHaveAttribute(
     "href",
     "/learn/grammar/articoli",
   );

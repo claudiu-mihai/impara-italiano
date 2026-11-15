@@ -23,7 +23,7 @@ export function CardsPage() {
 }
 
 function CardsGame({ topicId, items }: { topicId: string; items: GrammarItem[] }) {
-  const { t, tp } = useT();
+  const { t, tp, language } = useT();
   const exitTo = `/learn/grammar/${topicId}`;
   // întoarcerea în lecție păstrează ecranul de plecare (ex. fișa cuvântului)
   const exitState = nextLessonNav(readLessonNav(useLocation().state));
@@ -87,8 +87,8 @@ function CardsGame({ topicId, items }: { topicId: string; items: GrammarItem[] }
               <AudioButton text={current.it} size="sm" />
             </div>
             {current.note && (
-              <p lang={NATIVE_LANGUAGE} className="text-sm text-muted">
-                {current.note}
+              <p lang={language === "it" ? "it" : NATIVE_LANGUAGE} className="text-sm text-muted">
+                {language === "it" && current.noteIt ? current.noteIt : current.note}
               </p>
             )}
           </div>

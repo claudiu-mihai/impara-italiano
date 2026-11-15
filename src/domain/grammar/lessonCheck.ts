@@ -24,11 +24,13 @@ export function lessonProblems(topic: GrammarTopic): string[] {
       case "text":
       case "trap":
         markup(where, block.ro);
+        markup(where, block.it);
         break;
       case "examples": {
         const seen = new Set<string>();
         for (const example of block.items) {
           markup(where, example.note);
+          markup(where, example.noteIt);
           raw(where, [example.it, example.ro]);
           if (seen.has(example.it)) problems.push(`${where}: exemplul „${example.it}” apare de două ori`);
           seen.add(example.it);
@@ -36,14 +38,14 @@ export function lessonProblems(topic: GrammarTopic): string[] {
         break;
       }
       case "table":
-        raw(where, [block.caption, ...block.head, ...block.rows.flat()]);
+        raw(where, [block.caption, block.captionIt, ...block.head, ...(block.headIt ?? []), ...block.rows.flat(), ...(block.rowsIt ?? []).flat()]);
         for (const col of block.itColumns ?? []) {
           if (col >= block.head.length) problems.push(`${where}: coloana ${col} nu există (tabelul are ${block.head.length})`);
         }
         break;
     }
   });
-  topic.rules.forEach((rule, i) => raw(`regula ${i + 1}`, [rule]));
-  raw("titlul", [topic.title]);
+  topic.rules.forEach((rule, i) => raw(`regula ${i + 1}`, [rule.it, rule.ro]));
+  raw("titlul", [topic.title.it, topic.title.ro]);
   return problems;
 }

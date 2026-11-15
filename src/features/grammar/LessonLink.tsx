@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useGrammar } from "../../app/grammar.ts";
-import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { useT } from "../../i18n/index.ts";
 import { lessonNavFrom, type LessonOrigin } from "./lessonNav.ts";
 
@@ -17,7 +16,7 @@ export function LessonLink({ topicId, from }: { topicId: string; from: LessonOri
     >
       <span aria-hidden="true">📘</span>
       <span>
-        {t("grammar.ruleLink")}: <span lang={NATIVE_LANGUAGE}>{topic.title}</span>
+        {t("grammar.ruleLink")}: <span lang="it">{topic.title.it}</span>
       </span>
     </Link>
   );

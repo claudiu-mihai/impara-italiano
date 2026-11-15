@@ -66,7 +66,7 @@ export function LearnPage() {
     if (topic) resume = { to: `/learn/topics/${topic.id}`, title: topic.title.it, kind: t("learn.topics") };
   } else if (lastPractice?.kind === "grammar") {
     const topic = grammar?.find((x) => x.id === lastPractice.id);
-    if (topic) resume = { to: `/learn/grammar/${topic.id}`, title: topic.title, kind: t("learn.grammar") };
+    if (topic) resume = { to: `/learn/grammar/${topic.id}`, title: topic.title.it, kind: t("learn.grammar") };
   }
   const sentenceList = useSentences();
   const sentenceRound = useLiveQuery(

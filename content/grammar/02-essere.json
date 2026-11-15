@@ -1,21 +1,25 @@
 {
   "id": "essere",
   "order": 4,
-  "title": "Pronumele subiect și verbul „a fi”",
+  "title": { "it": "I pronomi soggetto e il verbo essere", "ro": "Pronumele subiect și verbul „a fi”" },
   "level": "A1",
   "lesson": [
     {
       "type": "text",
-      "ro": "Pronumele care arată cine face acțiunea sunt: [it]io[/it] (eu), [it]tu[/it] (tu), [it]lui[/it] (el), [it]lei[/it] (ea), [it]noi[/it] (noi), [it]voi[/it] (voi), [it]loro[/it] (ei, ele)."
+      "ro": "Pronumele care arată cine face acțiunea sunt: [it]io[/it] (eu), [it]tu[/it] (tu), [it]lui[/it] (el), [it]lei[/it] (ea), [it]noi[/it] (noi), [it]voi[/it] (voi), [it]loro[/it] (ei, ele).",
+      "it": "I pronomi che indicano chi fa l'azione sono: [it]io[/it] (eu), [it]tu[/it] (tu), [it]lui[/it] (el), [it]lei[/it] (ea), [it]noi[/it] (noi), [it]voi[/it] (voi), [it]loro[/it] (ei, ele)."
     },
     {
       "type": "text",
-      "ro": "Ca în română, pronumele de obicei [b]lipsește[/b], pentru că forma verbului arată persoana: [it]Sono italiano.[/it] = Sunt italian. Îl spui doar când insiști sau faci un contrast: [it]Io sono italiano, lui è romeno.[/it]"
+      "ro": "Ca în română, pronumele de obicei [b]lipsește[/b], pentru că forma verbului arată persoana: [it]Sono italiano.[/it] = Sunt italian. Îl spui doar când insiști sau faci un contrast: [it]Io sono italiano, lui è romeno.[/it]",
+      "it": "Come in rumeno, di solito il pronome [b]si omette[/b], perché la forma del verbo indica già la persona: [it]Sono italiano.[/it] = Sunt italian. Lo dici solo quando vuoi insistere o fare un contrasto: [it]Io sono italiano, lui è romeno.[/it]"
     },
     {
       "type": "table",
       "caption": "Prezentul verbului essere (a fi)",
+      "captionIt": "Il presente del verbo essere (a fi)",
       "head": ["italiană", "română"],
+      "headIt": ["italiano", "rumeno"],
       "itColumns": [0],
       "rows": [
         ["io sono", "eu sunt"],
@@ -28,37 +32,40 @@
     },
     {
       "type": "text",
-      "ro": "Folosești [it]essere[/it] pentru cine ești, de unde ești și cum ești: [it]Sono medico.[/it] [it]Sono di Roma.[/it] [it]Sono stanco.[/it]"
+      "ro": "Folosești [it]essere[/it] pentru cine ești, de unde ești și cum ești: [it]Sono medico.[/it] [it]Sono di Roma.[/it] [it]Sono stanco.[/it]",
+      "it": "Usi [it]essere[/it] per dire chi sei, di dove sei e come stai: [it]Sono medico.[/it] [it]Sono di Roma.[/it] [it]Sono stanco.[/it]"
     },
     {
       "type": "examples",
       "items": [
-        { "it": "Lui è medico.", "ro": "El este medic.", "note": "profesia se spune fără articol, ca în română" },
-        { "it": "Loro sono di Roma.", "ro": "Ei sunt din Roma.", "note": "originea: [it]essere di[/it] + oraș" },
-        { "it": "Siamo in ritardo.", "ro": "Suntem întârziați.", "note": "fără pronume: [it]siamo[/it] arată deja persoana" },
+        { "it": "Lui è medico.", "ro": "El este medic.", "note": "profesia se spune fără articol, ca în română", "noteIt": "la professione si dice senza articolo, come in rumeno" },
+        { "it": "Loro sono di Roma.", "ro": "Ei sunt din Roma.", "note": "originea: [it]essere di[/it] + oraș", "noteIt": "l'origine: [it]essere di[/it] + città" },
+        { "it": "Siamo in ritardo.", "ro": "Suntem întârziați.", "note": "fără pronume: [it]siamo[/it] arată deja persoana", "noteIt": "senza pronome: [it]siamo[/it] indica già la persona" },
         { "it": "È tardi.", "ro": "Este târziu." },
-        { "it": "Anna e Marco sono amici.", "ro": "Anna și Marco sunt prieteni.", "note": "[it]e[/it] fără accent = și; [it]è[/it] cu accent = este" }
+        { "it": "Anna e Marco sono amici.", "ro": "Anna și Marco sunt prieteni.", "note": "[it]e[/it] fără accent = și; [it]è[/it] cu accent = este", "noteIt": "[it]e[/it] senza accento = și; [it]è[/it] con accento = este" }
       ]
     },
     {
       "type": "trap",
-      "ro": "[it]è[/it] (este) are accent, [it]e[/it] (și) nu are. Diferența se vede doar în scris, așa că fii atent când scrii: [it]Lei è qui e lui no.[/it] = Ea este aici, iar el nu."
+      "ro": "[it]è[/it] (este) are accent, [it]e[/it] (și) nu are. Diferența se vede doar în scris, așa că fii atent când scrii: [it]Lei è qui e lui no.[/it] = Ea este aici, iar el nu.",
+      "it": "[it]è[/it] (verbo) ha l'accento, [it]e[/it] (congiunzione) no. La differenza si vede solo per iscritto, quindi fai attenzione quando scrivi: [it]Lei è qui e lui no.[/it] = Ea este aici, iar el nu."
     },
     {
       "type": "trap",
-      "ro": "Starea se spune cu [it]essere[/it], ca în română: [it]Sono stanco[/it] = sunt obosit. Dar foamea, setea, frigul și somnul se spun cu [it]avere[/it]: [it]Ho fame[/it], nu „sono fame”."
+      "ro": "Starea se spune cu [it]essere[/it], ca în română: [it]Sono stanco[/it] = sunt obosit. Dar foamea, setea, frigul și somnul se spun cu [it]avere[/it]: [it]Ho fame[/it], nu „sono fame”.",
+      "it": "Lo stato si dice con [it]essere[/it], come in rumeno: [it]Sono stanco[/it] = sunt obosit. Ma fame, sete, freddo e sonno si dicono con [it]avere[/it]: [it]Ho fame[/it], non „sono fame”."
     }
   ],
   "rules": [
-    "Forme: io sono, tu sei, lui/lei è, noi siamo, voi siete, loro sono (sunt, ești, este, suntem, sunteți, sunt).",
-    "Se folosește pentru identitate, origine și stare: Sono italiano. Sono stanco.",
-    "Profesia și naționalitatea se spun fără articol: Sono medico. Sono italiana.",
-    "Nu confunda è (este, cu accent grav) cu e (și, fără accent): Anna e Marco sono amici."
+    { "it": "Forme: io sono, tu sei, lui/lei è, noi siamo, voi siete, loro sono (sunt, ești, este, suntem, sunteți, sunt).", "ro": "Forme: io sono, tu sei, lui/lei è, noi siamo, voi siete, loro sono (sunt, ești, este, suntem, sunteți, sunt)." },
+    { "it": "Si usa per l'identità, l'origine e lo stato: Sono italiano. Sono stanco.", "ro": "Se folosește pentru identitate, origine și stare: Sono italiano. Sono stanco." },
+    { "it": "La professione e la nazionalità si dicono senza articolo: Sono medico. Sono italiana.", "ro": "Profesia și naționalitatea se spun fără articol: Sono medico. Sono italiana." },
+    { "it": "Non confondere è (verbo, con accento grave) con e (congiunzione, senza accento): Anna e Marco sono amici.", "ro": "Nu confunda è (este, cu accent grav) cu e (și, fără accent): Anna e Marco sono amici." }
   ],
   "items": [
     { "id": "ess-01", "it": "Io sono italiano.", "gap": "sono", "ro": "Eu sunt italian." },
     { "id": "ess-02", "it": "Tu sei stanco.", "gap": "sei", "ro": "Tu ești obosit." },
-    { "id": "ess-03", "it": "Lui è medico.", "gap": "è", "ro": "El este medic.", "note": "fără articol înaintea profesiei" },
+    { "id": "ess-03", "it": "Lui è medico.", "gap": "è", "ro": "El este medic.", "note": "fără articol înaintea profesiei", "noteIt": "senza articolo davanti alla professione" },
     { "id": "ess-04", "it": "Lei è simpatica.", "gap": "è", "ro": "Ea este simpatică." },
     { "id": "ess-05", "it": "Noi siamo amici.", "gap": "siamo", "ro": "Suntem prieteni." },
     { "id": "ess-06", "it": "Voi siete in ritardo.", "gap": "siete", "ro": "Sunteți întârziați." },
@@ -66,7 +73,7 @@
     { "id": "ess-08", "it": "Dove sei?", "gap": "sei", "ro": "Unde ești?" },
     { "id": "ess-09", "it": "Non sono stanco.", "gap": "sono", "ro": "Nu sunt obosit." },
     { "id": "ess-10", "it": "Maria è professoressa.", "gap": "è", "ro": "Maria este profesoară." },
-    { "id": "ess-11", "it": "Anna e Marco sono amici.", "gap": "sono", "ro": "Anna și Marco sunt prieteni.", "note": "e înseamnă «și», fără accent" },
+    { "id": "ess-11", "it": "Anna e Marco sono amici.", "gap": "sono", "ro": "Anna și Marco sunt prieteni.", "note": "e înseamnă «și», fără accent", "noteIt": "e significa «și», senza accento" },
     { "id": "ess-12", "it": "Mio padre è alto.", "gap": "è", "ro": "Tatăl meu este înalt." },
     { "id": "ess-13", "it": "Questi libri sono nuovi.", "gap": "sono", "ro": "Cărțile acestea sunt noi." },
     { "id": "ess-14", "it": "Il caffè è caldo.", "gap": "è", "ro": "Cafeaua este caldă." },
@@ -74,7 +81,7 @@
     { "id": "ess-16", "it": "Siete pronti?", "gap": "Siete", "ro": "Sunteți pregătiți?" },
     { "id": "ess-17", "it": "Tu sei italiana?", "gap": "sei", "ro": "Ești italiană?" },
     { "id": "ess-18", "it": "Lui è di Milano.", "gap": "è", "ro": "El este din Milano." },
-    { "id": "ess-19", "it": "È tardi.", "gap": "È", "ro": "Este târziu.", "note": "cu accent grav, «este»" },
+    { "id": "ess-19", "it": "È tardi.", "gap": "È", "ro": "Este târziu.", "note": "cu accent grav, «este»", "noteIt": "con accento grave, «este»" },
     { "id": "ess-20", "it": "Loro sono studenti.", "gap": "sono", "ro": "Ei sunt studenți." },
     { "id": "ess-21", "it": "Io sono felice.", "gap": "sono", "ro": "Eu sunt fericit." },
     { "id": "ess-22", "it": "Lei è mia madre.", "gap": "è", "ro": "Ea este mama mea." },
