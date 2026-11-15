@@ -1,15 +1,15 @@
 import { useRef, useState, type FormEvent } from "react";
-import { personsOf, TENSE_LABEL } from "../../domain/content/display.ts";
+import { personsOf } from "../../domain/content/display.ts";
 import { spokenConjugation } from "../../domain/content/spokenConjugation.ts";
 import { compareAnswer, type AnswerResult } from "../../domain/grading/compareAnswer.ts";
 import { gradeConjugation, PERSONS_PER_REVIEW } from "../../domain/grading/gradeConjugation.ts";
 import { shuffle } from "../../domain/random.ts";
-import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
 import { useT } from "../../i18n/index.ts";
 import { playFeedback } from "../../services/sound.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { PinnedPrompt } from "../../ui/PinnedPrompt.tsx";
 import { primaryButton } from "../../ui/SessionDone.tsx";
+import { ConjPrompt } from "./ConjPrompt.tsx";
 import { ACCENTS, type ConjCardProps } from "./types.ts";
 
 interface Feedback {
@@ -18,7 +18,7 @@ interface Feedback {
 }
 
 /** Varianta „Scrie răspunsul”: 3 persoane pe rând, notă automată. */
-export function WriteCard({ item, verb, forms, settings, onFinish }: ConjCardProps) {
+export function WriteCard({ item, verb, forms, ro, settings, onFinish }: ConjCardProps) {
   const { t } = useT();
   const inputRef = useRef<HTMLInputElement>(null);
   const [persons] = useState(() =>
@@ -70,23 +70,14 @@ export function WriteCard({ item, verb, forms, settings, onFinish }: ConjCardPro
   return (
     <>
       <PinnedPrompt>
-        <section className="flex flex-col items-center gap-2 rounded-3xl bg-white p-6 text-center shadow-md compact:gap-0.5 compact:p-2 dark:bg-slate-900">
-          <p className="text-sm text-muted">{t(TENSE_LABEL[item.tense])}</p>
-          <div className="flex items-center gap-2">
-            <p className="text-3xl font-bold compact:text-2xl">{verb.it}</p>
-            <AudioButton text={verb.it} rate={settings.ttsRate} size="sm" />
-          </div>
-          <p lang={NATIVE_LANGUAGE} className="text-muted">
-            {verb.ro}
-          </p>
-          <p className="mt-3 text-4xl font-bold text-brand-fg compact:mt-1 compact:text-3xl" data-testid="person">
-            {personLabel.it}
-          </p>
-          {personLabel.ro !== personLabel.it && (
-            <p lang={NATIVE_LANGUAGE} className="text-sm text-muted">
-              ({personLabel.ro})
-            </p>
-          )}
+        <ConjPrompt
+          item={item}
+          verb={verb}
+          ro={ro}
+          person={person}
+          rate={settings.ttsRate}
+          className="flex flex-col items-center gap-2 rounded-3xl bg-white p-6 text-center shadow-md compact:gap-0.5 compact:p-2 dark:bg-slate-900"
+        >
           <ol className="mt-2 flex gap-2 compact:mt-1" aria-label={t("conj.personOf", { n: step + 1, total: persons.length })}>
             {persons.map((p, i) => (
               <li
@@ -106,7 +97,7 @@ export function WriteCard({ item, verb, forms, settings, onFinish }: ConjCardPro
               />
             ))}
           </ol>
-        </section>
+        </ConjPrompt>
       </PinnedPrompt>
 
       <form onSubmit={onSubmit} className="mt-auto flex flex-col gap-3 compact:gap-2">

@@ -107,6 +107,34 @@ export const conjugationsSchema = z.record(
     .strict(),
 );
 
+// Formele românești de bază ale unui verb din lista de conjugare (vezi domain/conjugation/romanian.ts).
+const six = z.array(text).length(6);
+export const romanianVerbSchema = z
+  .object({
+    id: z.string().regex(/^v-/, "id-ul unui verb începe cu „v-”"),
+    inf: text.optional(),
+    part: text.optional(),
+    pres: six.optional(),
+    impf: text.optional(),
+    conj3: text.optional(),
+    conj: six.optional(),
+    imp: z.array(text).length(2).optional(),
+    refl: z.enum(["acc", "dat"]).optional(),
+    tenses: z
+      .object({
+        presente: six.optional(),
+        passatoProssimo: six.optional(),
+        imperfetto: six.optional(),
+        futuro: six.optional(),
+        condizionale: six.optional(),
+        imperativo: z.array(text).length(5).optional(),
+        congiuntivo: six.optional(),
+      })
+      .strict()
+      .optional(),
+  })
+  .strict();
+
 export const topicSchema = z
   .object({
     id: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, "id invalid (ex. zilele-saptamanii)"),

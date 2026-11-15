@@ -85,6 +85,17 @@ Ghidul (`guide.json`: teme cu id-urile cuvintelor) e un fișier generat separat 
 
 Identificatorii și scadența sunt în `domain/grammar/due.ts` (fără `ts-fsrs`, ca să nu crească pachetul de pornire), notarea în `review.ts`.
 
+## Faza 5 — Conjugare cu sens
+
+**Gata când:** testele unitare și E2E trec, `npx tsc --noEmit` și `npm run validate` trec, iar cardul de conjugare cere „noi am vorbit”, nu „parlare · noi”.
+
+1. **Cerință cu traducere.** La „Scrie” și „Cu voce tare”, cerința e forma românească cu pronumele (*noi am vorbit*, *eu m-am trezit*, *dvs. vorbiți!*), iar dedesubt verbul italian cu 🔊 și persoana. „Tabel” rămâne cu verbul și traducerea lui.
+2. **Formele românești.** `content/verbs/romanian.json`: pentru fiecare verb, prezentul (6 forme), participiul, imperfectul și conjunctivul la persoana a 3-a, imperativul la persoana a 2-a și pronumele reflexiv (acuzativ sau dativ). Perfectul compus, viitorul și condiționalul se compun cu auxiliarele (`domain/conjugation/romanian.ts`); un timp poate fi scris integral când regulile nu se potrivesc (*a trebui*: „trebuie să” la toate persoanele). Validate la build: verb existent, cu forme italiene, și forme românești pentru fiecare timp, în afară de imperativ (fără imperativ firesc, ca la *a putea*, cardul rămâne cu cerința veche). Formele trebuie verificate de un vorbitor nativ.
+3. **Doar verbele frecvente.** Lista are 86 de verbe (58 A1, 28 A2), aleasă de mână: verbele frecvente, fără dubluri (*tornare/ritornare*) și fără cazuri ciudate (*mancare* = „a-i fi dor”). Doar ele primesc timpuri noi; cardurile existente la alte verbe revin în continuare, cu cerința veche.
+4. **„Cu voce tare”** (fostul Flip): pe față îndemnul „Spune forma cu voce tare, apoi întoarce cardul”; la întoarcere forma se aude singură, dacă „Audio automat” e pornit.
+
+Lista și formele (`conjugationsRo.json`, ~18 KB) se încarcă odată cu sesiunea de conjugare, nu la pornire.
+
 ## Reguli de lucru
 
 - Fiecare fază: un branch din `main` actualizat, un singur PR la final, fără push sau PR fără acordul meu.

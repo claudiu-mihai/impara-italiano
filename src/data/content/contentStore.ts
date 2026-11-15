@@ -1,5 +1,6 @@
 import metaData from "../generated/meta.json";
 import wordsData from "../generated/words.json";
+import type { RoConjugations } from "../../domain/conjugation/romanian.ts";
 import type { ContentMeta, Conjugations, GrammarTopic, Sentence, Topic, Word } from "../../domain/content/schema.ts";
 import type { CoreWord } from "../../domain/content/types.ts";
 import { decodeWords, type CompactWords } from "../../domain/content/wordsCodec.ts";
@@ -34,6 +35,12 @@ export function loadContentStore(): Promise<ContentStore> {
 export async function loadConjugations(): Promise<Conjugations> {
   const module = await import("../generated/conjugations.json");
   return module.default as unknown as Conjugations;
+}
+
+/** Verbele cu conjugare activă și formele lor românești (mic), încărcate odată cu sesiunea de conjugare. */
+export async function loadConjugationsRo(): Promise<RoConjugations> {
+  const module = await import("../generated/conjugationsRo.json");
+  return module.default as unknown as RoConjugations;
 }
 
 /** Propozițiile pentru exercițiul de reconstruire, încărcate doar când e nevoie. */

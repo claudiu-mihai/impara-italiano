@@ -132,7 +132,7 @@ for (const scheme of ["light", "dark"] as const) {
       await expect(page.getByTestId("person")).toBeVisible();
       await audit(page, "conjugare");
 
-      await page.getByRole("radio", { name: "Flip" }).click();
+      await page.getByRole("radio", { name: "Cu voce tare" }).click();
       await expect(page.getByTestId("flip-card")).toBeVisible();
       await audit(page, "conjugare (Flip, față)");
       await page.getByRole("button", { name: "Arată răspunsul" }).click();

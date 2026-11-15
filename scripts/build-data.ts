@@ -28,7 +28,7 @@ const SOURCES = [
   },
 ];
 
-const { words, conjugations, sentences, topics, grammar, rankBasis, explicitPresenteCount, presenteIrregular, errors } = loadContent();
+const { words, conjugations, romanian, sentences, topics, grammar, rankBasis, explicitPresenteCount, presenteIrregular, errors } = loadContent();
 
 if (errors.length > 0) {
   console.error(`Conținut invalid: ${errors.length} erori`);
@@ -57,6 +57,11 @@ const conjugationsJson = `{\n${Object.entries(conjugations)
   .map(([id, forms]) => `  ${JSON.stringify(id)}: ${JSON.stringify(forms)}`)
   .join(",\n")}\n}\n`;
 
+// conjugationsRo.json: verbele cu conjugare activă și formele lor românești, un verb pe linie (mic, se încarcă cu conjugarea)
+const conjugationsRoJson = `{\n${Object.entries(romanian)
+  .map(([id, verb]) => `  ${JSON.stringify(id)}: ${JSON.stringify(verb)}`)
+  .join(",\n")}\n}\n`;
+
 const sentencesJson = `[\n${sentences.map((s) => `  ${JSON.stringify(s)}`).join(",\n")}\n]\n`;
 
 const topicsJson = `${JSON.stringify(topics, null, 1)}\n`;
@@ -76,6 +81,7 @@ const dataVersion = createHash("sha256")
   .update(wordsJson)
   .update(detailsJson)
   .update(conjugationsJson)
+  .update(conjugationsRoJson)
   .update(sentencesJson)
   .update(topicsJson)
   .update(guideJson)
@@ -97,6 +103,7 @@ mkdirSync(OUT_DIR, { recursive: true });
 writeFileSync(resolve(OUT_DIR, "words.json"), wordsJson);
 writeFileSync(resolve(OUT_DIR, "details.json"), detailsJson);
 writeFileSync(resolve(OUT_DIR, "conjugations.json"), conjugationsJson);
+writeFileSync(resolve(OUT_DIR, "conjugationsRo.json"), conjugationsRoJson);
 writeFileSync(resolve(OUT_DIR, "sentences.json"), sentencesJson);
 writeFileSync(resolve(OUT_DIR, "topics.json"), topicsJson);
 writeFileSync(resolve(OUT_DIR, "guide.json"), guideJson);
@@ -105,6 +112,6 @@ writeFileSync(resolve(OUT_DIR, "presenteIrregular.json"), presenteIrregularJson)
 writeFileSync(resolve(OUT_DIR, "meta.json"), `${JSON.stringify(meta, null, 2)}\n`);
 
 console.log(
-  `Date generate: ${words.length} cuvinte, ${Object.keys(conjugations).length} verbe conjugate, ${sentences.length} propoziții, ${topics.length} teme, ${grammar.length} teme de gramatică ` +
+  `Date generate: ${words.length} cuvinte, ${Object.keys(conjugations).length} verbe conjugate (${Object.keys(romanian).length} cu conjugare activă), ${sentences.length} propoziții, ${topics.length} teme, ${grammar.length} teme de gramatică ` +
     `(${explicitPresenteCount} presente din irregular.json), versiune ${dataVersion} → ${OUT_DIR}`,
 );

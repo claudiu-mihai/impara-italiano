@@ -30,6 +30,12 @@ const ALLOWED: { file: string; text: string; why: string }[] = [
   { file: "src/app/content.tsx", text: "trebuie folosit", why: "eroare pentru dezvoltatori" },
   { file: "src/data/sync/types.ts", text: "lipsește de pe server", why: "eroare pentru dezvoltatori (tratată de motorul de sincronizare)" },
   { file: "src/features/settings/SettingsPage.tsx", text: ">Română<", why: "numele limbii, scris în limba ei" },
+  { file: "src/domain/content/schema.ts", text: "id-ul unui verb", why: "mesaj de validare la build" },
+];
+
+/** Fișiere care sunt în întregime gramatica limbii materne (conținut), nu text al interfeței. */
+const ALLOWED_FILES: { file: string; why: string }[] = [
+  { file: "src/domain/conjugation/romanian.ts", why: "auxiliarele și pronumele românești din care se compun formele verbelor" },
 ];
 
 const DIACRITICS = /[ăâîșțĂÂÎȘȚ]/;
@@ -54,6 +60,7 @@ test("în componente și cod nu a rămas text românesc scris direct (în afara 
         // doar șiruri între ghilimele/backtick sau text JSX; comentariile de la sfârșitul rândului se ignoră
         const code = line.replace(/\s\/\/.*$/, "");
         if (!/"[^"]*[ăâîșțĂÂÎȘȚ][^"]*"|`[^`]*[ăâîșțĂÂÎȘȚ][^`]*`|>[^<>{}]*[ăâîșțĂÂÎȘȚ][^<>{}]*</.test(code)) return;
+        if (ALLOWED_FILES.some((a) => file.replaceAll("\\", "/").endsWith(a.file))) return;
         if (ALLOWED.some((a) => file.replaceAll("\\", "/").endsWith(a.file) && code.includes(a.text))) return;
         found.push(`${file}:${index + 1}: ${line.trim()}`);
       });

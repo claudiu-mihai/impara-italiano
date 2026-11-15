@@ -10,7 +10,8 @@ import { buildTopicSession, topicWordIds } from "../domain/topics/topics.ts";
 import { computeStats, type Stats } from "../domain/stats/stats.ts";
 import type { Settings } from "../domain/settings.ts";
 import { studyDayOf } from "../domain/time/studyDay.ts";
-import { loadGuide, type ContentStore } from "./content/contentStore.ts";
+import { loadConjugationsRo, loadGuide, type ContentStore } from "./content/contentStore.ts";
+import type { RoConjugations } from "../domain/conjugation/romanian.ts";
 import type { ImparaDb } from "./db/db.ts";
 import { countReviewsOn, getSettings } from "./db/repositories.ts";
 
@@ -51,12 +52,17 @@ export interface ConjugationOverview {
   queue: ConjItem[];
   dueCount: number;
   newCount: number;
+  /** Formele românești ale verbelor cu conjugare activă, pentru cerința cu traducere. */
+  romanian: RoConjugations;
 }
 
-/** Verbele pentru care există forme conjugate, cu timpurile disponibile. */
-export function conjugationVerbs(content: ContentStore, conjugations: Conjugations): ConjVerb[] {
+/**
+ * Verbele care primesc timpuri noi: doar cele din lista de conjugare activă (verbele frecvente, cu forme românești),
+ * cu timpurile disponibile. Restul verbelor rămân ca vocabular; cardurile de conjugare existente revin în continuare.
+ */
+export function conjugationVerbs(content: ContentStore, conjugations: Conjugations, romanian: RoConjugations): ConjVerb[] {
   return content.words
-    .filter((w) => w.pos === "verb" && conjugations[w.id])
+    .filter((w) => w.pos === "verb" && conjugations[w.id] && romanian[w.id])
     .map((w) => ({
       id: w.id,
       rank: w.rank,
@@ -71,20 +77,21 @@ export async function loadConjugationOverview(
   conjugations: Conjugations,
   now: Date = new Date(),
 ): Promise<ConjugationOverview> {
-  const [settings, cards, reviewsDoneToday] = await Promise.all([
+  const [settings, cards, reviewsDoneToday, romanian] = await Promise.all([
     getSettings(db),
     db.cards.toArray(),
     countReviewsOn(db, studyDayOf(now)),
+    loadConjugationsRo(),
   ]);
   const queue = buildConjugationSession({
     now,
     settings,
     cards,
-    verbs: conjugationVerbs(content, conjugations),
+    verbs: conjugationVerbs(content, conjugations, romanian),
     reviewsDoneToday,
   });
   const newCount = queue.filter((i) => i.isNew).length;
-  return { settings, queue, dueCount: queue.length - newCount, newCount };
+  return { settings, queue, dueCount: queue.length - newCount, newCount, romanian };
 }
 
 /** Sesiunea „Studiază tema”: scadentele și cuvintele noi ale temei. */

@@ -3,14 +3,14 @@ import type { Grade } from "ts-fsrs";
 import { Rating } from "../../domain/srs/fsrsConstants.ts";
 import { db } from "../../data/db/instance.ts";
 import { useT, type Key } from "../../i18n/index.ts";
-import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
-import { personsOf, TENSE_LABEL } from "../../domain/content/display.ts";
 import { spokenConjugation } from "../../domain/content/spokenConjugation.ts";
 import { formatInterval } from "../../domain/srs/format.ts";
 import { newStoredCard, previewDue } from "../../domain/srs/scheduler.ts";
 import { studyDayOf } from "../../domain/time/studyDay.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { primaryButton } from "../../ui/SessionDone.tsx";
+import { speak } from "../../services/tts.ts";
+import { ConjPrompt } from "./ConjPrompt.tsx";
 import type { ConjCardProps } from "./types.ts";
 
 const BUTTONS: { grade: Grade; label: Key; color: string }[] = [
@@ -20,8 +20,11 @@ const BUTTONS: { grade: Grade; label: Key; color: string }[] = [
   { grade: Rating.Easy, label: "rate.easy", color: "bg-sky-700" },
 ];
 
-/** Varianta „Flip”: persoană pe față, forma pe spate, autoevaluare cu cele 4 butoane FSRS. */
-export function FlipCard({ item, verb, forms, settings, onFinish }: ConjCardProps) {
+/**
+ * Varianta „Cu voce tare”: cerința pe față, spui forma cu voce tare, apoi o vezi și o auzi pe spate; autoevaluare cu cele
+ * 4 butoane FSRS. Alternativă egală la scris (de exemplu pentru dislexie).
+ */
+export function FlipCard({ item, verb, forms, ro, settings, onFinish }: ConjCardProps) {
   const { t, tp } = useT();
   // o singură persoană pe card, ca în exemplul „parlare · passato prossimo · noi”
   const [person] = useState(() => Math.floor(Math.random() * forms.length));
@@ -65,33 +68,32 @@ export function FlipCard({ item, verb, forms, settings, onFinish }: ConjCardProp
     return () => window.removeEventListener("keydown", onKey);
   });
 
-  const personLabel = personsOf(item.tense)[person]!;
   const accepted = forms[person] ?? [];
   const spoken = spokenConjugation(item.tense, person, accepted);
 
+  // după ce ai spus forma cu voce tare și ai întors cardul, o auzi ca să compari („Audio automat”)
+  useEffect(() => {
+    if (flipped && settings.autoPlayAudio) speak(spoken, settings.ttsRate);
+    // doar la întoarcere
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [flipped]);
+
   return (
     <>
-      <section
-        className="flex flex-col items-center gap-2 rounded-3xl bg-white p-6 text-center shadow-md dark:bg-slate-900"
-        data-testid="flip-card"
+      <ConjPrompt
+        item={item}
+        verb={verb}
+        ro={ro}
+        person={person}
+        rate={settings.ttsRate}
+        testId="flip-card"
+        className="flex flex-col items-center gap-2 rounded-3xl bg-white p-6 text-center shadow-md compact:gap-0.5 compact:p-2 dark:bg-slate-900"
       >
-        <p className="text-sm text-muted">{t(TENSE_LABEL[item.tense])}</p>
-        <div className="flex items-center gap-2">
-          <p className="text-3xl font-bold">{verb.it}</p>
-          <AudioButton text={verb.it} rate={settings.ttsRate} size="sm" />
-        </div>
-        <p lang={NATIVE_LANGUAGE} className="text-muted">
-          {verb.ro}
-        </p>
-        <p className="mt-3 text-4xl font-bold text-brand-fg" data-testid="person">
-          {personLabel.it}
-        </p>
-        {personLabel.ro !== personLabel.it && (
-          <p lang={NATIVE_LANGUAGE} className="text-sm text-muted">
-            ({personLabel.ro})
+        {!flipped && (
+          <p className="mt-3 text-sm font-semibold text-slate-700 dark:text-slate-200" data-testid="say-aloud">
+            🗣️ {t("conj.sayAloud")}
           </p>
         )}
-
         {flipped && (
           <div className="mt-4 flex flex-col items-center gap-2 border-t border-slate-200 pt-4 dark:border-slate-700" data-testid="flip-answer">
             <p className="text-3xl font-bold">{accepted.join(" / ")}</p>
@@ -101,7 +103,7 @@ export function FlipCard({ item, verb, forms, settings, onFinish }: ConjCardProp
             </div>
           </div>
         )}
-      </section>
+      </ConjPrompt>
 
       <div className="mt-auto">
         {flipped ? (
