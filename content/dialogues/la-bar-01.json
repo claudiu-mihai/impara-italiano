@@ -13,7 +13,7 @@
     { "speaker": "cliente", "it": "Buongiorno. Vorrei un caffè e un cornetto, per favore.", "ro": "Bună ziua. Aș vrea o cafea și un croissant, vă rog." },
     { "speaker": "barista", "it": "Il cornetto vuoto o alla crema?", "ro": "Croissantul simplu sau cu cremă?" },
     { "speaker": "cliente", "it": "Alla crema, grazie. Quant'è?", "ro": "Cu cremă, mulțumesc. Cât costă?" },
-    { "speaker": "barista", "it": "Due euro e cinquanta. Ecco lo scontrino.", "ro": "Doi euro și cincizeci. Poftiți bonul." },
+    { "speaker": "barista", "it": "Due euro e cinquanta. Ecco lo scontrino, {signore|signora}.", "ro": "Doi euro și cincizeci. Poftiți bonul, {domnule|doamnă}." },
     { "speaker": "cliente", "it": "Grazie, buona giornata!", "ro": "Mulțumesc, o zi bună!" }
   ]
 }

@@ -66,3 +66,14 @@ test("fiecare replică e a unui personaj", () => {
   const lines = [...dialogue().lines, line("cameriere")];
   expect(dialogueProblems(dialogue({ lines }), TOPICS)).toContain("la-bar-01: replica 5 e a unui personaj necunoscut (cameriere)");
 });
+
+test("marcajul de gen: corect în replici, interzis în titlu și în reper", () => {
+  const lines = dialogue().lines.map((l, i) => (i === 0 ? { ...l, it: "Buongiorno, {signore|signora}!" } : l));
+  expect(dialogueProblems(dialogue({ lines }), TOPICS)).toEqual([]);
+  const broken = dialogue().lines.map((l, i) => (i === 0 ? { ...l, ro: "Bună ziua, {domnule}!" } : l));
+  expect(dialogueProblems(dialogue({ lines: broken }), TOPICS)).toEqual([
+    "la-bar-01: replica 1: marcajul trebuie să aibă exact o bară „|” în „Bună ziua, {domnule}!”",
+  ]);
+  const title = { it: "Benvenut{o|a}", ro: "Bine ai venit" };
+  expect(dialogueProblems(dialogue({ title }), TOPICS)).toEqual(["la-bar-01: titlul și reperul nu pot avea marcaj de gen"]);
+});
