@@ -1,0 +1,151 @@
+{
+  "id": "una-pausa-al-bar-01",
+  "level": "A2",
+  "title": {
+    "it": "Una pausa al bar",
+    "ro": "O pauză la bar"
+  },
+  "speakers": [
+    {
+      "id": "narratore",
+      "name": {
+        "it": "Narratore",
+        "ro": "Naratorul"
+      },
+      "voice": "francesco",
+      "narrator": true
+    },
+    {
+      "id": "marta",
+      "name": {
+        "it": "Marta",
+        "ro": "Marta"
+      },
+      "voice": "sofia"
+    },
+    {
+      "id": "elena",
+      "name": {
+        "it": "Elena",
+        "ro": "Elena"
+      },
+      "voice": "giullia"
+    }
+  ],
+  "scenes": [
+    {
+      "lines": [
+        {
+          "speaker": "narratore",
+          "it": "Marta ed Elena si incontrano al bar durante la pausa dalle lezioni.",
+          "ro": "Marta și Elena se întâlnesc la bar în pauza dintre lecții."
+        },
+        {
+          "speaker": "narratore",
+          "it": "C'è tanta gente, tutti fanno colazione.",
+          "ro": "Este multă lume, toți iau micul dejun."
+        },
+        {
+          "speaker": "narratore",
+          "it": "Un signore beve un bicchiere di vino bianco, una mamma con il bambino piccolo parla con un'amica.",
+          "ro": "Un domn bea un pahar de vin alb, o mamă cu copilul mic vorbește cu o prietenă."
+        },
+        {
+          "speaker": "narratore",
+          "it": "Il bar è in stile classico, molto elegante.",
+          "ro": "Barul este în stil clasic, foarte elegant."
+        },
+        {
+          "speaker": "narratore",
+          "it": "Non c'è fumo: grazie a una nuova legge, in Italia non si può più fumare nei luoghi pubblici.",
+          "ro": "Nu e fum: datorită unei legi noi, în Italia nu se mai poate fuma în locurile publice."
+        },
+        {
+          "speaker": "marta",
+          "it": "Ho proprio bisogno di un caffè. Cosa prendi?",
+          "ro": "Chiar am nevoie de o cafea. Tu ce iei?"
+        },
+        {
+          "speaker": "elena",
+          "it": "Io bevo un cappuccino. Niente dolci oggi, per non ingrassare.",
+          "ro": "Eu beau un cappuccino. Fără dulciuri azi, ca să nu mă îngraș."
+        },
+        {
+          "speaker": "marta",
+          "it": "È una fortuna avere un bar proprio davanti alla scuola.",
+          "ro": "Ce noroc să ai un bar chiar în fața școlii."
+        },
+        {
+          "speaker": "elena",
+          "it": "C'è il giornale su quel tavolo, voglio leggere le notizie di oggi.",
+          "ro": "Este ziarul pe masa aceea, vreau să citesc știrile de azi."
+        },
+        {
+          "speaker": "marta",
+          "it": "Tu siedi qua e leggi, io vado a prendere i caffè.",
+          "ro": "Tu stai aici și citești, eu mă duc să iau cafelele."
+        },
+        {
+          "speaker": "narratore",
+          "it": "Poco dopo.",
+          "ro": "Puțin mai târziu."
+        },
+        {
+          "speaker": "marta",
+          "it": "Sono qua, questo è il tuo cappuccino.",
+          "ro": "Am venit, ăsta e cappuccino-ul tău."
+        },
+        {
+          "speaker": "elena",
+          "it": "Le notizie di oggi: il Papa sta male, è in ospedale; non può parlare e neanche uscire.",
+          "ro": "Știrile de azi: Papa e bolnav, e în spital; nu poate vorbi și nici ieși."
+        },
+        {
+          "speaker": "marta",
+          "it": "Povero Papa, è così vecchio, ma è ancora molto forte. Sa tante lingue, fa molte cose, viaggia sempre.",
+          "ro": "Săracul Papă, e atât de bătrân, dar e încă foarte puternic. Știe multe limbi, face multe lucruri, călătorește mereu."
+        },
+        {
+          "speaker": "elena",
+          "it": "Cosa dice il giornale? Per Pasqua il Papa rimane in ospedale o esce?",
+          "ro": "Ce spune ziarul? De Paște, Papa rămâne în spital sau iese?"
+        },
+        {
+          "speaker": "marta",
+          "it": "I dottori non sanno ancora, ma di certo non può lavorare così tanto. Deve anche riposare, se vuole guarire presto.",
+          "ro": "Medicii nu știu încă, dar sigur nu poate munci atât de mult. Trebuie să se și odihnească, dacă vrea să se facă bine repede."
+        },
+        {
+          "speaker": "marta",
+          "it": "Sono già le dieci, dobbiamo tornare a scuola.",
+          "ro": "Sunt deja zece, trebuie să ne întoarcem la școală."
+        },
+        {
+          "speaker": "elena",
+          "it": "È vero. Dieci minuti di pausa sono troppo pochi. Voglio quindici minuti!",
+          "ro": "Adevărat. Zece minute de pauză sunt prea puține. Vreau cincisprezece minute!"
+        },
+        {
+          "speaker": "marta",
+          "it": "Io torno a scuola, tu cosa fai? Rimani qui o vieni?",
+          "ro": "Eu mă întorc la școală, tu ce faci? Rămâi aici sau vii?"
+        },
+        {
+          "speaker": "elena",
+          "it": "Vengo, vengo! Voglio finire di leggere questo articolo, ma purtroppo non c'è più tempo.",
+          "ro": "Vin, vin! Vreau să termin de citit articolul ăsta, dar din păcate nu mai e timp."
+        },
+        {
+          "speaker": "marta",
+          "it": "Allora andiamo, il direttore diventa nervoso se non ci vede.",
+          "ro": "Atunci hai să mergem, directorul se enervează dacă nu ne vede."
+        },
+        {
+          "speaker": "narratore",
+          "it": "Marta ed Elena escono dal bar e tornano a lavorare.",
+          "ro": "Marta și Elena ies din bar și se întorc la muncă."
+        }
+      ]
+    }
+  ]
+}

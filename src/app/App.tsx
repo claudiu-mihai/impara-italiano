@@ -22,6 +22,7 @@ const AboutPage = lazy(() => import("../features/about/AboutPage.tsx").then((m) 
 const BrowsePage = lazy(() => import("../features/browse/BrowsePage.tsx").then((m) => ({ default: m.BrowsePage })));
 const WordDetailPage = lazy(() => import("../features/browse/WordDetailPage.tsx").then((m) => ({ default: m.WordDetailPage })));
 const DialogueListPage = lazy(() => import("../features/dialogue/DialogueListPage.tsx").then((m) => ({ default: m.DialogueListPage })));
+const StoryPage = lazy(() => import("../features/story/StoryPage.tsx").then((m) => ({ default: m.StoryPage })));
 const DialoguePage = lazy(() => import("../features/dialogue/DialoguePage.tsx").then((m) => ({ default: m.DialoguePage })));
 const ConjugationPage = lazy(() => import("../features/conjugation/ConjugationPage.tsx").then((m) => ({ default: m.ConjugationPage })));
 const FlashcardsPage = lazy(() => import("../features/flashcards/FlashcardsPage.tsx").then((m) => ({ default: m.FlashcardsPage })));
@@ -119,11 +120,12 @@ const NAV: { to: string; label: Key; icon: string; end: boolean }[] = [
 // Ecranele de studiu ocupă tot ecranul: bara de jos este ascunsă acolo.
 const STUDY_ROUTES = ["/learn/vocab", "/learn/conjugation", "/learn/sentence", "/quiz"];
 // sesiunile și exercițiile unei teme (/learn/topics/<id>/flashcards, /quiz, /match…) și jocurile de gramatică
-// (/learn/grammar/<id>/cards, /match, /type) tot pe tot ecranul, ca și dialogurile (/learn/topics/<id>/dialogue/<dialog>)
+// (/learn/grammar/<id>/cards, /match, /type) tot pe tot ecranul, ca și dialogurile (/learn/topics/<id>/dialogue/<dialog>) și poveștile (/learn/stories/<id>)
 const isStudyRoute = (pathname: string) =>
   STUDY_ROUTES.includes(pathname) ||
   /^\/learn\/(topics|grammar)\/[^/]+\/[a-z]+$/.test(pathname) ||
-  /^\/learn\/topics\/[^/]+\/dialogue\/[^/]+$/.test(pathname);
+  /^\/learn\/topics\/[^/]+\/dialogue\/[^/]+$/.test(pathname) ||
+  /^\/learn\/stories\/[^/]+$/.test(pathname);
 
 function Layout() {
   const { t } = useT();
@@ -220,6 +222,7 @@ export function App() {
               <Route path="learn/topics/:id/clock" element={<SkillPage />} />
               <Route path="learn/topics/:id/cat" element={<CatPage />} />
               <Route path="learn/topics/:id/dialogue/:dialogueId" element={<DialoguePage />} />
+              <Route path="learn/stories/:storyId" element={<StoryPage />} />
               <Route path="learn/dialogues" element={<DialogueListPage />} />
               <Route path="learn/grammar" element={<GrammarListPage />} />
               <Route path="learn/grammar/:id" element={<GrammarTopicPage />} />

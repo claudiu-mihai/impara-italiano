@@ -4,6 +4,7 @@ import { resolve } from "node:path";
 import { encodeWords } from "../src/domain/content/wordsCodec.ts";
 import { metaSchema, type ContentMeta } from "../src/domain/content/schema.ts";
 import { DIALOGUE_AUDIO_DIR, withDialogueAudio } from "./audio/dialogueAudio.ts";
+import { withStoryAudio } from "./audio/storyAudio.ts";
 import { recordingsIndex, WORD_AUDIO_DIR } from "./audio/wordAudio.ts";
 import { loadContent, ROOT } from "./content.ts";
 
@@ -30,7 +31,7 @@ const SOURCES = [
   },
 ];
 
-const { words, conjugations, romanian, sentences, topics, grammar, dialogues, rankBasis, explicitPresenteCount, presenteIrregular, errors } = loadContent();
+const { words, conjugations, romanian, sentences, topics, grammar, dialogues, stories, rankBasis, explicitPresenteCount, presenteIrregular, errors } = loadContent();
 
 if (errors.length > 0) {
   console.error(`Conținut invalid: ${errors.length} erori`);
@@ -83,6 +84,10 @@ const dialoguesWithAudio = dialogues.map((d) => withDialogueAudio(d, (file) => e
 const dialoguesJson = lines(dialoguesWithAudio);
 const lineVariants = dialoguesWithAudio.flatMap((d) => d.lines).length * 2;
 const audioVariants = dialoguesWithAudio.flatMap((d) => d.lines).reduce((n, l) => n + Object.keys(l.audio ?? {}).length, 0);
+// stories.json: o poveste pe linie, încărcat doar de lista de dialoguri și de ecranul poveștii
+const storiesWithAudio = stories.map((s) => withStoryAudio(s, (file) => existsSync(resolve(audioDir, file))));
+const storiesJson = lines(storiesWithAudio);
+const storyLines = storiesWithAudio.flatMap((s) => s.scenes.flatMap((scene) => scene.lines));
 const presenteIrregularJson = lines(presenteIrregular);
 // recordings.json: textul rostit → înregistrarea (cuvintele A1), încărcat de `speak()` după pornire
 const wordAudioDir = resolve(ROOT, WORD_AUDIO_DIR);
@@ -99,6 +104,7 @@ const dataVersion = createHash("sha256")
   .update(guideJson)
   .update(grammarJson)
   .update(dialoguesJson)
+  .update(storiesJson)
   .update(presenteIrregularJson)
   .update(recordingsJson)
   .digest("hex")
@@ -123,11 +129,12 @@ writeFileSync(resolve(OUT_DIR, "topics.json"), topicsJson);
 writeFileSync(resolve(OUT_DIR, "guide.json"), guideJson);
 writeFileSync(resolve(OUT_DIR, "grammar.json"), grammarJson);
 writeFileSync(resolve(OUT_DIR, "dialogues.json"), dialoguesJson);
+writeFileSync(resolve(OUT_DIR, "stories.json"), storiesJson);
 writeFileSync(resolve(OUT_DIR, "presenteIrregular.json"), presenteIrregularJson);
 writeFileSync(resolve(OUT_DIR, "recordings.json"), recordingsJson);
 writeFileSync(resolve(OUT_DIR, "meta.json"), `${JSON.stringify(meta, null, 2)}\n`);
 
 console.log(
-  `Date generate: ${words.length} cuvinte, ${Object.keys(conjugations).length} verbe conjugate (${Object.keys(romanian).length} cu conjugare activă), ${sentences.length} propoziții, ${topics.length} teme, ${grammar.length} teme de gramatică, ${dialogues.length} dialoguri (audio: ${audioVariants}/${lineVariants} replici), ${Object.keys(recordings).length} cuvinte cu audio ` +
+  `Date generate: ${words.length} cuvinte, ${Object.keys(conjugations).length} verbe conjugate (${Object.keys(romanian).length} cu conjugare activă), ${sentences.length} propoziții, ${topics.length} teme, ${grammar.length} teme de gramatică, ${dialogues.length} dialoguri (audio: ${audioVariants}/${lineVariants} replici), ${stories.length} povești (audio: ${storyLines.filter((l) => l.audio).length}/${storyLines.length} replici), ${Object.keys(recordings).length} cuvinte cu audio ` +
     `(${explicitPresenteCount} presente din irregular.json), versiune ${dataVersion} → ${OUT_DIR}`,
 );

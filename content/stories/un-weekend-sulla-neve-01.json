@@ -1,0 +1,231 @@
+{
+  "id": "un-weekend-sulla-neve-01",
+  "level": "A2",
+  "title": {
+    "it": "Un weekend sulla neve",
+    "ro": "Un weekend pe zăpadă"
+  },
+  "speakers": [
+    {
+      "id": "elena",
+      "name": {
+        "it": "Elena",
+        "ro": "Elena"
+      },
+      "voice": "giullia"
+    },
+    {
+      "id": "giulia",
+      "name": {
+        "it": "Giulia",
+        "ro": "Giulia"
+      },
+      "voice": "sofia"
+    },
+    {
+      "id": "marco",
+      "name": {
+        "it": "Marco",
+        "ro": "Marco"
+      },
+      "voice": "francesco"
+    },
+    {
+      "id": "paolo",
+      "name": {
+        "it": "Paolo",
+        "ro": "Paolo"
+      },
+      "voice": "luca"
+    }
+  ],
+  "scenes": [
+    {
+      "title": {
+        "it": "A casa, guardando le vecchie foto",
+        "ro": "Acasă, uitându-ne la poze vechi"
+      },
+      "lines": [
+        {
+          "speaker": "elena",
+          "it": "Ragazzi, guardate il mio telefono! Mi ha mostrato le foto dell'inverno scorso in montagna.",
+          "ro": "Băieți, uitați-vă la telefonul meu! Mi-a arătat pozele de iarna trecută de la munte."
+        },
+        {
+          "speaker": "marco",
+          "it": "No vabbè, che belli quei giorni! Ricordi la baita di Paolo?",
+          "ro": "Hai, ce frumoase zile! Îți amintești de cabana lui Paolo?"
+        },
+        {
+          "speaker": "giulia",
+          "it": "Come no! Abbiamo camminato per ore nel bosco e poi abbiamo mangiato una polenta fantastica.",
+          "ro": "Cum să nu! Am mers ore întregi prin pădure și apoi am mâncat o mămăligă fantastică."
+        },
+        {
+          "speaker": "marco",
+          "it": "È vero, e la mattina c'era sempre il pane caldo con il miele fatto in casa.",
+          "ro": "Adevărat, și dimineața era mereu pâine caldă cu miere făcută în casă."
+        },
+        {
+          "speaker": "elena",
+          "it": "Che dite, chiamiamo Paolo per un salutino?",
+          "ro": "Ce ziceți, îl sunăm pe Paolo să-l salutăm?"
+        },
+        {
+          "speaker": "giulia",
+          "it": "Sì, dai! Mettilo in viva voce.",
+          "ro": "Da, hai! Pune-l pe difuzor."
+        }
+      ]
+    },
+    {
+      "title": {
+        "it": "La telefonata con Paolo",
+        "ro": "Convorbirea cu Paolo"
+      },
+      "lines": [
+        {
+          "speaker": "paolo",
+          "it": "Pronto? Chi parla?",
+          "ro": "Alo? Cine vorbește?"
+        },
+        {
+          "speaker": "elena",
+          "it": "Ciao Paolo, sono Elena! Sono qui con Marco e Giulia. Come stai?",
+          "ro": "Salut Paolo, sunt Elena! Sunt aici cu Marco și Giulia. Ce mai faci?"
+        },
+        {
+          "speaker": "paolo",
+          "it": "Elena! Che bella sorpresa! Io sto benissimo, e voi?",
+          "ro": "Elena! Ce surpriză frumoasă! Eu sunt foarte bine, și voi?"
+        },
+        {
+          "speaker": "marco",
+          "it": "Tutto bene, grazie. Abbiamo appena guardato le foto dell'anno scorso e abbiamo pensato a te.",
+          "ro": "Totul bine, mulțumim. Tocmai ne-am uitat la pozele de anul trecut și ne-am gândit la tine."
+        },
+        {
+          "speaker": "paolo",
+          "it": "Anche io vi penso spesso! Dovete tornare a trovarmi. Ieri ha nevicato tantissimo e oggi c'è un sole meraviglioso. Le piste sono perfette per sciare!",
+          "ro": "Și eu mă gândesc des la voi! Trebuie să veniți din nou pe la mine. Ieri a nins foarte mult și azi e un soare minunat. Pârtiile sunt perfecte pentru schi!"
+        },
+        {
+          "speaker": "giulia",
+          "it": "Davvero? Sarebbe fantastico!",
+          "ro": "Serios? Ar fi fantastic!"
+        },
+        {
+          "speaker": "paolo",
+          "it": "Venite questo weekend! La mia baita è sempre aperta per voi.",
+          "ro": "Veniți weekendul ăsta! Cabana mea e mereu deschisă pentru voi."
+        },
+        {
+          "speaker": "elena",
+          "it": "Va bene, accettiamo volentieri! Grazie Paolo, ci vediamo sabato mattina!",
+          "ro": "Bine, acceptăm cu plăcere! Mulțumim Paolo, ne vedem sâmbătă dimineața!"
+        }
+      ]
+    },
+    {
+      "title": {
+        "it": "Al noleggio sci",
+        "ro": "La închirierea de schiuri"
+      },
+      "lines": [
+        {
+          "speaker": "marco",
+          "it": "Allora ragazze, cosa noleggiate oggi?",
+          "ro": "Deci, fetelor, ce închiriați azi?"
+        },
+        {
+          "speaker": "elena",
+          "it": "Io faccio sci da discesa. Ho bisogno di sci, bastoncini, scarponi e un casco.",
+          "ro": "Eu fac schi alpin. Am nevoie de schiuri, bețe, clăpari și o cască."
+        },
+        {
+          "speaker": "giulia",
+          "it": "Vengo con te! Voglio provare la pista rossa, e forse anche quella nera.",
+          "ro": "Vin cu tine! Vreau să încerc pârtia roșie, și poate chiar și pe cea neagră."
+        },
+        {
+          "speaker": "marco",
+          "it": "Troppo difficile per me! Io preferisco lo sci di fondo: è più tranquillo e non serve il casco.",
+          "ro": "Prea dificil pentru mine! Eu prefer schiul fond: e mai liniștit și nu trebuie cască."
+        },
+        {
+          "speaker": "elena",
+          "it": "Marco, ma tu hai mai fatto sci di fondo?",
+          "ro": "Marco, dar tu ai făcut vreodată schi fond?"
+        },
+        {
+          "speaker": "marco",
+          "it": "No, mai. Ma ho guardato due video su internet ieri sera, sembra facilissimo! Si cammina e basta.",
+          "ro": "Nu, niciodată. Dar m-am uitat aseară la două videoclipuri pe internet, pare foarte ușor! Doar mergi, atât."
+        },
+        {
+          "speaker": "giulia",
+          "it": "Secondo me devi prendere almeno una lezione con un maestro...",
+          "ro": "După mine, ar trebui să iei măcar o lecție cu un instructor..."
+        },
+        {
+          "speaker": "marco",
+          "it": "Ma figurati! Ho già capito tutto. Vado subito sul percorso lungo nel bosco!",
+          "ro": "Las' că știu! Am înțeles deja tot. Mă duc imediat pe traseul lung din pădure!"
+        }
+      ]
+    },
+    {
+      "title": {
+        "it": "Nel pomeriggio, dopo aver sciato",
+        "ro": "După-amiază, după schi"
+      },
+      "lines": [
+        {
+          "speaker": "elena",
+          "it": "Ah, sono stanca ma felicissima! La neve era spettacolare oggi.",
+          "ro": "Ah, sunt obosită, dar foarte fericită! Zăpada a fost spectaculoasă azi."
+        },
+        {
+          "speaker": "giulia",
+          "it": "Sì, e non c'era quasi nessuno sulle piste. Ma guarda chi arriva... Ciao Marco! Tutto bene?",
+          "ro": "Da, și nu era aproape nimeni pe pârtii. Dar uite cine vine... Salut Marco! Totul bine?"
+        },
+        {
+          "speaker": "marco",
+          "it": "Uff, lasciate stare... Lo sci di fondo è un incubo!",
+          "ro": "Uf, lăsați... Schiul fond e un coșmar!"
+        },
+        {
+          "speaker": "elena",
+          "it": "Perché? Cos'è successo? Non hai fatto il percorso lungo?",
+          "ro": "De ce? Ce s-a întâmplat? N-ai făcut traseul lung?"
+        },
+        {
+          "speaker": "marco",
+          "it": "Ho sciato per quindici minuti e poi ho passato tutto il pomeriggio per terra! Non riuscivo a fermarmi.",
+          "ro": "Am schiat cincisprezece minute și apoi mi-am petrecut toată după-amiaza pe jos! Nu reușeam să mă opresc."
+        },
+        {
+          "speaker": "giulia",
+          "it": "Poverino! E perché hai un solo guanto?",
+          "ro": "Săracul! Și de ce ai o singură mănușă?"
+        },
+        {
+          "speaker": "marco",
+          "it": "Il telefono ha suonato, ho tolto il guanto per rispondere e l'ho dimenticato sulla neve. Ho tutti i vestiti bagnati e ho freddo!",
+          "ro": "A sunat telefonul, mi-am scos mănușa ca să răspund și am uitat-o în zăpadă. Am toate hainele ude și mi-e frig!"
+        },
+        {
+          "speaker": "elena",
+          "it": "Vabbè, pazienza! Andiamo subito alla baita di Paolo. Lì puoi fare una doccia calda e bere una cioccolata con panna.",
+          "ro": "Bine, răbdare! Mergem imediat la cabana lui Paolo. Acolo poți face un duș cald și bea o ciocolată cu frișcă."
+        },
+        {
+          "speaker": "marco",
+          "it": "Ottima idea! Ho proprio bisogno di riscaldarmi.",
+          "ro": "Idee excelentă! Chiar am nevoie să mă încălzesc."
+        }
+      ]
+    }
+  ]
+}
