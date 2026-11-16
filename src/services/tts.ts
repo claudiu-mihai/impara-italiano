@@ -105,17 +105,88 @@ function utteranceFor(text: string, rate: number, speaker?: Speaker): SpeechSynt
   return utterance;
 }
 
-/** Oprește orice redare în curs (o frază sau o serie). */
+/** Viteza vocii de sistem care corespunde unei înregistrări redate normal (viteza implicită din Setări). */
+export const RECORDED_RATE = 0.9;
+
+// înregistrarea (audio pregenerat) care se aude acum, ca o redare nouă să o poată opri
+let recording: HTMLAudioElement | null = null;
+
+/** Oprește orice redare în curs (o frază, o serie sau o înregistrare). */
 export function stopSpeaking(): void {
   sequenceToken++;
   setSpeaking(null);
+  if (recording) {
+    recording.pause();
+    recording = null;
+  }
   if (supported()) window.speechSynthesis.cancel();
 }
 
-export function speak(text: string, rate = 0.9, options?: { speaker?: Speaker }): void {
+function speakWithVoice(text: string, rate: number, speaker?: Speaker): void {
   if (computeStatus() !== "ready") return;
   stopSpeaking();
-  window.speechSynthesis.speak(utteranceFor(text, rate, options?.speaker));
+  window.speechSynthesis.speak(utteranceFor(text, rate, speaker));
+}
+
+/**
+ * Redă o înregistrare, cu viteza relativă la cea implicită (tonul rămâne același). Dacă fișierul nu se poate reda (lipsă,
+ * fără rețea, redare blocată), fraza se rostește cu vocea de sistem, o singură dată.
+ */
+function playRecording(url: string, text: string, rate: number, speaker?: Speaker): void {
+  stopSpeaking();
+  const audio = new Audio(url);
+  audio.playbackRate = Math.min(2, Math.max(0.5, rate / RECORDED_RATE));
+  recording = audio;
+  let fellBack = false;
+  const fallback = () => {
+    // oprită între timp de o redare nouă: nu mai pornește nimic
+    if (fellBack || recording !== audio) return;
+    fellBack = true;
+    recording = null;
+    speakWithVoice(text, rate, speaker);
+  };
+  audio.addEventListener("error", fallback, { once: true });
+  audio.play().catch(fallback);
+}
+
+// indexul înregistrărilor (textul rostit → fișier relativ la /audio/, ex. cuvintele A1), încărcat după pornire
+let recordings: Record<string, string> | null = null;
+let recordingsLoad: Promise<void> | null = null;
+
+/** Încarcă indexul înregistrărilor (o singură dată); până atunci frazele se rostesc cu vocea de sistem. */
+export function preloadRecordings(): Promise<void> {
+  recordingsLoad ??= import("../data/generated/recordings.json")
+    .then((module) => {
+      recordings = module.default as Record<string, string>;
+      for (const l of listeners) l();
+    })
+    .catch(() => {
+      // de exemplu fără rețea la prima pornire: se reîncearcă la următoarea frază
+      recordingsLoad = null;
+    });
+  return recordingsLoad;
+}
+
+/** URL-ul înregistrării unei fraze din index, dacă există (și indexul e încărcat). */
+export function recordingFor(text: string): string | undefined {
+  const file = recordings?.[text];
+  return file ? `${import.meta.env.BASE_URL}audio/${file}` : undefined;
+}
+
+/** Înregistrarea unei fraze, reactivă: apare când se încarcă indexul. */
+export function useRecording(text: string): string | undefined {
+  return useSyncExternalStore(subscribe, () => recordingFor(text), () => undefined);
+}
+
+/**
+ * Rostește fraza: din înregistrarea dată (`audio`) sau din indexul înregistrărilor, cu vocea de sistem ca rezervă; fără
+ * înregistrare, cu vocea de sistem.
+ */
+export function speak(text: string, rate = 0.9, options?: { speaker?: Speaker; audio?: string }): void {
+  if (!recordings) void preloadRecordings();
+  const audio = options?.audio ?? recordingFor(text);
+  if (audio) playRecording(audio, text, rate, options?.speaker);
+  else speakWithVoice(text, rate, options?.speaker);
 }
 
 /**

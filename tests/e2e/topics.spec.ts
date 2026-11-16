@@ -223,6 +223,8 @@ test("Numere 0–20: o rundă notată și cardul abilității creat", async ({ p
         original?.(utterance);
       };
     }
+    // unele numere sunt cuvinte A1 cu înregistrare: o blocăm, ca numărul să ajungă la vocea de sistem și să poată fi citit
+    HTMLMediaElement.prototype.play = () => Promise.reject(new DOMException("blocat în test", "NotAllowedError"));
   });
   const reverse = new Map(Array.from({ length: 21 }, (_, n) => [numberToItalian(n), String(n)]));
   await page.goto("/learn/topics/numere-0-20/numbers");
@@ -282,6 +284,8 @@ test("Numere 100–1.000.000: cifrele au punct la mii și se acceptă litere sau
         original?.(utterance);
       };
     }
+    // unele numere sunt cuvinte A1 cu înregistrare: o blocăm, ca numărul să ajungă la vocea de sistem și să poată fi citit
+    HTMLMediaElement.prototype.play = () => Promise.reject(new DOMException("blocat în test", "NotAllowedError"));
   });
   // numărul rostit se regăsește căutând în interval (101 – 1.000.000)
   const fromWords = (text: string) => {

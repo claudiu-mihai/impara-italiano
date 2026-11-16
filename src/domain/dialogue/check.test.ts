@@ -11,7 +11,7 @@ function dialogue(overrides: Partial<Dialogue> = {}): Dialogue {
     title: { it: "Un caffè, per favore", ro: "O cafea, vă rog" },
     canDo: { it: "So ordinare al bar", ro: "Pot să comand la bar" },
     speakers: [
-      { id: "barista", name: { it: "Barista", ro: "Barmanul" } },
+      { id: "barista", name: { it: "Barista", ro: "Barmanul" }, gender: "m" },
       { id: "cliente", name: { it: "Tu", ro: "Tu" } },
     ],
     you: "cliente",
@@ -76,4 +76,12 @@ test("marcajul de gen: corect în replici, interzis în titlu și în reper", ()
   ]);
   const title = { it: "Benvenut{o|a}", ro: "Bine ai venit" };
   expect(dialogueProblems(dialogue({ title }), TOPICS)).toEqual(["la-bar-01: titlul și reperul nu pot avea marcaj de gen"]);
+});
+
+test("personajul celălalt are gen (alege vocea), cel al cursantului nu (vine din „Joci ca”)", () => {
+  const [barista, cliente] = dialogue().speakers;
+  const noGender = dialogue({ speakers: [{ id: barista.id, name: barista.name }, cliente] });
+  expect(dialogueProblems(noGender, TOPICS)).toEqual(["la-bar-01: personajul „barista” trebuie să aibă gen (m sau f)"]);
+  const youGender = dialogue({ speakers: [barista, { ...cliente, gender: "f" }] });
+  expect(dialogueProblems(youGender, TOPICS)).toEqual(["la-bar-01: personajul cursantului („cliente”) nu are gen: îl alege cursantul"]);
 });

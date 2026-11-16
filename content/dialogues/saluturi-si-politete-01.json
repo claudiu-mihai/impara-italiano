@@ -4,7 +4,7 @@
   "title": {"it": "Piacere!", "ro": "Îmi pare bine!"},
   "canDo": {"it": "So presentarmi e salutare", "ro": "Pot să mă prezint și să salut"},
   "speakers": [
-    {"id": "giulia", "name": {"it": "Giulia", "ro": "Giulia"}},
+    {"id": "giulia", "name": {"it": "Giulia", "ro": "Giulia"}, "gender": "f"},
     {"id": "tu", "name": {"it": "Tu", "ro": "Tu"}}
   ],
   "you": "tu",

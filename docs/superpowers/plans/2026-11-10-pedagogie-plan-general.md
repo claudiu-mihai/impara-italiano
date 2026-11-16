@@ -109,6 +109,7 @@ Design: `docs/superpowers/specs/2026-11-15-dialoguri-design.md`; plan: `docs/sup
 5. **Repere „pot să…”** pe Acasă, bifate la dialogurile învățate (stabilitate ≥ 7 zile), pentru nivelul curent.
 6. **Voci:** o a doua voce italiană pentru al doilea personaj, sau aceeași voce cu altă înălțime.
 7. **Genul personajului** (`docs/superpowers/specs/2026-11-15-dialoguri-gen-design.md`): marcaj `{m|f}` în replici, setarea `learnerGender` și comutatorul „Joci ca”; formele care se schimbă sunt subliniate.
+8. **Audio pregenerat** (`docs/superpowers/specs/2026-11-15-audio-dialoguri-design.md`): replicile se redau din înregistrări generate local (Qwen3-TTS, Francesco și Giullia), cu vocea de sistem ca rezervă; `npm run audio:dialogues`. Cuvintele A1 au și ele înregistrări (Francesco, `npm run audio:words`).
 
 ## Reguli de lucru
 

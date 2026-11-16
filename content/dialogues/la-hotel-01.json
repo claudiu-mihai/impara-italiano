@@ -4,7 +4,7 @@
   "title": {"it": "In albergo", "ro": "La hotel"},
   "canDo": {"it": "So fare il check-in in albergo", "ro": "Pot să fac check-in la hotel"},
   "speakers": [
-    {"id": "receptionist", "name": {"it": "Receptionist", "ro": "Recepționera"}},
+    {"id": "receptionist", "name": {"it": "Receptionist", "ro": "Recepționera"}, "gender": "f"},
     {"id": "tu", "name": {"it": "Tu", "ro": "Tu"}}
   ],
   "you": "tu",

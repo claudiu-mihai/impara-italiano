@@ -18,6 +18,13 @@ export function dialogueProblems(dialogue: Dialogue, topicIds: ReadonlySet<strin
   }
   if (speakerIds[0] === speakerIds[1]) problems.push(`${id}: personajele au același id`);
   if (!speakerIds.includes(you)) problems.push(`${id}: „you” (${you}) nu e un personaj`);
+  for (const speaker of speakers) {
+    if (speaker.id === you && speaker.gender) {
+      problems.push(`${id}: personajul cursantului („${speaker.id}”) nu are gen: îl alege cursantul`);
+    } else if (speaker.id !== you && !speaker.gender) {
+      problems.push(`${id}: personajul „${speaker.id}” trebuie să aibă gen (m sau f)`);
+    }
+  }
   lines.forEach((line, i) => {
     if (!speakerIds.includes(line.speaker)) problems.push(`${id}: replica ${i + 1} e a unui personaj necunoscut (${line.speaker})`);
     for (const text of [line.it, line.ro]) {

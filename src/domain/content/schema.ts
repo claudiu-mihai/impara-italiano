@@ -165,6 +165,8 @@ export const topicSchema = z
  * Un dialog scurt pe o temă (content/dialogues/<id>.json): două personaje, unul jucat de cursant (`you`), 4–8 replici.
  * Regulile care leagă câmpurile între ele sunt în `domain/dialogue/check.ts`.
  */
+const dialogueSpeakerSchema = z.object({ id: z.string().min(1), name: localized, gender: z.enum(["m", "f"]).optional() }).strict();
+
 export const dialogueSchema = z
   .object({
     id: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*-\d{2}$/, "id invalid (ex. la-bar-01)"),
@@ -172,10 +174,8 @@ export const dialogueSchema = z
     title: localized,
     /** Reperul „pot să…”, bifat pe Acasă când dialogul e învățat. */
     canDo: localized,
-    speakers: z.tuple([
-      z.object({ id: z.string().min(1), name: localized }).strict(),
-      z.object({ id: z.string().min(1), name: localized }).strict(),
-    ]),
+    /** Personajul celălalt are gen (alege vocea audio-ului pregenerat); cel al cursantului nu, îl alege cursantul. */
+    speakers: z.tuple([dialogueSpeakerSchema, dialogueSpeakerSchema]),
     /** Personajul jucat de cursant în jocul de rol. */
     you: z.string(),
     lines: z.array(z.object({ speaker: z.string(), it: text, ro: text }).strict()),
@@ -308,4 +308,9 @@ export type Conjugations = z.infer<typeof conjugationsSchema>;
 export type ContentMeta = z.infer<typeof metaSchema>;
 export type Dialogue = z.infer<typeof dialogueSchema>;
 /** Un dialog după build: primește nivelul temei. */
-export type GeneratedDialogue = Dialogue & { level: Level };
+/** Fișierele audio pregenerate ale unei replici, după genul cursantului (`public/audio/dialogues/<fișier>`). */
+export type DialogueLineAudio = Partial<Record<"m" | "f", string>>;
+
+export type GeneratedDialogueLine = Dialogue["lines"][number] & { audio?: DialogueLineAudio };
+
+export type GeneratedDialogue = Omit<Dialogue, "lines"> & { level: Level; lines: GeneratedDialogueLine[] };

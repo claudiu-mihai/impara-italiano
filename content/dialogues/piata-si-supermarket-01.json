@@ -4,7 +4,7 @@
   "title": {"it": "Al mercato", "ro": "La piață"},
   "canDo": {"it": "So fare la spesa al mercato e chiedere il prezzo", "ro": "Pot să cumpăr la piață și să întreb prețul"},
   "speakers": [
-    {"id": "venditore", "name": {"it": "Venditore", "ro": "Vânzătorul"}},
+    {"id": "venditore", "name": {"it": "Venditore", "ro": "Vânzătorul"}, "gender": "m"},
     {"id": "tu", "name": {"it": "Tu", "ro": "Tu"}}
   ],
   "you": "tu",

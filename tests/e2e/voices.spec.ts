@@ -38,6 +38,8 @@ async function mockSpeech(page: Page, voices: MockVoice[]) {
         removeEventListener: () => {},
       },
     });
+    // testele de aici sunt despre vocea de sistem: înregistrările (cuvintele A1) nu se pot reda, deci se ajunge la ea
+    HTMLMediaElement.prototype.play = () => Promise.reject(new DOMException("blocat în test", "NotAllowedError"));
   }, voices);
 }
 
@@ -68,14 +70,19 @@ test("online, vocea locală este preferată celei de rețea", async ({ page }) =
   expect((await spoken(page))[0]?.voice).toBe("mac:alice");
 });
 
-test("fără voce locală și fără internet, butonul de audio este inactiv", async ({ page, context }) => {
-  await setWordOrder(page, "frequency");
+test("fără voce locală și fără internet, butonul de audio e inactiv, în afară de cuvintele cu înregistrare", async ({ page, context }) => {
   await mockSpeech(page, [GOOGLE, SAMANTHA]);
-  await page.goto("/learn/vocab");
-  await expect(page.getByRole("button", { name: "Ascultă pronunția: essere" })).toBeEnabled();
-
+  // „riuscire” (A2) nu are înregistrare
+  await page.goto("/browse/v-riuscire");
+  await expect(page.getByRole("button", { name: "Ascultă pronunția: riuscire" })).toBeEnabled();
   await context.setOffline(true);
-  await expect(page.getByTestId("card-front").getByRole("button", { name: "Audio necesită internet" })).toBeDisabled();
+  await expect(page.locator("header").getByRole("button", { name: "Audio necesită internet" })).toBeDisabled();
+
+  // „essere” (A1) are înregistrare, care poate fi deja salvată offline: butonul rămâne activ
+  await context.setOffline(false);
+  await page.goto("/browse/v-essere");
+  await context.setOffline(true);
+  await expect(page.getByRole("button", { name: "Ascultă pronunția: essere" })).toBeEnabled({ timeout: 5000 });
 });
 
 test("vocea aleasă în Setări se folosește la pronunție", async ({ page }) => {
@@ -113,14 +120,13 @@ test("Edge pe Mac: vocea macOS este aleasă în loc de vocea Microsoft Online ca
   expect((await spoken(page))[0]?.voice).toBe("mac:alice");
 });
 
-test("Edge: doar vocea Microsoft Online și fără internet → audio inactiv", async ({ page, context }) => {
-  await setWordOrder(page, "frequency");
+test("Edge: doar vocea Microsoft Online și fără internet → audio inactiv (cuvânt fără înregistrare)", async ({ page, context }) => {
   await mockSpeech(page, [MS_ONLINE]);
-  await page.goto("/learn/vocab");
-  await expect(page.getByRole("button", { name: "Ascultă pronunția: essere" })).toBeEnabled();
+  await page.goto("/browse/v-riuscire");
+  await expect(page.getByRole("button", { name: "Ascultă pronunția: riuscire" })).toBeEnabled();
 
   await context.setOffline(true);
-  await expect(page.getByTestId("card-front").getByRole("button", { name: "Audio necesită internet" })).toBeDisabled();
+  await expect(page.locator("header").getByRole("button", { name: "Audio necesită internet" })).toBeDisabled();
 });
 
 test("diagnostic: arată vocile expuse, tipul lor și vocea aleasă", async ({ page }) => {

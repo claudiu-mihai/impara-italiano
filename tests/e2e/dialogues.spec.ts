@@ -1,12 +1,13 @@
 import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
 import { resolveGender } from "../../src/domain/dialogue/gender.ts";
-import { mockSpeech, seedSkillCard, setListenFirst, spoken } from "./helpers.ts";
+import { mockAudio, mockSpeech, played, seedSkillCard, setListenFirst, spoken } from "./helpers.ts";
 
 interface Line {
   speaker: string;
   it: string;
   ro: string;
+  audio?: { m?: string; f?: string };
 }
 interface DialogueData {
   id: string;
@@ -200,4 +201,43 @@ test("dialogul e pe tot ecranul: bara de navigare nu acoperă butoanele", async 
   await page.goto(`${BAR_URL}?mode=roleplay`);
   await expect(page.getByRole("button", { name: "Continuă" })).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Navigare principală" })).toHaveCount(0);
+});
+
+test("audio pregenerat: replicile se redau din fișiere, cu vocea de sistem doar ca rezervă", async ({ page }) => {
+  await mockSpeech(page);
+  await mockAudio(page);
+  await page.goto(BAR_URL);
+  await page.getByRole("button", { name: "Ascultă" }).click();
+  const [first, second] = BAR.lines;
+  await expect.poll(() => played(page)).toContain(`/audio/dialogues/${first!.audio!.m}`);
+  await page.getByRole("button", { name: "Următoarea replică" }).click();
+  await expect.poll(() => played(page)).toContain(`/audio/dialogues/${second!.audio!.m}`);
+  // a doua voce pentru cursantul de același gen cu barmanul: alt fișier decât varianta de femeie
+  expect(second!.audio!.m).not.toBe(second!.audio!.f);
+  expect(await spoken(page)).toEqual([]);
+});
+
+test("fără voce italiană în sistem, dialogul se aude din fișiere și „Ascultă întâi” funcționează", async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(window, "speechSynthesis", {
+      configurable: true,
+      value: {
+        getVoices: () => [{ name: "Alex", lang: "en-US", localService: true, voiceURI: "mac:alex" }],
+        speak: () => {},
+        cancel: () => {},
+        addEventListener: () => {},
+        removeEventListener: () => {},
+      },
+    });
+  });
+  await mockAudio(page);
+  await page.goto(BAR_URL);
+  await page.getByRole("button", { name: "Ascultă" }).click();
+  const first = BAR.lines[0]!;
+  await expect.poll(() => played(page)).toContain(`/audio/dialogues/${first.audio!.m}`);
+  await expect(page.getByText(first.it)).toHaveCount(0);
+  await page.getByRole("button", { name: "Arată textul" }).click();
+  await expect(page.getByText(first.it)).toBeVisible();
+  await page.getByRole("button", { name: `Ascultă pronunția: ${first.it}` }).click();
+  await expect.poll(async () => (await played(page)).length).toBe(2);
 });

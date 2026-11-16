@@ -4,7 +4,7 @@
   "title": {"it": "Al ristorante", "ro": "La restaurant"},
   "canDo": {"it": "So ordinare al ristorante e chiedere il conto", "ro": "Pot să comand la restaurant și să cer nota"},
   "speakers": [
-    {"id": "cameriere", "name": {"it": "Cameriere", "ro": "Ospătarul"}},
+    {"id": "cameriere", "name": {"it": "Cameriere", "ro": "Ospătarul"}, "gender": "m"},
     {"id": "tu", "name": {"it": "Tu", "ro": "Tu"}}
   ],
   "you": "tu",

@@ -4,7 +4,7 @@
   "title": {"it": "La mia famiglia", "ro": "Familia mea"},
   "canDo": {"it": "So parlare della mia famiglia", "ro": "Pot să vorbesc despre familia mea"},
   "speakers": [
-    {"id": "marco", "name": {"it": "Marco", "ro": "Marco"}},
+    {"id": "marco", "name": {"it": "Marco", "ro": "Marco"}, "gender": "m"},
     {"id": "tu", "name": {"it": "Tu", "ro": "Tu"}}
   ],
   "you": "tu",

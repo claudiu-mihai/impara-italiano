@@ -10,7 +10,7 @@ import { HomePage } from "../features/home/HomePage.tsx";
 import { LegacyGamesRedirect } from "../features/grammar/LegacyGamesRedirect.tsx";
 import { applyPwaUpdate, usePwaNeedRefresh } from "../services/pwaUpdate.ts";
 import { applyTheme } from "../services/theme.ts";
-import { setPreferredVoice, useTtsStatus } from "../services/tts.ts";
+import { preloadRecordings, setPreferredVoice, useTtsStatus } from "../services/tts.ts";
 import { ContentProvider } from "./content.tsx";
 import { COMPACT_BELOW, useVisibleViewport } from "./useVisibleViewport.ts";
 import { Splash } from "../features/splash/Splash.tsx";
@@ -60,6 +60,11 @@ function Banners() {
 
   // Vocea aleasă în Setări se aplică pentru toate butoanele de audio.
   useEffect(() => setPreferredVoice(settings?.ttsVoiceURI ?? null), [settings?.ttsVoiceURI]);
+  // indexul înregistrărilor se încarcă după primul ecran, ca să nu întârzie pornirea
+  useEffect(() => {
+    const timer = setTimeout(() => void preloadRecordings(), 1500);
+    return () => clearTimeout(timer);
+  }, []);
   useEffect(() => {
     if (settings) applyTheme(settings.theme);
   }, [settings?.theme]);
