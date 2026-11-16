@@ -19,8 +19,20 @@ export async function recordId(userId: string, collection: Collection, key: stri
     .slice(0, 15);
 }
 
-/** Serverul limitează numărul de cereri pe secundă (429): cererea se reia după o pauză. */
-const retry = <T>(run: () => Promise<T>) => withRetry(run, (e) => e instanceof ClientResponseError && e.status === 429);
+/**
+ * Serverul limitează numărul de cereri (429). Într-un lot, limita se aplică fiecărei cereri din el: dacă una o
+ * depășește, tot lotul se refuză cu un 400 generic („Batch transaction failed”), iar 429-ul apare doar înăuntru.
+ */
+export function isRateLimited(error: unknown): boolean {
+  if (!(error instanceof ClientResponseError)) return false;
+  if (error.status === 429) return true;
+  const requests = (error.response as { data?: { requests?: Record<string, { response?: { status?: number } }> } })
+    ?.data?.requests;
+  return Object.values(requests ?? {}).some((request) => request?.response?.status === 429);
+}
+
+/** Cererea refuzată din cauza limitei se reia după o pauză. */
+const retry = <T>(run: () => Promise<T>) => withRetry(run, isRateLimited);
 
 /** Câte înregistrări se șterg într-un lot (serverul acceptă 100). */
 const DELETE_CHUNK = 50;

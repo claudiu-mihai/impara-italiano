@@ -8,8 +8,12 @@ import { getSettings } from "../db/repositories.ts";
 import { getMeta } from "./pending.ts";
 import { MissingCollectionError, type Collection, type RemoteItem, type SyncItem, type SyncRemote, type SyncReport } from "./types.ts";
 
-/** Câte înregistrări pleacă într-o singură cerere (serverul acceptă 100 într-un lot). */
-export const PUSH_CHUNK = 50;
+/**
+ * Câte înregistrări pleacă într-o singură cerere. Serverul acceptă 100 într-un lot, dar limita lui de creări
+ * (`*:create`, 20 la 5 s, din pocketbase/pb_migrations) se aplică fiecărei cereri din lot: un lot cu mai multe
+ * înregistrări noi s-ar refuza întreg, pe un server care încă are limita și pentru utilizatorii autentificați.
+ */
+export const PUSH_CHUNK = 20;
 
 const PULL_ORDER: Collection[] = ["settings", "cards", "review_logs", "reports", "grammar_progress"];
 
