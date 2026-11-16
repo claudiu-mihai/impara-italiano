@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { VOICE_NAMES } from "../dialogue/voices.ts";
 import {
   LEVELS,
   POS,
@@ -182,6 +183,40 @@ export const dialogueSchema = z
   })
   .strict();
 
+/**
+ * O poveste de ascultat (content/stories/<id>.json): conversație lungă, cu oricâte personaje, un narator opțional și
+ * scene. Nu are joc de rol (cursantul doar ascultă), deci nici gen sau temă. Fiecare personaj are vocea lui fixă
+ * (vocile audio-ului pregenerat). Regulile dintre câmpuri sunt în `domain/story/check.ts`.
+ */
+const storySpeakerSchema = z
+  .object({
+    id: z.string().min(1),
+    name: localized,
+    voice: z.enum(VOICE_NAMES),
+    /** Naratorul nu e un personaj: replicile lui apar ca legendă, nu ca balon. */
+    narrator: z.boolean().optional(),
+  })
+  .strict();
+
+export const storySchema = z
+  .object({
+    id: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*-\d{2}$/, "id invalid (ex. un-weekend-sulla-neve-01)"),
+    level: z.enum(LEVELS),
+    title: localized,
+    speakers: z.array(storySpeakerSchema).min(2),
+    scenes: z
+      .array(
+        z
+          .object({
+            title: localized.optional(),
+            lines: z.array(z.object({ speaker: z.string(), it: text, ro: text }).strict()).min(1),
+          })
+          .strict(),
+      )
+      .min(1),
+  })
+  .strict();
+
 export const grammarItemSchema = z
   .object({
     id: z.string().regex(/^[a-z]+(-[a-z0-9]+)*$/, "id invalid (ex. art-01)"),
@@ -312,5 +347,11 @@ export type Dialogue = z.infer<typeof dialogueSchema>;
 export type DialogueLineAudio = Partial<Record<"m" | "f", string>>;
 
 export type GeneratedDialogueLine = Dialogue["lines"][number] & { audio?: DialogueLineAudio };
+
+export type Story = z.infer<typeof storySchema>;
+/** O poveste după build: fiecare replică are fișierul audio al vocii personajului, dacă a fost generat. */
+export type GeneratedStory = Omit<Story, "scenes"> & {
+  scenes: (Omit<Story["scenes"][number], "lines"> & { lines: (Story["scenes"][number]["lines"][number] & { audio?: string })[] })[];
+};
 
 export type GeneratedDialogue = Omit<Dialogue, "lines"> & { level: Level; lines: GeneratedDialogueLine[] };

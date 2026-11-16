@@ -1,7 +1,7 @@
 import metaData from "../generated/meta.json";
 import wordsData from "../generated/words.json";
 import type { RoConjugations } from "../../domain/conjugation/romanian.ts";
-import type { ContentMeta, Conjugations, GeneratedDialogue, GrammarTopic, Sentence, Topic, Word } from "../../domain/content/schema.ts";
+import type { ContentMeta, Conjugations, GeneratedDialogue, GeneratedStory, GrammarTopic, Sentence, Topic, Word } from "../../domain/content/schema.ts";
 import type { CoreWord } from "../../domain/content/types.ts";
 import { decodeWords, type CompactWords } from "../../domain/content/wordsCodec.ts";
 import type { GuideTopic } from "../../domain/session/guidedOrder.ts";
@@ -47,6 +47,12 @@ export async function loadConjugationsRo(): Promise<RoConjugations> {
 export async function loadDialogues(): Promise<GeneratedDialogue[]> {
   const module = await import("../generated/dialogues.json");
   return module.default as unknown as GeneratedDialogue[];
+}
+
+/** Poveștile de ascultat (mic), încărcate doar de ecranele care le arată. */
+export async function loadStories(): Promise<GeneratedStory[]> {
+  const module = await import("../generated/stories.json");
+  return module.default as unknown as GeneratedStory[];
 }
 
 /** Propozițiile pentru exercițiul de reconstruire, încărcate doar când e nevoie. */

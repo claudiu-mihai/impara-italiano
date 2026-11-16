@@ -241,3 +241,62 @@ test("fără voce italiană în sistem, dialogul se aude din fișiere și „Asc
   await page.getByRole("button", { name: `Ascultă pronunția: ${first.it}` }).click();
   await expect.poll(async () => (await played(page)).length).toBe(2);
 });
+
+interface StoryData {
+  id: string;
+  title: { it: string };
+  speakers: { id: string; name: { it: string }; narrator?: boolean }[];
+  scenes: { title?: { it: string; ro: string }; lines: { speaker: string; it: string; ro: string; audio?: string }[] }[];
+}
+const STORIES = JSON.parse(readFileSync("src/data/generated/stories.json", "utf8")) as StoryData[];
+const SNOW = STORIES.find((s) => s.id === "un-weekend-sulla-neve-01")!;
+const BAR_STORY = STORIES.find((s) => s.id === "una-pausa-al-bar-01")!;
+
+test("povestea apare în lista de dialoguri și se deschide", async ({ page }) => {
+  await page.goto("/learn/dialogues");
+  await expect(page.getByRole("link", { name: /Un weekend sulla neve/ })).toBeVisible();
+  await page.getByRole("link", { name: /Una pausa al bar/ }).click();
+  await expect(page).toHaveURL(/\/learn\/stories\/una-pausa-al-bar-01$/);
+  await expect(page.getByRole("heading", { level: 1, name: "Una pausa al bar" })).toBeVisible();
+});
+
+test("poveste: replicile se aud una câte una, naratorul ca legendă, scenele cu titlu", async ({ page }) => {
+  await mockSpeech(page);
+  await setListenFirst(page, false);
+  await page.goto(`/learn/stories/${SNOW.id}`);
+  const first = SNOW.scenes[0]!;
+  await expect(page.getByTestId("story-scene")).toHaveText(first.title!.it);
+  await expect(page.getByText(first.lines[0]!.it)).toBeVisible();
+  await expect(page.getByText(first.lines[0]!.ro)).toBeVisible();
+  await expect.poll(() => spoken(page)).toContain(first.lines[0]!.it);
+
+  await page.getByRole("button", { name: "Următoarea replică" }).click();
+  await expect(page.getByTestId("dialogue-line")).toHaveCount(2);
+  await expect.poll(() => spoken(page)).toContain(first.lines[1]!.it);
+  // numele personajului vorbitor e pe balon
+  await expect(page.getByTestId("dialogue-line").nth(1)).toContainText("Marco");
+});
+
+test("poveste cu narator: replica naratorului are legendă, nu nume; la final se poate relua", async ({ page }) => {
+  await mockSpeech(page);
+  await setListenFirst(page, false);
+  await page.goto(`/learn/stories/${BAR_STORY.id}`);
+  const lines = BAR_STORY.scenes.flatMap((s) => s.lines);
+  await expect(page.getByTestId("dialogue-line").first()).not.toContainText("Narratore");
+  await expect(page.getByTestId("dialogue-line").first()).toContainText(lines[0]!.it);
+  for (let i = 1; i < lines.length; i++) await page.getByRole("button", { name: "Următoarea replică" }).click();
+  await expect(page.getByText("Ai ascultat toată povestea.")).toBeVisible();
+  await expect(page.getByRole("link", { name: "Înapoi la dialoguri" })).toBeVisible();
+  await page.getByRole("button", { name: "Ascultă din nou" }).click();
+  await expect(page.getByTestId("dialogue-line")).toHaveCount(1);
+});
+
+test("poveste, cu „Ascultă întâi”: textul apare abia la cerere", async ({ page }) => {
+  await mockSpeech(page);
+  await page.goto(`/learn/stories/${BAR_STORY.id}`);
+  const first = BAR_STORY.scenes[0]!.lines[0]!;
+  await expect.poll(() => spoken(page)).toContain(first.it);
+  await expect(page.getByText(first.it)).toHaveCount(0);
+  await page.getByRole("button", { name: "Arată textul" }).click();
+  await expect(page.getByText(first.it)).toBeVisible();
+});

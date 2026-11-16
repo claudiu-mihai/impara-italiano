@@ -5,7 +5,8 @@ import type { Gender } from "./gender.ts";
  * Vocile audio-ului pregenerat (Qwen3-TTS, clonate local): Francesco și Giullia sunt vocile principale, Luca și Sofia a
  * doua voce, pentru cursantul care are același gen cu celălalt personaj.
  */
-export type VoiceName = "francesco" | "giullia" | "luca" | "sofia";
+export const VOICE_NAMES = ["francesco", "giullia", "luca", "sofia"] as const;
+export type VoiceName = (typeof VOICE_NAMES)[number];
 
 const MAIN: Record<Gender, VoiceName> = { m: "francesco", f: "giullia" };
 const SECOND: Record<Gender, VoiceName> = { m: "luca", f: "sofia" };
