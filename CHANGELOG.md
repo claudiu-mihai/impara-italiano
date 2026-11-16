@@ -4,6 +4,13 @@ Formatul urmează [Keep a Changelog](https://keepachangelog.com/ro/1.1.0/), iar 
 [versionarea semantică](https://semver.org/lang/ro/). Intrările noi sunt scrise automat de release-please din
 commit-urile `feat:` / `fix:` (vezi README, „Versionare și release-uri”).
 
+## [1.24.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.23.1...v1.24.0) (2026-11-16)
+
+
+### Funcționalități
+
+* **dialoguri:** povești de ascultat, cu narator, mai multe personaje și scene ([#68](https://github.com/claudiu-mihai/impara-italiano/issues/68)) ([bb5c5a8](https://github.com/claudiu-mihai/impara-italiano/commit/bb5c5a8ae21f1d7f53d41301819e06f395a6da52))
+
 ## [1.23.1](https://github.com/claudiu-mihai/impara-italiano/compare/v1.23.0...v1.23.1) (2026-11-16)
 
 
