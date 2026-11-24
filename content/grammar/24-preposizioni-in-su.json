@@ -1,0 +1,122 @@
+{
+  "id": "preposizioni-in-su",
+  "order": 24,
+  "title": { "it": "In e su, oltre il luogo", "ro": "In și su, dincolo de loc" },
+  "level": "B1",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "[it]In[/it] și [it]su[/it] nu înseamnă doar „în” și „pe”. [it]In[/it] arată și [b]starea și modul[/b] ([it]in ritardo, in piedi, in contanti[/it]), limba ([it]in italiano[/it]) și câți suntem ([it]siamo in quattro[/it]), de obicei fără articol. [it]Su[/it] arată [b]tema[/b] ([it]un documentario sugli squali[/it]), [b]sursa[/b] ([it]sul giornale, su internet[/it]), [b]aproximarea[/b] ([it]sulla cinquantina[/it]) și [b]proporția[/b] ([it]nove su dieci[/it]).",
+      "it": "[it]In[/it] e [it]su[/it] non significano solo „în” e „pe”. [it]In[/it] indica anche [b]lo stato e il modo[/b] ([it]in ritardo, in piedi, in contanti[/it]), la lingua ([it]in italiano[/it]) e quanti siamo ([it]siamo in quattro[/it]), di solito senza articolo. [it]Su[/it] indica [b]il tema[/b] ([it]un documentario sugli squali[/it]), [b]la fonte[/b] ([it]sul giornale, su internet[/it]), [b]l'approssimazione[/b] ([it]sulla cinquantina[/it]) e [b]la proporzione[/b] ([it]nove su dieci[/it])."
+    },
+    {
+      "type": "table",
+      "caption": "In, dincolo de loc",
+      "captionIt": "In, oltre il luogo",
+      "head": ["sensul", "exemple", "în română"],
+      "headIt": ["significato", "esempi", "in rumeno"],
+      "itColumns": [1],
+      "rows": [
+        ["mod și stare", "in ritardo, in piedi, in pensione, in silenzio", "cu întârziere, în picioare, la pensie, în tăcere"],
+        ["plată și folosință", "in contanti, in affitto, in vendita", "cash, cu chirie, de vânzare"],
+        ["limba", "in italiano, in rumeno", "în italiană, în română"],
+        ["câți suntem", "siamo in quattro", "suntem patru"],
+        ["domeniu", "una laurea in economia", "o diplomă în economie"],
+        ["credință", "credere in, sperare in", "a crede în, a spera în"]
+      ],
+      "rowsIt": [
+        ["modo e stato", "in ritardo, in piedi, in pensione, in silenzio", "cu întârziere, în picioare, la pensie, în tăcere"],
+        ["pagamento e uso", "in contanti, in affitto, in vendita", "cash, cu chirie, de vânzare"],
+        ["lingua", "in italiano, in rumeno", "în italiană, în română"],
+        ["quanti siamo", "siamo in quattro", "suntem patru"],
+        ["ambito", "una laurea in economia", "o diplomă în economie"],
+        ["fede", "credere in, sperare in", "a crede în, a spera în"]
+      ]
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "Scusa, sono in ritardo.", "ro": "Scuze, am întârziat.", "note": "stare: [it]in ritardo[/it], fără articol", "noteIt": "stato: [it]in ritardo[/it], senza articolo" },
+        { "it": "Posso pagare in contanti?", "ro": "Pot plăti cash?", "note": "mod de plată: [it]in contanti[/it] (dar [it]con la carta[/it])", "noteIt": "modo di pagamento: [it]in contanti[/it] (ma [it]con la carta[/it])" },
+        { "it": "Siamo in quattro.", "ro": "Suntem patru.", "note": "[it]essere in[/it] + număr", "noteIt": "[it]essere in[/it] + numero" },
+        { "it": "Vivo in affitto.", "ro": "Stau cu chirie.", "note": "[it]in affitto[/it] = cu chirie", "noteIt": "[it]in affitto[/it]" }
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "Su, dincolo de loc",
+      "captionIt": "Su, oltre il luogo",
+      "head": ["sensul", "exemple", "în română"],
+      "headIt": ["significato", "esempi", "in rumeno"],
+      "itColumns": [1],
+      "rows": [
+        ["temă precisă", "un documentario sugli squali, una domanda sull'esame", "un documentar despre rechini, o întrebare despre examen"],
+        ["sursă, media", "sul giornale, su internet, su Instagram", "în ziar, pe internet, pe Instagram"],
+        ["aproximare", "sui quarant'anni, sulla cinquantina", "în jur de patruzeci de ani, în jur de cincizeci"],
+        ["proporție", "nove su dieci, ventotto su trenta", "nouă din zece, douăzeci și opt din treizeci"],
+        ["vedere spre", "vista sul mare, dà sul cortile", "vedere la mare, dă spre curte"],
+        ["expresii", "sul serio, su misura, contare su di te", "serios, la comandă, a conta pe tine"]
+      ],
+      "rowsIt": [
+        ["tema preciso", "un documentario sugli squali, una domanda sull'esame", "un documentar despre rechini, o întrebare despre examen"],
+        ["fonte, media", "sul giornale, su internet, su Instagram", "în ziar, pe internet, pe Instagram"],
+        ["approssimazione", "sui quarant'anni, sulla cinquantina", "în jur de patruzeci de ani, în jur de cincizeci"],
+        ["proporzione", "nove su dieci, ventotto su trenta", "nouă din zece, douăzeci și opt din treizeci"],
+        ["vista verso", "vista sul mare, dà sul cortile", "vedere la mare, dă spre curte"],
+        ["espressioni", "sul serio, su misura, contare su di te", "serios, la comandă, a conta pe tine"]
+      ]
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "L'ho letto sul giornale.", "ro": "Am citit în ziar.", "note": "sursă: [it]sul giornale[/it]", "noteIt": "fonte: [it]sul giornale[/it]" },
+        { "it": "Avrà sui quarant'anni.", "ro": "Cred că are în jur de patruzeci de ani.", "note": "aproximare: [it]su[/it] + articol + număr", "noteIt": "approssimazione: [it]su[/it] + articolo + numero" },
+        { "it": "Nove persone su dieci preferiscono il mare.", "ro": "Nouă oameni din zece preferă marea.", "note": "proporție: [it]su[/it] simplu", "noteIt": "proporzione: [it]su[/it] semplice" },
+        { "it": "Dici sul serio?", "ro": "Vorbești serios?", "note": "expresie fixă: [it]sul serio[/it]", "noteIt": "espressione fissa: [it]sul serio[/it]" }
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "[b]Aceeași idee, altă prepoziție.[/b] [it]Al mare[/it] = la mare, în stațiune; [it]in mare[/it] = în apă ([it]facciamo il bagno in mare[/it]); [it]sul mare[/it] = pe malul mării. La fel [it]al lago[/it] (la lac), [it]nel lago[/it] (în apă), [it]sul lago[/it] (pe malul lacului: [it]Bellagio è sul lago di Como[/it]). Și patul: [it]a letto[/it] = la culcare, [it]nel letto[/it] = în pat, sub pătură, [it]sul letto[/it] = pe pat, deasupra păturii. „Pe jos” e [it]per terra[/it] ([it]è caduto per terra[/it]).",
+      "it": "[b]La stessa idea, un'altra preposizione.[/b] [it]Al mare[/it] = in vacanza al mare; [it]in mare[/it] = nell'acqua ([it]facciamo il bagno in mare[/it]); [it]sul mare[/it] = sulla riva del mare. Lo stesso con [it]al lago[/it], [it]nel lago[/it] (nell'acqua), [it]sul lago[/it] (sulla riva: [it]Bellagio è sul lago di Como[/it]). E il letto: [it]a letto[/it] = per dormire, [it]nel letto[/it] = dentro, sotto le coperte, [it]sul letto[/it] = sopra le coperte. „Pe jos” è [it]per terra[/it] ([it]è caduto per terra[/it])."
+    },
+    {
+      "type": "trap",
+      "ro": "„În ziar” e [it]sul giornale[/it] și „pe internet” e [it]su internet[/it], pe Instagram sau pe WhatsApp la fel ([it]su Instagram[/it]), dar „la televizor” e [it]in TV[/it] sau [it]alla TV[/it]. „Pe strada Garibaldi” e [it]in via Garibaldi[/it], nu [it]sulla via[/it]. „Nouă din zece” e [it]nove su dieci[/it], nu [it]nove di dieci[/it]. Iar „Cred în tine” e [it]credo in te[/it], dar „te cred” e [it]ti credo[/it].",
+      "it": "„În ziar” è [it]sul giornale[/it] e „pe internet” è [it]su internet[/it], su Instagram o su WhatsApp allo stesso modo ([it]su Instagram[/it]), ma „la televizor” è [it]in TV[/it] o [it]alla TV[/it]. „Pe strada Garibaldi” è [it]in via Garibaldi[/it], non [it]sulla via[/it]. „Nouă din zece” è [it]nove su dieci[/it], non [it]nove di dieci[/it]. E „Cred în tine” è [it]credo in te[/it], ma „te cred” è [it]ti credo[/it]."
+    }
+  ],
+  "rules": [
+    { "it": "In + stato, modo, lingua, senza articolo: in ritardo, in contanti, in italiano.", "ro": "In + stare, mod, limbă, fără articol: in ritardo, in contanti, in italiano." },
+    { "it": "Su + tema preciso: un film sulla guerra (ma un libro di storia).", "ro": "Su + temă precisă: un film sulla guerra (dar un libro di storia)." },
+    { "it": "Su + fonte: sul giornale, su internet, su Instagram.", "ro": "Su + sursă: sul giornale, su internet, su Instagram." },
+    { "it": "Approssimazione e proporzione: sui trent'anni, nove su dieci.", "ro": "Aproximare și proporție: sui trent'anni, nove su dieci." }
+  ],
+  "items": [
+    { "id": "pis-01", "it": "Siamo in quattro stasera.", "gap": "in", "ro": "Diseară suntem patru.", "note": "[it]essere in[/it] + număr", "noteIt": "[it]essere in[/it] + numero" },
+    { "id": "pis-02", "it": "Posso pagare in contanti?", "gap": "in", "ro": "Pot plăti cash?", "note": "[it]in contanti[/it] (dar [it]con la carta[/it])", "noteIt": "[it]in contanti[/it] (ma [it]con la carta[/it])" },
+    { "id": "pis-03", "it": "Parliamo in italiano, per favore.", "gap": "in", "ro": "Hai să vorbim în italiană, te rog.", "note": "limba: [it]in[/it], fără articol", "noteIt": "lingua: [it]in[/it], senza articolo" },
+    { "id": "pis-04", "it": "Scusa, sono in ritardo.", "gap": "in", "ro": "Scuze, am întârziat.", "note": "stare: [it]in ritardo[/it]", "noteIt": "stato: [it]in ritardo[/it]" },
+    { "id": "pis-05", "it": "Sono rimasto in piedi tutto il viaggio.", "gap": "in", "ro": "Am stat în picioare tot drumul.", "note": "[it]in piedi[/it] = în picioare (dar [it]a piedi[/it] = pe jos)", "noteIt": "[it]in piedi[/it] (ma [it]a piedi[/it] = senza mezzi)" },
+    { "id": "pis-06", "it": "Mio nonno è in pensione.", "gap": "in", "ro": "Bunicul meu e pensionar.", "note": "stare: [it]in pensione[/it]", "noteIt": "stato: [it]in pensione[/it]" },
+    { "id": "pis-07", "it": "Vivo in affitto.", "gap": "in", "ro": "Stau cu chirie.", "note": "[it]in affitto[/it] = cu chirie", "noteIt": "[it]in affitto[/it]" },
+    { "id": "pis-08", "it": "Ho una laurea in economia.", "gap": "in", "ro": "Am o diplomă în economie.", "note": "domeniu: [it]laurea in[/it]", "noteIt": "ambito: [it]laurea in[/it]" },
+    { "id": "pis-09", "it": "Hanno finito la cena in silenzio.", "gap": "in", "ro": "Au terminat cina în tăcere.", "note": "mod: [it]in silenzio[/it], fără articol", "noteIt": "modo: [it]in silenzio[/it], senza articolo" },
+    { "id": "pis-10", "it": "La casa di fronte è in vendita.", "gap": "in", "ro": "Casa din față e de vânzare.", "note": "[it]in vendita[/it] = de vânzare", "noteIt": "[it]in vendita[/it]" },
+    { "id": "pis-11", "it": "Sei proprio in forma!", "gap": "in", "ro": "Ești chiar în formă!", "note": "stare: [it]in forma[/it]", "noteIt": "stato: [it]in forma[/it]" },
+    { "id": "pis-12", "it": "Credo in te, ce la farai.", "gap": "in", "ro": "Cred în tine, o să reușești.", "note": "[it]credere in[/it] = a avea încredere în", "noteIt": "[it]credere in[/it] = avere fiducia in" },
+    { "id": "pis-13", "it": "Ho visto un documentario sugli squali.", "gap": "sugli", "ro": "Am văzut un documentar despre rechini.", "note": "temă precisă: [it]su[/it] + [it]gli squali[/it]", "noteIt": "tema preciso: [it]su[/it] + [it]gli squali[/it]" },
+    { "id": "pis-14", "it": "Ho una domanda sull'esame.", "gap": "sull'", "ro": "Am o întrebare despre examen.", "note": "temă: [it]su[/it] + [it]l'esame[/it]", "noteIt": "tema: [it]su[/it] + [it]l'esame[/it]" },
+    { "id": "pis-15", "it": "L'ho letto sul giornale.", "gap": "sul", "ro": "Am citit în ziar.", "note": "sursă: [it]sul giornale[/it]", "noteIt": "fonte: [it]sul giornale[/it]" },
+    { "id": "pis-16", "it": "Ho trovato la ricetta su internet.", "gap": "su", "ro": "Am găsit rețeta pe internet.", "note": "sursă: [it]su internet[/it], fără articol", "noteIt": "fonte: [it]su internet[/it], senza articolo" },
+    { "id": "pis-17", "it": "Ho visto la sua foto su Instagram.", "gap": "su", "ro": "Am văzut poza lui pe Instagram.", "note": "rețele: [it]su Instagram[/it], [it]su WhatsApp[/it]", "noteIt": "social: [it]su Instagram[/it], [it]su WhatsApp[/it]" },
+    { "id": "pis-18", "it": "Il nostro vicino è sulla cinquantina.", "gap": "sulla", "ro": "Vecinul nostru are în jur de cincizeci de ani.", "note": "aproximare: [it]sulla cinquantina[/it]", "noteIt": "approssimazione: [it]sulla cinquantina[/it]" },
+    { "id": "pis-19", "it": "Nove persone su dieci preferiscono il mare.", "gap": "su", "ro": "Nouă oameni din zece preferă marea.", "note": "proporție: [it]su[/it] simplu", "noteIt": "proporzione: [it]su[/it] semplice" },
+    { "id": "pis-20", "it": "Ho preso ventotto su trenta all'esame.", "gap": "su", "ro": "Am luat douăzeci și opt din treizeci la examen.", "note": "proporție: [it]ventotto su trenta[/it]", "noteIt": "proporzione: [it]ventotto su trenta[/it]" },
+    { "id": "pis-21", "it": "Dici sul serio?", "gap": "sul", "ro": "Vorbești serios?", "note": "expresie fixă: [it]sul serio[/it]", "noteIt": "espressione fissa: [it]sul serio[/it]" },
+    { "id": "pis-22", "it": "Vorrei una camera con vista sul mare.", "gap": "sul", "ro": "Aș vrea o cameră cu vedere la mare.", "note": "vedere spre: [it]vista sul[/it]", "noteIt": "vista verso: [it]vista sul[/it]" },
+    { "id": "pis-23", "it": "Bellagio si trova sul lago di Como.", "gap": "sul", "ro": "Bellagio se află pe malul lacului Como.", "note": "[it]sul lago[/it] = pe malul lacului", "noteIt": "[it]sul lago[/it] = sulla riva del lago" },
+    { "id": "pis-24", "it": "Posso contare su di te?", "gap": "su", "ro": "Mă pot baza pe tine?", "note": "[it]contare su[/it], cu pronume: [it]su di te[/it]", "noteIt": "[it]contare su[/it], con pronome: [it]su di te[/it]" },
+    { "id": "pis-25", "it": "Il sarto fa gli abiti su misura.", "gap": "su", "ro": "Croitorul face hainele la comandă.", "note": "expresie fixă: [it]su misura[/it]", "noteIt": "espressione fissa: [it]su misura[/it]" }
+  ]
+}
