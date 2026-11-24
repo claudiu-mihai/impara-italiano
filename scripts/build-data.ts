@@ -7,6 +7,7 @@ import { DIALOGUE_AUDIO_DIR, withDialogueAudio } from "./audio/dialogueAudio.ts"
 import { FEED_AUDIO_DIR, feedAudioJobs, withFeedAudio } from "./audio/feedAudio.ts";
 import { withStoryAudio } from "./audio/storyAudio.ts";
 import { recordingsIndex, WORD_AUDIO_DIR } from "./audio/wordAudio.ts";
+import { grammarRecordingsIndex } from "./audio/grammarAudio.ts";
 import { loadContent, ROOT } from "./content.ts";
 
 const OUT_DIR = resolve(ROOT, "src/data/generated");
@@ -98,7 +99,10 @@ const feedAudioCount = feedTexts.filter((j) => existsSync(resolve(feedAudioDir, 
 const presenteIrregularJson = lines(presenteIrregular);
 // recordings.json: textul rostit → înregistrarea (cuvintele A1), încărcat de `speak()` după pornire
 const wordAudioDir = resolve(ROOT, WORD_AUDIO_DIR);
-const recordings = recordingsIndex(words, (file) => existsSync(resolve(wordAudioDir, file)));
+const recordings = {
+  ...recordingsIndex(words, (file) => existsSync(resolve(wordAudioDir, file))),
+  ...grammarRecordingsIndex(grammar, (file) => existsSync(resolve(wordAudioDir, file))),
+};
 const recordingsJson = `${JSON.stringify(recordings)}\n`;
 
 const dataVersion = createHash("sha256")
