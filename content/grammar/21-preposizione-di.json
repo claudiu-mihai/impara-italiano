@@ -118,7 +118,7 @@
     { "id": "pdi-03", "it": "Dove sono le chiavi della macchina?", "gap": "della", "ro": "Unde sunt cheile de la mașină?", "note": "„de la mașină” = posesie: di + la", "noteIt": "„de la mașină” = possesso: di + la" },
     { "id": "pdi-04", "it": "Sono di Cluj, e tu?", "gap": "di", "ro": "Sunt din Cluj, și tu?", "note": "orașul tău: essere di", "noteIt": "la tua città: essere di" },
     { "id": "pdi-05", "it": "Prendo una bottiglia di vino rosso.", "gap": "di", "ro": "Iau o sticlă de vin roșu.", "note": "conținut: di, fără articol", "noteIt": "contenuto: di, senza articolo" },
-    { "id": "pdi-06", "it": "Parliamo delle vacanze?", "gap": "delle", "ro": "Vorbim despre vacanță?", "note": "parlare di = a vorbi despre", "noteIt": "parlare di = a vorbi despre" },
+    { "id": "pdi-06", "it": "Parliamo del viaggio di domani?", "gap": "del", "ro": "Vorbim despre excursia de mâine?", "note": "parlare di = a vorbi despre; di + il (substantiv precizat)", "noteIt": "parlare di = a vorbi despre; di + il (nome precisato)" },
     { "id": "pdi-07", "it": "Marco è più alto di suo padre.", "gap": "di", "ro": "Marco e mai înalt decât tatăl lui.", "note": "comparație: più … di", "noteIt": "paragone: più … di" },
     { "id": "pdi-08", "it": "Il treno è più comodo dell'autobus.", "gap": "dell'", "ro": "Trenul e mai comod decât autobuzul.", "note": "comparație: di + l' (articulat înaintea substantivului comun)", "noteIt": "paragone: di + l' (articolato davanti al nome comune)" },
     { "id": "pdi-09", "it": "Ho comprato della frutta fresca al mercato.", "gap": "della", "ro": "Am cumpărat niște fructe proaspete la piață.", "note": "partitiv: di + la = niște", "noteIt": "partitivo: di + la = niște" },
@@ -135,7 +135,7 @@
     { "id": "pdi-20", "it": "Niente di grave, stai tranquillo.", "gap": "di", "ro": "Nimic grav, stai liniștit.", "note": "niente di + adjectiv", "noteIt": "niente di + aggettivo" },
     { "id": "pdi-21", "it": "Di solito ceno alle otto.", "gap": "Di", "ro": "De obicei cinez la opt.", "note": "expresie fixă: di solito", "noteIt": "espressione fissa: di solito" },
     { "id": "pdi-22", "it": "Ho un figlio di sei anni.", "gap": "di", "ro": "Am un fiu de șase ani.", "note": "vârstă: di (valoarea: da)", "noteIt": "età: di (il valore: da)" },
-    { "id": "pdi-23", "it": "Vorrei una tazza di tè, per favore.", "gap": "di", "ro": "Aș vrea o ceașcă de ceai, vă rog.", "note": "conținut: di (da tè = vasul)", "noteIt": "contenuto: di (da tè = il recipiente)" },
+    { "id": "pdi-23", "it": "Ho bevuto una tazza di tè caldo.", "gap": "di", "ro": "Am băut o ceașcă de ceai fierbinte.", "note": "conținut (ce ai băut): di, nu vasul (da tè)", "noteIt": "contenuto (ciò che hai bevuto): di, non il recipiente (da tè)" },
     { "id": "pdi-24", "it": "Mia sorella frequenta un corso di fotografia.", "gap": "di", "ro": "Sora mea urmează un curs de fotografie.", "note": "domeniu: di", "noteIt": "materia: di" }
   ]
 }
