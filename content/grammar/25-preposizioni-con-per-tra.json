@@ -116,13 +116,13 @@
     },
     {
       "type": "trap",
-      "ro": "„Cu trenul” e de obicei [it]in treno[/it] (mijloc generic; [it]con il treno delle otto[/it] doar când trenul e precizat), „cu serviciul” e [it]per lavoro[/it], nu [it]con il lavoro[/it], iar „supărat pe” e [it]arrabbiato con[/it], nu [it]su[/it]. „Merg la Roma” e [it]vado a Roma[/it], dar „plec spre Roma” e [it]parto per Roma[/it]; [it]andare per Roma[/it] înseamnă „a umbla prin Roma”. Și „peste o oră” e [it]tra un'ora[/it], nu [it]in un'ora[/it].",
-      "it": "„Cu trenul” di solito è [it]in treno[/it] (mezzo generico; [it]con il treno delle otto[/it] solo quando il treno è preciso), „cu serviciul” è [it]per lavoro[/it], non [it]con il lavoro[/it], e „supărat pe” è [it]arrabbiato con[/it], non [it]su[/it]. „Merg la Roma” è [it]vado a Roma[/it], ma „plec spre Roma” è [it]parto per Roma[/it]; [it]andare per Roma[/it] significa „girare per Roma”. E „peste o oră” è [it]tra un'ora[/it], non [it]in un'ora[/it]."
+      "ro": "„Cu trenul” e de obicei [it]in treno[/it] (mijloc generic; [it]con il treno delle otto[/it] mai ales când trenul e precizat), „cu serviciul” e [it]per lavoro[/it], nu [it]con il lavoro[/it], iar „supărat pe” e [it]arrabbiato con[/it], nu [it]su[/it]. „Merg la Roma” e [it]vado a Roma[/it], dar „plec spre Roma” e [it]parto per Roma[/it]; [it]andare per Roma[/it] înseamnă „a umbla prin Roma”. Și „peste o oră” e [it]tra un'ora[/it], nu [it]in un'ora[/it].",
+      "it": "„Cu trenul” di solito è [it]in treno[/it] (mezzo generico; [it]con il treno delle otto[/it] soprattutto quando il treno è preciso), „cu serviciul” è [it]per lavoro[/it], non [it]con il lavoro[/it], e „supărat pe” è [it]arrabbiato con[/it], non [it]su[/it]. „Merg la Roma” è [it]vado a Roma[/it], ma „plec spre Roma” è [it]parto per Roma[/it]; [it]andare per Roma[/it] significa „girare per Roma”. E „peste o oră” è [it]tra un'ora[/it], non [it]in un'ora[/it]."
     }
   ],
   "rules": [
     {"it": "Con: con chi, con che cosa, come (con calma); col e coi solo parlando.", "ro": "Con: cu cine, cu ce, cum (con calma); col și coi doar în vorbire."},
-    {"it": "Per: per chi, per, attraverso, a causa di; destinazione solo con partire (parto per Roma).", "ro": "Per: pentru, ca să, prin, din cauza; destinație doar cu partire (parto per Roma)."},
+    {"it": "Per: per chi, scopo (per + infinito), attraverso, a causa di; destinazione con partire, treno, biglietto (parto per Roma, il treno per Firenze), ma vado a Roma.", "ro": "Per: pentru, ca să, prin, din cauza; destinație cu partire, tren, bilet (parto per Roma, il treno per Firenze), dar vado a Roma."},
     {"it": "Tra / fra = fra due cose o fra un certo tempo (tra un'ora); non si fondono.", "ro": "Tra / fra = între sau peste (tra un'ora); nu se contopesc."},
     {"it": "„Cu trenul” = in treno; „pe email” = per email.", "ro": "„Cu trenul” = in treno; „pe email” = per email."}
   ],

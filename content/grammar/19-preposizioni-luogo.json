@@ -84,12 +84,12 @@
       "rows": [
         ["în general: in, fără articol", "in treno, in macchina, in autobus, in bici"],
         ["pe jos, călare: a", "a piedi, a cavallo"],
-        ["precizat: con + articol", "con il treno delle otto, con la macchina di Marco"]
+        ["mai ales când e precizat: con + articol", "con il treno delle otto, con la macchina di Marco"]
       ],
       "rowsIt": [
         ["in generale: in, senza articolo", "in treno, in macchina, in autobus, in bici"],
         ["a piedi, a cavallo: a", "a piedi, a cavallo"],
-        ["precisato: con + articolo", "con il treno delle otto, con la macchina di Marco"]
+        ["soprattutto se precisato: con + articolo", "con il treno delle otto, con la macchina di Marco"]
       ]
     },
     {
@@ -134,7 +134,7 @@
     { "id": "plu-18", "it": "Passiamo il weekend in Sicilia.", "gap": "in", "ro": "Ne petrecem weekendul în Sicilia.", "note": "insulă mare: in, ca la regiune", "noteIt": "isola grande: in, come per le regioni" },
     { "id": "plu-19", "it": "Domenica mangiamo dai nonni.", "gap": "dai", "ro": "Duminică mâncăm la bunici.", "note": "la cineva: da + i", "noteIt": "da qualcuno: da + i" },
     { "id": "plu-20", "it": "Aspetto Luca alla fermata.", "gap": "alla", "ro": "Îl aștept pe Luca la stație.", "note": "a + la fermata", "noteIt": "a + la fermata" },
-    { "id": "plu-21", "it": "Passo in farmacia dopo il lavoro.", "gap": "in", "ro": "Trec pe la farmacie după serviciu.", "note": "magazin, clădire: in, fără articol", "noteIt": "negozio, edificio: in, senza articolo" },
+    { "id": "plu-21", "it": "Passo in farmacia dopo il lavoro.", "gap": "in", "ro": "Trec pe la farmacie după serviciu.", "note": "farmacie, bancă, birou: in, fără articol", "noteIt": "farmacia, banca, ufficio: in, senza articolo" },
     { "id": "plu-22", "it": "Vengo da Parigi, ma abito a Milano.", "gap": "da", "ro": "Vin din Paris, dar locuiesc la Milano.", "note": "de unde vii: da + oraș", "noteIt": "da dove vieni: da + città" },
     { "id": "plu-23", "it": "Domani andiamo al cinema con Luca.", "gap": "al", "ro": "Mâine mergem la cinema cu Luca.", "note": "al cinema, al bar, al mare", "noteIt": "al cinema, al bar, al mare" },
     { "id": "plu-24", "it": "Mia nonna vive in campagna.", "gap": "in", "ro": "Bunica mea locuiește la țară.", "note": "in campagna, in montagna: fără articol", "noteIt": "in campagna, in montagna: senza articolo" },

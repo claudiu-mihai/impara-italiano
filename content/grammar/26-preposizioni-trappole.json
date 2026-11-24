@@ -18,7 +18,7 @@
       "itColumns": [1],
       "rows": [
         ["oraș", "a Roma, a Milano", "la Roma, la Milano"],
-        ["clădire, magazin", "in banca, in farmacia", "la bancă, la farmacie"],
+        ["bancă, farmacie, birou", "in banca, in farmacia", "la bancă, la farmacie"],
         ["la cineva", "dal medico, da Marco", "la medic, la Marco"],
         ["ora", "alle otto, all'una", "la opt, la unu"],
         ["cui (dativ)", "a Marco, a mia madre", "lui Marco, mamei mele"],
@@ -26,7 +26,7 @@
       ],
       "rowsIt": [
         ["città", "a Roma, a Milano", "la Roma, la Milano"],
-        ["edificio, negozio", "in banca, in farmacia", "la bancă, la farmacie"],
+        ["banca, farmacia, ufficio", "in banca, in farmacia", "la bancă, la farmacie"],
         ["da qualcuno", "dal medico, da Marco", "la medic, la Marco"],
         ["l'ora", "alle otto, all'una", "la opt, la unu"],
         ["a chi (complemento di termine)", "a Marco, a mia madre", "lui Marco, mamei mele"],
@@ -53,7 +53,7 @@
       ],
       "rowsIt": [
         ["sopra una superficie", "sul tavolo, sulla sedia", "pe masă, pe scaun"],
-        ["senza mezzi", "a piedi", "pe jos"],
+        ["a piedi, camminando", "a piedi", "pe jos"],
         ["frequenza", "due volte al giorno", "de două ori pe zi"],
         ["per dove passi", "dalla finestra, dalla porta", "pe fereastră, pe ușă"],
         ["lungo la strada", "per strada", "pe stradă"],
@@ -74,7 +74,7 @@
         ["conținut, material", "una tazza di tè, una sciarpa di lana", "o ceașcă de ceai, o eșarfă de lână"],
         ["pentru ce e obiectul", "occhiali da sole, costume da bagno", "ochelari de soare, costum de baie"],
         ["de când", "da tre anni, da lunedì", "de trei ani, de luni"],
-        ["sărbători", "a Natale, a Pasqua", "de Crăciun, de Paști"],
+        ["sărbători", "a Natale, a Pasqua", "de Crăciun, de Paște"],
         ["mod", "a mano, a piedi", "de mână, pe jos"],
         ["de unde vii", "dal lavoro, dall'Italia", "de la serviciu, din Italia"],
         ["posesie", "le chiavi della macchina", "cheile de la mașină"]
@@ -83,7 +83,7 @@
         ["contenuto, materiale", "una tazza di tè, una sciarpa di lana", "o ceașcă de ceai, o eșarfă de lână"],
         ["a che cosa serve", "occhiali da sole, costume da bagno", "ochelari de soare, costum de baie"],
         ["da quando", "da tre anni, da lunedì", "de trei ani, de luni"],
-        ["feste", "a Natale, a Pasqua", "de Crăciun, de Paști"],
+        ["feste", "a Natale, a Pasqua", "de Crăciun, de Paște"],
         ["modo", "a mano, a piedi", "de mână, pe jos"],
         ["da dove vieni", "dal lavoro, dall'Italia", "de la serviciu, din Italia"],
         ["possesso", "le chiavi della macchina", "cheile de la mașină"]
@@ -99,7 +99,7 @@
         {"it": "Ti scrivo per email, ma ti chiamo anche per telefono.", "ro": "Îți scriu pe email, dar te sun și la telefon.", "note": "mijloc de comunicare: [it]per[/it], nu [it]su[/it]", "noteIt": "mezzo di comunicazione: [it]per[/it], non [it]su[/it]"},
         {"it": "Il pacco arriva tra due giorni.", "ro": "Coletul vine peste două zile.", "note": "„peste” = [it]tra[/it], nu [it]in due giorni[/it]", "noteIt": "„peste” = [it]tra[/it], non [it]in due giorni[/it]"},
         {"it": "Sono qui per lavoro, non in vacanza.", "ro": "Sunt aici cu serviciul, nu în vacanță.", "note": "„cu serviciul” = [it]per lavoro[/it]", "noteIt": "„cu serviciul” = [it]per lavoro[/it]"},
-        {"it": "Ho parlato a mio padre e ai miei zii.", "ro": "Am vorbit cu tatăl meu și cu unchii mei.", "note": "posesiv + rudă la singular: [it]a mio padre[/it]; la plural: [it]ai miei zii[/it]", "noteIt": "possessivo + parente al singolare: [it]a mio padre[/it]; al plurale: [it]ai miei zii[/it]"}
+        {"it": "Ho telefonato a mio padre e ai miei zii.", "ro": "Le-am telefonat tatălui meu și unchilor mei.", "note": "posesiv + rudă la singular: [it]a mio padre[/it]; la plural: [it]ai miei zii[/it]", "noteIt": "possessivo + parente al singolare: [it]a mio padre[/it]; al plurale: [it]ai miei zii[/it]"}
       ]
     },
     {
@@ -124,14 +124,14 @@
     },
     {
       "type": "text",
-      "ro": "[b]Pe fereastră, în ambele direcții.[/b] Fereastra, ușa și gaura cheii sunt punctul de trecere, deci primesc [it]da[/it] + articol fie că privești afară ([it]dalla finestra della mia camera si vede il mare[/it]), fie înăuntru ([it]dalla strada si vede tutto[/it]). Sensul îl schimbă ce urmează: [it]guardare dalla finestra[/it] (privești prin fereastră, spre ceva), [it]guardare la finestra[/it] (te uiți la fereastră ca la un obiect), [it]stare alla finestra[/it] (stai la fereastră), [it]davanti alla finestra[/it] (în fața ferestrei), [it]la finestra dà sul cortile[/it] (fereastra dă spre curte). Cu [it]affacciarsi[/it] se spune de obicei [it]alla finestra[/it]; se aude și [it]dalla finestra[/it].",
-      "it": "[b]Dalla finestra, in entrambe le direzioni.[/b] La finestra, la porta e il buco della serratura sono il punto di passaggio, quindi vogliono [it]da[/it] + articolo, sia che guardi fuori ([it]dalla finestra della mia camera si vede il mare[/it]), sia dentro ([it]dalla strada si vede tutto[/it]). Il significato cambia con quello che segue: [it]guardare dalla finestra[/it] (guardi attraverso la finestra, verso qualcosa), [it]guardare la finestra[/it] (guardi la finestra come oggetto), [it]stare alla finestra[/it], [it]davanti alla finestra[/it], [it]la finestra dà sul cortile[/it]. Con [it]affacciarsi[/it] si dice di solito [it]alla finestra[/it]; si sente anche [it]dalla finestra[/it]."
+      "ro": "[b]Pe fereastră, în ambele direcții.[/b] Fereastra, ușa și gaura cheii sunt punctul de trecere, deci primesc [it]da[/it] + articol fie că privești afară ([it]dalla finestra della mia camera si vede il mare[/it]), fie înăuntru ([it]ho guardato dentro dalla finestra del negozio[/it]). Sensul îl schimbă ce urmează: [it]guardare dalla finestra[/it] (privești prin fereastră, spre ceva), [it]guardare la finestra[/it] (te uiți la fereastră ca la un obiect), [it]stare alla finestra[/it] (stai la fereastră), [it]davanti alla finestra[/it] (în fața ferestrei), [it]la finestra dà sul cortile[/it] (fereastra dă spre curte). Cu [it]affacciarsi[/it] se spune de obicei [it]alla finestra[/it]; se aude și [it]dalla finestra[/it].",
+      "it": "[b]Dalla finestra, in entrambe le direzioni.[/b] La finestra, la porta e il buco della serratura sono il punto di passaggio, quindi vogliono [it]da[/it] + articolo, sia che guardi fuori ([it]dalla finestra della mia camera si vede il mare[/it]), sia dentro ([it]ho guardato dentro dalla finestra del negozio[/it]). Il significato cambia con quello che segue: [it]guardare dalla finestra[/it] (guardi attraverso la finestra, verso qualcosa), [it]guardare la finestra[/it] (guardi la finestra come oggetto), [it]stare alla finestra[/it], [it]davanti alla finestra[/it], [it]la finestra dà sul cortile[/it]. Con [it]affacciarsi[/it] si dice di solito [it]alla finestra[/it]; si sente anche [it]dalla finestra[/it]."
     },
     {
       "type": "examples",
       "items": [
         {"it": "Dalla finestra della mia camera si vede il mare.", "ro": "De la fereastra camerei mele se vede marea.", "note": "privești afară: [it]da[/it] + articol", "noteIt": "guardi fuori: [it]da[/it] + articolo"},
-        {"it": "Dalla strada si vede tutto quello che succede in casa.", "ro": "Din stradă se vede tot ce se întâmplă în casă.", "note": "privești înăuntru: tot [it]da[/it] + articol", "noteIt": "guardi dentro: sempre [it]da[/it] + articolo"},
+        {"it": "Ho guardato dentro dalla finestra del negozio.", "ro": "M-am uitat înăuntru pe fereastra magazinului.", "note": "privești înăuntru: tot [it]da[/it] + articol", "noteIt": "guardi dentro: sempre [it]da[/it] + articolo"},
         {"it": "Mi sono affacciato alla finestra per salutarla.", "ro": "Am ieșit la fereastră ca s-o salut.", "note": "[it]affacciarsi alla finestra[/it]", "noteIt": "[it]affacciarsi alla finestra[/it]"},
         {"it": "La finestra della cucina dà sul cortile.", "ro": "Fereastra bucătăriei dă spre curte.", "note": "[it]dare su[/it] = a da spre", "noteIt": "[it]dare su[/it] = avere vista su"}
       ]
@@ -150,7 +150,7 @@
   ],
   "items": [
     {"id": "ptr-01", "it": "Sabato pomeriggio vado dalla mia amica Chiara.", "gap": "dalla", "ro": "Sâmbătă după-amiază merg la prietena mea Chiara.", "note": "la + persoană: [it]da[/it] (nu [it]alla mia amica[/it])", "noteIt": "da una persona: [it]da[/it] (non [it]alla mia amica[/it])"},
-    {"id": "ptr-02", "it": "Mio fratello lavora in un negozio di scarpe.", "gap": "in", "ro": "Fratele meu lucrează într-un magazin de încălțăminte.", "note": "la + magazin, clădire: [it]in[/it]", "noteIt": "negozio, edificio: [it]in[/it]"},
+    {"id": "ptr-02", "it": "Mio fratello lavora in un negozio di scarpe.", "gap": "in", "ro": "Fratele meu lucrează într-un magazin de încălțăminte.", "note": "la + magazin: de obicei [it]in[/it] ([it]in un negozio[/it], [it]in farmacia[/it])", "noteIt": "negozio, farmacia: di solito [it]in[/it]"},
     {"id": "ptr-03", "it": "Do le chiavi a Luca.", "gap": "a", "ro": "Îi dau cheile lui Luca.", "note": "„lui Luca” (dativ) = [it]a Luca[/it]", "noteIt": "complemento di termine: [it]a Luca[/it]"},
     {"id": "ptr-04", "it": "Sono appena tornato dal mare, guarda che abbronzatura!", "gap": "dal", "ro": "Tocmai m-am întors de la mare, uite ce bronz!", "note": "„de la” + loc: [it]da[/it] + articol", "noteIt": "da dove: [it]da[/it] + articolo"},
     {"id": "ptr-05", "it": "Sono in Italia da un anno.", "gap": "da", "ro": "Sunt în Italia de un an.", "note": "„de” (și încă) = [it]da[/it] + prezent", "noteIt": "da quando, ancora oggi: [it]da[/it] + presente"},
@@ -169,8 +169,8 @@
     {"id": "ptr-18", "it": "Siamo rimasti sotto la pioggia per due ore.", "gap": "sotto", "ro": "Am rămas în ploaie două ore.", "note": "„în ploaie” = [it]sotto la pioggia[/it], nu [it]nella[/it]", "noteIt": "[it]sotto la pioggia[/it], non [it]nella pioggia[/it]"},
     {"id": "ptr-19", "it": "Il bagno è in fondo al corridoio.", "gap": "in", "ro": "Baia e la capătul holului.", "note": "[it]in fondo a[/it] = la capătul", "noteIt": "[it]in fondo a[/it] = all'estremità"},
     {"id": "ptr-20", "it": "L'ho avuto in regalo da mia zia.", "gap": "in", "ro": "L-am primit cadou de la mătușa mea.", "note": "[it]in regalo[/it] = cadou", "noteIt": "[it]in regalo[/it] = come dono"},
-    {"id": "ptr-21", "it": "Hai per caso una penna?", "gap": "per", "ro": "Ai cumva un pix?", "note": "[it]per caso[/it] = cumva, din întâmplare", "noteIt": "[it]per caso[/it] = magari, eventualmente"},
+    {"id": "ptr-21", "it": "Hai per caso una penna?", "gap": "per", "ro": "Ai cumva un pix?", "note": "[it]per caso[/it] = cumva, din întâmplare", "noteIt": "[it]per caso[/it] = casualmente; in una domanda: magari"},
     {"id": "ptr-22", "it": "Non è stato un incidente: l'ha fatto di proposito.", "gap": "di", "ro": "Nu a fost un accident: a făcut-o intenționat.", "note": "[it]di proposito[/it] = intenționat (nu [it]a proposito[/it])", "noteIt": "[it]di proposito[/it] = volontariamente; [it]a proposito[/it] = a questo riguardo"},
-    {"id": "ptr-23", "it": "Può arrivare da un momento all'altro.", "gap": "da", "ro": "Poate sosi dintr-o clipă în alta.", "note": "[it]da un momento all'altro[/it] = foarte curând", "noteIt": "[it]da un momento all'altro[/it] = molto presto"}
+    {"id": "ptr-23", "it": "Può arrivare da un momento all'altro.", "gap": "da", "ro": "Poate sosi dintr-un moment în altul.", "note": "[it]da un momento all'altro[/it] = foarte curând", "noteIt": "[it]da un momento all'altro[/it] = molto presto"}
   ]
 }

@@ -22,7 +22,7 @@
         ["an", "nel 2020", "în 2020"],
         ["lună", "a maggio, in maggio", "în mai"],
         ["anotimp", "in estate, in inverno", "vara, iarna"],
-        ["moment al zilei", "di mattina, di sera", "dimineața, seara"],
+        ["moment al zilei", "di mattina, di sera (și la sera, foarte des în vorbire)", "dimineața, seara"],
         ["zi, dată (fără prepoziție)", "lunedì, il 5 maggio", "luni, pe 5 mai"]
       ],
       "rowsIt": [
@@ -31,7 +31,7 @@
         ["l'anno", "nel 2020", "în 2020"],
         ["il mese", "a maggio, in maggio", "în mai"],
         ["la stagione", "in estate, in inverno", "vara, iarna"],
-        ["il momento della giornata", "di mattina, di sera", "dimineața, seara"],
+        ["il momento della giornata", "di mattina, di sera (anche la sera, molto comune parlando)", "dimineața, seara"],
         ["giorno, data (senza preposizione)", "lunedì, il 5 maggio", "luni, pe 5 mai"]
       ]
     },
@@ -41,7 +41,7 @@
         { "it": "Il film comincia alle nove.", "ro": "Filmul începe la nouă.", "note": "ora: [it]a[/it] + [it]le[/it]", "noteIt": "l'ora: [it]a[/it] + [it]le[/it]" },
         { "it": "Sono nato nel 1990.", "ro": "M-am născut în 1990.", "note": "anul: [it]in[/it] + [it]il[/it]", "noteIt": "l'anno: [it]in[/it] + [it]il[/it]" },
         { "it": "A Natale torno a casa.", "ro": "De Crăciun mă întorc acasă.", "note": "sărbătoarea: [it]a[/it]", "noteIt": "la festività: [it]a[/it]" },
-        { "it": "Di sera esco poco.", "ro": "Seara ies puțin.", "note": "momentul zilei: [it]di[/it]", "noteIt": "il momento della giornata: [it]di[/it]" }
+        { "it": "Di sera esco poco.", "ro": "Seara ies puțin.", "note": "momentul zilei: [it]di[/it] (în vorbire se spune foarte des și [it]la sera[/it], cu articol)", "noteIt": "il momento della giornata: [it]di[/it] (parlando si dice molto spesso anche [it]la sera[/it], con l'articolo)" }
       ]
     },
     {
@@ -98,7 +98,7 @@
     { "id": "ptm-02", "it": "Ci vediamo all'una.", "gap": "all'", "ro": "Ne vedem la unu.", "note": "all'una (l'una)", "noteIt": "all'una (l'una)" },
     { "id": "ptm-03", "it": "Mangiamo a mezzogiorno.", "gap": "a", "ro": "Mâncăm la amiază.", "note": "mezzogiorno: fără articol", "noteIt": "mezzogiorno: senza articolo" },
     { "id": "ptm-04", "it": "Sono nato nel 1990.", "gap": "nel", "ro": "M-am născut în 1990.", "note": "anul: in + il", "noteIt": "l'anno: in + il" },
-    { "id": "ptm-05", "it": "In primavera fa già caldo.", "gap": "In", "ro": "Primăvara e deja cald.", "note": "anotimp: in primavera (vara: in estate sau d'estate)", "noteIt": "stagione: in primavera (estate: in estate o d'estate)" },
+    { "id": "ptm-05", "it": "Il corso finisce nel 2027.", "gap": "nel", "ro": "Cursul se termină în 2027.", "note": "anul: in + il", "noteIt": "l'anno: in + il" },
     { "id": "ptm-06", "it": "Il treno parte alle sette e mezza.", "gap": "alle", "ro": "Trenul pleacă la șapte și jumătate.", "note": "ora: a + le", "noteIt": "l'ora: a + le" },
     { "id": "ptm-07", "it": "Studio l'italiano da tre anni.", "gap": "da", "ro": "Învăț italiana de trei ani.", "note": "încă învăț: da + prezent", "noteIt": "studio ancora: da + presente" },
     { "id": "ptm-08", "it": "Ho vissuto a Roma per due anni.", "gap": "per", "ro": "Am locuit la Roma timp de doi ani.", "note": "perioadă încheiată: per", "noteIt": "periodo concluso: per" },

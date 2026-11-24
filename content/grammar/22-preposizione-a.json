@@ -113,7 +113,7 @@
     { "id": "pa-15", "it": "Hai provato a chiamarlo?", "gap": "a", "ro": "Ai încercat să-l suni?", "note": "provare a (cercare di)", "noteIt": "provare a (cercare di)" },
     { "id": "pa-16", "it": "Ho imparato a nuotare da piccolo.", "gap": "a", "ro": "Am învățat să înot când eram mic.", "note": "imparare a + infinitiv", "noteIt": "imparare a + infinito" },
     { "id": "pa-17", "it": "Mi aiuti a portare le borse?", "gap": "a", "ro": "Mă ajuți să duc sacoșele?", "note": "aiutare qualcuno a + infinitiv", "noteIt": "aiutare qualcuno a + infinito" },
-    { "id": "pa-18", "it": "Penso sempre a te.", "gap": "a", "ro": "Mă gândesc mereu la tine.", "note": "pensare a = a se gândi la", "noteIt": "pensare a = riflettere su qualcuno" },
+    { "id": "pa-18", "it": "Penso sempre a te.", "gap": "a", "ro": "Mă gândesc mereu la tine.", "note": "pensare a = a se gândi la", "noteIt": "pensare a = avere in mente qualcuno" },
     { "id": "pa-19", "it": "A domani!", "gap": "A", "ro": "Pe mâine!", "note": "salut: a domani", "noteIt": "saluto: a domani" },
     { "id": "pa-20", "it": "Gira a destra dopo il semaforo.", "gap": "a", "ro": "Fă la dreapta după semafor.", "note": "direcție: a destra", "noteIt": "direzione: a destra" },
     { "id": "pa-21", "it": "Paghiamo alla romana?", "gap": "alla", "ro": "Plătim fiecare partea lui?", "note": "mod: alla romana", "noteIt": "modo: alla romana" },

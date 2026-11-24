@@ -77,8 +77,8 @@
     },
     {
       "type": "text",
-      "ro": "[b]Aceeași idee, altă prepoziție.[/b] [it]Al mare[/it] = la mare, în stațiune; [it]in mare[/it] = în apă ([it]facciamo il bagno in mare[/it]); [it]sul mare[/it] = pe malul mării. La fel [it]al lago[/it] (la lac), [it]nel lago[/it] (în apă), [it]sul lago[/it] (pe malul lacului: [it]Bellagio è sul lago di Como[/it]). Și patul: [it]a letto[/it] = la culcare, [it]nel letto[/it] = în pat, sub pătură, [it]sul letto[/it] = pe pat, deasupra păturii. „Pe jos” e [it]per terra[/it] ([it]è caduto per terra[/it]).",
-      "it": "[b]La stessa idea, un'altra preposizione.[/b] [it]Al mare[/it] = in vacanza al mare; [it]in mare[/it] = nell'acqua ([it]facciamo il bagno in mare[/it]); [it]sul mare[/it] = sulla riva del mare. Lo stesso con [it]al lago[/it], [it]nel lago[/it] (nell'acqua), [it]sul lago[/it] (sulla riva: [it]Bellagio è sul lago di Como[/it]). E il letto: [it]a letto[/it] = per dormire, [it]nel letto[/it] = dentro, sotto le coperte, [it]sul letto[/it] = sopra le coperte. „Pe jos” è [it]per terra[/it] ([it]è caduto per terra[/it])."
+      "ro": "[b]Aceeași idee, altă prepoziție.[/b] [it]Al mare[/it] = la mare, în stațiune; [it]in mare[/it] = în apă ([it]facciamo il bagno in mare[/it]); [it]sul mare[/it] = pe malul mării. La fel [it]al lago[/it] (la lac), [it]nel lago[/it] (în apă), [it]sul lago[/it] (pe malul lacului: [it]Bellagio è sul lago di Como[/it]). Și patul: [it]a letto[/it] = la culcare, [it]nel letto[/it] = în pat, sub pătură, [it]sul letto[/it] = pe pat, deasupra păturii. „Pe jos” (pe podea) e [it]per terra[/it] ([it]è caduto per terra[/it]).",
+      "it": "[b]La stessa idea, un'altra preposizione.[/b] [it]Al mare[/it] = in vacanza al mare; [it]in mare[/it] = nell'acqua ([it]facciamo il bagno in mare[/it]); [it]sul mare[/it] = sulla riva del mare. Lo stesso con [it]al lago[/it], [it]nel lago[/it] (nell'acqua), [it]sul lago[/it] (sulla riva: [it]Bellagio è sul lago di Como[/it]). E il letto: [it]a letto[/it] = per dormire, [it]nel letto[/it] = dentro, sotto le coperte, [it]sul letto[/it] = sopra le coperte. „Pe jos” (pe podea) è [it]per terra[/it] ([it]è caduto per terra[/it])."
     },
     {
       "type": "trap",
@@ -97,7 +97,7 @@
     { "id": "pis-02", "it": "Posso pagare in contanti?", "gap": "in", "ro": "Pot plăti cash?", "note": "[it]in contanti[/it] (dar [it]con la carta[/it])", "noteIt": "[it]in contanti[/it] (ma [it]con la carta[/it])" },
     { "id": "pis-03", "it": "Parliamo in italiano, per favore.", "gap": "in", "ro": "Hai să vorbim în italiană, te rog.", "note": "limba: [it]in[/it], fără articol", "noteIt": "lingua: [it]in[/it], senza articolo" },
     { "id": "pis-04", "it": "Scusa, sono in ritardo.", "gap": "in", "ro": "Scuze, am întârziat.", "note": "stare: [it]in ritardo[/it]", "noteIt": "stato: [it]in ritardo[/it]" },
-    { "id": "pis-05", "it": "Sono rimasto in piedi tutto il viaggio.", "gap": "in", "ro": "Am stat în picioare tot drumul.", "note": "[it]in piedi[/it] = în picioare (dar [it]a piedi[/it] = pe jos)", "noteIt": "[it]in piedi[/it] (ma [it]a piedi[/it] = senza mezzi)" },
+    { "id": "pis-05", "it": "Sono rimasto in piedi tutto il viaggio.", "gap": "in", "ro": "Am stat în picioare tot drumul.", "note": "[it]in piedi[/it] = în picioare (dar [it]a piedi[/it] = pe jos)", "noteIt": "[it]in piedi[/it] (ma [it]a piedi[/it] = camminando)" },
     { "id": "pis-06", "it": "Mio nonno è in pensione.", "gap": "in", "ro": "Bunicul meu e pensionar.", "note": "stare: [it]in pensione[/it]", "noteIt": "stato: [it]in pensione[/it]" },
     { "id": "pis-07", "it": "Vivo in affitto.", "gap": "in", "ro": "Stau cu chirie.", "note": "[it]in affitto[/it] = cu chirie", "noteIt": "[it]in affitto[/it]" },
     { "id": "pis-08", "it": "Ho una laurea in economia.", "gap": "in", "ro": "Am o diplomă în economie.", "note": "domeniu: [it]laurea in[/it]", "noteIt": "ambito: [it]laurea in[/it]" },

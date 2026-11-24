@@ -22,7 +22,7 @@
         ["material", "una sciarpa di lana", "un fular de lână"],
         ["conținut, cantitate", "una bottiglia di vino, un chilo di mele", "o sticlă de vin, un kilogram de mere"],
         ["subiect, categorie", "parlare di, un libro di storia", "a vorbi despre, o carte de istorie"],
-        ["momentul zilei", "di sera, d'estate, di domenica", "seara, vara, duminica"],
+        ["timp (parte a zilei, anotimp, zi)", "di sera, d'estate, di domenica", "seara, vara, duminica"],
         ["comparație", "più alto di, meno caro di", "mai înalt decât, mai puțin scump decât"],
         ["vârstă, măsură", "un bambino di tre anni", "un copil de trei ani"]
       ],
@@ -32,7 +32,7 @@
         ["materiale", "una sciarpa di lana", "un fular de lână"],
         ["contenuto, quantità", "una bottiglia di vino, un chilo di mele", "o sticlă de vin, un kilogram de mere"],
         ["argomento, categoria", "parlare di, un libro di storia", "a vorbi despre, o carte de istorie"],
-        ["momento della giornata", "di sera, d'estate, di domenica", "seara, vara, duminica"],
+        ["tempo (parte del giorno, stagione, giorno)", "di sera, d'estate, di domenica", "seara, vara, duminica"],
         ["paragone", "più alto di, meno caro di", "mai înalt decât, mai puțin scump decât"],
         ["età, misura", "un bambino di tre anni", "un copil de trei ani"]
       ]
@@ -45,7 +45,7 @@
         { "it": "Sono di Cluj. E tu, di dove sei?", "ro": "Sunt din Cluj. Tu de unde ești?", "note": "orașul tău: [it]essere di[/it]", "noteIt": "la tua città: [it]essere di[/it]" },
         { "it": "Ho comprato una sciarpa di lana.", "ro": "Mi-am cumpărat un fular de lână.", "note": "material: [it]di[/it], fără articol", "noteIt": "materiale: [it]di[/it], senza articolo" },
         { "it": "Mi dai un po' di latte?", "ro": "Îmi dai puțin lapte?", "note": "cantitate: [it]un po' di[/it]", "noteIt": "quantità: [it]un po' di[/it]" },
-        { "it": "Di sera esco poco.", "ro": "Seara ies rar.", "note": "momentul zilei: [it]di[/it]", "noteIt": "il momento della giornata: [it]di[/it]" },
+        { "it": "Di sera esco poco.", "ro": "Seara ies rar.", "note": "momentul zilei: [it]di[/it] (în vorbire se spune foarte des și [it]la sera[/it], cu articol)", "noteIt": "il momento della giornata: [it]di[/it] (parlando si dice molto spesso anche [it]la sera[/it], con l'articolo)" },
         { "it": "Il treno è più comodo dell'autobus.", "ro": "Trenul e mai comod decât autobuzul.", "note": "comparație: [it]più … di[/it], articulat ([it]dell'[/it])", "noteIt": "paragone: [it]più … di[/it], articolato ([it]dell'[/it])" },
         { "it": "È un libro di cucina.", "ro": "E o carte de bucate.", "note": "categorie: [it]di[/it] ([it]su[/it] = subiectul precis)", "noteIt": "categoria: [it]di[/it] ([it]su[/it] = l'argomento preciso)" }
       ]
@@ -123,7 +123,7 @@
     { "id": "pdi-08", "it": "Il treno è più comodo dell'autobus.", "gap": "dell'", "ro": "Trenul e mai comod decât autobuzul.", "note": "comparație: di + l' (articulat înaintea substantivului comun)", "noteIt": "paragone: di + l' (articolato davanti al nome comune)" },
     { "id": "pdi-09", "it": "Ho comprato della frutta fresca al mercato.", "gap": "della", "ro": "Am cumpărat niște fructe proaspete la piață.", "note": "partitiv: di + la = niște", "noteIt": "partitivo: di + la = niște" },
     { "id": "pdi-10", "it": "Mi serve dello zucchero per la torta.", "gap": "dello", "ro": "Îmi trebuie niște zahăr pentru tort.", "note": "partitiv: lo zucchero → dello", "noteIt": "partitivo: lo zucchero → dello" },
-    { "id": "pdi-11", "it": "Hai del tempo domani pomeriggio?", "gap": "del", "ro": "Ai puțin timp mâine după-amiază?", "note": "partitiv: di + il = puțin", "noteIt": "partitivo: di + il = un po'" },
+    { "id": "pdi-11", "it": "C'è del latte in frigo?", "gap": "del", "ro": "Mai e lapte în frigider?", "note": "partitiv: di + il = niște, puțin", "noteIt": "partitivo: di + il = un po'" },
     { "id": "pdi-12", "it": "Ho deciso di cambiare lavoro.", "gap": "di", "ro": "Am hotărât să-mi schimb serviciul.", "note": "decidere di + infinitiv", "noteIt": "decidere di + infinito" },
     { "id": "pdi-13", "it": "Hai voglia di uscire stasera?", "gap": "di", "ro": "Ai chef să ieși diseară?", "note": "avere voglia di", "noteIt": "avere voglia di" },
     { "id": "pdi-14", "it": "Ho bisogno di un consiglio.", "gap": "di", "ro": "Am nevoie de un sfat.", "note": "avere bisogno di", "noteIt": "avere bisogno di" },
