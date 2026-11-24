@@ -4,13 +4,14 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } fr
 import { useContent } from "../../app/content.tsx";
 import { loadFeedProgress, loadFeedSources } from "../../data/feedQueries.ts";
 import { db } from "../../data/db/instance.ts";
-import { markFeedSeen } from "../../data/feed/feedSeen.ts";
+import { getReviewsDoneDay, markFeedSeen, setReviewsDoneDay } from "../../data/feed/feedSeen.ts";
 import { getSettings } from "../../data/db/repositories.ts";
 import { buildFeedBatch, type FeedSources } from "../../domain/feed/buildFeedBatch.ts";
 import { followUpGrid, planFollowUp } from "../../domain/feed/followUp.ts";
-import { comboLift, isComboMilestone, nextCombo } from "../../domain/feed/rewards.ts";
+import { comboLift, isComboMilestone, isMilestone, nextCombo } from "../../domain/feed/rewards.ts";
 import type { FeedItem, FeedItemType } from "../../domain/feed/types.ts";
 import type { SessionItem } from "../../domain/session/buildDailySession.ts";
+import { studyDayOf } from "../../domain/time/studyDay.ts";
 import { useT } from "../../i18n/index.ts";
 import { playFeedback, vibrate } from "../../services/sound.ts";
 import { stopSpeaking, unlockAudio } from "../../services/tts.ts";
@@ -22,8 +23,26 @@ import { FeedHeader } from "./FeedHeader.tsx";
 import { StartCard } from "./StartCard.tsx";
 import { useActiveCard } from "./useActiveCard.ts";
 
-/** Tipurile pe care ecranul știe să le afișeze; etapele următoare ale fluxului le completează. */
-export const FEED_TYPES: ReadonlySet<FeedItemType> = new Set<FeedItemType>(["knownWord", "sentence", "rule", "lines", "didYouKnow", "pack", "review", "newWord", "grid", "trueFalse", "gap", "packQuiz"]);
+/** Tipurile pe care ecranul știe să le afișeze (toate). */
+export const FEED_TYPES: ReadonlySet<FeedItemType> = new Set<FeedItemType>([
+  "knownWord",
+  "sentence",
+  "rule",
+  "lines",
+  "didYouKnow",
+  "pack",
+  "review",
+  "newWord",
+  "grid",
+  "trueFalse",
+  "gap",
+  "packQuiz",
+  "milestone",
+  "reviewsDone",
+  "endOfMaterial",
+]);
+/** Cardurile care nu sunt conținut: nu se numără la bilanț. */
+const SPECIAL_TYPES: ReadonlySet<FeedItemType> = new Set<FeedItemType>(["milestone", "reviewsDone", "endOfMaterial"]);
 
 /** Când cardul activ ajunge la atâtea carduri de capăt, se cere un lot nou. */
 const LOAD_MORE_WITHIN = 5;
@@ -61,7 +80,9 @@ export function FeedPage() {
   const [muted, setMuted] = useState(false);
   const [reviewTotal, setReviewTotal] = useState<number>();
   const [reviewsDone, setReviewsDone] = useState(0);
+  const [newWords, setNewWords] = useState(0);
   const [combo, setCombo] = useState(0);
+  const [bestCombo, setBestCombo] = useState(0);
   const [reaction, setReaction] = useState<Reaction>();
   const comboRef = useRef(0);
   const reactionId = useRef(0);
@@ -73,6 +94,17 @@ export function FeedPage() {
   const busy = useRef(false);
   const alive = useRef(true);
   const active = useActiveCard(scroller, items.length + 1);
+  const activeRef = useRef(0);
+  useLayoutEffect(() => {
+    activeRef.current = active;
+  }, [active]);
+  // repetițiile scadente la intrare și cele notate (pentru „Repetiții gata”), cardurile de conținut văzute (pentru bilanț)
+  const reviewTotalRef = useRef<number>(undefined);
+  const reviewsDoneRef = useRef(0);
+  const celebrated = useRef(false);
+  const seenCount = useRef(0);
+  // lotul s-a încheiat cu „final de material”: următorul se cere abia când cardul acela ajunge activ
+  const endPending = useRef(false);
 
   useEffect(() => {
     alive.current = true;
@@ -85,13 +117,16 @@ export function FeedPage() {
   }, [content]);
 
   const extend = useCallback(async () => {
-    if (!sources || busy.current) return;
+    if (!sources || busy.current || endPending.current) return;
     busy.current = true;
     try {
       const now = new Date();
       const progress = await loadFeedProgress(db, content, now);
       if (!alive.current) return;
-      setReviewTotal((total) => total ?? progress.dueCount);
+      if (reviewTotalRef.current === undefined) {
+        reviewTotalRef.current = progress.dueCount;
+        setReviewTotal(progress.dueCount);
+      }
       const batch = buildFeedBatch(sources, {
         now,
         level: progress.settings.level,
@@ -103,8 +138,14 @@ export function FeedPage() {
         shownKeys: shownKeys.current,
         types: FEED_TYPES,
       });
-      for (const item of batch) shownKeys.current.add(item.key);
-      itemsRef.current = [...itemsRef.current, ...batch];
+      // după „final de material” cheile se pot repeta: în listă primesc un sufix, ca să rămână unice
+      const listed = new Set(itemsRef.current.map((i) => i.key));
+      const added = batch.map((item, i) => {
+        shownKeys.current.add(item.key);
+        return listed.has(item.key) ? { ...item, key: `${item.key}~${itemsRef.current.length + i}` } : item;
+      });
+      endPending.current = batch.at(-1)?.type === "endOfMaterial";
+      itemsRef.current = [...itemsRef.current, ...added];
       setItems(itemsRef.current);
     } finally {
       busy.current = false;
@@ -119,12 +160,34 @@ export function FeedPage() {
     if (items.length > 0 && active - 1 >= items.length - LOAD_MORE_WITHIN) void extend();
   }, [active, items.length, extend]);
 
+  /** Pune un card special imediat după cardul activ; cardul activ rămâne pe loc. */
+  const insertAfterActive = useCallback((item: FeedItem) => {
+    const at = activeRef.current;
+    itemsRef.current = [...itemsRef.current.slice(0, at), item, ...itemsRef.current.slice(at)];
+    setItems(itemsRef.current);
+  }, []);
+
+  // „Repetiții gata”, o dată pe zi: după ultima repetiție scadentă de la intrare
+  const celebrateReviewsDone = useCallback(async () => {
+    if (celebrated.current) return;
+    celebrated.current = true;
+    const day = studyDayOf(new Date());
+    if ((await getReviewsDoneDay(db)) === day || !alive.current) return;
+    await setReviewsDoneDay(db, day);
+    insertAfterActive({ type: "reviewsDone", key: `reviewsDone:${day}` });
+    setReaction({ id: ++reactionId.current, pose: "serie", party: true });
+  }, [insertAfterActive]);
+
   const afterRating = useCallback(
     (key: string, session: SessionItem, isNew: boolean) => {
       if (!isNew) {
-        setReviewsDone((n) => n + 1);
+        reviewsDoneRef.current++;
+        setReviewsDone(reviewsDoneRef.current);
+        const total = reviewTotalRef.current;
+        if (total && reviewsDoneRef.current >= total) void celebrateReviewsDone();
         return;
       }
+      setNewWords((n) => n + 1);
       // după un cuvânt nou notat vine o grilă despre el, la 4–8 carduri
       const word = content.byId(session.wordId);
       const at = itemsRef.current.findIndex((i) => i.key === key);
@@ -134,7 +197,7 @@ export function FeedPage() {
       itemsRef.current = planFollowUp(itemsRef.current, at, follow);
       setItems(itemsRef.current);
     },
-    [content],
+    [content, celebrateReviewsDone],
   );
 
   const soundEnabled = settings?.soundEnabled ?? true;
@@ -143,6 +206,7 @@ export function FeedPage() {
       const next = nextCombo(comboRef.current, correct);
       comboRef.current = next;
       setCombo(next);
+      setBestCombo((best) => Math.max(best, next));
       playFeedback(correct, soundEnabled, comboLift(next));
       vibrate(correct, soundEnabled);
       const milestone = correct && isComboMilestone(next);
@@ -223,6 +287,29 @@ export function FeedPage() {
     void markFeedSeen(db, item.packId, "shown", new Date());
   }, [active]);
 
+  // bilanțul: când al 25-lea, al 50-lea… card de conținut ajunge activ, după el vine cardul de bilanț
+  useEffect(() => {
+    const seen = itemsRef.current.slice(0, active).filter((i) => !SPECIAL_TYPES.has(i.type)).length;
+    if (seen <= seenCount.current) return;
+    const from = seenCount.current;
+    seenCount.current = seen;
+    // la o derulare rapidă se pot sări carduri: contează reperul cel mai mare trecut acum
+    for (let n = seen; n > from; n--) {
+      if (isMilestone(n)) {
+        insertAfterActive({ type: "milestone", key: `milestone:${n}`, count: n });
+        break;
+      }
+    }
+  }, [active, insertAfterActive]);
+
+  // „final de material” ajuns activ: vizita o ia de la capăt cu ce s-a văzut (regulile de ordine păstrează cardurile recente)
+  useEffect(() => {
+    if (itemsRef.current[active - 1]?.type !== "endOfMaterial" || !endPending.current) return;
+    endPending.current = false;
+    shownKeys.current.clear();
+    void extend();
+  }, [active, extend]);
+
   // sunetul cardului părăsit se oprește înaintea efectelor noului card activ (efectele de layout rulează primele)
   useLayoutEffect(() => {
     stopSpeaking();
@@ -241,6 +328,7 @@ export function FeedPage() {
     gradeFollowUp,
     reportAnswer,
     markQuizzed,
+    visitStats: { reviews: reviewsDone, newWords, bestCombo },
   };
   return (
     <div className="relative flex min-h-0 flex-1 flex-col">

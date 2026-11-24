@@ -24,6 +24,8 @@ export interface FeedEnv {
   reportAnswer: (correct: boolean) => void;
   /** Testul unui item din pachet a primit răspuns. */
   markQuizzed: (packId: string) => void;
+  /** Ce s-a făcut în vizită, pentru cardul de bilanț. */
+  visitStats: { reviews: number; newWords: number; bestCombo: number };
 }
 
 export const FeedEnvContext = createContext<FeedEnv | undefined>(undefined);

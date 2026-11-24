@@ -2,6 +2,7 @@ import type { FeedItem } from "../../domain/feed/types.ts";
 import { NewWordCard, ReviewCard } from "./cards/ReviewCards.tsx";
 import { GapCard, GridCard, PackQuizCard, TrueFalseCard } from "./cards/TestCards.tsx";
 import { PackCard } from "./cards/PackCards.tsx";
+import { EndOfMaterialCard, MilestoneCard, ReviewsDoneCard } from "./cards/SpecialCards.tsx";
 import { DidYouKnowCard, KnownWordCard, LinesCard, RuleCard, SentenceCard } from "./cards/PassiveCards.tsx";
 
 /** Alege componenta unui card după tipul lui; tipurile pe care ecranul nu le afișează (încă) rămân goale. */
@@ -31,6 +32,12 @@ export function FeedCard({ item, active }: { item: FeedItem; active: boolean }) 
       return <GapCard item={item} active={active} />;
     case "packQuiz":
       return <PackQuizCard item={item} active={active} />;
+    case "milestone":
+      return <MilestoneCard item={item} />;
+    case "reviewsDone":
+      return <ReviewsDoneCard />;
+    case "endOfMaterial":
+      return <EndOfMaterialCard />;
     default:
       return null;
   }

@@ -15,3 +15,14 @@ export async function markFeedSeen(db: ImparaDb, id: string, field: "shown" | "q
     await db.meta.put({ key: KEY, value: { ...seen, [id]: { ...seen[id], [field]: now.getTime() } } });
   });
 }
+
+// Ziua de studiu în care s-a arătat cardul „Repetiții gata” (o dată pe zi). Tot local, nesincronizat.
+const REVIEWS_DONE_KEY = "feedReviewsDoneDay";
+
+export async function getReviewsDoneDay(db: ImparaDb): Promise<string | undefined> {
+  return (await db.meta.get(REVIEWS_DONE_KEY))?.value as string | undefined;
+}
+
+export async function setReviewsDoneDay(db: ImparaDb, studyDay: string): Promise<void> {
+  await db.meta.put({ key: REVIEWS_DONE_KEY, value: studyDay });
+}

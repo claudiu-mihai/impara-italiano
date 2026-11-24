@@ -312,6 +312,42 @@ test.describe("Flux", () => {
     expect(await page.evaluate(() => (window as unknown as { __ctx: number }).__ctx)).toBe(0);
   });
 
+  test("bilanț după 25 de carduri", async ({ page }) => {
+    test.setTimeout(120_000);
+    await startFeed(page);
+    await scrollDown(page, 24); // al 25-lea card e activ
+    await scrollDown(page, 1);
+    await expect(active(page)).toHaveAttribute("data-feed-type", "milestone");
+    await expect(active(page).getByText("25 de carduri!")).toBeVisible();
+  });
+
+  test("repetiții gata: cardul apare o singură dată pe zi", async ({ page }) => {
+    test.setTimeout(180_000);
+    /** Notează „Da” la următoarea repetiție din flux. */
+    const rateNextReview = async () => {
+      await scrollToType(page, "review", 40);
+      const card = active(page);
+      await card.getByRole("button", { name: "Arată răspunsul" }).click();
+      await card.getByRole("button", { name: /^Da/ }).click();
+      await expect(card.getByRole("button", { name: /^Da/ })).toHaveCount(0);
+      await scrollDown(page, 1);
+    };
+    await seedLearnedWords(page, A1_IDS.slice(0, 2), -1);
+    await startFeed(page);
+    await rateNextReview();
+    await rateNextReview();
+    await expect.poll(() => cardTypes(page)).toContain("reviewsDone");
+    await scrollToType(page, "reviewsDone", 3);
+    await expect(active(page).getByText("Ai terminat repetițiile de azi!")).toBeVisible();
+
+    // altă repetiție scadentă, terminată în a doua vizită din aceeași zi: fără card nou
+    await seedLearnedWords(page, A1_IDS.slice(2, 3), -1);
+    await startFeed(page);
+    await rateNextReview();
+    await scrollDown(page, 3);
+    expect(await cardTypes(page)).not.toContain("reviewsDone");
+  });
+
   test("✕ te duce pe Acasă când fluxul s-a deschis direct", async ({ page }) => {
     await page.goto("/feed");
     await page.getByRole("link", { name: "Închide fluxul" }).click();
@@ -330,5 +366,47 @@ test.describe("Flux", () => {
     await startButton(page).click();
     await expect.poll(() => active(page).getAttribute("data-feed-type")).not.toBe("start");
     await audit("card pasiv");
+  });
+});
+
+test.describe("Flux: final de material", () => {
+  // fără service worker, ca fișierele de date să treacă prin page.route
+  test.use({ serviceWorkers: "block" });
+
+  test("când nu mai e nimic nou apare cardul de final, apoi fluxul continuă", async ({ page }) => {
+    test.setTimeout(120_000);
+    await mockSpeech(page);
+    // surse minuscule: o singură temă cu două reguli (fără exerciții), restul gol; fără cuvinte începute sau noi
+    const grammar = JSON.parse(readFileSync("src/data/generated/grammar.json", "utf8")) as { level: string; rules: unknown[] }[];
+    const topic = grammar.find((g) => g.level === "A1" && g.rules.length >= 2)!;
+    const tiny: Record<string, unknown[]> = {
+      grammar: [{ ...topic, rules: topic.rules.slice(0, 2), items: [] }],
+      sentences: [],
+      dialogues: [],
+      stories: [],
+      feed: [],
+      details: [],
+    };
+    await page.route(/\/assets\/(grammar|sentences|dialogues|stories|feed|details)-[^/]+\.js$/, async (route) => {
+      const response = await route.fetch();
+      const body = await response.text();
+      // același nume îl poartă și module de cod (ex. hook-ul propozițiilor): doar fișierele de date se înlocuiesc
+      if (!body.startsWith("var e=JSON.parse")) return route.fulfill({ response });
+      const name = /\/assets\/([a-z]+)-/.exec(route.request().url())![1]!;
+      await route.fulfill({ status: 200, contentType: "application/javascript", body: `export default ${JSON.stringify(tiny[name])};` });
+    });
+    await page.goto("/settings");
+    await page.getByLabel("Cuvinte noi pe zi").selectOption("0");
+    await expect(page.getByLabel("Cuvinte noi pe zi")).toHaveValue("0");
+
+    await startFeed(page);
+    await scrollToType(page, "endOfMaterial", 40);
+    await expect(active(page).getByText("Ai văzut tot ce e nou azi")).toBeVisible();
+    await scrollDown(page, 1);
+    expect(await active(page).getAttribute("data-feed-type")).toBe("rule");
+    // la al doilea final, tot un singur card de final, nu mai multe la rând
+    await scrollToType(page, "endOfMaterial", 10);
+    await scrollDown(page, 1);
+    expect(await active(page).getAttribute("data-feed-type")).toBe("rule");
   });
 });
