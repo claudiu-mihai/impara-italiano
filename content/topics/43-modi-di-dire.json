@@ -1,0 +1,144 @@
+{
+  "id": "modi-di-dire",
+  "title": {
+    "it": "Modi di dire",
+    "ro": "Expresii idiomatice"
+  },
+  "group": "conversatie",
+  "level": "B2",
+  "first": false,
+  "rules": [
+    {
+      "it": "Un modo di dire ha un significato che non si ricava dalle singole parole: «essere al verde» vuol dire «non avere soldi».",
+      "ro": "O expresie idiomatică are un sens care nu reiese din cuvinte: «essere al verde» înseamnă «a nu avea bani»."
+    },
+    {
+      "it": "Il verbo si coniuga normalmente: «costa un occhio della testa», «sono al settimo cielo».",
+      "ro": "Verbul se conjugă normal: «costa un occhio della testa», «sono al settimo cielo»."
+    },
+    {
+      "it": "Molti modi di dire sono informali: si usano parlando, meno nello scritto formale.",
+      "ro": "Multe expresii sunt informale: se folosesc în vorbire, mai puțin în scris formal."
+    }
+  ],
+  "contrast": {
+    "ro": [
+      "Multe sunt la fel ca în română: «rompere il ghiaccio» = a sparge gheața.",
+      "Atenție la cele aproape la fel: «essere al settimo cielo» = a fi în al nouălea cer (7, nu 9); «avere la pelle d'oca» = pielea de găină (gâscă, nu găină).",
+      "Altele folosesc altă imagine: «essere al verde» = a fi lefter; «toccare ferro» = a bate în lemn."
+    ]
+  },
+  "subgroups": [
+    {
+      "title": {
+        "it": "Corpo",
+        "ro": "Corpul"
+      },
+      "wordIds": [
+        "e-costare_un_occhio_della_testa",
+        "e-in_gamba",
+        "e-avere_le_mani_bucate",
+        "e-non_avere_peli_sulla_lingua",
+        "e-a_occhio_e_croce",
+        "e-mettere_le_mani_avanti",
+        "e-avere_la_testa_fra_le_nuvole",
+        "e-perdere_la_testa",
+        "e-a_bocca_aperta",
+        "e-acqua_in_bocca",
+        "e-prendere_in_giro",
+        "e-a_quattr'occhi",
+        "e-essere_tutto_orecchi"
+      ]
+    },
+    {
+      "title": {
+        "it": "Cibo",
+        "ro": "Mâncare"
+      },
+      "wordIds": [
+        "e-essere_una_buona_forchetta",
+        "e-fare_la_scarpetta",
+        "e-essere_come_il_cacio_sui_maccheroni",
+        "e-tutto_fa_brodo",
+        "e-avere_le_mani_in_pasta",
+        "e-non_è_pane_per_i_miei_denti",
+        "e-dire_pane_al_pane_e_vino_al_vino",
+        "e-andare_liscio_come_l'olio",
+        "e-essere_un_pezzo_di_pane"
+      ]
+    },
+    {
+      "title": {
+        "it": "Animali",
+        "ro": "Animale"
+      },
+      "wordIds": [
+        "e-in_bocca_al_lupo",
+        "e-avere_una_fame_da_lupi",
+        "e-essere_un_pesce_fuor_d'acqua",
+        "e-prendere_due_piccioni_con_una_fava",
+        "e-chi_dorme_non_piglia_pesci",
+        "e-avere_la_pelle_d'oca",
+        "e-piangere_lacrime_di_coccodrillo",
+        "e-essere_testardo_come_un_mulo",
+        "e-dormire_come_un_ghiro",
+        "e-cane_non_mangia_cane",
+        "e-menare_il_can_per_l'aia",
+        "e-essere_come_cane_e_gatto"
+      ]
+    },
+    {
+      "title": {
+        "it": "Soldi e lavoro",
+        "ro": "Bani și muncă"
+      },
+      "wordIds": [
+        "e-essere_al_verde",
+        "e-fare_il_ponte",
+        "e-tirare_la_cinghia",
+        "e-non_avere_un_soldo",
+        "e-fare_le_ore_piccole",
+        "e-tagliare_la_corda",
+        "e-stare_con_le_mani_in_mano"
+      ]
+    },
+    {
+      "title": {
+        "it": "Tempo e natura",
+        "ro": "Vreme și natură"
+      },
+      "wordIds": [
+        "e-piove_a_catinelle",
+        "e-cadere_dalle_nuvole",
+        "e-essere_al_settimo_cielo",
+        "e-fare_un_buco_nell'acqua",
+        "e-dopo_la_pioggia_viene_il_sereno",
+        "e-toccare_ferro",
+        "e-rompere_il_ghiaccio"
+      ]
+    },
+    {
+      "title": {
+        "it": "Stati d'animo e rapporti",
+        "ro": "Stări și relații"
+      },
+      "wordIds": [
+        "e-non_vedere_l'ora",
+        "e-avere_un_diavolo_per_capello",
+        "e-farsi_in_quattro",
+        "e-avere_un_chiodo_fisso",
+        "e-essere_giù_di_morale",
+        "e-fare_una_figuraccia",
+        "e-trattare_con_i_guanti",
+        "e-vedere_tutto_rosa",
+        "e-mettersi_nei_panni_di_qualcuno",
+        "e-essere_sulla_stessa_barca",
+        "e-fare_finta_di_niente",
+        "e-rompere_le_scatole"
+      ]
+    }
+  ],
+  "exercises": [
+    "match"
+  ]
+}

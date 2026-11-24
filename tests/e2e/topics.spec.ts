@@ -38,8 +38,8 @@ async function cardCount(page: Page, prefix: string): Promise<number> {
   }, prefix);
 }
 
-test("există 42 de teme (14 ★ și 28 din etapa a doua) și fiecare cuvânt al lor există", () => {
-  expect(TOPICS).toHaveLength(42);
+test("există 43 de teme (14 ★ și 29 din etapa a doua) și fiecare cuvânt al lor există", () => {
+  expect(TOPICS).toHaveLength(43);
   expect(TOPICS.filter((t) => (t as TopicData & { first: boolean }).first)).toHaveLength(14);
   for (const t of TOPICS) for (const id of wordIdsOf(t)) expect(byId(id), `${t.id}: ${id}`).toBeDefined();
 });
@@ -584,4 +584,24 @@ test("Reconstruiește propoziția în temă: propoziții cu cuvintele temei, iar
 
   await page.getByRole("link", { name: "Ieși din sesiune" }).click();
   await expect(page.getByRole("heading", { name: t.title.ro, level: 1 })).toBeVisible();
+});
+
+test("tema «Modi di dire»: potrivirea încape pe 360 px", async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 740 });
+  await page.goto("/learn/topics/modi-di-dire/match");
+  const left = page.getByRole("group", { name: "Italiană" });
+  const right = page.getByRole("group", { name: "Română" });
+  await expect(left.getByRole("button").first()).toBeVisible();
+  await expect(right.getByRole("button").first()).toBeVisible();
+  // expresiile lungi se rup pe rânduri, fără să lărgească pagina
+  expect(await page.evaluate(() => document.scrollingElement!.scrollWidth)).toBeLessThanOrEqual(360);
+});
+
+test("idiomurile cu apostrof și diacritice își deschid pagina", async ({ page }) => {
+  await page.goto("/browse/e-a_quattr'occhi");
+  await expect(page.getByRole("heading", { name: "a quattr'occhi", level: 1 })).toBeVisible();
+  await expect(page.getByText("Literal: «la patru ochi»")).toBeVisible();
+
+  await page.goto("/browse/e-non_è_pane_per_i_miei_denti");
+  await expect(page.getByRole("heading", { name: "non è pane per i miei denti", level: 1 })).toBeVisible();
 });

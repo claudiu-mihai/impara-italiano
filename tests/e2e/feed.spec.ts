@@ -228,6 +228,36 @@ test.describe("Flux", () => {
     expect(await card.locator("li").count()).toBe(before + 1);
   });
 
+  /** Pornește fluxul de la nivelul B2, cu tot pachetul „văzut” în afară de itemul cerut. */
+  async function startWithOnlyPackItem(page: Page, id: string) {
+    const now = Date.now();
+    await seedFeedSeen(page, Object.fromEntries(PACK.filter((p) => p.id !== id).map((p) => [p.id, { shown: now }])));
+    await page.goto("/settings");
+    await page.getByLabel("Nivelul curent").selectOption("B2");
+    await startFeed(page);
+    await scrollToType(page, "pack");
+  }
+
+  test("modo di dire: literal, insignă și echivalentul românesc", async ({ page }) => {
+    test.setTimeout(90_000);
+    await startWithOnlyPackItem(page, "modo-essere-al-settimo-cielo");
+    const card = active(page);
+    await expect(card).toContainText("Expresie idiomatică");
+    await expect(card.getByTestId("idiom-literal")).toHaveText("Cuvânt cu cuvânt: «a fi în al șaptelea cer»");
+    const match = card.getByTestId("idiom-match");
+    await expect(match).toHaveAttribute("data-match", "twist");
+    await expect(match).toHaveText("Aproape ca în română: atenție la detaliu");
+    await expect(card.getByTestId("idiom-equivalent")).toHaveText("În română: «a fi în al nouălea cer»");
+  });
+
+  test("modo di dire fără echivalent: fără rândul «În română»", async ({ page }) => {
+    test.setTimeout(90_000);
+    await startWithOnlyPackItem(page, "modo-in-gamba");
+    const card = active(page);
+    await expect(card.getByTestId("idiom-match")).toHaveAttribute("data-match", "different");
+    await expect(card.getByTestId("idiom-equivalent")).toHaveCount(0);
+  });
+
   test("o repetiție notată în flux apare în jurnal și iese din scadențe", async ({ page }) => {
     test.setTimeout(120_000);
     await seedLearnedWords(page, A1_IDS.slice(0, 3), -1);

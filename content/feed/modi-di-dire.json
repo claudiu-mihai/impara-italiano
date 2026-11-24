@@ -1,0 +1,1910 @@
+[
+  {
+    "id": "modo-costare-un-occhio-della-testa",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Costare un occhio della testa",
+    "ro": "a costa foarte mult",
+    "literal": "a costa un ochi din cap",
+    "roEquivalent": "a costa ochii din cap",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice di qualcosa di carissimo.",
+      "ro": "Se spune despre ceva foarte scump. În română imaginea e aceeași, dar la plural: «ochii din cap»."
+    },
+    "example": {
+      "it": "Hai visto il prezzo di questo orologio? Costa un occhio della testa!",
+      "ro": "Ai văzut prețul ceasului ăstuia? Costă ochii din cap!"
+    },
+    "wordIds": [
+      "e-costare_un_occhio_della_testa"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«costare un occhio della testa» vuol dire…",
+        "ro": "«costare un occhio della testa» înseamnă…"
+      },
+      "options": [
+        "Fa male agli occhi",
+        "Costa moltissimo",
+        "Costa pochissimo"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "modo-in-gamba",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "In gamba",
+    "ro": "priceput, descurcăreț",
+    "literal": "în picior",
+    "match": "different",
+    "explain": {
+      "it": "Si dice di una persona capace e sveglia. Si usa anche come saluto: «Stai in gamba!».",
+      "ro": "Se spune despre o persoană capabilă și isteață. Se folosește și ca salut: «Stai in gamba!» (ai grijă de tine)."
+    },
+    "example": {
+      "it": "La nostra nuova collega è davvero in gamba.",
+      "ro": "Noua noastră colegă e cu adevărat pricepută."
+    },
+    "wordIds": [
+      "e-in_gamba"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«in gamba» vuol dire…",
+        "ro": "«in gamba» înseamnă…"
+      },
+      "options": [
+        "Capace e sveglio",
+        "Alto e magro",
+        "Stanco e senza forze"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "modo-avere-le-mani-bucate",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Avere le mani bucate",
+    "ro": "a cheltui banii ușor",
+    "literal": "a avea mâinile găurite",
+    "roEquivalent": "a fi mână spartă",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice di chi spende i soldi senza pensarci: i soldi gli scivolano dalle mani, come da un buco.",
+      "ro": "Se spune despre cine cheltuiește banii fără să se gândească: banii îi scapă din mâini ca printr-o gaură. În română se spune «mână spartă»."
+    },
+    "example": {
+      "it": "Non prestargli soldi: ha le mani bucate.",
+      "ro": "Nu-i împrumuta bani: e mână spartă."
+    },
+    "wordIds": [
+      "e-avere_le_mani_bucate"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«avere le mani bucate» vuol dire…",
+        "ro": "«avere le mani bucate» înseamnă…"
+      },
+      "options": [
+        "Gli cadono sempre le cose di mano",
+        "Sa cucinare molto bene",
+        "Spende i soldi senza pensarci"
+      ],
+      "answer": 2
+    }
+  },
+  {
+    "id": "modo-non-avere-peli-sulla-lingua",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Non avere peli sulla lingua",
+    "ro": "a spune lucrurilor pe față",
+    "literal": "a nu avea peri pe limbă",
+    "roEquivalent": "a spune verde în față",
+    "match": "different",
+    "explain": {
+      "it": "Si dice di chi parla con franchezza, anche quando la verità non è piacevole.",
+      "ro": "Se spune despre cine vorbește sincer, chiar și când adevărul nu e plăcut. În română se spune «a spune verde în față»."
+    },
+    "example": {
+      "it": "Non ho peli sulla lingua: quel film era noioso.",
+      "ro": "Eu spun lucrurilor pe față: filmul ăla a fost plictisitor."
+    },
+    "wordIds": [
+      "e-non_avere_peli_sulla_lingua"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«non avere peli sulla lingua» vuol dire…",
+        "ro": "«non avere peli sulla lingua» înseamnă…"
+      },
+      "options": [
+        "Parla molto piano",
+        "Ha un problema alla lingua",
+        "Dice le cose in modo diretto"
+      ],
+      "answer": 2
+    }
+  },
+  {
+    "id": "modo-a-occhio-e-croce",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "A occhio e croce",
+    "ro": "cam, cu aproximație",
+    "literal": "din ochi și cruce",
+    "roEquivalent": "din ochi",
+    "match": "twist",
+    "explain": {
+      "it": "Si usa per una stima approssimativa, fatta senza misurare con precisione.",
+      "ro": "Se folosește pentru o estimare aproximativă, făcută fără măsurători precise. În română se spune «din ochi», fără «cruce»."
+    },
+    "example": {
+      "it": "Quanti anni ha? A occhio e croce, cinquanta.",
+      "ro": "Câți ani are? Cam cincizeci, din ochi."
+    },
+    "wordIds": [
+      "e-a_occhio_e_croce"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«a occhio e croce» vuol dire…",
+        "ro": "«a occhio e croce» înseamnă…"
+      },
+      "options": [
+        "Con grande precisione",
+        "Più o meno, in modo approssimativo",
+        "Senza guardare niente"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "modo-mettere-le-mani-avanti",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Mettere le mani avanti",
+    "ro": "a se acoperi dinainte",
+    "literal": "a pune mâinile înainte",
+    "match": "different",
+    "explain": {
+      "it": "Si dice quando avvisi prima di un possibile problema, per non essere criticato dopo, come quando metti le mani avanti per ripararti.",
+      "ro": "Se spune când avertizezi din timp asupra unei posibile probleme, ca să nu fii criticat după aceea, ca și cum ai pune mâinile în față ca să te aperi."
+    },
+    "example": {
+      "it": "Metto le mani avanti: la mia torta non sarà come quella di tua madre.",
+      "ro": "Mă acopăr dinainte: tortul meu nu va fi ca al mamei tale."
+    },
+    "wordIds": [
+      "e-mettere_le_mani_avanti"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«mettere le mani avanti» vuol dire…",
+        "ro": "«mettere le mani avanti» înseamnă…"
+      },
+      "options": [
+        "Avvertire prima di un possibile problema",
+        "Aiutare qualcuno a portare le cose",
+        "Chiedere scusa dopo un errore"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "modo-avere-la-testa-fra-le-nuvole",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Avere la testa fra le nuvole",
+    "ro": "a fi distrat, visător",
+    "literal": "a avea capul printre nori",
+    "roEquivalent": "a fi cu capul în nori",
+    "match": "same",
+    "explain": {
+      "it": "Si dice di chi è distratto e pensa ad altro. Si dice anche «avere la testa tra le nuvole».",
+      "ro": "Se spune despre cine e distrat și se gândește la altceva. Aceeași imagine ca în română."
+    },
+    "example": {
+      "it": "Scusa, avevo la testa fra le nuvole: cosa hai detto?",
+      "ro": "Scuze, eram cu capul în nori: ce ai spus?"
+    },
+    "wordIds": [
+      "e-avere_la_testa_fra_le_nuvole"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«avere la testa fra le nuvole» vuol dire…",
+        "ro": "«avere la testa fra le nuvole» înseamnă…"
+      },
+      "options": [
+        "È distratto e pensa ad altro",
+        "Sa sempre cosa fare",
+        "Ama molto viaggiare in aereo"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "modo-perdere-la-testa",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Perdere la testa",
+    "ro": "a-și pierde controlul (sau a se îndrăgosti nebunește)",
+    "literal": "a pierde capul",
+    "roEquivalent": "a-și pierde capul",
+    "match": "same",
+    "explain": {
+      "it": "Si dice quando non riesci più a controllarti, per la rabbia o per amore: «ha perso la testa per lei».",
+      "ro": "Se spune când nu te mai poți controla, de furie sau din dragoste: «ha perso la testa per lei» (și-a pierdut capul pentru ea)."
+    },
+    "example": {
+      "it": "Ha perso la testa per una ragazza conosciuta in vacanza.",
+      "ro": "Și-a pierdut capul după o fată cunoscută în vacanță."
+    },
+    "wordIds": [
+      "e-perdere_la_testa"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«perdere la testa» vuol dire…",
+        "ro": "«perdere la testa» înseamnă…"
+      },
+      "options": [
+        "Dimenticare dove si è lasciato qualcosa",
+        "Avere mal di testa",
+        "Non riuscire più a controllarsi, per rabbia o per amore"
+      ],
+      "answer": 2
+    }
+  },
+  {
+    "id": "modo-a-bocca-aperta",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "A bocca aperta",
+    "ro": "uimit",
+    "literal": "cu gura deschisă",
+    "roEquivalent": "cu gura căscată",
+    "match": "same",
+    "explain": {
+      "it": "Si dice quando sei così stupito che non sai cosa dire. Di solito si usa con «restare» o «rimanere».",
+      "ro": "Se spune când ești atât de uimit încât nu știi ce să spui. De obicei se folosește cu «restare» sau «rimanere»."
+    },
+    "example": {
+      "it": "Quando ha cantato, tutti sono rimasti a bocca aperta.",
+      "ro": "Când a cântat, toți au rămas cu gura căscată."
+    },
+    "wordIds": [
+      "e-a_bocca_aperta"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«a bocca aperta» vuol dire…",
+        "ro": "«a bocca aperta» înseamnă…"
+      },
+      "options": [
+        "Molto affamato",
+        "Molto stupito",
+        "Con molto sonno"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "modo-acqua-in-bocca",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Acqua in bocca",
+    "ro": "să nu spui nimănui",
+    "literal": "apă în gură",
+    "roEquivalent": "gura mută!",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice per chiedere a qualcuno di non raccontare un segreto: con la bocca piena d'acqua non si può parlare.",
+      "ro": "Se spune ca să ceri cuiva să nu spună un secret: cu gura plină de apă nu poți vorbi. În română se spune «gura mută!»."
+    },
+    "example": {
+      "it": "Non dire niente a nessuno: acqua in bocca!",
+      "ro": "Să nu spui nimic nimănui: gura mută!"
+    },
+    "wordIds": [
+      "e-acqua_in_bocca"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«acqua in bocca» vuol dire…",
+        "ro": "«acqua in bocca» înseamnă…"
+      },
+      "options": [
+        "Ho molta sete",
+        "Non dirlo a nessuno",
+        "Parla più piano"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "modo-prendere-in-giro",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Prendere in giro",
+    "ro": "a lua peste picior",
+    "literal": "a lua în tur",
+    "roEquivalent": "a lua peste picior",
+    "match": "different",
+    "explain": {
+      "it": "Vuol dire ridere di qualcuno, a volte per scherzo. Il significato è come in rumeno, ma l'immagine è diversa: «giro» è un giro, una passeggiata.",
+      "ro": "Înseamnă a râde de cineva, uneori în glumă. Sensul e ca în română, dar imaginea e alta: «giro» e un tur, o plimbare."
+    },
+    "example": {
+      "it": "Dai, non ti prendo in giro: la tua pizza è buonissima!",
+      "ro": "Hai, nu te iau peste picior: pizza ta e foarte bună!"
+    },
+    "wordIds": [
+      "e-prendere_in_giro"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«prendere in giro» vuol dire…",
+        "ro": "«prendere in giro» înseamnă…"
+      },
+      "options": [
+        "Ridere di qualcuno, scherzare su di lui",
+        "Portare qualcuno a fare un giro",
+        "Aiutare qualcuno a trovare la strada"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "modo-a-quattr-occhi",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "A quattr'occhi",
+    "ro": "între patru ochi",
+    "literal": "la patru ochi",
+    "roEquivalent": "între patru ochi",
+    "match": "same",
+    "explain": {
+      "it": "Si usa per una conversazione privata, solo tra due persone.",
+      "ro": "Se folosește pentru o conversație privată, doar între două persoane. La fel ca în română."
+    },
+    "example": {
+      "it": "Preferisco dirtelo a quattr'occhi, non per telefono.",
+      "ro": "Prefer să ți-o spun între patru ochi, nu la telefon."
+    },
+    "wordIds": [
+      "e-a_quattr'occhi"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«a quattr'occhi» vuol dire…",
+        "ro": "«a quattr'occhi» înseamnă…"
+      },
+      "options": [
+        "Con gli occhiali",
+        "Davanti a tutti",
+        "In privato, solo tra due persone"
+      ],
+      "answer": 2
+    }
+  },
+  {
+    "id": "modo-essere-tutto-orecchi",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Essere tutto orecchi",
+    "ro": "a asculta cu mare atenție",
+    "literal": "a fi numai urechi",
+    "roEquivalent": "a fi numai urechi",
+    "match": "same",
+    "explain": {
+      "it": "Si dice quando ascolti con grande attenzione e interesse.",
+      "ro": "Se spune când asculți cu mare atenție și interes. La fel ca în română."
+    },
+    "example": {
+      "it": "Hai una notizia? Dimmi pure, sono tutta orecchi.",
+      "ro": "Ai o veste? Spune, sunt numai urechi."
+    },
+    "wordIds": [
+      "e-essere_tutto_orecchi"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«essere tutto orecchi» vuol dire…",
+        "ro": "«essere tutto orecchi» înseamnă…"
+      },
+      "options": [
+        "Sentire male",
+        "Non voler ascoltare nessuno",
+        "Ascoltare con molta attenzione"
+      ],
+      "answer": 2
+    }
+  },
+  {
+    "id": "modo-essere-una-buona-forchetta",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Essere una buona forchetta",
+    "ro": "a mânca mult și cu poftă",
+    "literal": "a fi o furculiță bună",
+    "match": "different",
+    "explain": {
+      "it": "Si dice di chi mangia volentieri e in quantità. Di solito è un complimento per chi apprezza il cibo.",
+      "ro": "Se spune despre cine mănâncă cu plăcere și mult. De obicei e un compliment pentru cine apreciază mâncarea."
+    },
+    "example": {
+      "it": "Ho cucinato per otto: spero che siate buone forchette!",
+      "ro": "Am gătit pentru opt: sper că mâncați cu poftă!"
+    },
+    "wordIds": [
+      "e-essere_una_buona_forchetta"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«essere una buona forchetta» vuol dire…",
+        "ro": "«essere una buona forchetta» înseamnă…"
+      },
+      "options": [
+        "Cucinare molto bene",
+        "Mangiare molto e con piacere",
+        "Essere molto educato a tavola"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "modo-fare-la-scarpetta",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Fare la scarpetta",
+    "ro": "a șterge sosul din farfurie cu pâine",
+    "literal": "a face pantofiorul",
+    "match": "different",
+    "explain": {
+      "it": "Si dice quando si pulisce il sugo rimasto nel piatto con un pezzo di pane. È un gesto molto italiano, tra amici e in famiglia.",
+      "ro": "Se spune când ștergi sosul rămas în farfurie cu o bucată de pâine. E un gest foarte italian, între prieteni și în familie."
+    },
+    "example": {
+      "it": "Posso fare la scarpetta? Questo sugo è troppo buono!",
+      "ro": "Pot să șterg sosul cu pâine? Sosul ăsta e prea bun!"
+    },
+    "wordIds": [
+      "e-fare_la_scarpetta"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«fare la scarpetta» vuol dire…",
+        "ro": "«fare la scarpetta» înseamnă…"
+      },
+      "options": [
+        "Pulire il sugo nel piatto con il pane",
+        "Allacciarsi le scarpe",
+        "Pulire le scarpe prima di uscire"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "modo-essere-come-il-cacio-sui-maccheroni",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Essere come il cacio sui maccheroni",
+    "ro": "a veni exact când trebuie",
+    "literal": "a fi ca brânza pe macaroane",
+    "roEquivalent": "a pica la fix",
+    "match": "different",
+    "explain": {
+      "it": "Si dice di qualcosa che arriva proprio nel momento giusto: il formaggio sui maccheroni è il completamento perfetto.",
+      "ro": "Se spune despre ceva ce vine exact la momentul potrivit: brânza peste macaroane e completarea perfectă."
+    },
+    "example": {
+      "it": "Un caffè adesso? Arriva come il cacio sui maccheroni!",
+      "ro": "O cafea acum? Pică la fix!"
+    },
+    "wordIds": [
+      "e-essere_come_il_cacio_sui_maccheroni"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«essere come il cacio sui maccheroni» vuol dire…",
+        "ro": "«essere come il cacio sui maccheroni» înseamnă…"
+      },
+      "options": [
+        "Arrivare proprio al momento giusto",
+        "Mangiare sempre le stesse cose",
+        "Cucinare in fretta"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "modo-tutto-fa-brodo",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Tutto fa brodo",
+    "ro": "orice ajută",
+    "literal": "totul face supă",
+    "match": "different",
+    "explain": {
+      "it": "Si dice quando anche una piccola cosa può essere utile: nel brodo si può mettere un po' di tutto.",
+      "ro": "Se spune când chiar și un lucru mic poate ajuta: în supă poți pune câte puțin din toate."
+    },
+    "example": {
+      "it": "Ho solo dieci minuti, ma studio lo stesso: tutto fa brodo.",
+      "ro": "Am doar zece minute, dar învăț totuși: orice ajută."
+    },
+    "wordIds": [
+      "e-tutto_fa_brodo"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«tutto fa brodo» vuol dire…",
+        "ro": "«tutto fa brodo» înseamnă…"
+      },
+      "options": [
+        "Bisogna mangiare un po' di tutto",
+        "Il brodo è meglio caldo",
+        "Anche le cose piccole possono essere utili"
+      ],
+      "answer": 2
+    }
+  },
+  {
+    "id": "modo-avere-le-mani-in-pasta",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Avere le mani in pasta",
+    "ro": "a fi implicat într-o afacere",
+    "literal": "a avea mâinile în aluat",
+    "match": "different",
+    "explain": {
+      "it": "Si dice di chi è coinvolto in una faccenda o in un'attività, spesso con una certa influenza: ha le mani nell'impasto.",
+      "ro": "Se spune despre cine e implicat într-o afacere sau activitate, adesea cu o anumită influență: are mâinile în aluat."
+    },
+    "example": {
+      "it": "Quel signore ha le mani in pasta ovunque.",
+      "ro": "Domnul ăla e amestecat peste tot."
+    },
+    "wordIds": [
+      "e-avere_le_mani_in_pasta"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«avere le mani in pasta» vuol dire…",
+        "ro": "«avere le mani in pasta» înseamnă…"
+      },
+      "options": [
+        "Saper fare la pasta in casa",
+        "Essere coinvolto in una faccenda",
+        "Avere le mani sporche di farina"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "modo-non-e-pane-per-i-miei-denti",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Non è pane per i miei denti",
+    "ro": "e prea greu pentru mine",
+    "literal": "nu e pâine pentru dinții mei",
+    "roEquivalent": "nu e de nasul meu",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice di qualcosa di troppo difficile per le tue capacità. Si può cambiare persona: «non è pane per i tuoi denti».",
+      "ro": "Se spune despre ceva prea greu pentru capacitățile tale. Se poate schimba persoana: «non è pane per i tuoi denti». În română se spune «nu e de nasul meu», cu altă parte a corpului."
+    },
+    "example": {
+      "it": "Il corso di chimica? Non è pane per i miei denti.",
+      "ro": "Cursul de chimie? Nu e de nasul meu."
+    },
+    "wordIds": [
+      "e-non_è_pane_per_i_miei_denti"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«non è pane per i miei denti» vuol dire…",
+        "ro": "«non è pane per i miei denti» înseamnă…"
+      },
+      "options": [
+        "Non mi piace il pane",
+        "È troppo difficile per me",
+        "Ho male ai denti"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "modo-dire-pane-al-pane-e-vino-al-vino",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Dire pane al pane e vino al vino",
+    "ro": "a vorbi direct, fără ocolișuri",
+    "literal": "a spune pâinii pâine și vinului vin",
+    "roEquivalent": "a spune lucrurilor pe nume",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice di chi parla in modo diretto e chiaro, senza giri di parole: «pane» e «vino» sono i nomi più semplici.",
+      "ro": "Se spune despre cine vorbește direct și clar, fără ocolișuri: «pane» și «vino» sunt cele mai simple nume. În română se spune «a spune lucrurilor pe nume»."
+    },
+    "example": {
+      "it": "Non giriamoci intorno: dico pane al pane e vino al vino.",
+      "ro": "Să nu ocolim: spun lucrurilor pe nume."
+    },
+    "wordIds": [
+      "e-dire_pane_al_pane_e_vino_al_vino"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«dire pane al pane e vino al vino» vuol dire…",
+        "ro": "«dire pane al pane e vino al vino» înseamnă…"
+      },
+      "options": [
+        "Parlare in modo diretto e chiaro",
+        "Ordinare sempre lo stesso pasto",
+        "Parlare di cibo con passione"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "modo-andare-liscio-come-l-olio",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Andare liscio come l'olio",
+    "ro": "a merge fără probleme",
+    "literal": "a merge neted ca uleiul",
+    "roEquivalent": "a merge ca uns",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice quando tutto procede senza problemi, come l'olio che scorre.",
+      "ro": "Se spune când totul merge fără probleme, ca uleiul care curge. În română se spune «a merge ca uns»."
+    },
+    "example": {
+      "it": "Il trasloco? È andato liscio come l'olio!",
+      "ro": "Mutarea? A mers ca uns!"
+    },
+    "wordIds": [
+      "e-andare_liscio_come_l'olio"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«andare liscio come l'olio» vuol dire…",
+        "ro": "«andare liscio come l'olio» înseamnă…"
+      },
+      "options": [
+        "Cadere facilmente",
+        "Costare poco",
+        "Procedere senza alcun problema"
+      ],
+      "answer": 2
+    }
+  },
+  {
+    "id": "modo-essere-un-pezzo-di-pane",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Essere un pezzo di pane",
+    "ro": "a fi foarte bun la suflet",
+    "literal": "a fi o bucată de pâine",
+    "roEquivalent": "a fi bun ca pâinea caldă",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice di una persona molto buona, gentile e generosa.",
+      "ro": "Se spune despre o persoană foarte bună, blândă și generoasă. Și în română apare pâinea, dar «caldă»."
+    },
+    "example": {
+      "it": "Sembra severo, ma in realtà è un pezzo di pane.",
+      "ro": "Pare sever, dar în realitate e bun ca pâinea caldă."
+    },
+    "wordIds": [
+      "e-essere_un_pezzo_di_pane"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«essere un pezzo di pane» vuol dire…",
+        "ro": "«essere un pezzo di pane» înseamnă…"
+      },
+      "options": [
+        "Avere sempre fame",
+        "Essere molto duro e severo",
+        "Essere una persona molto buona"
+      ],
+      "answer": 2
+    }
+  },
+  {
+    "id": "modo-avere-una-fame-da-lupi",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Avere una fame da lupi",
+    "ro": "a fi lihnit",
+    "literal": "a avea o foame de lupi",
+    "roEquivalent": "a-i fi foame ca unui lup",
+    "match": "same",
+    "explain": {
+      "it": "Si dice quando hai tantissima fame. Il lupo è l'animale sempre affamato.",
+      "ro": "Se spune când ți-e foarte foame. Lupul e animalul mereu flămând. Aceeași imagine ca în română."
+    },
+    "example": {
+      "it": "Dopo la camminata ho una fame da lupi!",
+      "ro": "După plimbare mi-e foame ca unui lup!"
+    },
+    "wordIds": [
+      "e-avere_una_fame_da_lupi"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«avere una fame da lupi» vuol dire…",
+        "ro": "«avere una fame da lupi» înseamnă…"
+      },
+      "options": [
+        "Avere paura dei lupi",
+        "Avere moltissima fame",
+        "Mangiare troppo in fretta"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "modo-essere-un-pesce-fuor-d-acqua",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Essere un pesce fuor d'acqua",
+    "ro": "a nu se simți la locul lui",
+    "literal": "a fi un pește afară din apă",
+    "roEquivalent": "a fi ca peștele pe uscat",
+    "match": "same",
+    "explain": {
+      "it": "Si dice di chi si sente a disagio in un ambiente nuovo o diverso.",
+      "ro": "Se spune despre cine se simte stânjenit într-un mediu nou sau diferit. Aceeași imagine ca în română: peștele scos din apă."
+    },
+    "example": {
+      "it": "Il primo giorno nella nuova scuola, Anna era un pesce fuor d'acqua.",
+      "ro": "În prima zi la școala nouă, Anna era ca peștele pe uscat."
+    },
+    "wordIds": [
+      "e-essere_un_pesce_fuor_d'acqua"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«essere un pesce fuor d'acqua» vuol dire…",
+        "ro": "«essere un pesce fuor d'acqua» înseamnă…"
+      },
+      "options": [
+        "Sentirsi a disagio in un posto nuovo",
+        "Nuotare molto bene",
+        "Avere voglia di andare al mare"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "modo-prendere-due-piccioni-con-una-fava",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Prendere due piccioni con una fava",
+    "ro": "a rezolva două lucruri deodată",
+    "literal": "a prinde doi porumbei cu un bob",
+    "roEquivalent": "a împușca doi iepuri dintr-o lovitură",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice quando con una sola azione ottieni due risultati.",
+      "ro": "Se spune când cu o singură acțiune obții două rezultate. În română se spune «doi iepuri dintr-o lovitură», cu alte animale."
+    },
+    "example": {
+      "it": "Facciamo la spesa strada facendo? Così prendiamo due piccioni con una fava.",
+      "ro": "Facem cumpărăturile pe drum? Așa împușcăm doi iepuri dintr-o lovitură."
+    },
+    "wordIds": [
+      "e-prendere_due_piccioni_con_una_fava"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«prendere due piccioni con una fava» vuol dire…",
+        "ro": "«prendere due piccioni con una fava» înseamnă…"
+      },
+      "options": [
+        "Ottenere due risultati con una sola azione",
+        "Dare da mangiare agli uccelli",
+        "Fare un lavoro in fretta e male"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "modo-chi-dorme-non-piglia-pesci",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Chi dorme non piglia pesci",
+    "ro": "cine nu se mișcă nu obține nimic",
+    "literal": "cine doarme nu prinde pești",
+    "roEquivalent": "cine se scoală de dimineață departe ajunge",
+    "match": "different",
+    "explain": {
+      "it": "È un proverbio: chi non si dà da fare non ottiene niente.",
+      "ro": "E un proverb: cine nu se străduiește nu obține nimic. Proverbul românesc «cine se scoală de dimineață departe ajunge» pune accentul pe devreme."
+    },
+    "example": {
+      "it": "Il concorso scade domani: chi dorme non piglia pesci!",
+      "ro": "Termenul concursului expiră mâine: cine nu se mișcă nu obține nimic!"
+    },
+    "wordIds": [
+      "e-chi_dorme_non_piglia_pesci"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«chi dorme non piglia pesci» vuol dire…",
+        "ro": "«chi dorme non piglia pesci» înseamnă…"
+      },
+      "options": [
+        "Dormire bene aiuta a pescare",
+        "È meglio riposare prima di lavorare",
+        "Chi non si impegna non ottiene niente"
+      ],
+      "answer": 2
+    }
+  },
+  {
+    "id": "modo-avere-la-pelle-d-oca",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Avere la pelle d'oca",
+    "ro": "a se înfiora",
+    "literal": "a avea piele de gâscă",
+    "roEquivalent": "a avea pielea de găină",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice quando hai i brividi, per il freddo o per l'emozione. In rumeno l'animale è un altro: la gallina.",
+      "ro": "Se spune când ai fiori, de frig sau de emoție. În română animalul e altul: găina, nu gâsca (oca)."
+    },
+    "example": {
+      "it": "Ogni volta che sento l'inno, ho la pelle d'oca.",
+      "ro": "De fiecare dată când aud imnul, am pielea de găină."
+    },
+    "wordIds": [
+      "e-avere_la_pelle_d'oca"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«avere la pelle d'oca» vuol dire…",
+        "ro": "«avere la pelle d'oca» înseamnă…"
+      },
+      "options": [
+        "Avere molta fame",
+        "Avere i brividi",
+        "Avere la pelle molto morbida"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "modo-piangere-lacrime-di-coccodrillo",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Piangere lacrime di coccodrillo",
+    "ro": "a regreta prefăcut",
+    "literal": "a plânge lacrimi de crocodil",
+    "roEquivalent": "a plânge cu lacrimi de crocodil",
+    "match": "same",
+    "explain": {
+      "it": "Si dice di chi mostra un dolore finto, senza essere davvero dispiaciuto.",
+      "ro": "Se spune despre cine arată o durere falsă, fără să-i pară cu adevărat rău. Aceeași imagine ca în română."
+    },
+    "example": {
+      "it": "Ora si scusa con tutti, ma piange lacrime di coccodrillo.",
+      "ro": "Acum își cere scuze tuturor, dar plânge cu lacrimi de crocodil."
+    },
+    "wordIds": [
+      "e-piangere_lacrime_di_coccodrillo"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«piangere lacrime di coccodrillo» vuol dire…",
+        "ro": "«piangere lacrime di coccodrillo» înseamnă…"
+      },
+      "options": [
+        "Piangere per la troppa gioia",
+        "Fingere di essere dispiaciuto",
+        "Avere paura dei coccodrilli"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "modo-essere-testardo-come-un-mulo",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Essere testardo come un mulo",
+    "ro": "a fi foarte încăpățânat",
+    "literal": "a fi încăpățânat ca un catâr",
+    "roEquivalent": "a fi încăpățânat ca un catâr",
+    "match": "same",
+    "explain": {
+      "it": "Si dice di chi non cambia idea, neanche davanti ai fatti. Il mulo ha fama di animale ostinato.",
+      "ro": "Se spune despre cine nu-și schimbă părerea, nici în fața faptelor. Catârul are faimă de animal încăpățânat, la fel ca în română."
+    },
+    "example": {
+      "it": "Non ascolta nessuno: è testarda come un mulo.",
+      "ro": "Nu ascultă pe nimeni: e încăpățânată ca un catâr."
+    },
+    "wordIds": [
+      "e-essere_testardo_come_un_mulo"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«essere testardo come un mulo» vuol dire…",
+        "ro": "«essere testardo come un mulo» înseamnă…"
+      },
+      "options": [
+        "Essere molto ostinato",
+        "Lavorare molto duro",
+        "Avere molta pazienza"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "modo-dormire-come-un-ghiro",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Dormire come un ghiro",
+    "ro": "a dormi adânc",
+    "literal": "a dormi ca un pârș",
+    "roEquivalent": "a dormi ca un buștean",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice di chi dorme profondamente e a lungo. Il ghiro è un piccolo roditore che passa l'inverno in letargo.",
+      "ro": "Se spune despre cine doarme adânc și mult. «Ghiro» (pârșul) e un rozător mic care hibernează iarna. În română se spune «a dormi ca un buștean»."
+    },
+    "example": {
+      "it": "Con questo silenzio dormo come un ghiro.",
+      "ro": "Cu liniștea asta dorm ca un buștean."
+    },
+    "wordIds": [
+      "e-dormire_come_un_ghiro"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«dormire come un ghiro» vuol dire…",
+        "ro": "«dormire come un ghiro» înseamnă…"
+      },
+      "options": [
+        "Svegliarsi molto presto",
+        "Dormire poco e male",
+        "Dormire profondamente"
+      ],
+      "answer": 2
+    }
+  },
+  {
+    "id": "modo-cane-non-mangia-cane",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Cane non mangia cane",
+    "ro": "cei de-o teapă nu se atacă între ei",
+    "literal": "câine nu mănâncă câine",
+    "roEquivalent": "corb la corb nu-și scoate ochii",
+    "match": "twist",
+    "explain": {
+      "it": "È un proverbio: le persone dello stesso gruppo non si fanno del male tra loro. Si usa spesso con tono critico.",
+      "ro": "E un proverb: oamenii din același grup nu își fac rău între ei. Se folosește adesea pe ton critic. În română se spune «corb la corb nu-și scoate ochii»."
+    },
+    "example": {
+      "it": "Non aspettarti niente: cane non mangia cane.",
+      "ro": "Nu te aștepta la nimic: corb la corb nu-și scoate ochii."
+    },
+    "wordIds": [
+      "e-cane_non_mangia_cane"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«cane non mangia cane» vuol dire…",
+        "ro": "«cane non mangia cane» înseamnă…"
+      },
+      "options": [
+        "I cani sono animali pericolosi",
+        "Non bisogna avere paura dei cani",
+        "Chi è dello stesso gruppo non si attacca"
+      ],
+      "answer": 2
+    }
+  },
+  {
+    "id": "modo-menare-il-can-per-l-aia",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Menare il can per l'aia",
+    "ro": "a o lungi, a amâna",
+    "literal": "a mâna câinele prin arie",
+    "roEquivalent": "a trage de timp",
+    "match": "different",
+    "explain": {
+      "it": "Si dice quando si perde tempo girando intorno a un problema, senza decidere. L'aia è lo spazio dove si batteva il grano.",
+      "ro": "Se spune când pierzi timpul ocolind o problemă, fără să te hotărăști. «Aia» e aria unde se treiera grâul."
+    },
+    "example": {
+      "it": "Il capo mena il can per l'aia e il progetto è fermo.",
+      "ro": "Șeful trage de timp și proiectul stă pe loc."
+    },
+    "wordIds": [
+      "e-menare_il_can_per_l'aia"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«menare il can per l'aia» vuol dire…",
+        "ro": "«menare il can per l'aia» înseamnă…"
+      },
+      "options": [
+        "Portare il cane a passeggio",
+        "Perdere tempo senza decidere",
+        "Lavorare in campagna con gli animali"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "modo-essere-come-cane-e-gatto",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Essere come cane e gatto",
+    "ro": "a se certa mereu",
+    "literal": "a fi ca câinele și pisica",
+    "roEquivalent": "a fi ca câinele cu pisica",
+    "match": "same",
+    "explain": {
+      "it": "Si dice di due persone che litigano di continuo.",
+      "ro": "Se spune despre două persoane care se ceartă mereu. Aceeași imagine ca în română: câinele și pisica."
+    },
+    "example": {
+      "it": "Io e mia cugina siamo come cane e gatto, ma ci vogliamo bene.",
+      "ro": "Eu și verișoara mea suntem ca câinele cu pisica, dar ne iubim."
+    },
+    "wordIds": [
+      "e-essere_come_cane_e_gatto"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«essere come cane e gatto» vuol dire…",
+        "ro": "«essere come cane e gatto» înseamnă…"
+      },
+      "options": [
+        "Litigare in continuazione",
+        "Essere molto uniti",
+        "Avere molti animali in casa"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "modo-essere-al-verde",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Essere al verde",
+    "ro": "a nu avea bani",
+    "literal": "a fi la verde",
+    "roEquivalent": "a fi lefter",
+    "match": "different",
+    "explain": {
+      "it": "Si dice quando non hai più soldi, spesso solo per un periodo.",
+      "ro": "Se spune când nu mai ai bani, adesea doar pentru o perioadă. În română se spune «a fi lefter»."
+    },
+    "example": {
+      "it": "Questo mese ho speso troppo e sono al verde.",
+      "ro": "Luna asta am cheltuit prea mult și sunt lefter."
+    },
+    "wordIds": [
+      "e-essere_al_verde"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«essere al verde» vuol dire…",
+        "ro": "«essere al verde» înseamnă…"
+      },
+      "options": [
+        "Non avere soldi",
+        "Essere senza esperienza",
+        "Amare la natura"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "modo-fare-il-ponte",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Fare il ponte",
+    "ro": "a lua liber între o sărbătoare și weekend",
+    "literal": "a face podul",
+    "roEquivalent": "a face punte",
+    "match": "same",
+    "explain": {
+      "it": "Si dice quando prendi un giorno di ferie tra una festa e il fine settimana, per avere più giorni liberi.",
+      "ro": "Se spune când iei o zi liberă între o sărbătoare și weekend, ca să ai mai multe zile libere. Imaginea e ca în română: «a face punte»."
+    },
+    "example": {
+      "it": "Giovedì è festa: venerdì mi prendo un giorno e faccio il ponte!",
+      "ro": "Joi e sărbătoare: vineri îmi iau o zi liberă și fac punte!"
+    },
+    "wordIds": [
+      "e-fare_il_ponte"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«fare il ponte» vuol dire…",
+        "ro": "«fare il ponte» înseamnă…"
+      },
+      "options": [
+        "Costruire un ponte sul fiume",
+        "Andare in vacanza all'estero",
+        "Prendere un giorno libero tra festa e weekend"
+      ],
+      "answer": 2
+    }
+  },
+  {
+    "id": "modo-tirare-la-cinghia",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Tirare la cinghia",
+    "ro": "a economisi strict",
+    "literal": "a trage cureaua",
+    "roEquivalent": "a strânge cureaua",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice quando devi spendere il meno possibile: immagine di chi stringe la cintura perché ha meno da mangiare.",
+      "ro": "Se spune când trebuie să cheltuiești cât mai puțin: imaginea celui care strânge cureaua pentru că are mai puțin de mâncare. În română verbul e «a strânge», în italiană «tirare» (a trage)."
+    },
+    "example": {
+      "it": "Questo mese tiriamo la cinghia: niente cene fuori.",
+      "ro": "Luna asta strângem cureaua: nu mai mâncăm în oraș."
+    },
+    "wordIds": [
+      "e-tirare_la_cinghia"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«tirare la cinghia» vuol dire…",
+        "ro": "«tirare la cinghia» înseamnă…"
+      },
+      "options": [
+        "Fare molto sport",
+        "Risparmiare e spendere il meno possibile",
+        "Comprare vestiti nuovi"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "modo-non-avere-un-soldo",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Non avere un soldo",
+    "ro": "a nu avea niciun ban",
+    "literal": "a nu avea un ban",
+    "roEquivalent": "a nu avea un sfanț",
+    "match": "same",
+    "explain": {
+      "it": "«Soldo» era una vecchia moneta di poco valore: oggi si usa quasi solo in espressioni come questa.",
+      "ro": "«Soldo» era o monedă veche de mică valoare; azi apare aproape doar în expresii ca aceasta. În română se spune «a nu avea un sfanț»."
+    },
+    "example": {
+      "it": "Non ho un soldo in tasca, scusami.",
+      "ro": "Nu am un ban în buzunar, scuză-mă."
+    },
+    "wordIds": [
+      "e-non_avere_un_soldo"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«non avere un soldo» vuol dire…",
+        "ro": "«non avere un soldo» înseamnă…"
+      },
+      "options": [
+        "Non avere tempo",
+        "Essere senza soldi",
+        "Spendere con attenzione"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "modo-fare-le-ore-piccole",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Fare le ore piccole",
+    "ro": "a sta treaz până târziu",
+    "literal": "a face orele mici",
+    "roEquivalent": "a sta până la ore mici",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice quando resti sveglio fino a notte fonda, per una festa o per lavoro. Le ore piccole sono quelle dopo mezzanotte.",
+      "ro": "Se spune când rămâi treaz până noaptea târziu, la o petrecere sau la muncă. «Orele mici» sunt cele de după miezul nopții. În română se spune «a sta până la ore mici»."
+    },
+    "example": {
+      "it": "Per l'esame studio fino a tardi: faccio le ore piccole.",
+      "ro": "Pentru examen învăț până târziu: stau până la ore mici."
+    },
+    "wordIds": [
+      "e-fare_le_ore_piccole"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«fare le ore piccole» vuol dire…",
+        "ro": "«fare le ore piccole» înseamnă…"
+      },
+      "options": [
+        "Restare svegli fino a tardi",
+        "Svegliarsi molto presto",
+        "Lavorare solo poche ore"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "modo-tagliare-la-corda",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Tagliare la corda",
+    "ro": "a o șterge",
+    "literal": "a tăia frânghia",
+    "roEquivalent": "a o lua la sănătoasa",
+    "match": "different",
+    "explain": {
+      "it": "Si dice quando te ne vai di nascosto o in fretta. È colloquiale.",
+      "ro": "Se spune când pleci pe furiș sau în grabă. E colocvial. În română se spune «a o lua la sănătoasa»."
+    },
+    "example": {
+      "it": "Non voleva pagare il conto e ha tagliato la corda.",
+      "ro": "Nu voia să plătească nota și a șters-o."
+    },
+    "wordIds": [
+      "e-tagliare_la_corda"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«tagliare la corda» vuol dire…",
+        "ro": "«tagliare la corda» înseamnă…"
+      },
+      "options": [
+        "Legare bene qualcosa",
+        "Arrivare in ritardo",
+        "Andarsene di nascosto o in fretta"
+      ],
+      "answer": 2
+    }
+  },
+  {
+    "id": "modo-stare-con-le-mani-in-mano",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Stare con le mani in mano",
+    "ro": "a sta degeaba",
+    "literal": "a sta cu mâinile în mână",
+    "roEquivalent": "a sta cu mâinile în sân",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice di chi non fa niente, quando ci sarebbe da fare.",
+      "ro": "Se spune despre cine nu face nimic, când ar fi de lucru. În română se spune «a sta cu mâinile în sân»."
+    },
+    "example": {
+      "it": "Non posso stare con le mani in mano: devo fare qualcosa.",
+      "ro": "Nu pot sta degeaba: trebuie să fac ceva."
+    },
+    "wordIds": [
+      "e-stare_con_le_mani_in_mano"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«stare con le mani in mano» vuol dire…",
+        "ro": "«stare con le mani in mano» înseamnă…"
+      },
+      "options": [
+        "Tenere qualcosa in mano",
+        "Lavorare con le mani",
+        "Non fare niente"
+      ],
+      "answer": 2
+    }
+  },
+  {
+    "id": "modo-piove-a-catinelle",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Piove a catinelle",
+    "ro": "plouă foarte tare",
+    "literal": "plouă cu ligheanele",
+    "roEquivalent": "plouă cu găleata",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice quando piove molto forte. La «catinella» è una grande bacinella.",
+      "ro": "Se spune când plouă foarte tare. «Catinella» e o ligheană mare; în română plouă «cu găleata»."
+    },
+    "example": {
+      "it": "Resta a casa: fuori piove a catinelle.",
+      "ro": "Rămâi acasă: afară plouă cu găleata."
+    },
+    "wordIds": [
+      "e-piove_a_catinelle"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«piove a catinelle» vuol dire…",
+        "ro": "«piove a catinelle» înseamnă…"
+      },
+      "options": [
+        "Piove pochissimo",
+        "Piove molto forte",
+        "C'è un bel sole"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "modo-cadere-dalle-nuvole",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Cadere dalle nuvole",
+    "ro": "a fi luat prin surprindere",
+    "literal": "a cădea din nori",
+    "roEquivalent": "a pica din lună",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice quando ti sorprende una notizia che non ti aspettavi. In italiano si cade dalle nuvole, in rumeno dalla luna.",
+      "ro": "Se spune când te ia prin surprindere o veste neașteptată. În italiană cazi din nori, în română din lună."
+    },
+    "example": {
+      "it": "Mi hanno organizzato una festa a sorpresa: sono caduto dalle nuvole!",
+      "ro": "Mi-au organizat o petrecere surpriză: am picat din lună!"
+    },
+    "wordIds": [
+      "e-cadere_dalle_nuvole"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«cadere dalle nuvole» vuol dire…",
+        "ro": "«cadere dalle nuvole» înseamnă…"
+      },
+      "options": [
+        "Essere colto di sorpresa",
+        "Avere un incidente",
+        "Sognare di volare"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "modo-essere-al-settimo-cielo",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Essere al settimo cielo",
+    "ro": "a fi foarte fericit",
+    "literal": "a fi în al șaptelea cer",
+    "roEquivalent": "a fi în al nouălea cer",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice quando sei felicissimo. Il numero cambia: in italiano è il settimo cielo, in rumeno il nono.",
+      "ro": "Se spune când ești foarte fericit. Numărul diferă: în italiană e al șaptelea cer, în română al nouălea."
+    },
+    "example": {
+      "it": "Ho vinto il concorso: sono al settimo cielo!",
+      "ro": "Am câștigat concursul: sunt în al nouălea cer!"
+    },
+    "wordIds": [
+      "e-essere_al_settimo_cielo"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«essere al settimo cielo» vuol dire…",
+        "ro": "«essere al settimo cielo» înseamnă…"
+      },
+      "options": [
+        "Essere felicissimo",
+        "Abitare all'ultimo piano",
+        "Avere le vertigini"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "modo-fare-un-buco-nell-acqua",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Fare un buco nell'acqua",
+    "ro": "a încerca degeaba",
+    "literal": "a face o gaură în apă",
+    "roEquivalent": "a căra apă cu ciurul",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice quando un tentativo non dà nessun risultato: un buco nell'acqua si chiude subito.",
+      "ro": "Se spune când o încercare nu dă niciun rezultat: o gaură în apă se închide imediat. În română se spune «a căra apă cu ciurul»."
+    },
+    "example": {
+      "it": "Abbiamo cercato per ore, ma abbiamo fatto un buco nell'acqua.",
+      "ro": "Am căutat ore în șir, dar am cărat apă cu ciurul."
+    },
+    "wordIds": [
+      "e-fare_un_buco_nell'acqua"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«fare un buco nell'acqua» vuol dire…",
+        "ro": "«fare un buco nell'acqua» înseamnă…"
+      },
+      "options": [
+        "Cadere in un lago",
+        "Riuscire al primo tentativo",
+        "Tentare senza ottenere risultati"
+      ],
+      "answer": 2
+    }
+  },
+  {
+    "id": "modo-dopo-la-pioggia-viene-il-sereno",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Dopo la pioggia viene il sereno",
+    "ro": "după necazuri vine și binele",
+    "literal": "după ploaie vine senin",
+    "roEquivalent": "după ploaie vine și soare",
+    "match": "same",
+    "explain": {
+      "it": "È un proverbio: dopo un periodo difficile ne arriva uno migliore.",
+      "ro": "E un proverb: după o perioadă grea vine una mai bună. Aceeași imagine ca în română."
+    },
+    "example": {
+      "it": "Sono giorni duri, ma dopo la pioggia viene il sereno.",
+      "ro": "Sunt zile grele, dar după ploaie vine și soare."
+    },
+    "wordIds": [
+      "e-dopo_la_pioggia_viene_il_sereno"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«dopo la pioggia viene il sereno» vuol dire…",
+        "ro": "«dopo la pioggia viene il sereno» înseamnă…"
+      },
+      "options": [
+        "Dopo la pioggia bisogna aprire l'ombrello",
+        "Dopo i problemi arrivano tempi migliori",
+        "Il tempo cambia sempre"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "modo-toccare-ferro",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Toccare ferro",
+    "ro": "a se feri de ghinion",
+    "literal": "a atinge fier",
+    "roEquivalent": "a bate în lemn",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice, spesso toccando qualcosa di metallo, per allontanare la sfortuna. In rumeno si batte sul legno, non sul ferro.",
+      "ro": "Se spune, adesea atingând ceva metalic, ca să alungi ghinionul. În română se bate în lemn, nu în fier."
+    },
+    "example": {
+      "it": "Domani ho l'esame: speriamo bene e tocchiamo ferro.",
+      "ro": "Mâine am examen: sperăm să fie bine și batem în lemn."
+    },
+    "wordIds": [
+      "e-toccare_ferro"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«toccare ferro» vuol dire…",
+        "ro": "«toccare ferro» înseamnă…"
+      },
+      "options": [
+        "Riparare un oggetto di metallo",
+        "Fare un gesto contro la sfortuna",
+        "Chiedere aiuto a un fabbro"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "modo-rompere-il-ghiaccio",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Rompere il ghiaccio",
+    "ro": "a începe o conversație",
+    "literal": "a sparge gheața",
+    "roEquivalent": "a sparge gheața",
+    "match": "same",
+    "explain": {
+      "it": "Si dice quando fai il primo passo per mettere a proprio agio persone che non si conoscono.",
+      "ro": "Se spune când faci primul pas ca să-i destinzi pe oameni care nu se cunosc. Aceeași imagine ca în română."
+    },
+    "example": {
+      "it": "A cena nessuno parlava, così ho rotto il ghiaccio con una domanda sul viaggio.",
+      "ro": "La cină nu vorbea nimeni, așa că am spart gheața cu o întrebare despre călătorie."
+    },
+    "wordIds": [
+      "e-rompere_il_ghiaccio"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«rompere il ghiaccio» vuol dire…",
+        "ro": "«rompere il ghiaccio» înseamnă…"
+      },
+      "options": [
+        "Iniziare una conversazione e creare confidenza",
+        "Mettere il ghiaccio in un bicchiere",
+        "Litigare con qualcuno"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "modo-avere-un-diavolo-per-capello",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Avere un diavolo per capello",
+    "ro": "a fi foarte furios",
+    "literal": "a avea un drac pe fiecare fir de păr",
+    "roEquivalent": "a-i sări muștarul",
+    "match": "different",
+    "explain": {
+      "it": "Si dice di chi è furioso e nervosissimo: un diavolo per ogni capello.",
+      "ro": "Se spune despre cine e furios și foarte nervos: câte un drac pentru fiecare fir de păr. În română se spune «a-i sări muștarul»."
+    },
+    "example": {
+      "it": "Non parlargli adesso: ha un diavolo per capello.",
+      "ro": "Nu-i vorbi acum: i-a sărit muștarul."
+    },
+    "wordIds": [
+      "e-avere_un_diavolo_per_capello"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«avere un diavolo per capello» vuol dire…",
+        "ro": "«avere un diavolo per capello» înseamnă…"
+      },
+      "options": [
+        "Avere i capelli lunghi",
+        "Essere molto superstizioso",
+        "Essere molto arrabbiato"
+      ],
+      "answer": 2
+    }
+  },
+  {
+    "id": "modo-farsi-in-quattro",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Farsi in quattro",
+    "ro": "a face tot posibilul",
+    "literal": "a se face în patru",
+    "roEquivalent": "a se rupe în patru",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice di chi fa tutto il possibile, e anche di più, per aiutare qualcuno: come se si dividesse in quattro persone.",
+      "ro": "Se spune despre cine face tot posibilul, și chiar mai mult, ca să ajute pe cineva: ca și cum s-ar împărți în patru. În română se spune «a se rupe în patru», cu alt verb."
+    },
+    "example": {
+      "it": "Il cameriere si è fatto in quattro per noi.",
+      "ro": "Ospătarul s-a rupt în patru pentru noi."
+    },
+    "wordIds": [
+      "e-farsi_in_quattro"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«farsi in quattro» vuol dire…",
+        "ro": "«farsi in quattro» înseamnă…"
+      },
+      "options": [
+        "Dividere il lavoro in quattro parti",
+        "Arrabbiarsi molto",
+        "Fare il possibile per aiutare"
+      ],
+      "answer": 2
+    }
+  },
+  {
+    "id": "modo-avere-un-chiodo-fisso",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Avere un chiodo fisso",
+    "ro": "a avea o obsesie",
+    "literal": "a avea un cui fix",
+    "roEquivalent": "a avea o idee fixă",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice di un pensiero che torna sempre, come un chiodo piantato nella testa.",
+      "ro": "Se spune despre un gând care revine mereu, ca un cui bătut în cap. În română se spune «a avea o idee fixă»."
+    },
+    "example": {
+      "it": "Da giorni ho un chiodo fisso: il viaggio in Giappone.",
+      "ro": "De zile bune am o obsesie: călătoria în Japonia."
+    },
+    "wordIds": [
+      "e-avere_un_chiodo_fisso"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«avere un chiodo fisso» vuol dire…",
+        "ro": "«avere un chiodo fisso» înseamnă…"
+      },
+      "options": [
+        "Avere bisogno di attrezzi",
+        "Avere un pensiero che torna sempre",
+        "Fare lavori in casa"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "modo-essere-giu-di-morale",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Essere giù di morale",
+    "ro": "a fi abătut",
+    "literal": "a fi jos de moral",
+    "roEquivalent": "a avea moralul la pământ",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice quando ti senti triste e senza energia. Si può dire anche solo «essere giù».",
+      "ro": "Se spune când te simți trist și fără energie. Se poate spune și doar «essere giù». În română se spune «a avea moralul la pământ»."
+    },
+    "example": {
+      "it": "Che hai? Sei giù di morale?",
+      "ro": "Ce ai? Ești abătut?"
+    },
+    "wordIds": [
+      "e-essere_giù_di_morale"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«essere giù di morale» vuol dire…",
+        "ro": "«essere giù di morale» înseamnă…"
+      },
+      "options": [
+        "Sentirsi triste e senza energia",
+        "Essere di buon umore",
+        "Essere molto educato"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "modo-fare-una-figuraccia",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Fare una figuraccia",
+    "ro": "a se face de râs",
+    "literal": "a face o figură urâtă",
+    "roEquivalent": "a se face de râs",
+    "match": "different",
+    "explain": {
+      "it": "Si dice quando fai o dici qualcosa che ti mette in imbarazzo davanti agli altri. Il suffisso «-accia» dà un senso negativo a «figura».",
+      "ro": "Se spune când faci sau spui ceva care te face de rușine în fața altora. Sufixul «-accia» dă un sens negativ cuvântului «figura»."
+    },
+    "example": {
+      "it": "Hai fatto una figuraccia, ma capita a tutti.",
+      "ro": "Te-ai făcut de râs, dar se întâmplă tuturor."
+    },
+    "wordIds": [
+      "e-fare_una_figuraccia"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«fare una figuraccia» vuol dire…",
+        "ro": "«fare una figuraccia» înseamnă…"
+      },
+      "options": [
+        "Fare una brutta figura davanti agli altri",
+        "Disegnare una figura",
+        "Vincere una gara"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "modo-trattare-con-i-guanti",
+    "kind": "modo-di-dire",
+    "level": "B2",
+    "it": "Trattare con i guanti",
+    "ro": "a trata cu delicatețe",
+    "literal": "a trata cu mănușile",
+    "roEquivalent": "a trata cu mănuși",
+    "match": "same",
+    "explain": {
+      "it": "Si dice quando tratti qualcuno con molta delicatezza e cautela, perché è sensibile.",
+      "ro": "Se spune când tratezi pe cineva cu multă delicatețe și grijă, pentru că e sensibil. Aceeași imagine ca în română."
+    },
+    "example": {
+      "it": "Da quando è stata male, i colleghi la trattano con i guanti.",
+      "ro": "De când a fost bolnavă, colegii o tratează cu mănuși."
+    },
+    "wordIds": [
+      "e-trattare_con_i_guanti"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«trattare con i guanti» vuol dire…",
+        "ro": "«trattare con i guanti» înseamnă…"
+      },
+      "options": [
+        "Proteggere le mani dal freddo",
+        "Trattare male qualcuno",
+        "Trattare con molta delicatezza"
+      ],
+      "answer": 2
+    }
+  },
+  {
+    "id": "modo-vedere-tutto-rosa",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Vedere tutto rosa",
+    "ro": "a fi optimist",
+    "literal": "a vedea totul roz",
+    "roEquivalent": "a vedea totul în roz",
+    "match": "same",
+    "explain": {
+      "it": "Si dice di chi è ottimista, a volte troppo. L'opposto è «vedere tutto nero».",
+      "ro": "Se spune despre cine e optimist, uneori prea mult. Opusul este «vedere tutto nero» (a vedea totul în negru)."
+    },
+    "example": {
+      "it": "Non vedo tutto rosa: so che sarà difficile.",
+      "ro": "Nu văd totul în roz: știu că va fi greu."
+    },
+    "wordIds": [
+      "e-vedere_tutto_rosa"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«vedere tutto rosa» vuol dire…",
+        "ro": "«vedere tutto rosa» înseamnă…"
+      },
+      "options": [
+        "Amare il colore rosa",
+        "Essere ottimista",
+        "Avere problemi alla vista"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "modo-mettersi-nei-panni-di-qualcuno",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Mettersi nei panni di qualcuno",
+    "ro": "a se pune în locul cuiva",
+    "literal": "a se pune în hainele cuiva",
+    "roEquivalent": "a se pune în pielea cuiva",
+    "match": "twist",
+    "explain": {
+      "it": "Si dice quando provi a capire cosa pensa o sente un'altra persona: è come indossare i suoi vestiti.",
+      "ro": "Se spune când încerci să înțelegi ce gândește sau simte altcineva: e ca și cum i-ai îmbrăca hainele. În română te pui «în pielea» lui."
+    },
+    "example": {
+      "it": "Se mi metto nei panni di Anna, capisco la sua rabbia.",
+      "ro": "Dacă mă pun în pielea Annei, îi înțeleg supărarea."
+    },
+    "wordIds": [
+      "e-mettersi_nei_panni_di_qualcuno"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«mettersi nei panni di qualcuno» vuol dire…",
+        "ro": "«mettersi nei panni di qualcuno» înseamnă…"
+      },
+      "options": [
+        "Scambiare i vestiti con un amico",
+        "Cercare di capire gli altri",
+        "Comprare vestiti nuovi"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "modo-essere-sulla-stessa-barca",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Essere sulla stessa barca",
+    "ro": "a fi în aceeași situație",
+    "literal": "a fi în aceeași barcă",
+    "roEquivalent": "a fi în aceeași barcă",
+    "match": "same",
+    "explain": {
+      "it": "Si dice quando più persone hanno gli stessi problemi o rischi.",
+      "ro": "Se spune când mai multe persoane au aceleași probleme sau riscuri. Aceeași imagine ca în română."
+    },
+    "example": {
+      "it": "Non lamentarti con me: siamo sulla stessa barca.",
+      "ro": "Nu te plânge mie: suntem în aceeași barcă."
+    },
+    "wordIds": [
+      "e-essere_sulla_stessa_barca"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«essere sulla stessa barca» vuol dire…",
+        "ro": "«essere sulla stessa barca» înseamnă…"
+      },
+      "options": [
+        "Avere la stessa situazione degli altri",
+        "Fare una gita in barca insieme",
+        "Essere vicini di casa"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "modo-fare-finta-di-niente",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Fare finta di niente",
+    "ro": "a se preface că nu știe",
+    "literal": "a se preface de nimic",
+    "roEquivalent": "a se face că plouă",
+    "match": "different",
+    "explain": {
+      "it": "Si dice quando ti comporti come se non fosse successo nulla, o come se non avessi visto o sentito.",
+      "ro": "Se spune când te porți ca și cum nu s-ar fi întâmplat nimic sau ca și cum n-ai fi văzut ori auzit. În română se spune «a se face că plouă»."
+    },
+    "example": {
+      "it": "Ha rotto il vaso e ha fatto finta di niente.",
+      "ro": "A spart vaza și s-a făcut că plouă."
+    },
+    "wordIds": [
+      "e-fare_finta_di_niente"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«fare finta di niente» vuol dire…",
+        "ro": "«fare finta di niente» înseamnă…"
+      },
+      "options": [
+        "Non fare niente per tutto il giorno",
+        "Dire tutta la verità",
+        "Comportarsi come se nulla fosse successo"
+      ],
+      "answer": 2
+    }
+  },
+  {
+    "id": "modo-rompere-le-scatole",
+    "kind": "modo-di-dire",
+    "level": "B1",
+    "it": "Rompere le scatole",
+    "ro": "a sâcâi",
+    "literal": "a sparge cutiile",
+    "roEquivalent": "a călca pe nervi",
+    "match": "different",
+    "explain": {
+      "it": "Si dice quando qualcuno ti infastidisce. È colloquiale: meglio usarla tra amici.",
+      "ro": "Se spune când cineva te enervează. E colocvial: mai bine să o folosești între prieteni. În română se spune «a călca pe nervi»."
+    },
+    "example": {
+      "it": "Il vicino mi rompe le scatole con la musica alta.",
+      "ro": "Vecinul mă calcă pe nervi cu muzica dată tare."
+    },
+    "wordIds": [
+      "e-rompere_le_scatole"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«rompere le scatole» vuol dire…",
+        "ro": "«rompere le scatole» înseamnă…"
+      },
+      "options": [
+        "Rompere gli oggetti in casa",
+        "Mettere le cose in ordine",
+        "Dare fastidio a qualcuno"
+      ],
+      "answer": 2
+    }
+  }
+]
