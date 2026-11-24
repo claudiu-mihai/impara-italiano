@@ -108,17 +108,28 @@ function utteranceFor(text: string, rate: number, speaker?: Speaker): SpeechSynt
 /** Viteza vocii de sistem care corespunde unei înregistrări redate normal (viteza implicită din Setări). */
 export const RECORDED_RATE = 0.9;
 
-// înregistrarea (audio pregenerat) care se aude acum, ca o redare nouă să o poată opri
-let recording: HTMLAudioElement | null = null;
+// Un singur element audio pentru toate înregistrările: pe iOS un gest (atingerea de start din Flux) deblochează doar
+// elementul care a fost pornit atunci, deci unul nou la fiecare redare ar rămâne blocat după primul card.
+let audioEl: HTMLAudioElement | null = null;
+// numărul redării curente; o redare oprită sau înlocuită nu mai are voie să cadă pe vocea de sistem
+let playId = 0;
+let currentFallback: (() => void) | null = null;
+
+function sharedAudio(): HTMLAudioElement {
+  if (!audioEl) {
+    audioEl = new Audio();
+    audioEl.addEventListener("error", () => currentFallback?.());
+  }
+  return audioEl;
+}
 
 /** Oprește orice redare în curs (o frază, o serie sau o înregistrare). */
 export function stopSpeaking(): void {
   sequenceToken++;
   setSpeaking(null);
-  if (recording) {
-    recording.pause();
-    recording = null;
-  }
+  playId++;
+  currentFallback = null;
+  audioEl?.pause();
   if (supported()) window.speechSynthesis.cancel();
 }
 
@@ -134,19 +145,36 @@ function speakWithVoice(text: string, rate: number, speaker?: Speaker): void {
  */
 function playRecording(url: string, text: string, rate: number, speaker?: Speaker): void {
   stopSpeaking();
-  const audio = new Audio(url);
+  const audio = sharedAudio();
+  const id = playId;
+  audio.src = url;
   audio.playbackRate = Math.min(2, Math.max(0.5, rate / RECORDED_RATE));
-  recording = audio;
   let fellBack = false;
   const fallback = () => {
     // oprită între timp de o redare nouă: nu mai pornește nimic
-    if (fellBack || recording !== audio) return;
+    if (fellBack || playId !== id) return;
     fellBack = true;
-    recording = null;
     speakWithVoice(text, rate, speaker);
   };
-  audio.addEventListener("error", fallback, { once: true });
+  currentFallback = fallback;
   audio.play().catch(fallback);
+}
+
+// o tăcere de câteva milisecunde, doar ca elementul audio să poată fi pornit dintr-un gest
+const SILENCE = "data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=";
+
+/**
+ * Deblochează redarea automată pe iOS: se cheamă dintr-un gest al utilizatorului. Pornește (în tăcere) elementul audio pe
+ * care îl vor refolosi înregistrările și rostește o frază goală cu vocea de sistem.
+ */
+export function unlockAudio(): void {
+  stopSpeaking();
+  const audio = sharedAudio();
+  audio.src = SILENCE;
+  void audio.play().catch(() => {
+    // blocat sau fără suport: următoarea redare cade oricum pe vocea de sistem
+  });
+  if (supported()) window.speechSynthesis.speak(new SpeechSynthesisUtterance(""));
 }
 
 // indexul înregistrărilor (textul rostit → fișier relativ la /audio/, ex. cuvintele A1), încărcat după pornire
