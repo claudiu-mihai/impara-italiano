@@ -1,0 +1,152 @@
+{
+  "id": "preposizioni-con-per-tra",
+  "order": 25,
+  "title": {"it": "Con, per, tra e fra", "ro": "Con, per, tra și fra"},
+  "level": "B1",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "[it]Con[/it] și [it]per[/it] se scriu separat: [it]con il, con la, per il, per la[/it]. În vorbire, [it]con il[/it] și [it]con i[/it] se pot contopi în [it]col[/it] și [it]coi[/it] ([it]vado col treno delle otto, esco coi bambini[/it]), dar forma cu două cuvinte e cea sigură, mai ales în scris; [it]pel, pei[/it] sunt arhaice. [it]Tra[/it] și [it]fra[/it] [b]nu se contopesc niciodată[/b] ([it]tra il bar e la banca[/it]) și înseamnă [b]exact același lucru[/b]: alegerea ține de sunet, ca să nu se repete aceleași sunete ([it]fra tre giorni, tra fratelli[/it]). În exerciții completezi [it]con[/it] și [it]per[/it], iar [it]tra[/it] și [it]fra[/it] le exersezi în exemple.",
+      "it": "[it]Con[/it] e [it]per[/it] si scrivono separati: [it]con il, con la, per il, per la[/it]. Parlando, [it]con il[/it] e [it]con i[/it] possono fondersi in [it]col[/it] e [it]coi[/it] ([it]vado col treno delle otto, esco coi bambini[/it]), ma la forma con due parole è quella sicura, soprattutto per iscritto; [it]pel, pei[/it] sono arcaici. [it]Tra[/it] e [it]fra[/it] [b]non si fondono mai[/b] ([it]tra il bar e la banca[/it]) e significano [b]esattamente la stessa cosa[/b]: la scelta dipende dal suono, per non ripetere gli stessi suoni ([it]fra tre giorni, tra fratelli[/it]). Negli esercizi completi [it]con[/it] e [it]per[/it], mentre [it]tra[/it] e [it]fra[/it] li eserciti negli esempi."
+    },
+    {
+      "type": "table",
+      "caption": "Con",
+      "captionIt": "Con",
+      "head": ["sensul", "exemple", "în română"],
+      "headIt": ["significato", "esempi", "in rumeno"],
+      "itColumns": [1],
+      "rows": [
+        ["companie", "con gli amici, con mia moglie, con te", "cu prietenii, cu soția mea, cu tine"],
+        ["instrument, mijloc", "con la forchetta, con la carta, con il treno delle otto", "cu furculița, cu cardul, cu trenul de ora opt"],
+        ["mod", "con calma, con piacere, con attenzione", "liniștit, cu plăcere, cu atenție"],
+        ["însușire", "la ragazza con gli occhiali, una camera con bagno", "fata cu ochelari, o cameră cu baie"],
+        ["atitudine, relație", "arrabbiato con, gentile con, sposato con", "supărat pe, amabil cu, căsătorit cu"],
+        ["circumstanță", "con questo caldo, con questo traffico", "cu căldura asta, cu traficul ăsta"]
+      ],
+      "rowsIt": [
+        ["compagnia", "con gli amici, con mia moglie, con te", "cu prietenii, cu soția mea, cu tine"],
+        ["strumento, mezzo", "con la forchetta, con la carta, con il treno delle otto", "cu furculița, cu cardul, cu trenul de ora opt"],
+        ["modo", "con calma, con piacere, con attenzione", "liniștit, cu plăcere, cu atenție"],
+        ["caratteristica", "la ragazza con gli occhiali, una camera con bagno", "fata cu ochelari, o cameră cu baie"],
+        ["atteggiamento, relazione", "arrabbiato con, gentile con, sposato con", "supărat pe, amabil cu, căsătorit cu"],
+        ["circostanza", "con questo caldo, con questo traffico", "cu căldura asta, cu traficul ăsta"]
+      ]
+    },
+    {
+      "type": "examples",
+      "items": [
+        {"it": "Vado a cena con i miei colleghi.", "ro": "Merg la cină cu colegii mei.", "note": "companie: [it]con[/it] + articol", "noteIt": "compagnia: [it]con[/it] + articolo"},
+        {"it": "Pago sempre con la carta.", "ro": "Plătesc mereu cu cardul.", "note": "instrument: [it]con la carta[/it] (dar [it]in contanti[/it])", "noteIt": "strumento: [it]con la carta[/it] (ma [it]in contanti[/it])"},
+        {"it": "Fallo con calma, non c'è fretta.", "ro": "Fă-o liniștit, nu e nicio grabă.", "note": "mod: [it]con calma[/it], fără articol", "noteIt": "modo: [it]con calma[/it], senza articolo"},
+        {"it": "Chi è la ragazza con gli occhiali?", "ro": "Cine e fata cu ochelari?", "note": "însușire: ce are cineva: [it]con[/it]", "noteIt": "caratteristica: ciò che ha qualcuno: [it]con[/it]"}
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "Per",
+      "captionIt": "Per",
+      "head": ["sensul", "exemple", "în română"],
+      "headIt": ["significato", "esempi", "in rumeno"],
+      "itColumns": [1],
+      "rows": [
+        ["scop, beneficiar", "per te, per lavoro, per passare l'esame", "pentru tine, cu serviciul, ca să iau examenul"],
+        ["destinație", "parto per Roma, il treno per Firenze", "plec spre Roma, trenul spre Firenze"],
+        ["prin, pe unde", "per il centro, per strada, per negozi", "prin centru, pe stradă, prin magazine"],
+        ["timp de", "per due anni, per tutta la notte", "timp de doi ani, toată noaptea"],
+        ["termen", "per domani, per lunedì", "pentru mâine, pentru luni"],
+        ["cauză", "per lo sciopero, per il traffico, grazie per", "din cauza grevei, din cauza traficului, mulțumesc pentru"],
+        ["mijloc de comunicare", "per email, per telefono, per posta", "pe email, la telefon, prin poștă"],
+        ["opinie", "per me, per noi", "după mine, după noi"],
+        ["distribuție, procent", "un tavolo per quattro, il dieci per cento", "o masă pentru patru, zece la sută"],
+        ["pe punctul de a", "sto per uscire", "tocmai ies"]
+      ],
+      "rowsIt": [
+        ["scopo, beneficiario", "per te, per lavoro, per passare l'esame", "pentru tine, cu serviciul, ca să iau examenul"],
+        ["destinazione", "parto per Roma, il treno per Firenze", "plec spre Roma, trenul spre Firenze"],
+        ["attraverso, lungo", "per il centro, per strada, per negozi", "prin centru, pe stradă, prin magazine"],
+        ["durata", "per due anni, per tutta la notte", "timp de doi ani, toată noaptea"],
+        ["scadenza", "per domani, per lunedì", "pentru mâine, pentru luni"],
+        ["causa", "per lo sciopero, per il traffico, grazie per", "din cauza grevei, din cauza traficului, mulțumesc pentru"],
+        ["mezzo di comunicazione", "per email, per telefono, per posta", "pe email, la telefon, prin poștă"],
+        ["opinione", "per me, per noi", "după mine, după noi"],
+        ["distribuzione, percentuale", "un tavolo per quattro, il dieci per cento", "o masă pentru patru, zece la sută"],
+        ["sul punto di", "sto per uscire", "tocmai ies"]
+      ]
+    },
+    {
+      "type": "examples",
+      "items": [
+        {"it": "Studio per passare l'esame.", "ro": "Învăț ca să iau examenul.", "note": "scop: [it]per[/it] + infinitiv", "noteIt": "scopo: [it]per[/it] + infinito"},
+        {"it": "Domani parto per Londra.", "ro": "Mâine plec la Londra.", "note": "[it]partire per[/it] + destinație (dar [it]vado a Londra[/it])", "noteIt": "[it]partire per[/it] + destinazione (ma [it]vado a Londra[/it])"},
+        {"it": "Facciamo un giro per il centro?", "ro": "Facem o tură prin centru?", "note": "spațiu străbătut: [it]per[/it] = prin", "noteIt": "spazio percorso: [it]per[/it] = attraverso"},
+        {"it": "Per me ha ragione lei.", "ro": "După mine, ea are dreptate.", "note": "opinie: [it]per me[/it] = [it]secondo me[/it]", "noteIt": "opinione: [it]per me[/it] = [it]secondo me[/it]"}
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "Tra / fra",
+      "captionIt": "Tra / fra",
+      "head": ["sensul", "exemple", "în română"],
+      "headIt": ["significato", "esempi", "in rumeno"],
+      "itColumns": [1],
+      "rows": [
+        ["între (spațiu)", "tra la banca e il bar, fra due case", "între bancă și bar, între două case"],
+        ["între două momente", "tra le otto e le nove", "între opt și nouă"],
+        ["peste (timp)", "tra dieci minuti, fra una settimana, tra poco", "peste zece minute, peste o săptămână, în curând"],
+        ["peste (distanță, pe drum)", "tra 200 metri girate a destra", "peste 200 de metri faceți la dreapta"],
+        ["printre, între (grup)", "tra amici, tra di noi, il migliore tra tutti", "între prieteni, între noi, cel mai bun dintre toți"]
+      ],
+      "rowsIt": [
+        ["spazio", "tra la banca e il bar, fra due case", "între bancă și bar, între două case"],
+        ["tra due momenti", "tra le otto e le nove", "între opt și nouă"],
+        ["tempo futuro", "tra dieci minuti, fra una settimana, tra poco", "peste zece minute, peste o săptămână, în curând"],
+        ["distanza, lungo la strada", "tra 200 metri girate a destra", "peste 200 de metri faceți la dreapta"],
+        ["in mezzo a, fra (gruppo)", "tra amici, tra di noi, il migliore tra tutti", "între prieteni, între noi, cel mai bun dintre toți"]
+      ]
+    },
+    {
+      "type": "examples",
+      "items": [
+        {"it": "La farmacia è tra la banca e il bar.", "ro": "Farmacia e între bancă și bar.", "note": "[it]tra[/it] nu se contopește: [it]tra la banca[/it], [it]tra il bar[/it]", "noteIt": "[it]tra[/it] non si fonde: [it]tra la banca[/it], [it]tra il bar[/it]"},
+        {"it": "Il treno arriva tra dieci minuti.", "ro": "Trenul vine peste zece minute.", "note": "timp viitor: [it]tra[/it] = peste", "noteIt": "tempo futuro: [it]tra[/it] = fra"},
+        {"it": "Tra 200 metri girate a destra.", "ro": "Peste 200 de metri faceți la dreapta.", "note": "distanță pe drum, ca la GPS", "noteIt": "distanza lungo la strada, come nel navigatore"},
+        {"it": "Detto tra noi, non mi convince.", "ro": "Între noi fie vorba, nu mă convinge.", "note": "[it]tra noi[/it] sau [it]tra di noi[/it]", "noteIt": "[it]tra noi[/it] o [it]tra di noi[/it]"}
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "„Cu trenul” e de obicei [it]in treno[/it] (mijloc generic; [it]con il treno delle otto[/it] doar când trenul e precizat), „cu serviciul” e [it]per lavoro[/it], nu [it]con il lavoro[/it], iar „supărat pe” e [it]arrabbiato con[/it], nu [it]su[/it]. „Merg la Roma” e [it]vado a Roma[/it], dar „plec spre Roma” e [it]parto per Roma[/it]; [it]andare per Roma[/it] înseamnă „a umbla prin Roma”. Și „peste o oră” e [it]tra un'ora[/it], nu [it]in un'ora[/it].",
+      "it": "„Cu trenul” di solito è [it]in treno[/it] (mezzo generico; [it]con il treno delle otto[/it] solo quando il treno è preciso), „cu serviciul” è [it]per lavoro[/it], non [it]con il lavoro[/it], e „supărat pe” è [it]arrabbiato con[/it], non [it]su[/it]. „Merg la Roma” è [it]vado a Roma[/it], ma „plec spre Roma” è [it]parto per Roma[/it]; [it]andare per Roma[/it] significa „girare per Roma”. E „peste o oră” è [it]tra un'ora[/it], non [it]in un'ora[/it]."
+    }
+  ],
+  "rules": [
+    {"it": "Con: con chi, con che cosa, come (con calma); col e coi solo parlando.", "ro": "Con: cu cine, cu ce, cum (con calma); col și coi doar în vorbire."},
+    {"it": "Per: per chi, per, attraverso, a causa di; destinazione solo con partire (parto per Roma).", "ro": "Per: pentru, ca să, prin, din cauza; destinație doar cu partire (parto per Roma)."},
+    {"it": "Tra / fra = fra due cose o fra un certo tempo (tra un'ora); non si fondono.", "ro": "Tra / fra = între sau peste (tra un'ora); nu se contopesc."},
+    {"it": "„Cu trenul” = in treno; „pe email” = per email.", "ro": "„Cu trenul” = in treno; „pe email” = per email."}
+  ],
+  "items": [
+    {"id": "pcp-01", "it": "Vivo con due coinquilini.", "gap": "con", "ro": "Locuiesc cu doi colegi de apartament.", "note": "companie: [it]con[/it] = cu cine", "noteIt": "compagnia: [it]con[/it] = insieme a chi"},
+    {"id": "pcp-02", "it": "Posso pagare con la carta?", "gap": "con", "ro": "Pot plăti cu cardul?", "note": "instrument: [it]con la carta[/it] (dar [it]in contanti[/it])", "noteIt": "strumento: [it]con la carta[/it] (ma [it]in contanti[/it])"},
+    {"id": "pcp-03", "it": "Taglia il pane con il coltello.", "gap": "con", "ro": "Taie pâinea cu cuțitul.", "note": "instrument: [it]con[/it] + obiectul", "noteIt": "strumento: [it]con[/it] + oggetto"},
+    {"id": "pcp-04", "it": "Chi è la ragazza con gli occhiali?", "gap": "con", "ro": "Cine e fata cu ochelari?", "note": "însușire: ce are cineva: [it]con[/it]", "noteIt": "caratteristica: ciò che ha qualcuno: [it]con[/it]"},
+    {"id": "pcp-05", "it": "Vorrei una camera con bagno privato.", "gap": "con", "ro": "Aș vrea o cameră cu baie proprie.", "note": "însușire: [it]con[/it], fără articol", "noteIt": "caratteristica: [it]con[/it], senza articolo"},
+    {"id": "pcp-06", "it": "Fallo con calma, non c'è fretta.", "gap": "con", "ro": "Fă-o liniștit, nu e nicio grabă.", "note": "mod: [it]con calma[/it], fără articol", "noteIt": "modo: [it]con calma[/it], senza articolo"},
+    {"id": "pcp-07", "it": "Sei arrabbiato con me?", "gap": "con", "ro": "Ești supărat pe mine?", "note": "„supărat pe” = [it]arrabbiato con[/it]", "noteIt": "atteggiamento: [it]arrabbiato con[/it]"},
+    {"id": "pcp-08", "it": "Tra un'ora ho una riunione con il direttore.", "gap": "con", "ro": "Peste o oră am o ședință cu directorul.", "note": "[it]tra un'ora[/it] = peste o oră; [it]con[/it] = cu cine", "noteIt": "[it]tra un'ora[/it] = fra sessanta minuti; [it]con[/it] = insieme a chi"},
+    {"id": "pcp-09", "it": "Questo regalo è per te.", "gap": "per", "ro": "Cadoul ăsta e pentru tine.", "note": "beneficiar: [it]per[/it] + pronume", "noteIt": "destinatario: [it]per[/it] + pronome"},
+    {"id": "pcp-10", "it": "Sono a Milano per lavoro.", "gap": "per", "ro": "Sunt la Milano cu serviciul.", "note": "motiv: [it]per lavoro[/it], nu [it]con il lavoro[/it]", "noteIt": "motivo: [it]per lavoro[/it], non [it]con il lavoro[/it]"},
+    {"id": "pcp-11", "it": "Studio molto per passare l'esame.", "gap": "per", "ro": "Învăț mult ca să iau examenul.", "note": "scop: [it]per[/it] + infinitiv", "noteIt": "scopo: [it]per[/it] + infinito"},
+    {"id": "pcp-12", "it": "Questo libro è troppo difficile per me.", "gap": "per", "ro": "Cartea asta e prea grea pentru mine.", "note": "pentru cine: [it]per[/it] + pronume", "noteIt": "per chi: [it]per[/it] + pronome"},
+    {"id": "pcp-13", "it": "Domani parto per Londra.", "gap": "per", "ro": "Mâine plec la Londra.", "note": "[it]partire per[/it] + destinație", "noteIt": "[it]partire per[/it] + destinazione"},
+    {"id": "pcp-14", "it": "Il treno per Firenze parte dal binario tre.", "gap": "per", "ro": "Trenul spre Firenze pleacă de pe linia trei.", "note": "destinație: [it]il treno per[/it] + oraș", "noteIt": "destinazione: [it]il treno per[/it] + città"},
+    {"id": "pcp-15", "it": "Facciamo un giro per il centro?", "gap": "per", "ro": "Facem o tură prin centru?", "note": "spațiu străbătut: [it]per[/it] = prin", "noteIt": "spazio percorso: [it]per[/it] = attraverso"},
+    {"id": "pcp-16", "it": "Il volo è stato cancellato per lo sciopero.", "gap": "per", "ro": "Zborul a fost anulat din cauza grevei.", "note": "cauză: [it]per[/it] + eveniment", "noteIt": "causa: [it]per[/it] + evento"},
+    {"id": "pcp-17", "it": "Mi hanno mandato la multa per posta.", "gap": "per", "ro": "Mi-au trimis amenda prin poștă.", "note": "mijloc de comunicare: [it]per posta[/it], [it]per email[/it]", "noteIt": "mezzo di comunicazione: [it]per posta[/it], [it]per email[/it]"},
+    {"id": "pcp-18", "it": "Vorrei prenotare un tavolo per quattro.", "gap": "per", "ro": "Aș vrea să rezerv o masă pentru patru.", "note": "[it]un tavolo per[/it] + număr de persoane", "noteIt": "[it]un tavolo per[/it] + numero di persone"},
+    {"id": "pcp-19", "it": "Sto per uscire, ti richiamo.", "gap": "per", "ro": "Tocmai ies, te sun eu înapoi.", "note": "[it]stare per[/it] + infinitiv = pe punctul de a", "noteIt": "[it]stare per[/it] + infinito = sul punto di"},
+    {"id": "pcp-20", "it": "Tra mezz'ora devo essere dal meccanico.", "gap": "dal", "ro": "Peste jumătate de oră trebuie să fiu la mecanic.", "note": "[it]tra[/it] = peste; la cineva: [it]dal[/it]", "noteIt": "[it]tra[/it] = fra; da una persona: [it]dal[/it]"},
+    {"id": "pcp-21", "it": "La farmacia è tra la banca e il bar, di fronte al parco.", "gap": "al", "ro": "Farmacia e între bancă și bar, în fața parcului.", "note": "[it]tra[/it] nu se contopește; [it]di fronte a[/it] + [it]il parco[/it] = [it]al[/it]", "noteIt": "[it]tra[/it] non si fonde; [it]di fronte a[/it] + [it]il parco[/it] = [it]al[/it]"}
+  ]
+}

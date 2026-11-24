@@ -32,7 +32,7 @@ test("Statistici: primele trei secțiuni sunt deschise, restul restrânse și se
 test("Statistici: gramatică și teme, fără progres și după „Am citit”", async ({ page }) => {
   await page.goto("/stats");
   const section = panel(page, "Gramatică și teme");
-  await expect(section.getByText(/^0 din 18 lecții citite$/)).toBeVisible();
+  await expect(section.getByText(/^0 din 26 lecții citite$/)).toBeVisible();
   await expect(section.getByText(/Scor mediu/)).toHaveCount(0);
   await expect(section.getByRole("link", { name: /lecții citite/ })).toHaveAttribute("href", "/learn/grammar");
   await expect(section.getByRole("link", { name: /teme începute/ })).toHaveAttribute("href", "/learn/topics");
@@ -41,7 +41,7 @@ test("Statistici: gramatică și teme, fără progres și după „Am citit”",
   await page.getByRole("button", { name: "Am citit" }).click();
   await expect(page.getByRole("status").filter({ hasText: "Citită" })).toBeVisible();
   await page.goto("/stats");
-  await expect(panel(page, "Gramatică și teme").getByText(/^1 din 18 lecții citite$/)).toBeVisible();
+  await expect(panel(page, "Gramatică și teme").getByText(/^1 din 26 lecții citite$/)).toBeVisible();
 });
 
 test("Statistici în italiană: „Grammatica e temi” cu rezumatul", async ({ page }) => {
@@ -49,5 +49,5 @@ test("Statistici în italiană: „Grammatica e temi” cu rezumatul", async ({ 
   await page.getByLabel("Limba interfeței / Lingua dell'interfaccia").selectOption("it");
   await page.goto("/stats");
   const section = panel(page, "Grammatica e temi");
-  await expect(section.getByText(/^0 su 18 lezioni lette$/)).toBeVisible();
+  await expect(section.getByText(/^0 su 26 lezioni lette$/)).toBeVisible();
 });

@@ -22,7 +22,7 @@ test("Învață → Gramatică: temele în ordinea de învățare, apoi cele 3 j
     expect.stringContaining("Genul și pluralul substantivelor"),
     expect.stringContaining("Acordul adjectivului"),
   ]);
-  await expect(page.getByRole("list", { name: "Temele de gramatică" }).getByRole("link")).toHaveCount(18);
+  await expect(page.getByRole("list", { name: "Temele de gramatică" }).getByRole("link")).toHaveCount(26);
 
   await page.getByRole("link", { name: /Articolul hotărât/ }).click();
   await expect(page).toHaveURL(/\/learn\/grammar\/articoli$/);
