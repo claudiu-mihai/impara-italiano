@@ -23,6 +23,11 @@
       ]
     },
     {
+      "type": "text",
+      "ro": "[b]Cum alegi forma:[/b] întâi alegi articolul pe care l-ar avea substantivul singur, apoi lipești prepoziția: [it]lo zaino → nello zaino[/it], [it]l'ufficio → dall'ufficio[/it], [it]gli amici → degli amici[/it], [it]il treno → sul treno[/it].",
+      "it": "[b]Come scegli la forma:[/b] prima scegli l'articolo che avrebbe il nome da solo, poi ci attacchi la preposizione: [it]lo zaino → nello zaino[/it], [it]l'ufficio → dall'ufficio[/it], [it]gli amici → degli amici[/it], [it]il treno → sul treno[/it]."
+    },
+    {
       "type": "table",
       "caption": "Ce înseamnă",
       "captionIt": "Che cosa significano",
@@ -39,8 +44,8 @@
     },
     {
       "type": "text",
-      "ro": "[it]Con[/it] (cu) și [it]per[/it] (pentru) [b]nu[/b] se contopesc: [it]con il treno[/it], [it]per la mamma[/it].",
-      "it": "[it]Con[/it] e [it]per[/it] [b]non[/b] si uniscono: [it]con il treno[/it], [it]per la mamma[/it]."
+      "ro": "În italiana de azi [it]con[/it] (cu) și [it]per[/it] (pentru) se scriu [b]separat[/b]: [it]con il treno[/it], [it]per la mamma[/it]. În vorbire auzi și [it]col[/it], [it]coi[/it] ([it]col treno[/it], [it]coi bambini[/it]); sunt corecte, dar opționale. Formele vechi ([it]collo[/it], [it]colla[/it], [it]pel[/it], [it]pei[/it]) nu le folosi. [it]Tra[/it] și [it]fra[/it] (între, peste) [b]nu[/b] se contopesc niciodată: [it]tra il bar e la banca[/it].",
+      "it": "Nell'italiano di oggi [it]con[/it] e [it]per[/it] si scrivono [b]separati[/b]: [it]con il treno[/it], [it]per la mamma[/it]. Nel parlato senti anche [it]col[/it], [it]coi[/it] ([it]col treno[/it], [it]coi bambini[/it]): sono corretti, ma facoltativi. Le forme antiche ([it]collo[/it], [it]colla[/it], [it]pel[/it], [it]pei[/it]) non usarle. [it]Tra[/it] e [it]fra[/it] [b]non[/b] si uniscono mai: [it]tra il bar e la banca[/it]."
     },
     {
       "type": "examples",
@@ -56,11 +61,16 @@
       "type": "trap",
       "ro": "Cu orașele folosești [it]a[/it], cu țările [it]in[/it], ambele fără articol: [it]Vado a Roma[/it], [it]Vado in Italia[/it]. „La doctor” se spune [it]dal medico[/it]: „la cineva” = [it]da[/it].",
       "it": "Con le città usi [it]a[/it], con i paesi [it]in[/it], entrambi senza articolo: [it]Vado a Roma[/it], [it]Vado in Italia[/it]. „La doctor” si dice [it]dal medico[/it]: „la cineva” = [it]da[/it]."
+    },
+    {
+      "type": "text",
+      "ro": "Sensurile fiecărei prepoziții (loc, timp, mod, cauză…) le găsești în lecțiile 19–26, de la [it]A, in o da?[/it] până la [it]Preposizioni: trappole e casi particolari[/it].",
+      "it": "I significati di ogni preposizione (luogo, tempo, modo, causa…) li trovi nelle lezioni 19–26, da [it]A, in o da?[/it] a [it]Preposizioni: trappole e casi particolari[/it]."
     }
   ],
   "rules": [
     { "it": "di, a, da, in, su + il / lo / la / l' / i / gli / le si uniscono: del, al, dal, nel, sul…", "ro": "di, a, da, in, su + il / lo / la / l' / i / gli / le se contopesc: del, al, dal, nel, sul…" },
-    { "it": "con e per non si uniscono: con il treno, per la mamma.", "ro": "con și per nu se contopesc: con il treno, per la mamma." },
+    { "it": "con, per, tra e fra non si uniscono: con il treno, per la mamma, tra il bar e la banca.", "ro": "con, per, tra și fra nu se contopesc: con il treno, per la mamma, tra il bar e la banca." },
     { "it": "a + città (a Roma), in + paese (in Italia), da + persona (dal medico).", "ro": "a + oraș (a Roma), in + țară (in Italia), da + persoană (dal medico)." },
     { "it": "di + articolo = „niște”: dei libri, delle mele.", "ro": "di + articol = niște: dei libri, delle mele." }
   ],
@@ -84,7 +94,7 @@
     { "id": "pre-17", "it": "Sugli scaffali ci sono libri.", "gap": "Sugli", "ro": "Pe rafturi sunt cărți.", "note": "su + gli = sugli", "noteIt": "su + gli = sugli" },
     { "id": "pre-18", "it": "Vado in Italia.", "gap": "in", "ro": "Merg în Italia.", "note": "țară: in, fără articol", "noteIt": "paese: in, senza articolo" },
     { "id": "pre-19", "it": "Abito a Roma.", "gap": "a", "ro": "Locuiesc la Roma.", "note": "oraș: a, fără articol", "noteIt": "città: a, senza articolo" },
-    { "id": "pre-20", "it": "Vado con il treno.", "gap": "con", "ro": "Merg cu trenul.", "note": "con nu se contopește", "noteIt": "con non si unisce" },
+    { "id": "pre-20", "it": "Esco con gli amici stasera.", "gap": "con", "ro": "Ies cu prietenii diseară.", "note": "con nu se contopește: con gli amici", "noteIt": "con non si unisce: con gli amici" },
     { "id": "pre-21", "it": "Questo regalo è per la mamma.", "gap": "per", "ro": "Cadoul ăsta e pentru mama.", "note": "per nu se contopește", "noteIt": "per non si unisce" }
   ]
 }

@@ -1,0 +1,125 @@
+{
+  "id": "preposizione-a",
+  "order": 22,
+  "title": { "it": "La preposizione a", "ro": "Prepoziția a" },
+  "level": "A2",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "În afară de loc și oră (lecțiile 19 și 20), [it]a[/it] arată [b]cui[/b] îi dai sau îi spui ceva ([it]scrivo a Marco[/it]), [b]cum[/b] faci ceva ([it]a piedi, a mano, alla carbonara[/it]), [b]cât de des[/b] sau [b]cu ce preț[/b] ([it]due volte al giorno[/it]) și [b]cât de departe[/b] ([it]a due passi[/it]). Românescul „pe” din „de două ori pe zi” e [it]a[/it] + articol, nu [it]su[/it].",
+      "it": "Oltre al luogo e all'ora (lezioni 19 e 20), [it]a[/it] indica [b]a chi[/b] dai o dici qualcosa ([it]scrivo a Marco[/it]), [b]come[/b] fai qualcosa ([it]a piedi, a mano, alla carbonara[/it]), [b]quanto spesso[/b] o [b]a che prezzo[/b] ([it]due volte al giorno[/it]) e [b]quanto lontano[/b] ([it]a due passi[/it]). Il „pe” rumeno di „de două ori pe zi” è [it]a[/it] + articolo, non [it]su[/it]."
+    },
+    {
+      "type": "table",
+      "caption": "Sensurile lui a",
+      "captionIt": "I significati di a",
+      "head": ["sensul", "exemple", "în română"],
+      "headIt": ["significato", "esempi", "in rumeno"],
+      "itColumns": [1],
+      "rows": [
+        ["cui? (dativ)", "a Marco, alla nonna, a mia madre", "lui Marco, bunicii, mamei mele"],
+        ["mod, stil, rețetă", "a piedi, a mano, alla romana, alla carbonara", "pe jos, de mână, fiecare partea lui, carbonara"],
+        ["model", "a righe, a quadri, a fiori", "în dungi, în carouri, cu flori"],
+        ["frecvență, viteză", "al giorno, all'ora", "pe zi, pe oră"],
+        ["distanță", "a due passi, a cinque minuti da qui", "la doi pași, la cinci minute de aici"],
+        ["a + infinitiv", "vado a mangiare, comincio a lavorare", "mă duc să mănânc, încep să lucrez"]
+      ],
+      "rowsIt": [
+        ["a chi? (dativo)", "a Marco, alla nonna, a mia madre", "lui Marco, bunicii, mamei mele"],
+        ["modo, stile, ricetta", "a piedi, a mano, alla romana, alla carbonara", "pe jos, de mână, fiecare partea lui, carbonara"],
+        ["motivo", "a righe, a quadri, a fiori", "în dungi, în carouri, cu flori"],
+        ["frequenza, velocità", "al giorno, all'ora", "pe zi, pe oră"],
+        ["distanza", "a due passi, a cinque minuti da qui", "la doi pași, la cinci minute de aici"],
+        ["a + infinito", "vado a mangiare, comincio a lavorare", "mă duc să mănânc, încep să lucrez"]
+      ]
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "Ho detto tutto a Luca.", "ro": "I-am spus totul lui Luca.", "note": "cui?: [it]a[/it] + nume, fără articol", "noteIt": "a chi?: [it]a[/it] + nome, senza articolo" },
+        { "it": "Telefono alla nonna ogni domenica.", "ro": "O sun pe bunica în fiecare duminică.", "note": "[it]telefonare a[/it]: în română „pe”, în italiană [it]a[/it]", "noteIt": "[it]telefonare a[/it]: in rumeno „pe”, in italiano [it]a[/it]" },
+        { "it": "Paghiamo alla romana.", "ro": "Plătim fiecare partea lui.", "note": "mod: [it]alla romana[/it]", "noteIt": "modo: [it]alla romana[/it]" },
+        { "it": "Vado in palestra due volte al giorno.", "ro": "Merg la sală de două ori pe zi.", "note": "frecvență: [it]al giorno[/it] = „pe zi”", "noteIt": "frequenza: [it]al giorno[/it]" },
+        { "it": "Il mare è a due chilometri.", "ro": "Marea e la doi kilometri.", "note": "distanță: [it]a[/it]", "noteIt": "distanza: [it]a[/it]" },
+        { "it": "Abito a dieci minuti dal centro.", "ro": "Locuiesc la zece minute de centru.", "note": "distanță: [it]a[/it] + durata, [it]da[/it] + punctul de reper", "noteIt": "distanza: [it]a[/it] + durata, [it]da[/it] + il punto di riferimento" }
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "[b]A + infinitiv[/b] apare după verbe de mișcare, care arată scopul: [it]andare a, venire a, passare a[/it] ([it]Vado a fare la spesa[/it] = mă duc să fac cumpărături). Apare și după verbe de început, de învățare și de ajutor, în special [it]cominciare a, iniziare a, continuare a, mettersi a, imparare a, riuscire a, aiutare a, provare a[/it]. Compară: [it]provare a[/it] și [it]cercare di[/it] înseamnă amândouă „a încerca să”, dar cer prepoziții diferite.",
+      "it": "[b]A + infinito[/b] compare dopo i verbi di movimento, per indicare lo scopo: [it]andare a, venire a, passare a[/it] ([it]Vado a fare la spesa[/it] = mă duc să fac cumpărături). Compare anche dopo verbi di inizio, di apprendimento e di aiuto, in particolare [it]cominciare a, iniziare a, continuare a, mettersi a, imparare a, riuscire a, aiutare a, provare a[/it]. Confronta: [it]provare a[/it] e [it]cercare di[/it] significano entrambi „a încerca să”, ma vogliono preposizioni diverse."
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "Vado a fare la spesa.", "ro": "Mă duc să fac cumpărături.", "note": "verb de mișcare + [it]a[/it] + infinitiv", "noteIt": "verbo di movimento + [it]a[/it] + infinito" },
+        { "it": "Hai provato a chiamarlo?", "ro": "Ai încercat să-l suni?", "note": "[it]provare a[/it]", "noteIt": "[it]provare a[/it]" },
+        { "it": "Mi aiuti a portare le borse?", "ro": "Mă ajuți să duc sacoșele?", "note": "[it]aiutare qualcuno a[/it]", "noteIt": "[it]aiutare qualcuno a[/it]" },
+        { "it": "Non riesco a dormire.", "ro": "Nu reușesc să dorm.", "note": "[it]riuscire a[/it]", "noteIt": "[it]riuscire a[/it]" }
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "[b]Expresii fixe cu a:[/b] [it]a destra, a sinistra, a proposito, a posto, a lungo, al massimo, al telefono, all'aperto, al buio[/it]; salutul [it]a domani, a presto, a dopo[/it]. Verbe cu [it]a[/it] + persoană sau lucru: [it]pensare a, credere a, partecipare a, abituarsi a[/it] și [it]giocare a[/it] + sport sau joc, fără articol ([it]giocare a carte, a scacchi[/it]).",
+      "it": "[b]Espressioni fisse con a:[/b] [it]a destra, a sinistra, a proposito, a posto, a lungo, al massimo, al telefono, all'aperto, al buio[/it]; i saluti [it]a domani, a presto, a dopo[/it]. Verbi con [it]a[/it] + persona o cosa: [it]pensare a, credere a, partecipare a, abituarsi a[/it] e [it]giocare a[/it] + sport o gioco, senza articolo ([it]giocare a carte, a scacchi[/it])."
+    },
+    {
+      "type": "table",
+      "caption": "A, da sau per?",
+      "captionIt": "A, da o per?",
+      "head": ["cu a", "cu altă prepoziție"],
+      "headIt": ["con a", "con un'altra preposizione"],
+      "itColumns": [0, 1],
+      "rows": [
+        ["Scrivo a Marco. (cui)", "Vado da Marco. (la el acasă)"],
+        ["Vado al bar. (locul)", "Vado da Mario. (barul sau casa lui Mario)"],
+        ["Vado a Roma. (mă duc)", "Parto per Roma. (plec spre Roma)"],
+        ["Telefono a Marco. (îi telefonez)", "Chiamo Marco. (fără prepoziție)"]
+      ],
+      "rowsIt": [
+        ["Scrivo a Marco. (a chi)", "Vado da Marco. (a casa sua)"],
+        ["Vado al bar. (il luogo)", "Vado da Mario. (il bar o la casa di Mario)"],
+        ["Vado a Roma. (ci vado)", "Parto per Roma. (parto verso Roma)"],
+        ["Telefono a Marco. (gli faccio una telefonata)", "Chiamo Marco. (senza preposizione)"]
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "Unele verbe care în română cer acuzativul („o sun pe”, „îl întreb pe”) cer [it]a[/it] în italiană: [it]telefono a mia madre[/it], [it]chiedo a Luca[/it]. Altele, invers, nu cer nimic: „îl sun pe Marco” = [it]chiamo Marco[/it], „îl ajut pe Marco” = [it]aiuto Marco[/it]. „De două ori pe zi” e [it]due volte al giorno[/it], nu [it]su giorno[/it]. Și [it]pensare a te[/it] = mă gândesc la tine, dar [it]penso di partire[/it] = am de gând să plec.",
+      "it": "Alcuni verbi che in rumeno vogliono l'accusativo („o sun pe”, „îl întreb pe”) in italiano vogliono [it]a[/it]: [it]telefono a mia madre[/it], [it]chiedo a Luca[/it]. Altri, al contrario, non vogliono niente: „îl sun pe Marco” = [it]chiamo Marco[/it], „îl ajut pe Marco” = [it]aiuto Marco[/it]. „De două ori pe zi” è [it]due volte al giorno[/it], non [it]su giorno[/it]. E [it]pensare a te[/it] = mă gândesc la tine, ma [it]penso di partire[/it] = am de gând să plec."
+    }
+  ],
+  "rules": [
+    { "it": "A chi? A: scrivo a Marco, telefono alla nonna, chiedo a Luca.", "ro": "Cui? A: scrivo a Marco, telefono alla nonna, chiedo a Luca." },
+    { "it": "Modo e ricetta: a piedi, a mano, alla carbonara, a righe.", "ro": "Mod și rețetă: a piedi, a mano, alla carbonara, a righe." },
+    { "it": "Il „pe” rumeno di frequenza e velocità: due volte al giorno, cento all'ora.", "ro": "„Pe” la frecvență și viteză: due volte al giorno, cento all'ora." },
+    { "it": "A + infinito dopo i verbi di movimento e dopo cominciare, imparare, riuscire, aiutare, provare.", "ro": "A + infinitiv după verbe de mișcare și după cominciare, imparare, riuscire, aiutare, provare." }
+  ],
+  "items": [
+    { "id": "pa-01", "it": "Ho regalato un libro a Giulia.", "gap": "a", "ro": "I-am făcut cadou o carte Giuliei.", "note": "cui?: a + nume, fără articol", "noteIt": "a chi?: a + nome, senza articolo" },
+    { "id": "pa-02", "it": "Scrivo un messaggio alla mia amica.", "gap": "alla", "ro": "Îi scriu un mesaj prietenei mele.", "note": "cui?: a + la (amica nu e rudă: cu articol)", "noteIt": "a chi?: a + la (amica non è parente: con l'articolo)" },
+    { "id": "pa-03", "it": "Telefono a mia madre ogni sera.", "gap": "a", "ro": "O sun pe mama în fiecare seară.", "note": "telefonare a; [it]mia madre[/it] fără articol", "noteIt": "telefonare a; [it]mia madre[/it] senza articolo" },
+    { "id": "pa-04", "it": "Telefono alla nonna ogni domenica.", "gap": "alla", "ro": "O sun pe bunica în fiecare duminică.", "note": "telefonare a + la nonna", "noteIt": "telefonare a + la nonna" },
+    { "id": "pa-05", "it": "Chiedo a Luca se viene.", "gap": "a", "ro": "Îl întreb pe Luca dacă vine.", "note": "„a întreba pe cineva” = chiedere a", "noteIt": "„a întreba pe cineva” = chiedere a" },
+    { "id": "pa-06", "it": "Mia sorella insegna l'italiano agli stranieri.", "gap": "agli", "ro": "Sora mea predă italiana străinilor.", "note": "insegnare a: a + gli", "noteIt": "insegnare a: a + gli" },
+    { "id": "pa-07", "it": "Bevo due caffè al giorno.", "gap": "al", "ro": "Beau două cafele pe zi.", "note": "frecvență: „pe zi” = al giorno", "noteIt": "frequenza: „pe zi” = al giorno" },
+    { "id": "pa-08", "it": "In città il limite è cinquanta chilometri all'ora.", "gap": "all'", "ro": "În oraș limita e cincizeci de kilometri pe oră.", "note": "viteză: „pe oră” = all'ora", "noteIt": "velocità: „pe oră” = all'ora" },
+    { "id": "pa-09", "it": "Prendo gli spaghetti alla carbonara.", "gap": "alla", "ro": "Iau spaghete carbonara.", "note": "rețetă: a + la (alla carbonara)", "noteIt": "ricetta: a + la (alla carbonara)" },
+    { "id": "pa-10", "it": "Mi piace quella camicia a righe.", "gap": "a", "ro": "Îmi place cămașa aia în dungi.", "note": "model: a righe", "noteIt": "motivo: a righe" },
+    { "id": "pa-11", "it": "La stazione è a cinque minuti da qui.", "gap": "a", "ro": "Gara e la cinci minute de aici.", "note": "distanță: a + durata", "noteIt": "distanza: a + durata" },
+    { "id": "pa-12", "it": "Vado a fare la spesa.", "gap": "a", "ro": "Mă duc să fac cumpărături.", "note": "verb de mișcare + a + infinitiv", "noteIt": "verbo di movimento + a + infinito" },
+    { "id": "pa-13", "it": "Vieni a trovarmi domenica?", "gap": "a", "ro": "Vii să mă vezi duminică?", "note": "venire a + infinitiv", "noteIt": "venire a + infinito" },
+    { "id": "pa-14", "it": "Non riesco a dormire.", "gap": "a", "ro": "Nu reușesc să dorm.", "note": "riuscire a + infinitiv", "noteIt": "riuscire a + infinito" },
+    { "id": "pa-15", "it": "Hai provato a chiamarlo?", "gap": "a", "ro": "Ai încercat să-l suni?", "note": "provare a (cercare di)", "noteIt": "provare a (cercare di)" },
+    { "id": "pa-16", "it": "Ho imparato a nuotare da piccolo.", "gap": "a", "ro": "Am învățat să înot când eram mic.", "note": "imparare a + infinitiv", "noteIt": "imparare a + infinito" },
+    { "id": "pa-17", "it": "Mi aiuti a portare le borse?", "gap": "a", "ro": "Mă ajuți să duc sacoșele?", "note": "aiutare qualcuno a + infinitiv", "noteIt": "aiutare qualcuno a + infinito" },
+    { "id": "pa-18", "it": "Penso sempre a te.", "gap": "a", "ro": "Mă gândesc mereu la tine.", "note": "pensare a = a se gândi la", "noteIt": "pensare a = avere in mente qualcuno" },
+    { "id": "pa-19", "it": "A domani!", "gap": "A", "ro": "Pe mâine!", "note": "salut: a domani", "noteIt": "saluto: a domani" },
+    { "id": "pa-20", "it": "Gira a destra dopo il semaforo.", "gap": "a", "ro": "Fă la dreapta după semafor.", "note": "direcție: a destra", "noteIt": "direzione: a destra" },
+    { "id": "pa-21", "it": "Paghiamo alla romana?", "gap": "alla", "ro": "Plătim fiecare partea lui?", "note": "mod: alla romana", "noteIt": "modo: alla romana" },
+    { "id": "pa-22", "it": "L'ho scritto a mano.", "gap": "a", "ro": "L-am scris de mână.", "note": "mod: a mano", "noteIt": "modo: a mano" },
+    { "id": "pa-23", "it": "Non posso parlare, sono al telefono.", "gap": "al", "ro": "Nu pot vorbi, sunt la telefon.", "note": "expresie fixă: al telefono", "noteIt": "espressione fissa: al telefono" },
+    { "id": "pa-24", "it": "Se c'è bel tempo, pranziamo all'aperto.", "gap": "all'", "ro": "Dacă e vreme frumoasă, luăm prânzul afară.", "note": "expresie fixă: all'aperto", "noteIt": "espressione fissa: all'aperto" },
+    { "id": "pa-25", "it": "A proposito, hai parlato con Marco?", "gap": "A", "ro": "Apropo, ai vorbit cu Marco?", "note": "expresie fixă: a proposito", "noteIt": "espressione fissa: a proposito" }
+  ]
+}

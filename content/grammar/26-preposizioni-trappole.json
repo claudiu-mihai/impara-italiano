@@ -1,0 +1,176 @@
+{
+  "id": "preposizioni-trappole",
+  "order": 26,
+  "title": {"it": "Preposizioni: trappole e casi particolari", "ro": "Prepozițiile: capcane și cazuri speciale"},
+  "level": "B1",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "Cuvintele românești „la”, „de”, „de la”, „pe” și „în” au fiecare mai multe corespondente în italiană, iar uneori niciunul. Metoda: nu traduce cuvânt cu cuvânt, ci întreabă-te [b]ce spune[/b] „la” sau „pe” în propoziția ta: un oraș, o clădire, o persoană, o oră, o suprafață, un drum? Fiecare răspuns are altă prepoziție. Lecția adună capcanele din lecțiile 19–25 și câteva cazuri speciale.",
+      "it": "Le parole rumene „la”, „de”, „de la”, „pe” e „în” hanno ciascuna più corrispondenti in italiano, e a volte nessuno. Il metodo: non tradurre parola per parola, ma chiediti [b]che cosa dice[/b] „la” o „pe” nella tua frase: una città, un edificio, una persona, un'ora, una superficie, un percorso? Ogni risposta ha una preposizione diversa. La lezione raccoglie le trappole delle lezioni 19–25 e alcuni casi particolari."
+    },
+    {
+      "type": "table",
+      "caption": "„La” în italiană",
+      "captionIt": "„La” in italiano",
+      "head": ["ce urmează", "italiana", "în română"],
+      "headIt": ["che cosa segue", "italiano", "in rumeno"],
+      "itColumns": [1],
+      "rows": [
+        ["oraș", "a Roma, a Milano", "la Roma, la Milano"],
+        ["bancă, farmacie, birou", "in banca, in farmacia", "la bancă, la farmacie"],
+        ["la cineva", "dal medico, da Marco", "la medic, la Marco"],
+        ["ora", "alle otto, all'una", "la opt, la unu"],
+        ["cui (dativ)", "a Marco, a mia madre", "lui Marco, mamei mele"],
+        ["de memorat", "a casa, a scuola, al bar", "acasă, la școală, la bar"]
+      ],
+      "rowsIt": [
+        ["città", "a Roma, a Milano", "la Roma, la Milano"],
+        ["banca, farmacia, ufficio", "in banca, in farmacia", "la bancă, la farmacie"],
+        ["da qualcuno", "dal medico, da Marco", "la medic, la Marco"],
+        ["l'ora", "alle otto, all'una", "la opt, la unu"],
+        ["a chi (complemento di termine)", "a Marco, a mia madre", "lui Marco, mamei mele"],
+        ["da ricordare", "a casa, a scuola, al bar", "acasă, la școală, la bar"]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "„Pe” în italiană",
+      "captionIt": "„Pe” in italiano",
+      "head": ["ce urmează", "italiana", "în română"],
+      "headIt": ["che cosa segue", "italiano", "in rumeno"],
+      "itColumns": [1],
+      "rows": [
+        ["pe o suprafață", "sul tavolo, sulla sedia", "pe masă, pe scaun"],
+        ["pe jos", "a piedi", "pe jos"],
+        ["frecvență", "due volte al giorno", "de două ori pe zi"],
+        ["pe unde treci", "dalla finestra, dalla porta", "pe fereastră, pe ușă"],
+        ["pe drum, pe stradă", "per strada", "pe stradă"],
+        ["numele străzii", "in via Roma", "pe strada Roma"],
+        ["mijloc de comunicare", "per email, per telefono", "pe email, la telefon"],
+        ["internet, rețele", "su internet, su Instagram", "pe internet, pe Instagram"],
+        ["nu se traduce", "vedo Marco, lunedì, il 5 maggio", "îl văd pe Marco, luni, pe 5 mai"]
+      ],
+      "rowsIt": [
+        ["sopra una superficie", "sul tavolo, sulla sedia", "pe masă, pe scaun"],
+        ["a piedi, camminando", "a piedi", "pe jos"],
+        ["frequenza", "due volte al giorno", "de două ori pe zi"],
+        ["per dove passi", "dalla finestra, dalla porta", "pe fereastră, pe ușă"],
+        ["lungo la strada", "per strada", "pe stradă"],
+        ["nome della strada", "in via Roma", "pe strada Roma"],
+        ["mezzo di comunicazione", "per email, per telefono", "pe email, la telefon"],
+        ["internet, social", "su internet, su Instagram", "pe internet, pe Instagram"],
+        ["non si traduce", "vedo Marco, lunedì, il 5 maggio", "îl văd pe Marco, luni, pe 5 mai"]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "„De” și „de la” în italiană",
+      "captionIt": "„De” e „de la” in italiano",
+      "head": ["ce urmează", "italiana", "în română"],
+      "headIt": ["che cosa segue", "italiano", "in rumeno"],
+      "itColumns": [1],
+      "rows": [
+        ["conținut, material", "una tazza di tè, una sciarpa di lana", "o ceașcă de ceai, o eșarfă de lână"],
+        ["pentru ce e obiectul", "occhiali da sole, costume da bagno", "ochelari de soare, costum de baie"],
+        ["de când", "da tre anni, da lunedì", "de trei ani, de luni"],
+        ["sărbători", "a Natale, a Pasqua", "de Crăciun, de Paște"],
+        ["mod", "a mano, a piedi", "de mână, pe jos"],
+        ["de unde vii", "dal lavoro, dall'Italia", "de la serviciu, din Italia"],
+        ["posesie", "le chiavi della macchina", "cheile de la mașină"]
+      ],
+      "rowsIt": [
+        ["contenuto, materiale", "una tazza di tè, una sciarpa di lana", "o ceașcă de ceai, o eșarfă de lână"],
+        ["a che cosa serve", "occhiali da sole, costume da bagno", "ochelari de soare, costum de baie"],
+        ["da quando", "da tre anni, da lunedì", "de trei ani, de luni"],
+        ["feste", "a Natale, a Pasqua", "de Crăciun, de Paște"],
+        ["modo", "a mano, a piedi", "de mână, pe jos"],
+        ["da dove vieni", "dal lavoro, dall'Italia", "de la serviciu, din Italia"],
+        ["possesso", "le chiavi della macchina", "cheile de la mașină"]
+      ]
+    },
+    {
+      "type": "examples",
+      "items": [
+        {"it": "Passo dal medico e poi vado in banca.", "ro": "Trec pe la medic și apoi merg la bancă.", "note": "„la” = [it]dal medico[/it] (persoană), [it]in banca[/it] (clădire)", "noteIt": "„la” = [it]dal medico[/it] (persona), [it]in banca[/it] (edificio)"},
+        {"it": "Vengo dalla Romania, ma sono di Bucarest.", "ro": "Vin din România, dar sunt din București.", "note": "țara: [it]venire da[/it] + articol; orașul tău: [it]essere di[/it]", "noteIt": "il paese: [it]venire da[/it] + articolo; la tua città: [it]essere di[/it]"},
+        {"it": "Questa tazza da tè è piena di tè caldo.", "ro": "Ceașca asta de ceai e plină cu ceai fierbinte.", "note": "[it]da[/it] = pentru ce e obiectul; [it]di[/it] = conținutul", "noteIt": "[it]da[/it] = a che cosa serve l'oggetto; [it]di[/it] = il contenuto"},
+        {"it": "Pago in contanti, ma sul sito pago con la carta.", "ro": "Plătesc cash, dar pe site plătesc cu cardul.", "note": "[it]in contanti[/it], dar [it]con la carta[/it]", "noteIt": "[it]in contanti[/it], ma [it]con la carta[/it]"},
+        {"it": "Ti scrivo per email, ma ti chiamo anche per telefono.", "ro": "Îți scriu pe email, dar te sun și la telefon.", "note": "mijloc de comunicare: [it]per[/it], nu [it]su[/it]", "noteIt": "mezzo di comunicazione: [it]per[/it], non [it]su[/it]"},
+        {"it": "Il pacco arriva tra due giorni.", "ro": "Coletul vine peste două zile.", "note": "„peste” = [it]tra[/it], nu [it]in due giorni[/it]", "noteIt": "„peste” = [it]tra[/it], non [it]in due giorni[/it]"},
+        {"it": "Sono qui per lavoro, non in vacanza.", "ro": "Sunt aici cu serviciul, nu în vacanță.", "note": "„cu serviciul” = [it]per lavoro[/it]", "noteIt": "„cu serviciul” = [it]per lavoro[/it]"},
+        {"it": "Ho telefonato a mio padre e ai miei zii.", "ro": "Le-am telefonat tatălui meu și unchilor mei.", "note": "posesiv + rudă la singular: [it]a mio padre[/it]; la plural: [it]ai miei zii[/it]", "noteIt": "possessivo + parente al singolare: [it]a mio padre[/it]; al plurale: [it]ai miei zii[/it]"}
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "„Pe” din „îl văd pe Marco” [b]dispare[/b]: [it]vedo Marco[/it], [it]aspetto Anna[/it], [it]chiamo Marco[/it], nu [it]vedo a Marco[/it]. Dispare și „pe” din „pe luni” și „pe 5 mai”: [it]ci vediamo lunedì[/it], [it]sono nato il 5 maggio[/it]. Aici nu există prepoziție de ales, deci nici lacune în exerciții. Atenție la diferența: [it]il lunedì vado in piscina[/it] = în fiecare luni, cu articol.",
+      "it": "Il „pe” di „îl văd pe Marco” [b]sparisce[/b]: [it]vedo Marco[/it], [it]aspetto Anna[/it], [it]chiamo Marco[/it], non [it]vedo a Marco[/it]. Sparisce anche il „pe” di „pe luni” e „pe 5 mai”: [it]ci vediamo lunedì[/it], [it]sono nato il 5 maggio[/it]. Qui non c'è nessuna preposizione da scegliere, quindi niente lacune negli esercizi. Attenzione alla differenza: [it]il lunedì vado in piscina[/it] = ogni lunedì, con l'articolo."
+    },
+    {
+      "type": "text",
+      "ro": "[b]Interior și exterior.[/b] Aceeași idee primește altă prepoziție după unde te afli: [it]all'angolo della strada[/it] (colț exterior), dar [it]nell'angolo della stanza[/it] (colț interior). [it]A casa[/it] = acasă, nu la serviciu; [it]in casa[/it] = în casă, înăuntru, nu în curte; [it]fuori casa[/it] = în afara casei. Mai sunt expresii de loc de memorat: [it]al primo piano[/it] (la etajul întâi), [it]in fondo al corridoio[/it] (la capătul holului), [it]in cima alla collina[/it] (în vârful dealului), [it]in mezzo alla piazza[/it] (în mijlocul pieței), [it]al sole, all'ombra, al buio[/it] (la soare, la umbră, pe întuneric) și [it]sotto la pioggia[/it] (în ploaie). Pentru [it]al mare / in mare / sul mare[/it] și [it]a letto / nel letto / sul letto[/it], vezi lecția despre [it]in[/it] și [it]su[/it].",
+      "it": "[b]Interno ed esterno.[/b] La stessa idea ha un'altra preposizione secondo dove ti trovi: [it]all'angolo della strada[/it] (angolo esterno), ma [it]nell'angolo della stanza[/it] (angolo interno). [it]A casa[/it] = non al lavoro; [it]in casa[/it] = dentro, non in giardino; [it]fuori casa[/it] = all'esterno della casa. Ci sono altre espressioni di luogo da ricordare: [it]al primo piano[/it], [it]in fondo al corridoio[/it], [it]in cima alla collina[/it], [it]in mezzo alla piazza[/it], [it]al sole, all'ombra, al buio[/it] e [it]sotto la pioggia[/it]. Per [it]al mare / in mare / sul mare[/it] e [it]a letto / nel letto / sul letto[/it], vedi la lezione su [it]in[/it] e [it]su[/it]."
+    },
+    {
+      "type": "examples",
+      "items": [
+        {"it": "Ci vediamo all'angolo della strada.", "ro": "Ne vedem la colțul străzii.", "note": "colț exterior: [it]a[/it] + articol", "noteIt": "angolo esterno: [it]a[/it] + articolo"},
+        {"it": "La pianta è nell'angolo della stanza.", "ro": "Planta e în colțul camerei.", "note": "colț interior: [it]in[/it] + articol", "noteIt": "angolo interno: [it]in[/it] + articolo"},
+        {"it": "Siamo a casa, non al lavoro.", "ro": "Suntem acasă, nu la serviciu.", "note": "[it]a casa[/it] = acasă", "noteIt": "[it]a casa[/it] = non al lavoro"},
+        {"it": "Siamo in casa, non in giardino.", "ro": "Suntem în casă, nu în grădină.", "note": "[it]in casa[/it] = înăuntru", "noteIt": "[it]in casa[/it] = dentro"},
+        {"it": "Il bagno è in fondo al corridoio.", "ro": "Baia e la capătul holului.", "note": "[it]in fondo a[/it] + articol", "noteIt": "[it]in fondo a[/it] + articolo"}
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "[b]Pe fereastră, în ambele direcții.[/b] Fereastra, ușa și gaura cheii sunt punctul de trecere, deci primesc [it]da[/it] + articol fie că privești afară ([it]dalla finestra della mia camera si vede il mare[/it]), fie înăuntru ([it]ho guardato dentro dalla finestra del negozio[/it]). Sensul îl schimbă ce urmează: [it]guardare dalla finestra[/it] (privești prin fereastră, spre ceva), [it]guardare la finestra[/it] (te uiți la fereastră ca la un obiect), [it]stare alla finestra[/it] (stai la fereastră), [it]davanti alla finestra[/it] (în fața ferestrei), [it]la finestra dà sul cortile[/it] (fereastra dă spre curte). Cu [it]affacciarsi[/it] se spune de obicei [it]alla finestra[/it]; se aude și [it]dalla finestra[/it].",
+      "it": "[b]Dalla finestra, in entrambe le direzioni.[/b] La finestra, la porta e il buco della serratura sono il punto di passaggio, quindi vogliono [it]da[/it] + articolo, sia che guardi fuori ([it]dalla finestra della mia camera si vede il mare[/it]), sia dentro ([it]ho guardato dentro dalla finestra del negozio[/it]). Il significato cambia con quello che segue: [it]guardare dalla finestra[/it] (guardi attraverso la finestra, verso qualcosa), [it]guardare la finestra[/it] (guardi la finestra come oggetto), [it]stare alla finestra[/it], [it]davanti alla finestra[/it], [it]la finestra dà sul cortile[/it]. Con [it]affacciarsi[/it] si dice di solito [it]alla finestra[/it]; si sente anche [it]dalla finestra[/it]."
+    },
+    {
+      "type": "examples",
+      "items": [
+        {"it": "Dalla finestra della mia camera si vede il mare.", "ro": "De la fereastra camerei mele se vede marea.", "note": "privești afară: [it]da[/it] + articol", "noteIt": "guardi fuori: [it]da[/it] + articolo"},
+        {"it": "Ho guardato dentro dalla finestra del negozio.", "ro": "M-am uitat înăuntru pe fereastra magazinului.", "note": "privești înăuntru: tot [it]da[/it] + articol", "noteIt": "guardi dentro: sempre [it]da[/it] + articolo"},
+        {"it": "Mi sono affacciato alla finestra per salutarla.", "ro": "Am ieșit la fereastră ca s-o salut.", "note": "[it]affacciarsi alla finestra[/it]", "noteIt": "[it]affacciarsi alla finestra[/it]"},
+        {"it": "La finestra della cucina dà sul cortile.", "ro": "Fereastra bucătăriei dă spre curte.", "note": "[it]dare su[/it] = a da spre", "noteIt": "[it]dare su[/it] = avere vista su"}
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "Verbe cu alt regim decât în română: „a se gândi la” e [it]pensare a[/it] ([it]penso a te[/it], nu [it]di te[/it]); „a depinde de” e [it]dipendere da[/it] ([it]dipende da te[/it]); „a vorbi despre” e [it]parlare di[/it], nu [it]su[/it]; „a se îndrăgosti de” e [it]innamorarsi di[/it], nu [it]da[/it]; „a avea nevoie de” e [it]avere bisogno di[/it], nu [it]da[/it]; „a se uita la” e [it]guardare[/it], fără prepoziție ([it]guardo la TV[/it], nu [it]guardo a[/it]).",
+      "it": "Verbi con una reggenza diversa dal rumeno: „a se gândi la” è [it]pensare a[/it] ([it]penso a te[/it], non [it]di te[/it]); „a depinde de” è [it]dipendere da[/it] ([it]dipende da te[/it]); „a vorbi despre” è [it]parlare di[/it], non [it]su[/it]; „a se îndrăgosti de” è [it]innamorarsi di[/it], non [it]da[/it]; „a avea nevoie de” è [it]avere bisogno di[/it], non [it]da[/it]; „a se uita la” è [it]guardare[/it], senza preposizione ([it]guardo la TV[/it], non [it]guardo a[/it])."
+    }
+  ],
+  "rules": [
+    {"it": "„La” = a (città, ora, a chi), in (edificio), da (da qualcuno).", "ro": "„La” = a (oraș, oră, cui), in (clădire), da (la cineva)."},
+    {"it": "„Pe” = su (sul tavolo), ma a piedi, al giorno, dalla finestra, per strada, in via X.", "ro": "„Pe” = su (pe masă), dar a piedi, al giorno, dalla finestra, per strada, in via X."},
+    {"it": "„De” = di (contenuto), da (a che cosa serve, da quando), a (a Natale, a mano).", "ro": "„De” = di (conținut), da (pentru ce, de când), a (de Crăciun, de mână)."},
+    {"it": "Il „pe” di „îl văd pe Marco” e di „pe 5 mai” sparisce.", "ro": "„Pe” din „îl văd pe Marco” și din „pe 5 mai” dispare."}
+  ],
+  "items": [
+    {"id": "ptr-01", "it": "Sabato pomeriggio vado dalla mia amica Chiara.", "gap": "dalla", "ro": "Sâmbătă după-amiază merg la prietena mea Chiara.", "note": "la + persoană: [it]da[/it] (nu [it]alla mia amica[/it])", "noteIt": "da una persona: [it]da[/it] (non [it]alla mia amica[/it])"},
+    {"id": "ptr-02", "it": "Mio fratello lavora in un negozio di scarpe.", "gap": "in", "ro": "Fratele meu lucrează într-un magazin de încălțăminte.", "note": "la + magazin: de obicei [it]in[/it] ([it]in un negozio[/it], [it]in farmacia[/it])", "noteIt": "negozio, farmacia: di solito [it]in[/it]"},
+    {"id": "ptr-03", "it": "Do le chiavi a Luca.", "gap": "a", "ro": "Îi dau cheile lui Luca.", "note": "„lui Luca” (dativ) = [it]a Luca[/it]", "noteIt": "complemento di termine: [it]a Luca[/it]"},
+    {"id": "ptr-04", "it": "Sono appena tornato dal mare, guarda che abbronzatura!", "gap": "dal", "ro": "Tocmai m-am întors de la mare, uite ce bronz!", "note": "„de la” + loc: [it]da[/it] + articol", "noteIt": "da dove: [it]da[/it] + articolo"},
+    {"id": "ptr-05", "it": "Sono in Italia da un anno.", "gap": "da", "ro": "Sunt în Italia de un an.", "note": "„de” (și încă) = [it]da[/it] + prezent", "noteIt": "da quando, ancora oggi: [it]da[/it] + presente"},
+    {"id": "ptr-06", "it": "L'ho buttato dalla finestra.", "gap": "dalla", "ro": "L-am aruncat pe fereastră.", "note": "„pe fereastră” = [it]dalla finestra[/it], nu [it]sulla[/it]", "noteIt": "punto di passaggio: [it]dalla finestra[/it], non [it]sulla[/it]"},
+    {"id": "ptr-07", "it": "Dalla finestra della mia camera si vede il mare.", "gap": "Dalla", "ro": "De la fereastra camerei mele se vede marea.", "note": "fereastra = punct de trecere: [it]da[/it] + articol", "noteIt": "la finestra è un punto di passaggio: [it]da[/it] + articolo"},
+    {"id": "ptr-08", "it": "Prendo la medicina due volte al giorno.", "gap": "al", "ro": "Iau medicamentul de două ori pe zi.", "note": "„pe zi” = [it]al giorno[/it]", "noteIt": "frequenza: [it]a[/it] + articolo"},
+    {"id": "ptr-09", "it": "Ho comprato degli occhiali nuovi.", "gap": "degli", "ro": "Mi-am cumpărat niște ochelari noi.", "note": "„niște” = [it]di[/it] + articol: [it]degli[/it]", "noteIt": "partitivo: [it]di[/it] + articolo, qui [it]degli[/it]"},
+    {"id": "ptr-10", "it": "Penso spesso alla mia infanzia.", "gap": "alla", "ro": "Mă gândesc des la copilăria mea.", "note": "„a se gândi la” = [it]pensare a[/it]", "noteIt": "[it]pensare a[/it]: la preposizione è [it]a[/it], non [it]di[/it]"},
+    {"id": "ptr-11", "it": "Mi sono innamorato di una collega.", "gap": "di", "ro": "M-am îndrăgostit de o colegă.", "note": "„a se îndrăgosti de” = [it]innamorarsi di[/it]", "noteIt": "[it]innamorarsi di[/it]"},
+    {"id": "ptr-12", "it": "Ho chiesto un consiglio a un collega.", "gap": "a", "ro": "Am cerut un sfat unui coleg.", "note": "„a cere cuiva” = [it]chiedere a[/it]", "noteIt": "[it]chiedere[/it] qualcosa [it]a[/it] qualcuno"},
+    {"id": "ptr-13", "it": "Aiuto mia madre a cucinare.", "gap": "a", "ro": "O ajut pe mama să gătească.", "note": "[it]aiutare qualcuno a[/it]; „pe” din acuzativ dispare", "noteIt": "[it]aiutare qualcuno a[/it] + infinito; il „pe” non si traduce"},
+    {"id": "ptr-14", "it": "Hanno regalato un mazzo di fiori alla loro madre.", "gap": "alla", "ro": "I-au dăruit un buchet de flori mamei lor.", "note": "[it]loro[/it] cere mereu articol: [it]alla loro madre[/it], dar [it]a mia madre[/it]", "noteIt": "[it]loro[/it] vuole sempre l'articolo: [it]alla loro madre[/it], ma [it]a mia madre[/it]"},
+    {"id": "ptr-15", "it": "Ci vediamo all'angolo della strada.", "gap": "all'", "ro": "Ne vedem la colțul străzii.", "note": "colț exterior: [it]a[/it] + articol", "noteIt": "angolo esterno: [it]a[/it] + articolo"},
+    {"id": "ptr-16", "it": "Ho messo la pianta nell'angolo della stanza.", "gap": "nell'", "ro": "Am pus planta în colțul camerei.", "note": "colț interior: [it]in[/it] + articol", "noteIt": "angolo interno: [it]in[/it] + articolo"},
+    {"id": "ptr-17", "it": "Siamo arrivati in tempo per il film.", "gap": "in", "ro": "Am ajuns la timp pentru film.", "note": "[it]in tempo[/it] = la timp, nu prea târziu", "noteIt": "[it]in tempo[/it] = non troppo tardi"},
+    {"id": "ptr-18", "it": "Siamo rimasti sotto la pioggia per due ore.", "gap": "sotto", "ro": "Am rămas în ploaie două ore.", "note": "„în ploaie” = [it]sotto la pioggia[/it], nu [it]nella[/it]", "noteIt": "[it]sotto la pioggia[/it], non [it]nella pioggia[/it]"},
+    {"id": "ptr-19", "it": "Il bagno è in fondo al corridoio.", "gap": "in", "ro": "Baia e la capătul holului.", "note": "[it]in fondo a[/it] = la capătul", "noteIt": "[it]in fondo a[/it] = all'estremità"},
+    {"id": "ptr-20", "it": "L'ho avuto in regalo da mia zia.", "gap": "in", "ro": "L-am primit cadou de la mătușa mea.", "note": "[it]in regalo[/it] = cadou", "noteIt": "[it]in regalo[/it] = come dono"},
+    {"id": "ptr-21", "it": "Hai per caso una penna?", "gap": "per", "ro": "Ai cumva un pix?", "note": "[it]per caso[/it] = cumva, din întâmplare", "noteIt": "[it]per caso[/it] = casualmente; in una domanda: magari"},
+    {"id": "ptr-22", "it": "Non è stato un incidente: l'ha fatto di proposito.", "gap": "di", "ro": "Nu a fost un accident: a făcut-o intenționat.", "note": "[it]di proposito[/it] = intenționat (nu [it]a proposito[/it])", "noteIt": "[it]di proposito[/it] = volontariamente; [it]a proposito[/it] = a questo riguardo"},
+    {"id": "ptr-23", "it": "Può arrivare da un momento all'altro.", "gap": "da", "ro": "Poate sosi dintr-un moment în altul.", "note": "[it]da un momento all'altro[/it] = foarte curând", "noteIt": "[it]da un momento all'altro[/it] = molto presto"}
+  ]
+}

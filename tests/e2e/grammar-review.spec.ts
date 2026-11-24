@@ -107,7 +107,7 @@ test("lecțiile A2 noi: în listă după cele A1, cu lecție și joc „Introduc
   expect(a2).toHaveLength(6);
   await page.goto("/learn/grammar");
   const links = page.getByRole("list", { name: "Temele de gramatică" }).getByRole("link");
-  await expect(links).toHaveCount(18);
+  await expect(links).toHaveCount(26);
   await expect(links.nth(12)).toContainText("Trecutul compus (passato prossimo)");
   await expect(links.nth(12)).toContainText("A2");
 

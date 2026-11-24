@@ -1,0 +1,130 @@
+{
+  "id": "preposizione-da",
+  "order": 23,
+  "title": { "it": "La preposizione da", "ro": "Prepoziția da" },
+  "level": "B1",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "[it]Da[/it] e prepoziția cu cele mai multe sensuri care nu seamănă cu româna. Arată [b]de unde[/b] vii ([it]torno dal lavoro[/it]), [b]la cine[/b] mergi ([it]vado da Marco[/it]), [b]pe unde[/b] treci ([it]dalla finestra[/it]), [b]de când[/b] ([it]da due anni[/it]), [b]pentru ce[/b] e un obiect ([it]occhiali da sole[/it]) și [b]ce e de făcut[/b] ([it]ho tanto da fare[/it]). Lecțiile 19 și 20 au tratat deja locul și timpul; aici le legi de restul sensurilor.",
+      "it": "[it]Da[/it] è la preposizione con più significati che non somigliano al rumeno. Indica [b]da dove[/b] vieni ([it]torno dal lavoro[/it]), [b]da chi[/b] vai ([it]vado da Marco[/it]), [b]per dove[/b] passi ([it]dalla finestra[/it]), [b]da quando[/b] ([it]da due anni[/it]), [b]a che cosa serve[/b] un oggetto ([it]occhiali da sole[/it]) e [b]che cosa c'è da fare[/b] ([it]ho tanto da fare[/it]). Le lezioni 19 e 20 hanno già trattato il luogo e il tempo; qui li colleghi agli altri significati."
+    },
+    {
+      "type": "table",
+      "caption": "Sensurile lui da",
+      "captionIt": "I significati di da",
+      "head": ["sensul", "exemple", "în română"],
+      "headIt": ["significato", "esempi", "in rumeno"],
+      "itColumns": [1],
+      "rows": [
+        ["de unde", "dal lavoro, dall'Italia, da Roma", "de la serviciu, din Italia, din Roma"],
+        ["la cine", "da Marco, dal dentista, da me", "la Marco, la dentist, la mine"],
+        ["pe unde", "dalla finestra, dalla porta", "pe fereastră, pe ușă"],
+        ["de când", "da due anni, da lunedì", "de doi ani, de luni"],
+        ["pentru ce", "occhiali da sole, camera da letto", "ochelari de soare, dormitor"],
+        ["de făcut", "tante cose da fare, qualcosa da bere", "multe de făcut, ceva de băut"],
+        ["de către", "è stato fatto da Marco", "a fost făcut de Marco"],
+        ["valoare", "una banconota da venti euro", "o bancnotă de douăzeci de euro"],
+        ["ca, singur", "da amico, da solo, da sola", "ca prieten, singur, singură"],
+        ["depărtare, dependență", "lontano dal centro, dipende da te", "departe de centru, depinde de tine"]
+      ],
+      "rowsIt": [
+        ["da dove", "dal lavoro, dall'Italia, da Roma", "de la serviciu, din Italia, din Roma"],
+        ["da chi", "da Marco, dal dentista, da me", "la Marco, la dentist, la mine"],
+        ["per dove", "dalla finestra, dalla porta", "pe fereastră, pe ușă"],
+        ["da quando", "da due anni, da lunedì", "de doi ani, de luni"],
+        ["a che cosa serve", "occhiali da sole, camera da letto", "ochelari de soare, dormitor"],
+        ["da fare", "tante cose da fare, qualcosa da bere", "multe de făcut, ceva de băut"],
+        ["da parte di chi", "è stato fatto da Marco", "a fost făcut de Marco"],
+        ["valore", "una banconota da venti euro", "o bancnotă de douăzeci de euro"],
+        ["in qualità di, senza aiuto", "da amico, da solo, da sola", "ca prieten, singur, singură"],
+        ["distanza, dipendenza", "lontano dal centro, dipende da te", "departe de centru, depinde de tine"]
+      ]
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "Torno dal lavoro alle sei.", "ro": "Mă întorc de la serviciu la șase.", "note": "de unde: [it]da[/it] + [it]il lavoro[/it] = [it]dal[/it]", "noteIt": "da dove: [it]da[/it] + [it]il lavoro[/it] = [it]dal[/it]" },
+        { "it": "Vieni da me?", "ro": "Vii la mine?", "note": "la cine: [it]da me[/it] = la mine (acasă)", "noteIt": "da chi: [it]da me[/it] = a casa mia" },
+        { "it": "Aspetto l'autobus da dieci minuti.", "ro": "Aștept autobuzul de zece minute.", "note": "de când: [it]da[/it] + prezent (încă aștept)", "noteIt": "da quando: [it]da[/it] + presente (aspetto ancora)" },
+        { "it": "Ho perso gli occhiali da sole.", "ro": "Mi-am pierdut ochelarii de soare.", "note": "pentru ce e: [it]da sole[/it]", "noteIt": "a che cosa serve: [it]da sole[/it]" },
+        { "it": "Ho tanto da fare.", "ro": "Am mult de făcut.", "note": "de făcut: [it]da[/it] + infinitiv", "noteIt": "da fare: [it]da[/it] + infinito" },
+        { "it": "La cena è stata preparata da mio padre.", "ro": "Cina a fost pregătită de tatăl meu.", "note": "de către: [it]è stato fatto da[/it]", "noteIt": "da parte di chi: [it]è stato fatto da[/it]" },
+        { "it": "Hai una banconota da venti euro?", "ro": "Ai o bancnotă de douăzeci de euro?", "note": "valoare: [it]da[/it] + sumă", "noteIt": "valore: [it]da[/it] + somma" },
+        { "it": "Ti parlo da amico.", "ro": "Îți vorbesc ca prieten.", "note": "ca: [it]da amico[/it]", "noteIt": "in qualità di: [it]da amico[/it]" }
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "[b]Punctul de trecere.[/b] Fereastra, ușa și gaura cheii sunt locul pe unde treci sau pe unde privești, deci primesc [it]da[/it] + articol în [b]ambele[/b] direcții. Direcția o dă adverbul: [it]fuori[/it] (afară) sau [it]dentro[/it] (înăuntru). Românescul „pe fereastră” devine [it]dalla finestra[/it], niciodată [it]sulla finestra[/it]. Același tipar: [it]entrare dalla porta[/it], [it]uscire dalla finestra[/it], [it]buttare qualcosa dalla finestra[/it]. [it]Guardare la finestra[/it], fără prepoziție, înseamnă altceva: te uiți la fereastră ca la un obiect.",
+      "it": "[b]Il punto di passaggio.[/b] La finestra, la porta e il buco della serratura sono il luogo da cui passi o da cui guardi, quindi vogliono [it]da[/it] + articolo in [b]entrambe[/b] le direzioni. La direzione la dà l'avverbio: [it]fuori[/it] o [it]dentro[/it]. Il „pe fereastră” rumeno diventa [it]dalla finestra[/it], mai [it]sulla finestra[/it]. Stesso schema: [it]entrare dalla porta[/it], [it]uscire dalla finestra[/it], [it]buttare qualcosa dalla finestra[/it]. [it]Guardare la finestra[/it], senza preposizione, significa un'altra cosa: guardi la finestra come oggetto."
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "Guardo fuori dalla finestra.", "ro": "Mă uit afară pe fereastră.", "note": "dinăuntru spre afară: [it]fuori dalla[/it]", "noteIt": "da dentro verso fuori: [it]fuori dalla[/it]" },
+        { "it": "Ho guardato dentro dalla finestra, ma non c'era nessuno.", "ro": "M-am uitat înăuntru pe fereastră, dar nu era nimeni.", "note": "din afară spre înăuntru: tot [it]dalla[/it]", "noteIt": "da fuori verso dentro: sempre [it]dalla[/it]" },
+        { "it": "Sono entrati dalla finestra.", "ro": "Au intrat pe fereastră.", "note": "pe unde: [it]da[/it] + articol", "noteIt": "per dove: [it]da[/it] + articolo" },
+        { "it": "Non sporgerti dal finestrino!", "ro": "Nu te apleca pe geam!", "note": "[it]finestrino[/it] = geamul trenului sau al mașinii", "noteIt": "[it]finestrino[/it] = il vetro del treno o dell'auto" }
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "Di sau da?",
+      "captionIt": "Di o da?",
+      "head": ["cu di", "cu da"],
+      "headIt": ["con di", "con da"],
+      "itColumns": [0, 1],
+      "rows": [
+        ["Una tazza di tè. (plină, cu ceai)", "Una tazza da tè. (ceașca pentru ceai)"],
+        ["Sono di Roma. (orașul meu)", "Vengo da Roma. (de acolo vin)"],
+        ["Un bambino di cinque anni. (vârsta)", "Una banconota da cinque euro. (valoarea)"],
+        ["Qualcosa di buono. (+ adjectiv)", "Qualcosa da bere. (+ infinitiv)"]
+      ],
+      "rowsIt": [
+        ["Una tazza di tè. (piena, con il tè)", "Una tazza da tè. (la tazza per il tè)"],
+        ["Sono di Roma. (la mia città)", "Vengo da Roma. (da lì arrivo)"],
+        ["Un bambino di cinque anni. (l'età)", "Una banconota da cinque euro. (il valore)"],
+        ["Qualcosa di buono. (+ aggettivo)", "Qualcosa da bere. (+ infinito)"]
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "„Pe fereastră” e [it]dalla finestra[/it], nu [it]sulla finestra[/it]. „De trei ani” e [it]da tre anni[/it], cu prezentul, nu [it]di tre anni[/it] și nici [it]per tre anni[/it]. „Ochelari de soare” sunt [it]occhiali da sole[/it], nu [it]di sole[/it]: [it]da[/it] spune la ce folosește obiectul, [it]di[/it] spune din ce e făcut sau ce conține. Și [it]vado da Marco[/it] = merg la Marco acasă, nu [it]vado a Marco[/it].",
+      "it": "„Pe fereastră” è [it]dalla finestra[/it], non [it]sulla finestra[/it]. „De trei ani” è [it]da tre anni[/it], con il presente, non [it]di tre anni[/it] e nemmeno [it]per tre anni[/it]. „Ochelari de soare” sono [it]occhiali da sole[/it], non [it]di sole[/it]: [it]da[/it] dice a che cosa serve l'oggetto, [it]di[/it] dice di che cosa è fatto o che cosa contiene. E [it]vado da Marco[/it] = vado a casa di Marco, non [it]vado a Marco[/it]."
+    }
+  ],
+  "rules": [
+    { "it": "Da dove e da chi: torno dal lavoro, vado da Marco.", "ro": "De unde și la cine: torno dal lavoro, vado da Marco." },
+    { "it": "Da quando (e ancora): da + presente: abito qui da tre anni.", "ro": "De când (și încă): da + prezent: abito qui da tre anni." },
+    { "it": "A che cosa serve l'oggetto e che cosa c'è da fare: occhiali da sole, ho tanto da fare.", "ro": "Pentru ce e obiectul și ce e de făcut: occhiali da sole, ho tanto da fare." },
+    { "it": "Per dove passi: dalla finestra, dalla porta, in entrambe le direzioni.", "ro": "Pe unde treci: dalla finestra, dalla porta, în ambele direcții." }
+  ],
+  "items": [
+    { "id": "pda-01", "it": "A che ora esci dall'ufficio?", "gap": "dall'", "ro": "La ce oră ieși de la birou?", "note": "de unde: [it]da[/it] + [it]l'ufficio[/it]", "noteIt": "da dove: [it]da[/it] + [it]l'ufficio[/it]" },
+    { "id": "pda-02", "it": "Questo vino viene dalla Sicilia.", "gap": "dalla", "ro": "Vinul ăsta vine din Sicilia.", "note": "proveniență: [it]da[/it] + [it]la Sicilia[/it]", "noteIt": "provenienza: [it]da[/it] + [it]la Sicilia[/it]" },
+    { "id": "pda-03", "it": "Ho dormito da un amico perché ho perso l'ultimo treno.", "gap": "da", "ro": "Am dormit la un prieten pentru că am pierdut ultimul tren.", "note": "la cineva: [it]da[/it] + persoană", "noteIt": "a casa di qualcuno: [it]da[/it] + persona" },
+    { "id": "pda-04", "it": "Vieni da me sabato?", "gap": "da", "ro": "Vii la mine sâmbătă?", "note": "[it]da me[/it] = la mine (acasă)", "noteIt": "[it]da me[/it] = a casa mia" },
+    { "id": "pda-05", "it": "Da noi si cena alle sei.", "gap": "Da", "ro": "La noi se mănâncă la șase.", "note": "[it]da noi[/it] = la noi (acasă, în țara noastră)", "noteIt": "[it]da noi[/it] = a casa nostra, nel nostro paese" },
+    { "id": "pda-06", "it": "I ladri sono entrati dalla finestra.", "gap": "dalla", "ro": "Hoții au intrat pe fereastră.", "note": "pe unde treci: [it]da[/it] + articol", "noteIt": "per dove passi: [it]da[/it] + articolo" },
+    { "id": "pda-07", "it": "Guardo fuori dalla finestra: piove ancora.", "gap": "dalla", "ro": "Mă uit afară pe fereastră: plouă încă.", "note": "dinăuntru spre afară: [it]fuori dalla[/it]", "noteIt": "da dentro verso fuori: [it]fuori dalla[/it]" },
+    { "id": "pda-08", "it": "Ho guardato dentro dalla finestra, ma non c'era nessuno.", "gap": "dalla", "ro": "M-am uitat înăuntru pe fereastră, dar nu era nimeni.", "note": "din afară spre înăuntru: tot [it]dalla[/it]", "noteIt": "da fuori verso dentro: sempre [it]dalla[/it]" },
+    { "id": "pda-09", "it": "Non sporgerti dal finestrino, è pericoloso!", "gap": "dal", "ro": "Nu te apleca pe geam, e periculos!", "note": "pe unde: [it]da[/it] + [it]il finestrino[/it]", "noteIt": "per dove: [it]da[/it] + [it]il finestrino[/it]" },
+    { "id": "pda-10", "it": "Da giovane viaggiavo molto.", "gap": "Da", "ro": "Când eram tânăr călătoream mult.", "note": "[it]da giovane[/it] = când eram tânăr (cu imperfetto)", "noteIt": "[it]da giovane[/it] = quando ero giovane (con l'imperfetto)" },
+    { "id": "pda-11", "it": "Conosco Elena da quando eravamo bambine.", "gap": "da", "ro": "O cunosc pe Elena de când eram mici.", "note": "de când: [it]da quando[/it] + prezent (încă o cunosc)", "noteIt": "da quando: [it]da quando[/it] + presente (la conosco ancora)" },
+    { "id": "pda-12", "it": "Ho perso gli occhiali da sole.", "gap": "da", "ro": "Mi-am pierdut ochelarii de soare.", "note": "la ce folosește: [it]da sole[/it]", "noteIt": "a che cosa serve: [it]da sole[/it]" },
+    { "id": "pda-13", "it": "Nella camera da letto c'è un armadio enorme.", "gap": "da", "ro": "În dormitor e un dulap uriaș.", "note": "[it]camera da letto[/it] = camera pentru dormit", "noteIt": "[it]camera da letto[/it] = la stanza per dormire" },
+    { "id": "pda-14", "it": "Ho comprato un paio di scarpe da ginnastica.", "gap": "da", "ro": "Am cumpărat o pereche de pantofi sport.", "note": "la ce folosesc: [it]da ginnastica[/it]", "noteIt": "a che cosa servono: [it]da ginnastica[/it]" },
+    { "id": "pda-15", "it": "Ho tante cose da fare oggi.", "gap": "da", "ro": "Am multe de făcut azi.", "note": "de făcut: [it]da[/it] + infinitiv", "noteIt": "da fare: [it]da[/it] + infinito" },
+    { "id": "pda-16", "it": "C'è qualcosa da bere in frigo?", "gap": "da", "ro": "E ceva de băut în frigider?", "note": "[it]qualcosa da[/it] + infinitiv", "noteIt": "[it]qualcosa da[/it] + infinito" },
+    { "id": "pda-17", "it": "È un film da vedere assolutamente.", "gap": "da", "ro": "E un film de văzut neapărat.", "note": "[it]un film da vedere[/it] = merită văzut", "noteIt": "[it]un film da vedere[/it] = vale la pena vederlo" },
+    { "id": "pda-18", "it": "Il quadro è stato dipinto da un artista locale.", "gap": "da", "ro": "Tabloul a fost pictat de un artist local.", "note": "de către: [it]è stato fatto da[/it]", "noteIt": "da parte di chi: [it]è stato fatto da[/it]" },
+    { "id": "pda-19", "it": "Non ho spiccioli, solo una banconota da cinquanta euro.", "gap": "da", "ro": "Nu am mărunt, doar o bancnotă de cincizeci de euro.", "note": "valoare: [it]da[/it] + sumă", "noteIt": "valore: [it]da[/it] + somma" },
+    { "id": "pda-20", "it": "Non mi ha aiutato nessuno: ho fatto tutto da sola.", "gap": "da", "ro": "Nu m-a ajutat nimeni: am făcut totul singură.", "note": "[it]da sola[/it] = singură, fără ajutor", "noteIt": "[it]da sola[/it] = senza aiuto" },
+    { "id": "pda-21", "it": "Alla riunione Sara ha fatto da interprete.", "gap": "da", "ro": "La ședință, Sara a fost interpretă.", "note": "[it]fare da[/it] + rol = a fi, a ține loc de", "noteIt": "[it]fare da[/it] + ruolo = svolgere il ruolo di" },
+    { "id": "pda-22", "it": "Il film era comicissimo: morivo dal ridere.", "gap": "dal", "ro": "Filmul era foarte haios: muream de râs.", "note": "expresie fixă: [it]morire dal ridere[/it]", "noteIt": "espressione fissa: [it]morire dal ridere[/it]" },
+    { "id": "pda-23", "it": "Restare o partire dipende da te.", "gap": "da", "ro": "Să rămânem sau să plecăm depinde de tine.", "note": "[it]dipendere da[/it] = a depinde de", "noteIt": "[it]dipendere da[/it]" },
+    { "id": "pda-24", "it": "Abito lontano dal centro.", "gap": "dal", "ro": "Locuiesc departe de centru.", "note": "[it]lontano da[/it] = departe de", "noteIt": "[it]lontano da[/it]" },
+    { "id": "pda-25", "it": "Passo da te dopo il lavoro.", "gap": "da", "ro": "Trec pe la tine după serviciu.", "note": "[it]passare da[/it] + persoană = a trece pe la", "noteIt": "[it]passare da[/it] + persona = fare una visita breve" }
+  ]
+}
