@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import type { Level, PackItem } from "../content/schema.ts";
+import { packItemSchema, type Level, type PackItem } from "../content/schema.ts";
 import { packProblems, resolvePackLevel } from "./check.ts";
 
 const LEVELS_OF: Record<string, Level> = { "n-bocca": "A1", "n-lupo": "B1", "v-salire": "A2", "n-fattoria": "C1" };
@@ -27,6 +27,21 @@ const falso = (over: Record<string, unknown> = {}) =>
     ro: "a urca",
     explain: loc("Non vuol dire «a sări»."),
     wordIds: ["v-salire"],
+    ...over,
+  }) as PackItem;
+
+const modo = (over: Record<string, unknown> = {}) =>
+  ({
+    id: "modo-essere-al-verde",
+    kind: "modo-di-dire",
+    level: "B1",
+    it: "Essere al verde",
+    ro: "A fi lefter",
+    literal: "a fi la verde",
+    match: "different",
+    explain: loc("Si dice quando non si hanno soldi."),
+    wordIds: ["n-lupo"],
+    quiz: { question: loc("Cosa significa?"), options: ["Non avere soldi", "Essere felice", "Amare i colori"], answer: 0 },
     ...over,
   }) as PackItem;
 
@@ -123,4 +138,28 @@ test("nivelul unui prieten fals vine din dicționar; al unei expresii e cel scri
   expect(resolvePackLevel(falso({ wordIds: ["v-salire"] }), levelOf)).toBe("A2");
   expect(resolvePackLevel(falso({ wordIds: ["n-fattoria"] }), levelOf)).toBe("C1");
   expect(resolvePackLevel(espr({ level: "A1", wordIds: ["n-lupo"] }), levelOf)).toBe("A1");
+});
+
+test("un modo di dire valid, inclusiv B2 și fără echivalent la «different»", () => {
+  expect(packProblems([modo(), modo({ id: "modo-x", level: "B2" })], levelOf)).toEqual([]);
+});
+
+test("modo di dire: C1 respins, B2 permis doar lui", () => {
+  expect(packProblems([modo({ level: "C1" })], levelOf).join("\n")).toContain("nivel A1–B2 (nu C1)");
+  expect(packProblems([espr({ level: "B2" })], levelOf).join("\n")).toContain("nivel A1–B1");
+});
+
+test("modo di dire: test și cuvânt obligatorii", () => {
+  expect(packProblems([modo({ quiz: undefined })], levelOf).join("\n")).toContain("are obligatoriu un test");
+  expect(packProblems([modo({ wordIds: [] })], levelOf).join("\n")).toContain("cel puțin un cuvânt în wordIds");
+});
+
+test("modo di dire: «same» și «twist» cer echivalentul", () => {
+  expect(packProblems([modo({ match: "same" })], levelOf).join("\n")).toContain("echivalentul românesc e obligatoriu");
+  expect(packProblems([modo({ match: "twist" })], levelOf).join("\n")).toContain("echivalentul românesc e obligatoriu");
+  expect(packProblems([modo({ match: "twist", roEquivalent: "a fi în al nouălea cer" })], levelOf)).toEqual([]);
+});
+
+test("schema: «match» necunoscut e respins", () => {
+  expect(packItemSchema.safeParse({ ...modo(), match: "similar" }).success).toBe(false);
 });

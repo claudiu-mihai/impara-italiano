@@ -84,3 +84,9 @@ test("testele: itemul testat deja în vizită nu mai are test", () => {
   const seen: FeedSeen = { a: { shown: NOW - 5 * DAY } };
   expect(eligiblePackQuizzes(pack, seen, visit({ quizzed: new Set(["a"]) }), "A2", NOW)).toEqual([]);
 });
+
+test("un idiom B2 nu apare la nivelul B1, apare la B2", () => {
+  const modoB2 = item("modo-x", { kind: "modo-di-dire", level: "B2", literal: "x", match: "different" } as Partial<GeneratedPackItem>);
+  expect(eligiblePackItems([modoB2], {}, visit(), "B1", NOW)).toEqual([]);
+  expect(ids(eligiblePackItems([modoB2], {}, visit(), "B2", NOW))).toEqual(["modo-x"]);
+});

@@ -42,6 +42,7 @@ export const it: Record<Key, string> = {
   "feed.kind.lo-sapevi": "Lo sapevi?",
   "feed.kind.gesto": "Gesto",
   "feed.kind.micro-storia": "Micro-storia",
+  "feed.kind.modo-di-dire": "Modo di dire",
   "feed.reveal": "Mostra il finale",
   "feed.combo": "🔥 x{n}",
   "feed.know": "Lo so",

@@ -41,6 +41,7 @@ export const ro = {
   "feed.kind.lo-sapevi": "Lo sapevi?",
   "feed.kind.gesto": "Gest",
   "feed.kind.micro-storia": "Micro-poveste",
+  "feed.kind.modo-di-dire": "Expresie idiomatică",
   "feed.reveal": "Arată finalul",
   "feed.combo": "🔥 x{n}",
   "feed.know": "Știu",

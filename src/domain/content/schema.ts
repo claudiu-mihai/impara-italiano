@@ -221,14 +221,19 @@ export const storySchema = z
  * Pachetul de conținut al fluxului (content/feed/*.json): expresii, prieteni falși, cultură, gesturi și micro-povești.
  * Regulile dintre câmpuri (prefixul id-ului, nivelul, testul) sunt în `domain/feed/check.ts`.
  */
-export const PACK_KINDS = ["espressione", "falso-amico", "lo-sapevi", "gesto", "micro-storia"] as const;
+export const PACK_KINDS = ["espressione", "falso-amico", "lo-sapevi", "gesto", "micro-storia", "modo-di-dire"] as const;
 export const PACK_ID_PREFIX = {
   espressione: "espr-",
   "falso-amico": "falso-",
   "lo-sapevi": "sap-",
   gesto: "gest-",
   "micro-storia": "stor-",
+  "modo-di-dire": "modo-",
 } as const;
+
+/** Cât de aproape e idiomul de unul românesc: la fel („same”), cu o răsturnare („twist”) sau fără corespondent („different”). */
+export const IDIOM_MATCH = ["same", "twist", "different"] as const;
+export type IdiomMatch = (typeof IDIOM_MATCH)[number];
 
 export const packQuizSchema = z
   .object({ question: localized, options: z.array(text).min(3).max(4), answer: z.number().int().min(0) })
@@ -242,19 +247,29 @@ const packBase = {
   quiz: packQuizSchema.optional(),
 };
 
-const packSimple = <K extends Exclude<(typeof PACK_KINDS)[number], "micro-storia">>(kind: K) =>
-  z
-    .object({
-      ...packBase,
-      kind: z.literal(kind),
-      it: text,
-      ro: text,
-      explain: localized,
-      example: example.optional(),
-      /** Doar la gesturi. */
-      emoji: text.optional(),
-    })
-    .strict();
+const packSimpleShape = {
+  ...packBase,
+  it: text,
+  ro: text,
+  explain: localized,
+  example: example.optional(),
+  /** Doar la gesturi. */
+  emoji: text.optional(),
+};
+
+const packSimple = <K extends Exclude<(typeof PACK_KINDS)[number], "micro-storia" | "modo-di-dire">>(kind: K) =>
+  z.object({ ...packSimpleShape, kind: z.literal(kind) }).strict();
+
+/** Un idiom: ca la itemii simpli, plus traducerea cuvânt cu cuvânt, echivalentul românesc și categoria. */
+const packModoDiDire = z
+  .object({
+    ...packSimpleShape,
+    kind: z.literal("modo-di-dire"),
+    literal: text,
+    roEquivalent: text.optional(),
+    match: z.enum(IDIOM_MATCH),
+  })
+  .strict();
 
 const packMicroStory = z
   .object({
@@ -272,6 +287,7 @@ export const packItemSchema = z.discriminatedUnion("kind", [
   packSimple("lo-sapevi"),
   packSimple("gesto"),
   packMicroStory,
+  packModoDiDire,
 ]);
 export const packFileSchema = z.array(packItemSchema).min(1);
 
