@@ -10,9 +10,9 @@ test("dicționarul listează toate cuvintele și caută în italiană și român
   await expect(page.getByRole("status")).toHaveText(TOTAL);
 
   const search = page.getByLabel("Caută în dicționar");
-  await search.fill("a vorbi"); // „vorbi” singur găsește și „tehnic vorbind”
+  await search.fill("a citi"); // „citi” singur găsește și alte cuvinte
   await expect(page.getByRole("status")).toHaveText("1 cuvânt");
-  await expect(page.getByRole("link", { name: /parlare/ })).toBeVisible();
+  await expect(page.getByRole("link", { name: /leggere/ })).toBeVisible();
 
   await search.fill("sti"); // „ști” fără diacritice
   await expect(page.getByRole("link", { name: /sapere/ })).toBeVisible();
@@ -58,7 +58,7 @@ test("lista se încarcă pe pagini: 40 de cuvinte, apoi încă 40 la „Arată m
   await page.getByRole("button", { name: /^Arată mai multe/ }).click();
   await expect(rows).toHaveCount(80);
 
-  await page.getByLabel("Caută în dicționar").fill("a vorbi");
+  await page.getByLabel("Caută în dicționar").fill("a citi");
   await expect(rows).toHaveCount(1);
   await expect(page.getByRole("button", { name: /^Arată mai multe/ })).toHaveCount(0);
 });
