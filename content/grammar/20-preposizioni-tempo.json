@@ -1,0 +1,118 @@
+{
+  "id": "preposizioni-tempo",
+  "order": 20,
+  "title": { "it": "Le preposizioni del tempo", "ro": "Prepozițiile de timp" },
+  "level": "A2",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "Ora, ziua, anul și durata au fiecare prepoziția lor, iar româna folosește „la, în, de, peste” altfel decât italiana. Ora cere [it]a[/it] + articol: [it]alle otto[/it]. Anul cere [it]in[/it] + articol: [it]nel 2020[/it]. Ziua rămâne fără prepoziție: [it]lunedì[/it].",
+      "it": "L'ora, il giorno, l'anno e la durata hanno ciascuno la loro preposizione, e il rumeno usa „la, în, de, peste” in modo diverso dall'italiano. L'ora vuole [it]a[/it] + articolo: [it]alle otto[/it]. L'anno vuole [it]in[/it] + articolo: [it]nel 2020[/it]. Il giorno resta senza preposizione: [it]lunedì[/it]."
+    },
+    {
+      "type": "table",
+      "caption": "Când?",
+      "captionIt": "Quando?",
+      "head": ["ce", "italiană", "română"],
+      "headIt": ["cosa", "italiano", "rumeno"],
+      "itColumns": [1],
+      "rows": [
+        ["ora", "alle otto, all'una, a mezzogiorno", "la opt, la unu, la amiază"],
+        ["sărbătoare", "a Natale, a Pasqua", "de Crăciun, de Paște"],
+        ["an", "nel 2020", "în 2020"],
+        ["lună", "a maggio, in maggio", "în mai"],
+        ["anotimp", "in estate, in inverno", "vara, iarna"],
+        ["moment al zilei", "di mattina, di sera", "dimineața, seara"],
+        ["zi, dată (fără prepoziție)", "lunedì, il 5 maggio", "luni, pe 5 mai"]
+      ],
+      "rowsIt": [
+        ["l'ora", "alle otto, all'una, a mezzogiorno", "la opt, la unu, la amiază"],
+        ["la festività", "a Natale, a Pasqua", "de Crăciun, de Paște"],
+        ["l'anno", "nel 2020", "în 2020"],
+        ["il mese", "a maggio, in maggio", "în mai"],
+        ["la stagione", "in estate, in inverno", "vara, iarna"],
+        ["il momento della giornata", "di mattina, di sera", "dimineața, seara"],
+        ["giorno, data (senza preposizione)", "lunedì, il 5 maggio", "luni, pe 5 mai"]
+      ]
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "Il film comincia alle nove.", "ro": "Filmul începe la nouă.", "note": "ora: [it]a[/it] + [it]le[/it]", "noteIt": "l'ora: [it]a[/it] + [it]le[/it]" },
+        { "it": "Sono nato nel 1990.", "ro": "M-am născut în 1990.", "note": "anul: [it]in[/it] + [it]il[/it]", "noteIt": "l'anno: [it]in[/it] + [it]il[/it]" },
+        { "it": "A Natale torno a casa.", "ro": "De Crăciun mă întorc acasă.", "note": "sărbătoarea: [it]a[/it]", "noteIt": "la festività: [it]a[/it]" },
+        { "it": "Di sera esco poco.", "ro": "Seara ies puțin.", "note": "momentul zilei: [it]di[/it]", "noteIt": "il momento della giornata: [it]di[/it]" }
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "Cât timp?",
+      "captionIt": "Quanto tempo?",
+      "head": ["româna", "italiana", "când"],
+      "headIt": ["rumeno", "italiano", "quando"],
+      "itColumns": [1],
+      "rows": [
+        ["învăț italiana de doi ani", "studio l'italiano da due anni", "acțiunea continuă (verb la prezent)"],
+        ["am învățat italiana timp de doi ani", "ho studiato l'italiano per due anni", "perioadă încheiată"],
+        ["am început acum doi ani", "ho cominciato due anni fa", "momentul din trecut (fa stă după)"],
+        ["vin peste o oră", "arrivo tra un'ora", "momentul din viitor (tra sau fra)"],
+        ["o termin într-o oră", "lo finisco in un'ora", "cât durează"]
+      ],
+      "rowsIt": [
+        ["învăț italiana de doi ani", "studio l'italiano da due anni", "azione che continua (verbo al presente)"],
+        ["am învățat italiana timp de doi ani", "ho studiato l'italiano per due anni", "periodo concluso"],
+        ["am început acum doi ani", "ho cominciato due anni fa", "momento nel passato (fa sta dopo)"],
+        ["vin peste o oră", "arrivo tra un'ora", "momento nel futuro (tra o fra)"],
+        ["o termin într-o oră", "lo finisco in un'ora", "quanto ci vuole"]
+      ]
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "Studio l'italiano da due anni.", "ro": "Învăț italiana de doi ani.", "note": "încă învăț: [it]da[/it] + prezent", "noteIt": "studio ancora: [it]da[/it] + presente" },
+        { "it": "Ho vissuto a Roma per due anni.", "ro": "Am locuit la Roma timp de doi ani.", "note": "perioadă încheiată: [it]per[/it]", "noteIt": "periodo concluso: [it]per[/it]" },
+        { "it": "Sono arrivato tre anni fa.", "ro": "Am ajuns acum trei ani.", "note": "acum … = … [it]fa[/it]", "noteIt": "„acum” … = … [it]fa[/it]" },
+        { "it": "Arrivo tra un'ora.", "ro": "Ajung peste o oră.", "note": "peste = [it]tra[/it] (sau [it]fra[/it])", "noteIt": "„peste” = [it]tra[/it] (o [it]fra[/it])" },
+        { "it": "Lo finisco in un'ora.", "ro": "Îl termin într-o oră.", "note": "cât durează: [it]in[/it]", "noteIt": "quanto ci vuole: [it]in[/it]" }
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "[it]Da[/it] + prezent spune ce continuă încă: [it]Abito qui da tre anni[/it] = Locuiesc aici de trei ani (și încă locuiesc). [it]Da bambino[/it] = când eram copil. Intervalul orar: [it]dalle nove alle cinque[/it] (de la nouă la cinci); zilele: [it]dal lunedì al venerdì[/it] (de luni până vineri).",
+      "it": "[it]Da[/it] + presente dice ciò che continua ancora: [it]Abito qui da tre anni[/it] = Locuiesc aici de trei ani (și încă locuiesc). [it]Da bambino[/it] = când eram copil. L'intervallo orario: [it]dalle nove alle cinque[/it] (de la nouă la cinci); i giorni: [it]dal lunedì al venerdì[/it] (de luni până vineri)."
+    },
+    {
+      "type": "trap",
+      "ro": "„De trei ani” se spune [it]da tre anni[/it], cu prezentul, nu [it]per tre anni[/it]. „Acum trei ani” e [it]tre anni fa[/it], cu [it]fa[/it] după durată. „Pe 5 mai” e [it]il 5 maggio[/it], fără [it]a[/it]. „În 1990” e [it]nel 1990[/it].",
+      "it": "„De trei ani” si dice [it]da tre anni[/it], con il presente, non [it]per tre anni[/it]. „Acum trei ani” è [it]tre anni fa[/it], con [it]fa[/it] dopo la durata. „Pe 5 mai” è [it]il 5 maggio[/it], senza [it]a[/it]. „În 1990” è [it]nel 1990[/it]."
+    }
+  ],
+  "rules": [
+    { "it": "Ora: alle otto, all'una, ma a mezzogiorno. Anno: nel 2020.", "ro": "Ora: alle otto, all'una, dar a mezzogiorno. Anul: nel 2020." },
+    { "it": "Da + presente = da quando (ancora): studio da due anni.", "ro": "Da + prezent = de când (încă): studio da due anni." },
+    { "it": "Per = per due anni (periodo concluso); fa = due anni fa (dopo la durata).", "ro": "Per = timp de (încheiat); fa = acum (în trecut), după durată." },
+    { "it": "Tra / fra = tra un'ora, fra due giorni (futuro); in = in un'ora (quanto ci vuole).", "ro": "Tra / fra = peste (viitor); in = cât îți ia." }
+  ],
+  "items": [
+    { "id": "ptm-01", "it": "La lezione comincia alle nove.", "gap": "alle", "ro": "Lecția începe la nouă.", "note": "ora: a + le", "noteIt": "l'ora: a + le" },
+    { "id": "ptm-02", "it": "Ci vediamo all'una.", "gap": "all'", "ro": "Ne vedem la unu.", "note": "all'una (l'una)", "noteIt": "all'una (l'una)" },
+    { "id": "ptm-03", "it": "Mangiamo a mezzogiorno.", "gap": "a", "ro": "Mâncăm la amiază.", "note": "mezzogiorno: fără articol", "noteIt": "mezzogiorno: senza articolo" },
+    { "id": "ptm-04", "it": "Sono nato nel 1990.", "gap": "nel", "ro": "M-am născut în 1990.", "note": "anul: in + il", "noteIt": "l'anno: in + il" },
+    { "id": "ptm-05", "it": "In primavera fa già caldo.", "gap": "In", "ro": "Primăvara e deja cald.", "note": "anotimp: in primavera (vara: in estate sau d'estate)", "noteIt": "stagione: in primavera (estate: in estate o d'estate)" },
+    { "id": "ptm-06", "it": "Preferisco studiare di sera.", "gap": "di", "ro": "Prefer să învăț seara.", "note": "momentul zilei: di sera", "noteIt": "il momento della giornata: di sera" },
+    { "id": "ptm-07", "it": "Studio l'italiano da tre anni.", "gap": "da", "ro": "Învăț italiana de trei ani.", "note": "încă învăț: da + prezent", "noteIt": "studio ancora: da + presente" },
+    { "id": "ptm-08", "it": "Ho vissuto a Roma per due anni.", "gap": "per", "ro": "Am locuit la Roma timp de doi ani.", "note": "perioadă încheiată: per", "noteIt": "periodo concluso: per" },
+    { "id": "ptm-09", "it": "Ho finito il lavoro in due ore.", "gap": "in", "ro": "Am terminat treaba în două ore.", "note": "cât ți-a luat: in", "noteIt": "quanto ci è voluto: in" },
+    { "id": "ptm-10", "it": "Sono arrivato in Italia tre anni fa.", "gap": "fa", "ro": "Am venit în Italia acum trei ani.", "note": "acum … = … fa", "noteIt": "„acum” … = … fa" },
+    { "id": "ptm-11", "it": "Il negozio è aperto dalle nove alle sette.", "gap": "dalle", "ro": "Magazinul e deschis de la nouă la șapte.", "note": "de la … la …: dalle … alle", "noteIt": "dalle … alle …" },
+    { "id": "ptm-12", "it": "Da bambino giocavo sempre a calcio.", "gap": "Da", "ro": "Când eram copil, jucam mereu fotbal.", "note": "da bambino = când eram copil", "noteIt": "da bambino = quando ero bambino" },
+    { "id": "ptm-13", "it": "A Natale mangiamo sempre dai nonni.", "gap": "A", "ro": "De Crăciun mâncăm mereu la bunici.", "note": "sărbători: a", "noteIt": "feste: a" },
+    { "id": "ptm-14", "it": "Lavoro dal lunedì al venerdì.", "gap": "dal", "ro": "Lucrez de luni până vineri.", "note": "dal … al …", "noteIt": "dal … al …" },
+    { "id": "ptm-15", "it": "Ti aspetto da mezz'ora!", "gap": "da", "ro": "Te aștept de o jumătate de oră!", "note": "durează încă: da", "noteIt": "dura ancora: da" },
+    { "id": "ptm-16", "it": "Sono nato il 5 maggio.", "gap": "il", "ro": "M-am născut pe 5 mai.", "note": "data: il, fără prepoziție", "noteIt": "la data: il, senza preposizione" },
+    { "id": "ptm-17", "it": "Abito a Milano da cinque anni.", "gap": "da", "ro": "Locuiesc la Milano de cinci ani.", "note": "încă locuiesc: da + prezent", "noteIt": "abito ancora: da + presente" },
+    { "id": "ptm-18", "it": "Due settimane fa ho cambiato lavoro.", "gap": "fa", "ro": "Acum două săptămâni mi-am schimbat serviciul.", "note": "acum … = … fa", "noteIt": "„acum” … = … fa" },
+    { "id": "ptm-19", "it": "Ieri ho dormito per dieci ore.", "gap": "per", "ro": "Ieri am dormit zece ore.", "note": "perioadă încheiată: per", "noteIt": "periodo concluso: per" },
+    { "id": "ptm-20", "it": "Studio italiano da settembre.", "gap": "da", "ro": "Învăț italiana din septembrie.", "note": "de când: da + moment", "noteIt": "da quando: da + momento" }
+  ]
+}

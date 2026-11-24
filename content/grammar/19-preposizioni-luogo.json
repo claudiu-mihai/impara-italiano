@@ -1,0 +1,143 @@
+{
+  "id": "preposizioni-luogo",
+  "order": 19,
+  "title": { "it": "A, in o da? Dove sei, dove vai", "ro": "A, in sau da? Unde ești, unde mergi" },
+  "level": "A2",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "„Unde ești?” și „Unde mergi?” au de obicei [b]aceeași[/b] prepoziție: [it]Sono a Roma[/it], [it]Vado a Roma[/it]. Alegerea depinde de ce urmează: un oraș, o țară, o clădire sau o persoană.",
+      "it": "„Dove sei?” e „Dove vai?” hanno di solito [b]la stessa[/b] preposizione: [it]Sono a Roma[/it], [it]Vado a Roma[/it]. La scelta dipende da ciò che segue: una città, un paese, un edificio o una persona."
+    },
+    {
+      "type": "table",
+      "caption": "Unde?",
+      "captionIt": "Dove?",
+      "head": ["ce urmează", "prepoziția", "exemple"],
+      "headIt": ["cosa segue", "preposizione", "esempi"],
+      "itColumns": [1, 2],
+      "rows": [
+        ["oraș, insulă mică (fără articol)", "a", "a Roma, a Capri"],
+        ["țară, regiune, continent, insulă mare (fără articol)", "in", "in Francia, in Toscana, in Sicilia"],
+        ["țară cu nume la plural sau precizată (cu articol)", "in", "negli Stati Uniti, nell'Italia del Sud"],
+        ["persoană: nume, meserie, pronume", "da", "da Marco, dal medico, da me"],
+        ["încăpere, clădire, „tip” de loc (de obicei)", "in", "in cucina, in banca, in ufficio, in farmacia"],
+        ["locuri de memorat", "a", "a casa, a scuola, al bar, al cinema, al mare"],
+        ["stradă, piață (fără articol)", "in", "in via Dante, in piazza"]
+      ],
+      "rowsIt": [
+        ["città, isola piccola (senza articolo)", "a", "a Roma, a Capri"],
+        ["paese, regione, continente, isola grande (senza articolo)", "in", "in Francia, in Toscana, in Sicilia"],
+        ["paese al plurale o precisato (con articolo)", "in", "negli Stati Uniti, nell'Italia del Sud"],
+        ["persona: nome, mestiere, pronome", "da", "da Marco, dal medico, da me"],
+        ["stanza, edificio, tipo di luogo (di solito)", "in", "in cucina, in banca, in ufficio, in farmacia"],
+        ["luoghi da memorizzare", "a", "a casa, a scuola, al bar, al cinema, al mare"],
+        ["via, piazza (senza articolo)", "in", "in via Dante, in piazza"]
+      ]
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "Abito a Torino.", "ro": "Locuiesc la Torino.", "note": "oraș: [it]a[/it]", "noteIt": "città: [it]a[/it]" },
+        { "it": "Vado in Spagna.", "ro": "Merg în Spania.", "note": "țară: [it]in[/it]", "noteIt": "paese: [it]in[/it]" },
+        { "it": "Lavoro in banca.", "ro": "Lucrez la bancă.", "note": "clădire: [it]in[/it], fără articol", "noteIt": "edificio: [it]in[/it], senza articolo" },
+        { "it": "Vado dal medico.", "ro": "Merg la doctor.", "note": "la cineva: [it]da[/it]", "noteIt": "da qualcuno: [it]da[/it]" },
+        { "it": "Stasera vado da Marco.", "ro": "Diseară merg la Marco.", "note": "la cineva: [it]da[/it]", "noteIt": "da qualcuno: [it]da[/it]" },
+        { "it": "Ci vediamo al bar.", "ro": "Ne vedem la bar.", "note": "de memorat: [it]al bar[/it]", "noteIt": "da ricordare: [it]al bar[/it]" }
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "Articolul apare când locul e [b]precizat[/b] sau când numele e la plural: [it]in Italia[/it], dar [it]nell'Italia del Nord[/it]; [it]negli Stati Uniti[/it]; [it]in macchina[/it], dar [it]nella macchina di Marco[/it].",
+      "it": "L'articolo compare quando il luogo è [b]precisato[/b] o quando il nome è al plurale: [it]in Italia[/it], ma [it]nell'Italia del Nord[/it]; [it]negli Stati Uniti[/it]; [it]in macchina[/it], ma [it]nella macchina di Marco[/it]."
+    },
+    {
+      "type": "table",
+      "caption": "Locuri de memorat",
+      "captionIt": "Luoghi da memorizzare",
+      "head": ["tipul", "exemple"],
+      "headIt": ["tipo", "esempi"],
+      "itColumns": [1],
+      "rows": [
+        ["a, fără articol", "a casa, a scuola, a teatro, a letto"],
+        ["a + articol", "al bar, al cinema, al mare, alla stazione, all'università"],
+        ["in, fără articol", "in ufficio, in banca, in farmacia, in centro, in montagna"]
+      ],
+      "rowsIt": [
+        ["a, senza articolo", "a casa, a scuola, a teatro, a letto"],
+        ["a + articolo", "al bar, al cinema, al mare, alla stazione, all'università"],
+        ["in, senza articolo", "in ufficio, in banca, in farmacia, in centro, in montagna"]
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "[b]De unde vii:[/b] [it]da[/it] + oraș, fără articol: [it]vengo da Roma[/it]; [it]da[/it] + țară, cu articol: [it]vengo dalla Romania[/it], [it]dall'Italia[/it]. La fel pentru locuri: [it]dall'ufficio[/it]. Atenție: [it]Sono di Roma[/it] = Sunt din Roma (orașul tău).",
+      "it": "[b]Da dove vieni:[/b] [it]da[/it] + città, senza articolo: [it]vengo da Roma[/it]; [it]da[/it] + paese, con l'articolo: [it]vengo dalla Romania[/it], [it]dall'Italia[/it]. Lo stesso per i luoghi: [it]dall'ufficio[/it]. Attenzione: [it]Sono di Roma[/it] = Sunt din Roma (la tua città)."
+    },
+    {
+      "type": "table",
+      "caption": "Cum mergi?",
+      "captionIt": "Come vai?",
+      "head": ["mijlocul", "exemple"],
+      "headIt": ["il mezzo", "esempi"],
+      "itColumns": [1],
+      "rows": [
+        ["în general: in, fără articol", "in treno, in macchina, in autobus, in bici"],
+        ["pe jos, călare: a", "a piedi, a cavallo"],
+        ["precizat: con + articol", "con il treno delle otto, con la macchina di Marco"]
+      ],
+      "rowsIt": [
+        ["in generale: in, senza articolo", "in treno, in macchina, in autobus, in bici"],
+        ["a piedi, a cavallo: a", "a piedi, a cavallo"],
+        ["precisato: con + articolo", "con il treno delle otto, con la macchina di Marco"]
+      ]
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "Andiamo a piedi.", "ro": "Mergem pe jos." },
+        { "it": "Vado a scuola in autobus.", "ro": "Merg la școală cu autobuzul.", "note": "mijloc de transport: [it]in[/it], fără articol", "noteIt": "mezzo di trasporto: [it]in[/it], senza articolo" },
+        { "it": "Sali sul treno!", "ro": "Urcă în tren!", "note": "urcatul: [it]su[/it] + articol", "noteIt": "la salita: [it]su[/it] + articolo" },
+        { "it": "Abito in via Garibaldi.", "ro": "Locuiesc pe strada Garibaldi.", "note": "strada: [it]in via[/it]", "noteIt": "la strada: [it]in via[/it]" }
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "Românescul „la” are trei corespondente: [it]a[/it] (oraș: [it]a Roma[/it]), [it]in[/it] (clădire: [it]in banca[/it]) și [it]da[/it] (persoană: [it]da Marco[/it]). „Pe strada Garibaldi” se spune [it]in via Garibaldi[/it], iar [it]in Milano[/it] e greșit: orașele cer [it]a[/it], deci [it]a Milano[/it].",
+      "it": "Il „la” rumeno ha tre corrispondenti: [it]a[/it] (città: [it]a Roma[/it]), [it]in[/it] (edificio: [it]in banca[/it]) e [it]da[/it] (persona: [it]da Marco[/it]). „Pe strada Garibaldi” si dice [it]in via Garibaldi[/it], e [it]in Milano[/it] è sbagliato: le città vogliono [it]a[/it], quindi [it]a Milano[/it]."
+    }
+  ],
+  "rules": [
+    { "it": "Città: a Roma. Paese, regione: in Italia (con l'articolo al plurale o se è precisato: negli Stati Uniti).", "ro": "Oraș: a Roma. Țară, regiune: in Italia (cu articol la plural sau când e precizată: negli Stati Uniti)." },
+    { "it": "Da qualcuno: da (da Marco, dal medico, da me).", "ro": "La cineva: da (da Marco, dal medico, da me)." },
+    { "it": "Edifici: di solito in (in banca, in ufficio); da ricordare: a casa, a scuola, al bar, al cinema, al mare.", "ro": "Clădiri: de obicei in (in banca, in ufficio); de memorat: a casa, a scuola, al bar, al cinema, al mare." },
+    { "it": "Trasporto: in treno, in macchina, ma a piedi; treno o macchina precisati: con il / con la.", "ro": "Transport: in treno, in macchina, dar a piedi; trenul sau mașina precizată: con il / con la." }
+  ],
+  "items": [
+    { "id": "plu-01", "it": "Domani vado a Firenze.", "gap": "a", "ro": "Mâine merg la Florența.", "note": "oraș: a, fără articol", "noteIt": "città: a, senza articolo" },
+    { "id": "plu-02", "it": "Mia sorella vive in Spagna.", "gap": "in", "ro": "Sora mea locuiește în Spania.", "note": "țară: in, fără articol", "noteIt": "paese: in, senza articolo" },
+    { "id": "plu-03", "it": "Mio cugino lavora negli Stati Uniti.", "gap": "negli", "ro": "Vărul meu lucrează în Statele Unite.", "note": "țară cu nume la plural: in + gli", "noteIt": "paese con il nome al plurale: in + gli" },
+    { "id": "plu-04", "it": "Siamo stati nell'Italia del Sud.", "gap": "nell'", "ro": "Am fost în sudul Italiei.", "note": "țară precizată: cu articol", "noteIt": "paese precisato: con l'articolo" },
+    { "id": "plu-05", "it": "Torno dalla Romania domenica.", "gap": "dalla", "ro": "Mă întorc din România duminică.", "note": "da + țară: cu articol (dar in Romania)", "noteIt": "da + paese: con l'articolo (ma in Romania)" },
+    { "id": "plu-06", "it": "Stasera vado da Marco.", "gap": "da", "ro": "Diseară merg la Marco.", "note": "la cineva: da", "noteIt": "da qualcuno: da" },
+    { "id": "plu-07", "it": "Devo andare dal dentista.", "gap": "dal", "ro": "Trebuie să merg la dentist.", "note": "la cineva (meserie): da + il", "noteIt": "da qualcuno (mestiere): da + il" },
+    { "id": "plu-08", "it": "Mia madre lavora in banca.", "gap": "in", "ro": "Mama mea lucrează la bancă.", "note": "in banca, in ufficio: fără articol", "noteIt": "in banca, in ufficio: senza articolo" },
+    { "id": "plu-09", "it": "Ci vediamo al bar alle sei.", "gap": "al", "ro": "Ne vedem la bar la șase.", "note": "al bar, al cinema, al mare", "noteIt": "al bar, al cinema, al mare" },
+    { "id": "plu-10", "it": "Stasera resto a casa.", "gap": "a", "ro": "Diseară rămân acasă.", "note": "a casa = acasă", "noteIt": "a casa = acasă" },
+    { "id": "plu-11", "it": "Vado a scuola in autobus.", "gap": "in", "ro": "Merg la școală cu autobuzul.", "note": "transport: in, fără articol", "noteIt": "mezzo di trasporto: in, senza articolo" },
+    { "id": "plu-12", "it": "Oggi vengo con la macchina di mio padre.", "gap": "con", "ro": "Azi vin cu mașina tatălui meu.", "note": "mașina e precizată: con + articol", "noteIt": "la macchina è precisata: con + articolo" },
+    { "id": "plu-13", "it": "Andiamo a piedi, è vicino.", "gap": "a", "ro": "Mergem pe jos, e aproape.", "note": "pe jos = a piedi", "noteIt": "a piedi" },
+    { "id": "plu-14", "it": "D'estate andiamo in montagna.", "gap": "in", "ro": "Vara mergem la munte.", "note": "in montagna, dar al mare", "noteIt": "in montagna, ma al mare" },
+    { "id": "plu-15", "it": "Abito in via Garibaldi.", "gap": "in", "ro": "Locuiesc pe strada Garibaldi.", "note": "strada X = in via X", "noteIt": "via X = in via X" },
+    { "id": "plu-16", "it": "Mia figlia studia all'università di Bologna.", "gap": "all'", "ro": "Fiica mea studiază la universitatea din Bologna.", "note": "università, stazione: a + articol", "noteIt": "università, stazione: a + articolo" },
+    { "id": "plu-17", "it": "Vivono a Malta da anni.", "gap": "a", "ro": "Ei locuiesc în Malta de ani buni.", "note": "insulă mică: a, ca la oraș", "noteIt": "isola piccola: a, come per le città" },
+    { "id": "plu-18", "it": "Passiamo il weekend in Sicilia.", "gap": "in", "ro": "Ne petrecem weekendul în Sicilia.", "note": "insulă mare: in, ca la regiune", "noteIt": "isola grande: in, come per le regioni" },
+    { "id": "plu-19", "it": "Domenica mangiamo dai nonni.", "gap": "dai", "ro": "Duminică mâncăm la bunici.", "note": "la cineva: da + i", "noteIt": "da qualcuno: da + i" },
+    { "id": "plu-20", "it": "Ci vediamo alla stazione.", "gap": "alla", "ro": "Ne vedem la gară.", "note": "a + la stazione", "noteIt": "a + la stazione" },
+    { "id": "plu-21", "it": "Passo in farmacia dopo il lavoro.", "gap": "in", "ro": "Trec pe la farmacie după serviciu.", "note": "magazin, clădire: in, fără articol", "noteIt": "negozio, edificio: in, senza articolo" },
+    { "id": "plu-22", "it": "Vengo da Parigi, ma abito a Milano.", "gap": "da", "ro": "Vin din Paris, dar locuiesc la Milano.", "note": "de unde vii: da + oraș", "noteIt": "da dove vieni: da + città" },
+    { "id": "plu-23", "it": "Domani andiamo al cinema con Luca.", "gap": "al", "ro": "Mâine mergem la cinema cu Luca.", "note": "al cinema, al bar, al mare", "noteIt": "al cinema, al bar, al mare" },
+    { "id": "plu-24", "it": "Mia nonna vive in campagna.", "gap": "in", "ro": "Bunica mea locuiește la țară.", "note": "in campagna, in montagna: fără articol", "noteIt": "in campagna, in montagna: senza articolo" },
+    { "id": "plu-25", "it": "Andiamo in bici al parco.", "gap": "in", "ro": "Mergem cu bicicleta la parc.", "note": "transport: in bici, fără articol", "noteIt": "mezzo di trasporto: in bici, senza articolo" }
+  ]
+}
