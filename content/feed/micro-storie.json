@@ -1,0 +1,1006 @@
+[
+  {
+    "id": "stor-un-caffe-al-banco",
+    "kind": "micro-storia",
+    "level": "A1",
+    "title": {
+      "it": "Un caffè al banco",
+      "ro": "O cafea la tejghea"
+    },
+    "speakers": [
+      {
+        "id": "narratore",
+        "name": {
+          "it": "Narratore",
+          "ro": "Naratorul"
+        },
+        "voice": "francesco",
+        "narrator": true
+      },
+      {
+        "id": "marco",
+        "name": {
+          "it": "Marco",
+          "ro": "Marco"
+        },
+        "voice": "luca"
+      },
+      {
+        "id": "barista",
+        "name": {
+          "it": "La barista",
+          "ro": "La barista"
+        },
+        "voice": "sofia"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "narratore",
+        "it": "Marco entra in un bar.",
+        "ro": "Marco intră într-un bar."
+      },
+      {
+        "speaker": "marco",
+        "it": "Buongiorno! Un caffè, per favore.",
+        "ro": "Bună ziua! O cafea, vă rog."
+      },
+      {
+        "speaker": "barista",
+        "it": "Ecco il caffè. Sono un euro.",
+        "ro": "Poftiți cafeaua. Face un euro."
+      },
+      {
+        "speaker": "narratore",
+        "it": "Marco beve il caffè in piedi, come un vero italiano. Due minuti, e via!",
+        "ro": "Marco bea cafeaua în picioare, ca un adevărat italian. Două minute și gata!"
+      }
+    ],
+    "wordIds": [
+      "n-caffè",
+      "n-bar"
+    ],
+    "quiz": {
+      "question": {
+        "it": "Dove beve il caffè Marco?",
+        "ro": "Unde bea cafeaua Marco?"
+      },
+      "options": [
+        "In piedi, al banco",
+        "Seduto al tavolo",
+        "A casa"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "stor-il-treno-in-ritardo",
+    "kind": "micro-storia",
+    "level": "A1",
+    "title": {
+      "it": "Il treno in ritardo",
+      "ro": "Trenul întârziat"
+    },
+    "speakers": [
+      {
+        "id": "narratore",
+        "name": {
+          "it": "Narratore",
+          "ro": "Naratorul"
+        },
+        "voice": "francesco",
+        "narrator": true
+      },
+      {
+        "id": "elena",
+        "name": {
+          "it": "Elena",
+          "ro": "Elena"
+        },
+        "voice": "giullia"
+      },
+      {
+        "id": "signore",
+        "name": {
+          "it": "Un signore",
+          "ro": "Un signore"
+        },
+        "voice": "luca"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "narratore",
+        "it": "Elena aspetta il treno in stazione.",
+        "ro": "Elena așteaptă trenul în gară."
+      },
+      {
+        "speaker": "elena",
+        "it": "Scusi, il treno per Roma è in ritardo?",
+        "ro": "Scuzați-mă, trenul spre Roma are întârziere?"
+      },
+      {
+        "speaker": "signore",
+        "it": "Sì, signora. Arriva tra venti minuti.",
+        "ro": "Da, doamnă. Ajunge peste douăzeci de minute."
+      },
+      {
+        "speaker": "elena",
+        "it": "Che peccato! Allora prendo un caffè.",
+        "ro": "Ce păcat! Atunci iau o cafea."
+      },
+      {
+        "speaker": "narratore",
+        "it": "In Italia i treni in ritardo non sono una novità.",
+        "ro": "În Italia trenurile cu întârziere nu sunt o noutate."
+      }
+    ],
+    "wordIds": [
+      "n-stazione"
+    ]
+  },
+  {
+    "id": "stor-pronto-chi-parla",
+    "kind": "micro-storia",
+    "level": "A1",
+    "title": {
+      "it": "Pronto, chi parla?",
+      "ro": "Alo, cine vorbește?"
+    },
+    "speakers": [
+      {
+        "id": "narratore",
+        "name": {
+          "it": "Narratore",
+          "ro": "Naratorul"
+        },
+        "voice": "francesco",
+        "narrator": true
+      },
+      {
+        "id": "luca",
+        "name": {
+          "it": "Luca",
+          "ro": "Luca"
+        },
+        "voice": "luca"
+      },
+      {
+        "id": "nonna",
+        "name": {
+          "it": "La nonna",
+          "ro": "La nonna"
+        },
+        "voice": "giullia"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "narratore",
+        "it": "Il telefono di Luca squilla.",
+        "ro": "Telefonul lui Luca sună."
+      },
+      {
+        "speaker": "luca",
+        "it": "Pronto?",
+        "ro": "Alo?"
+      },
+      {
+        "speaker": "nonna",
+        "it": "Pronto, Luca? Sono la nonna!",
+        "ro": "Alo, Luca? Sunt bunica!"
+      },
+      {
+        "speaker": "luca",
+        "it": "Ciao, nonna! Come stai?",
+        "ro": "Bună, bunico! Ce mai faci?"
+      },
+      {
+        "speaker": "nonna",
+        "it": "Bene, bene. Ma tu mangi abbastanza?",
+        "ro": "Bine, bine. Dar tu mănânci destul?"
+      }
+    ],
+    "wordIds": [
+      "a-pronto",
+      "int-ciao"
+    ],
+    "quiz": {
+      "question": {
+        "it": "Cosa dice Luca quando risponde al telefono?",
+        "ro": "Ce spune Luca când răspunde la telefon?"
+      },
+      "options": [
+        "Pronto?",
+        "Ciao!",
+        "Piacere!"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "stor-la-spesa-al-mercato",
+    "kind": "micro-storia",
+    "level": "A1",
+    "title": {
+      "it": "La spesa al mercato",
+      "ro": "Cumpărături la piață"
+    },
+    "speakers": [
+      {
+        "id": "narratore",
+        "name": {
+          "it": "Narratore",
+          "ro": "Naratorul"
+        },
+        "voice": "francesco",
+        "narrator": true
+      },
+      {
+        "id": "anna",
+        "name": {
+          "it": "Anna",
+          "ro": "Anna"
+        },
+        "voice": "sofia"
+      },
+      {
+        "id": "fruttivendolo",
+        "name": {
+          "it": "Il fruttivendolo",
+          "ro": "Il fruttivendolo"
+        },
+        "voice": "luca"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "narratore",
+        "it": "Anna va al mercato della domenica.",
+        "ro": "Anna merge la piața de duminică."
+      },
+      {
+        "speaker": "anna",
+        "it": "Buongiorno! Quanto costano le mele?",
+        "ro": "Bună ziua! Cât costă merele?"
+      },
+      {
+        "speaker": "fruttivendolo",
+        "it": "Due euro al chilo, signora.",
+        "ro": "Doi euro kilogramul, doamnă."
+      },
+      {
+        "speaker": "anna",
+        "it": "Ne prendo un chilo, per favore.",
+        "ro": "Iau un kilogram, vă rog."
+      },
+      {
+        "speaker": "narratore",
+        "it": "Anna paga e saluta. La spesa è fatta!",
+        "ro": "Anna plătește și salută. Cumpărăturile sunt făcute!"
+      }
+    ],
+    "wordIds": [
+      "n-domenica"
+    ]
+  },
+  {
+    "id": "stor-il-conto-per-favore",
+    "kind": "micro-storia",
+    "level": "A1",
+    "title": {
+      "it": "Il conto, per favore",
+      "ro": "Nota, vă rog"
+    },
+    "speakers": [
+      {
+        "id": "narratore",
+        "name": {
+          "it": "Narratore",
+          "ro": "Naratorul"
+        },
+        "voice": "francesco",
+        "narrator": true
+      },
+      {
+        "id": "paolo",
+        "name": {
+          "it": "Paolo",
+          "ro": "Paolo"
+        },
+        "voice": "luca"
+      },
+      {
+        "id": "cameriera",
+        "name": {
+          "it": "La cameriera",
+          "ro": "La cameriera"
+        },
+        "voice": "giullia"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "narratore",
+        "it": "Paolo ha finito di mangiare al ristorante.",
+        "ro": "Paolo a terminat de mâncat la restaurant."
+      },
+      {
+        "speaker": "paolo",
+        "it": "Scusi, il conto, per favore.",
+        "ro": "Scuzați-mă, nota, vă rog."
+      },
+      {
+        "speaker": "cameriera",
+        "it": "Subito. Sono venti euro, coperto compreso.",
+        "ro": "Imediat. Fac douăzeci de euro, cu «coperto» inclus."
+      },
+      {
+        "speaker": "paolo",
+        "it": "Ecco a lei. Grazie, tutto buonissimo!",
+        "ro": "Poftiți. Mulțumesc, totul a fost foarte bun!"
+      }
+    ],
+    "wordIds": [
+      "n-conto"
+    ]
+  },
+  {
+    "id": "stor-a-che-ora-e-la-cena",
+    "kind": "micro-storia",
+    "level": "A1",
+    "title": {
+      "it": "A che ora è la cena?",
+      "ro": "La ce oră e cina?"
+    },
+    "speakers": [
+      {
+        "id": "narratore",
+        "name": {
+          "it": "Narratore",
+          "ro": "Naratorul"
+        },
+        "voice": "francesco",
+        "narrator": true
+      },
+      {
+        "id": "sara",
+        "name": {
+          "it": "Sara",
+          "ro": "Sara"
+        },
+        "voice": "sofia"
+      },
+      {
+        "id": "marco",
+        "name": {
+          "it": "Marco",
+          "ro": "Marco"
+        },
+        "voice": "luca"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "narratore",
+        "it": "Sara arriva in Italia per la prima volta.",
+        "ro": "Sara ajunge în Italia pentru prima dată."
+      },
+      {
+        "speaker": "sara",
+        "it": "Marco, a che ora si cena qui?",
+        "ro": "Marco, la ce oră se cinează aici?"
+      },
+      {
+        "speaker": "marco",
+        "it": "Di solito verso le otto e mezza.",
+        "ro": "De obicei pe la opt și jumătate."
+      },
+      {
+        "speaker": "sara",
+        "it": "Le otto e mezza? Ho già fame!",
+        "ro": "Opt și jumătate? Mi-e deja foame!"
+      },
+      {
+        "speaker": "narratore",
+        "it": "Intanto Sara compra un panino.",
+        "ro": "Între timp Sara cumpără un sandviș."
+      }
+    ],
+    "wordIds": [
+      "n-cena"
+    ]
+  },
+  {
+    "id": "stor-mi-manca-casa",
+    "kind": "micro-storia",
+    "level": "A2",
+    "title": {
+      "it": "Mi manca casa",
+      "ro": "Mi-e dor de casă"
+    },
+    "speakers": [
+      {
+        "id": "narratore",
+        "name": {
+          "it": "Narratore",
+          "ro": "Naratorul"
+        },
+        "voice": "francesco",
+        "narrator": true
+      },
+      {
+        "id": "irina",
+        "name": {
+          "it": "Irina",
+          "ro": "Irina"
+        },
+        "voice": "giullia"
+      },
+      {
+        "id": "giulia",
+        "name": {
+          "it": "Giulia",
+          "ro": "Giulia"
+        },
+        "voice": "sofia"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "narratore",
+        "it": "Irina vive a Milano da due mesi.",
+        "ro": "Irina locuiește la Milano de două luni."
+      },
+      {
+        "speaker": "giulia",
+        "it": "Che c'è, Irina? Sei triste?",
+        "ro": "Ce e, Irina? Ești tristă?"
+      },
+      {
+        "speaker": "irina",
+        "it": "Un po'. Mi manca la mia famiglia.",
+        "ro": "Puțin. Mi-e dor de familia mea."
+      },
+      {
+        "speaker": "giulia",
+        "it": "Vieni da me stasera: facciamo la pasta insieme.",
+        "ro": "Vino la mine diseară: facem paste împreună."
+      },
+      {
+        "speaker": "narratore",
+        "it": "Mancare vuol dire «a lipsi»: mi manca = îmi lipsește.",
+        "ro": "Mancare înseamnă «a lipsi»: mi manca = îmi lipsește."
+      }
+    ],
+    "wordIds": [
+      "v-mancare"
+    ],
+    "quiz": {
+      "question": {
+        "it": "Cosa vuol dire «mi manca la famiglia»?",
+        "ro": "Ce înseamnă «mi manca la famiglia»?"
+      },
+      "options": [
+        "Îmi lipsește familia",
+        "Mănânc cu familia",
+        "Am o familie mare"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "stor-la-pioggia",
+    "kind": "micro-storia",
+    "level": "A1",
+    "title": {
+      "it": "La pioggia",
+      "ro": "Ploaia"
+    },
+    "speakers": [
+      {
+        "id": "narratore",
+        "name": {
+          "it": "Narratore",
+          "ro": "Naratorul"
+        },
+        "voice": "francesco",
+        "narrator": true
+      },
+      {
+        "id": "luca",
+        "name": {
+          "it": "Luca",
+          "ro": "Luca"
+        },
+        "voice": "luca"
+      },
+      {
+        "id": "elena",
+        "name": {
+          "it": "Elena",
+          "ro": "Elena"
+        },
+        "voice": "giullia"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "narratore",
+        "it": "Oggi piove forte.",
+        "ro": "Azi plouă tare."
+      },
+      {
+        "speaker": "elena",
+        "it": "Luca, hai l'ombrello?",
+        "ro": "Luca, ai umbrela?"
+      },
+      {
+        "speaker": "luca",
+        "it": "No! Meno male che hai tu il tuo.",
+        "ro": "Nu! Slavă Domnului că ai tu a ta."
+      },
+      {
+        "speaker": "elena",
+        "it": "Dai, vieni sotto con me.",
+        "ro": "Haide, vino sub umbrelă cu mine."
+      }
+    ],
+    "wordIds": []
+  },
+  {
+    "id": "stor-alla-farmacia",
+    "kind": "micro-storia",
+    "level": "A2",
+    "title": {
+      "it": "Alla farmacia",
+      "ro": "La farmacie"
+    },
+    "speakers": [
+      {
+        "id": "narratore",
+        "name": {
+          "it": "Narratore",
+          "ro": "Naratorul"
+        },
+        "voice": "francesco",
+        "narrator": true
+      },
+      {
+        "id": "marta",
+        "name": {
+          "it": "Marta",
+          "ro": "Marta"
+        },
+        "voice": "sofia"
+      },
+      {
+        "id": "farmacista",
+        "name": {
+          "it": "Il farmacista",
+          "ro": "Il farmacista"
+        },
+        "voice": "luca"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "narratore",
+        "it": "Marta ha mal di testa.",
+        "ro": "Marta are dureri de cap."
+      },
+      {
+        "speaker": "marta",
+        "it": "Buongiorno, ho mal di testa. Cosa mi consiglia?",
+        "ro": "Bună ziua, mă doare capul. Ce îmi recomandați?"
+      },
+      {
+        "speaker": "farmacista",
+        "it": "Prenda questa pastiglia dopo mangiato.",
+        "ro": "Luați pastila aceasta după masă."
+      },
+      {
+        "speaker": "marta",
+        "it": "Grazie mille. Quanto costa?",
+        "ro": "Mulțumesc mult. Cât costă?"
+      },
+      {
+        "speaker": "narratore",
+        "it": "Marta paga alla cassa e esce.",
+        "ro": "Marta plătește la casă și iese."
+      }
+    ],
+    "wordIds": [
+      "n-cassa"
+    ]
+  },
+  {
+    "id": "stor-il-gatto-nel-giardino",
+    "kind": "micro-storia",
+    "level": "A1",
+    "title": {
+      "it": "Il gatto nel giardino",
+      "ro": "Pisica din grădină"
+    },
+    "speakers": [
+      {
+        "id": "narratore",
+        "name": {
+          "it": "Narratore",
+          "ro": "Naratorul"
+        },
+        "voice": "francesco",
+        "narrator": true
+      },
+      {
+        "id": "bimba",
+        "name": {
+          "it": "La bambina",
+          "ro": "La bambina"
+        },
+        "voice": "sofia"
+      },
+      {
+        "id": "papa",
+        "name": {
+          "it": "Il papà",
+          "ro": "Il papà"
+        },
+        "voice": "luca"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "narratore",
+        "it": "C'è un gatto nero nel giardino.",
+        "ro": "E o pisică neagră în grădină."
+      },
+      {
+        "speaker": "bimba",
+        "it": "Papà, posso tenere il gatto?",
+        "ro": "Tati, pot să păstrez pisica?"
+      },
+      {
+        "speaker": "papa",
+        "it": "Forse è di un vicino. Chiediamo prima.",
+        "ro": "Poate e a unui vecin. Întrebăm întâi."
+      },
+      {
+        "speaker": "narratore",
+        "it": "Il gatto sale sul tavolo e mangia il pesce. Era dei vicini… ma ormai è a casa!",
+        "ro": "Pisica urcă pe masă și mănâncă peștele. Era a vecinilor… dar acum e deja acasă!"
+      }
+    ],
+    "wordIds": [
+      "v-salire"
+    ]
+  },
+  {
+    "id": "stor-una-sorpresa-di-compleanno",
+    "kind": "micro-storia",
+    "level": "A2",
+    "title": {
+      "it": "Una sorpresa di compleanno",
+      "ro": "O surpriză de ziua de naștere"
+    },
+    "speakers": [
+      {
+        "id": "narratore",
+        "name": {
+          "it": "Narratore",
+          "ro": "Naratorul"
+        },
+        "voice": "francesco",
+        "narrator": true
+      },
+      {
+        "id": "giulia",
+        "name": {
+          "it": "Giulia",
+          "ro": "Giulia"
+        },
+        "voice": "sofia"
+      },
+      {
+        "id": "marco",
+        "name": {
+          "it": "Marco",
+          "ro": "Marco"
+        },
+        "voice": "luca"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "narratore",
+        "it": "Oggi è il compleanno di Marco. Non sa niente.",
+        "ro": "Azi e ziua lui Marco. Nu știe nimic."
+      },
+      {
+        "speaker": "giulia",
+        "it": "Marco, vieni con me al bar?",
+        "ro": "Marco, vii cu mine la bar?"
+      },
+      {
+        "speaker": "marco",
+        "it": "Va bene, ma solo cinque minuti!",
+        "ro": "Bine, dar doar cinci minute!"
+      },
+      {
+        "speaker": "narratore",
+        "it": "Aprono la porta: tutti gridano «Auguri!».",
+        "ro": "Deschid ușa: toți strigă «La mulți ani!»."
+      },
+      {
+        "speaker": "marco",
+        "it": "Che bello! Non me l'aspettavo!",
+        "ro": "Ce frumos! Nu mă așteptam!"
+      }
+    ],
+    "wordIds": [
+      "n-porta"
+    ]
+  },
+  {
+    "id": "stor-la-chiave-persa",
+    "kind": "micro-storia",
+    "level": "A2",
+    "title": {
+      "it": "La chiave persa",
+      "ro": "Cheia pierdută"
+    },
+    "speakers": [
+      {
+        "id": "narratore",
+        "name": {
+          "it": "Narratore",
+          "ro": "Naratorul"
+        },
+        "voice": "francesco",
+        "narrator": true
+      },
+      {
+        "id": "irina",
+        "name": {
+          "it": "Irina",
+          "ro": "Irina"
+        },
+        "voice": "giullia"
+      },
+      {
+        "id": "vicino",
+        "name": {
+          "it": "Il vicino",
+          "ro": "Il vicino"
+        },
+        "voice": "luca"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "narratore",
+        "it": "Irina non trova la chiave di casa.",
+        "ro": "Irina nu găsește cheia de la casă."
+      },
+      {
+        "speaker": "irina",
+        "it": "Scusi, ha visto una chiave per caso?",
+        "ro": "Scuzați-mă, ați văzut cumva o cheie?"
+      },
+      {
+        "speaker": "vicino",
+        "it": "No, mi dispiace. Ha guardato nella borsa?",
+        "ro": "Nu, îmi pare rău. Ați căutat în geantă?"
+      },
+      {
+        "speaker": "irina",
+        "it": "Sì, tre volte! Ah, eccola: era in tasca!",
+        "ro": "Da, de trei ori! Ah, iat-o: era în buzunar!"
+      }
+    ],
+    "wordIds": [
+      "n-chiave"
+    ]
+  },
+  {
+    "id": "stor-il-regalo",
+    "kind": "micro-storia",
+    "level": "A2",
+    "title": {
+      "it": "Il regalo sbagliato",
+      "ro": "Cadoul greșit"
+    },
+    "speakers": [
+      {
+        "id": "narratore",
+        "name": {
+          "it": "Narratore",
+          "ro": "Naratorul"
+        },
+        "voice": "francesco",
+        "narrator": true
+      },
+      {
+        "id": "paolo",
+        "name": {
+          "it": "Paolo",
+          "ro": "Paolo"
+        },
+        "voice": "luca"
+      },
+      {
+        "id": "anna",
+        "name": {
+          "it": "Anna",
+          "ro": "Anna"
+        },
+        "voice": "sofia"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "narratore",
+        "it": "Paolo compra un vestito per sua sorella.",
+        "ro": "Paolo cumpără o rochie pentru sora lui."
+      },
+      {
+        "speaker": "anna",
+        "it": "Che bel vestito! Di che taglia è tua sorella?",
+        "ro": "Ce rochie frumoasă! Ce mărime are sora ta?"
+      },
+      {
+        "speaker": "paolo",
+        "it": "Boh! Non lo so…",
+        "ro": "Habar n-am! Nu știu…"
+      },
+      {
+        "speaker": "narratore",
+        "it": "Alla fine Paolo compra un buono regalo. Alla grande!",
+        "ro": "În cele din urmă Paolo cumpără un card-cadou. Excelent!"
+      }
+    ],
+    "wordIds": [
+      "n-vestito"
+    ]
+  },
+  {
+    "id": "stor-la-fila-alla-cassa",
+    "kind": "micro-storia",
+    "level": "A2",
+    "title": {
+      "it": "La fila alla cassa",
+      "ro": "Coada la casă"
+    },
+    "speakers": [
+      {
+        "id": "narratore",
+        "name": {
+          "it": "Narratore",
+          "ro": "Naratorul"
+        },
+        "voice": "francesco",
+        "narrator": true
+      },
+      {
+        "id": "signora",
+        "name": {
+          "it": "Una signora",
+          "ro": "Una signora"
+        },
+        "voice": "giullia"
+      },
+      {
+        "id": "cassiere",
+        "name": {
+          "it": "Il cassiere",
+          "ro": "Il cassiere"
+        },
+        "voice": "luca"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "narratore",
+        "it": "C'è molta gente al supermercato.",
+        "ro": "E multă lume la supermarket."
+      },
+      {
+        "speaker": "signora",
+        "it": "Scusi, questa è la cassa veloce?",
+        "ro": "Scuzați-mă, aceasta e casa rapidă?"
+      },
+      {
+        "speaker": "cassiere",
+        "it": "Sì, ma massimo dieci articoli.",
+        "ro": "Da, dar maxim zece articole."
+      },
+      {
+        "speaker": "narratore",
+        "it": "La signora conta i suoi prodotti: sono undici. Torna indietro e toglie il sale.",
+        "ro": "Doamna își numără produsele: sunt unsprezece. Se întoarce și lasă sarea."
+      }
+    ],
+    "wordIds": [
+      "n-cassa",
+      "n-sale"
+    ]
+  },
+  {
+    "id": "stor-il-primo-giorno",
+    "kind": "micro-storia",
+    "level": "A2",
+    "title": {
+      "it": "Il primo giorno di lavoro",
+      "ro": "Prima zi de muncă"
+    },
+    "speakers": [
+      {
+        "id": "narratore",
+        "name": {
+          "it": "Narratore",
+          "ro": "Naratorul"
+        },
+        "voice": "francesco",
+        "narrator": true
+      },
+      {
+        "id": "sara",
+        "name": {
+          "it": "Sara",
+          "ro": "Sara"
+        },
+        "voice": "sofia"
+      },
+      {
+        "id": "capo",
+        "name": {
+          "it": "Il capo",
+          "ro": "Il capo"
+        },
+        "voice": "luca"
+      }
+    ],
+    "lines": [
+      {
+        "speaker": "narratore",
+        "it": "Oggi è il primo giorno di lavoro di Sara.",
+        "ro": "Azi e prima zi de muncă a Sarei."
+      },
+      {
+        "speaker": "capo",
+        "it": "Benvenuta! Piacere, sono Roberto.",
+        "ro": "Bun venit! Încântat, sunt Roberto."
+      },
+      {
+        "speaker": "sara",
+        "it": "Piacere mio! Non vedo l'ora di cominciare.",
+        "ro": "Încântată și eu! Abia aștept să încep."
+      },
+      {
+        "speaker": "capo",
+        "it": "Perfetto. Prima però ti offro un caffè.",
+        "ro": "Perfect. Dar mai întâi îți ofer o cafea."
+      },
+      {
+        "speaker": "narratore",
+        "it": "In Italia ogni inizio comincia con un caffè.",
+        "ro": "În Italia orice început pornește cu o cafea."
+      }
+    ],
+    "wordIds": [
+      "v-vedere"
+    ],
+    "quiz": {
+      "question": {
+        "it": "Cosa significa «non vedo l'ora»?",
+        "ro": "Ce înseamnă «non vedo l'ora»?"
+      },
+      "options": [
+        "Abia aștept",
+        "Nu văd ceasul",
+        "N-am timp"
+      ],
+      "answer": 0
+    }
+  }
+]

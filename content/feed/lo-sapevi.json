@@ -1,0 +1,370 @@
+[
+  {
+    "id": "sap-cappuccino",
+    "kind": "lo-sapevi",
+    "level": "A1",
+    "it": "Il cappuccino si beve la mattina",
+    "ro": "Cappuccino se bea dimineața",
+    "explain": {
+      "it": "In Italia il cappuccino è per la colazione. Dopo pranzo o dopo cena gli italiani bevono un caffè.",
+      "ro": "În Italia cappuccino este pentru micul dejun. După prânz sau după cină italienii beau un caffè."
+    },
+    "example": {
+      "it": "Un cappuccino e un cornetto, per favore.",
+      "ro": "Un cappuccino și un croissant, vă rog."
+    },
+    "wordIds": [
+      "n-cappuccino"
+    ],
+    "quiz": {
+      "question": {
+        "it": "Quando si beve il cappuccino in Italia?",
+        "ro": "Când se bea cappuccino în Italia?"
+      },
+      "options": [
+        "La mattina",
+        "Dopo cena",
+        "A mezzanotte"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "sap-caffe",
+    "kind": "lo-sapevi",
+    "level": "A1",
+    "it": "In Italia «un caffè» è un espresso",
+    "ro": "În Italia «un caffè» este un espresso",
+    "explain": {
+      "it": "Al bar «un caffè» è piccolo e forte. Se vuoi un caffè lungo, chiedi «un caffè lungo» o «un americano».",
+      "ro": "La bar «un caffè» este mic și tare. Dacă vrei unul mai lung, ceri «un caffè lungo» sau «un americano»."
+    },
+    "example": {
+      "it": "Un caffè, per favore.",
+      "ro": "O cafea, vă rog."
+    },
+    "wordIds": [
+      "n-caffè"
+    ]
+  },
+  {
+    "id": "sap-caffe-banco",
+    "kind": "lo-sapevi",
+    "level": "A2",
+    "it": "Il caffè al banco costa meno",
+    "ro": "Cafeaua la tejghea costă mai puțin",
+    "explain": {
+      "it": "Se bevi il caffè in piedi, al banco, paghi meno che seduto al tavolo. Molti italiani lo bevono in due minuti.",
+      "ro": "Dacă bei cafeaua în picioare, la tejghea, plătești mai puțin decât la masă. Mulți italieni o beau în două minute."
+    },
+    "wordIds": []
+  },
+  {
+    "id": "sap-coperto",
+    "kind": "lo-sapevi",
+    "level": "A2",
+    "it": "Il coperto",
+    "ro": "Taxa de acoperire a mesei",
+    "explain": {
+      "it": "In molti ristoranti si paga il «coperto»: una piccola somma per ogni persona, anche se non è mancia. È normale.",
+      "ro": "În multe restaurante se plătește «coperto»: o sumă mică de persoană, pentru pâine și tacâmuri. Nu e bacșiș, e normal."
+    },
+    "example": {
+      "it": "Il conto, per favore. C'è il coperto?",
+      "ro": "Nota, vă rog. Include și «coperto»?"
+    },
+    "wordIds": []
+  },
+  {
+    "id": "sap-passeggiata",
+    "kind": "lo-sapevi",
+    "level": "A2",
+    "it": "La passeggiata",
+    "ro": "Plimbarea de seară",
+    "explain": {
+      "it": "La sera, nelle piccole città, molti italiani escono a fare una passeggiata in centro, senza una destinazione precisa.",
+      "ro": "Seara, în orașele mici, mulți italieni ies la plimbare prin centru, fără un scop precis."
+    },
+    "example": {
+      "it": "Facciamo una passeggiata?",
+      "ro": "Facem o plimbare?"
+    },
+    "wordIds": []
+  },
+  {
+    "id": "sap-pronto",
+    "kind": "lo-sapevi",
+    "level": "A1",
+    "it": "Al telefono si dice «Pronto?»",
+    "ro": "La telefon se spune «Pronto?»",
+    "explain": {
+      "it": "Quando rispondi al telefono, in Italia si dice «Pronto?». Letteralmente vuol dire «pronto, preparato».",
+      "ro": "Când răspunzi la telefon, în Italia se spune «Pronto?». Literal înseamnă «gata, pregătit»."
+    },
+    "example": {
+      "it": "Pronto? Chi parla?",
+      "ro": "Alo? Cine vorbește?"
+    },
+    "wordIds": [
+      "a-pronto"
+    ],
+    "quiz": {
+      "question": {
+        "it": "Come rispondi al telefono?",
+        "ro": "Cum răspunzi la telefon?"
+      },
+      "options": [
+        "Pronto?",
+        "Salute!",
+        "Piacere!"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "sap-ciao",
+    "kind": "lo-sapevi",
+    "level": "A1",
+    "it": "«Ciao» viene da «schiavo»",
+    "ro": "«Ciao» vine de la «sclav»",
+    "explain": {
+      "it": "Una volta «sono tuo schiavo» era un saluto cortese a Venezia: «s'ciào». Oggi ciao vuol dire sia «salve» sia «arrivederci».",
+      "ro": "Odinioară «sunt sclavul tău» era un salut politicos la Veneția: «s'ciào». Azi ciao înseamnă și «bună», și «la revedere»."
+    },
+    "example": {
+      "it": "Ciao, come stai?",
+      "ro": "Salut, ce mai faci?"
+    },
+    "wordIds": [
+      "int-ciao"
+    ]
+  },
+  {
+    "id": "sap-due-baci",
+    "kind": "lo-sapevi",
+    "level": "A1",
+    "it": "Due baci sulle guance",
+    "ro": "Doi pupici pe obraji",
+    "explain": {
+      "it": "Tra amici, e spesso anche tra conoscenti, ci si saluta con due baci sulle guance. Si comincia dalla guancia destra.",
+      "ro": "Între prieteni, și adesea între cunoscuți, ne salutăm cu doi pupici pe obraji. Se începe cu obrazul drept."
+    },
+    "wordIds": []
+  },
+  {
+    "id": "sap-orari-pasti",
+    "kind": "lo-sapevi",
+    "level": "A1",
+    "it": "Gli orari dei pasti",
+    "ro": "Orele de masă",
+    "explain": {
+      "it": "Il pranzo è verso l'una e la cena verso le otto o più tardi. Un ristorante alle sei di sera è spesso ancora chiuso.",
+      "ro": "Prânzul e pe la ora unu, iar cina pe la opt sau mai târziu. Un restaurant la șase seara e adesea încă închis."
+    },
+    "example": {
+      "it": "A che ora si cena?",
+      "ro": "La ce oră se cinează?"
+    },
+    "wordIds": [
+      "n-pranzo",
+      "n-cena"
+    ],
+    "quiz": {
+      "question": {
+        "it": "A che ora si cena in Italia?",
+        "ro": "La ce oră se cinează în Italia?"
+      },
+      "options": [
+        "Verso le otto",
+        "Alle cinque",
+        "A mezzogiorno"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "sap-ferragosto",
+    "kind": "lo-sapevi",
+    "level": "A2",
+    "it": "Ferragosto",
+    "ro": "Ferragosto, 15 august",
+    "explain": {
+      "it": "Il 15 agosto è la festa di Ferragosto. Molti italiani sono in vacanza e molti negozi chiudono per qualche giorno.",
+      "ro": "Pe 15 august e sărbătoarea de Ferragosto. Mulți italieni sunt în vacanță și multe magazine se închid câteva zile."
+    },
+    "wordIds": [
+      "n-vacanza"
+    ]
+  },
+  {
+    "id": "sap-aperitivo",
+    "kind": "lo-sapevi",
+    "level": "A2",
+    "it": "L'aperitivo",
+    "ro": "Aperitivul de seară",
+    "explain": {
+      "it": "Verso le sei di sera molti bar offrono l'aperitivo: una bevanda con qualcosa da mangiare. È un modo di stare con gli amici prima di cena.",
+      "ro": "Pe la ora șase seara multe baruri oferă aperitivul: o băutură cu ceva de mâncare. E un mod de a sta cu prietenii înainte de cină."
+    },
+    "example": {
+      "it": "Andiamo a fare l'aperitivo?",
+      "ro": "Mergem la un aperitiv?"
+    },
+    "wordIds": [
+      "n-bar"
+    ]
+  },
+  {
+    "id": "sap-lei",
+    "kind": "lo-sapevi",
+    "level": "A2",
+    "it": "Il «Lei» di cortesia",
+    "ro": "„Lei” de politețe",
+    "explain": {
+      "it": "Con una persona che non conosci o più anziana si usa «Lei» (terza persona): «Come sta?». Con gli amici si dice «tu»: «Come stai?».",
+      "ro": "Cu o persoană necunoscută sau mai în vârstă se folosește «Lei» (persoana a treia): «Come sta?». Cu prietenii se spune «tu»: «Come stai?»."
+    },
+    "example": {
+      "it": "Scusi, può aiutarmi?",
+      "ro": "Scuzați-mă, mă puteți ajuta?"
+    },
+    "wordIds": [],
+    "quiz": {
+      "question": {
+        "it": "Come saluti una signora che non conosci?",
+        "ro": "Cum saluți o doamnă pe care nu o cunoști?"
+      },
+      "options": [
+        "Come sta?",
+        "Come stai?",
+        "Come va, bella?"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "sap-al-dente",
+    "kind": "lo-sapevi",
+    "level": "A2",
+    "it": "La pasta al dente",
+    "ro": "Pastele «al dente»",
+    "explain": {
+      "it": "«Al dente» vuol dire che la pasta non è troppo cotta: deve essere ancora un po' dura sotto i denti.",
+      "ro": "«Al dente» înseamnă că pastele nu sunt prea fierte: trebuie să fie încă puțin tari sub dinți."
+    },
+    "example": {
+      "it": "Mi piace la pasta al dente.",
+      "ro": "Îmi plac pastele «al dente»."
+    },
+    "wordIds": [
+      "n-pasta"
+    ]
+  },
+  {
+    "id": "sap-scontrino",
+    "kind": "lo-sapevi",
+    "level": "A2",
+    "it": "Lo scontrino",
+    "ro": "Bonul fiscal",
+    "explain": {
+      "it": "In Italia il negozio deve darti lo scontrino quando paghi, anche per un caffè. Se non te lo danno, puoi chiederlo.",
+      "ro": "În Italia magazinul trebuie să-ți dea bonul fiscal când plătești, chiar și pentru o cafea. Dacă nu ți-l dau, îl poți cere."
+    },
+    "example": {
+      "it": "Lo scontrino, per favore.",
+      "ro": "Bonul, vă rog."
+    },
+    "wordIds": [
+      "n-scontrino"
+    ]
+  },
+  {
+    "id": "sap-convalida",
+    "kind": "lo-sapevi",
+    "level": "A2",
+    "it": "Convalidare il biglietto del treno",
+    "ro": "Validarea biletului de tren",
+    "explain": {
+      "it": "Per i treni regionali il biglietto di carta va convalidato in una macchinetta in stazione, prima di salire. Altrimenti si rischia una multa.",
+      "ro": "La trenurile regionale biletul de hârtie trebuie validat la un aparat din gară, înainte de urcare. Altfel riști o amendă."
+    },
+    "example": {
+      "it": "Devo convalidare il biglietto?",
+      "ro": "Trebuie să validez biletul?"
+    },
+    "wordIds": [
+      "n-stazione",
+      "n-biglietto"
+    ]
+  },
+  {
+    "id": "sap-112",
+    "kind": "lo-sapevi",
+    "level": "A2",
+    "it": "112: numero unico di emergenza",
+    "ro": "112: numărul unic de urgență",
+    "explain": {
+      "it": "In tutta Europa, e anche in Italia, il 112 è il numero di emergenza. Se hai bisogno di aiuto, puoi chiamare questo numero.",
+      "ro": "În toată Europa, inclusiv în Italia, 112 este numărul de urgență. Dacă ai nevoie de ajutor, poți suna la acest număr."
+    },
+    "wordIds": []
+  },
+  {
+    "id": "sap-pausa-pranzo",
+    "kind": "lo-sapevi",
+    "level": "A2",
+    "it": "La pausa pranzo",
+    "ro": "Pauza de prânz",
+    "explain": {
+      "it": "In molte piccole città i negozi chiudono nel primo pomeriggio, di solito dalle 13 alle 16, e riaprono più tardi.",
+      "ro": "În multe orașe mici magazinele se închid după-amiaza devreme, de obicei de la 13 la 16, și se redeschid mai târziu."
+    },
+    "wordIds": [
+      "n-pomeriggio"
+    ]
+  },
+  {
+    "id": "sap-brindisi",
+    "kind": "lo-sapevi",
+    "level": "A2",
+    "it": "Il brindisi",
+    "ro": "Toastul",
+    "explain": {
+      "it": "Quando si brinda, ci si guarda negli occhi e si dice «cin cin» o «salute». Non si incrociano le braccia.",
+      "ro": "Când ciocnești paharele, vă priviți în ochi și spuneți «cin cin» sau «salute». Nu se încrucișează brațele."
+    },
+    "example": {
+      "it": "Cin cin! Alla salute!",
+      "ro": "Noroc! Pentru sănătate!"
+    },
+    "wordIds": [
+      "n-salute"
+    ]
+  },
+  {
+    "id": "sap-dialetti",
+    "kind": "lo-sapevi",
+    "level": "A2",
+    "it": "Ci sono molti dialetti",
+    "ro": "Există multe dialecte",
+    "explain": {
+      "it": "Oltre all'italiano, in Italia si parlano molti dialetti: ogni regione ha il suo. Alcuni sono molto diversi dall'italiano standard.",
+      "ro": "În afară de italiană, în Italia se vorbesc multe dialecte: fiecare regiune are al ei. Unele sunt foarte diferite de italiana standard."
+    },
+    "wordIds": []
+  },
+  {
+    "id": "sap-domenica",
+    "kind": "lo-sapevi",
+    "level": "A2",
+    "it": "La domenica molti negozi sono chiusi",
+    "ro": "Duminica multe magazine sunt închise",
+    "explain": {
+      "it": "La domenica molti piccoli negozi sono chiusi. Restano aperti bar, ristoranti e spesso i grandi centri commerciali.",
+      "ro": "Duminica multe magazine mici sunt închise. Rămân deschise barurile, restaurantele și adesea marile centre comerciale."
+    },
+    "wordIds": [
+      "n-domenica"
+    ]
+  }
+]
