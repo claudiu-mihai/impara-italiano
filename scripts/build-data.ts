@@ -4,6 +4,7 @@ import { resolve } from "node:path";
 import { encodeWords } from "../src/domain/content/wordsCodec.ts";
 import { metaSchema, type ContentMeta } from "../src/domain/content/schema.ts";
 import { DIALOGUE_AUDIO_DIR, withDialogueAudio } from "./audio/dialogueAudio.ts";
+import { FEED_AUDIO_DIR, feedAudioJobs, withFeedAudio } from "./audio/feedAudio.ts";
 import { withStoryAudio } from "./audio/storyAudio.ts";
 import { recordingsIndex, WORD_AUDIO_DIR } from "./audio/wordAudio.ts";
 import { loadContent, ROOT } from "./content.ts";
@@ -89,7 +90,11 @@ const storiesWithAudio = stories.map((s) => withStoryAudio(s, (file) => existsSy
 const storiesJson = lines(storiesWithAudio);
 const storyLines = storiesWithAudio.flatMap((s) => s.scenes.flatMap((scene) => scene.lines));
 // feed.json: pachetul fluxului, un item pe linie, încărcat doar de ecranul Flux
-const feedJson = lines(pack);
+const feedAudioDir = resolve(ROOT, FEED_AUDIO_DIR);
+const packWithAudio = pack.map((item) => withFeedAudio(item, (file) => existsSync(resolve(feedAudioDir, file))));
+const feedJson = lines(packWithAudio);
+const feedTexts = feedAudioJobs(pack);
+const feedAudioCount = feedTexts.filter((j) => existsSync(resolve(feedAudioDir, j.file))).length;
 const presenteIrregularJson = lines(presenteIrregular);
 // recordings.json: textul rostit → înregistrarea (cuvintele A1), încărcat de `speak()` după pornire
 const wordAudioDir = resolve(ROOT, WORD_AUDIO_DIR);
@@ -139,6 +144,6 @@ writeFileSync(resolve(OUT_DIR, "recordings.json"), recordingsJson);
 writeFileSync(resolve(OUT_DIR, "meta.json"), `${JSON.stringify(meta, null, 2)}\n`);
 
 console.log(
-  `Date generate: ${words.length} cuvinte, ${Object.keys(conjugations).length} verbe conjugate (${Object.keys(romanian).length} cu conjugare activă), ${sentences.length} propoziții, ${topics.length} teme, ${grammar.length} teme de gramatică, ${dialogues.length} dialoguri (audio: ${audioVariants}/${lineVariants} replici), ${pack.length} itemi în flux, ${stories.length} povești (audio: ${storyLines.filter((l) => l.audio).length}/${storyLines.length} replici), ${Object.keys(recordings).length} cuvinte cu audio ` +
+  `Date generate: ${words.length} cuvinte, ${Object.keys(conjugations).length} verbe conjugate (${Object.keys(romanian).length} cu conjugare activă), ${sentences.length} propoziții, ${topics.length} teme, ${grammar.length} teme de gramatică, ${dialogues.length} dialoguri (audio: ${audioVariants}/${lineVariants} replici), ${pack.length} itemi în flux (audio: ${feedAudioCount}/${feedTexts.length} texte), ${stories.length} povești (audio: ${storyLines.filter((l) => l.audio).length}/${storyLines.length} replici), ${Object.keys(recordings).length} cuvinte cu audio ` +
     `(${explicitPresenteCount} presente din irregular.json), versiune ${dataVersion} → ${OUT_DIR}`,
 );
