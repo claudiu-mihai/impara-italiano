@@ -1,0 +1,141 @@
+{
+  "id": "preposizione-di",
+  "order": 21,
+  "title": { "it": "La preposizione di", "ro": "Prepoziția di" },
+  "level": "A2",
+  "lesson": [
+    {
+      "type": "text",
+      "ro": "[it]Di[/it] se traduce de obicei „de” sau „al”, dar are mai multe sensuri. Cele mai frecvente: posesie ([it]la bici di Anna[/it]), origine ([it]sono di Roma[/it]), conținut ([it]un bicchiere di vino[/it]), comparație ([it]più alto di me[/it]) și partitiv ([it]del pane[/it]). Cu substantive comune [it]di[/it] se contopește cu articolul ([it]del, della, dei…[/it]); cu nume de persoane și de orașe rămâne simplu.",
+      "it": "[it]Di[/it] si traduce di solito „de” o „al”, ma ha più significati. I più frequenti: possesso ([it]la bici di Anna[/it]), origine ([it]sono di Roma[/it]), contenuto ([it]un bicchiere di vino[/it]), paragone ([it]più alto di me[/it]) e partitivo ([it]del pane[/it]). Con i nomi comuni [it]di[/it] si unisce all'articolo ([it]del, della, dei…[/it]); con i nomi di persona e di città resta semplice."
+    },
+    {
+      "type": "table",
+      "caption": "Sensurile lui di",
+      "captionIt": "I significati di di",
+      "head": ["sensul", "exemple", "în română"],
+      "headIt": ["significato", "esempi", "in rumeno"],
+      "itColumns": [1],
+      "rows": [
+        ["posesie", "la bici di Anna, il cane dei vicini", "bicicleta Annei, câinele vecinilor"],
+        ["origine (doar oraș)", "sono di Roma", "sunt din Roma"],
+        ["material", "una sciarpa di lana", "un fular de lână"],
+        ["conținut, cantitate", "una bottiglia di vino, un chilo di mele", "o sticlă de vin, un kilogram de mere"],
+        ["subiect, categorie", "parlare di, un libro di storia", "a vorbi despre, o carte de istorie"],
+        ["momentul zilei", "di sera, d'estate, di domenica", "seara, vara, duminica"],
+        ["comparație", "più alto di, meno caro di", "mai înalt decât, mai puțin scump decât"],
+        ["vârstă, măsură", "un bambino di tre anni", "un copil de trei ani"]
+      ],
+      "rowsIt": [
+        ["possesso", "la bici di Anna, il cane dei vicini", "bicicleta Annei, câinele vecinilor"],
+        ["origine (solo città)", "sono di Roma", "sunt din Roma"],
+        ["materiale", "una sciarpa di lana", "un fular de lână"],
+        ["contenuto, quantità", "una bottiglia di vino, un chilo di mele", "o sticlă de vin, un kilogram de mere"],
+        ["argomento, categoria", "parlare di, un libro di storia", "a vorbi despre, o carte de istorie"],
+        ["momento della giornata", "di sera, d'estate, di domenica", "seara, vara, duminica"],
+        ["paragone", "più alto di, meno caro di", "mai înalt decât, mai puțin scump decât"],
+        ["età, misura", "un bambino di tre anni", "un copil de trei ani"]
+      ]
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "Il cane dei vicini abbaia tutta la notte.", "ro": "Câinele vecinilor latră toată noaptea.", "note": "posesie: [it]di[/it] + articol ([it]dei vicini[/it])", "noteIt": "possesso: [it]di[/it] + articolo ([it]dei vicini[/it])" },
+        { "it": "Dove sono le chiavi della macchina?", "ro": "Unde sunt cheile de la mașină?", "note": "„de la mașină” = posesie: [it]della[/it], nu [it]dalla[/it]", "noteIt": "„de la mașină” = possesso: [it]della[/it], non [it]dalla[/it]" },
+        { "it": "Sono di Cluj. E tu, di dove sei?", "ro": "Sunt din Cluj. Tu de unde ești?", "note": "orașul tău: [it]essere di[/it]", "noteIt": "la tua città: [it]essere di[/it]" },
+        { "it": "Ho comprato una sciarpa di lana.", "ro": "Mi-am cumpărat un fular de lână.", "note": "material: [it]di[/it], fără articol", "noteIt": "materiale: [it]di[/it], senza articolo" },
+        { "it": "Mi dai un po' di latte?", "ro": "Îmi dai puțin lapte?", "note": "cantitate: [it]un po' di[/it]", "noteIt": "quantità: [it]un po' di[/it]" },
+        { "it": "Di sera esco poco.", "ro": "Seara ies rar.", "note": "momentul zilei: [it]di[/it]", "noteIt": "il momento della giornata: [it]di[/it]" },
+        { "it": "Il treno è più comodo dell'autobus.", "ro": "Trenul e mai comod decât autobuzul.", "note": "comparație: [it]più … di[/it], articulat ([it]dell'[/it])", "noteIt": "paragone: [it]più … di[/it], articolato ([it]dell'[/it])" },
+        { "it": "È un libro di cucina.", "ro": "E o carte de bucate.", "note": "categorie: [it]di[/it] ([it]su[/it] = subiectul precis)", "noteIt": "categoria: [it]di[/it] ([it]su[/it] = l'argomento preciso)" }
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "[b]Partitivul[/b] nu are echivalent în română: [it]di[/it] + articol = „niște, puțin”. [it]Vuoi del caffè?[/it] = Vrei niște cafea? [it]Ho comprato della frutta[/it] = Am cumpărat niște fructe. La negație și în enumerări nu se pune: [it]Non ho amici qui[/it], [it]Compro pane e latte[/it]. Alternative: [it]un po' di pane[/it], [it]qualche amico[/it] (singular!), [it]alcune domande[/it].",
+      "it": "[b]Il partitivo[/b] non ha un equivalente in rumeno: [it]di[/it] + articolo = „niște, puțin”. [it]Vuoi del caffè?[/it] = Vrei niște cafea? [it]Ho comprato della frutta[/it] = Am cumpărat niște fructe. Nelle frasi negative e negli elenchi non si usa: [it]Non ho amici qui[/it], [it]Compro pane e latte[/it]. Alternative: [it]un po' di pane[/it], [it]qualche amico[/it] (singolare!), [it]alcune domande[/it]."
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "Vuoi del caffè?", "ro": "Vrei niște cafea?", "note": "partitiv: [it]del[/it] + [it]caffè[/it]", "noteIt": "partitivo: [it]del[/it] + [it]caffè[/it]" },
+        { "it": "Ho comprato della frutta.", "ro": "Am cumpărat niște fructe.", "note": "partitiv: [it]di + la[/it]", "noteIt": "partitivo: [it]di + la[/it]" },
+        { "it": "Mi serve dello zucchero.", "ro": "Îmi trebuie niște zahăr.", "note": "[it]lo zucchero[/it] → [it]dello[/it]", "noteIt": "[it]lo zucchero[/it] → [it]dello[/it]" },
+        { "it": "Non ho amici qui.", "ro": "Nu am prieteni aici.", "note": "negație: fără partitiv", "noteIt": "frase negativa: senza partitivo" }
+      ]
+    },
+    {
+      "type": "text",
+      "ro": "[b]Di + infinitiv[/b] corespunde lui „să” sau „de a”. Verbe: [it]decidere di, finire di, smettere di, cercare di, pensare di[/it] (a avea de gând), [it]sperare di[/it]. Adjective: [it]contento di, stanco di, sicuro di[/it]. Expresii: [it]avere voglia di, avere paura di, avere bisogno di, è ora di[/it]. Și [it]qualcosa / niente + di + adjectiv[/it]: [it]qualcosa di buono[/it], [it]niente di grave[/it]; dar [it]qualcosa da[/it] + infinitiv ([it]qualcosa da bere[/it]).",
+      "it": "[b]Di + infinito[/b] corrisponde a „să” o „de a”. Verbi: [it]decidere di, finire di, smettere di, cercare di, pensare di[/it] (avere intenzione di), [it]sperare di[/it]. Aggettivi: [it]contento di, stanco di, sicuro di[/it]. Espressioni: [it]avere voglia di, avere paura di, avere bisogno di, è ora di[/it]. E [it]qualcosa / niente + di + aggettivo[/it]: [it]qualcosa di buono[/it], [it]niente di grave[/it]; ma [it]qualcosa da[/it] + infinito ([it]qualcosa da bere[/it])."
+    },
+    {
+      "type": "examples",
+      "items": [
+        { "it": "Ho deciso di cambiare lavoro.", "ro": "Am hotărât să-mi schimb serviciul.", "note": "[it]decidere di[/it] + infinitiv", "noteIt": "[it]decidere di[/it] + infinito" },
+        { "it": "È ora di andare.", "ro": "E timpul să plecăm.", "note": "[it]è ora di[/it] + infinitiv", "noteIt": "[it]è ora di[/it] + infinito" },
+        { "it": "Penso di partire domani.", "ro": "Am de gând să plec mâine.", "note": "[it]pensare di[/it] = a avea de gând ([it]pensare a[/it] = a se gândi la)", "noteIt": "[it]pensare di[/it] = avere intenzione di ([it]pensare a[/it] = riflettere su)" },
+        { "it": "C'è qualcosa di buono da mangiare?", "ro": "E ceva bun de mâncare?", "note": "[it]qualcosa di[/it] + adjectiv", "noteIt": "[it]qualcosa di[/it] + aggettivo" }
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "Di sau o prepoziție vecină?",
+      "captionIt": "Di o una preposizione vicina?",
+      "head": ["cu di", "cu altă prepoziție"],
+      "headIt": ["con di", "con un'altra preposizione"],
+      "itColumns": [0, 1],
+      "rows": [
+        ["una tazza di caffè (plină, cu cafea)", "una tazza da caffè (ceașca pentru cafea)"],
+        ["un bambino di cinque anni (vârsta)", "una banconota da cinque euro (valoarea)"],
+        ["qualcosa di buono (+ adjectiv)", "qualcosa da mangiare (+ infinitiv)"],
+        ["un libro di storia (categoria)", "un libro sulla storia di Roma (subiectul precis)"],
+        ["Sono di Napoli. (orașul tău)", "Vengo da Napoli. (de unde vii acum)"]
+      ],
+      "rowsIt": [
+        ["una tazza di caffè (piena, con il caffè)", "una tazza da caffè (la tazza per il caffè)"],
+        ["un bambino di cinque anni (l'età)", "una banconota da cinque euro (il valore)"],
+        ["qualcosa di buono (+ aggettivo)", "qualcosa da mangiare (+ infinito)"],
+        ["un libro di storia (la categoria)", "un libro sulla storia di Roma (l'argomento preciso)"],
+        ["Sono di Napoli. (la tua città)", "Vengo da Napoli. (da dove vieni adesso)"]
+      ]
+    },
+    {
+      "type": "trap",
+      "ro": "[it]Sono di Bucarest[/it] (orașul tău), dar țara se spune cu [it]venire da[/it] + articol: [it]Vengo dalla Romania[/it], nu [it]Sono di Romania[/it]. „Cheile de la mașină” sunt [it]le chiavi della macchina[/it]: aici „de la” e posesie, deci [it]di[/it], nu [it]da[/it]. „Compro pâine” nu se spune [it]Compro di pane[/it]: partitivul e [it]del pane[/it], sau [it]un po' di pane[/it], sau simplu [it]pane[/it]. Și atenție la verbe: [it]pensare a te[/it] = mă gândesc la tine, dar [it]penso di partire[/it] = am de gând să plec.",
+      "it": "[it]Sono di Bucarest[/it] (la tua città), ma il paese si dice con [it]venire da[/it] + articolo: [it]Vengo dalla Romania[/it], non [it]Sono di Romania[/it]. „Cheile de la mașină” sono [it]le chiavi della macchina[/it]: qui „de la” è possesso, quindi [it]di[/it], non [it]da[/it]. „Compro pâine” non si dice [it]Compro di pane[/it]: il partitivo è [it]del pane[/it], oppure [it]un po' di pane[/it], o semplicemente [it]pane[/it]. E attenzione ai verbi: [it]pensare a te[/it] = mă gândesc la tine, ma [it]penso di partire[/it] = am de gând să plec."
+    }
+  ],
+  "rules": [
+    { "it": "Possesso, materiale, contenuto: la bici di Anna, una sciarpa di lana, un bicchiere d'acqua.", "ro": "Posesie, material, conținut: la bici di Anna, una sciarpa di lana, un bicchiere d'acqua." },
+    { "it": "La tua città: sono di Roma. Paragone: più alto di me, più comodo dell'autobus.", "ro": "Orașul tău: sono di Roma. Comparație: più alto di me, più comodo dell'autobus." },
+    { "it": "Partitivo: del, della, dello, dei, degli, delle = niște, puțin (non nelle frasi negative).", "ro": "Partitiv: del, della, dello, dei, degli, delle = niște, puțin (nu la negație)." },
+    { "it": "Di + infinito: decido di, smetto di, ho voglia di, ho bisogno di.", "ro": "Di + infinitiv: decido di, smetto di, ho voglia di, ho bisogno di." }
+  ],
+  "items": [
+    { "id": "pdi-01", "it": "È la bici di mio fratello.", "gap": "di", "ro": "E bicicleta fratelui meu.", "note": "posesie: di; [it]mio fratello[/it] fără articol", "noteIt": "possesso: di; [it]mio fratello[/it] senza articolo" },
+    { "id": "pdi-02", "it": "Questa è la camera dei bambini.", "gap": "dei", "ro": "Asta e camera copiilor.", "note": "posesie: di + i = dei", "noteIt": "possesso: di + i = dei" },
+    { "id": "pdi-03", "it": "Dove sono le chiavi della macchina?", "gap": "della", "ro": "Unde sunt cheile de la mașină?", "note": "„de la mașină” = posesie: di + la", "noteIt": "„de la mașină” = possesso: di + la" },
+    { "id": "pdi-04", "it": "Sono di Cluj, e tu?", "gap": "di", "ro": "Sunt din Cluj, și tu?", "note": "orașul tău: essere di", "noteIt": "la tua città: essere di" },
+    { "id": "pdi-05", "it": "Prendo una bottiglia di vino rosso.", "gap": "di", "ro": "Iau o sticlă de vin roșu.", "note": "conținut: di, fără articol", "noteIt": "contenuto: di, senza articolo" },
+    { "id": "pdi-06", "it": "Parliamo delle vacanze?", "gap": "delle", "ro": "Vorbim despre vacanță?", "note": "parlare di = a vorbi despre", "noteIt": "parlare di = a vorbi despre" },
+    { "id": "pdi-07", "it": "Marco è più alto di suo padre.", "gap": "di", "ro": "Marco e mai înalt decât tatăl lui.", "note": "comparație: più … di", "noteIt": "paragone: più … di" },
+    { "id": "pdi-08", "it": "Il treno è più comodo dell'autobus.", "gap": "dell'", "ro": "Trenul e mai comod decât autobuzul.", "note": "comparație: di + l' (articulat înaintea substantivului comun)", "noteIt": "paragone: di + l' (articolato davanti al nome comune)" },
+    { "id": "pdi-09", "it": "Ho comprato della frutta fresca al mercato.", "gap": "della", "ro": "Am cumpărat niște fructe proaspete la piață.", "note": "partitiv: di + la = niște", "noteIt": "partitivo: di + la = niște" },
+    { "id": "pdi-10", "it": "Mi serve dello zucchero per la torta.", "gap": "dello", "ro": "Îmi trebuie niște zahăr pentru tort.", "note": "partitiv: lo zucchero → dello", "noteIt": "partitivo: lo zucchero → dello" },
+    { "id": "pdi-11", "it": "Hai del tempo domani pomeriggio?", "gap": "del", "ro": "Ai puțin timp mâine după-amiază?", "note": "partitiv: di + il = puțin", "noteIt": "partitivo: di + il = un po'" },
+    { "id": "pdi-12", "it": "Ho deciso di cambiare lavoro.", "gap": "di", "ro": "Am hotărât să-mi schimb serviciul.", "note": "decidere di + infinitiv", "noteIt": "decidere di + infinito" },
+    { "id": "pdi-13", "it": "Hai voglia di uscire stasera?", "gap": "di", "ro": "Ai chef să ieși diseară?", "note": "avere voglia di", "noteIt": "avere voglia di" },
+    { "id": "pdi-14", "it": "Ho bisogno di un consiglio.", "gap": "di", "ro": "Am nevoie de un sfat.", "note": "avere bisogno di", "noteIt": "avere bisogno di" },
+    { "id": "pdi-15", "it": "Sono stanco di aspettare.", "gap": "di", "ro": "M-am săturat să aștept.", "note": "stanco di + infinitiv", "noteIt": "stanco di + infinito" },
+    { "id": "pdi-16", "it": "Smetti di urlare!", "gap": "di", "ro": "Nu mai țipa!", "note": "smettere di + infinitiv", "noteIt": "smettere di + infinito" },
+    { "id": "pdi-17", "it": "Hai finito di mangiare?", "gap": "di", "ro": "Ai terminat de mâncat?", "note": "finire di + infinitiv", "noteIt": "finire di + infinito" },
+    { "id": "pdi-18", "it": "Penso di partire domani.", "gap": "di", "ro": "Am de gând să plec mâine.", "note": "pensare di = a avea de gând (pensare a = a se gândi la)", "noteIt": "pensare di = avere intenzione di (pensare a = riflettere su)" },
+    { "id": "pdi-19", "it": "C'è qualcosa di buono da mangiare?", "gap": "di", "ro": "E ceva bun de mâncare?", "note": "qualcosa di + adjectiv", "noteIt": "qualcosa di + aggettivo" },
+    { "id": "pdi-20", "it": "Niente di grave, stai tranquillo.", "gap": "di", "ro": "Nimic grav, stai liniștit.", "note": "niente di + adjectiv", "noteIt": "niente di + aggettivo" },
+    { "id": "pdi-21", "it": "Di solito ceno alle otto.", "gap": "Di", "ro": "De obicei cinez la opt.", "note": "expresie fixă: di solito", "noteIt": "espressione fissa: di solito" },
+    { "id": "pdi-22", "it": "Ho un figlio di sei anni.", "gap": "di", "ro": "Am un fiu de șase ani.", "note": "vârstă: di (valoarea: da)", "noteIt": "età: di (il valore: da)" },
+    { "id": "pdi-23", "it": "Vorrei una tazza di tè, per favore.", "gap": "di", "ro": "Aș vrea o ceașcă de ceai, vă rog.", "note": "conținut: di (da tè = vasul)", "noteIt": "contenuto: di (da tè = il recipiente)" },
+    { "id": "pdi-24", "it": "Mia sorella frequenta un corso di fotografia.", "gap": "di", "ro": "Sora mea urmează un curs de fotografie.", "note": "domeniu: di", "noteIt": "materia: di" }
+  ]
+}
