@@ -71,7 +71,7 @@ export interface FeedState {
   types?: ReadonlySet<FeedItemType>;
 }
 
-const SELECTABLE: FeedItemType[] = [
+const SELECTABLE = [
   "review",
   "newWord",
   "knownWord",
@@ -84,7 +84,8 @@ const SELECTABLE: FeedItemType[] = [
   "gap",
   "pack",
   "packQuiz",
-];
+] as const satisfies readonly FeedItemType[];
+type SelectableType = (typeof SELECTABLE)[number];
 
 const pickOne = <T>(items: readonly T[], random: Random): T | undefined => items[Math.floor(random() * items.length)];
 
@@ -168,7 +169,7 @@ export function buildFeedBatch(sources: FeedSources, state: FeedState, random: R
     const distractorsOf = (word: CoreWord, direction: Direction, count: number) =>
       pickDistractors({ target: word, pool: sources.words, direction, count, random }).map((w) => answerText(w, direction));
 
-    const generators: Record<(typeof SELECTABLE)[number], () => FeedItem | undefined> = {
+    const generators: Record<SelectableType, () => FeedItem | undefined> = {
       review: () => {
         const q = state.queue.find((i) => !i.isNew && !usedCards.has(i.cardId) && !blocked.has(i.wordId));
         return q && { type: "review", key: `review:${q.cardId}:${pos}`, item: q };
@@ -277,7 +278,7 @@ export function buildFeedBatch(sources: FeedSources, state: FeedState, random: R
         const limit = type === "review" ? MAX_REVIEW_RUN : MAX_RUN;
         const afterTest = TEST_TYPES.has(type) && isTest(last);
         const ok = type in generators && allowedType(type) && run < limit && !afterTest;
-        cache.set(type, ok ? generators[type as keyof typeof generators]() : undefined);
+        cache.set(type, ok ? generators[type as SelectableType]() : undefined);
       }
       return cache.get(type);
     };
