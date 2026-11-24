@@ -64,6 +64,30 @@ Lupino, puiul de lup al aplicației, pornește din desenele JPG din `design/lupi
 `.venv/bin/pip install -r scripts/design/requirements.txt`. Textul pe care îl „spune” Lupino stă în aplicație
 (`LupinoSays`), nu în desen; în tema întunecată primește un contur alb subțire (clasa `mascot` din `src/index.css`).
 
+## Clipuri video pe pagina cuvântului
+
+Un clip se pune în `public/video/`, cu numele egal cu id-ul cuvântului (din `content/words/`), și apare pe pagina
+acelui cuvânt din Dicționar:
+
+| Fișier | Rol |
+| --- | --- |
+| `v-parlare.mp4` (sau `.webm`) | clipul; unul singur pe cuvânt, cel mult 20 MB |
+| `v-parlare.it.vtt`, `v-parlare.ro.vtt` | subtitrări opționale (WebVTT); italiana e afișată implicit |
+| `v-parlare.jpg` (sau `.webp`, `.png`) | imagine de previzualizare, opțională |
+
+`npm run validate` și build-ul verifică fișierele: un cuvânt inexistent, un clip prea mare, o subtitrare fără clip sau
+un fișier necunoscut opresc build-ul. Clipurile nu se descarcă la instalarea aplicației. Fiecare clip se descarcă întreg
+abia când apeși pe el, apoi rămâne în cache și merge și fără internet. Adresa conține amprenta fișierului (`?v=…`), deci
+un clip înlocuit se descarcă din nou.
+
+Format recomandat, care merge pe Android și pe iPhone: MP4 H.264 + AAC, 720p, sub ~5 MB:
+
+```sh
+ffmpeg -i original.mov -vf "scale=-2:720" -c:v libx264 -crf 28 -preset slow -c:a aac -b:a 96k -movflags +faststart public/video/v-parlare.mp4
+```
+
+Clipurile intră în git. Dacă ajung să fie multe sau mari, se pot muta în Git LFS.
+
 ## Conturi și sincronizare (opțional)
 
 Aplicația merge complet fără cont. Cu cont, progresul se sincronizează cu un server propriu **PocketBase** (SQLite),

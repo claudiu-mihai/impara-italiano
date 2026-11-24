@@ -237,6 +237,15 @@ export const it: Record<Key, string> = {
   "word.forget": "Elimina il progresso di questa parola",
   "word.knownHint": "La parola tornerà in ripasso tra qualche giorno, per verificare che la conosci.",
   "word.inProgram": "La parola è nel programma di ripetizioni.",
+  // il video della parola
+  "video.title": "Video",
+  "video.play": "Guarda il video",
+  "video.label": "Video per «{text}»",
+  "video.loading": "Caricamento del video…",
+  "video.error": "Non sono riuscito a caricare il video. Senza internet funziona solo se l'hai già visto una volta.",
+  "video.retry": "Riprova",
+  "video.track.it": "Italiano",
+  "video.track.ro": "Rumeno",
   // intervale și evaluare
   "interval.lessThanMinute_one": "< 1 min",
   "interval.lessThanMinute_other": "< 1 min",

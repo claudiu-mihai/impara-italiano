@@ -3,6 +3,7 @@ import wordsData from "../generated/words.json";
 import type { RoConjugations } from "../../domain/conjugation/romanian.ts";
 import type { ContentMeta, Conjugations, GeneratedDialogue, GeneratedPackItem, GeneratedStory, GrammarTopic, Sentence, Topic, Word } from "../../domain/content/schema.ts";
 import type { CoreWord } from "../../domain/content/types.ts";
+import type { WordVideos } from "../../domain/content/videos.ts";
 import { decodeWords, type CompactWords } from "../../domain/content/wordsCodec.ts";
 import type { GuideTopic } from "../../domain/session/guidedOrder.ts";
 
@@ -91,6 +92,12 @@ let irregularCache: Promise<ReadonlySet<string>> | undefined;
 export function loadPresenteIrregular(): Promise<ReadonlySet<string>> {
   irregularCache ??= import("../generated/presenteIrregular.json").then((module) => new Set(module.default as string[]));
   return irregularCache;
+}
+
+/** Clipurile cuvintelor (doar indexul; fișierele video se descarcă la cerere). */
+export async function loadVideos(): Promise<WordVideos> {
+  const module = await import("../generated/videos.json");
+  return module.default as unknown as WordVideos;
 }
 
 let detailsCache: Promise<Map<string, Word>> | undefined;

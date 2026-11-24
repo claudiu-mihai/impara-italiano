@@ -37,6 +37,8 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ["**/*.{js,css,html,svg,png,jpg,ico,json,webmanifest}"],
+        // clipurile (și imaginile lor) nu se descarcă la instalare: sunt mari și se văd rar
+        globIgnores: ["video/**"],
         navigateFallback: "index.html",
         // /api/ este serverul de sincronizare (PocketBase), nu o pagină a aplicației
         navigateFallbackDenylist: [/^\/api\//],
@@ -51,6 +53,16 @@ export default defineConfig({
               rangeRequests: true,
               cacheableResponse: { statuses: [0, 200] },
               expiration: { maxEntries: 2000 },
+            },
+          },
+          // un clip văzut o dată rămâne în cache și merge fără internet (VideoPlayer îl cere întreg, nu pe bucăți)
+          {
+            urlPattern: ({ url }) => url.pathname.startsWith("/video/"),
+            handler: "CacheFirst",
+            options: {
+              cacheName: "video",
+              expiration: { maxEntries: 60 },
+              cacheableResponse: { statuses: [200] },
             },
           },
         ],
