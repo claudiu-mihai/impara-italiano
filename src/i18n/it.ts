@@ -37,6 +37,12 @@ export const it: Record<Key, string> = {
   "feed.kind.rule": "Regola di grammatica",
   "feed.kind.dialogue": "Dal dialogo",
   "feed.kind.story": "Dalla storia",
+  "feed.kind.espressione": "Espressione",
+  "feed.kind.falso-amico": "Falso amico",
+  "feed.kind.lo-sapevi": "Lo sapevi?",
+  "feed.kind.gesto": "Gesto",
+  "feed.kind.micro-storia": "Micro-storia",
+  "feed.reveal": "Mostra il finale",
   // pagina Învață
   "learn.today": "Da fare oggi",
   "learn.practice": "Esercizio libero",

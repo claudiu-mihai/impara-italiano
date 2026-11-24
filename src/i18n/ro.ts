@@ -36,6 +36,12 @@ export const ro = {
   "feed.kind.rule": "Regulă de gramatică",
   "feed.kind.dialogue": "Din dialog",
   "feed.kind.story": "Din poveste",
+  "feed.kind.espressione": "Expresie",
+  "feed.kind.falso-amico": "Prieten fals",
+  "feed.kind.lo-sapevi": "Lo sapevi?",
+  "feed.kind.gesto": "Gest",
+  "feed.kind.micro-storia": "Micro-poveste",
+  "feed.reveal": "Arată finalul",
   // pagina Învață
   "learn.title": "Învață",
   "learn.today": "De făcut azi",

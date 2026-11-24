@@ -1,4 +1,5 @@
 import type { FeedItem } from "../../domain/feed/types.ts";
+import { PackCard } from "./cards/PackCards.tsx";
 import { DidYouKnowCard, KnownWordCard, LinesCard, RuleCard, SentenceCard } from "./cards/PassiveCards.tsx";
 
 /** Alege componenta unui card după tipul lui; tipurile pe care ecranul nu le afișează (încă) rămân goale. */
@@ -14,6 +15,8 @@ export function FeedCard({ item, active }: { item: FeedItem; active: boolean }) 
       return <LinesCard item={item} active={active} />;
     case "didYouKnow":
       return <DidYouKnowCard item={item} active={active} />;
+    case "pack":
+      return <PackCard packId={item.packId} active={active} />;
     default:
       return null;
   }

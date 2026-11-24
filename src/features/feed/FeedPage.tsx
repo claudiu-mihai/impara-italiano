@@ -4,6 +4,7 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } fr
 import { useContent } from "../../app/content.tsx";
 import { loadFeedProgress, loadFeedSources } from "../../data/feedQueries.ts";
 import { db } from "../../data/db/instance.ts";
+import { markFeedSeen } from "../../data/feed/feedSeen.ts";
 import { getSettings } from "../../data/db/repositories.ts";
 import { buildFeedBatch, type FeedSources } from "../../domain/feed/buildFeedBatch.ts";
 import type { FeedItem, FeedItemType } from "../../domain/feed/types.ts";
@@ -16,7 +17,7 @@ import { StartCard } from "./StartCard.tsx";
 import { useActiveCard } from "./useActiveCard.ts";
 
 /** Tipurile pe care ecranul știe să le afișeze; etapele următoare ale fluxului le completează. */
-export const FEED_TYPES: ReadonlySet<FeedItemType> = new Set<FeedItemType>(["knownWord", "sentence", "rule", "lines", "didYouKnow"]);
+export const FEED_TYPES: ReadonlySet<FeedItemType> = new Set<FeedItemType>(["knownWord", "sentence", "rule", "lines", "didYouKnow", "pack"]);
 
 /** Când cardul activ ajunge la atâtea carduri de capăt, se cere un lot nou. */
 const LOAD_MORE_WITHIN = 5;
@@ -137,6 +138,14 @@ export function FeedPage() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [go]);
+
+  // un item din pachet devine „văzut” când ajunge activ: nu mai revine 3 zile, iar testul lui poate apărea după 10 carduri
+  useEffect(() => {
+    const item = itemsRef.current[active - 1];
+    if (item?.type !== "pack" || visit.current.shownAt.has(item.packId)) return;
+    visit.current.shownAt.set(item.packId, active - 1);
+    void markFeedSeen(db, item.packId, "shown", new Date());
+  }, [active]);
 
   // sunetul cardului părăsit se oprește înaintea efectelor noului card activ (efectele de layout rulează primele)
   useLayoutEffect(() => {

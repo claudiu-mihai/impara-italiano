@@ -1,9 +1,10 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
-import { mockSpeech, seedLearnedWords, spoken, WORDS } from "./helpers.ts";
+import { readFileSync } from "node:fs";
+import { mockAudio, mockSpeech, played, seedLearnedWords, spoken, WORDS } from "./helpers.ts";
 
 // cardurile pe care ecranul le știe afișa; se completează odată cu fiecare etapă a fluxului
-const PASSIVE = ["knownWord", "sentence", "rule", "lines", "didYouKnow"];
+const PASSIVE = ["knownWord", "sentence", "rule", "lines", "didYouKnow", "pack"];
 
 const active = (page: Page) => page.locator('[data-feed-card][data-active="true"]');
 const startButton = (page: Page) => page.getByRole("button", { name: "Atinge ca să începi" });
@@ -26,6 +27,43 @@ async function scrollDown(page: Page, n: number) {
 }
 
 const cardTypes = (page: Page) => page.locator("[data-feed-card]").evaluateAll((els) => els.map((e) => (e as HTMLElement).dataset.feedType));
+
+
+interface PackEntry {
+  id: string;
+  kind: string;
+  level: string;
+}
+const PACK: PackEntry[] = JSON.parse(readFileSync("src/data/generated/feed.json", "utf8"));
+
+/** Scrie în IndexedDB ce s-a „văzut” din pachet (cheia `feedSeen` din `meta`). */
+async function seedFeedSeen(page: Page, seen: Record<string, { shown?: number; quizzed?: number }>) {
+  await page.goto("/");
+  await expect(page.getByRole("link", { name: "Începe sesiunea" })).toBeVisible();
+  await page.evaluate(async (value) => {
+    const db = await new Promise<IDBDatabase>((resolve, reject) => {
+      const request = indexedDB.open("impara-italiano");
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error);
+    });
+    await new Promise<void>((resolve, reject) => {
+      const tx = db.transaction("meta", "readwrite");
+      tx.objectStore("meta").put({ key: "feedSeen", value });
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error);
+    });
+    db.close();
+  }, seen);
+}
+
+/** Derulează până când cardul activ e de tipul cerut (cel mult `max` carduri). */
+async function scrollToType(page: Page, type: string, max = 30) {
+  for (let i = 0; i < max; i++) {
+    if ((await active(page).getAttribute("data-feed-type")) === type) return;
+    await scrollDown(page, 1);
+  }
+  throw new Error(`niciun card ${type} în ${max} carduri`);
+}
 
 test.describe("Flux", () => {
   test.beforeEach(async ({ page }) => {
@@ -95,6 +133,46 @@ test.describe("Flux", () => {
     await expect.poll(() => active(page).getAttribute("data-feed-type")).not.toBe("start");
     await scrollDown(page, 3);
     expect(await said(page)).toEqual([]);
+  });
+
+  test("cardurile din pachet apar și se aud cu înregistrarea lor", async ({ page }) => {
+    test.setTimeout(90_000);
+    await mockAudio(page);
+    await startFeed(page);
+    await scrollToType(page, "pack");
+    await expect.poll(async () => (await played(page)).some((path) => path.startsWith("/audio/feed/"))).toBe(true);
+  });
+
+  test("un item văzut nu revine în vizita următoare", async ({ page }) => {
+    test.setTimeout(120_000);
+    await startFeed(page);
+    await scrollToType(page, "pack");
+    const firstKey = await active(page).getAttribute("data-feed-key");
+    // după ce devine activ, itemul se salvează ca văzut; o nouă vizită nu-l mai arată
+    await page.waitForTimeout(300);
+    await page.goto("/feed");
+    await startButton(page).click();
+    await expect.poll(() => active(page).getAttribute("data-feed-type")).not.toBe("start");
+    await scrollDown(page, 25);
+    const keys = await page.locator("[data-feed-card]").evaluateAll((els) => els.map((e) => (e as HTMLElement).dataset.feedKey));
+    expect(keys).not.toContain(firstKey);
+  });
+
+  test("micro-povestea își arată finalul la atingere", async ({ page }) => {
+    test.setTimeout(90_000);
+    const now = Date.now();
+    // doar micro-poveștile A1 rămân eligibile: restul pachetului e „văzut” chiar acum
+    const seen = Object.fromEntries(PACK.filter((p) => !(p.kind === "micro-storia" && p.level === "A1")).map((p) => [p.id, { shown: now }]));
+    await seedFeedSeen(page, seen);
+    await startFeed(page);
+    await scrollToType(page, "pack");
+    const card = active(page);
+    const reveal = card.getByRole("button", { name: "Arată finalul" });
+    await expect(reveal).toBeVisible();
+    const before = await card.locator("li").count();
+    await reveal.click();
+    await expect(card.getByRole("button", { name: "Arată finalul" })).toHaveCount(0);
+    expect(await card.locator("li").count()).toBe(before + 1);
   });
 
   test("✕ te duce pe Acasă când fluxul s-a deschis direct", async ({ page }) => {
