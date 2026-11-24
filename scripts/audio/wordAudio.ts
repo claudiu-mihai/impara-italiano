@@ -9,7 +9,7 @@ export const WORD_AUDIO_DIR = "public/audio/words";
 /** Vocea cuvintelor izolate. */
 export const WORD_VOICE: VoiceName = "francesco";
 /** Nivelurile ale căror cuvinte au înregistrări. */
-export const WORD_AUDIO_LEVELS: readonly Level[] = ["A1", "A2"];
+export const WORD_AUDIO_LEVELS: readonly Level[] = ["A1", "A2", "B1", "B2"];
 
 type AudioWord = Pick<CoreWord, "it" | "pos" | "article"> & { level: Level };
 
