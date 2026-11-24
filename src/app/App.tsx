@@ -25,6 +25,7 @@ const DialogueListPage = lazy(() => import("../features/dialogue/DialogueListPag
 const StoryPage = lazy(() => import("../features/story/StoryPage.tsx").then((m) => ({ default: m.StoryPage })));
 const DialoguePage = lazy(() => import("../features/dialogue/DialoguePage.tsx").then((m) => ({ default: m.DialoguePage })));
 const ConjugationPage = lazy(() => import("../features/conjugation/ConjugationPage.tsx").then((m) => ({ default: m.ConjugationPage })));
+const FeedPage = lazy(() => import("../features/feed/FeedPage.tsx").then((m) => ({ default: m.FeedPage })));
 const FlashcardsPage = lazy(() => import("../features/flashcards/FlashcardsPage.tsx").then((m) => ({ default: m.FlashcardsPage })));
 const LearnPage = lazy(() => import("../features/learn/LearnPage.tsx").then((m) => ({ default: m.LearnPage })));
 const QuizPage = lazy(() => import("../features/quiz/QuizPage.tsx").then((m) => ({ default: m.QuizPage })));
@@ -118,7 +119,7 @@ const NAV: { to: string; label: Key; icon: string; end: boolean }[] = [
 ];
 
 // Ecranele de studiu ocupă tot ecranul: bara de jos este ascunsă acolo.
-const STUDY_ROUTES = ["/learn/vocab", "/learn/conjugation", "/learn/sentence", "/quiz"];
+const STUDY_ROUTES = ["/feed", "/learn/vocab", "/learn/conjugation", "/learn/sentence", "/quiz"];
 // sesiunile și exercițiile unei teme (/learn/topics/<id>/flashcards, /quiz, /match…) și jocurile de gramatică
 // (/learn/grammar/<id>/cards, /match, /type) tot pe tot ecranul, ca și dialogurile (/learn/topics/<id>/dialogue/<dialog>) și poveștile (/learn/stories/<id>)
 const isStudyRoute = (pathname: string) =>
@@ -207,6 +208,7 @@ export function App() {
           <Routes>
             <Route element={<Layout />}>
               <Route index element={<HomePage />} />
+              <Route path="feed" element={<FeedPage />} />
               <Route path="learn" element={<LearnPage />} />
               <Route path="learn/vocab" element={<FlashcardsPage />} />
               <Route path="learn/conjugation" element={<ConjugationPage />} />

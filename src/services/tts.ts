@@ -114,11 +114,14 @@ let audioEl: HTMLAudioElement | null = null;
 // numărul redării curente; o redare oprită sau înlocuită nu mai are voie să cadă pe vocea de sistem
 let playId = 0;
 let currentFallback: (() => void) | null = null;
+// ce se cheamă când se termină redarea curentă (ex. următoarea replică dintr-o serie)
+let currentEnd: (() => void) | null = null;
 
 function sharedAudio(): HTMLAudioElement {
   if (!audioEl) {
     audioEl = new Audio();
     audioEl.addEventListener("error", () => currentFallback?.());
+    audioEl.addEventListener("ended", () => currentEnd?.());
   }
   return audioEl;
 }
@@ -129,21 +132,26 @@ export function stopSpeaking(): void {
   setSpeaking(null);
   playId++;
   currentFallback = null;
+  currentEnd = null;
   audioEl?.pause();
   if (supported()) window.speechSynthesis.cancel();
 }
 
-function speakWithVoice(text: string, rate: number, speaker?: Speaker): void {
+function speakWithVoice(text: string, rate: number, speaker?: Speaker, onEnd?: () => void): void {
   if (computeStatus() !== "ready") return;
   stopSpeaking();
-  window.speechSynthesis.speak(utteranceFor(text, rate, speaker));
+  const id = playId;
+  const utterance = utteranceFor(text, rate, speaker);
+  // o frază oprită sau înlocuită între timp nu mai anunță sfârșitul
+  if (onEnd) utterance.onend = () => playId === id && onEnd();
+  window.speechSynthesis.speak(utterance);
 }
 
 /**
  * Redă o înregistrare, cu viteza relativă la cea implicită (tonul rămâne același). Dacă fișierul nu se poate reda (lipsă,
  * fără rețea, redare blocată), fraza se rostește cu vocea de sistem, o singură dată.
  */
-function playRecording(url: string, text: string, rate: number, speaker?: Speaker): void {
+function playRecording(url: string, text: string, rate: number, speaker?: Speaker, onEnd?: () => void): void {
   stopSpeaking();
   const audio = sharedAudio();
   const id = playId;
@@ -154,9 +162,10 @@ function playRecording(url: string, text: string, rate: number, speaker?: Speake
     // oprită între timp de o redare nouă: nu mai pornește nimic
     if (fellBack || playId !== id) return;
     fellBack = true;
-    speakWithVoice(text, rate, speaker);
+    speakWithVoice(text, rate, speaker, onEnd);
   };
   currentFallback = fallback;
+  currentEnd = onEnd ?? null;
   audio.play().catch(fallback);
 }
 
@@ -210,11 +219,11 @@ export function useRecording(text: string): string | undefined {
  * Rostește fraza: din înregistrarea dată (`audio`) sau din indexul înregistrărilor, cu vocea de sistem ca rezervă; fără
  * înregistrare, cu vocea de sistem.
  */
-export function speak(text: string, rate = 0.9, options?: { speaker?: Speaker; audio?: string }): void {
+export function speak(text: string, rate = 0.9, options?: { speaker?: Speaker; audio?: string; onEnd?: () => void }): void {
   if (!recordings) void preloadRecordings();
   const audio = options?.audio ?? recordingFor(text);
-  if (audio) playRecording(audio, text, rate, options?.speaker);
-  else speakWithVoice(text, rate, options?.speaker);
+  if (audio) playRecording(audio, text, rate, options?.speaker, options?.onEnd);
+  else speakWithVoice(text, rate, options?.speaker, options?.onEnd);
 }
 
 /**

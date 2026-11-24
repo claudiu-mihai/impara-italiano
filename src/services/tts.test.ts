@@ -2,6 +2,7 @@ import { afterEach, beforeEach, expect, test, vi } from "vitest";
 
 // Mediu de browser minim: o voce italiană locală, speechSynthesis care înregistrează frazele și un Audio controlat de test.
 const spoken: string[] = [];
+const utterances: { text: string; onend?: () => void }[] = [];
 
 class FakeAudio {
   static all: FakeAudio[] = [];
@@ -39,10 +40,14 @@ let tts: typeof import("./tts.ts");
 
 beforeEach(async () => {
   spoken.length = 0;
+  utterances.length = 0;
   FakeAudio.all = [];
   const speechSynthesis = {
     getVoices: () => [{ name: "Alice", lang: "it-IT", localService: true, voiceURI: "mac:alice" }],
-    speak: (u: { text: string }) => spoken.push(u.text),
+    speak: (u: { text: string; onend?: () => void }) => {
+      spoken.push(u.text);
+      utterances.push(u);
+    },
     cancel: () => {},
     addEventListener: () => {},
   };
@@ -137,4 +142,36 @@ test("o frază din indexul înregistrărilor (cuvintele) se redă din fișier, d
   expect(FakeAudio.all.map((a) => a.src)).toEqual(["/audio/words/caffe.mp3"]);
   tts.speak("il tè");
   expect(spoken).toEqual(["il caffè", "il tè"]);
+});
+
+test("onEnd: se cheamă când se termină înregistrarea, dar nu dacă a fost înlocuită între timp", () => {
+  const ended: string[] = [];
+  tts.speak("A.", 0.9, { audio: "/audio/dialogues/a.mp3", onEnd: () => ended.push("A") });
+  FakeAudio.all[0]!.emit("ended");
+  expect(ended).toEqual(["A"]);
+
+  tts.speak("B.", 0.9, { audio: "/audio/dialogues/b.mp3", onEnd: () => ended.push("B") });
+  tts.speak("C.", 0.9, { audio: "/audio/dialogues/c.mp3" });
+  FakeAudio.all[0]!.emit("ended");
+  expect(ended).toEqual(["A"]);
+});
+
+test("onEnd: și la vocea de sistem, cu aceeași regulă", () => {
+  const ended: string[] = [];
+  tts.speak("Ciao!", 0.9, { onEnd: () => ended.push("Ciao") });
+  utterances[0]!.onend!();
+  expect(ended).toEqual(["Ciao"]);
+
+  tts.speak("Prima.", 0.9, { onEnd: () => ended.push("Prima") });
+  tts.speak("A doua.", 0.9);
+  utterances[1]!.onend!();
+  expect(ended).toEqual(["Ciao"]);
+});
+
+test("onEnd: o înregistrare care cade pe vocea de sistem tot anunță sfârșitul", async () => {
+  const ended: string[] = [];
+  tts.speak("Prego.", 0.9, { audio: "/audio/dialogues/lipsa.mp3", onEnd: () => ended.push("Prego") });
+  FakeAudio.all[0]!.emit("error");
+  utterances[0]!.onend!();
+  expect(ended).toEqual(["Prego"]);
 });
