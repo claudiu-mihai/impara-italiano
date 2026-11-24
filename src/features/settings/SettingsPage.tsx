@@ -389,6 +389,17 @@ export function SettingsPage() {
             <option value="dark">{t("settings.themeDark")}</option>
           </select>
         </Field>
+        <Field inline label={t("settings.startInFeed")} hint={t("settings.startInFeedHint")}>
+          <span className="flex size-12 items-center justify-center">
+            <input
+              type="checkbox"
+              aria-label={t("settings.startInFeed")}
+              checked={settings.startInFeed}
+              onChange={(e) => update("startInFeed", e.target.checked)}
+              className="size-6 accent-brand"
+            />
+          </span>
+        </Field>
       </section>
 
       <section className={card} aria-labelledby="sound">

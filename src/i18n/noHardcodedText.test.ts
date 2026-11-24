@@ -27,6 +27,7 @@ const ALLOWED: { file: string; text: string; why: string }[] = [
   { file: "src/domain/skills/numbers.ts", text: "număr în afara", why: "eroare pentru dezvoltatori" },
   { file: "src/domain/skills/time.ts", text: "oră invalidă", why: "eroare pentru dezvoltatori" },
   { file: "src/app/content.tsx", text: "trebuie folosit", why: "eroare pentru dezvoltatori" },
+  { file: "src/features/feed/feedEnv.ts", text: "trebuie folosit", why: "eroare pentru dezvoltatori" },
   { file: "src/data/sync/types.ts", text: "lipsește de pe server", why: "eroare pentru dezvoltatori (tratată de motorul de sincronizare)" },
   { file: "src/features/settings/SettingsPage.tsx", text: ">Română<", why: "numele limbii, scris în limba ei" },
   { file: "src/domain/content/schema.ts", text: "id-ul unui verb", why: "mesaj de validare la build" },
@@ -35,6 +36,7 @@ const ALLOWED: { file: string; text: string; why: string }[] = [
   { file: "src/domain/content/schema.ts", text: "aceeași formă ca „rows”", why: "mesaj de validare la build" },
   { file: "src/domain/dialogue/check.ts", text: "problems.push(", why: "mesaje de validare la build" },
   { file: "src/domain/story/check.ts", text: "problems.push(", why: "mesaje de validare la build" },
+  { file: "src/domain/feed/check.ts", text: "problems.push(", why: "mesaje de validare la build" },
   { file: "src/domain/dialogue/gender.ts", text: "problems.push(", why: "mesaje de validare la build" },
 ];
 

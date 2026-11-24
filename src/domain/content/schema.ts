@@ -217,6 +217,64 @@ export const storySchema = z
   })
   .strict();
 
+/**
+ * Pachetul de conținut al fluxului (content/feed/*.json): expresii, prieteni falși, cultură, gesturi și micro-povești.
+ * Regulile dintre câmpuri (prefixul id-ului, nivelul, testul) sunt în `domain/feed/check.ts`.
+ */
+export const PACK_KINDS = ["espressione", "falso-amico", "lo-sapevi", "gesto", "micro-storia"] as const;
+export const PACK_ID_PREFIX = {
+  espressione: "espr-",
+  "falso-amico": "falso-",
+  "lo-sapevi": "sap-",
+  gesto: "gest-",
+  "micro-storia": "stor-",
+} as const;
+
+export const packQuizSchema = z
+  .object({ question: localized, options: z.array(text).min(3).max(4), answer: z.number().int().min(0) })
+  .strict();
+
+const packBase = {
+  id: z.string().regex(/^[a-z]+-[a-z0-9]+(-[a-z0-9]+)*$/, "id invalid (ex. espr-in-bocca-al-lupo)"),
+  /** Se scrie de mână, mai puțin la prietenii falși (se calculează din dicționar). */
+  level: z.enum(LEVELS).optional(),
+  wordIds: z.array(z.string()).default([]),
+  quiz: packQuizSchema.optional(),
+};
+
+const packSimple = <K extends Exclude<(typeof PACK_KINDS)[number], "micro-storia">>(kind: K) =>
+  z
+    .object({
+      ...packBase,
+      kind: z.literal(kind),
+      it: text,
+      ro: text,
+      explain: localized,
+      example: example.optional(),
+      /** Doar la gesturi. */
+      emoji: text.optional(),
+    })
+    .strict();
+
+const packMicroStory = z
+  .object({
+    ...packBase,
+    kind: z.literal("micro-storia"),
+    title: localized,
+    speakers: z.array(storySpeakerSchema).min(1),
+    lines: z.array(z.object({ speaker: z.string(), it: text, ro: text }).strict()),
+  })
+  .strict();
+
+export const packItemSchema = z.discriminatedUnion("kind", [
+  packSimple("espressione"),
+  packSimple("falso-amico"),
+  packSimple("lo-sapevi"),
+  packSimple("gesto"),
+  packMicroStory,
+]);
+export const packFileSchema = z.array(packItemSchema).min(1);
+
 export const grammarItemSchema = z
   .object({
     id: z.string().regex(/^[a-z]+(-[a-z0-9]+)*$/, "id invalid (ex. art-01)"),
@@ -355,3 +413,11 @@ export type GeneratedStory = Omit<Story, "scenes"> & {
 };
 
 export type GeneratedDialogue = Omit<Dialogue, "lines"> & { level: Level; lines: GeneratedDialogueLine[] };
+
+export type PackItem = z.infer<typeof packItemSchema>;
+export type PackSimpleItem = Exclude<PackItem, { kind: "micro-storia" }>;
+export type PackMicroStory = Extract<PackItem, { kind: "micro-storia" }>;
+/** Un item după build: nivelul e mereu prezent, iar fișierele audio (din public/audio/feed/) apar doar dacă există. */
+export type GeneratedPackItem =
+  | (PackSimpleItem & { level: Level; audio?: { it?: string; example?: string } })
+  | (Omit<PackMicroStory, "lines"> & { level: Level; lines: (PackMicroStory["lines"][number] & { audio?: string })[] });

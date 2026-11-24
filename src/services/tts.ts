@@ -108,45 +108,82 @@ function utteranceFor(text: string, rate: number, speaker?: Speaker): SpeechSynt
 /** Viteza vocii de sistem care corespunde unei înregistrări redate normal (viteza implicită din Setări). */
 export const RECORDED_RATE = 0.9;
 
-// înregistrarea (audio pregenerat) care se aude acum, ca o redare nouă să o poată opri
-let recording: HTMLAudioElement | null = null;
+// Un singur element audio pentru toate înregistrările: pe iOS un gest (atingerea de start din Flux) deblochează doar
+// elementul care a fost pornit atunci, deci unul nou la fiecare redare ar rămâne blocat după primul card.
+let audioEl: HTMLAudioElement | null = null;
+// numărul redării curente; o redare oprită sau înlocuită nu mai are voie să cadă pe vocea de sistem
+let playId = 0;
+let currentFallback: (() => void) | null = null;
+// ce se cheamă când se termină redarea curentă (ex. următoarea replică dintr-o serie)
+let currentEnd: (() => void) | null = null;
+
+function sharedAudio(): HTMLAudioElement {
+  if (!audioEl) {
+    audioEl = new Audio();
+    audioEl.addEventListener("error", () => currentFallback?.());
+    audioEl.addEventListener("ended", () => currentEnd?.());
+  }
+  return audioEl;
+}
 
 /** Oprește orice redare în curs (o frază, o serie sau o înregistrare). */
 export function stopSpeaking(): void {
   sequenceToken++;
   setSpeaking(null);
-  if (recording) {
-    recording.pause();
-    recording = null;
-  }
+  playId++;
+  currentFallback = null;
+  currentEnd = null;
+  audioEl?.pause();
   if (supported()) window.speechSynthesis.cancel();
 }
 
-function speakWithVoice(text: string, rate: number, speaker?: Speaker): void {
+function speakWithVoice(text: string, rate: number, speaker?: Speaker, onEnd?: () => void): void {
   if (computeStatus() !== "ready") return;
   stopSpeaking();
-  window.speechSynthesis.speak(utteranceFor(text, rate, speaker));
+  const id = playId;
+  const utterance = utteranceFor(text, rate, speaker);
+  // o frază oprită sau înlocuită între timp nu mai anunță sfârșitul
+  if (onEnd) utterance.onend = () => playId === id && onEnd();
+  window.speechSynthesis.speak(utterance);
 }
 
 /**
  * Redă o înregistrare, cu viteza relativă la cea implicită (tonul rămâne același). Dacă fișierul nu se poate reda (lipsă,
  * fără rețea, redare blocată), fraza se rostește cu vocea de sistem, o singură dată.
  */
-function playRecording(url: string, text: string, rate: number, speaker?: Speaker): void {
+function playRecording(url: string, text: string, rate: number, speaker?: Speaker, onEnd?: () => void): void {
   stopSpeaking();
-  const audio = new Audio(url);
+  const audio = sharedAudio();
+  const id = playId;
+  audio.src = url;
   audio.playbackRate = Math.min(2, Math.max(0.5, rate / RECORDED_RATE));
-  recording = audio;
   let fellBack = false;
   const fallback = () => {
     // oprită între timp de o redare nouă: nu mai pornește nimic
-    if (fellBack || recording !== audio) return;
+    if (fellBack || playId !== id) return;
     fellBack = true;
-    recording = null;
-    speakWithVoice(text, rate, speaker);
+    speakWithVoice(text, rate, speaker, onEnd);
   };
-  audio.addEventListener("error", fallback, { once: true });
+  currentFallback = fallback;
+  currentEnd = onEnd ?? null;
   audio.play().catch(fallback);
+}
+
+// o tăcere de câteva milisecunde, doar ca elementul audio să poată fi pornit dintr-un gest
+const SILENCE = "data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=";
+
+/**
+ * Deblochează redarea automată pe iOS: se cheamă dintr-un gest al utilizatorului. Pornește (în tăcere) elementul audio pe
+ * care îl vor refolosi înregistrările și rostește o frază goală cu vocea de sistem.
+ */
+export function unlockAudio(): void {
+  stopSpeaking();
+  const audio = sharedAudio();
+  audio.src = SILENCE;
+  void audio.play().catch(() => {
+    // blocat sau fără suport: următoarea redare cade oricum pe vocea de sistem
+  });
+  if (supported()) window.speechSynthesis.speak(new SpeechSynthesisUtterance(""));
 }
 
 // indexul înregistrărilor (textul rostit → fișier relativ la /audio/, ex. cuvintele A1), încărcat după pornire
@@ -182,11 +219,11 @@ export function useRecording(text: string): string | undefined {
  * Rostește fraza: din înregistrarea dată (`audio`) sau din indexul înregistrărilor, cu vocea de sistem ca rezervă; fără
  * înregistrare, cu vocea de sistem.
  */
-export function speak(text: string, rate = 0.9, options?: { speaker?: Speaker; audio?: string }): void {
+export function speak(text: string, rate = 0.9, options?: { speaker?: Speaker; audio?: string; onEnd?: () => void }): void {
   if (!recordings) void preloadRecordings();
   const audio = options?.audio ?? recordingFor(text);
-  if (audio) playRecording(audio, text, rate, options?.speaker);
-  else speakWithVoice(text, rate, options?.speaker);
+  if (audio) playRecording(audio, text, rate, options?.speaker, options?.onEnd);
+  else speakWithVoice(text, rate, options?.speaker, options?.onEnd);
 }
 
 /**

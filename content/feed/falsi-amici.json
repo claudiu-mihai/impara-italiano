@@ -1,0 +1,474 @@
+[
+  {
+    "id": "falso-salire",
+    "kind": "falso-amico",
+    "it": "salire",
+    "ro": "a urca (nu „a sări”)",
+    "explain": {
+      "it": "Salire vuol dire andare verso l'alto. «A sări» si dice saltare.",
+      "ro": "Salire înseamnă a urca. «A sări» se spune saltare."
+    },
+    "example": {
+      "it": "Saliamo al terzo piano.",
+      "ro": "Urcăm la etajul trei."
+    },
+    "wordIds": [
+      "v-salire"
+    ],
+    "quiz": {
+      "question": {
+        "it": "Cosa significa «salire»?",
+        "ro": "Ce înseamnă «salire»?"
+      },
+      "options": [
+        "A urca",
+        "A sări",
+        "A ieși"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "falso-mancare",
+    "kind": "falso-amico",
+    "it": "mancare",
+    "ro": "a lipsi (nu „a mânca”)",
+    "explain": {
+      "it": "Mancare vuol dire non esserci o sentire la mancanza. «A mânca» si dice mangiare.",
+      "ro": "Mancare înseamnă a lipsi sau a-ți fi dor. «A mânca» se spune mangiare."
+    },
+    "example": {
+      "it": "Mi manca la mia famiglia.",
+      "ro": "Mi-e dor de familia mea."
+    },
+    "wordIds": [
+      "v-mancare"
+    ],
+    "quiz": {
+      "question": {
+        "it": "Cosa significa «mancare»?",
+        "ro": "Ce înseamnă «mancare»?"
+      },
+      "options": [
+        "A lipsi",
+        "A mânca",
+        "A bea"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "falso-mare",
+    "kind": "falso-amico",
+    "it": "il mare",
+    "ro": "marea (nu „mare” ca mărime)",
+    "explain": {
+      "it": "Il mare è l'acqua salata. Per dire «mare» come dimensione si usa grande.",
+      "ro": "Il mare este apa sărată. Pentru «mare» ca mărime se folosește grande."
+    },
+    "example": {
+      "it": "D'estate andiamo al mare.",
+      "ro": "Vara mergem la mare."
+    },
+    "wordIds": [
+      "n-mare"
+    ],
+    "quiz": {
+      "question": {
+        "it": "Come si dice «mare» come dimensione?",
+        "ro": "Cum se spune «mare» ca mărime?"
+      },
+      "options": [
+        "grande",
+        "mare",
+        "alto"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "falso-porta",
+    "kind": "falso-amico",
+    "it": "la porta",
+    "ro": "ușa (nu „poartă”)",
+    "explain": {
+      "it": "La porta si apre e si chiude dentro casa. La «poartă» del giardino si dice cancello.",
+      "ro": "La porta este ușa. «Poarta» din fața grădinii se spune cancello."
+    },
+    "example": {
+      "it": "Chiudi la porta, per favore.",
+      "ro": "Închide ușa, te rog."
+    },
+    "wordIds": [
+      "n-porta"
+    ]
+  },
+  {
+    "id": "falso-sera",
+    "kind": "falso-amico",
+    "it": "la sera",
+    "ro": "seara (nu „seră”)",
+    "explain": {
+      "it": "La sera è il momento dopo il pomeriggio. La «seră» per le piante si dice serra.",
+      "ro": "La sera este seara. «Sera» pentru plante se spune serra."
+    },
+    "example": {
+      "it": "La sera guardo un film.",
+      "ro": "Seara mă uit la un film."
+    },
+    "wordIds": [
+      "n-sera"
+    ],
+    "quiz": {
+      "question": {
+        "it": "Cosa significa «sera»?",
+        "ro": "Ce înseamnă «sera»?"
+      },
+      "options": [
+        "Seară",
+        "Seră",
+        "Sare"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "falso-vestito",
+    "kind": "falso-amico",
+    "it": "il vestito",
+    "ro": "rochia sau costumul (nu „vestit”)",
+    "explain": {
+      "it": "Il vestito è un capo di abbigliamento. «Vestit» (famoso) si dice famoso.",
+      "ro": "Il vestito este o haină: rochie sau costum. «Vestit» (faimos) se spune famoso."
+    },
+    "example": {
+      "it": "Che bel vestito!",
+      "ro": "Ce rochie frumoasă!"
+    },
+    "wordIds": [
+      "n-vestito"
+    ]
+  },
+  {
+    "id": "falso-ancora",
+    "kind": "falso-amico",
+    "it": "ancora",
+    "ro": "încă / din nou (nu doar „ancoră”)",
+    "explain": {
+      "it": "Come avverbio, ancora vuol dire «încă» o «din nou». Come nome (l'ancora della nave) si scrive allo stesso modo.",
+      "ro": "Ca adverb, ancora înseamnă «încă» sau «din nou». Ca substantiv (ancora navei) se scrie la fel."
+    },
+    "example": {
+      "it": "Non ho ancora mangiato.",
+      "ro": "Încă n-am mâncat."
+    },
+    "wordIds": [
+      "adv-ancora"
+    ],
+    "quiz": {
+      "question": {
+        "it": "Cosa significa «Non ho ancora mangiato»?",
+        "ro": "Ce înseamnă «Non ho ancora mangiato»?"
+      },
+      "options": [
+        "Încă n-am mâncat",
+        "Am mâncat deja",
+        "N-am ancoră"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "falso-stazione",
+    "kind": "falso-amico",
+    "it": "la stazione",
+    "ro": "gara sau stația (nu „stațiune”)",
+    "explain": {
+      "it": "La stazione è dove prendi il treno. Una «stațiune» turistica si dice località di villeggiatura.",
+      "ro": "La stazione este gara, locul unde iei trenul. O «stațiune» turistică se spune località di villeggiatura."
+    },
+    "example": {
+      "it": "La stazione è vicina.",
+      "ro": "Gara e aproape."
+    },
+    "wordIds": [
+      "n-stazione"
+    ]
+  },
+  {
+    "id": "falso-giornale",
+    "kind": "falso-amico",
+    "it": "il giornale",
+    "ro": "ziarul (nu „jurnalul”)",
+    "explain": {
+      "it": "Il giornale si compra in edicola. Un «jurnal» personale si dice diario.",
+      "ro": "Il giornale este ziarul, cel de la chioșc. Un «jurnal» personal se spune diario."
+    },
+    "example": {
+      "it": "Leggo il giornale ogni mattina.",
+      "ro": "Citesc ziarul în fiecare dimineață."
+    },
+    "wordIds": [
+      "n-giornale"
+    ],
+    "quiz": {
+      "question": {
+        "it": "Come si dice «jurnal personal»?",
+        "ro": "Cum se spune «jurnal personal»?"
+      },
+      "options": [
+        "diario",
+        "giornale",
+        "notizia"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "falso-magazzino",
+    "kind": "falso-amico",
+    "it": "il magazzino",
+    "ro": "depozitul (nu „magazinul”)",
+    "explain": {
+      "it": "Il magazzino è il posto dove si tengono le merci. Il «magazin» dove compri si dice negozio.",
+      "ro": "Il magazzino este depozitul. «Magazinul» unde cumperi se spune negozio."
+    },
+    "example": {
+      "it": "La merce è in magazzino.",
+      "ro": "Marfa e în depozit."
+    },
+    "wordIds": [
+      "n-magazzino"
+    ],
+    "quiz": {
+      "question": {
+        "it": "Dove compri una maglietta?",
+        "ro": "Unde cumperi un tricou?"
+      },
+      "options": [
+        "In un negozio",
+        "In un magazzino",
+        "In una stazione"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "falso-brutto",
+    "kind": "falso-amico",
+    "it": "brutto",
+    "ro": "urât (nu „brut”)",
+    "explain": {
+      "it": "Brutto vuol dire non bello, di aspetto o di qualità. Per «brut» (grezzo) si usa grezzo.",
+      "ro": "Brutto înseamnă urât, la aspect sau ca fel. Pentru «brut» (neprelucrat) se folosește grezzo."
+    },
+    "example": {
+      "it": "Oggi c'è brutto tempo.",
+      "ro": "Azi e vreme urâtă."
+    },
+    "wordIds": [
+      "a-brutto"
+    ],
+    "quiz": {
+      "question": {
+        "it": "Il contrario di «bello» è…",
+        "ro": "Opusul lui «bello» este…"
+      },
+      "options": [
+        "brutto",
+        "buono",
+        "grande"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "falso-piano",
+    "kind": "falso-amico",
+    "it": "il piano",
+    "ro": "etajul (și „încet”)",
+    "explain": {
+      "it": "Il piano è il livello di un edificio. Come avverbio vuol dire «adagio»: parla piano! Il «plan» si dice progetto.",
+      "ro": "Il piano este etajul unei clădiri. Ca adverb înseamnă «încet»: parla piano! «Planul» se spune progetto."
+    },
+    "example": {
+      "it": "Abito al secondo piano.",
+      "ro": "Locuiesc la etajul doi."
+    },
+    "wordIds": [
+      "n-piano"
+    ]
+  },
+  {
+    "id": "falso-sale",
+    "kind": "falso-amico",
+    "it": "il sale",
+    "ro": "sarea (nu „sale” = ale lui/ei)",
+    "explain": {
+      "it": "Il sale è quello che metti nel cibo. In romeno «sale» vuol dire «suoi, sue».",
+      "ro": "Il sale este sarea din mâncare. În română «sale» înseamnă «ale lui/ei»."
+    },
+    "example": {
+      "it": "Passami il sale, per favore.",
+      "ro": "Dă-mi sarea, te rog."
+    },
+    "wordIds": [
+      "n-sale"
+    ],
+    "quiz": {
+      "question": {
+        "it": "Cosa metti nella pasta?",
+        "ro": "Ce pui în paste?"
+      },
+      "options": [
+        "Il sale",
+        "Il piano",
+        "Il mare"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "falso-parente",
+    "kind": "falso-amico",
+    "it": "i parenti",
+    "ro": "rudele (nu „părinții”)",
+    "explain": {
+      "it": "I parenti sono zii, cugini, nonni… «Părinți» si dice genitori.",
+      "ro": "I parenti sunt rudele: unchi, veri, bunici… «Părinții» se spune genitori."
+    },
+    "example": {
+      "it": "A Natale vengono tutti i parenti.",
+      "ro": "De Crăciun vin toate rudele."
+    },
+    "wordIds": [
+      "n-parente"
+    ],
+    "quiz": {
+      "question": {
+        "it": "Come si dice «părinți» in italiano?",
+        "ro": "Cum se spune «părinți» în italiană?"
+      },
+      "options": [
+        "genitori",
+        "parenti",
+        "nonni"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "falso-notizia",
+    "kind": "falso-amico",
+    "it": "la notizia",
+    "ro": "știrea (nu „notiță”)",
+    "explain": {
+      "it": "La notizia è un'informazione nuova, per esempio al telegiornale. Una «notiță» si dice appunto o nota.",
+      "ro": "La notizia este o informație nouă, de exemplu la telejurnal. O «notiță» se spune appunto sau nota."
+    },
+    "example": {
+      "it": "Ho una bella notizia!",
+      "ro": "Am o veste bună!"
+    },
+    "wordIds": [
+      "n-notizia"
+    ]
+  },
+  {
+    "id": "falso-mobile",
+    "kind": "falso-amico",
+    "it": "il mobile",
+    "ro": "piesa de mobilier (nu „mobil”)",
+    "explain": {
+      "it": "Il mobile è un mobile di casa: tavolo, armadio… Il telefono «mobil» si dice cellulare.",
+      "ro": "Il mobile este o piesă de mobilier: masă, dulap… Telefonul «mobil» se spune cellulare."
+    },
+    "example": {
+      "it": "Questo mobile è molto antico.",
+      "ro": "Piesa asta de mobilier e foarte veche."
+    },
+    "wordIds": [
+      "n-mobile"
+    ]
+  },
+  {
+    "id": "falso-fiera",
+    "kind": "falso-amico",
+    "it": "la fiera",
+    "ro": "târgul (nu „fiara”)",
+    "explain": {
+      "it": "La fiera è un grande mercato o un'esposizione. Un animale feroce si dice belva.",
+      "ro": "La fiera este un târg sau o expoziție. Un animal sălbatic se spune belva."
+    },
+    "example": {
+      "it": "Ogni anno vado alla fiera del libro.",
+      "ro": "În fiecare an merg la târgul de carte."
+    },
+    "wordIds": [
+      "n-fiera"
+    ]
+  },
+  {
+    "id": "falso-cassa",
+    "kind": "falso-amico",
+    "it": "la cassa",
+    "ro": "casa de marcat (nu „casă”)",
+    "explain": {
+      "it": "La cassa è il posto dove paghi in un negozio. La «casă» dove abiti si dice casa.",
+      "ro": "La cassa este locul unde plătești într-un magazin. «Casa» în care locuiești se spune casa."
+    },
+    "example": {
+      "it": "Si paga alla cassa.",
+      "ro": "Se plătește la casă."
+    },
+    "wordIds": [
+      "n-cassa"
+    ],
+    "quiz": {
+      "question": {
+        "it": "Dove paghi in un negozio?",
+        "ro": "Unde plătești într-un magazin?"
+      },
+      "options": [
+        "Alla cassa",
+        "Alla casa",
+        "Alla stazione"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "falso-cornetto",
+    "kind": "falso-amico",
+    "it": "il cornetto",
+    "ro": "croissantul (nu „cornetul”)",
+    "explain": {
+      "it": "Per colazione in Italia: cappuccino e cornetto. Il «cornet» di gelato si dice cono.",
+      "ro": "La micul dejun în Italia: cappuccino și cornetto. «Cornetul» de înghețată se spune cono."
+    },
+    "example": {
+      "it": "Un cappuccino e un cornetto, per favore.",
+      "ro": "Un cappuccino și un croissant, vă rog."
+    },
+    "wordIds": [
+      "n-cornetto"
+    ]
+  },
+  {
+    "id": "falso-lettera",
+    "kind": "falso-amico",
+    "it": "la lettera",
+    "ro": "scrisoarea (și „litera”)",
+    "explain": {
+      "it": "La lettera si manda per posta. È anche la «literă» dell'alfabeto: la lettera A.",
+      "ro": "La lettera este scrisoarea, trimisă prin poștă. Este și «litera» alfabetului: la lettera A."
+    },
+    "example": {
+      "it": "Ho scritto una lettera a mia nonna.",
+      "ro": "I-am scris o scrisoare bunicii mele."
+    },
+    "wordIds": [
+      "n-lettera"
+    ]
+  }
+]

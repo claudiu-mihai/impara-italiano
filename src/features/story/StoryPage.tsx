@@ -8,27 +8,15 @@ import type { GeneratedStory } from "../../domain/content/schema.ts";
 import type { Settings } from "../../domain/settings.ts";
 import { useT } from "../../i18n/index.ts";
 import { NATIVE_LANGUAGE } from "../../domain/content/constants.ts";
-import { speak, stopSpeaking, useTtsStatus, type Speaker } from "../../services/tts.ts";
+import { speak, stopSpeaking, useTtsStatus } from "../../services/tts.ts";
 import { AudioButton } from "../../ui/AudioButton.tsx";
 import { BilingualLabel } from "../../ui/BilingualLabel.tsx";
 import { primaryButton } from "../../ui/SessionDone.tsx";
 import { StudyHeader } from "../../ui/StudyHeader.tsx";
 import { Bubble } from "../dialogue/Bubble.tsx";
+import { fallbackSpeaker, flattenStory as flatten, storyAudioUrl as audioUrl } from "./storyLines.ts";
 
 const BACK_TO = "/learn/dialogues";
-
-/** Replicile poveștii într-un șir, fiecare cu scena ei (titlul scenei apare înaintea primei replici a scenei). */
-function flatten(story: GeneratedStory) {
-  return story.scenes.flatMap((scene) => scene.lines.map((line, i) => ({ ...line, scene, first: i === 0 })));
-}
-
-/** Vocea de rezervă (sistem) a personajului: naratorul și al doilea, al patrulea… personaj alternează cele două voci. */
-function fallbackSpeaker(story: GeneratedStory, speakerId: string): Speaker {
-  const characters = story.speakers.filter((s) => !s.narrator);
-  return Math.max(0, characters.findIndex((s) => s.id === speakerId)) % 2 === 0 ? 0 : 1;
-}
-
-const audioUrl = (file?: string) => (file ? `${import.meta.env.BASE_URL}audio/dialogues/${file}` : undefined);
 
 /** O poveste de ascultat: replicile apar una câte una, ca în „Ascultă” de la dialoguri, dar cu oricâte personaje și scene. */
 export function StoryPage() {

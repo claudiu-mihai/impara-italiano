@@ -37,6 +37,8 @@ test("Setări: parametrii avansați stau într-o secțiune „Avansat”, restr�
   for (const name of advanced) await expect(page.getByLabel(name)).toBeVisible();
 
   await page.getByLabel("Retenție țintă").selectOption("95");
+  // câmpul arată valoarea din baza de date: când rămâne 95, salvarea s-a încheiat și reîncărcarea nu o mai pierde
+  await expect(page.getByLabel("Retenție țintă")).toHaveValue("95");
   await page.reload();
   await page.getByText("Avansat", { exact: true }).click();
   await expect(page.getByLabel("Retenție țintă")).toHaveValue("95");

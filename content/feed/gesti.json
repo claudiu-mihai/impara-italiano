@@ -1,0 +1,178 @@
+[
+  {
+    "id": "gest-ma-che-vuoi",
+    "kind": "gesto",
+    "level": "A1",
+    "it": "Ma che vuoi?",
+    "ro": "Ce vrei? / Ce tot spui?",
+    "explain": {
+      "it": "Le dita di una mano sono unite a punta e si muovono su e giù. Vuol dire «ma che dici?» o «ma che vuoi?».",
+      "ro": "Degetele unei mâini sunt strânse în vârf și se mișcă sus-jos. Înseamnă «ce tot spui?» sau «ce vrei?»."
+    },
+    "example": {
+      "it": "Ma che vuoi?",
+      "ro": "Ce vrei?"
+    },
+    "emoji": "🤌",
+    "wordIds": []
+  },
+  {
+    "id": "gest-perfetto",
+    "kind": "gesto",
+    "level": "A1",
+    "it": "Perfetto!",
+    "ro": "Perfect!",
+    "explain": {
+      "it": "Il pollice e l'indice formano un cerchio e le altre dita restano aperte. Vuol dire «perfetto» o «tutto ok».",
+      "ro": "Degetul mare și arătătorul formează un cerc, iar celelalte degete rămân deschise. Înseamnă «perfect» sau «totul e ok»."
+    },
+    "example": {
+      "it": "Il caffè? Perfetto!",
+      "ro": "Cafeaua? Perfect!"
+    },
+    "emoji": "👌",
+    "wordIds": []
+  },
+  {
+    "id": "gest-squisito",
+    "kind": "gesto",
+    "level": "A1",
+    "it": "Squisito!",
+    "ro": "Delicios!",
+    "explain": {
+      "it": "Si mette un dito sulla guancia e lo si gira come per fare un buco. Vuol dire «che buono!».",
+      "ro": "Se pune un deget pe obraz și se răsucește ca și cum ai face o gaură. Înseamnă «ce bun e!»."
+    },
+    "example": {
+      "it": "Questa pizza è squisita!",
+      "ro": "Pizza asta e delicioasă!"
+    },
+    "emoji": "😋",
+    "wordIds": []
+  },
+  {
+    "id": "gest-non-mi-importa",
+    "kind": "gesto",
+    "level": "A2",
+    "it": "Non mi importa",
+    "ro": "Nu-mi pasă",
+    "explain": {
+      "it": "Il dorso della mano passa sotto il mento, avanti. Vuol dire «non mi importa» o «non ho niente da dire».",
+      "ro": "Dosul palmei trece pe sub bărbie, spre înainte. Înseamnă «nu-mi pasă» sau «n-am nimic de spus»."
+    },
+    "example": {
+      "it": "Cosa pensano gli altri? Non mi importa.",
+      "ro": "Ce cred ceilalți? Nu-mi pasă."
+    },
+    "emoji": "🤷",
+    "wordIds": []
+  },
+  {
+    "id": "gest-occhio",
+    "kind": "gesto",
+    "level": "A2",
+    "it": "Occhio!",
+    "ro": "Atenție!",
+    "explain": {
+      "it": "Con un dito si tocca la palpebra inferiore e la si abbassa un po'. Vuol dire «attenzione!» o «stai attento».",
+      "ro": "Cu un deget atingi pleoapa de jos și o tragi puțin în jos. Înseamnă «atenție!» sau «fii atent»."
+    },
+    "example": {
+      "it": "Occhio alla macchina!",
+      "ro": "Atenție la mașină!"
+    },
+    "emoji": "👁️",
+    "wordIds": []
+  },
+  {
+    "id": "gest-soldi",
+    "kind": "gesto",
+    "level": "A2",
+    "it": "I soldi",
+    "ro": "Banii",
+    "explain": {
+      "it": "Si sfregano il pollice e l'indice come per contare una banconota. Vuol dire «soldi» o «costa molto».",
+      "ro": "Se freacă degetul mare și arătătorul ca și cum ai număra o bancnotă. Înseamnă «bani» sau «costă mult»."
+    },
+    "example": {
+      "it": "Questa casa costa molti soldi.",
+      "ro": "Casa asta costă mulți bani."
+    },
+    "emoji": "💰",
+    "wordIds": []
+  },
+  {
+    "id": "gest-ciao",
+    "kind": "gesto",
+    "level": "A1",
+    "it": "Ciao!",
+    "ro": "Salut! / La revedere!",
+    "explain": {
+      "it": "Gli italiani salutano con la mano aperta, il palmo verso il basso, e muovono le dita avanti e indietro. Vuol dire «ciao» o «a presto».",
+      "ro": "Italienii salută cu palma deschisă, spre jos, mișcând degetele înainte și înapoi. Înseamnă «ciao» sau «pe curând»."
+    },
+    "example": {
+      "it": "Ciao, a domani!",
+      "ro": "Ciao, pe mâine!"
+    },
+    "emoji": "👋",
+    "wordIds": [
+      "int-ciao"
+    ]
+  },
+  {
+    "id": "gest-ma-dai",
+    "kind": "gesto",
+    "level": "A1",
+    "it": "Ma dai!",
+    "ro": "Haide, nu se poate! / Te rog!",
+    "explain": {
+      "it": "Le due mani sono unite davanti al petto, come per pregare. Vuol dire «ma dai!», «ti prego» o «che vuoi che faccia?».",
+      "ro": "Cele două mâini sunt unite în fața pieptului, ca la rugăciune. Înseamnă «haide!», «te rog» sau «ce vrei să fac?»."
+    },
+    "example": {
+      "it": "Ma dai! Non è possibile!",
+      "ro": "Haide! Nu se poate!"
+    },
+    "emoji": "🙏",
+    "wordIds": [
+      "e-dai"
+    ]
+  },
+  {
+    "id": "gest-bacio-dita",
+    "kind": "gesto",
+    "level": "A2",
+    "it": "Che buono!",
+    "ro": "Ce bun!",
+    "explain": {
+      "it": "Si baciano le dita riunite e si aprono nell'aria. Vuol dire «ottimo, che buono!».",
+      "ro": "Se sărută degetele strânse și se deschid în aer. Înseamnă «excelent, ce bun!»."
+    },
+    "example": {
+      "it": "Che buono questo gelato!",
+      "ro": "Ce bună e înghețata asta!"
+    },
+    "emoji": "😘",
+    "wordIds": [
+      "n-gelato"
+    ]
+  },
+  {
+    "id": "gest-pazzo",
+    "kind": "gesto",
+    "level": "A2",
+    "it": "È pazzo!",
+    "ro": "E nebun!",
+    "explain": {
+      "it": "Con un dito si fa un piccolo giro vicino alla tempia. Vuol dire «è pazzo» o «ha perso la testa». È scherzoso tra amici, ma può offendere.",
+      "ro": "Cu un deget faci un mic cerc lângă tâmplă. Înseamnă «e nebun» sau «și-a ieșit din minți». Între prieteni e în glumă, dar poate ofensa."
+    },
+    "example": {
+      "it": "Guida come un pazzo!",
+      "ro": "Conduce ca un nebun!"
+    },
+    "emoji": "🤪",
+    "wordIds": []
+  }
+]

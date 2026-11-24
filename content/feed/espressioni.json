@@ -1,0 +1,524 @@
+[
+  {
+    "id": "espr-in-bocca-al-lupo",
+    "kind": "espressione",
+    "level": "A1",
+    "it": "In bocca al lupo!",
+    "ro": "Baftă! (literal: „În gura lupului!”)",
+    "explain": {
+      "it": "Si dice per augurare fortuna. Si risponde «Crepi!».",
+      "ro": "Se spune ca urare de noroc. Se răspunde «Crepi!» (să moară lupul)."
+    },
+    "example": {
+      "it": "Domani hai l'esame? In bocca al lupo!",
+      "ro": "Mâine ai examen? Baftă!"
+    },
+    "wordIds": [
+      "n-bocca",
+      "n-lupo"
+    ],
+    "quiz": {
+      "question": {
+        "it": "Cosa si risponde a «In bocca al lupo»?",
+        "ro": "Ce răspunzi la «In bocca al lupo»?"
+      },
+      "options": [
+        "Crepi!",
+        "Grazie mille!",
+        "Anche tu!"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "espr-non-vedo-lora",
+    "kind": "espressione",
+    "level": "A1",
+    "it": "Non vedo l'ora!",
+    "ro": "Abia aștept!",
+    "explain": {
+      "it": "Si usa quando aspetti con gioia qualcosa che sta per succedere.",
+      "ro": "Se spune când aștepți cu bucurie ceva ce urmează să se întâmple."
+    },
+    "example": {
+      "it": "Domani andiamo al mare: non vedo l'ora!",
+      "ro": "Mâine mergem la mare: abia aștept!"
+    },
+    "wordIds": [
+      "v-vedere",
+      "n-ora"
+    ]
+  },
+  {
+    "id": "espr-magari",
+    "kind": "espressione",
+    "level": "A2",
+    "it": "Magari!",
+    "ro": "Măcar să fie așa! / Ce bine ar fi!",
+    "explain": {
+      "it": "Si dice quando desideri molto qualcosa che forse non succederà.",
+      "ro": "Se spune când îți dorești mult ceva ce probabil nu se va întâmpla."
+    },
+    "example": {
+      "it": "Vincere la lotteria? Magari!",
+      "ro": "Să câștig la loto? Măcar să fie așa!"
+    },
+    "wordIds": [
+      "adv-magari"
+    ]
+  },
+  {
+    "id": "espr-che-figata",
+    "kind": "espressione",
+    "level": "A2",
+    "it": "Che figata!",
+    "ro": "Ce mișto! / Ce tare!",
+    "explain": {
+      "it": "Espressione molto comune tra amici: significa «che bello!». È informale, non si usa con persone che non conosci.",
+      "ro": "Expresie foarte folosită între prieteni: înseamnă «ce frumos!». E informală, nu o spui unor persoane pe care nu le cunoști."
+    },
+    "example": {
+      "it": "Hai preso i biglietti per il concerto? Che figata!",
+      "ro": "Ai luat biletele pentru concert? Ce tare!"
+    },
+    "wordIds": [],
+    "quiz": {
+      "question": {
+        "it": "«Che figata!» si dice a…",
+        "ro": "«Che figata!» se spune cuiva…"
+      },
+      "options": [
+        "un amico",
+        "il tuo capo, in riunione",
+        "un poliziotto"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "espr-mi-raccomando",
+    "kind": "espressione",
+    "level": "A2",
+    "it": "Mi raccomando!",
+    "ro": "Să ai grijă! / Fii atent!",
+    "explain": {
+      "it": "Si dice alla fine di una frase per chiedere attenzione: «non dimenticare», «fai bene».",
+      "ro": "Se spune la sfârșitul unei fraze ca să ceri atenție: «nu uita», «fă bine»."
+    },
+    "example": {
+      "it": "Domani alle otto, mi raccomando!",
+      "ro": "Mâine la opt, să nu uiți!"
+    },
+    "wordIds": [],
+    "quiz": {
+      "question": {
+        "it": "Cosa vuol dire «mi raccomando» alla fine di una frase?",
+        "ro": "Ce înseamnă «mi raccomando» la sfârșitul unei fraze?"
+      },
+      "options": [
+        "Să nu uiți!",
+        "Rămas bun!",
+        "Cu plăcere!"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "espr-che-peccato",
+    "kind": "espressione",
+    "level": "A2",
+    "it": "Che peccato!",
+    "ro": "Ce păcat!",
+    "explain": {
+      "it": "Si dice quando qualcosa è andato male o non si può fare. Non è una cosa grave.",
+      "ro": "Se spune când ceva a ieșit prost sau nu se poate face. Nu e ceva grav."
+    },
+    "example": {
+      "it": "Non puoi venire alla festa? Che peccato!",
+      "ro": "Nu poți veni la petrecere? Ce păcat!"
+    },
+    "wordIds": [
+      "n-peccato"
+    ]
+  },
+  {
+    "id": "espr-figurati",
+    "kind": "espressione",
+    "level": "A1",
+    "it": "Figurati!",
+    "ro": "Cu plăcere! / Nicio problemă!",
+    "explain": {
+      "it": "Risposta a «grazie» tra amici. Con una persona che non conosci si dice «Si figuri!».",
+      "ro": "Răspuns la «mulțumesc» între prieteni. Cu o persoană pe care nu o cunoști se spune «Si figuri!»."
+    },
+    "example": {
+      "it": "— Grazie per l'aiuto! — Figurati!",
+      "ro": "— Mulțumesc pentru ajutor! — Cu plăcere!"
+    },
+    "wordIds": [
+      "e-figurati"
+    ],
+    "quiz": {
+      "question": {
+        "it": "Come rispondi a «Grazie!» a un amico?",
+        "ro": "Cum răspunzi la «Grazie!» unui prieten?"
+      },
+      "options": [
+        "Figurati!",
+        "Piacere!",
+        "Magari!"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "espr-dai",
+    "kind": "espressione",
+    "level": "A1",
+    "it": "Dai!",
+    "ro": "Hai! / Haide! / Zău?",
+    "explain": {
+      "it": "Serve a incoraggiare («dai, andiamo!») ma anche a non credere a qualcosa («dai, davvero?»). Conta il tono.",
+      "ro": "Servește ca să încurajezi («dai, andiamo!») sau ca să nu crezi ceva («dai, davvero?»). Contează tonul."
+    },
+    "example": {
+      "it": "Dai, andiamo al bar!",
+      "ro": "Hai, mergem la bar!"
+    },
+    "wordIds": [
+      "e-dai"
+    ]
+  },
+  {
+    "id": "espr-boh",
+    "kind": "espressione",
+    "level": "A1",
+    "it": "Boh!",
+    "ro": "Habar n-am!",
+    "explain": {
+      "it": "Si dice quando non sai la risposta, con un'alzata di spalle. È molto informale.",
+      "ro": "Se spune când nu știi răspunsul, ridicând din umeri. Foarte informal."
+    },
+    "example": {
+      "it": "— Dov'è Marco? — Boh!",
+      "ro": "— Unde e Marco? — Habar n-am!"
+    },
+    "wordIds": [
+      "e-boh"
+    ],
+    "quiz": {
+      "question": {
+        "it": "«Boh!» vuol dire…",
+        "ro": "«Boh!» înseamnă…"
+      },
+      "options": [
+        "Non lo so",
+        "Va bene",
+        "Che bello"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "espr-meno-male",
+    "kind": "espressione",
+    "level": "A2",
+    "it": "Meno male!",
+    "ro": "Slavă Domnului! / Ce noroc!",
+    "explain": {
+      "it": "Si dice quando un problema è finito bene, con sollievo.",
+      "ro": "Se spune când o problemă s-a terminat bine, cu ușurare."
+    },
+    "example": {
+      "it": "Meno male che hai preso l'ombrello!",
+      "ro": "Slavă Domnului că ai luat umbrela!"
+    },
+    "wordIds": [
+      "adv-meno"
+    ]
+  },
+  {
+    "id": "espr-che-bello",
+    "kind": "espressione",
+    "level": "A1",
+    "it": "Che bello!",
+    "ro": "Ce frumos! / Ce bine!",
+    "explain": {
+      "it": "Esprime gioia o piacere per qualcosa, non solo per cose belle da vedere.",
+      "ro": "Exprimă bucurie sau plăcere pentru ceva, nu doar pentru lucruri frumoase la vedere."
+    },
+    "example": {
+      "it": "Domani non lavoro. Che bello!",
+      "ro": "Mâine nu lucrez. Ce bine!"
+    },
+    "wordIds": []
+  },
+  {
+    "id": "espr-ci-vediamo",
+    "kind": "espressione",
+    "level": "A1",
+    "it": "Ci vediamo!",
+    "ro": "Ne vedem! / Pe curând!",
+    "explain": {
+      "it": "Si dice quando saluti qualcuno che pensi di rivedere presto. Letteralmente: «ci vediamo».",
+      "ro": "Se spune când saluți pe cineva pe care crezi că îl vei revedea curând."
+    },
+    "example": {
+      "it": "Ci vediamo domani!",
+      "ro": "Ne vedem mâine!"
+    },
+    "wordIds": [
+      "v-vedere"
+    ]
+  },
+  {
+    "id": "espr-a-dopo",
+    "kind": "espressione",
+    "level": "A1",
+    "it": "A dopo!",
+    "ro": "Pe mai târziu!",
+    "explain": {
+      "it": "Si dice quando ti rivedi nella stessa giornata.",
+      "ro": "Se spune când vă revedeți în aceeași zi."
+    },
+    "example": {
+      "it": "Vado a pranzo, a dopo!",
+      "ro": "Mă duc la prânz, pe mai târziu!"
+    },
+    "wordIds": [],
+    "quiz": {
+      "question": {
+        "it": "Quando dici «a dopo»?",
+        "ro": "Când spui «a dopo»?"
+      },
+      "options": [
+        "Ti rivedi oggi",
+        "Ti rivedi tra un anno",
+        "Non ti rivedi più"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "espr-salute",
+    "kind": "espressione",
+    "level": "A2",
+    "it": "Salute!",
+    "ro": "Noroc! / Sănătate!",
+    "explain": {
+      "it": "Si dice dopo uno starnuto e quando si brinda. Al brindisi si dice anche «cin cin».",
+      "ro": "Se spune după strănut și când ciocnești un pahar. La toast se spune și «cin cin»."
+    },
+    "example": {
+      "it": "Salute! E buon compleanno!",
+      "ro": "Noroc! Și la mulți ani!"
+    },
+    "wordIds": [
+      "n-salute"
+    ]
+  },
+  {
+    "id": "espr-buon-appetito",
+    "kind": "espressione",
+    "level": "A1",
+    "it": "Buon appetito!",
+    "ro": "Poftă bună!",
+    "explain": {
+      "it": "Si dice prima di mangiare, anche a persone che non conosci, per esempio al ristorante.",
+      "ro": "Se spune înainte de masă, chiar și unor persoane pe care nu le cunoști, de exemplu la restaurant."
+    },
+    "example": {
+      "it": "Buon appetito a tutti!",
+      "ro": "Poftă bună tuturor!"
+    },
+    "wordIds": []
+  },
+  {
+    "id": "espr-piacere",
+    "kind": "espressione",
+    "level": "A1",
+    "it": "Piacere!",
+    "ro": "Încântat! / Îmi pare bine!",
+    "explain": {
+      "it": "Si dice quando conosci una persona: «Piacere, sono Marco». Anche «molto piacere».",
+      "ro": "Se spune când cunoști o persoană: «Piacere, sono Marco». Și «molto piacere»."
+    },
+    "example": {
+      "it": "Piacere, sono Elena.",
+      "ro": "Încântată, sunt Elena."
+    },
+    "wordIds": [
+      "e-piacere"
+    ],
+    "quiz": {
+      "question": {
+        "it": "Cosa dici quando conosci una persona?",
+        "ro": "Ce spui când cunoști o persoană?"
+      },
+      "options": [
+        "Piacere!",
+        "Figurati!",
+        "Salute!"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "espr-non-ce-problema",
+    "kind": "espressione",
+    "level": "A1",
+    "it": "Non c'è problema!",
+    "ro": "Nicio problemă!",
+    "explain": {
+      "it": "Si risponde a una richiesta o a delle scuse, per dire che va bene.",
+      "ro": "Se răspunde la o cerere sau la scuze, ca să spui că e în regulă."
+    },
+    "example": {
+      "it": "— Scusa il ritardo. — Non c'è problema!",
+      "ro": "— Scuze pentru întârziere. — Nicio problemă!"
+    },
+    "wordIds": []
+  },
+  {
+    "id": "espr-va-bene",
+    "kind": "espressione",
+    "level": "A1",
+    "it": "Va bene!",
+    "ro": "Bine! / De acord!",
+    "explain": {
+      "it": "Risposta breve per accettare una proposta. Una delle frasi più usate in italiano.",
+      "ro": "Răspuns scurt ca să accepți o propunere. Una dintre cele mai folosite fraze în italiană."
+    },
+    "example": {
+      "it": "Ci vediamo alle otto? Va bene!",
+      "ro": "Ne vedem la opt? Bine!"
+    },
+    "wordIds": []
+  },
+  {
+    "id": "espr-mi-dispiace",
+    "kind": "espressione",
+    "level": "A1",
+    "it": "Mi dispiace!",
+    "ro": "Îmi pare rău!",
+    "explain": {
+      "it": "Si dice per chiedere scusa o per mostrare dispiacere. Non vuol dire «mi displace»: vuol dire «sono dispiaciuto».",
+      "ro": "Se spune ca să ceri scuze sau să arăți regret. Atenție: nu înseamnă «nu-mi place», ci «îmi pare rău»."
+    },
+    "example": {
+      "it": "Mi dispiace, non ho capito.",
+      "ro": "Îmi pare rău, nu am înțeles."
+    },
+    "wordIds": [],
+    "quiz": {
+      "question": {
+        "it": "«Mi dispiace» vuol dire…",
+        "ro": "«Mi dispiace» înseamnă…"
+      },
+      "options": [
+        "Îmi pare rău",
+        "Nu-mi place",
+        "Mă bucur"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "espr-insomma",
+    "kind": "espressione",
+    "level": "A2",
+    "it": "Insomma…",
+    "ro": "Așa și așa… / Pe scurt…",
+    "explain": {
+      "it": "Come risposta a «come stai?» vuol dire «così così». All'inizio di una frase vuol dire «in conclusione».",
+      "ro": "Ca răspuns la «come stai?» înseamnă «așa și așa». La începutul unei fraze înseamnă «pe scurt»."
+    },
+    "example": {
+      "it": "— Com'è andato l'esame? — Insomma…",
+      "ro": "— Cum a fost examenul? — Așa și așa…"
+    },
+    "wordIds": [
+      "e-insomma"
+    ]
+  },
+  {
+    "id": "espr-che-ne-so",
+    "kind": "espressione",
+    "level": "A2",
+    "it": "Che ne so?",
+    "ro": "De unde să știu?",
+    "explain": {
+      "it": "Domanda retorica: «come faccio a saperlo?». Può sembrare un po' brusca.",
+      "ro": "Întrebare retorică: «de unde să știu eu?». Poate suna puțin brusc."
+    },
+    "example": {
+      "it": "— Che ora è? — Che ne so, non ho l'orologio!",
+      "ro": "— Cât e ceasul? — De unde să știu, n-am ceas!"
+    },
+    "wordIds": []
+  },
+  {
+    "id": "espr-tutto-a-posto",
+    "kind": "espressione",
+    "level": "A1",
+    "it": "Tutto a posto?",
+    "ro": "Totul e în regulă?",
+    "explain": {
+      "it": "Domanda amichevole: «va tutto bene?». Si risponde «Tutto a posto!».",
+      "ro": "Întrebare prietenoasă: «totul e bine?». Se răspunde «Tutto a posto!»."
+    },
+    "example": {
+      "it": "Ciao Luca! Tutto a posto?",
+      "ro": "Salut, Luca! Totul în regulă?"
+    },
+    "wordIds": []
+  },
+  {
+    "id": "espr-per-fortuna",
+    "kind": "espressione",
+    "level": "A2",
+    "it": "Per fortuna!",
+    "ro": "Din fericire! / Slavă cerului!",
+    "explain": {
+      "it": "Si dice quando qualcosa è andato bene, per caso o per aiuto del destino.",
+      "ro": "Se spune când ceva a mers bine, întâmplător sau cu ajutorul sorții."
+    },
+    "example": {
+      "it": "Per fortuna non pioveva.",
+      "ro": "Din fericire nu ploua."
+    },
+    "wordIds": []
+  },
+  {
+    "id": "espr-alla-grande",
+    "kind": "espressione",
+    "level": "A2",
+    "it": "Alla grande!",
+    "ro": "Excelent! / Foarte bine!",
+    "explain": {
+      "it": "Risposta entusiasta a «come va?» o «com'è andata?». Informale.",
+      "ro": "Răspuns entuziast la «come va?» sau «com'è andata?». Informal."
+    },
+    "example": {
+      "it": "— Come va? — Alla grande!",
+      "ro": "— Cum merge? — Excelent!"
+    },
+    "wordIds": []
+  },
+  {
+    "id": "espr-che-noia",
+    "kind": "espressione",
+    "level": "A1",
+    "it": "Che noia!",
+    "ro": "Ce plictiseală!",
+    "explain": {
+      "it": "Si dice quando qualcosa è molto noioso o non c'è niente da fare.",
+      "ro": "Se spune când ceva e foarte plictisitor sau nu ai ce face."
+    },
+    "example": {
+      "it": "Piove e non ho niente da fare. Che noia!",
+      "ro": "Plouă și n-am ce face. Ce plictiseală!"
+    },
+    "wordIds": []
+  }
+]

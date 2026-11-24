@@ -41,7 +41,7 @@ for (const scheme of ["light", "dark"] as const) {
       await seedLearnedWords(page, LEARNED);
       await page.goto("/settings");
       await page.getByLabel("Limba interfeței / Lingua dell'interfaccia").selectOption("it");
-      await expect(page.getByRole("heading", { name: "Impostazioni", level: 1 })).toBeVisible();
+      await expect(page.getByRole("heading", { name: "Opzioni", level: 1 })).toBeVisible();
 
       for (const [path, ready] of [
         ["/", "Impara l'italiano con Lupino"],
@@ -49,7 +49,7 @@ for (const scheme of ["light", "dark"] as const) {
         ["/browse", "Dizionario"],
         ["/browse/v-parlare", "parlare"],
         ["/stats", "Statistiche"],
-        ["/settings", "Impostazioni"],
+        ["/settings", "Opzioni"],
         ["/about", "Informazioni"],
         ["/learn/topics", "Temi"],
         ["/learn/topics/zilele-saptamanii", "I giorni della settimana"],

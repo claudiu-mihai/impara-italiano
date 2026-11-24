@@ -89,3 +89,9 @@ test("butoanele de evaluare: simple la instalări noi, complete pentru setările
   expect(withSettingDefaults({ direction: "it-ro" }).ratingMode).toBe("full");
   expect(withSettingDefaults({ ratingMode: "simple" }).ratingMode).toBe("simple");
 });
+
+test("„Pornește în Flux” e oprită implicit, inclusiv în setările vechi, iar valoarea salvată se păstrează", () => {
+  expect(DEFAULT_SETTINGS.startInFeed).toBe(false);
+  expect(withSettingDefaults({}).startInFeed).toBe(false);
+  expect(withSettingDefaults({ startInFeed: true }).startInFeed).toBe(true);
+});

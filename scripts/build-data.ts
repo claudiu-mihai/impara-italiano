@@ -4,6 +4,7 @@ import { resolve } from "node:path";
 import { encodeWords } from "../src/domain/content/wordsCodec.ts";
 import { metaSchema, type ContentMeta } from "../src/domain/content/schema.ts";
 import { DIALOGUE_AUDIO_DIR, withDialogueAudio } from "./audio/dialogueAudio.ts";
+import { FEED_AUDIO_DIR, feedAudioJobs, withFeedAudio } from "./audio/feedAudio.ts";
 import { withStoryAudio } from "./audio/storyAudio.ts";
 import { recordingsIndex, WORD_AUDIO_DIR } from "./audio/wordAudio.ts";
 import { loadContent, ROOT } from "./content.ts";
@@ -31,7 +32,7 @@ const SOURCES = [
   },
 ];
 
-const { words, conjugations, romanian, sentences, topics, grammar, dialogues, stories, videos, rankBasis, explicitPresenteCount, presenteIrregular, errors } = loadContent();
+const { words, conjugations, romanian, sentences, topics, grammar, dialogues, stories, pack, videos, rankBasis, explicitPresenteCount, presenteIrregular, errors } = loadContent();
 
 if (errors.length > 0) {
   console.error(`Conținut invalid: ${errors.length} erori`);
@@ -88,6 +89,12 @@ const audioVariants = dialoguesWithAudio.flatMap((d) => d.lines).reduce((n, l) =
 const storiesWithAudio = stories.map((s) => withStoryAudio(s, (file) => existsSync(resolve(audioDir, file))));
 const storiesJson = lines(storiesWithAudio);
 const storyLines = storiesWithAudio.flatMap((s) => s.scenes.flatMap((scene) => scene.lines));
+// feed.json: pachetul fluxului, un item pe linie, încărcat doar de ecranul Flux
+const feedAudioDir = resolve(ROOT, FEED_AUDIO_DIR);
+const packWithAudio = pack.map((item) => withFeedAudio(item, (file) => existsSync(resolve(feedAudioDir, file))));
+const feedJson = lines(packWithAudio);
+const feedTexts = feedAudioJobs(pack);
+const feedAudioCount = feedTexts.filter((j) => existsSync(resolve(feedAudioDir, j.file))).length;
 const presenteIrregularJson = lines(presenteIrregular);
 // recordings.json: textul rostit → înregistrarea (cuvintele A1), încărcat de `speak()` după pornire
 const wordAudioDir = resolve(ROOT, WORD_AUDIO_DIR);
@@ -105,6 +112,7 @@ const dataVersion = createHash("sha256")
   .update(grammarJson)
   .update(dialoguesJson)
   .update(storiesJson)
+  .update(feedJson)
   .update(presenteIrregularJson)
   .update(recordingsJson)
   .digest("hex")
@@ -130,6 +138,7 @@ writeFileSync(resolve(OUT_DIR, "guide.json"), guideJson);
 writeFileSync(resolve(OUT_DIR, "grammar.json"), grammarJson);
 writeFileSync(resolve(OUT_DIR, "dialogues.json"), dialoguesJson);
 writeFileSync(resolve(OUT_DIR, "stories.json"), storiesJson);
+writeFileSync(resolve(OUT_DIR, "feed.json"), feedJson);
 writeFileSync(resolve(OUT_DIR, "presenteIrregular.json"), presenteIrregularJson);
 writeFileSync(resolve(OUT_DIR, "recordings.json"), recordingsJson);
 // clipurile nu intră în dataVersion: sunt fișiere separate, nu date sincronizate
@@ -137,6 +146,6 @@ writeFileSync(resolve(OUT_DIR, "videos.json"), `${JSON.stringify(videos, null, 1
 writeFileSync(resolve(OUT_DIR, "meta.json"), `${JSON.stringify(meta, null, 2)}\n`);
 
 console.log(
-  `Date generate: ${words.length} cuvinte, ${Object.keys(conjugations).length} verbe conjugate (${Object.keys(romanian).length} cu conjugare activă), ${sentences.length} propoziții, ${topics.length} teme, ${grammar.length} teme de gramatică, ${dialogues.length} dialoguri (audio: ${audioVariants}/${lineVariants} replici), ${stories.length} povești (audio: ${storyLines.filter((l) => l.audio).length}/${storyLines.length} replici), ${Object.keys(recordings).length} cuvinte cu audio, ${Object.keys(videos).length} cuvinte cu clip video ` +
+  `Date generate: ${words.length} cuvinte, ${Object.keys(conjugations).length} verbe conjugate (${Object.keys(romanian).length} cu conjugare activă), ${sentences.length} propoziții, ${topics.length} teme, ${grammar.length} teme de gramatică, ${dialogues.length} dialoguri (audio: ${audioVariants}/${lineVariants} replici), ${pack.length} itemi în flux (audio: ${feedAudioCount}/${feedTexts.length} texte), ${stories.length} povești (audio: ${storyLines.filter((l) => l.audio).length}/${storyLines.length} replici), ${Object.keys(recordings).length} cuvinte cu audio, ${Object.keys(videos).length} cuvinte cu clip video ` +
     `(${explicitPresenteCount} presente din irregular.json), versiune ${dataVersion} → ${OUT_DIR}`,
 );
