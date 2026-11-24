@@ -133,7 +133,7 @@
     { "id": "plu-17", "it": "Vivono a Malta da anni.", "gap": "a", "ro": "Ei locuiesc în Malta de ani buni.", "note": "insulă mică: a, ca la oraș", "noteIt": "isola piccola: a, come per le città" },
     { "id": "plu-18", "it": "Passiamo il weekend in Sicilia.", "gap": "in", "ro": "Ne petrecem weekendul în Sicilia.", "note": "insulă mare: in, ca la regiune", "noteIt": "isola grande: in, come per le regioni" },
     { "id": "plu-19", "it": "Domenica mangiamo dai nonni.", "gap": "dai", "ro": "Duminică mâncăm la bunici.", "note": "la cineva: da + i", "noteIt": "da qualcuno: da + i" },
-    { "id": "plu-20", "it": "Ci vediamo alla stazione.", "gap": "alla", "ro": "Ne vedem la gară.", "note": "a + la stazione", "noteIt": "a + la stazione" },
+    { "id": "plu-20", "it": "Aspetto Luca alla fermata.", "gap": "alla", "ro": "Îl aștept pe Luca la stație.", "note": "a + la fermata", "noteIt": "a + la fermata" },
     { "id": "plu-21", "it": "Passo in farmacia dopo il lavoro.", "gap": "in", "ro": "Trec pe la farmacie după serviciu.", "note": "magazin, clădire: in, fără articol", "noteIt": "negozio, edificio: in, senza articolo" },
     { "id": "plu-22", "it": "Vengo da Parigi, ma abito a Milano.", "gap": "da", "ro": "Vin din Paris, dar locuiesc la Milano.", "note": "de unde vii: da + oraș", "noteIt": "da dove vieni: da + città" },
     { "id": "plu-23", "it": "Domani andiamo al cinema con Luca.", "gap": "al", "ro": "Mâine mergem la cinema cu Luca.", "note": "al cinema, al bar, al mare", "noteIt": "al cinema, al bar, al mare" },

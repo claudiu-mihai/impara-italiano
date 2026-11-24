@@ -99,7 +99,7 @@
     { "id": "ptm-03", "it": "Mangiamo a mezzogiorno.", "gap": "a", "ro": "Mâncăm la amiază.", "note": "mezzogiorno: fără articol", "noteIt": "mezzogiorno: senza articolo" },
     { "id": "ptm-04", "it": "Sono nato nel 1990.", "gap": "nel", "ro": "M-am născut în 1990.", "note": "anul: in + il", "noteIt": "l'anno: in + il" },
     { "id": "ptm-05", "it": "In primavera fa già caldo.", "gap": "In", "ro": "Primăvara e deja cald.", "note": "anotimp: in primavera (vara: in estate sau d'estate)", "noteIt": "stagione: in primavera (estate: in estate o d'estate)" },
-    { "id": "ptm-06", "it": "Preferisco studiare di sera.", "gap": "di", "ro": "Prefer să învăț seara.", "note": "momentul zilei: di sera", "noteIt": "il momento della giornata: di sera" },
+    { "id": "ptm-06", "it": "Il treno parte alle sette e mezza.", "gap": "alle", "ro": "Trenul pleacă la șapte și jumătate.", "note": "ora: a + le", "noteIt": "l'ora: a + le" },
     { "id": "ptm-07", "it": "Studio l'italiano da tre anni.", "gap": "da", "ro": "Învăț italiana de trei ani.", "note": "încă învăț: da + prezent", "noteIt": "studio ancora: da + presente" },
     { "id": "ptm-08", "it": "Ho vissuto a Roma per due anni.", "gap": "per", "ro": "Am locuit la Roma timp de doi ani.", "note": "perioadă încheiată: per", "noteIt": "periodo concluso: per" },
     { "id": "ptm-09", "it": "Ho finito il lavoro in due ore.", "gap": "in", "ro": "Am terminat treaba în două ore.", "note": "cât ți-a luat: in", "noteIt": "quanto ci è voluto: in" },
