@@ -14,12 +14,13 @@ const WORDS = [
   word("sviluppare", "B1"),
 ];
 
-test("cuvintele A1, cu textul rostit în aplicație (substantivele cu articol), vocea lui Francesco, fără dubluri", () => {
+test("cuvintele A1–B2, cu textul rostit în aplicație (substantivele cu articol), vocea lui Francesco, fără dubluri", () => {
   expect(wordAudioJobs(WORDS)).toEqual([
     { voice: "francesco", text: "essere", file: audioFileName("francesco", "essere") },
     { voice: "francesco", text: "il caffè", file: audioFileName("francesco", "il caffè") },
     { voice: "francesco", text: "l'acqua", file: audioFileName("francesco", "l'acqua") },
     { voice: "francesco", text: "il calcio", file: audioFileName("francesco", "il calcio") },
+    { voice: "francesco", text: "sviluppare", file: audioFileName("francesco", "sviluppare") },
   ]);
 });
 
