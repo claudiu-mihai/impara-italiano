@@ -4,6 +4,18 @@ Formatul urmează [Keep a Changelog](https://keepachangelog.com/ro/1.1.0/), iar 
 [versionarea semantică](https://semver.org/lang/ro/). Intrările noi sunt scrise automat de release-please din
 commit-urile `feat:` / `fix:` (vezi README, „Versionare și release-uri”).
 
+## [1.26.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.25.0...v1.26.0) (2026-11-24)
+
+
+### Funcționalități
+
+* **flux:** învățat prin scrolling, cu repetiții deghizate și teste de o atingere ([#72](https://github.com/claudiu-mihai/impara-italiano/issues/72)) ([0c6cfcf](https://github.com/claudiu-mihai/impara-italiano/commit/0c6cfcf2c85e588d98cf60ad1e6fd2e260fc223f))
+
+
+### Corecturi
+
+* **teste:** titlul scenei din poveste se verifică împreună cu traducerea ([#74](https://github.com/claudiu-mihai/impara-italiano/issues/74)) ([695a5fb](https://github.com/claudiu-mihai/impara-italiano/commit/695a5fb00c20fd838831c6189b9d72030dcb7242))
+
 ## [1.25.0](https://github.com/claudiu-mihai/impara-italiano/compare/v1.24.0...v1.25.0) (2026-11-24)
 
 
