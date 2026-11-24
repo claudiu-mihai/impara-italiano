@@ -1,0 +1,46 @@
+[
+  {
+    "id": "espr-in-bocca-al-lupo",
+    "kind": "espressione",
+    "level": "A1",
+    "it": "In bocca al lupo!",
+    "ro": "Baftă! (literal: „În gura lupului!”)",
+    "explain": {
+      "it": "Si dice per augurare fortuna. Si risponde «Crepi!».",
+      "ro": "Se spune ca urare de noroc. Se răspunde «Crepi!» (să moară lupul)."
+    },
+    "example": { "it": "Domani hai l'esame? In bocca al lupo!", "ro": "Mâine ai examen? Baftă!" },
+    "wordIds": ["n-bocca", "n-lupo"],
+    "quiz": {
+      "question": { "it": "Cosa si risponde a «In bocca al lupo»?", "ro": "Ce răspunzi la «In bocca al lupo»?" },
+      "options": ["Crepi!", "Grazie mille!", "Anche tu!"],
+      "answer": 0
+    }
+  },
+  {
+    "id": "espr-non-vedo-lora",
+    "kind": "espressione",
+    "level": "A1",
+    "it": "Non vedo l'ora!",
+    "ro": "Abia aștept!",
+    "explain": {
+      "it": "Si usa quando aspetti con gioia qualcosa che sta per succedere.",
+      "ro": "Se spune când aștepți cu bucurie ceva ce urmează să se întâmple."
+    },
+    "example": { "it": "Domani andiamo al mare: non vedo l'ora!", "ro": "Mâine mergem la mare: abia aștept!" },
+    "wordIds": ["v-vedere", "n-ora"]
+  },
+  {
+    "id": "espr-magari",
+    "kind": "espressione",
+    "level": "A2",
+    "it": "Magari!",
+    "ro": "Măcar să fie așa! / Ce bine ar fi!",
+    "explain": {
+      "it": "Si dice quando desideri molto qualcosa che forse non succederà.",
+      "ro": "Se spune când îți dorești mult ceva ce probabil nu se va întâmpla."
+    },
+    "example": { "it": "Vincere la lotteria? Magari!", "ro": "Să câștig la loto? Măcar să fie așa!" },
+    "wordIds": ["adv-magari"]
+  }
+]

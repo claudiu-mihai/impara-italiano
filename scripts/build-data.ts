@@ -31,7 +31,7 @@ const SOURCES = [
   },
 ];
 
-const { words, conjugations, romanian, sentences, topics, grammar, dialogues, stories, rankBasis, explicitPresenteCount, presenteIrregular, errors } = loadContent();
+const { words, conjugations, romanian, sentences, topics, grammar, dialogues, stories, pack, rankBasis, explicitPresenteCount, presenteIrregular, errors } = loadContent();
 
 if (errors.length > 0) {
   console.error(`Conținut invalid: ${errors.length} erori`);
@@ -88,6 +88,8 @@ const audioVariants = dialoguesWithAudio.flatMap((d) => d.lines).reduce((n, l) =
 const storiesWithAudio = stories.map((s) => withStoryAudio(s, (file) => existsSync(resolve(audioDir, file))));
 const storiesJson = lines(storiesWithAudio);
 const storyLines = storiesWithAudio.flatMap((s) => s.scenes.flatMap((scene) => scene.lines));
+// feed.json: pachetul fluxului, un item pe linie, încărcat doar de ecranul Flux
+const feedJson = lines(pack);
 const presenteIrregularJson = lines(presenteIrregular);
 // recordings.json: textul rostit → înregistrarea (cuvintele A1), încărcat de `speak()` după pornire
 const wordAudioDir = resolve(ROOT, WORD_AUDIO_DIR);
@@ -105,6 +107,7 @@ const dataVersion = createHash("sha256")
   .update(grammarJson)
   .update(dialoguesJson)
   .update(storiesJson)
+  .update(feedJson)
   .update(presenteIrregularJson)
   .update(recordingsJson)
   .digest("hex")
@@ -130,11 +133,12 @@ writeFileSync(resolve(OUT_DIR, "guide.json"), guideJson);
 writeFileSync(resolve(OUT_DIR, "grammar.json"), grammarJson);
 writeFileSync(resolve(OUT_DIR, "dialogues.json"), dialoguesJson);
 writeFileSync(resolve(OUT_DIR, "stories.json"), storiesJson);
+writeFileSync(resolve(OUT_DIR, "feed.json"), feedJson);
 writeFileSync(resolve(OUT_DIR, "presenteIrregular.json"), presenteIrregularJson);
 writeFileSync(resolve(OUT_DIR, "recordings.json"), recordingsJson);
 writeFileSync(resolve(OUT_DIR, "meta.json"), `${JSON.stringify(meta, null, 2)}\n`);
 
 console.log(
-  `Date generate: ${words.length} cuvinte, ${Object.keys(conjugations).length} verbe conjugate (${Object.keys(romanian).length} cu conjugare activă), ${sentences.length} propoziții, ${topics.length} teme, ${grammar.length} teme de gramatică, ${dialogues.length} dialoguri (audio: ${audioVariants}/${lineVariants} replici), ${stories.length} povești (audio: ${storyLines.filter((l) => l.audio).length}/${storyLines.length} replici), ${Object.keys(recordings).length} cuvinte cu audio ` +
+  `Date generate: ${words.length} cuvinte, ${Object.keys(conjugations).length} verbe conjugate (${Object.keys(romanian).length} cu conjugare activă), ${sentences.length} propoziții, ${topics.length} teme, ${grammar.length} teme de gramatică, ${dialogues.length} dialoguri (audio: ${audioVariants}/${lineVariants} replici), ${pack.length} itemi în flux, ${stories.length} povești (audio: ${storyLines.filter((l) => l.audio).length}/${storyLines.length} replici), ${Object.keys(recordings).length} cuvinte cu audio ` +
     `(${explicitPresenteCount} presente din irregular.json), versiune ${dataVersion} → ${OUT_DIR}`,
 );

@@ -35,6 +35,7 @@ const ALLOWED: { file: string; text: string; why: string }[] = [
   { file: "src/domain/content/schema.ts", text: "aceeași formă ca „rows”", why: "mesaj de validare la build" },
   { file: "src/domain/dialogue/check.ts", text: "problems.push(", why: "mesaje de validare la build" },
   { file: "src/domain/story/check.ts", text: "problems.push(", why: "mesaje de validare la build" },
+  { file: "src/domain/feed/check.ts", text: "problems.push(", why: "mesaje de validare la build" },
   { file: "src/domain/dialogue/gender.ts", text: "problems.push(", why: "mesaje de validare la build" },
 ];
 

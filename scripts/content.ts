@@ -8,6 +8,9 @@ import {
   grammarTopicSchema,
   storySchema,
   type Story,
+  packFileSchema,
+  type PackItem,
+  type GeneratedPackItem,
   romanianVerbSchema,
   sentencesSchema,
   topicSchema,
@@ -33,6 +36,7 @@ import { TOPIC_SENTENCE_MIN, topicSentences } from "../src/domain/sentence/sente
 import { romanianForms, type RoConjugations } from "../src/domain/conjugation/romanian.ts";
 import { dialogueProblems } from "../src/domain/dialogue/check.ts";
 import { storyProblems } from "../src/domain/story/check.ts";
+import { packProblems, resolvePackLevel } from "../src/domain/feed/check.ts";
 
 export const ROOT = resolve(import.meta.dirname, "..");
 const WORDS_DIR = resolve(ROOT, "content/words");
@@ -43,6 +47,7 @@ const TOPICS_DIR = resolve(ROOT, "content/topics");
 const GRAMMAR_DIR = resolve(ROOT, "content/grammar");
 const DIALOGUES_DIR = resolve(ROOT, "content/dialogues");
 const STORIES_DIR = resolve(ROOT, "content/stories");
+const PACK_DIR = resolve(ROOT, "content/feed");
 
 /** Propozițiile mai scurte de atât nu fac un exercițiu de ordonare. */
 const MIN_TOKENS = 3;
@@ -65,6 +70,8 @@ export interface LoadedContent {
   dialogues: GeneratedDialogue[];
   /** Poveștile de ascultat, în ordinea nivelului (apoi a id-ului). */
   stories: Story[];
+  /** Pachetul fluxului, cu nivelul rezolvat, sortat după nivel (apoi id). */
+  pack: GeneratedPackItem[];
   explicitPresenteCount: number;
   /** Verbele neregulate la prezent (pentru linkurile către lecții). */
   presenteIrregular: string[];
@@ -137,6 +144,7 @@ export function loadContent(): LoadedContent {
   const grammar = loadGrammar(errors);
   const dialogues = loadDialogues(topics, errors);
   const stories = loadStories(errors);
+  const pack = loadPack(words as Word[], errors);
   const grammarIds = new Set(grammar.map((t) => t.id));
   for (const id of linkedLessonIds()) {
     if (!grammarIds.has(id)) errors.push(`links.ts: lecția „${id}” nu există în content/grammar`);
@@ -153,6 +161,7 @@ export function loadContent(): LoadedContent {
     grammar,
     dialogues,
     stories,
+    pack,
     explicitPresenteCount: built.explicitCount,
     presenteIrregular: irregularPresenteIds(irregular.presente, verbs),
     errors,
@@ -282,6 +291,24 @@ function loadStories(errors: string[]): Story[] {
     stories.push(parsed.data);
   }
   return stories.sort((a, b) => LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level) || a.id.localeCompare(b.id));
+}
+
+/** Pachetul fluxului din content/feed/*.json, validat, cu nivelul rezolvat, în ordinea nivelului (apoi a id-ului). */
+function loadPack(words: Word[], errors: string[]): GeneratedPackItem[] {
+  const items: PackItem[] = [];
+  for (const file of readdirSync(PACK_DIR).filter((f) => f.endsWith(".json")).sort()) {
+    const parsed = packFileSchema.safeParse(JSON.parse(readFileSync(resolve(PACK_DIR, file), "utf8")));
+    if (!parsed.success) {
+      errors.push(...formatZodError(file, parsed.error));
+      continue;
+    }
+    items.push(...parsed.data);
+  }
+  const levels = new Map(words.map((w) => [w.id, w.level]));
+  const levelOf = (id: string) => levels.get(id);
+  errors.push(...packProblems(items, levelOf));
+  const resolved = items.map((item) => ({ ...item, level: resolvePackLevel(item, levelOf) }) as GeneratedPackItem);
+  return resolved.sort((a, b) => LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level) || a.id.localeCompare(b.id));
 }
 
 /** Temele de gramatică din content/grammar/*.json, în ordinea de învățare (câmpul „order”). */
