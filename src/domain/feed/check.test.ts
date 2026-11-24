@@ -161,5 +161,6 @@ test("modo di dire: «same» și «twist» cer echivalentul", () => {
 });
 
 test("schema: «match» necunoscut e respins", () => {
+  expect(packItemSchema.safeParse(modo()).success).toBe(true);
   expect(packItemSchema.safeParse({ ...modo(), match: "similar" }).success).toBe(false);
 });

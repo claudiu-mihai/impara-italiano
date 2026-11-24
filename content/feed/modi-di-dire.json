@@ -504,8 +504,8 @@
       "ro": "Se spune despre ceva ce vine exact la momentul potrivit: brânza peste macaroane e completarea perfectă."
     },
     "example": {
-      "it": "Un caffè adesso? Sei come il cacio sui maccheroni!",
-      "ro": "O cafea acum? Pici la fix!"
+      "it": "Un caffè adesso? Arriva come il cacio sui maccheroni!",
+      "ro": "O cafea acum? Pică la fix!"
     },
     "wordIds": [
       "e-essere_come_il_cacio_sui_maccheroni"
@@ -833,7 +833,7 @@
     },
     "example": {
       "it": "Il concorso scade domani: chi dorme non piglia pesci!",
-      "ro": "Concursul expiră mâine: cine nu se mișcă nu obține nimic!"
+      "ro": "Termenul concursului expiră mâine: cine nu se mișcă nu obține nimic!"
     },
     "wordIds": [
       "e-chi_dorme_non_piglia_pesci"
@@ -1129,8 +1129,8 @@
       "ro": "Se spune când iei o zi liberă între o sărbătoare și weekend, ca să ai mai multe zile libere. Imaginea e ca în română: «a face punte»."
     },
     "example": {
-      "it": "Venerdì l'ufficio è chiuso? Allora faccio il ponte!",
-      "ro": "Vineri biroul e închis? Atunci fac punte!"
+      "it": "Giovedì è festa: venerdì mi prendo un giorno e faccio il ponte!",
+      "ro": "Joi e sărbătoare: vineri îmi iau o zi liberă și fac punte!"
     },
     "wordIds": [
       "e-fare_il_ponte"
@@ -1360,8 +1360,8 @@
       "ro": "Se spune când te ia prin surprindere o veste neașteptată. În italiană cazi din nori, în română din lună."
     },
     "example": {
-      "it": "Mi hanno invitato a una festa a sorpresa: sono caduta dalle nuvole.",
-      "ro": "M-au invitat la o petrecere-surpriză: am picat din lună."
+      "it": "Mi hanno organizzato una festa a sorpresa: sono caduto dalle nuvole!",
+      "ro": "Mi-au organizat o petrecere surpriză: am picat din lună!"
     },
     "wordIds": [
       "e-cadere_dalle_nuvole"

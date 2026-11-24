@@ -218,7 +218,7 @@ export const storySchema = z
   .strict();
 
 /**
- * Pachetul de conținut al fluxului (content/feed/*.json): expresii, prieteni falși, cultură, gesturi și micro-povești.
+ * Pachetul de conținut al fluxului (content/feed/*.json): expresii, idiomuri („modi di dire”), prieteni falși, cultură, gesturi și micro-povești.
  * Regulile dintre câmpuri (prefixul id-ului, nivelul, testul) sunt în `domain/feed/check.ts`.
  */
 export const PACK_KINDS = ["espressione", "falso-amico", "lo-sapevi", "gesto", "micro-storia", "modo-di-dire"] as const;

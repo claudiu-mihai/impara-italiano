@@ -287,7 +287,7 @@
       },
       {
         "it": "Sei una buona forchetta: ti piace tutto!",
-        "ro": "Mănânci cu poftă: ți place totul!"
+        "ro": "Mănânci cu poftă: îți place totul!"
       }
     ],
     "note": "Literal: «a fi o furculiță bună».",
@@ -328,7 +328,7 @@
         "ro": "Ajutorul tău pică la fix!"
       },
       {
-        "it": "Questa pioggia è come il cacio sui maccheroni.",
+        "it": "Questa pioggia arriva come il cacio sui maccheroni.",
         "ro": "Ploaia asta pică la fix."
       }
     ],
@@ -685,8 +685,8 @@
         "ro": "Mario o lungește de săptămâni."
       },
       {
-        "it": "Non meniamo il can per l'aia: decidi!",
-        "ro": "Să nu tragem de timp: hotărăște-te!"
+        "it": "Non menare il can per l'aia: decidi!",
+        "ro": "Nu trage de timp: hotărăște-te!"
       }
     ],
     "note": "Literal: «a mâna câinele prin arie». În română: «a trage de timp».",
@@ -828,8 +828,8 @@
     "rank": 9999,
     "examples": [
       {
-        "it": "Alla festa è noioso: tagliamo la corda?",
-        "ro": "La petrecere e plictisitoare: o ștergem?"
+        "it": "Questa festa è noiosa: tagliamo la corda?",
+        "ro": "Petrecerea asta e plictisitoare: o ștergem?"
       },
       {
         "it": "Il ladro ha tagliato la corda prima dell'arrivo della polizia.",

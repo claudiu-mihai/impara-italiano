@@ -35,7 +35,7 @@ function WordLinks({ ids }: { ids: readonly string[] }) {
   );
 }
 
-/** Expresie, prieten fals, „Lo sapevi?” sau gest: textul italian cu audio, traducerea, explicația și exemplul. */
+/** Expresie, idiom („modo di dire”), prieten fals, „Lo sapevi?” sau gest: textul italian cu audio, traducerea, explicația și exemplul. */
 function PackItemCard({ item, active }: { item: Simple; active: boolean }) {
   const { t } = useT();
   const { settings } = useFeedEnv();
@@ -72,7 +72,12 @@ function PackItemCard({ item, active }: { item: Simple; active: boolean }) {
           <p lang={NATIVE_LANGUAGE} data-testid="idiom-literal" className="text-base">
             {t("feed.idiom.literal", { text: item.literal })}
           </p>
-          <p lang={NATIVE_LANGUAGE} data-testid="idiom-match" data-match={item.match} className="text-sm font-semibold">
+          <p
+            lang={NATIVE_LANGUAGE}
+            data-testid="idiom-match"
+            data-match={item.match}
+            className="self-center rounded-full bg-slate-100 px-3 py-0.5 text-sm font-semibold dark:bg-slate-800"
+          >
             {t(`feed.idiom.match.${item.match}`)}
           </p>
           {item.roEquivalent && (
