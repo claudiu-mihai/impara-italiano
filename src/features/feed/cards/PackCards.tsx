@@ -66,6 +66,22 @@ function PackItemCard({ item, active }: { item: Simple; active: boolean }) {
       <p lang={NATIVE_LANGUAGE} className="text-xl">
         {item.ro}
       </p>
+      {item.kind === "modo-di-dire" && (
+        // traducerea literală, categoria și echivalentul sunt chiar conținutul cardului: apar și fără „Traducere în limba maternă”
+        <div className="flex max-w-sm flex-col gap-1">
+          <p lang={NATIVE_LANGUAGE} data-testid="idiom-literal" className="text-base">
+            {t("feed.idiom.literal", { text: item.literal })}
+          </p>
+          <p lang={NATIVE_LANGUAGE} data-testid="idiom-match" data-match={item.match} className="text-sm font-semibold">
+            {t(`feed.idiom.match.${item.match}`)}
+          </p>
+          {item.roEquivalent && (
+            <p lang={NATIVE_LANGUAGE} data-testid="idiom-equivalent" className="text-base">
+              {t("feed.idiom.equivalent", { text: item.roEquivalent })}
+            </p>
+          )}
+        </div>
+      )}
       <div className="flex max-w-sm flex-col gap-1">
         <p lang="it" className="text-base">
           {item.explain.it}
