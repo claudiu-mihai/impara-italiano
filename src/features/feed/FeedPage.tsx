@@ -7,22 +7,30 @@ import { db } from "../../data/db/instance.ts";
 import { markFeedSeen } from "../../data/feed/feedSeen.ts";
 import { getSettings } from "../../data/db/repositories.ts";
 import { buildFeedBatch, type FeedSources } from "../../domain/feed/buildFeedBatch.ts";
+import { followUpGrid, planFollowUp } from "../../domain/feed/followUp.ts";
+import { comboLift, isComboMilestone, nextCombo } from "../../domain/feed/rewards.ts";
 import type { FeedItem, FeedItemType } from "../../domain/feed/types.ts";
+import type { SessionItem } from "../../domain/session/buildDailySession.ts";
 import { useT } from "../../i18n/index.ts";
+import { playFeedback, vibrate } from "../../services/sound.ts";
 import { stopSpeaking, unlockAudio } from "../../services/tts.ts";
 import { FeedCard } from "./FeedCard.tsx";
-import { FeedEnvContext } from "./feedEnv.ts";
+import { FeedEnvContext, type FeedEnv } from "./feedEnv.ts";
+import { FeedReaction, type Reaction } from "./FeedReaction.tsx";
+import { useFeedRating } from "./useFeedRating.ts";
 import { FeedHeader } from "./FeedHeader.tsx";
 import { StartCard } from "./StartCard.tsx";
 import { useActiveCard } from "./useActiveCard.ts";
 
 /** Tipurile pe care ecranul știe să le afișeze; etapele următoare ale fluxului le completează. */
-export const FEED_TYPES: ReadonlySet<FeedItemType> = new Set<FeedItemType>(["knownWord", "sentence", "rule", "lines", "didYouKnow", "pack"]);
+export const FEED_TYPES: ReadonlySet<FeedItemType> = new Set<FeedItemType>(["knownWord", "sentence", "rule", "lines", "didYouKnow", "pack", "review", "newWord", "grid", "trueFalse", "gap", "packQuiz"]);
 
 /** Când cardul activ ajunge la atâtea carduri de capăt, se cere un lot nou. */
 const LOAD_MORE_WITHIN = 5;
 /** Câte carduri recente se dau mai departe regulilor de ordine. */
 const RECENT_CARDS = 20;
+/** Cât rămâne pe ecran reacția lui Lupino. */
+const REACTION_MS = 1300;
 
 /** Un card pe tot ecranul; cardul activ e cel vizibil în mare parte (vezi `useActiveCard`). */
 function CardShell({ type, cardKey, label, active, children }: { type: string; cardKey: string; label: string; active: boolean; children: React.ReactNode }) {
@@ -52,6 +60,12 @@ export function FeedPage() {
   const [started, setStarted] = useState(false);
   const [muted, setMuted] = useState(false);
   const [reviewTotal, setReviewTotal] = useState<number>();
+  const [reviewsDone, setReviewsDone] = useState(0);
+  const [combo, setCombo] = useState(0);
+  const [reaction, setReaction] = useState<Reaction>();
+  const comboRef = useRef(0);
+  const reactionId = useRef(0);
+  const { rate, gradeFollowUp } = useFeedRating(settings?.retention ?? 0.9);
   const scroller = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<FeedItem[]>([]);
   const shownKeys = useRef(new Set<string>());
@@ -105,6 +119,48 @@ export function FeedPage() {
     if (items.length > 0 && active - 1 >= items.length - LOAD_MORE_WITHIN) void extend();
   }, [active, items.length, extend]);
 
+  const afterRating = useCallback(
+    (key: string, session: SessionItem, isNew: boolean) => {
+      if (!isNew) {
+        setReviewsDone((n) => n + 1);
+        return;
+      }
+      // după un cuvânt nou notat vine o grilă despre el, la 4–8 carduri
+      const word = content.byId(session.wordId);
+      const at = itemsRef.current.findIndex((i) => i.key === key);
+      const follow = word && followUpGrid(word, session.variant, content.words);
+      if (!follow || at < 0 || shownKeys.current.has(follow.key)) return;
+      shownKeys.current.add(follow.key);
+      itemsRef.current = planFollowUp(itemsRef.current, at, follow);
+      setItems(itemsRef.current);
+    },
+    [content],
+  );
+
+  const soundEnabled = settings?.soundEnabled ?? true;
+  const reportAnswer = useCallback(
+    (correct: boolean) => {
+      const next = nextCombo(comboRef.current, correct);
+      comboRef.current = next;
+      setCombo(next);
+      playFeedback(correct, soundEnabled, comboLift(next));
+      vibrate(correct, soundEnabled);
+      const milestone = correct && isComboMilestone(next);
+      if (milestone || !correct) setReaction({ id: ++reactionId.current, pose: correct ? "bravo" : "pensa", party: milestone });
+    },
+    [soundEnabled],
+  );
+  useEffect(() => {
+    if (!reaction) return;
+    const timer = setTimeout(() => setReaction(undefined), REACTION_MS);
+    return () => clearTimeout(timer);
+  }, [reaction]);
+
+  const markQuizzed = useCallback((packId: string) => {
+    visit.current.quizzed.add(packId);
+    void markFeedSeen(db, packId, "quizzed", new Date());
+  }, []);
+
   const sentenceById = useMemo(() => new Map((sources?.sentences ?? []).map((s) => [s.id, s])), [sources]);
 
   const go = useCallback(
@@ -126,7 +182,27 @@ export function FeedPage() {
     const onKey = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement | null;
       if (event.altKey || event.ctrlKey || event.metaKey) return;
-      if (event.key === " " && target && ["BUTTON", "A", "INPUT", "TEXTAREA"].includes(target.tagName)) return;
+      const interactive = !!target && ["BUTTON", "A", "INPUT", "TEXTAREA"].includes(target.tagName);
+      const card = scroller.current?.querySelector<HTMLElement>('[data-feed-card][data-active="true"]');
+      // Spațiu/Enter dezvăluie răspunsul cardului activ, dacă are unul ascuns; 1–4 aleg nota sau varianta
+      if ((event.key === " " || event.key === "Enter") && !interactive) {
+        const reveal = card?.querySelector<HTMLElement>("[data-reveal]");
+        if (reveal) {
+          event.preventDefault();
+          reveal.click();
+          return;
+        }
+      }
+      if (/^[1-9]$/.test(event.key) && !interactive) {
+        const choices = card?.querySelectorAll<HTMLElement>("[data-choice]:not([disabled]), [data-rating] button:not([disabled])");
+        const choice = choices?.[Number(event.key) - 1];
+        if (choice) {
+          event.preventDefault();
+          choice.click();
+        }
+        return;
+      }
+      if (event.key === " " && interactive) return;
       if (event.key === "ArrowDown" || event.key === "PageDown" || event.key === " ") {
         event.preventDefault();
         go(1);
@@ -155,10 +231,20 @@ export function FeedPage() {
 
   if (!settings) return <p className="p-6 text-center text-muted">{t("common.loading")}</p>;
 
-  const env = sources && { settings, sources, sentenceById, autoplay: started && settings.autoPlayAudio && !muted };
+  const env: FeedEnv | undefined = sources && {
+    settings,
+    sources,
+    sentenceById,
+    autoplay: started && settings.autoPlayAudio && !muted,
+    rate,
+    afterRating,
+    gradeFollowUp,
+    reportAnswer,
+    markQuizzed,
+  };
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
-      <FeedHeader muted={muted} onToggleMute={() => setMuted((m) => !m)} reviews={reviewTotal === undefined ? undefined : { done: 0, total: reviewTotal }} />
+    <div className="relative flex min-h-0 flex-1 flex-col">
+      <FeedHeader muted={muted} onToggleMute={() => setMuted((m) => !m)} reviews={reviewTotal === undefined ? undefined : { done: reviewsDone, total: reviewTotal }} combo={combo} />
       <div ref={scroller} role="region" aria-label={t("feed.title")} tabIndex={0} className="min-h-0 flex-1 snap-y snap-mandatory overflow-y-auto overscroll-contain">
         <CardShell type="start" cardKey="start" label={t("feed.card", { n: 1 })} active={active === 0}>
           <StartCard
@@ -178,6 +264,7 @@ export function FeedPage() {
           </FeedEnvContext.Provider>
         )}
       </div>
+      <FeedReaction reaction={reaction} />
     </div>
   );
 }

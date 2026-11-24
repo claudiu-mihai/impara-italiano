@@ -16,3 +16,6 @@ export const isMilestone = (count: number): boolean => count === 25 || count ===
 export function shouldGradeFollowUp(card: StoredCard | undefined, direction: Direction, now: Date): boolean {
   return card !== undefined && direction === "it-ro" && isDue(card, now, endOfStudyDay(now));
 }
+
+/** Câte repere de combo s-au atins: semitonuri în plus la sunetul de răspuns corect. */
+export const comboLift = (combo: number): number => COMBO_MILESTONES.filter((m) => combo >= m).length;

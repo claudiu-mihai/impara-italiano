@@ -7,10 +7,12 @@ interface FeedHeaderProps {
   onToggleMute: () => void;
   /** Repetițiile făcute în vizită și cele scadente la intrare; `undefined` cât timp se calculează. */
   reviews: { done: number; total: number } | undefined;
+  /** Răspunsuri corecte la rând; apare de la 2. */
+  combo: number;
 }
 
 /** Antetul fix al fluxului: ieșire, progresul repetițiilor de azi și sunetul vizitei. */
-export function FeedHeader({ muted, onToggleMute, reviews }: FeedHeaderProps) {
+export function FeedHeader({ muted, onToggleMute, reviews, combo }: FeedHeaderProps) {
   const { t } = useT();
   const onExit = useReturnToOrigin(true);
   const reviewsDone = reviews && reviews.done >= reviews.total;
@@ -22,6 +24,7 @@ export function FeedHeader({ muted, onToggleMute, reviews }: FeedHeaderProps) {
       <p className="flex-1 text-center text-sm font-semibold text-muted">
         {reviews && (reviewsDone ? t("feed.reviewsDone") : t("feed.reviewsProgress", { done: reviews.done, total: reviews.total }))}
       </p>
+      {combo >= 2 && <span className="text-lg font-bold text-amber-700 dark:text-amber-400">{t("feed.combo", { n: combo })}</span>}
       <button
         type="button"
         onClick={onToggleMute}

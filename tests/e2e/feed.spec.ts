@@ -4,25 +4,37 @@ import { readFileSync } from "node:fs";
 import { mockAudio, mockSpeech, played, seedLearnedWords, spoken, WORDS } from "./helpers.ts";
 
 // cardurile pe care ecranul le știe afișa; se completează odată cu fiecare etapă a fluxului
-const PASSIVE = ["knownWord", "sentence", "rule", "lines", "didYouKnow", "pack"];
+const PASSIVE = ["knownWord", "sentence", "rule", "lines", "didYouKnow", "pack", "newWord", "review", "grid", "trueFalse", "gap", "packQuiz"];
 
 const active = (page: Page) => page.locator('[data-feed-card][data-active="true"]');
 const startButton = (page: Page) => page.getByRole("button", { name: "Atinge ca să începi" });
 /** Frazele rostite, fără fraza goală cu care se deblochează redarea. */
 const said = async (page: Page) => (await spoken(page)).filter(Boolean);
 
+/**
+ * Așteaptă să se termine derularea: cardul activ e aliniat sus în flux. Un card devine activ de la 60% vizibil, deci
+ * în timpul derulării line; un clic dat atunci ar derula pagina (Playwright aduce butonul în vizor) și ar muta cardul activ.
+ */
+async function settle(page: Page) {
+  await expect
+    .poll(() => active(page).evaluate((card) => Math.abs(card.getBoundingClientRect().top - card.parentElement!.getBoundingClientRect().top) < 2))
+    .toBe(true);
+}
+
 async function startFeed(page: Page) {
   await page.goto("/feed");
   await startButton(page).click();
   await expect.poll(() => active(page).getAttribute("data-feed-type")).not.toBe("start");
+  await settle(page);
 }
 
-/** Derulează `n` carduri cu tastatura, așteptând de fiecare dată să se schimbe cardul activ. */
+/** Derulează `n` carduri cu tastatura, așteptând de fiecare dată să se schimbe cardul activ și să se oprească derularea. */
 async function scrollDown(page: Page, n: number) {
   for (let i = 0; i < n; i++) {
     const key = await active(page).getAttribute("data-feed-key");
     await page.keyboard.press("ArrowDown");
     await expect.poll(() => active(page).getAttribute("data-feed-key")).not.toBe(key);
+    await settle(page);
   }
 }
 
@@ -65,6 +77,46 @@ async function scrollToType(page: Page, type: string, max = 30) {
   throw new Error(`niciun card ${type} în ${max} carduri`);
 }
 
+/** Toate rândurile unui tabel din IndexedDB. */
+async function idbAll(page: Page, store: string) {
+  return page.evaluate(async (name) => {
+    const db = await new Promise<IDBDatabase>((resolve, reject) => {
+      const request = indexedDB.open("impara-italiano");
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error);
+    });
+    const rows = await new Promise<Record<string, unknown>[]>((resolve, reject) => {
+      const request = db.transaction(name).objectStore(name).getAll();
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error);
+    });
+    db.close();
+    return rows;
+  }, store);
+}
+
+const A1_IDS = WORDS.filter((w) => w.level === "A1").map((w) => w.id);
+const TESTS = ["grid", "trueFalse", "gap", "packQuiz"];
+
+/** Răspunde la cardul de test activ: varianta corectă sau una greșită. */
+async function answerTest(page: Page, correct: boolean) {
+  const card = active(page);
+  const choices = card.locator("[data-choice]");
+  const target = correct ? card.locator('[data-choice][data-correct]') : card.locator("[data-choice]:not([data-correct])").first();
+  await expect(choices.first()).toBeVisible();
+  await target.first().click();
+}
+
+/** Derulează până la un card de test și răspunde. */
+async function nextTest(page: Page, correct: boolean) {
+  for (let i = 0; i < 20; i++) {
+    if (TESTS.includes((await active(page).getAttribute("data-feed-type")) ?? "")) break;
+    await scrollDown(page, 1);
+  }
+  await answerTest(page, correct);
+  await scrollDown(page, 1);
+}
+
 test.describe("Flux", () => {
   test.beforeEach(async ({ page }) => {
     await mockSpeech(page);
@@ -100,12 +152,13 @@ test.describe("Flux", () => {
     await startFeed(page);
     await expect.poll(() => said(page)).not.toEqual([]);
     await scrollDown(page, 2);
-    // rapid: încă o derulare imediat, fără să așteptăm redarea
-    await scrollDown(page, 1);
+    // rapid: încă o derulare imediat, fără să așteptăm redarea; testele nu rostesc nimic singure, deci mergem până la un card care se aude
+    do await scrollDown(page, 1);
+    while (TESTS.includes((await active(page).getAttribute("data-feed-type")) ?? ""));
     await expect.poll(async () => {
       const last = (await said(page)).at(-1) ?? "";
       const text = (await active(page).textContent()) ?? "";
-      return text.includes(last) && last !== "";
+      return last !== "" && text.includes(last);
     }).toBe(true);
     // după ✕ nu se mai aude nimic nou
     await page.getByRole("link", { name: "Închide fluxul" }).click();
@@ -173,6 +226,90 @@ test.describe("Flux", () => {
     await reveal.click();
     await expect(card.getByRole("button", { name: "Arată finalul" })).toHaveCount(0);
     expect(await card.locator("li").count()).toBe(before + 1);
+  });
+
+  test("o repetiție notată în flux apare în jurnal și iese din scadențe", async ({ page }) => {
+    test.setTimeout(120_000);
+    await seedLearnedWords(page, A1_IDS.slice(0, 3), -1);
+    await startFeed(page);
+    await scrollToType(page, "review");
+    const card = active(page);
+    await card.getByRole("button", { name: "Arată răspunsul" }).click();
+    await card.getByRole("button", { name: /^Da/ }).click();
+    await expect.poll(async () => (await idbAll(page, "reviewLog")).length).toBe(1);
+    const [log] = await idbAll(page, "reviewLog");
+    expect(log!.source).toBe("flashcard");
+    const rated = (await idbAll(page, "cards")).find((c) => c.cardId === log!.cardId)!;
+    expect(new Date(rated.due as string).getTime()).toBeGreaterThan(Date.now());
+  });
+
+  test("dublă atingere pe față, apoi „Da”: o singură notă", async ({ page }) => {
+    test.setTimeout(120_000);
+    await seedLearnedWords(page, A1_IDS.slice(0, 3), -1);
+    await startFeed(page);
+    await scrollToType(page, "review");
+    const card = active(page);
+    await card.getByTestId("feed-face").dblclick();
+    await card.getByRole("button", { name: /^Da/ }).click({ timeout: 1000 }).catch(() => undefined);
+    await page.waitForTimeout(600);
+    expect((await idbAll(page, "reviewLog")).length).toBe(1);
+  });
+
+  test("cu 0 cuvinte noi pe zi nu apare niciun cuvânt nou", async ({ page }) => {
+    test.setTimeout(120_000);
+    await page.goto("/settings");
+    await page.getByLabel("Cuvinte noi pe zi").selectOption("0");
+    await expect(page.getByLabel("Cuvinte noi pe zi")).toHaveValue("0");
+    await startFeed(page);
+    await scrollDown(page, 30);
+    expect(await cardTypes(page)).not.toContain("newWord");
+    expect(await idbAll(page, "cards")).toEqual([]);
+  });
+
+  test("după un cuvânt nou notat vine testul lui, la 4–8 carduri", async ({ page }) => {
+    test.setTimeout(180_000);
+    await startFeed(page);
+    await scrollToType(page, "newWord", 60);
+    const card = active(page);
+    const key = (await card.getAttribute("data-feed-key"))!;
+    const wordId = key.split(":")[2]!; // new:vocab:<id>:it-ro:<poziție>
+    await card.getByRole("button", { name: "Arată răspunsul" }).click();
+    await card.getByRole("button", { name: /^Da/ }).click();
+    await expect.poll(async () => (await page.locator("[data-feed-card]").evaluateAll((els) => els.map((e) => (e as HTMLElement).dataset.feedKey))).some((k) => k?.startsWith("grid:follow:"))).toBe(true);
+    const keys = await page.locator("[data-feed-card]").evaluateAll((els) => els.map((e) => (e as HTMLElement).dataset.feedKey));
+    const at = keys.indexOf(key);
+    const follow = keys.findIndex((k) => k?.startsWith("grid:follow:"));
+    expect(keys[follow]).toContain(wordId);
+    expect(follow - at).toBeGreaterThanOrEqual(4);
+    expect(follow - at).toBeLessThanOrEqual(8 + 2);
+  });
+
+  test("combo: apare după 3 răspunsuri corecte și dispare la o greșeală", async ({ page }) => {
+    test.setTimeout(180_000);
+    await startFeed(page);
+    for (let i = 0; i < 3; i++) await nextTest(page, true);
+    await expect(page.getByText("🔥 x3")).toBeVisible();
+    await nextTest(page, false);
+    await expect(page.getByText(/🔥 x/)).toHaveCount(0);
+  });
+
+  test("cu sunetul la răspunsuri oprit nu se creează niciun context audio", async ({ page }) => {
+    test.setTimeout(120_000);
+    await page.addInitScript(() => {
+      const w = window as unknown as { __ctx: number; AudioContext: unknown };
+      w.__ctx = 0;
+      const Original = window.AudioContext;
+      w.AudioContext = function (...args: ConstructorParameters<typeof AudioContext>) {
+        w.__ctx++;
+        return new Original(...args);
+      };
+    });
+    await page.goto("/settings");
+    await page.getByLabel("Sunet la răspunsuri").click();
+    await expect(page.getByLabel("Sunet la răspunsuri")).not.toBeChecked();
+    await startFeed(page);
+    await nextTest(page, true);
+    expect(await page.evaluate(() => (window as unknown as { __ctx: number }).__ctx)).toBe(0);
   });
 
   test("✕ te duce pe Acasă când fluxul s-a deschis direct", async ({ page }) => {

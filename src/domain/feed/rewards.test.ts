@@ -1,7 +1,7 @@
 import { State } from "ts-fsrs";
 import { expect, test } from "vitest";
 import type { StoredCard } from "../srs/types.ts";
-import { isComboMilestone, isMilestone, nextCombo, shouldGradeFollowUp } from "./rewards.ts";
+import { comboLift, isComboMilestone, isMilestone, nextCombo, shouldGradeFollowUp } from "./rewards.ts";
 
 const NOW = new Date(2026, 10, 24, 12, 0, 0);
 
@@ -45,4 +45,8 @@ test("grila de după un cuvânt nou se notează doar dacă e IT → RO și cardu
   expect(shouldGradeFollowUp(undefined, "it-ro", NOW)).toBe(false);
   const later = card({ state: State.Review, due: new Date(NOW.getTime() + 3 * 86_400_000) });
   expect(shouldGradeFollowUp(later, "it-ro", NOW)).toBe(false);
+});
+
+test("comboLift: câte repere de combo s-au atins (semitonuri în plus la sunet)", () => {
+  expect([0, 2, 3, 4, 5, 9, 10, 19, 20, 50].map(comboLift)).toEqual([0, 0, 1, 1, 2, 2, 3, 3, 4, 4]);
 });
