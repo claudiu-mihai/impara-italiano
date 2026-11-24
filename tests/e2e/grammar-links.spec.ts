@@ -39,7 +39,7 @@ test("lecția deschisă direct: Înapoi duce la lista de gramatică", async ({ p
 test("cu interfața în italiană, linkul spune „La regola”", async ({ page }) => {
   await page.goto("/settings");
   await page.getByLabel("Limba interfeței / Lingua dell'interfaccia").selectOption("it");
-  await expect(page.getByRole("heading", { name: "Impostazioni", level: 1 })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Opzioni", level: 1 })).toBeVisible();
   await page.goto("/browse/v-parlare");
   await expect(page.getByRole("link", { name: /La regola: Il presente dei verbi regolari/ })).toBeVisible();
 });

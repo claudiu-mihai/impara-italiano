@@ -150,3 +150,13 @@ test("backup: modul butoanelor de evaluare e „simple” sau „full”", () =>
   expect(settingsSchema.partial().safeParse({ ratingMode: "simple" }).success).toBe(true);
   expect(settingsSchema.partial().safeParse({ ratingMode: "two" }).success).toBe(false);
 });
+
+test("„Pornește în Flux”: backup-urile vechi o primesc oprită, o valoare greșită e respinsă", async () => {
+  const backup = JSON.parse(backupToJson(await exportBackup(db, "x", NOW)));
+  backup.settings = { level: "A1" };
+  expect(parseBackup(JSON.stringify(backup)).settings.startInFeed).toBe(false);
+  backup.settings = { startInFeed: true };
+  expect(parseBackup(JSON.stringify(backup)).settings.startInFeed).toBe(true);
+  backup.settings = { startInFeed: "da" };
+  expect(() => parseBackup(JSON.stringify(backup))).toThrow(BackupError);
+});

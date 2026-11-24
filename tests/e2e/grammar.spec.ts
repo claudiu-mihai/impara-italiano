@@ -180,7 +180,7 @@ test("lecția urmează limba interfeței: în italiană explicațiile, capcana �
   // în italiană
   await page.goto("/settings");
   await page.getByLabel("Limba interfeței / Lingua dell'interfaccia").selectOption("it");
-  await expect(page.getByRole("heading", { name: "Impostazioni", level: 1 })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Opzioni", level: 1 })).toBeVisible();
   await page.goto("/learn/grammar/articoli");
   await expect(page.getByRole("heading", { name: /^Articolo determinativo e indeterminativo/, level: 1 })).toBeVisible();
   await expect(page.getByText(/In italiano l'articolo sta/)).toBeVisible();

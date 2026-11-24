@@ -1,6 +1,6 @@
 import { useLiveQuery } from "dexie-react-hooks";
-import { lazy, Suspense, useCallback, useEffect, useState } from "react";
-import { BrowserRouter, NavLink, Outlet, Route, Routes, useLocation } from "react-router-dom";
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
+import { BrowserRouter, NavLink, Outlet, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { db } from "../data/db/instance.ts";
 import { getSettings } from "../data/db/repositories.ts";
 import { startAutoSync } from "../data/sync/autoSync.ts";
@@ -113,6 +113,7 @@ function Banners() {
 const NAV: { to: string; label: Key; icon: string; end: boolean }[] = [
   { to: "/", label: "nav.home", icon: "🏠", end: true },
   { to: "/learn", label: "nav.learn", icon: "🎓", end: false },
+  { to: "/feed", label: "nav.feed", icon: "▶️", end: false },
   { to: "/browse", label: "nav.browse", icon: "🔎", end: false },
   { to: "/stats", label: "nav.stats", icon: "📈", end: false },
   { to: "/settings", label: "nav.settings", icon: "⚙️", end: false },
@@ -155,7 +156,7 @@ function Layout() {
         {!studying && (
           <nav
             aria-label={t("nav.label")}
-            className="sticky bottom-0 grid grid-cols-5 border-t border-slate-200 bg-white pb-[env(safe-area-inset-bottom)] dark:border-slate-800 dark:bg-slate-900"
+            className="sticky bottom-0 grid grid-cols-6 border-t border-slate-200 bg-white pb-[env(safe-area-inset-bottom)] dark:border-slate-800 dark:bg-slate-900"
           >
             {NAV.map((item) => (
               // iconiță + nume vizibil; numele accesibil vine chiar din text, iar pagina activă are fundal și etichetă verde
@@ -175,8 +176,9 @@ function Layout() {
                     >
                       {item.icon}
                     </span>
+                    {/* 11 px; pe ecranele foarte înguste (320 px, șase tab-uri) mai mic, ca etichetele lungi (ex. „Statistiche”) să încapă */}
                     <span
-                      className={`max-w-full whitespace-nowrap text-[11px] leading-tight tracking-tight ${
+                      className={`max-w-full whitespace-nowrap text-[length:clamp(9px,2.9vw,11px)] leading-tight tracking-tight ${
                         isActive ? "font-bold text-brand-fg" : "font-medium text-muted"
                       }`}
                     >
@@ -193,6 +195,28 @@ function Layout() {
   );
 }
 
+/**
+ * „Pornește în Flux”: aplicația deschisă pe Acasă (prima pagină a vizitei) merge direct în Flux, cu setarea pornită.
+ * Intrarea din istoric se înlocuiește, iar Fluxul știe (din `state`) că ✕ trebuie să ducă pe Acasă.
+ */
+function StartInFeedRedirect() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [atLaunch] = useState(() => location.key === "default" && location.pathname === "/");
+  // dacă între timp ai plecat de pe Acasă, setările citite târziu nu te mai mută
+  const current = useRef(location.key);
+  useEffect(() => {
+    current.current = location.key;
+  }, [location.key]);
+  useEffect(() => {
+    if (!atLaunch) return;
+    void getSettings(db).then((settings) => {
+      if (settings.startInFeed && current.current === "default") void navigate("/feed", { replace: true, state: { startedInFeed: true } });
+    });
+  }, [atLaunch, navigate]);
+  return null;
+}
+
 export function App() {
   // sincronizarea automată pornește doar cu cont; fără cont nu face nimic și nu încarcă nimic
   useEffect(() => startAutoSync(db), []);
@@ -204,6 +228,7 @@ export function App() {
     <>
       {splash && <Splash onDone={hideSplash} />}
       <BrowserRouter>
+        <StartInFeedRedirect />
         <ContentProvider>
           <Routes>
             <Route element={<Layout />}>

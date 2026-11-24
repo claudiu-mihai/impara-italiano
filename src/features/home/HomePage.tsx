@@ -180,6 +180,10 @@ export function HomePage() {
             ) : (
               <LupinoSays pose="relax" it="Fatto! Ora relax." ro="Ai terminat pentru azi. Acum relaxează-te!" className="mt-4" />
             )}
+            {/* Fluxul merge oricând, și după sesiunea zilnică (exersare liberă) */}
+            <Link to="/feed" className={`mt-3 ${secondaryButton}`}>
+              {t("home.scroll")}
+            </Link>
           </>
         ) : (
           <p className="mt-3 text-muted">{t("common.loading")}</p>

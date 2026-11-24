@@ -6,7 +6,7 @@ const nav = (page: Page) => page.getByRole("navigation");
 async function useItalian(page: Page) {
   await page.goto("/settings");
   await language(page).selectOption("it");
-  await expect(page.getByRole("heading", { name: "Impostazioni", level: 1 })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Opzioni", level: 1 })).toBeVisible();
 }
 
 test("implicit interfața e în română, cu <html lang> ro", async ({ page }) => {
@@ -19,7 +19,7 @@ test("implicit interfața e în română, cu <html lang> ro", async ({ page }) =
 test("trecerea în italiană schimbă imediat navigarea, Setările și <html lang>", async ({ page }) => {
   await useItalian(page);
   await expect(page.locator("html")).toHaveAttribute("lang", "it");
-  const names = ["Casa", "Impara", "Dizionario", "Statistiche", "Impostazioni"];
+  const names = ["Casa", "Impara", "Dizionario", "Statistiche", "Opzioni"];
   for (const name of names) await expect(nav(page).getByRole("link", { name })).toBeVisible();
   await expect(nav(page).getByRole("link", { name: "Acasă" })).toHaveCount(0);
   await expect(page.getByRole("heading", { name: "Studio", level: 2 })).toBeVisible();
@@ -144,7 +144,7 @@ test("bara de jos arată numele paginilor sub iconițe, în română", async ({ 
 test("bara de jos arată numele paginilor și în italiană, fără text tăiat pe 360 px", async ({ page }) => {
   await useItalian(page);
   await page.setViewportSize({ width: 360, height: 740 });
-  for (const name of ["Casa", "Impara", "Dizionario", "Statistiche", "Impostazioni"]) {
+  for (const name of ["Casa", "Impara", "Dizionario", "Statistiche", "Opzioni"]) {
     const label = nav(page).getByRole("link", { name }).getByText(name, { exact: true });
     await expect(label).toBeVisible();
     await expectOneLine(label);

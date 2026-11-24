@@ -348,6 +348,67 @@ test.describe("Flux", () => {
     expect(await cardTypes(page)).not.toContain("reviewsDone");
   });
 
+  test("tab-ul și butonul de pe Acasă duc în Flux", async ({ page }) => {
+    await page.goto("/");
+    await page.getByRole("navigation", { name: "Navigare principală" }).getByRole("link", { name: "Flux" }).click();
+    await expect(page).toHaveURL(/\/feed$/);
+    await page.goto("/");
+    await page.getByRole("link", { name: "▶ Derulează" }).click();
+    await expect(page).toHaveURL(/\/feed$/);
+  });
+
+  test("șase tab-uri încap la 320 px, în română și în italiană", async ({ page }, testInfo) => {
+    await page.setViewportSize({ width: 320, height: 640 });
+    /** Etichetele nu ies din tab-ul lor (textul întreg, nu doar cutia) și nu se suprapun. */
+    const checkTabs = async (navName: string, shot: string) => {
+      const nav = page.getByRole("navigation", { name: navName });
+      const links = nav.getByRole("link");
+      await expect(links).toHaveCount(6);
+      const boxes = await links.evaluateAll((els) =>
+        els.map((el) => {
+          const label = el.lastElementChild as HTMLElement;
+          const box = label.getBoundingClientRect();
+          const tab = el.getBoundingClientRect();
+          return { left: box.left, right: box.right, overflow: label.scrollWidth - label.clientWidth, tabLeft: tab.left, tabRight: tab.right, text: label.textContent };
+        }),
+      );
+      for (const [i, box] of boxes.entries()) {
+        expect(box.overflow, `${box.text} nu încape`).toBeLessThanOrEqual(0);
+        expect(box.left, `${box.text} iese din tab`).toBeGreaterThanOrEqual(box.tabLeft - 0.5);
+        expect(box.right, `${box.text} iese din tab`).toBeLessThanOrEqual(box.tabRight + 0.5);
+        if (i > 0) expect(box.left, `${box.text} se suprapune cu ${boxes[i - 1]!.text}`).toBeGreaterThanOrEqual(boxes[i - 1]!.right);
+      }
+      await nav.screenshot({ path: testInfo.outputPath(shot) });
+    };
+    await page.goto("/");
+    await checkTabs("Navigare principală", "tab-uri-320px.png");
+    await page.goto("/settings");
+    await page.getByLabel("Limba interfeței / Lingua dell'interfaccia").selectOption("it");
+    await page.goto("/");
+    await checkTabs("Navigazione principale", "tab-uri-320px-it.png");
+  });
+
+  test("„Pornește în Flux”: aplicația deschisă merge în Flux, iar ✕ duce pe Acasă", async ({ page }) => {
+    await page.goto("/settings");
+    await page.getByLabel("Pornește în Flux").click();
+    await expect(page.getByLabel("Pornește în Flux")).toBeChecked();
+    await page.goto("/");
+    await expect(page).toHaveURL(/\/feed$/);
+    await expect(startButton(page)).toBeVisible();
+    await page.getByRole("link", { name: "Închide fluxul" }).click();
+    await expect(page.getByRole("heading", { name: "Impara l'italiano con Lupino" })).toBeVisible();
+    await expect(page).toHaveURL(/\/$/);
+    // Acasă a înlocuit Fluxul în istoric: Înapoi duce la pagina dinainte (Setări), nu din nou în Flux și nici afară din aplicație
+    await page.goBack();
+    await expect(page).toHaveURL(/\/settings$/);
+  });
+
+  test("manifestul are scurtătura spre Flux", async ({ page }) => {
+    const response = await page.request.get("/manifest.webmanifest");
+    const manifest = (await response.json()) as { shortcuts?: { url: string; name: string }[] };
+    expect(manifest.shortcuts?.[0]).toMatchObject({ url: "/feed", name: "Flux" });
+  });
+
   test("✕ te duce pe Acasă când fluxul s-a deschis direct", async ({ page }) => {
     await page.goto("/feed");
     await page.getByRole("link", { name: "Închide fluxul" }).click();
@@ -408,5 +469,26 @@ test.describe("Flux: final de material", () => {
     await scrollToType(page, "endOfMaterial", 10);
     await scrollDown(page, 1);
     expect(await active(page).getAttribute("data-feed-type")).toBe("rule");
+  });
+});
+
+test.describe("Flux: pornire directă cu datele mari încă în drum", () => {
+  // fără service worker, ca fișierele de date să treacă prin page.route
+  test.use({ serviceWorkers: "block" });
+
+  test("cu „Pornește în Flux”, cardul de start nu așteaptă propozițiile și detaliile cuvintelor", async ({ page }) => {
+    await mockSpeech(page);
+    await page.goto("/settings");
+    await page.getByLabel("Pornește în Flux").click();
+    await expect(page.getByLabel("Pornește în Flux")).toBeChecked();
+    await page.route(/\/assets\/(sentences|details)-[^/]+\.js$/, async (route) => {
+      await new Promise((resolve) => setTimeout(resolve, 10_000));
+      await route.continue().catch(() => undefined); // pagina se poate închide între timp
+    });
+    const started = Date.now();
+    await page.goto("/");
+    await expect(startButton(page)).toBeVisible({ timeout: 2_000 });
+    expect(Date.now() - started).toBeLessThan(2_000);
+    await expect(page).toHaveURL(/\/feed$/);
   });
 });

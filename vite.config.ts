@@ -32,6 +32,8 @@ export default defineConfig({
           { src: "icons/icon-512.png", sizes: "512x512", type: "image/png" },
           { src: "icons/icon-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
         ],
+        // apăsare lungă pe iconiță (Android): direct în Flux
+        shortcuts: [{ name: "Flux", short_name: "Flux", url: "/feed", icons: [{ src: "icons/icon-192.png", sizes: "192x192", type: "image/png" }] }],
       },
       workbox: {
         globPatterns: ["**/*.{js,css,html,svg,png,jpg,ico,json,webmanifest}"],

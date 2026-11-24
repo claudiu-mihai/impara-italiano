@@ -66,6 +66,8 @@ export interface Settings {
   ratingMode: RatingMode;
   /** În „Potrivește perechi” și „Ordonează”, cuvântul italian pe care îl atingi se aude. */
   tapAudio: boolean;
+  /** „Pornește în Flux”: aplicația deschisă (pe Acasă) merge direct în Flux. */
+  startInFeed: boolean;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -91,6 +93,7 @@ export const DEFAULT_SETTINGS: Settings = {
   learnerGender: "m",
   ratingMode: "simple",
   tapAudio: true,
+  startInFeed: false,
 };
 
 /**

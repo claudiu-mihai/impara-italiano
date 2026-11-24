@@ -77,11 +77,13 @@ test("câmpul limbii interfeței arată mereu ambele limbi", () => {
 });
 
 test("etichetele de navigare în italiană", () => {
-  expect([it["nav.home"], it["nav.learn"], it["nav.browse"], it["nav.stats"], it["nav.settings"]]).toEqual([
+  // „Opzioni”, nu „Impostazioni”: cu șase tab-uri, eticheta lungă nu încape pe 360 px
+  expect([it["nav.home"], it["nav.learn"], it["nav.feed"], it["nav.browse"], it["nav.stats"], it["nav.settings"]]).toEqual([
     "Casa",
     "Impara",
+    "Flusso",
     "Dizionario",
     "Statistiche",
-    "Impostazioni",
+    "Opzioni",
   ]);
 });
