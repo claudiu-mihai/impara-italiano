@@ -1,0 +1,1262 @@
+[
+  {
+    "id": "e-costare_un_occhio_della_testa",
+    "it": "costare un occhio della testa",
+    "ro": "a costa foarte mult",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Quella borsa costa un occhio della testa.",
+        "ro": "Geanta aceea costă ochii din cap."
+      },
+      {
+        "it": "A Milano gli affitti costano un occhio della testa.",
+        "ro": "La Milano chiriile costă ochii din cap."
+      }
+    ],
+    "note": "Literal: «a costa un ochi din cap». În română: «a costa ochii din cap».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-in_gamba",
+    "it": "in gamba",
+    "ro": "priceput, descurcăreț",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Marco è un ragazzo in gamba: risolve ogni problema.",
+        "ro": "Marco e un băiat priceput: rezolvă orice problemă."
+      },
+      {
+        "it": "Sei stata proprio in gamba a trovare la soluzione!",
+        "ro": "Ai fost chiar isteață să găsești soluția!"
+      }
+    ],
+    "note": "Literal: «în picior».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-avere_le_mani_bucate",
+    "it": "avere le mani bucate",
+    "ro": "a cheltui banii ușor",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Mia sorella ha le mani bucate: spende tutto.",
+        "ro": "Sora mea e mână spartă: cheltuiește tot."
+      },
+      {
+        "it": "Se hai le mani bucate, non risparmierai mai.",
+        "ro": "Dacă ești mână spartă, nu vei economisi niciodată."
+      }
+    ],
+    "note": "Literal: «a avea mâinile găurite». În română: «a fi mână spartă».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-non_avere_peli_sulla_lingua",
+    "it": "non avere peli sulla lingua",
+    "ro": "a spune lucrurilor pe față",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Mia nonna non ha peli sulla lingua.",
+        "ro": "Bunica mea spune lucrurilor pe față."
+      },
+      {
+        "it": "Il mio capo non ha peli sulla lingua.",
+        "ro": "Șeful meu îți spune verde în față."
+      }
+    ],
+    "note": "Literal: «a nu avea peri pe limbă». În română: «a spune verde în față».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-a_occhio_e_croce",
+    "it": "a occhio e croce",
+    "ro": "cam, cu aproximație",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "A occhio e croce, ci vogliono due ore per arrivare.",
+        "ro": "Cam două ore ne trebuie ca să ajungem."
+      },
+      {
+        "it": "Saremo a occhio e croce una trentina di persone.",
+        "ro": "Vom fi cam treizeci de persoane."
+      }
+    ],
+    "note": "Literal: «din ochi și cruce». În română: «din ochi».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-mettere_le_mani_avanti",
+    "it": "mettere le mani avanti",
+    "ro": "a se acoperi dinainte",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Metto le mani avanti: non sono sicuro di poter venire.",
+        "ro": "Mă acopăr dinainte: nu sunt sigur că pot veni."
+      },
+      {
+        "it": "Ha messo le mani avanti: nessuna garanzia.",
+        "ro": "S-a acoperit dinainte: nicio garanție."
+      }
+    ],
+    "note": "Literal: «a pune mâinile înainte».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-avere_la_testa_fra_le_nuvole",
+    "it": "avere la testa fra le nuvole",
+    "ro": "a fi distrat, visător",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Hai la testa fra le nuvole: ti ho chiamato!",
+        "ro": "Ești cu capul în nori: te-am strigat!"
+      },
+      {
+        "it": "Mio figlio ha la testa fra le nuvole.",
+        "ro": "Fiul meu are capul în nori."
+      }
+    ],
+    "note": "Literal: «a avea capul printre nori». În română: «a fi cu capul în nori».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-perdere_la_testa",
+    "it": "perdere la testa",
+    "ro": "a-și pierde controlul (sau a se îndrăgosti nebunește)",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Quando lo vedo, perdo la testa.",
+        "ro": "Când îl văd, îmi pierd capul."
+      },
+      {
+        "it": "Non perdere la testa: respira e conta fino a dieci.",
+        "ro": "Nu-ți pierde capul: respiră și numără până la zece."
+      }
+    ],
+    "note": "Literal: «a pierde capul». În română: «a-și pierde capul».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-a_bocca_aperta",
+    "it": "a bocca aperta",
+    "ro": "uimit",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Siamo rimasti a bocca aperta davanti al panorama.",
+        "ro": "Am rămas cu gura căscată în fața peisajului."
+      },
+      {
+        "it": "Mi ascoltava a bocca aperta, senza dire una parola.",
+        "ro": "Mă asculta cu gura căscată, fără să spună un cuvânt."
+      }
+    ],
+    "note": "Literal: «cu gura deschisă». În română: «cu gura căscată».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-acqua_in_bocca",
+    "it": "acqua in bocca",
+    "ro": "să nu spui nimănui",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Ti dico un segreto, ma acqua in bocca!",
+        "ro": "Îți spun un secret, dar gura mută!"
+      },
+      {
+        "it": "Con Luca acqua in bocca: è una sorpresa.",
+        "ro": "Cu Luca, gura mută: e o surpriză."
+      }
+    ],
+    "note": "Literal: «apă în gură». În română: «gura mută!».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-prendere_in_giro",
+    "it": "prendere in giro",
+    "ro": "a lua peste picior",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Gli amici mi prendono sempre in giro.",
+        "ro": "Prietenii mă iau mereu peste picior."
+      },
+      {
+        "it": "Mi prendi in giro? Non può costare così poco!",
+        "ro": "Mă iei peste picior? Nu poate costa atât de puțin!"
+      }
+    ],
+    "note": "Literal: «a lua în tur». În română: «a lua peste picior».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-a_quattr'occhi",
+    "it": "a quattr'occhi",
+    "ro": "între patru ochi",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Dobbiamo parlare a quattr'occhi, senza gli altri.",
+        "ro": "Trebuie să vorbim între patru ochi, fără ceilalți."
+      },
+      {
+        "it": "Il direttore ha voluto vederlo a quattr'occhi.",
+        "ro": "Directorul a vrut să-l vadă între patru ochi."
+      }
+    ],
+    "note": "Literal: «la patru ochi». În română: «între patru ochi».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-essere_tutto_orecchi",
+    "it": "essere tutto orecchi",
+    "ro": "a asculta cu mare atenție",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Raccontami tutto, sono tutto orecchi!",
+        "ro": "Povestește-mi tot, sunt numai urechi!"
+      },
+      {
+        "it": "I bambini erano tutti orecchi durante la storia.",
+        "ro": "Copiii erau numai urechi în timpul poveștii."
+      }
+    ],
+    "note": "Literal: «a fi numai urechi». În română: «a fi numai urechi».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-essere_una_buona_forchetta",
+    "it": "essere una buona forchetta",
+    "ro": "a mânca mult și cu poftă",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Mio zio è una buona forchetta: prende sempre il bis.",
+        "ro": "Unchiul meu mănâncă cu poftă: ia mereu și a doua porție."
+      },
+      {
+        "it": "Sei una buona forchetta: ti piace tutto!",
+        "ro": "Mănânci cu poftă: ți place totul!"
+      }
+    ],
+    "note": "Literal: «a fi o furculiță bună».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-fare_la_scarpetta",
+    "it": "fare la scarpetta",
+    "ro": "a șterge sosul din farfurie cu pâine",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Il sugo è buonissimo: faccio la scarpetta!",
+        "ro": "Sosul e foarte bun: șterg farfuria cu pâine!"
+      },
+      {
+        "it": "Dopo la pasta, tutti hanno fatto la scarpetta.",
+        "ro": "După paste, toți au șters sosul din farfurie cu pâine."
+      }
+    ],
+    "note": "Literal: «a face pantofiorul».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-essere_come_il_cacio_sui_maccheroni",
+    "it": "essere come il cacio sui maccheroni",
+    "ro": "a veni exact când trebuie",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Il tuo aiuto è come il cacio sui maccheroni!",
+        "ro": "Ajutorul tău pică la fix!"
+      },
+      {
+        "it": "Questa pioggia è come il cacio sui maccheroni.",
+        "ro": "Ploaia asta pică la fix."
+      }
+    ],
+    "note": "Literal: «a fi ca brânza pe macaroane». În română: «a pica la fix».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-tutto_fa_brodo",
+    "it": "tutto fa brodo",
+    "ro": "orice ajută",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Anche cinque euro mi servono: tutto fa brodo.",
+        "ro": "Și cinci euro îmi trebuie: orice ajută."
+      },
+      {
+        "it": "Prendi anche quel libro: tutto fa brodo per l'esame.",
+        "ro": "Ia și cartea aia: orice ajută pentru examen."
+      }
+    ],
+    "note": "Literal: «totul face supă».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-avere_le_mani_in_pasta",
+    "it": "avere le mani in pasta",
+    "ro": "a fi implicat într-o afacere",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Il sindaco ha le mani in pasta ovunque.",
+        "ro": "Primarul e amestecat peste tot."
+      },
+      {
+        "it": "Mia cugina ha le mani in pasta in diversi progetti.",
+        "ro": "Verișoara mea e implicată în mai multe proiecte."
+      }
+    ],
+    "note": "Literal: «a avea mâinile în aluat».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-non_è_pane_per_i_miei_denti",
+    "it": "non è pane per i miei denti",
+    "ro": "e prea greu pentru mine",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Questo libro non è pane per i miei denti.",
+        "ro": "Cartea asta nu e de nasul meu."
+      },
+      {
+        "it": "Quel lavoro non era pane per i suoi denti.",
+        "ro": "Slujba aceea nu era de nasul lui."
+      }
+    ],
+    "note": "Literal: «nu e pâine pentru dinții mei». În română: «nu e de nasul meu».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-dire_pane_al_pane_e_vino_al_vino",
+    "it": "dire pane al pane e vino al vino",
+    "ro": "a vorbi direct, fără ocolișuri",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Io dico pane al pane e vino al vino.",
+        "ro": "Eu spun lucrurilor pe nume."
+      },
+      {
+        "it": "Diciamo pane al pane e vino al vino!",
+        "ro": "Să spunem lucrurilor pe nume!"
+      }
+    ],
+    "note": "Literal: «a spune pâinii pâine și vinului vin». În română: «a spune lucrurilor pe nume».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-andare_liscio_come_l'olio",
+    "it": "andare liscio come l'olio",
+    "ro": "a merge fără probleme",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "L'esame è andato liscio come l'olio.",
+        "ro": "Examenul a mers ca uns."
+      },
+      {
+        "it": "Tutto va liscio come l'olio quando siamo organizzati.",
+        "ro": "Totul merge ca uns când suntem organizați."
+      }
+    ],
+    "note": "Literal: «a merge neted ca uleiul». În română: «a merge ca uns».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-essere_un_pezzo_di_pane",
+    "it": "essere un pezzo di pane",
+    "ro": "a fi foarte bun la suflet",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Non avere paura del professore: è un pezzo di pane.",
+        "ro": "Nu te teme de profesor: e bun ca pâinea caldă."
+      },
+      {
+        "it": "Mio nonno è un pezzo di pane.",
+        "ro": "Bunicul meu e bun ca pâinea caldă."
+      }
+    ],
+    "note": "Literal: «a fi o bucată de pâine». În română: «a fi bun ca pâinea caldă».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-in_bocca_al_lupo",
+    "it": "in bocca al lupo",
+    "ro": "baftă (se răspunde «crepi!»)",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Domani hai il colloquio? In bocca al lupo!",
+        "ro": "Mâine ai interviul? Baftă!"
+      },
+      {
+        "it": "Prima di entrare mi ha detto: «In bocca al lupo!»",
+        "ro": "Înainte să intru mi-a spus: «Baftă!»"
+      }
+    ],
+    "note": "Literal: «în gura lupului». În română: «baftă!».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-avere_una_fame_da_lupi",
+    "it": "avere una fame da lupi",
+    "ro": "a fi lihnit",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Ho una fame da lupi: non mangio da stamattina.",
+        "ro": "Mi-e foame ca unui lup: nu am mâncat de azi-dimineață."
+      },
+      {
+        "it": "I bambini tornano da scuola con una fame da lupi.",
+        "ro": "Copiii se întorc de la școală lihniți de foame."
+      }
+    ],
+    "note": "Literal: «a avea o foame de lupi». În română: «a-i fi foame ca unui lup».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-essere_un_pesce_fuor_d'acqua",
+    "it": "essere un pesce fuor d'acqua",
+    "ro": "a nu se simți la locul lui",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Alla festa ero un pesce fuor d'acqua: non conoscevo nessuno.",
+        "ro": "La petrecere eram ca peștele pe uscat: nu cunoșteam pe nimeni."
+      },
+      {
+        "it": "In città sono un pesce fuor d'acqua.",
+        "ro": "În oraș sunt ca peștele pe uscat."
+      }
+    ],
+    "note": "Literal: «a fi un pește afară din apă». În română: «a fi ca peștele pe uscat».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-prendere_due_piccioni_con_una_fava",
+    "it": "prendere due piccioni con una fava",
+    "ro": "a rezolva două lucruri deodată",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Ho preso due piccioni con una fava!",
+        "ro": "Am împușcat doi iepuri dintr-o lovitură!"
+      },
+      {
+        "it": "Imparo l'inglese e viaggio: prendo due piccioni con una fava.",
+        "ro": "Învăț engleza și călătoresc: împușc doi iepuri dintr-o lovitură."
+      }
+    ],
+    "note": "Literal: «a prinde doi porumbei cu un bob». În română: «a împușca doi iepuri dintr-o lovitură».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-chi_dorme_non_piglia_pesci",
+    "it": "chi dorme non piglia pesci",
+    "ro": "cine nu se mișcă nu obține nimic",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Alzati presto: chi dorme non piglia pesci.",
+        "ro": "Scoală-te devreme: cine nu se mișcă nu obține nimic."
+      },
+      {
+        "it": "Mia nonna dice sempre che chi dorme non piglia pesci.",
+        "ro": "Bunica mea spune mereu că cine nu se mișcă nu obține nimic."
+      }
+    ],
+    "note": "Literal: «cine doarme nu prinde pești». În română: «cine se scoală de dimineață departe ajunge».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-avere_la_pelle_d'oca",
+    "it": "avere la pelle d'oca",
+    "ro": "a se înfiora",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Ho la pelle d'oca: qui fa troppo freddo.",
+        "ro": "Am pielea de găină: aici e prea frig."
+      },
+      {
+        "it": "Ascoltando quella storia ho avuto la pelle d'oca.",
+        "ro": "Ascultând povestea aia am avut pielea de găină."
+      }
+    ],
+    "note": "Literal: «a avea piele de gâscă». În română: «a avea pielea de găină».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-piangere_lacrime_di_coccodrillo",
+    "it": "piangere lacrime di coccodrillo",
+    "ro": "a regreta prefăcut",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Dopo averla lasciata, piange lacrime di coccodrillo.",
+        "ro": "După ce a părăsit-o, plânge cu lacrimi de crocodil."
+      },
+      {
+        "it": "Il ministro ha pianto lacrime di coccodrillo davanti alle telecamere.",
+        "ro": "Ministrul a plâns cu lacrimi de crocodil în fața camerelor."
+      }
+    ],
+    "note": "Literal: «a plânge lacrimi de crocodil». În română: «a plânge cu lacrimi de crocodil».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-essere_testardo_come_un_mulo",
+    "it": "essere testardo come un mulo",
+    "ro": "a fi foarte încăpățânat",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Mio padre è testardo come un mulo.",
+        "ro": "Tatăl meu e încăpățânat ca un catâr."
+      },
+      {
+        "it": "Sei testardo come un mulo: te l'ho spiegato dieci volte!",
+        "ro": "Ești încăpățânat ca un catâr: ți-am explicat de zece ori!"
+      }
+    ],
+    "note": "Literal: «a fi încăpățânat ca un catâr». În română: «a fi încăpățânat ca un catâr».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-dormire_come_un_ghiro",
+    "it": "dormire come un ghiro",
+    "ro": "a dormi adânc",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Ieri ho dormito come un ghiro: dieci ore!",
+        "ro": "Ieri am dormit ca un buștean: zece ore!"
+      },
+      {
+        "it": "Mio figlio dorme come un ghiro dopo la gita.",
+        "ro": "Fiul meu doarme ca un buștean după excursie."
+      }
+    ],
+    "note": "Literal: «a dormi ca un pârș». În română: «a dormi ca un buștean».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-cane_non_mangia_cane",
+    "it": "cane non mangia cane",
+    "ro": "cei de-o teapă nu se atacă între ei",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Tra colleghi non si denunciano: cane non mangia cane.",
+        "ro": "Între colegi nu se denunță: corb la corb nu-și scoate ochii."
+      },
+      {
+        "it": "Si sa: cane non mangia cane.",
+        "ro": "Se știe: corb la corb nu-și scoate ochii."
+      }
+    ],
+    "note": "Literal: «câine nu mănâncă câine». În română: «corb la corb nu-și scoate ochii».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-menare_il_can_per_l'aia",
+    "it": "menare il can per l'aia",
+    "ro": "a o lungi, a amâna",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Mario mena il can per l'aia da settimane.",
+        "ro": "Mario o lungește de săptămâni."
+      },
+      {
+        "it": "Non meniamo il can per l'aia: decidi!",
+        "ro": "Să nu tragem de timp: hotărăște-te!"
+      }
+    ],
+    "note": "Literal: «a mâna câinele prin arie». În română: «a trage de timp».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-essere_come_cane_e_gatto",
+    "it": "essere come cane e gatto",
+    "ro": "a se certa mereu",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "I miei fratelli sono come cane e gatto.",
+        "ro": "Frații mei sunt ca câinele cu pisica."
+      },
+      {
+        "it": "Da quando si sono lasciati, sono come cane e gatto.",
+        "ro": "De când s-au despărțit, sunt ca câinele cu pisica."
+      }
+    ],
+    "note": "Literal: «a fi ca câinele și pisica». În română: «a fi ca câinele cu pisica».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-essere_al_verde",
+    "it": "essere al verde",
+    "ro": "a nu avea bani",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "A fine mese sono sempre al verde.",
+        "ro": "La sfârșit de lună sunt mereu lefter."
+      },
+      {
+        "it": "Non posso uscire stasera: sono al verde.",
+        "ro": "Nu pot ieși în seara asta: sunt lefter."
+      }
+    ],
+    "note": "Literal: «a fi la verde». În română: «a fi lefter».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-fare_il_ponte",
+    "it": "fare il ponte",
+    "ro": "a lua liber între o sărbătoare și weekend",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Giovedì è festa: faccio il ponte.",
+        "ro": "Joi e sărbătoare: fac punte."
+      },
+      {
+        "it": "Molti italiani fanno il ponte e vanno al mare.",
+        "ro": "Mulți italieni fac punte și merg la mare."
+      }
+    ],
+    "note": "Literal: «a face podul». În română: «a face punte».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-tirare_la_cinghia",
+    "it": "tirare la cinghia",
+    "ro": "a economisi strict",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Con la crisi dobbiamo tirare la cinghia.",
+        "ro": "Cu criza trebuie să strângem cureaua."
+      },
+      {
+        "it": "Abbiamo tirato la cinghia per comprare la casa.",
+        "ro": "Am strâns cureaua ca să cumpărăm casa."
+      }
+    ],
+    "note": "Literal: «a trage cureaua». În română: «a strânge cureaua».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-non_avere_un_soldo",
+    "it": "non avere un soldo",
+    "ro": "a nu avea niciun ban",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Non ho un soldo fino a venerdì.",
+        "ro": "N-am niciun ban până vineri."
+      },
+      {
+        "it": "Quando è arrivato in Italia, non aveva un soldo.",
+        "ro": "Când a ajuns în Italia, nu avea un ban."
+      }
+    ],
+    "note": "Literal: «a nu avea un ban». În română: «a nu avea un sfanț».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-fare_le_ore_piccole",
+    "it": "fare le ore piccole",
+    "ro": "a sta treaz până târziu",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Sabato sera facciamo le ore piccole.",
+        "ro": "Sâmbătă seara stăm treji până la ore mici."
+      },
+      {
+        "it": "Ieri ho fatto le ore piccole e oggi sono distrutto.",
+        "ro": "Ieri am stat până la ore mici și azi sunt epuizat."
+      }
+    ],
+    "note": "Literal: «a face orele mici». În română: «a sta până la ore mici».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-tagliare_la_corda",
+    "it": "tagliare la corda",
+    "ro": "a o șterge",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Alla festa è noioso: tagliamo la corda?",
+        "ro": "La petrecere e plictisitoare: o ștergem?"
+      },
+      {
+        "it": "Il ladro ha tagliato la corda prima dell'arrivo della polizia.",
+        "ro": "Hoțul a șters-o înainte să sosească poliția."
+      }
+    ],
+    "note": "Literal: «a tăia frânghia». În română: «a o lua la sănătoasa».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-stare_con_le_mani_in_mano",
+    "it": "stare con le mani in mano",
+    "ro": "a sta degeaba",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Non stare con le mani in mano: aiutami!",
+        "ro": "Nu sta degeaba: ajută-mă!"
+      },
+      {
+        "it": "Mentre noi lavoravamo, lui stava con le mani in mano.",
+        "ro": "În timp ce noi lucram, el stătea degeaba."
+      }
+    ],
+    "note": "Literal: «a sta cu mâinile în mână». În română: «a sta cu mâinile în sân».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-piove_a_catinelle",
+    "it": "piove a catinelle",
+    "ro": "plouă foarte tare",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Prendi l'ombrello: piove a catinelle!",
+        "ro": "Ia umbrela: plouă cu găleata!"
+      },
+      {
+        "it": "Ieri a Roma pioveva a catinelle.",
+        "ro": "Ieri la Roma ploua cu găleata."
+      }
+    ],
+    "note": "Literal: «plouă cu ligheanele». În română: «plouă cu găleata».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-cadere_dalle_nuvole",
+    "it": "cadere dalle nuvole",
+    "ro": "a fi luat prin surprindere",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Quando mi hanno dato la notizia, sono caduto dalle nuvole.",
+        "ro": "Când mi-au dat vestea, am picat din lună."
+      },
+      {
+        "it": "Cadi dalle nuvole? Lo sapevano tutti!",
+        "ro": "Pici din lună? Știau toți!"
+      }
+    ],
+    "note": "Literal: «a cădea din nori». În română: «a pica din lună».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-essere_al_settimo_cielo",
+    "it": "essere al settimo cielo",
+    "ro": "a fi foarte fericit",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Sono al settimo cielo: ho trovato lavoro!",
+        "ro": "Sunt în al nouălea cer: am găsit de lucru!"
+      },
+      {
+        "it": "Mia sorella è al settimo cielo dopo il matrimonio.",
+        "ro": "Sora mea e în al nouălea cer după nuntă."
+      }
+    ],
+    "note": "Literal: «a fi în al șaptelea cer». În română: «a fi în al nouălea cer».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-fare_un_buco_nell'acqua",
+    "it": "fare un buco nell'acqua",
+    "ro": "a încerca degeaba",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Ho provato a convincerlo, ma ho fatto un buco nell'acqua.",
+        "ro": "Am încercat să-l conving, dar am cărat apă cu ciurul."
+      },
+      {
+        "it": "Il governo ha fatto un buco nell'acqua.",
+        "ro": "Guvernul a cărat apă cu ciurul."
+      }
+    ],
+    "note": "Literal: «a face o gaură în apă». În română: «a căra apă cu ciurul».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-dopo_la_pioggia_viene_il_sereno",
+    "it": "dopo la pioggia viene il sereno",
+    "ro": "după necazuri vine și binele",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Non ti arrendere: dopo la pioggia viene il sereno.",
+        "ro": "Nu renunța: după ploaie vine și soare."
+      },
+      {
+        "it": "Si sa: dopo la pioggia viene il sereno.",
+        "ro": "Se știe: după ploaie vine și soare."
+      }
+    ],
+    "note": "Literal: «după ploaie vine senin». În română: «după ploaie vine și soare».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-toccare_ferro",
+    "it": "toccare ferro",
+    "ro": "a se feri de ghinion",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Finora è andato tutto bene, tocchiamo ferro!",
+        "ro": "Până acum a mers totul bine, batem în lemn!"
+      },
+      {
+        "it": "Non ho mai avuto un incidente, tocco ferro.",
+        "ro": "N-am avut niciodată un accident, bat în lemn."
+      }
+    ],
+    "note": "Literal: «a atinge fier». În română: «a bate în lemn».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-rompere_il_ghiaccio",
+    "it": "rompere il ghiaccio",
+    "ro": "a începe o conversație",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Il suo sorriso ha rotto il ghiaccio tra di noi.",
+        "ro": "Zâmbetul lui a spart gheața între noi."
+      },
+      {
+        "it": "Rompo il ghiaccio io: mi chiamo Luca, e voi?",
+        "ro": "Sparg eu gheața: mă numesc Luca, și voi?"
+      }
+    ],
+    "note": "Literal: «a sparge gheața». În română: «a sparge gheața».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-non_vedere_l'ora",
+    "it": "non vedere l'ora",
+    "ro": "a abia aștepta",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Non vedo l'ora di partire per le vacanze!",
+        "ro": "Abia aștept să plec în vacanță!"
+      },
+      {
+        "it": "Non vedevamo l'ora che arrivasse l'estate.",
+        "ro": "Abia așteptam să vină vara."
+      }
+    ],
+    "note": "Literal: «a nu vedea ora». În română: «abia aștept».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-avere_un_diavolo_per_capello",
+    "it": "avere un diavolo per capello",
+    "ro": "a fi foarte furios",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Oggi ho un diavolo per capello: tutto va storto.",
+        "ro": "Azi îmi sare muștarul: totul merge prost."
+      },
+      {
+        "it": "Mio padre aveva un diavolo per capello dopo la multa.",
+        "ro": "Tatălui meu i-a sărit muștarul după amendă."
+      }
+    ],
+    "note": "Literal: «a avea un drac pe fiecare fir de păr». În română: «a-i sări muștarul».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-farsi_in_quattro",
+    "it": "farsi in quattro",
+    "ro": "a face tot posibilul",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Mia madre si fa in quattro per i suoi figli.",
+        "ro": "Mama mea se rupe în patru pentru copiii ei."
+      },
+      {
+        "it": "Ci siamo fatti in quattro per organizzare la festa.",
+        "ro": "Ne-am rupt în patru ca să organizăm petrecerea."
+      }
+    ],
+    "note": "Literal: «a se face în patru». În română: «a se rupe în patru».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-avere_un_chiodo_fisso",
+    "it": "avere un chiodo fisso",
+    "ro": "a avea o obsesie",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Ha un chiodo fisso: vuole aprire un ristorante.",
+        "ro": "Are o idee fixă: vrea să deschidă un restaurant."
+      },
+      {
+        "it": "Ho un chiodo fisso in testa: devo ritrovare quella canzone.",
+        "ro": "Am o idee fixă în cap: trebuie să regăsesc melodia aia."
+      }
+    ],
+    "note": "Literal: «a avea un cui fix». În română: «a avea o idee fixă».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-essere_giù_di_morale",
+    "it": "essere giù di morale",
+    "ro": "a fi abătut",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Oggi sono giù di morale: è piovuto tutto il giorno.",
+        "ro": "Azi sunt abătut: a plouat toată ziua."
+      },
+      {
+        "it": "Dopo la sconfitta la squadra è giù di morale.",
+        "ro": "După înfrângere echipa are moralul la pământ."
+      }
+    ],
+    "note": "Literal: «a fi jos de moral». În română: «a avea moralul la pământ».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-fare_una_figuraccia",
+    "it": "fare una figuraccia",
+    "ro": "a se face de râs",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Ho fatto una figuraccia davanti a tutti.",
+        "ro": "M-am făcut de râs în fața tuturor."
+      },
+      {
+        "it": "Alla cena ho fatto una figuraccia.",
+        "ro": "La cină m-am făcut de râs."
+      }
+    ],
+    "note": "Literal: «a face o figură urâtă». În română: «a se face de râs».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-trattare_con_i_guanti",
+    "it": "trattare con i guanti",
+    "ro": "a trata cu delicatețe",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Il capo è nervoso: trattalo con i guanti.",
+        "ro": "Șeful e nervos: tratează-l cu mănuși."
+      },
+      {
+        "it": "Quel cliente è difficile: lo trattiamo con i guanti.",
+        "ro": "Clientul ăsta e dificil: îl tratăm cu mănuși."
+      }
+    ],
+    "note": "Literal: «a trata cu mănușile». În română: «a trata cu mănuși».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-vedere_tutto_rosa",
+    "it": "vedere tutto rosa",
+    "ro": "a fi optimist",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Sei innamorata e vedi tutto rosa.",
+        "ro": "Ești îndrăgostită și vezi totul în roz."
+      },
+      {
+        "it": "Mio fratello vede sempre tutto rosa, anche nei guai.",
+        "ro": "Fratele meu vede mereu totul în roz, chiar și la greu."
+      }
+    ],
+    "note": "Literal: «a vedea totul roz». În română: «a vedea totul în roz».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-mettersi_nei_panni_di_qualcuno",
+    "it": "mettersi nei panni di qualcuno",
+    "ro": "a se pune în locul cuiva",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Mettiti nei miei panni: tu cosa faresti?",
+        "ro": "Pune-te în pielea mea: tu ce ai face?"
+      },
+      {
+        "it": "Mi sono messa nei suoi panni e l'ho capito.",
+        "ro": "M-am pus în pielea lui și l-am înțeles."
+      }
+    ],
+    "note": "Literal: «a se pune în hainele cuiva». În română: «a se pune în pielea cuiva».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-essere_sulla_stessa_barca",
+    "it": "essere sulla stessa barca",
+    "ro": "a fi în aceeași situație",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Anch'io ho perso il lavoro: siamo sulla stessa barca.",
+        "ro": "Și eu mi-am pierdut slujba: suntem în aceeași barcă."
+      },
+      {
+        "it": "Con questo ritardo tutti i passeggeri sono sulla stessa barca.",
+        "ro": "Cu întârzierea asta toți pasagerii sunt în aceeași barcă."
+      }
+    ],
+    "note": "Literal: «a fi în aceeași barcă». În română: «a fi în aceeași barcă».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-fare_finta_di_niente",
+    "it": "fare finta di niente",
+    "ro": "a se preface că nu știe",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "L'ho salutato, ma lui ha fatto finta di niente.",
+        "ro": "L-am salutat, dar el s-a făcut că plouă."
+      },
+      {
+        "it": "Faccio finta di niente, ma sono molto arrabbiata.",
+        "ro": "Mă prefac că nu s-a întâmplat nimic, dar sunt foarte supărată."
+      }
+    ],
+    "note": "Literal: «a se preface de nimic». În română: «a se face că plouă».",
+    "pos": "expression"
+  },
+  {
+    "id": "e-rompere_le_scatole",
+    "it": "rompere le scatole",
+    "ro": "a sâcâi",
+    "tags": [
+      "idiom"
+    ],
+    "rank": 9999,
+    "examples": [
+      {
+        "it": "Mi rompi le scatole con queste domande!",
+        "ro": "Mă calci pe nervi cu întrebările astea!"
+      },
+      {
+        "it": "Mi ha rotto le scatole tutto il pomeriggio.",
+        "ro": "M-a călcat pe nervi toată după-amiaza."
+      }
+    ],
+    "note": "Literal: «a sparge cutiile». În română: «a călca pe nervi».",
+    "pos": "expression"
+  }
+]
