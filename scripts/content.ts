@@ -28,6 +28,8 @@ import { linkedLessonIds } from "../src/domain/grammar/links.ts";
 import { lessonProblems } from "../src/domain/grammar/lessonCheck.ts";
 import { irregularPresenteIds } from "./content/presenteIrregular.ts";
 import { buildConjugations, type IrregularFile } from "./conjugate/build.ts";
+import { indexVideos, readVideoFiles } from "./content/videos.ts";
+import type { WordVideos } from "../src/domain/content/videos.ts";
 import { z } from "zod";
 import { TOPIC_SENTENCE_MIN, topicSentences } from "../src/domain/sentence/sentenceRound.ts";
 import { romanianForms, type RoConjugations } from "../src/domain/conjugation/romanian.ts";
@@ -43,6 +45,7 @@ const TOPICS_DIR = resolve(ROOT, "content/topics");
 const GRAMMAR_DIR = resolve(ROOT, "content/grammar");
 const DIALOGUES_DIR = resolve(ROOT, "content/dialogues");
 const STORIES_DIR = resolve(ROOT, "content/stories");
+const VIDEO_DIR = resolve(ROOT, "public/video");
 
 /** Propozițiile mai scurte de atât nu fac un exercițiu de ordonare. */
 const MIN_TOKENS = 3;
@@ -65,6 +68,8 @@ export interface LoadedContent {
   dialogues: GeneratedDialogue[];
   /** Poveștile de ascultat, în ordinea nivelului (apoi a id-ului). */
   stories: Story[];
+  /** Clipurile din public/video/, după id-ul cuvântului. */
+  videos: WordVideos;
   explicitPresenteCount: number;
   /** Verbele neregulate la prezent (pentru linkurile către lecții). */
   presenteIrregular: string[];
@@ -141,6 +146,8 @@ export function loadContent(): LoadedContent {
   for (const id of linkedLessonIds()) {
     if (!grammarIds.has(id)) errors.push(`links.ts: lecția „${id}” nu există în content/grammar`);
   }
+  const indexed = indexVideos(readVideoFiles(VIDEO_DIR), new Set(words.map((w) => w.id)));
+  errors.push(...indexed.errors);
 
   return {
     rankBasis,
@@ -153,6 +160,7 @@ export function loadContent(): LoadedContent {
     grammar,
     dialogues,
     stories,
+    videos: indexed.videos,
     explicitPresenteCount: built.explicitCount,
     presenteIrregular: irregularPresenteIds(irregular.presente, verbs),
     errors,
