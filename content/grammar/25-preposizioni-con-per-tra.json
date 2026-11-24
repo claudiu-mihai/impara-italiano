@@ -146,7 +146,7 @@
     {"id": "pcp-17", "it": "Mi hanno mandato la multa per posta.", "gap": "per", "ro": "Mi-au trimis amenda prin poștă.", "note": "mijloc de comunicare: [it]per posta[/it], [it]per email[/it]", "noteIt": "mezzo di comunicazione: [it]per posta[/it], [it]per email[/it]"},
     {"id": "pcp-18", "it": "Vorrei prenotare un tavolo per quattro.", "gap": "per", "ro": "Aș vrea să rezerv o masă pentru patru.", "note": "[it]un tavolo per[/it] + număr de persoane", "noteIt": "[it]un tavolo per[/it] + numero di persone"},
     {"id": "pcp-19", "it": "Sto per uscire, ti richiamo.", "gap": "per", "ro": "Tocmai ies, te sun eu înapoi.", "note": "[it]stare per[/it] + infinitiv = pe punctul de a", "noteIt": "[it]stare per[/it] + infinito = sul punto di"},
-    {"id": "pcp-20", "it": "Tra mezz'ora devo essere dal meccanico.", "gap": "dal", "ro": "Peste jumătate de oră trebuie să fiu la mecanic.", "note": "[it]tra[/it] = peste; la cineva: [it]dal[/it]", "noteIt": "[it]tra[/it] = fra; da una persona: [it]dal[/it]"},
+    {"id": "pcp-20", "it": "Tra mezz'ora devo essere da mia sorella.", "gap": "da", "ro": "Peste jumătate de oră trebuie să fiu la sora mea.", "note": "[it]tra[/it] = peste; la cineva: [it]da[/it]", "noteIt": "[it]tra[/it] = fra; da una persona: [it]da[/it]"},
     {"id": "pcp-21", "it": "La farmacia è tra la banca e il bar, di fronte al parco.", "gap": "al", "ro": "Farmacia e între bancă și bar, în fața parcului.", "note": "[it]tra[/it] nu se contopește; [it]di fronte a[/it] + [it]il parco[/it] = [it]al[/it]", "noteIt": "[it]tra[/it] non si fonde; [it]di fronte a[/it] + [it]il parco[/it] = [it]al[/it]"}
   ]
 }
