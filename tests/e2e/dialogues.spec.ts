@@ -265,7 +265,10 @@ test("poveste: replicile se aud una câte una, naratorul ca legendă, scenele cu
   await setListenFirst(page, false);
   await page.goto(`/learn/stories/${SNOW.id}`);
   const first = SNOW.scenes[0]!;
-  await expect(page.getByTestId("story-scene")).toHaveText(first.title!.it);
+  // titlul scenei în italiană; cu „Traducere în limba maternă” (pornită implicit la A1) apare dedesubt și traducerea
+  const scene = page.getByTestId("story-scene");
+  await expect(scene.locator('[lang="it"]')).toHaveText(first.title!.it);
+  await expect(scene).toContainText(first.title!.ro);
   await expect(page.getByText(first.lines[0]!.it)).toBeVisible();
   await expect(page.getByText(first.lines[0]!.ro)).toBeVisible();
   await expect.poll(() => spoken(page)).toContain(first.lines[0]!.it);
